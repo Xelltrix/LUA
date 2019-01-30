@@ -1,0 +1,510 @@
+-------------------------------------------------------------------------------------------------------------------
+-- Setup functions for this job.  Generally should not be modified.
+-------------------------------------------------------------------------------------------------------------------
+
+-- Initialization function for this job file.
+function get_sets()
+    mote_include_version = 2
+
+    -- Load and initialize the include file.
+    include('Mote-Include.lua')
+end
+
+
+-- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
+function job_setup()
+    determine_haste_group()
+end
+
+-------------------------------------------------------------------------------------------------------------------
+-- User setup functions for this job.  Recommend that these be overridden in a sidecar file.
+-------------------------------------------------------------------------------------------------------------------
+
+-- Setup vars that are user-dependent.  Can override this function in a sidecar file.
+function user_setup()
+    state.OffenseMode:options('Normal', 'LowAcc', 'MidAcc', 'HighAcc')
+    state.HybridMode:options('Normal', 'DT')
+    state.WeaponskillMode:options('Normal', 'Low', 'Mid', 'High')
+    state.CastingMode:options('Normal', 'Resistant')
+    state.PhysicalDefenseMode:options('PDT', 'MDT')
+    state.IdleMode:options('Normal', 'DT')
+
+    gear.MovementFeet = {name="Danzo Sune-ate"}
+    gear.DayFeet = "Danzo Sune-ate"
+    gear.NightFeet = "Hachiya Kyahan"
+
+    select_movement_feet()
+    select_default_macro_book()
+end
+
+
+-- Define sets and vars used by this job file.
+function init_gear_sets()
+----------------------------------------------------------------------------
+--------------------									--------------------
+------------							 						------------
+--------					Precast Gear Sets						--------
+------------							 						------------
+--------------------									--------------------
+----------------------------------------------------------------------------
+
+	-------------------
+	-- Job Abilities --
+	------------------- 
+    sets.precast.JA['Futae'] =
+	{
+		feet="Hattori Tekko +1"
+	}
+
+    -- Waltz set (chr and vit)
+	sets.precast.Waltz =
+	{
+		body="Passion Jacket",
+		feet="Rawhide Boots"
+	}
+
+	
+	-------------------
+	-- Precast Magic --
+	------------------- 
+	sets.precast.FC =
+	{
+		ammo="Sapience Orb",
+		neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
+		body="Samnuha Coat", hands="Leyline Gloves", lring="Kishar Ring", rring="Rahab Ring",
+		back="Andartia's Mantle", waist="Witful Belt", legs="Rawhide Trousers", feet="Hattori Kyahan +1"
+	}
+
+	sets.precast.Utsusemi = set_combine(sets.precast.FC,
+	{
+		body="Passion Jacket",
+		waist="Flume Belt"
+	})
+	
+	
+----------------------------------------------------------------------------
+--------------------									--------------------
+------------							 						------------
+--------					Midcast Gear Sets						--------
+------------							 						------------
+--------------------									--------------------
+----------------------------------------------------------------------------
+
+
+
+    --------------------------------------
+    -- Midcast sets
+    --------------------------------------
+
+	sets.midcast.FC = sets.precast.FC
+
+    sets.midcast.ElementalNinjutsu =
+	{
+		ammo="Pemphredo Tathlum",
+		head="Herculean Helm", neck="Sanctity Necklace", lear="Friomisi Earring", rear="Novio Earring",
+		body="Gyve Doublet", hands="Hattori Tekko +1", lring="Dingir Ring", rring="Acumen Ring",
+		back="Andartia's Mantle", waist="Eschan Stone", legs="Gyve Trousers", feet="Herculean Boots"
+	}
+
+    sets.midcast.NinjutsuDebuff =
+	{
+        ammo="Pemphredo Tathlum",
+		head="Herculean Helm", neck="Sanctity Necklace", lear="Digni. Earring", rear="Gwati Earring",
+        body="Samnuha Coat", hands="Leyline Gloves", lring="Stikini Ring", rring="Stikini Ring",
+        back="Andartia's Mantle", waist="Eschan Stone", legs="Gyve Trousers", feet="Herculean Boots"
+	}
+
+    sets.midcast.NinjutsuBuff =
+	{
+		ammo="Sapience Orb",
+		head="Herculean Helm", neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
+		body="Samnuha Coat", hands="Mochizuki Tekko +1", lring="Stikini Ring", rring="Prolix Ring",
+		back="Andartia's Mantle", waist="Flume Belt", legs="Gyve Trousers", feet="Hattori Kyahan +1"
+	}
+
+	
+	
+----------------------------------------------------------------------------
+--------------------									--------------------
+------------							 						------------
+--------					  Other Gear Sets						--------
+------------							 						------------
+--------------------									--------------------
+----------------------------------------------------------------------------	
+
+   	------------------------------------------------------------------------------------------------
+	------------------------------------------ Idle Sets -------------------------------------------
+	------------------------------------------------------------------------------------------------
+	sets.idle =
+	{
+		ammo="Staunch Tathlum",
+		head="Dampening Tam", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
+		body="Hiza. Haramaki +1", hands="Herculean Gloves", lring="Sheltered Ring", rring="Paguroidea Ring",
+		back="Solemnity Cape", waist="Flume Belt", legs="Herculean Trousers", feet="Herculean Boots"
+	}
+
+    sets.idle.Movement =
+	{
+		head="Dampening Tam", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
+		body="Hiza. Haramaki +1", hands="Herculean Gloves", lring="Sheltered Ring", rring="Paguroidea Ring",
+		back="Solemnity Cape", waist="Flume Belt", legs="Herculean Trousers", feet="Danzo Sune-Ate"
+	}
+
+	sets.idle.PDT = set_combine (sets.idle,
+	{
+		head="Dampening Tam", neck="Loricate Torque +1",
+		body="Emet Harness +1", lring="Defending Ring", rring="Vocane Ring",
+		feet="Herculean Boots"
+	})
+
+	sets.idle.MDT = set_combine (sets.idle,
+	{
+		neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
+		body="Hiza. Haramaki +1", hands="Leyline Gloves", lring="Defending Ring", rring="Vocane Ring",
+		back="Solemnity Cape", waist="Flume Belt", legs="Hiza. Hizayoroi +1"
+	})
+
+	sets.idle.Town = set_combine(sets.idle,
+	{
+		feet="Danzo Sune-Ate"
+	})
+
+	sets.idle.AdoulinCity = set_combine(sets.idle,
+	{
+		body="Councilor's Garb"
+	})
+	
+	sets.idle.Weak = sets.idle.MDT
+
+
+	------------------------------------------------------------------------------------------------
+	--------------------------------------- Defense Sets -------------------------------------------
+	------------------------------------------------------------------------------------------------
+	sets.defense.PDT = sets.idle.PDT
+
+	sets.defense.MDT = sets.idle.MDT
+
+	
+		
+		
+----------------------------------------------------------------------------
+--------------------									--------------------
+------------							 						------------
+--------					 Combat Gear Sets						--------
+------------							 						------------
+--------------------									--------------------
+----------------------------------------------------------------------------		
+
+	-------------------------
+	-- Weaponskill Sets
+	-------------------------
+
+		sets.precast.WS =
+		{
+			ammo="Seeth. Bomblet +1",
+			head="Adhemar Bonnet +1", neck="Fotia Gorget", lear="Brutal Earring", rear="Moonshade Earring",
+			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Regal Ring", rring="Epona's Ring",
+			back="Andartia's Mantle", waist="Fotia Belt", legs="Samnuha Tights", feet=gear.HBoots_TP
+		}
+
+		sets.precast.WS.Low = set_combine(sets.precast.WS,
+		{
+			lear="Telos Earring"
+		})
+		
+		sets.precast.WS.Mid = set_combine(sets.precast.WS,
+		{
+			head="Damping Tam",
+			legs="Hiza. Hizayoroi +1"
+		})
+		
+		sets.precast.WS.High = set_combine(sets.precast.WS,
+		{
+			lring="Ilabrat Ring", rring="Regal Ring"
+		})
+
+	sets.precast.WS['Blade: Hi'] = set_combine(sets.precast.WS,
+	{
+		ammo="Yetshila",
+		head=gear.HHead_WSD, lear="Ishvara Earring",
+		body="Abnoba Kaftan", hands="Herculean Gloves", rring="Begrudging Ring",
+		legs="Hiza. Hizayoroi +1", feet=gear.HBoots_WSD
+	})
+
+	sets.precast.WS['Blade: Hi'].Low = set_combine(sets.precast.WS['Blade Hi'],
+	{
+		lring="Ilabrat Ring", rring="Regal Ring"
+	})
+	
+	sets.precast.WS['Blade: Hi'].Mid = set_combine(sets.precast.WS['Blade Hi'].Low,
+	{
+		head="Dampening Tam",
+		hands="Adhemar Wrist. +1"
+	})
+	
+	sets.precast.WS['Blade: Hi'].High = set_combine(sets.precast.WS['Blade Hi'].Mid,
+	{
+		ammo="Seeth. Bomblet +1",
+		feet=gear.HBoots_TP
+	})
+
+	sets.precast.WS['Blade: Jin'] = set_combine(sets.precast.WS,
+	{
+		ammo="Yetshila",
+		lring="Begrudging Ring",
+		feet=gear.HBoots_Crit
+	})
+
+	sets.precast.WS['Blade: Jin'].Low = set_combine(sets.precast.WS['Blade Jin'],
+	{
+		head="Dampening Tam", lear="Telos Earring"
+	})
+	
+	sets.precast.WS['Blade: Jin'].Mid = set_combine(sets.precast.WS['Blade Jin'].Low,
+	{
+		feet=gear.HBoots_TP
+	})
+	
+	sets.precast.WS['Blade: Jin'].High = set_combine(sets.precast.WS['Blade Jin'].Mid,
+	{
+		lring="Ilabrat Ring", rring="Regal Ring",
+		legs="Hiza. Hizayoroi +1"
+	})
+
+	sets.precast.WS['Blade: Kamu'] = set_combine(sets.precast.WS,
+	{
+		body="Hiza. Haramaki +1",
+		feet="Hiza. Sune-Ate +1"
+	})
+
+	sets.precast.WS['Blade: Kamu'].Acc = set_combine(sets.precast.WS['Blade: Kamu'],
+	{
+		head="Dampening Tam",
+		lring="Cacoethic Ring +1",
+		legs="Hiza. Hizayoroi +1"
+	})
+
+	sets.precast.WS['Blade: Yu'] = set_combine(sets.precast.WS,
+	{
+		ammo="Pemphredo Tathlum",
+		head="Herculean Helm", lear="Friomisi Earring",
+		body="Gyve Doublet", hands="Leyline Gloves", lring="Dingir Ring", rring="Acumen Ring",
+		back="Andartia's Mantle", legs="Gyve Trousers", feet="Herculean Boots"
+	})
+
+	sets.precast.WS['Blade: Ei'] = sets.precast.WS['Blade: Yu']
+
+	sets.precast.WS['Blade: Teki'] = sets.precast.WS['Blade: Yu']
+
+	sets.precast.WS['Evisceration'] = sets.precast.WS['Blade: Hi']
+
+	sets.precast.WS['Evisceration'].Acc = sets.precast.WS['Blade: Hi'].Acc
+
+	sets.precast.WS['Gust Slash'] = sets.precast.WS['Blade: Yu']
+
+	sets.precast.WS['Cyclone'] = sets.precast.WS['Blade: Yu']
+
+	sets.precast.WS['Aeolian Edge'] = sets.precast.WS['Blade: Yu']
+
+    --------------------------------------
+    -- Engaged sets
+    --------------------------------------
+
+    -- Variations for TP weapon and (optional) offense/defense modes.  Code will fall back on previous
+    -- sets if more refined versions aren't defined.
+    -- If you create a set with both offense and defense modes, the offense mode should be first.
+    -- EG: sets.engaged.Dagger.Accuracy.Evasion
+
+    -- Normal melee group
+    sets.engaged =
+	{
+		ammo="Happo Shuriken",
+		head="Hattori Zukin +1", neck="Asperity Necklace", lear="Eabani Earring", rear="Suppanomimi",
+		body="Adhemar Jacket +1", hands="Floral Gauntlets", lring="Ilabrat Ring", rring="Epona's Ring",
+		back="Andartia's Mantle", waist="Reiki Yotai", legs="Samnuha Tights", feet="Hiza. Sune-Ate +1"
+	}
+
+	sets.engaged.LowAcc = set_combine(sets.engaged,
+	{
+		neck="Combatant's Torque", lear="Telos Earring",
+		lring="Cacoethic Ring +1"
+	})
+
+	sets.engaged.MidAcc = set_combine(sets.engaged.LowAcc,
+	{
+		rear="Cessance Earring",
+		legs="Adhemar Kecks"
+	})
+
+	sets.engaged.HighAcc = set_combine(sets.engaged.MidAcc,
+	{
+		head="Dampening Tam",
+		rring="Regal Ring"
+	})
+
+	sets.engaged.HighHaste =
+	{
+		ammo="Happo Shuriken",
+		head="Adhemar Bonnet +1", neck="Asperity Necklace", lear="Eabani Earring", rear="Suppanomimi",
+		body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Ilabrat Ring", rring="Epona's Ring",
+		back="Andartia's Mantle", waist="Reiki Yotai", legs="Samnuha Tights", feet="Herculean Boots"
+	}
+
+	sets.engaged.HighHaste.LowAcc = set_combine(sets.engaged.HighHaste,
+	{
+		head="Dampening Tam", neck="Combatant's Torque",
+		lring="Cacoethic Ring +1"
+	})
+
+	sets.engaged.HighHaste.MidAcc = set_combine(sets.engaged.HighHaste.LowAcc,
+	{
+		lear="Telos Earring",
+		legs="Hiza. Hizayoroi +1"
+	})
+
+	sets.engaged.HighHaste.HighAcc = set_combine(sets.engaged.HighHaste.MidAcc,
+	{
+		rear="Cessance Earring",
+		hands="Floral Gauntlets",
+	})
+
+	sets.engaged.MaxHaste =
+	{
+		ammo="Happo Shuriken",
+		head="Adhemar Bonnet +1", neck="Asperity Necklace", lear="Telos Earring", rear="Cessance Earring",
+		body="Herculean Vest", hands="Adhemar Wrist. +1", lring="Ilabrat Ring", rring="Epona's Ring",
+		back="Andartia's Mantle", waist="Windbuffet Belt +1", legs="Samnuha Tights", feet="Herculean Boots"
+	}
+
+	sets.engaged.MaxHaste.LowAcc = set_combine(sets.engaged.MaxHaste,
+	{
+		head="Dampening Tam", neck="Combatant's Torque",
+		lring="Cacoethic Ring +1"
+	})
+
+	sets.engaged.MaxHaste.MidAcc = set_combine(sets.engaged.MaxHaste.LowAcc,
+	{
+		hands="Hizamaru Kote +1", legs="Adhemar Kecks"
+	})
+
+	sets.engaged.MaxHaste.HighAcc = set_combine(sets.engaged.MaxHaste.MidAcc,
+	{
+		rear="Cessance Earring",
+		waist="Kentarch Belt +1"
+	})
+
+end
+
+-------------------------------------------------------------------------------------------------------------------
+-- Job-specific hooks for standard casting events.
+-------------------------------------------------------------------------------------------------------------------
+
+-- Run after the general midcast() is done.
+-- eventArgs is the same one used in job_midcast, in case information needs to be persisted.
+
+
+
+-- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
+
+
+-------------------------------------------------------------------------------------------------------------------
+-- Job-specific hooks for non-casting events.
+-------------------------------------------------------------------------------------------------------------------
+
+-- Called when a player gains or loses a buff.
+-- buff == buff gained or lost
+-- gain == true if the buff was gained, false if it was lost.
+function job_buff_change(buff, gain)
+    -- If we gain or lose any haste buffs, adjust which gear set we target.
+    if S{'haste','march','embrava','haste samba'}:contains(buff:lower()) then
+        determine_haste_group()
+        handle_equipping_gear(player.status)
+    elseif state.Buff[buff] ~= nil then
+        handle_equipping_gear(player.status)
+    end
+end
+
+function job_status_change(new_status, old_status)
+    if new_status == 'Idle' then
+        select_movement_feet()
+    end
+end
+
+
+-------------------------------------------------------------------------------------------------------------------
+-- User code that supplements standard library decisions.
+-------------------------------------------------------------------------------------------------------------------
+
+-- Get custom spell maps
+function job_get_spell_map(spell, default_spell_map)
+    if spell.skill == "Ninjutsu" then
+        if not default_spell_map then
+            if spell.target.type == 'SELF' then
+                return 'NinjutsuBuff'
+            else
+                return 'NinjutsuDebuff'
+            end
+        end
+    end
+end
+
+
+-- Called by the default 'update' self-command.
+function job_update(cmdParams, eventArgs)
+    select_movement_feet()
+    determine_haste_group()
+end
+
+-------------------------------------------------------------------------------------------------------------------
+-- Utility functions specific to this job.
+-------------------------------------------------------------------------------------------------------------------
+
+function determine_haste_group()
+--[[
+				buffactive[1]	= Weakness
+				buffactive[13]	= Slow
+				buffactive[33]	= Haste
+				buffactive[194]	= Elegy
+				buffactive[214]	= March
+				buffactive[228]	= Embrava
+				buffactive[370]	= Haste Samba
+				buffactive[580]	= Geo-Haste
+				buffactive[604]	= Mighty Guard							]]
+	
+	classes.CustomMeleeGroups:clear()
+
+	if buffactive[1] or buffactive[13] or buffactive[194] then
+		classes.CustomMeleeGroups:append('')						-- Slow Status Effect
+		--add_to_chat(8, '*********Slowed Status Effect Set***********')
+	else
+		if (((buffactive[33] or buffactive[580] or buffactive.embrava) and (buffactive[214] or buffactive[604])) or
+			(buffactive[33] and (buffactive[580] or buffactive.embrava)) or (buffactive.march == 2 and buffactive[604])) then
+			classes.CustomMeleeGroups:append('Max')							-- 43.75% Magical Haste
+			--add_to_chat(8, '*********Maximum Haste Set***********')
+		elseif buffactive[33] or buffactive.march == 2 or buffactive[580] or buffactive[228] then
+			classes.CustomMeleeGroups:append('Med')							-- 30% Magical Haste
+			--add_to_chat(8, '*********Medium Haste Set***********')
+		elseif buffactive[214] or buffactive[604] then
+			classes.CustomMeleeGroups:append('Min')							-- 15% Magical Haste
+			--add_to_chat(8, '*********Minimum Haste Set***********')
+		else
+			classes.CustomMeleeGroups:append('')							-- No Magical Haste
+			--add_to_chat(8, '*********No Haste Set***********')
+		end
+	end
+end
+
+function select_movement_feet()
+    if world.time >= 17*60 or world.time < 7*60 then
+        gear.MovementFeet.name = gear.NightFeet
+    else
+        gear.MovementFeet.name = gear.DayFeet
+    end
+end
+
+
+-- Select default macro book on initial load or subjob change.
+function select_default_macro_book()
+    -- Default macro set/book
+    set_macro_page(1, 19)
+end
