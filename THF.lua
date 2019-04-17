@@ -135,7 +135,7 @@ function init_gear_sets()
 		ammo="Sapience Orb",
 		head=gear.HHead_WSD, neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
 		body="Samnuha Coat", hands="Leyline Gloves", lring="Rahab Ring", rring="Prolix Ring",
-		back="Solemnity Cape", waist="Flume Belt", legs="Rawhide Trousers", feet=gear.HBoots_TP
+		back=gear.THFCape_STP, waist="Flume Belt", legs="Rawhide Trousers", gear.TFeet_Phalanx
 	}
 	
 	sets.precast.Utsusemi = set_combine(sets.precast.FC, 
@@ -163,9 +163,9 @@ function init_gear_sets()
 	
 		sets.midcast.Phalanx = 
 		{
-			ammo="Staunch Tathlum",
+			ammo="Staunch Tathlum +1",
 			head=gear.THead_Phalanx, neck="Incanter's Torque", lear="Andoaa Earring", rear="Augment. Earring",
-			body=gear.TBody_Phalanx, hands=gear.THands_Phalanx, lring="Stikini Ring", rring="Stikini Ring",
+			body=gear.TBody_Phalanx, hands=gear.THands_Phalanx, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Fi Follet Cape +1", waist="Olympus Sash", legs=gear.TLegs_Phalanx, feet=gear.TFeet_Phalanx
 		}
 		
@@ -173,8 +173,8 @@ function init_gear_sets()
 		{
 			ammo="Pemphredo Tathlum",
 			head=gear.HHead_MAB, neck="Sanctity Necklace", lear="Friomisi Earring", rear="Novio Earring",
-			body="Samnuha Coat", hands="Leyline Gloves", lring="Shiva Ring +1", rring="Dingir Ring", 
-			back="Toutatis's Cape", waist="Eschan Stone", legs="Herculean Trousers", feet=gear.HBoots_WSD
+			body="Samnuha Coat", hands="Leyline Gloves", lring={name="Shiva Ring +1", bag="wardrobe2"}, rring="Dingir Ring", 
+			back=gear.THFCape_STP, waist="Eschan Stone", legs="Herculean Trousers", feet=gear.HBoots_WSD
 		}
 		
 	
@@ -194,22 +194,22 @@ function init_gear_sets()
 
 	sets.idle =
 	{
-		ammo="Staunch Tathlum",
+		ammo="Staunch Tathlum +1",
 		head="Dampening Tam", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
-		body="Meg. Cuirie +1", hands="Meg. Gloves +2", lring="Sheltered Ring", rring="Paguroidea Ring",
-		back="Solemnity Cape", waist="Flume Belt", legs="Meg. Chausses +1", feet="Jute Boots +1"
+		body="Meg. Cuirie +1", hands="Meg. Gloves +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+		back=gear.THFCape_STP, waist="Flume Belt", legs="Mummu Kecks +2", feet="Jute Boots +1"
 	}
 
 	sets.idle.PDT = set_combine (sets.idle,
 	{
-		ammo="Staunch Tathlum",
+		ammo="Staunch Tathlum +1",
 		head="Meghanada Visor +1", neck="Loricate Torque +1",
 		body="Meg. Cuirie +1", lring="Defending Ring", rring="Vocane Ring",
 	})
 
 	sets.idle.MDT = set_combine (sets.idle,
 	{
-		ammo="Staunch Tathlum",
+		ammo="Staunch Tathlum +1",
 		head="Dampening Tam", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
 		body="Samnuha Coat", hands="Leyline Gloves", lring="Defending Ring", rring="Vocane Ring",
 		back="Reiki Cloak", waist="Flume Belt"
@@ -256,7 +256,7 @@ function init_gear_sets()
 		ammo="Yetshila",
 		head="Adhemar Bonnet +1", neck="Caro Necklace", lear="Sherida Earring", rear="Suppanomimi",
 		body="Adhemar Jacket +1", hands="Meg. Gloves +2", lring="Ilabrat Ring", rring="Regal Ring",
-		back="Toutatis's Cape", waist="Chaac Belt", legs="Samnuha Tights", feet="Meg. Jam. +1"
+		back=gear.THFCape_STP, waist="Chaac Belt", legs="Samnuha Tights", feet="Meg. Jam. +2"
 	}
 
 	sets.buff['Trick Attack'] =
@@ -264,7 +264,7 @@ function init_gear_sets()
 		ammo="Yetshila",
 		head="Adhemar Bonnet +1", neck="Pentalagus Charm", lear="Dawn Earring", rear="Suppanomimi",
 		body="Adhemar Jacket +1", hands="Meg. Gloves +2", lring="Ilabrat Ring", rring="Regal Ring",
-		back="Toutatis's Cape", waist="Chaac Belt", legs="Meg. Chausses +1", feet="Meg. Jam. +1"
+		back=gear.THFCape_STP, waist="Chaac Belt", legs="Meg. Chausses +1", feet="Meg. Jam. +2"
 	}
 	
 	sets.buff['Feint'] = sets.TreasureHunter
@@ -293,7 +293,7 @@ function init_gear_sets()
 			ammo="Seeth. Bomblet +1",
 			head="Lilitu Headpiece", neck="Fotia Gorget", lear="Sherida Earring", rear="Moonshade Earring",
 			body="Adhemar Jacket +1", hands="Meg. Gloves +2", lring="Ilabrat Ring", rring="Epona's Ring",
-			back="Toutatis's Cape", waist="Fotia Belt", legs="Samnuha Tights", feet=gear.HBoots_TP
+			back=gear.THFCape_STP, waist="Fotia Belt", legs="Samnuha Tights", feet=gear.HBoots_TP
 		} 
 
 		sets.precast.WS.Low = set_combine(sets.precast.WS,
@@ -303,12 +303,12 @@ function init_gear_sets()
 		
 		sets.precast.WS.Mid = set_combine(sets.precast.WS.Low,
 		{
-			lear="Mache Earring +1"
+			lear={name="Mache Earring +1", bag="wardrobe2"}
 		})
 		
 		sets.precast.WS.High = set_combine(sets.precast.WS.Mid,
 		{
-			rear="Mache Earring +1",			
+			rear={name="Mache Earring +1", bag="wardrobe3"},			
 			body="Meg. Cuirie +1", rring="Regal Ring",
 			legs="Meg. Chausses +1"
 		})
@@ -316,7 +316,7 @@ function init_gear_sets()
 		sets.precast.WS.SA = set_combine(sets.precast.WS,
 		{
 			ammo="Yetshila",
-			head="Adhemar Bonnet +1", lear="Mache Earring +1", rear="Mache Earring +1",
+			head="Adhemar Bonnet +1", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Abnoba Kaftan", rring="Regal Ring",
 			feet=gear.HBoots_Crit
 		})
@@ -327,7 +327,7 @@ function init_gear_sets()
 	---Exenterator
 		sets.precast.WS['Exenterator'] = set_combine(sets.precast.WS,
 		{
-			head="Adhemar Bonnet +1", rear="Mache Earring +1",
+			head="Adhemar Bonnet +1", rear={name="Mache Earring +1", bag="wardrobe3"},
 			hands="Floral Gauntlets",
 			legs="Meg. Chausses +1"
 		})
@@ -341,7 +341,7 @@ function init_gear_sets()
 
 		sets.precast.WS['Exenterator'].High = set_combine(sets.precast.WS['Exenterator'].Mid,
 		{
-			lear="Mache Earring +1",
+			lear={name="Mache Earring +1", bag="wardrobe2"},
 			body="Meg. Cuirie +1", rring="Regal Ring",
 			legs="Meg. Chausses +1"
 		})
@@ -350,7 +350,7 @@ function init_gear_sets()
 		sets.precast.WS['Exenterator'].SA = set_combine(sets.precast.WS['Exenterator'],
 		{
 			ammo="Yetshila",
-			head="Adhemar Bonnet +1", lear="Mache Earring +1", rear="Mache Earring +1",
+			head="Adhemar Bonnet +1", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
 			bbody="Abnoba Kaftan", rring="Regal Ring",
 			feet=gear.HBoots_Crit
 		})
@@ -361,9 +361,9 @@ function init_gear_sets()
 		sets.precast.WS['Evisceration'] = set_combine(sets.precast.WS,
 		{
 			ammo="Yetshila",
-			head="Adhemar Bonnet +1", rear="Mache Earring +1",
-			body="Abnoba Kaftan", hands="Adhemar Wrist. +1", lring="Begrudging Ring",
-			feet=gear.HBoots_Crit
+			head="Adhemar Bonnet +1", rear={name="Mache Earring +1", bag="wardrobe3"},
+			body="Abnoba Kaftan", hands="Mummu Wrists +2", lring="Begrudging Ring",
+			back=gear.THFCape_Crit, feet=gear.HBoots_Crit
 		})
 
 		sets.precast.WS['Evisceration'].Low = set_combine(sets.precast.WS['Evisceration'],
@@ -375,7 +375,7 @@ function init_gear_sets()
 		
 		sets.precast.WS['Evisceration'].High = set_combine(sets.precast.WS['Evisceration'].Mid,
 		{
-			lear="Mache Earring +1",
+			lear={name="Mache Earring +1", bag="wardrobe2"},
 			body="Meg. Cuirie +1", rring="Regal Ring",
 			legs="Meg. Chausses +1"
 		})
@@ -383,7 +383,7 @@ function init_gear_sets()
 		sets.precast.WS['Evisceration'].SA = set_combine(sets.precast.WS['Evisceration'],
 		{
 			ammo="Yetshila",
-			head="Adhemar Bonnet +1", lear="Mache Earring +1", rear="Mache Earring +1",
+			head="Adhemar Bonnet +1", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Abnoba Kaftan", rring="Regal Ring",
 			feet=gear.HBoots_Crit
 		})
@@ -410,7 +410,7 @@ function init_gear_sets()
 		
 		sets.precast.WS['Dancing Edge'].High = set_combine(sets.precast.WS['Dancing Edge'].Mid,
 		{
-			lear="Mache Earring +1",			
+			lear={name="Mache Earring +1", bag="wardrobe2"},			
 			body="Meg. Cuirie +1", rring="Regal Ring",
 			legs="Meg. Chausses +1"
 		})
@@ -428,7 +428,7 @@ function init_gear_sets()
 	---Rudra's Storm
 		sets.precast.WS['Rudra\'s Storm'] = set_combine(sets.precast.WS,
 		{
-			neck="Caro Necklace", lear="Mache Earring +1",
+			neck="Caro Necklace", lear={name="Mache Earring +1", bag="wardrobe2"},
 			body="Herculean Vest", rring="Regal Ring",
 			legs="Herculean Trousers", waist="Grunfeld Rope", feet=gear.HBoots_WSD
 		})
@@ -442,7 +442,7 @@ function init_gear_sets()
 		sets.precast.WS['Rudra\'s Storm'].SA = set_combine(sets.precast.WS["Rudra's Storm"],
 		{
 			ammo="Yetshila",
-			head="Adhemar Bonnet +1", lear="Mache Earring +1", rear="Mache Earring +1"
+			head="Adhemar Bonnet +1", lear={name="Mache Earring +1", bag="wardrobe2"}, rear="Mache Earring +1"
 		})
 
 		sets.precast.WS['Rudra\'s Storm'].TA = sets.precast.WS["Rudra's Storm"].SA
@@ -465,7 +465,7 @@ function init_gear_sets()
 		{
 			ammo="Pemphredo Tathlum",
 			head=gear.HHead_MAB, lear="Friomisi Earring",
-			body="Samnuha Coat", hands="Leyline Gloves", lring="Shiva Ring +1", rring="Dingir Ring", 
+			body="Samnuha Coat", hands="Leyline Gloves", lring={name="Shiva Ring +1", bag="wardrobe2"}, rring="Dingir Ring", 
 			back="Toutatis's Cape", legs="Herculean Trousers", feet=gear.HBoots_WSD
 		})
 
@@ -494,9 +494,9 @@ function init_gear_sets()
 		sets.engaged =
 		{
 			ammo="Yamarang",
-			head="Adhemar Bonnet +1", neck="Asperity Necklace", lear="Eabani Earring", rear="Suppanomimi",
+			head="Adhemar Bonnet +1", neck="Anu Torque", lear="Eabani Earring", rear="Suppanomimi",
 			body="Adhemar Jacket +1", hands="Floral Gauntlets", lring="Hetairoi Ring", rring="Epona's Ring",
-			back="Toutatis's Cape", waist="Reiki Yotai", legs="Samnuha Tights", feet=gear.TFeet_TP
+			back=gear.THFCape_STP, waist="Reiki Yotai", legs="Samnuha Tights", feet=gear.TFeet_TP
 		}
 
 		sets.engaged.Low = set_combine(sets.engaged,
@@ -513,8 +513,8 @@ function init_gear_sets()
 
 		sets.engaged.High = set_combine(sets.engaged.Mid,
 		{
-			lear="Mache Earring +1", rear="Mache Earring +1",
-			waist="Kentarch Belt +1", feet="Meg. Jam. +1"
+			lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
+			waist="Kentarch Belt +1", feet="Meg. Jam. +2"
 		})
 	
 	
@@ -532,7 +532,7 @@ function init_gear_sets()
 			ammo="Yamarang",
 			head="Adhemar Bonnet +1", neck="Anu Torque", lear="Eabani Earring", rear="Suppanomimi",
 			body="Adhemar Jacket +1", hands="Floral Gauntlets", lring="Hetairoi Ring", rring="Epona's Ring",
-			back="Toutatis's Cape", waist="Reiki Yotai", legs="Samnuha Tights", feet=gear.TFeet_TP
+			back=gear.THFCape_STP, waist="Reiki Yotai", legs="Samnuha Tights", feet=gear.TFeet_TP
 		}
 
 		sets.engaged.Low.Min = set_combine(sets.engaged.Min,
@@ -549,8 +549,8 @@ function init_gear_sets()
 
 		sets.engaged.High.Min = set_combine(sets.engaged.Mid.Min,
 		{
-			lear="Mache Earring +1", rear="Mache Earring +1",
-			waist="Kentarch Belt +1", feet="Meg. Jam. +1"
+			lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
+			waist="Kentarch Belt +1", feet="Meg. Jam. +2"
 		})
 
 	
@@ -567,7 +567,7 @@ function init_gear_sets()
 			ammo="Yamarang",
 			head="Adhemar Bonnet +1", neck="Anu Torque", lear="Eabani Earring", rear="Suppanomimi",
 			body="Adhemar Jacket +1", hands="Floral Gauntlets", lring="Hetairoi Ring", rring="Epona's Ring",
-			back="Toutatis's Cape", waist="Reiki Yotai", legs="Samnuha Tights", feet=gear.TFeet_TP
+			back=gear.THFCape_STP, waist="Reiki Yotai", legs="Samnuha Tights", feet=gear.TFeet_TP
 		}
 
 		sets.engaged.Low.Med = set_combine(sets.engaged.Med,
@@ -584,8 +584,8 @@ function init_gear_sets()
 
 		sets.engaged.High.Med = set_combine(sets.engaged.Mid.Med,
 		{
-			lear="Mache Earring +1", rear="Mache Earring +1",
-			waist="Kentarch Belt +1", feet="Meg. Jam. +1"
+			lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
+			waist="Kentarch Belt +1", feet="Meg. Jam. +2"
 		})
 
 	
@@ -603,7 +603,7 @@ function init_gear_sets()
 			ammo="Yamarang",
 			head="Adhemar Bonnet +1", neck="Anu Torque", lear="Sherida Earring", rear="Suppanomimi",
 			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Hetairoi Ring", rring="Epona's Ring",
-			back="Toutatis's Cape", waist="Windbuffet Belt +1", legs="Samnuha Tights", feet=gear.HBoots_TP
+			back=gear.THFCape_STP, waist="Windbuffet Belt +1", legs="Samnuha Tights", feet=gear.HBoots_TP
 		}
 
 		sets.engaged.Low.Max = set_combine(sets.engaged.Max,
@@ -620,9 +620,9 @@ function init_gear_sets()
 
 		sets.engaged.High.Max = set_combine(sets.engaged.Mid.Max,
 		{
-			lear="Mache Earring +1", rear="Mache Earring +1",
+			lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
 			rring="Regal Ring",
-			waist="Kentarch Belt +1", feet="Meg. Jam. +1"
+			waist="Kentarch Belt +1", feet="Meg. Jam. +2"
 		})
 
 end
@@ -879,5 +879,5 @@ function select_default_macro_book()
 end
 
 function set_lockstyle()
-    send_command('wait 60; input /lockstyleset ' .. lockstyleset)
+    send_command('wait 3; input /lockstyleset ' .. lockstyleset)
 end

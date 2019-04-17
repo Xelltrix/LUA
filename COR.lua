@@ -555,7 +555,7 @@ function init_gear_sets()
 		-----------------------------------------------------------	
 		sets.engaged.DW3 = 
 		{
-			head="Adhemar Bonnet +1", neck="Iskur Gorget"", lear="Eabani Earring", rear="Suppanomimi",
+			head="Adhemar Bonnet +1", neck="Iskur Gorget", lear="Eabani Earring", rear="Suppanomimi",
 			body="Adhemar Jacket +1", hands="Floral Gauntlets", lring="Petrov Ring", rring="Epona's Ring",
 			back="Camulus's Mantle", waist="Reiki Yotai", legs="Carmine Cuisses +1", feet=gear.TFeet_TP
 		}
@@ -1338,5 +1338,5 @@ function select_default_macro_book()
 end
 
 function set_lockstyle()
-    send_command('wait 60; input /lockstyleset ' .. lockstyleset)
+    send_command('wait 3; input /lockstyleset ' .. lockstyleset)
 end
