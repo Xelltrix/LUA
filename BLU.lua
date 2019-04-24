@@ -78,6 +78,8 @@ end
 
 -- Called when this job file is unloaded (eg: job change)
 function user_unload()
+	send_command('lua l azuresets')
+	
 	send_command('unbind ^`')
 	send_command('unbind !`')
 	send_command('unbind ^=')
@@ -189,7 +191,7 @@ function init_gear_sets()
 			ammo="Pemphredo Tathlum",
 			head="Carmine Mask +1", neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
 			body="Amalric Doublet +1", hands="Hashi. Bazu. +1",
-			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Lengo Pants"
+			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Lengo Pants", feet="Carmine Greaves +1"
 		})
 
 		sets.midcast.BlueSkill = set_combine(sets.midcast.ConserveMP,
@@ -202,10 +204,10 @@ function init_gear_sets()
 		
 		sets.midcast.Occultation = set_combine(sets.midcast.FastRecast,
 		{
-			ammo="Staunch Tathlum +1", 
+			ammo="Pemphredo Tathlum", 
 			neck="Mirage Stole +2",
 			body="Assim. Jubbah +3", hands="Hashi. Bazu. +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Cornflower Cape", legs="Hashishin Tayt +1", feet="Luhlaza Charuqs +3"
+			back="Cornflower Cape", feet="Carmine Greaves +1"
 		})
 
 		sets.midcast.Cures =
@@ -218,8 +220,8 @@ function init_gear_sets()
 
 		sets.midcast['White Wind'] = set_combine(sets.midcast.Cures,
 		{
-			ammo="Staunch Tathlum +1",
-			head="Rawhide Mask", neck="Sanctity Necklace", lear="Odnowa Earring +1",
+			ammo="Psilomene",
+			head="Luh. Keffiyeh +2", neck="Sanctity Necklace", lear="Odnowa Earring +1",
 			lring="Lebeche Ring", rring="Vocane Ring",
 			back="Reiki Cloak"
 		})
@@ -245,7 +247,7 @@ function init_gear_sets()
 			main="Maxentius", sub="Nibiru Cudgel", ammo="Pemphredo Tathlum",
 			head="Jhakri Coronal +2", neck="Sanctity Necklace", lear="Friomisi Earring", rear="Regal Earring",
 			body="Amalric Doublet +1", hands="Amalric Gages +1", lring={name="Shiva Ring +1", bag="wardrobe2"}, rring={name="Shiva Ring +1", bag="wardrobe3"},
-			back=gear.BLUCape_Nuke, waist="Eschan Stone", legs="Amalric Slops +1", feet="Amalric Nails +1"
+			back=gear.BLUCape_Nuke, waist="Orpheus's Sash", legs="Amalric Slops +1", feet="Amalric Nails +1"
 		}
 		
 		sets.midcast.Entomb = set_combine(sets.midcast.Magical,
@@ -704,7 +706,7 @@ function init_gear_sets()
 		sets.precast.WS['Requiescat'] = set_combine(sets.precast.WS,
 		{
 			head="Jhakri Coronal +2", lear="Regal Earring",
-			body="Jhakri Robe +2", lring="Rufescent Ring", rring="Epona's Ring", 
+			body="Luhlaza Jubbah +3", hands="Luh. Bazubands +3", lring="Rufescent Ring", rring="Epona's Ring", 
 			legs="Jhakri Slops +2", feet="Luhlaza Charuqs +3"
 		})
 
@@ -733,20 +735,15 @@ function init_gear_sets()
 			legs="Luhlaza Shalwar +3", feet=gear.HBoots_WSD
 		})
 
-		sets.precast.WS['Savage Blade'].Low = set_combine(sets.precast.WS['Savage Blade'],
-		{
-			lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-		})
+		sets.precast.WS['Savage Blade'].Low = sets.precast.WS['Savage Blade']
 		
-		sets.precast.WS['Savage Blade'].Mid = set_combine(sets.precast.WS['Savage Blade'].Low,
-		{
-			ammo="Falcon Eye"
-		})
+		sets.precast.WS['Savage Blade'].Mid = sets.precast.WS['Savage Blade'].Low
 		
 		sets.precast.WS['Savage Blade'].High = set_combine(sets.precast.WS['Savage Blade'].Mid,
 		{
-			head="Jhakri Coronal +2",
-			legs="Carmine Cuisses +1"
+			ammo="Falcon Eye",
+			head="Jhakri Coronal +2", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
+			feet="Assim. Charuqs +2"
 		})
 
 	---Expiacion
@@ -756,20 +753,14 @@ function init_gear_sets()
 			lring="Ilabrat Ring",
 		})
 
-		sets.precast.WS['Expiacion'].Low = set_combine(sets.precast.WS['Expiacion'],
-		{
-			lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-		})
+		sets.precast.WS['Expiacion'].Low = sets.precast.WS['Expiacion']
 		
-		sets.precast.WS['Expiacion'].Mid = set_combine(sets.precast.WS['Expiacion'].Low,
-		{
-			ammo="Falcon Eye"
-		})
+		sets.precast.WS['Expiacion'].Mid = sets.precast.WS['Expiacion'].Low
 		
 		sets.precast.WS['Expiacion'].High = set_combine(sets.precast.WS['Expiacion'].Mid,
 		{
-			head="Jhakri Coronal +2",
-			legs="Carmine Cuisses +1"
+			head="Jhakri Coronal +2", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
+			feet="Assim. Charuqs +2"
 		})
 
 	---Sanguine Blade
@@ -778,30 +769,34 @@ function init_gear_sets()
 			ammo="Pemphredo Tathlum",
 			head="Pixie Hairpin +1", neck="Sanctity Necklace", lear="Regal Earring", rear="Friomisi Earring",
 			body="Amalric Doublet +1", hands="Jhakri Cuffs +2", lring={name="Shiva Ring +1", bag="wardrobe2"}, rring="Archon Ring",
-			back=gear.BLUCape_WSD, waist="Eschan Stone", legs="Luhlaza Shalwar +3", feet="Amalric Nails +1"
+			back=gear.BLUCape_WSD, waist="Orpheus's Sash", legs="Luhlaza Shalwar +3", feet="Amalric Nails +1"
 		}
 	
 	---Spirits Within
 		sets.precast.WS['Spirits Within'] =
 		{
-			ammo="Staunch Tathlum +1",
+			ammo="Psilomene",
 			head="Luh. Keffiyeh +2", neck="Sanctity Necklace", lear="Odnowa Earring +1", rear="Moonshade Earring",
-			body="Assim. Jubbah +3", hands="Telchine Gloves", lring="Ilabrat Ring", rring="Vocane Ring",
-			back="Reiki Cloak", waist="Eschan Stone", legs="Hashishin Tayt +1", feet="Luhlaza Charuqs +3"
+			body="Assim. Jubbah +3", hands="Regal Cuffs", lring="Ilabrat Ring", rring="Vocane Ring",
+			back="Reiki Cloak", waist="Eschan Stone", legs="Assim. Shalwar +3", feet="Assim. Charuqs +2"
 		}
 	
 
 	
 	--	***Clubs***
 	
-	sets.precast.WS['True Strike']= sets.precast.WS['Savage Blade']
+	sets.precast.WS['True Strike']= set_combine(sets.precast.WS['Savage Blade'],
+	{
+		lear="Ishvara Earring",
+		waist="Prosilio Belt +1"
+	})
 
-	sets.precast.WS['True Strike'].Low = sets.precast.WS['Savage Blade'].Low
+	sets.precast.WS['True Strike'].Low = sets.precast.WS['True Strike']
 	
-	sets.precast.WS['True Strike'].Mid = sets.precast.WS['Savage Blade'].Mid
+	sets.precast.WS['True Strike'].Mid = sets.precast.WS['Savage Blade'].Low
 	
-	sets.precast.WS['True Strike'].High = sets.precast.WS['Savage Blade'].High
-
+	sets.precast.WS['True Strike'].High = sets.precast.WS['Savage Blade'].Mid
+	
 	sets.precast.WS['Judgment'] = sets.precast.WS['Savage Blade']
 
 	sets.precast.WS['Judgment'].Low = sets.precast.WS['Savage Blade'].Low
@@ -810,13 +805,17 @@ function init_gear_sets()
 	
 	sets.precast.WS['Judgment'].High = sets.precast.WS['Savage Blade'].High
 
-	sets.precast.WS['Black Halo'] = sets.precast.WS['Requiescat']
+	sets.precast.WS['Black Halo'] = set_combine(sets.precast.WS['Savage Blade'],
+	{
+		rring={name="Stikini Ring +1", bag="wardrobe3"},
+		feet="Carmine Greaves +1"
+	})
 
-	sets.precast.WS['Black Halo'].Low = sets.precast.WS['Requiescat'].Low
+	sets.precast.WS['Black Halo'].Low = sets.precast.WS['Black Halo']
 	
-	sets.precast.WS['Black Halo'].Mid = sets.precast.WS['Requiescat'].Mid
+	sets.precast.WS['Black Halo'].Mid = sets.precast.WS['Black Halo'].Low
 	
-	sets.precast.WS['Black Halo'].High = sets.precast.WS['Requiescat'].High
+	sets.precast.WS['Black Halo'].High = sets.precast.WS['Black Halo'].Mid
 
 	sets.precast.WS['Realmrazer'] = sets.precast.WS['Requiescat']
 	
@@ -828,8 +827,8 @@ function init_gear_sets()
 
 	sets.precast.WS['Flash Nova'] = set_combine(sets.precast.WS['Sanguine Blade'],
 	{
-		head="Jhakri Coronal +2",
-		rring="Shiva Ring +1"
+		head="Assim. Keffiyeh +3",
+		rring={name="Shiva Ring +1", bag="wardrobe3"},
 	})
 
 	
@@ -1539,7 +1538,7 @@ function init_gear_sets()
 		sets.engaged.DW3.Mid.Max = set_combine(sets.engaged.DW3.Low.Max,
 		{
 			rear={name="Mache Earring +1", bag="wardrobe3"},
-			waist="Reiki Yotai"
+			waist="Reiki Yotai", legs="Adhemar Kecks +1",
 		})
 
 		-----------------------------------------------------------------------------------
@@ -1888,7 +1887,7 @@ end
 -- Run after the general midcast() set is constructed.
 function job_post_midcast(spell, action, spellMap, eventArgs)
 	if (spell.skill =='Elemental Magic' or spellMap == 'Magical' or spellMap == 'DarkBlue' or spellMap == 'LightBlue' or spellMap == 'Breath')
-				and (spell.element == world.day_element or spell.element == world.weather_element) then
+				and (spell.element == world.day_element and spell.element == world.weather_element) then
 		equip
 			{
 				waist="Hachirin-no-Obi"
@@ -1899,7 +1898,7 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 		apply_ability_bonuses(spell, action, spellMap, eventArgs)
 	end
 	
-	if state.TreasureMode.value ~= 'None' and spell.action_type == 'Magic' then
+	if state.TreasureMode.value ~= 'None' and spell.action_type == 'Magic' and spellMap ~= Buffs then
 		equip(sets.TreasureHunter)
 	end
 end
@@ -1940,17 +1939,6 @@ function job_buff_change(buff,gain)
             handle_equipping_gear(player.status)
         end
     end
-	
-	--[[Gearswap while disabled
-	if  S{"sleep","stunned","petrified", "terror"}:contains(buff:lower()) then
-		if gain then
-			equip(sets.defense.PDT)
-			disable(all)
-		else
-			enable(all)
-			handle_equipping_gear(player.status)
-		end
-	end	]]
 	
 	-- If we gain or lose any haste buffs, adjust which gear set we target.
 	if S{'haste','march','embrava','haste samba', 'mighty guard', 'geo-haste', 'indi-haste', 'slow', 'indi-slow', 'elegy',}:contains(buff:lower()) then
@@ -1996,18 +1984,6 @@ function customize_idle_set(idleSet)
 			waist="Fucho-no-Obi",
 		})
     end
---[[	
-	if state.CombatWeapon.value == 'TizonaT' then
-		idleSet = set_combine(idleSet, sets.TizonaT)
-	elseif state.CombatWeapon.value == 'TizonaA' then
-		idleSet = set_combine(idleSet, sets.TizonaA)
-	elseif state.CombatWeapon.value == 'Almace' then
-		idleSet = set_combine(idleSet, sets.Almace)
-	elseif state.CombatWeapon.value == 'SequenceT' then
-		idleSet = set_combine(idleSet, sets.SequenceT)
-	elseif state.CombatWeapon.value == 'SequenceA' then
-		idleSet = set_combine(idleSet, sets.SequenceA)
-	end]]
 	
 	return idleSet
 end
@@ -2138,9 +2114,16 @@ function update_combat_weapon()
 	elseif 	player.equipment.main=="Sequence" and player.equipment.sub~="Thibron"	then
 		state.CombatWeapon:set('SequenceA')
 		--add_to_chat(8, '------------- Sequence --------------')
+	elseif 	player.equipment.main=="Maxentius" and player.equipment.sub~="Thibron"	then
+		state.CombatWeapon:set('MaxentiusT')
+		--add_to_chat(8, '------------- Maxentius / Thibron --------------')
+	elseif 	player.equipment.main=="Maxentius" and player.equipment.sub~="Thibron"	then
+		state.CombatWeapon:set('MaxentiusN')
+		--add_to_chat(8, '------------- Maxentius --------------')
 	end
 end
 
+	
 --[[
 function check_rings()
     rings = S{"Warp Ring", "Trizek Ring", "Capacity Ring", "Echad Ring", "Dim. Ring (Holla)", "Facility Ring", "Caliber Ring"}

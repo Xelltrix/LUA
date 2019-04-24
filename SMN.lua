@@ -130,6 +130,14 @@ function init_gear_sets()
 			hands="Beck. Bracers +1"
 		}
 		
+		sets.precast.JA['Astral Conduit'] =
+		{
+			ammo="Psilomene",
+			head="Beckoner's Horn +1", neck="Smn. Collar +1", lear="Etiolation Earring", rear="Evans Earring",
+			body="Con. Doublet +3", hands="Beck. Bracers +1", lring="Lebeche Ring", rring="Mephitas's Ring +1",
+			back="Conveyance Cape", waist="Luminary Sash", legs="Amalric Slops +1", feet="Beck. Pigaches +1"
+		}
+		
 	
     -------------------
 	--  Blood Pacts  --
@@ -247,9 +255,9 @@ function init_gear_sets()
 		sets.midcast.Pet.bp_Debuffs =
 		{
 			main="Espiritus", sub="Vox Grip", ammo="Sancus Sachet +1",
-			head="Tali'ah Turban +1", neck="Smn. Collar +1", lear="Enmerkar Earring", rear="Lugalbanda Earring",
+			head="Tali'ah Turban +2", neck="Smn. Collar +1", lear="Enmerkar Earring", rear="Lugalbanda Earring",
 			body="Con. Doublet +3", hands="Lamassu Mitts +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Evoker's Ring",
-			back=gear.SMNCape_Mag, waist="Regal Belt", legs="Tali'ah Sera. +1",feet="Tali'ah Crackows +1"
+			back=gear.SMNCape_Mag, waist="Regal Belt", legs="Tali'ah Sera. +2",feet="Tali'ah Crackows +2"
 		}
 
 		sets.midcast.Pet.bp_Physical =
@@ -623,33 +631,33 @@ function init_gear_sets()
 		sets.precast.WS =
 		{
 			ammo="Floestone",
-			head="Tali'ah Turban +1", neck="Fotia Gorget", lear="Telos Earring", rear="Moonshade Earring",
+			head="Tali'ah Turban +2", neck="Fotia Gorget", lear="Ishvara Earring", rear="Moonshade Earring",
 			body="Tali'ah Manteel +1", hands="Tali'ah Gages +1", lring="Rufescent Ring", rring="Shukuyu Ring",
-			back=gear.SMNCape_Phys, waist="Fotia Belt", legs="Tali'ah Sera. +1", feet="Tali'ah Crackows +1"
+			back=gear.SMNCape_Phys, waist="Fotia Belt", legs="Tali'ah Sera. +2", feet="Tali'ah Crackows +2"
 		}
 		
 		sets.precast.WS['Retribution'] = set_combine(sets.precast.WS,
 		{
 			body="Inyanga Jubbah +2", hands="Inyan. Dastanas +2", rring="Shukuyu Ring",
-			legs=gear.SMNCape_Phys, feet="Baayami Sabots"
+			back=gear.SMNCape_Phys, feet="Baayami Sabots"
 		})
 		
 		sets.precast.WS['Garland of Bliss'] = set_combine(sets.precast.WS,
 		{
-			head=gear.NukeHood, lear="Friomisi Earring",
-			body="Amalric Doublet +1", hands="Amalric Gages +1", lring={name="Shiva Ring +1", bag="wardrobe2"}, rring={name="Shiva Ring +1", bag="wardrobe3"},
-			back=gear.SMNCape_Phys, legs="Amalric Slops +1", feet="Amalric Nails +1"
+			head="Befouled Crown",
+			body="Glyphic Doublet +3", hands="Regal Cuffs",
+			back="Swith Cape +1", legs="Inyanga Shalwar +2", feet="Inyan. Crackows +2"
 		})
 	 
 		sets.precast.WS['Shattersoul'] = set_combine(sets.precast.WS,
 		{
+			lear="Regal Earring",
 			lring={name="Shiva Ring +1", bag="wardrobe2"}, rring={name="Shiva Ring +1", bag="wardrobe3"},
 		})
 		
 		sets.precast.WS['Myrkr'] = set_combine(sets.precast.JA['Astral Conduit'],
 		{
-			neck="Fotia Gorget", rear="Moonshade Earring",
-			waist="Fotia Belt"
+			rear="Moonshade Earring",
 		})
 	
 	--------------------------------------
@@ -661,7 +669,7 @@ function init_gear_sets()
 			main="Gridarvor",sub="Kaja Grip", ammo="Sancus Sachet +1",
 			head="Beckoner's Horn +1", neck="Shulmanu Collar", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Tali'ah Manteel +1", hands="Tali'ah Gages +1", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
-			back=gear.SMNCape_Phys, waist="Klouskap Sash", legs="Tali'ah Sera. +1", feet="Apogee Pumps +1"
+			back=gear.SMNCape_Phys, waist="Klouskap Sash", legs="Tali'ah Sera. +2", feet="Apogee Pumps +1"
 		}
 		
 		sets.engaged.Avatar =

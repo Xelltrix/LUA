@@ -61,10 +61,10 @@ function init_gear_sets()
 
    sets.precast.JA['Tabula Rasa'] =
     {
-		main="Nibiru Cudgel", sub="Ammurapi Shield", ammo="Psilomene",
+		ammo="Psilomene",
 		head="Amalric Coif +1", neck="Sanctity Necklace", lear="Etiolation Earring", rear="Mendi. Earring",
 		body="Acad. Gown +2", hands="Kaykaus Cuffs +1", lring="Lebeche Ring", rring="Mephitas's Ring +1",
-		back="Fi Follet Cape +1", waist="Luminary Sash", legs="Peda. Pants +3", feet="Amalric Nails +1"
+		back="Fi Follet Cape +1", waist="Luminary Sash", legs="Amalric Slops +1", feet="Amalric Nails +1"
 	}
 
 	sets.precast.JA['Enlightenment'] =
@@ -127,22 +127,6 @@ function init_gear_sets()
 		body="Twilight Cloak",
 		waist="Channeler's Stone"
 	})
-
-	sets.precast.WS =
-	{
-		ammo="Floestone",
-		neck="Fotia Gorget", lear="Telos Earring", rear="Moonshade Earring",
-		body="Jhakri Robe +2", hands="Jhakri Cuffs +2",
-		waist="Fotia Belt", feet="Jhakri Pigaches +2"
-	}
-
-	sets.precast.WS['Myrkr'] =
-	{
-		ammo="Psilomene",
-		head="Amalric Coif +1", neck="Sanctity Necklace", lear="Etiolation Earring", rear="Moonshade Earring",
-		body="Acad. Gown +2", hands="Kaykaus Cuffs +1", lring="Lebeche Ring", rring="Mephitas's Ring +1",
-		back="Fi Follet Cape +1", waist="Luminary Sash", legs="Peda. Pants +3", feet="Amalric Nails +1"
-	}
 
 	sets.precast.FC.Reraise = sets.precast.FC
 
@@ -382,10 +366,10 @@ function init_gear_sets()
 
 	sets.idle =
 	{
-		main="Akademos", sub="Irenic Strap +1", ammo="Homiliary",
+		main="Akademos", sub="Kaja Grip", ammo="Homiliary",
 		head="Befouled Crown", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 		body="Jhakri Robe +2", hands="Chironic Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-        back=gear.SCHCape_Nuke, waist="Fucho-no-Obi", legs="Assid. Pants +1", feet="Chironic Slippers"
+        back=gear.SCHCape_Nuke, waist="Lieutenant's Sash", legs="Assid. Pants +1", feet="Chironic Slippers"
 	}
 
 	sets.idle.Movement = set_combine(sets.idle,
@@ -395,7 +379,7 @@ function init_gear_sets()
 
 	sets.idle.DT = set_combine(sets.idle,
 	{
-		sub="Kaja Grip", ammo="Staunch Tathlum +1",
+		ammo="Staunch Tathlum +1",
 		neck="Loricate Torque +1", lear="Etiolation Earring",
         lring="Defending Ring", rring="Vocane Ring"
 	})
@@ -418,7 +402,7 @@ function init_gear_sets()
         main="Akademos", sub="Kaja Grip", ammo="Staunch Tathlum +1",
 		head="Befouled Crown", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
 		body="Mallquis Saio +2", hands="Chironic Gloves", lring="Defending Ring", rring="Vocane Ring",
-		back=gear.SCHCape_Nuke, waist="Flax Sash", legs="Assid. Pants +1", feet="Chironic Slippers"
+		back=gear.SCHCape_Nuke, waist="Lieutenant's Sash", legs="Assid. Pants +1", feet="Chironic Slippers"
 	}
 
 	sets.defense.MDT =
@@ -426,7 +410,7 @@ function init_gear_sets()
 		main="Akademos", sub="Irenic Strap +1", ammo="Staunch Tathlum +1",
 		head="Chironic Hat", neck="Loricate Torque +1", lear="Eabani Earring", rear="Static Earring",
         body="Peda. Gown +3", hands="Peda. Bracers +3", lring="Defending Ring", rring="Vocane Ring",
-		back=gear.SCHCape_Nuke, waist="Flax Sash", legs="Peda. Pants +3", feet="Amalric Nails +1"
+		back=gear.SCHCape_Nuke, waist="Lieutenant's Sash", legs="Peda. Pants +3", feet="Amalric Nails +1"
 	}
 
 	sets.Kiting =
@@ -434,13 +418,58 @@ function init_gear_sets()
 		feet="Crier's Gaiters"
 	}
 
-	------------------------------------------------------------------------------------------------
-	---------------------------------------- Engaged Sets ------------------------------------------
-	------------------------------------------------------------------------------------------------
 
-	sets.engaged = sets.idle
+----------------------------------------------------------------------------
+--------------------									--------------------
+------------							 						------------
+--------					 Combat Gear Sets						--------
+------------							 						------------
+--------------------									--------------------
+----------------------------------------------------------------------------	
+	
+	-------------------------
+	-- Weaponskill Sets
+	-------------------------
+		sets.precast.WS =
+		{
+			ammo="Floestone",
+			head="Jhakri Coronal +2", neck="Fotia Gorget", lear="Telos Earring", rear="Moonshade Earring",
+			body="Jhakri Robe +2", hands="Jhakri Cuffs +2", lring="Chirich Ring +1", rring="Chirich Ring +1",
+			waist="Fotia Belt", legs="Jhakri Slops +2", feet="Jhakri Pigaches +2"
+		}
 
-	sets.engaged.Refresh = sets.idle
+		sets.precast.WS['Shattersoul'] = set_combine(sets.precast.WS,
+		{
+			lear="Regal Earring",
+			lring={name="Shiva Ring +1", bag="wardrobe2"}, rring={name="Shiva Ring +1", bag="wardrobe3"},
+			back=gear.SCHCape_Nuke
+		})
+		
+		sets.precast.WS['Omniscience'] = set_combine(sets.midcast.DarkHelix,
+		{
+			rear="Ishvara Earring",
+			body="Peda. Gown +3", hands="Peda. Bracers +3",
+			back=gear.SCHCape_ENF, waist="Orpheus's Sash"
+		})
+		
+		sets.precast.WS['Myrkr'] = set_combine(sets.precast.JA['Tabula Rasa'],
+		{
+			rear="Moonshade Earring",
+		})
+		
+	--------------------------------------
+	-- Melee sets
+	--------------------------------------
+
+		sets.engaged = 
+		{
+			ammo="Floestone",
+			head="Peda. M.Board +3", neck="Combatant's Torque", lear="Telos Earring", rear="Mache Earring +1",
+			body="Jhakri Robe +2", hands="Peda. Bracers +3", lring="Chirich Ring +1", rring="Chirich Ring +1",
+			back=gear.SCHCape_Nuke, waist="Windbuffet Belt +1", legs="Telchine Braconi", feet="Peda. Loafers +3"
+		}
+
+		sets.engaged.Refresh = sets.idle
 
 	------------------------------------------------------------------------------------------------
 	---------------------------------------- Special Sets ------------------------------------------

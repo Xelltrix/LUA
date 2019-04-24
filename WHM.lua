@@ -65,7 +65,7 @@ function init_gear_sets()
 		main="Queller Rod", sub="Chanter's Shield", ammo="Sapience Orb",
 		head="Vanya Hood", neck="Cleric's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
         body="Pinga Tunic", hands="Fanatic Gloves", lring="Kishar Ring", rring="Rahab Ring",
-        back="Alaunus's Cape", waist="Witful Belt", legs="Pinga Pants", feet="Telchine Pigaches"
+        back="Alaunus's Cape", waist="Witful Belt", legs="Pinga Pants", feet="Kaykaus Boots"
 	}
 
 	sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC,
@@ -147,43 +147,43 @@ function init_gear_sets()
 	-- Healing Midcast sets
 	--------------------------------------	
 
-	-- Cure Potency/II: 51%/7%			Enmity: -59		Healing Magic Skill: +80(543)	MND+209
+	-- Cure Potency/II: 51%/9%			Enmity: -64		Healing Magic Skill: +110(573)	MND+193
 	sets.midcast.Cures =
 	{
-		main="Queller Rod", sub="Ammurapi Shield", ammo="Esper Stone +1",
+		main="Queller Rod", sub="Sors Shield", ammo="Pemphredo Tathlum",
 		head="Kaykaus Mitra", neck="Cleric's Torque", lear="Glorious Earring", rear="Mendi. Earring",
-        body="Theo. Briault +2", hands="Theophany Mitts +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Menelaus's Ring",
+        body="Theo. Briault +2", hands="Theophany Mitts +2", lring="Lebeche Ring", rring={name="Stikini Ring +1", bag="wardrobe3"},
         back="Alaunus's Cape", waist="Luminary Sash", legs="Sifahir Slacks", feet="Vanya Clogs"
 	}
 	
-	-- Cure Potency/II: 51%/4%			Enmity: -54		Healing Magic Skill: +114(580)	MND+221
+	-- Cure Potency/II: 51%/6%			Enmity: -54		Healing Magic Skill: +114(580)	MND+221		Solace+24	
 	sets.midcast.CureSolace =
 	{
-		main="Queller Rod", sub="Ammurapi Shield", ammo="Esper Stone +1",
+		main="Queller Rod", sub="Sors Shield", ammo="Pemphredo Tathlum",
 		head="Kaykaus Mitra", neck="Cleric's Torque", lear="Glorious Earring", rear="Mendi. Earring",
-        body="Ebers Bliaud +1", hands="Theophany Mitts +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Menelaus's Ring",
+        body="Ebers Bliaud +1", hands="Theophany Mitts +2", lring="Lebeche Ring", rring={name="Stikini Ring +1", bag="wardrobe3"},
         back="Alaunus's Cape", waist="Luminary Sash", legs="Sifahir Slacks", feet="Vanya Clogs"
 	}
 	
 	sets.midcast.Curagas = sets.midcast.Cures
 	
 	
-	-- Cure Potency/II: 59%/2%			Enmity: -53		Healing Magic Skill: +84(547)	MND+201		Solace+24	
+	-- Cure Potency/II: 50%/4%			Enmity: -58		Healing Magic Skill: +87(550)	MND+193		Solace+24	
 	sets.midcast.CureSolaceWeather =
 	{
-		main="Chatoyant Staff", sub="Achaq Grip", ammo="Esper Stone +1",
+		main="Chatoyant Staff", sub="Achaq Grip", ammo="Pemphredo Tathlum",
 		head="Kaykaus Mitra", neck="Cleric's Torque", lear="Glorious Earring", rear="Mendi. Earring",
-        body="Ebers Bliaud +1", hands="Theophany Mitts +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Menelaus's Ring",
-        back="Alaunus's Cape", waist="Hachirin-no-Obi", legs="Sifahir Slacks", feet="Vanya Clogs"
+        body="Ebers Bliaud +1", hands="Theophany Mitts +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+        back="Alaunus's Cape", waist="Hachirin-no-Obi", legs="Sifahir Slacks", feet="Kaykaus Boots"
 	}
 
-	-- Cure Potency/II: 51%/5%			Enmity: -53		Healing Magic Skill: +78(541)	MND+181
+	-- Cure Potency/II: 50%/7%			Enmity: -58		Healing Magic Skill: +78(541)	MND+181
 	sets.midcast.CuresWeather =
 	{
-		main="Chatoyant Staff", sub="Achaq Grip", ammo="Esper Stone +1",
+		main="Chatoyant Staff", sub="Achaq Grip", ammo="Pemphredo Tathlum",
 		head="Kaykaus Mitra", neck="Cleric's Torque", lear="Glorious Earring", rear="Mendi. Earring",
-        body="Theo. Briault +2", hands="Theophany Mitts +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Menelaus's Ring",
-        back="Twilight Cape", waist="Hachirin-no-Obi", legs="Sifahir Slacks", feet="Vanya Clogs"
+        body="Theo. Briault +2", hands="Theophany Mitts +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+        back="Twilight Cape", waist="Hachirin-no-Obi", legs="Sifahir Slacks", feet="Kaykaus Boots"
 	}
 	
 	sets.midcast.CuragaWeather = sets.midcast.CuresWeather
@@ -196,7 +196,7 @@ function init_gear_sets()
 		main="Yagrush", sub="Ammurapi Shield",
 		head="Kaykaus Mitra", neck="Debilis Medallion", lear="Beatific Earring",
         body="Ebers Bliaud +1", lring="Haoma's Ring", rring="Menelaus's Ring",
-        waist="Witful Belt", legs="Th. Pant. +3", feet="Vanya Clogs"
+        waist="Bishop's Sash", legs="Th. Pant. +3", feet="Vanya Clogs"
 	})
 
 	sets.midcast.StatusRemoval = set_combine(sets.precast.FC['Healing Magic'],
@@ -334,6 +334,8 @@ function init_gear_sets()
 	sets.midcast.Reraise = sets.midcast.ConserveMP
 
 	sets.midcast.Raise = sets.midcast.ConserveMP
+	
+	sets.midcast.Arise = sets.midcast.FC
 
 	--------------------------------------
 	-- Offensive Midcast sets
@@ -426,7 +428,7 @@ function init_gear_sets()
 		main="Bolelabunga", sub="Genmei Shield", ammo="Homiliary",
 		head="Befouled Crown", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 		body="Piety Briault +3", hands="Chironic Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-        back="Alaunus's Cape", waist="Fucho-no-Obi", legs="Assid. Pants +1", feet="Chironic Slippers"
+        back="Alaunus's Cape", waist="Lieutenant's Sash", legs="Assid. Pants +1", feet="Chironic Slippers"
 	}
 	
 	sets.idle.DT =
@@ -434,7 +436,7 @@ function init_gear_sets()
 		main="Bolelabunga", sub="Genmei Shield", ammo="Homiliary",
 		head="Inyanga Tiara +2", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Static Earring",
 		body="Piety Briault +3", hands="Chironic Gloves", lring="Defending Ring", rring="Vocane Ring",
-		back="Alaunus's Cape", waist="Channeler's Stone", legs="Assid. Pants +1", feet="Chironic Slippers"
+		back="Alaunus's Cape", waist="Lieutenant's Sash", legs="Assid. Pants +1", feet="Chironic Slippers"
 	}
 
 	sets.idle.Town = set_combine(sets.idle,

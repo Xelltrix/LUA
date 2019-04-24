@@ -196,7 +196,7 @@ function init_gear_sets()
 	{
 		ammo="Staunch Tathlum +1",
 		head="Dampening Tam", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
-		body="Meg. Cuirie +1", hands="Meg. Gloves +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+		body="Meg. Cuirie +2", hands="Meg. Gloves +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 		back=gear.THFCape_STP, waist="Flume Belt", legs="Mummu Kecks +2", feet="Jute Boots +1"
 	}
 
@@ -204,7 +204,7 @@ function init_gear_sets()
 	{
 		ammo="Staunch Tathlum +1",
 		head="Meghanada Visor +1", neck="Loricate Torque +1",
-		body="Meg. Cuirie +1", lring="Defending Ring", rring="Vocane Ring",
+		body="Meg. Cuirie +2", lring="Defending Ring", rring="Vocane Ring",
 	})
 
 	sets.idle.MDT = set_combine (sets.idle,
@@ -264,7 +264,7 @@ function init_gear_sets()
 		ammo="Yetshila",
 		head="Adhemar Bonnet +1", neck="Pentalagus Charm", lear="Dawn Earring", rear="Suppanomimi",
 		body="Adhemar Jacket +1", hands="Meg. Gloves +2", lring="Ilabrat Ring", rring="Regal Ring",
-		back=gear.THFCape_STP, waist="Chaac Belt", legs="Meg. Chausses +1", feet="Meg. Jam. +2"
+		back=gear.THFCape_STP, waist="Chaac Belt", legs="Meg. Chausses +2", feet="Meg. Jam. +2"
 	}
 	
 	sets.buff['Feint'] = sets.TreasureHunter
@@ -309,8 +309,8 @@ function init_gear_sets()
 		sets.precast.WS.High = set_combine(sets.precast.WS.Mid,
 		{
 			rear={name="Mache Earring +1", bag="wardrobe3"},			
-			body="Meg. Cuirie +1", rring="Regal Ring",
-			legs="Meg. Chausses +1"
+			body="Meg. Cuirie +2", rring="Regal Ring",
+			legs="Meg. Chausses +2"
 		})
 
 		sets.precast.WS.SA = set_combine(sets.precast.WS,
@@ -329,7 +329,7 @@ function init_gear_sets()
 		{
 			head="Adhemar Bonnet +1", rear={name="Mache Earring +1", bag="wardrobe3"},
 			hands="Floral Gauntlets",
-			legs="Meg. Chausses +1"
+			legs="Meg. Chausses +2"
 		})
 
 		sets.precast.WS['Exenterator'].Low = set_combine(sets.precast.WS['Exenterator'],
@@ -342,8 +342,8 @@ function init_gear_sets()
 		sets.precast.WS['Exenterator'].High = set_combine(sets.precast.WS['Exenterator'].Mid,
 		{
 			lear={name="Mache Earring +1", bag="wardrobe2"},
-			body="Meg. Cuirie +1", rring="Regal Ring",
-			legs="Meg. Chausses +1"
+			body="Meg. Cuirie +2", rring="Regal Ring",
+			legs="Meg. Chausses +2"
 		})
 
 		
@@ -376,8 +376,8 @@ function init_gear_sets()
 		sets.precast.WS['Evisceration'].High = set_combine(sets.precast.WS['Evisceration'].Mid,
 		{
 			lear={name="Mache Earring +1", bag="wardrobe2"},
-			body="Meg. Cuirie +1", rring="Regal Ring",
-			legs="Meg. Chausses +1"
+			body="Meg. Cuirie +2", rring="Regal Ring",
+			legs="Meg. Chausses +2"
 		})
 
 		sets.precast.WS['Evisceration'].SA = set_combine(sets.precast.WS['Evisceration'],
@@ -411,8 +411,8 @@ function init_gear_sets()
 		sets.precast.WS['Dancing Edge'].High = set_combine(sets.precast.WS['Dancing Edge'].Mid,
 		{
 			lear={name="Mache Earring +1", bag="wardrobe2"},			
-			body="Meg. Cuirie +1", rring="Regal Ring",
-			legs="Meg. Chausses +1"
+			body="Meg. Cuirie +2", rring="Regal Ring",
+			legs="Meg. Chausses +2"
 		})
 
 		sets.precast.WS['Dancing Edge'].SA = set_combine(sets.precast.WS['Dancing Edge'],
@@ -466,7 +466,7 @@ function init_gear_sets()
 			ammo="Pemphredo Tathlum",
 			head=gear.HHead_MAB, lear="Friomisi Earring",
 			body="Samnuha Coat", hands="Leyline Gloves", lring={name="Shiva Ring +1", bag="wardrobe2"}, rring="Dingir Ring", 
-			back="Toutatis's Cape", legs="Herculean Trousers", feet=gear.HBoots_WSD
+			back="Toutatis's Cape", waist="Orpheus's Sash", legs="Herculean Trousers", feet=gear.HBoots_WSD
 		})
 
 		sets.precast.WS['Aeolian Edge'].TH = set_combine(sets.precast.WS['Aeolian Edge'], sets.TreasureHunter)
@@ -508,7 +508,7 @@ function init_gear_sets()
 		sets.engaged.Mid = set_combine(sets.engaged.Low,
 		{
 			rring="Regal Ring",
-			legs="Meg. Chausses +1"
+			legs="Meg. Chausses +2"
 		})
 
 		sets.engaged.High = set_combine(sets.engaged.Mid,
@@ -544,7 +544,7 @@ function init_gear_sets()
 		sets.engaged.Mid.Min = set_combine(sets.engaged.Low.Min,
 		{
 			rring="Regal Ring",
-			legs="Meg. Chausses +1"
+			legs="Meg. Chausses +2"
 		})
 
 		sets.engaged.High.Min = set_combine(sets.engaged.Mid.Min,
@@ -579,7 +579,7 @@ function init_gear_sets()
 		sets.engaged.Mid.Med = set_combine(sets.engaged.Low.Med,
 		{
 			rring="Regal Ring",
-			legs="Meg. Chausses +1"
+			legs="Meg. Chausses +2"
 		})
 
 		sets.engaged.High.Med = set_combine(sets.engaged.Mid.Med,
@@ -615,7 +615,7 @@ function init_gear_sets()
 		sets.engaged.Mid.Max = set_combine(sets.engaged.Low.Max,
 		{
 			hands="Meg. Gloves +2",
-			legs="Meg. Chausses +1"
+			legs="Meg. Chausses +2"
 		})
 
 		sets.engaged.High.Max = set_combine(sets.engaged.Mid.Max,
