@@ -758,13 +758,9 @@ function display_current_job_state(eventArgs)
 	if state.Kiting.value == true then
 		msg = msg .. ', Kiting'
 	end
-
-	if state.PCTargetMode.value ~= 'default' then
-		msg = msg .. ', Target PC: '..state.PCTargetMode.value
-	end
-
-	if state.SelectNPCTargets.value == true then
-		msg = msg .. ', Target NPCs'
+	
+	if state.CastingMode ~= 'Normal' then
+		msg = msg .. ', ' .. 'Casting Mode:' .. state.CastingMode.value ..
 	end
 
 	add_to_chat(122, msg)
@@ -791,5 +787,5 @@ function select_default_macro_book()
 end
 
 function set_lockstyle()
-    send_command('wait 3; input /lockstyleset ' .. lockstyleset)
+    send_command('wait 3; input /lockstyleset 9' .. lockstyleset)
 end
