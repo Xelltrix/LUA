@@ -70,16 +70,13 @@ function init_gear_sets()
 	
     sets.precast.FC =
 	{
-		main="Mafic Cudgel", sub="Genmei Shield", ammo="Staunch Tathlum +1",
+	ammo="Staunch Tathlum +1",
         head="Atrophy Chapeau +3", neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquacious Earring",
         body="Viti. Tabard +3", hands="Chironic Gloves", lring="Kishar Ring", rring="Evanescence Ring", 
         back=gear.RDMCape_DW, waist="Witful Belt", legs="Carmine Cuisses +1",feet="Amalric Nails +1"
 	}
 
-	sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC,
-	{
-		waist="Emphatikos Rope"
-	})
+	sets.precast.FC['Enhancing Magic'] = sets.precast.FC
 
 	sets.precast.FC.Statless = sets.precast.FC['Enhancing Magic']
 
@@ -237,7 +234,7 @@ function init_gear_sets()
 		sets.midcast.Stoneskin =
 		{
 			main="Colada", sub="Ammurapi Shield", ammo="Staunch Tathlum +1",
-			head="Telchine Cap", neck="Stone Gorget", lear="Andoaa Earring", rear="Earthcry Earring",
+			head="Telchine Cap", neck="Stone Gorget", lear="Etiolation Earring", rear="Earthcry Earring",
 			body="Viti. Tabard +3", hands="Stone Mufflers", lring="Kishar Ring", rring="Evanescence Ring",
 			back="Ghostfyre Cape", waist="Siegel Sash", legs="Shedir Seraweels", feet="Leth. Houseaux +1"
 		}
@@ -323,7 +320,7 @@ function init_gear_sets()
 		{
 			main=gear.Grioavolr_Enf, sub="Enki Strap",
 			head="Pixie Hairpin +1", neck="Erra Pendant", lear="Gwati Earring",
-			body="Shango Robe", hands="Leyline Gloves", lring="Archon Ring", rring={name="Stikini Ring +1", bag="wardrobe3"},
+			body="Shango Robe", hands="Leyline Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			waist="Fucho-no-Obi", legs="Merlinic Shalwar", feet="Vitiation Boots +3"
 		})
 
@@ -470,16 +467,6 @@ function init_gear_sets()
 			legs="Carmine Cuisses +1"
 		}
 		
-		sets.Obi = 
-		{
-			waist="Hachirin-no-Obi"
-		}
-		
-		sets.latent_obi=
-		{
-			waist="Fucho-no-Obi"
-		}
-		
 		sets.magic_burst =
 		{
 			main=gear.Grioavolr_Enf, sub="Niobid Strap", ammo="Pemphredo Tathlum",
@@ -500,6 +487,7 @@ function init_gear_sets()
 		sets.buff.Doom = 
 		{
 			neck="Nicander's Necklace",
+			lring='Saida Ring",
 			waist="Gishdubar Sash"
 		}
 
@@ -1333,11 +1321,9 @@ function job_buff_change(buff,gain)
 	if buff == "doom" then
         if gain then
             equip(sets.buff.Doom)
-             disable('neck')
-			 disable('waist')
+             disable('neck','lring','waist')
         else
-			enable('neck')
-            enable('waist')
+			enable('neck','lring','waist')
             handle_equipping_gear(player.status)
         end
     end
@@ -1433,17 +1419,14 @@ function display_current_job_state(eventArgs)
 	if state.DefenseMode.value ~= 'None' then
 		msg = msg .. ', ' .. 'Defense: ' .. state.DefenseMode.value .. ' (' .. state[state.DefenseMode.value .. 'DefenseMode'].value .. ')'
 	end
+	
+	msg = msg .. state.CastingMode.value
+	
+	if state.MagicBurst.value == true then
+		msg= msg .. ' (Magic Burst On)'
 
 	if state.Kiting.value == true then
 		msg = msg .. ', Kiting'
-	end
-
-	if state.PCTargetMode.value ~= 'default' then
-		msg = msg .. ', Target PC: '..state.PCTargetMode.value
-	end
-
-	if state.SelectNPCTargets.value == true then
-		msg = msg .. ', Target NPCs'
 	end
 
 	add_to_chat(122, msg)
