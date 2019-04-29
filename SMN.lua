@@ -185,10 +185,7 @@ function init_gear_sets()
 		})
 
 		--Fast Cast: 62%
-		sets.precast.FC['Enfeebling Magic'] = set_combine(sets.precast.FC,
-		{
-			waist="Channeler's Stone"
-		})
+		sets.precast.FC['Enfeebling Magic'] = sets.precast.FC
 
 		--Fast Cast: 62%
 		sets.precast.FC['Elemental Magic'] = sets.precast.FC['Enfeebling Magic']
@@ -211,7 +208,7 @@ function init_gear_sets()
 		sets.precast.FC.Cures = set_combine(sets.precast.FC,
 		{
 			rear="Mendi. Earring",
-			waist="Channeler's Stone", feet="Vanya Clogs"
+			feet="Vanya Clogs"
 		})
 
 		--Fast Cast: 72%
@@ -233,8 +230,7 @@ function init_gear_sets()
 		sets.precast.FC.Impact = set_combine(sets.precast.FC,
 		{
 			head=empty,
-			body="Twilight Cloak",
-			waist="Channeler's Stone"
+			body="Twilight Cloak"
 		})
 
 	
@@ -343,7 +339,7 @@ function init_gear_sets()
 		{
 			neck="Debilis Medallion", lear="Beatific Earring",
 			hands="Hieros Mittens", lring="Haoma's Ring", rring="Menelaus's Ring",
-			back="Oretan. Cape +1", feet="Vanya Clogs"
+			back="Oretan. Cape +1", waist="Bishop Sash", feet="Vanya Clogs"
 		})
 
 		sets.midcast['Healing Magic'] = sets.precast.FC['Healing Magic']
@@ -426,23 +422,23 @@ function init_gear_sets()
 	---Enfeebling Magic
 		sets.midcast.Macc =
 		{
-			main="Gada", sub="Ammurapi Shield",
-			head=gear.NukeHood, neck="Incanter's Torque", lear="Digni. Earring", rear="Gwati Earring",
+			main="Maxentius", sub="Ammurapi Shield",
+			head=gear.NukeHood, neck="Erra Pendant", lear="Digni. Earring", rear="Gwati Earring",
 			body="Merlinic Jubbah", hands="Inyan. Dastanas +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Swith Cape +1", waist="Luminary Sash", legs="Merlinic Shalwar", feet="Medium's Sabots"
 		}
 
 		sets.midcast['Dark Magic'] = set_combine(sets.midcast.Macc,
 		{
-			head="Pixie Hairpin +1",
-			body="Shango Robe", lring="Archon Ring", rring={name="Stikini Ring +1", bag="wardrobe3"},
-			waist="Fucho-no-Obi", legs="Merlinic Shalwar", feet=gear.NukeCrackows
+			body="Shango Robe", 
 		})
 
 
 		sets.midcast.Sap = set_combine(sets.midcast['Dark Magic'],
 		{
-			lring="Evanescence Ring", rring="Archon Ring"
+			head="Pixie Hairpin +1",
+			rring="Archon Ring",
+			waist="Fucho-no-Obi", feet=gear.NukeCrackows
 		})
 
 		sets.midcast['Elemental Magic'] =
@@ -555,14 +551,9 @@ function init_gear_sets()
 		sets.idle.Spirit =
 		{
 			main="Espiritus",sub="Vox Grip", ammo="Sancus Sachet +1",
-			head="Beckoner's Horn +1", neck="Caller's Pendant", lear="Andoaa Earring", rear="Evans Earring",
+			head="Beckoner's Horn +1", neck="Incanter's Torque", lear="Andoaa Earring", rear="Evans Earring",
 			body="Apo. Dalmatica +1", hands="Baayami Cuffs", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back=gear.SMNCape_Phys, waist="Lucidity Sash", legs="Assid. Pants +1", feet="Baayami Sabots"
-		}
-		
-		sets.Kiting =
-		{
-			feet="Crier's Gaiters"
+			back=gear.SMNCape_Phys, waist="Kobo Obi", legs="Assid. Pants +1", feet="Baayami Sabots"
 		}
 
 	
@@ -603,7 +594,7 @@ function init_gear_sets()
 
 		sets.perp = {}
 
-		sets.perp.Alexander = sets.midcast.Pet.Debuffs
+		sets.perp.Alexander = sets.midcast.Pet.Buffs
 
 		sets.perp.Odin = sets.midcast.Pet.Debuffs
 
