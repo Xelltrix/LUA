@@ -20,14 +20,21 @@ function job_setup()
 
 	blood_pacts = {}
 
+	blood_pacts.bp_Heals =
+	S{
+		'Healing Ruby','Healing Ruby II',
+		'Whispering Wind',
+		'Spring Water',
+	}
+	
 	blood_pacts.bp_Buffs =
 	S{
-		'Shining Ruby','Glittering Ruby','Healing Ruby','Healing Ruby II','Soothing Ruby','Pacifying Ruby',
+		'Shining Ruby','Glittering Ruby','Soothing Ruby','Pacifying Ruby',
 		'Frost Armor','Crystal Blessing',
-		'Hastega','Fleet Wind','Hastega II','Aerial Armor','Whispering Wind',
+		'Hastega','Fleet Wind','Hastega II','Aerial Armor',
 		'Earthen Armor','Earthen Ward',
 		'Rolling Thunder','Lightning Armor',
-		'Soothing Current','Spring Water',
+		'Soothing Current',
 		'Crimson Howl','Inferno Howl',
 		'Ecliptic Growl','Ecliptic Howl','Heavenward Howl',
 		'Noctoshield','Dream Shroud',
@@ -93,7 +100,7 @@ end
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
     state.OffenseMode:options('Normal', 'Avatar')
-    state.IdleMode:options('Normal', 'DT', 'Favor', 'Movement')
+    state.IdleMode:options('Normal', 'DT', 'Favor')
 	state.PhysicalDefenseMode:options('PDT')
 
     select_default_macro_book()
@@ -244,6 +251,14 @@ function init_gear_sets()
 	--  Blood Pacts  --
 	------------------- 
 
+		sets.midcast.Pet.bp_Heals =
+		{
+			main="Espiritus", sub="Vox Grip", ammo="Sancus Sachet +1",
+			head="Apogee Crown +1", neck="Smn. Collar +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
+			body="Apo. Dalmatica +1", hands="Asteria Mitts +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Evoker's Ring",
+			back="Conveyance Cape", waist="Regal Belt", legs=gear.ASlacks_MAB, feet="Apogee Pumps +1"
+		}
+	
 		sets.midcast.Pet.bp_Buffs =
 		{
 			main="Espiritus", sub="Vox Grip", ammo="Esper Stone +1",
@@ -490,11 +505,6 @@ function init_gear_sets()
 	sets.idle.DPS = set_combine(sets.idle)
 	
 	sets.idle.Favor = set_combine(sets.idle)
-	
-	sets.idle.Movement = set_combine(sets.idle,
-    {
-        feet="Crier's Gaiters"
-    })
 
 	sets.idle.Town = set_combine(sets.idle,
 	{
@@ -513,7 +523,7 @@ function init_gear_sets()
 	------------------------------------------------------------------------------------------------
 		sets.idle.Avatar =
 		{
-			main="Gridarvor", sub="Vox Grip", ammo="Sancus Sachet +1",
+			main="Gridarvor", sub="Kaja Grip", ammo="Sancus Sachet +1",
 			head="Beckoner's Horn +1", neck="Caller's Pendant", lear="Enmerkar Earring", rear="Handler's Earring +1",
 			body="Apo. Dalmatica +1", hands="Asteria Mitts +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back=gear.SMNCape_Phys, waist="Isa Belt", legs="Assid. Pants +1", feet="Apogee Pumps +1"
@@ -521,7 +531,7 @@ function init_gear_sets()
 		
 		sets.idle.DT.Avatar =
 		{
-			main="Espiritus", sub="Irenic Strap +1", ammo="Sancus Sachet +1",
+			main="Espiritus", sub="Kaja Grip", ammo="Sancus Sachet +1",
 			head="Apogee Crown", neck="Caller's Pendant", lear="Enmerkar Earring", rear="Handler's Earring +1",
 			body="Apo. Dalmatica +1", hands="Asteria Mitts +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back=gear.SMNCape_Phys, waist="Isa Belt", legs="Enticer's Pants", feet="Apogee Pumps +1"
@@ -599,19 +609,20 @@ function init_gear_sets()
 
 		sets.perp.Carbuncle =
 		{
-			ear1="Enmerkar Earring", ear2="Handler's Earring +1",
-			hands="Asteria Mitts +1"
+			hands="Asteria Mitts +1",
+			feet="Baayami Sabots"
 		}
 
 		sets.perp.CaitSith =
 		{
-			ear1="Enmerkar Earring", ear2="Handler's Earring +1",
-			hands="Lamassu Mitts +1"
+			hands="Lamassu Mitts +1",
+			feet="Baayami Sabots"
 		}
 		
 		sets.buff.Doom = 
 		{
 			neck="Nicander's Necklace",
+			lring="Saida Ring",
 			waist="Gishdubar Sash"
 		}
 
@@ -728,11 +739,9 @@ function job_buff_change(buff, gain)
 	if buff == "doom" then
         if gain then
             equip(sets.buff.Doom)
-             disable('neck')
-			 disable('waist')
+             disable('neck','lring','waist')
         else
-			enable('neck')
-            enable('waist')
+			enable('neck','lring','waist')
             handle_equipping_gear(player.status)
         end
     end
@@ -787,6 +796,8 @@ end
 function pet_midcast(spell)
 	if (spell.type == 'BloodPactRage' or spell.type == 'BloodPactWard') then
 		if bp_Buffs:contains(spell.name) then
+			equip(sets.midcast.Pet.Heals)
+		elseif bp_Buffs:contains(spell.name) then
 			equip(sets.midcast.Pet.Buffs)
 		elseif bp_Debuffs:contains(spell.name) then
 			equip(sets.midcast.Pet.Debuffs)
@@ -806,9 +817,6 @@ function customize_idle_set(idleSet)
         if sets.perp[pet.name] then
             idleSet = set_combine(idleSet, sets.perp[pet.name])
         end
-		if pet.name == 'Cait Sith' then
-			idleSet = set_combine(idleSet, sets.perp.CaitSith)
-		end
     end
 	
 	if player.mpp < 51 then
