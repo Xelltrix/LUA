@@ -140,11 +140,7 @@ function init_gear_sets()
 		
 		sets.precast.FC.Buffs = sets.precast.FC
 
-		sets.precast.FC.Magical = set_combine(sets.precast.FC,
-		{
-			rring="Rahab Ring",
-			waist="Channeler's Stone"
-		})
+		sets.precast.FC.Magical = sets.precast.FC
 		
 		sets.precast.FC.BlueSkill = sets.precast.FC. Magical
 
@@ -158,7 +154,6 @@ function init_gear_sets()
 		sets.precast.FC.Cures = set_combine(sets.precast.FC,
 		{
 			rear="Mendi. Earring",
-			waist="Emphatikos Rope"
 		})
 		
 		sets.precast.FC['Healing Magic'] = sets.precast.FC
@@ -299,7 +294,7 @@ function init_gear_sets()
 		{
 			ammo="Staunch Tathlum +1",
 			head="Assim. Keffiyeh +3", neck="Mirage Stole +2", lear="Digni. Earring", rear="Regal Earring",
-			body="Ayanmo Corazza +2", hands="Aya. Manopolas +2", lring="Vocane Ring", rring="Defending Ring",
+			body="Ayanmo Corazza +2", hands="Aya. Manopolas +2", lring="Defending Ring", rring="Vocane Ring",
 			back=gear.BLUCape_Nuke, waist="Fotia Belt", legs="Assim. Shalwar +3", feet="Aya. Gambieras +2"
 		}
 		
@@ -323,12 +318,12 @@ function init_gear_sets()
 		
 		sets.midcast['Actinic Burst'] = sets.midcast.Fantod
 
-		sets.midcast.Buffs = sets.midcast.FastRecast
+		sets.midcast.Buffs = sets.midcast.ConserveMP
 		
-		sets.midcast['Erratic Flutter'] = sets.midcast.ConserveMP
+		sets.midcast['Cocoon'] = sets.midcast.FastRecast
 		
-		sets.midcast['Mighty Guard'] = sets.midcast.ConserveMP
-
+		sets.midcast['Zephy Mantle'] = sets.midcast.FastRecast
+	
 		sets.midcast.Duration =
 		{
 			ammo="Pemphredo Tathlum",
@@ -337,21 +332,24 @@ function init_gear_sets()
 			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Telchine Braconi", feet="Telchine Pigaches"
 		}
 
-		sets.midcast.Refresh =
+		sets.midcast.Refresh = set_combine(sets.midcast.ConserveMP,
 		{
-			ammo="Pemphredo Tathlum",
-			head="Amalric Coif +1", neck="Orunmila's Torque", lear="Gwati Earring", rear="Mendi. Earring",
-			body="Telchine Chas.", hands="Telchine Gloves", lring="Kishar Ring", rring="Rahab Ring",
+			head="Amalric Coif +1", 
+			body="Telchine Chas.", hands="Telchine Gloves",
 			back="Grapevine Cape", waist="Gishdubar Sash", legs="Telchine Braconi", feet="Telchine Pigaches"
-		}
+		})
 
-		sets.midcast.Regen =
+		sets.midcast.Regen = set_combine(sets.midcast.ConserveMP,
 		{
-			ammo="Pemphredo Tathlum",
-			head="Telchine Cap", neck="Orunmila's Torque", lear="Gwati Earring", rear="Mendi. Earring",
-			body="Telchine Chas.", hands="Telchine Gloves", lring="Kishar Ring", rring="Rahab Ring",
-			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Telchine Braconi", feet="Telchine Pigaches"
-		}
+			head="Telchine Cap", 
+			body="Telchine Chas.", hands="Telchine Gloves", 
+			legs="Telchine Braconi", feet="Telchine Pigaches"
+		})
+		
+		sets.midcast['Regeneration'] = set_combine(sets.midcast.ConserveMP,
+		{
+			body="Techine Chas."
+		})
 
 	--------------------------------------
 	-- Suppoort Job Midcast sets
@@ -408,8 +406,8 @@ function init_gear_sets()
 		sets.midcast.Cursna = set_combine(sets.precast.FC,
 		{
 			neck="Debilis Medallion", lear="Beatific Earring",
-			hands="Hieros Mittens", lring="Menelaus's Ring", rring="Haoma's Ring",
-			back="Oretan. Cape +1", legs="Carmine Cuisses +1"
+			hands="Hieros Mittens", lring="Haoma's Ring", rring="Menelaus's Ring"
+			back="Oretan. Cape +1", waist="Bishop Sash", legs="Carmine Cuisses +1"
 		})
 
 		sets.midcast.StatusRemoval = sets.midcast.FastRecast
@@ -433,20 +431,20 @@ function init_gear_sets()
 		
 		sets.midcast['Dark Magic'] = set_combine(sets.midcast['Enfeebling Magic'],
 		{
-			neck="Incanter's Torque",
-			lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Evanescence Ring"
+			neck="Erra Pendant",
+			lring={name="Stikini Ring +1", bag="wardrobe2"}
 		})
 		
 		sets.midcast.Sap = set_combine(sets.midcast['Dark Magic'],
 		{
-			neck="Erra Pendant",
+			rring="Evanescence Ring",
 			waist="Fucho-no-Obi"
 		})
 
 		sets.midcast.Stun = set_combine(sets.midcast['Dark Magic'],
 		{
-			head="Carmine Mask +1",
-			body="Samnuha Coat", hands="Leyline Gloves", rring={name="Stikini Ring +1", bag="wardrobe3"},
+			head="Carmine Mask +1", rear="Gwati Earring",
+			body="Luhlaza Jubbah +3", hands="Leyline Gloves",
 			legs="Aya. Cosciales +2", feet="Amalric Nails +1"
 		})
 		
@@ -604,10 +602,10 @@ function init_gear_sets()
 			feet="Hashi. Basmak +1"
 		}]]
 		
-		sets.buff['Efflux'] = 
+--[[		sets.buff['Efflux'] = 
 		{
 			legs="Hashishin Tayt +1"
-		}
+		}]]
 		
 		sets.buff['Diffusion'] = 
 		{
@@ -775,7 +773,7 @@ function init_gear_sets()
 		{
 			ammo="Psilomene",
 			head="Luh. Keffiyeh +2", neck="Sanctity Necklace", lear="Odnowa Earring +1", rear="Moonshade Earring",
-			body="Assim. Jubbah +3", hands="Regal Cuffs", lring="Ilabrat Ring", rring="Vocane Ring",
+			body="Assim. Jubbah +3", hands="Regal Cuffs", lring="Ilabrat Ring", rring="Begrudging Ring",
 			back="Reiki Cloak", waist="Eschan Stone", legs="Assim. Shalwar +3", feet="Assim. Charuqs +2"
 		}
 	
@@ -859,20 +857,23 @@ function init_gear_sets()
 		
 		sets.engaged.Low = set_combine(sets.engaged,
 		{
-			head="Dampening Tam",
+			head="Dampening Tam", rear="Cessance Earring",
+			lring={name="Chirich Ring +1", bag="wardrobe2"},
 		})
 
 		sets.engaged.Mid = set_combine(sets.engaged.Low,
 		{
 			ammo="Falcon Eye",
-			lring="Ilabrat Ring",
+			rear={name="Mache Earring +1", bag="wardrobe3"},
+			rring={name="Chirich Ring +1", bag="wardrobe3"},
+			legs="Adhemar Kecks +1"
 		})
 
 		sets.engaged.High = set_combine(sets.engaged.Mid,
 		{
-			head="Aya. Zucchetto +2", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-			lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
-			waist="Kentarch Belt +1", legs="Carmine Cuisses +1", feet="Carmine Greaves +1"
+			head="Carmine Mask +1", lear={name="Mache Earring +1", bag="wardrobe2"}, 
+			body="Luhalaza Jubbah +3",
+			waist="Kentarch Belt +1", legs="Carmine Cuisses +1", feet="Assim. Charuqs +2"
 		})
 	
 	
@@ -1621,7 +1622,7 @@ function init_gear_sets()
 		sets.engaged.Hybrid = 
 		{
 			ammo="Staunch Tathlum +1",
-			lring="Defending Ring",
+			lring="Defending Ring", rring="Vocane Ring",
 			feet=gear.HBoots_TP
 		}
 		
@@ -1630,7 +1631,7 @@ function init_gear_sets()
 			ammo="Staunch Tathlum +1",
 			neck="Loricate Torque +1",
 			body="Ayanmo Corazza +2", lring="Defending Ring", rring="Vocane Ring",
-			feet=gear.HBoots_TP
+			waist="Fotia Belt", feet=gear.HBoots_TP
 		}
 		
 		
@@ -1914,11 +1915,9 @@ function job_buff_change(buff,gain)
 	if buff == "doom" then
         if gain then
             equip(sets.buff.Doom)
-             disable('neck')
-			 disable('waist')
+             disable('neck','lring','waist')
         else
-			enable('neck')
-            enable('waist')
+			enable('neck','lring','waist')
             handle_equipping_gear(player.status)
         end
     end
@@ -1951,7 +1950,7 @@ function job_state_change(stateField, newValue, oldValue)
 	equip(sets[state.WeaponSet.current])
 	
 	if stateField == 'Offense Mode' then
-		if newValue == 'Normal' or newValue == 'Low' or newValue == 'Mid' or newValue == 'High' then
+		if newValue ~= 'None' then
 			disable('main','sub','range')
 		else
 			enable('main','sub','range')
@@ -2001,7 +2000,6 @@ function display_current_job_state(eventArgs)
 	if state.HybridMode.value ~= 'Normal' then
 		msg = msg .. '/' .. state.HybridMode.value
 	end
-	--msg = msg .. ', WEAPONSKILL: ' .. state.WeaponskillMode.value
 
 	if state.DefenseMode.value ~= 'None' then
 		msg = msg .. ', ' .. 'Defense: ' .. state.DefenseMode.value .. ' (' .. state[state.DefenseMode.value .. 'DefenseMode'].value .. ')'
@@ -2137,7 +2135,7 @@ end)
 
 function update_active_abilities()
 --	state.Buff['Burst Affinity'] 	= buffactive['Burst Affinity'] or false
-	state.Buff['Efflux'] 			= buffactive['Efflux'] or false
+--	state.Buff['Efflux'] 			= buffactive['Efflux'] or false
 	state.Buff['Diffusion'] 		= buffactive['Diffusion'] or false
 end
 
@@ -2146,15 +2144,15 @@ function apply_ability_bonuses(spell, action, spellMap)
 --[[	if state.Buff['Burst Affinity'] and (spellMap == 'Magical' or spellMap == 'DarkBlue' or spellMap == 'LightBlue' or spellMap == 'Breath') then
 		equip(sets.buff['Burst Affinity'])
 	end]]
-	if state.Buff['Efflux'] and spellMap == 'Physical' then
+--[[	if state.Buff['Efflux'] and spellMap == 'Physical' then
 		equip(sets.buff['Efflux'])
-	end
+	end]]
 	if state.Buff['Diffusion'] and (spellMap == 'Buffs' or spellMap == 'BlueSkill') then
 		equip(sets.buff['Diffusion'])
 	end
 
 --	if state.Buff['Burst Affinity'] then equip (sets.buff['Burst Affinity']) end
-	if state.Buff['Efflux'] then equip (sets.buff['Efflux']) end
+--	if state.Buff['Efflux'] then equip (sets.buff['Efflux']) end
 	if state.Buff['Diffusion'] then equip (sets.buff['Diffusion']) end
 end
 
