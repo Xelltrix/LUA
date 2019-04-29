@@ -94,7 +94,7 @@ end
 function user_setup()
     state.OffenseMode:options('Normal', 'Avatar')
     state.IdleMode:options('Normal', 'DT', 'Favor', 'Movement')
-	state.PhysicalDefenseMode:options('PDT', 'MDT')
+	state.PhysicalDefenseMode:options('PDT')
 
     select_default_macro_book()
 	

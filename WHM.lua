@@ -27,7 +27,7 @@ end
 function user_setup()
 	state.OffenseMode:options('None', 'Normal', 'DW')
 	state.CastingMode:options('Normal', 'Resistant')
-	state.PhysicalDefenseMode:options('PDT', 'MDT')
+	state.PhysicalDefenseMode:options('PDT')
 	state.IdleMode:options('Normal', 'DT')
 
 	select_default_macro_book()

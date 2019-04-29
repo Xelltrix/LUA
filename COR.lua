@@ -137,7 +137,7 @@ function init_gear_sets()
 		{
 			range="Compensator",
 			head="Lanun Tricorne", neck="Regal Necklace", lear="Etiolation Earring",
-			body="Meg. Cuirie +2", hands="Chasseur's Gants +1", lring="Defending Ring", rring="Vocane Ring",
+			body="Meg. Cuirie +1", hands="Chasseur's Gants +1", lring="Defending Ring", rring="Vocane Ring",
 			back="Camulus's Mantle", waist="Flume Belt", legs="Desultor Tassets", feet="Lanun Bottes +1"
 		}
 		
@@ -155,13 +155,6 @@ function init_gear_sets()
 		{
 			hands="Chasseur's Gants +1"
 		})
-	
-		sets.precast.JA['Double-Up'] =
-		{
-			head="Lanun Tricorne", neck="Regal Necklace", lear="Etiolation Earring",
-			body="Meg. Cuirie +2", hands="Chasseur's Gants +1", lring="Defending Ring", rring="Vocane Ring",
-			back="Camulus's Mantle", waist="Flume Belt", legs="Desultor Tassets", feet="Lanun Bottes +1"
-		}
 		
 		sets.midcast.CorsairShot =
 		{
@@ -202,7 +195,7 @@ function init_gear_sets()
 		{
 			head="Carmine Mask +1", neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
 			body="Samnuha Coat", hands="Leyline Gloves", lring="Kishar Ring", rring="Prolix Ring",
-			waist="Flume Belt", legs="Carmine Cuisses +1", feet="Carmine Greaves +1"
+			back="Solemnity Cape", waist="Flume Belt", legs="Carmine Cuisses +1", feet="Carmine Greaves +1"
 		}
 		
 		sets.precast.FC.Utsusemi = set_combine(sets.precast.FC,
@@ -247,16 +240,16 @@ function init_gear_sets()
 		sets.idle =
 		{
 			ammo=gear.RAbullet,
-			head="Meghanada Visor +2", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
-			body="Meg. Cuirie +2", hands="Meg. Gloves +2", lring="Sheltered Ring", rring="Paguroidea Ring",
+			head="Meghanada Visor +1", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
+			body="Meg. Cuirie +1", hands="Meg. Gloves +2", lring="Sheltered Ring", rring="Paguroidea Ring",
 			back="Reiki Cloak", waist="Flume Belt", legs="Carmine Cuisses +1", feet="Lanun Bottes +1"
 		}
 
 		sets.idle.PDT = set_combine (sets.idle,
 		{
-			head="Meghanada Visor +2", neck="Loricate Torque +1",
-			body="Meg. Cuirie +2", lring="Defending Ring", rring="Vocane Ring",
-			legs="Meg. Chausses +2"
+			head="Meghanada Visor +1", neck="Loricate Torque +1",
+			body="Meg. Cuirie +1", lring="Defending Ring", rring="Vocane Ring",
+			back="Solemnity Cape", legs="Meg. Chausses +1"
 		})
 
 		sets.idle.MDT = set_combine (sets.idle,
@@ -304,8 +297,6 @@ function init_gear_sets()
 
 		sets.buff.Doom = 
 		{
-			neck="Nicander's Necklace",
-			lring="Saida Ring",
 			waist="Gishdubar Sash"
 		}
 
@@ -332,12 +323,12 @@ function init_gear_sets()
 		{
 			head="Chass. Tricorne +1",
 			body="Lak. Frac +1", hands="Lanun Gants +1", 
-			waist="Impulse Belt", legs="Adhemar Kecks", feet="Meg. Jam. +2"
+			waist="Impulse Belt", legs="Adhemar Kecks", feet="Meg. Jam. +1"
 		}
 		
 		sets.midcast.RA =
 		{
-			head="Meghanada Visor +2", neck="Iskur Gorget", lear="Telos Earring", rear="Enervating Earring",
+			head="Meghanada Visor +1", neck="Iskur Gorget", lear="Telos Earring", rear="Enervating Earring",
 			body="Lak. Frac +1", hands="Carmine Fin. Ga. +1", lring="Dingir Ring", lring="Regal Ring",
 			back="Camulus's Mantle", waist="Yemaya Belt", legs="Adhemar Kecks", feet="Adhemar Gamashes"
 		}
@@ -490,7 +481,7 @@ function init_gear_sets()
 		{
 			lear="Mache Earring +1", rear="Mache Earring +1",
 			hands="Meg. Gloves +2", rring="Cacoethic Ring +1",
-			waist="Kentarch Belt +1", feet="Meg. Jam. +2"
+			waist="Kentarch Belt +1", feet="Meg. Jam. +1"
 		})
 
 		
@@ -545,7 +536,7 @@ function init_gear_sets()
 		sets.engaged.DW2.High = set_combine(sets.engaged.DW2.Mid,
 		{
 			neck="Combatant's Torque", lear="Mache Earring +1", rear="Mache Earring +1",
-			waist="Kentarch Belt +1", feet="Meg. Jam. +2"
+			waist="Kentarch Belt +1", feet="Meg. Jam. +1"
 		})
 	
 	
@@ -599,7 +590,7 @@ function init_gear_sets()
 		sets.engaged.DW3.High = set_combine(sets.engaged.DW3.Mid,
 		{
 			lear="Mache Earring +1", rear="Mache Earring +1",
-			waist="Kentarch Belt +1", feet="Meg. Jam. +2"
+			waist="Kentarch Belt +1", feet="Meg. Jam. +1"
 		})
 	
 	
@@ -765,7 +756,7 @@ function init_gear_sets()
 		sets.engaged.DW3.High.Med = set_combine(sets.engaged.DW3.Mid.Med,
 		{
 			rring="Cacoethic Ring +1",
-			feet="Meg. Jam. +2"
+			feet="Meg. Jam. +1"
 		})
 
 	
@@ -822,7 +813,7 @@ function init_gear_sets()
 		{
 			lear="Mache Earring +1", rear="Mache Earring +1",
 			rring="Cacoethic Ring +1",
-			feet="Meg. Jam. +2"
+			feet="Meg. Jam. +1"
 		})
 	
 	----------------------------------------------------------
@@ -888,7 +879,7 @@ function init_gear_sets()
 		{
 			neck="Loricate Torque +1",
 			lring="Defending Ring", rring="Vocane Ring",
-			legs="Meg. Chausses +2"
+			legs="Meg. Chausses +1"
 		}
 
 		----------------------------------------------------------
@@ -996,6 +987,17 @@ function job_precast(spell, action, spellMap, eventArgs)
     elseif spell.type == 'CorsairShot' and state.CastingMode.value == 'Resistant' then
         classes.CustomClass = 'Acc'
     end
+
+    if spellMap == 'Utsusemi' then
+        if buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
+            cancel_spell()
+            add_to_chat(123, '**!! '..spell.english..' Canceled: [3+ IMAGES] !!**')
+            eventArgs.handled = true
+            return
+        elseif buffactive['Copy Image'] or buffactive['Copy Image (2)'] then
+            send_command('cancel 66; cancel 444; cancel Copy Image; cancel Copy Image (2)')
+        end
+    end
 end
 
 function job_post_precast(spell, action, spellMap, eventArgs)
@@ -1053,12 +1055,8 @@ function job_buff_change(buff,gain)
     if buff == "doom" then
         if gain then
             equip(sets.buff.Doom)
-			disable('neck')
-			disable('lring')
             disable('waist')
         else
-			enable('neck')
-			enable('lring')
             enable('waist')
             handle_equipping_gear(player.status)
         end

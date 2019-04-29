@@ -188,7 +188,6 @@ spell_maps = {
 	---- Enspells	
 	['Enfire']='Enspells',['Enfire II']='Enspells',['Enblizzard']='Enspells',['Enblizzard II']='Enspells',['Enaero']='Enspells',['Enaero II']='Enspells',
 	['Enstone']='Enspells',['Enstone II']='Enspells',['Enthunder']='Enspells',['Enthunder II']='Enspells',['Enwater']='Enspells',['Enwater II']='Enspells',
-	['Temper']='Tempers', ['Temper II']='Tempers', ['Phalanx']='Phalanxs',
 	--- Raise
 	['Raise']='Raise',['Raise II']='Raise',['Raise III']='Raise',['Arise']='Raise',
     ---- Reraise
@@ -218,9 +217,11 @@ spell_maps = {
     ["Mage's Ballad"]='Ballad',["Mage's Ballad II"]='Ballad',["Mage's Ballad III"]='Ballad',
     ["Army's Paeon"]='Paeon',["Army's Paeon II"]='Paeon',["Army's Paeon III"]='Paeon',["Army's Paeon IV"]='Paeon',["Army's Paeon V"]='Paeon',["Army's Paeon VI"]='Paeon',
     ['Fire Carol']='Carol',['Ice Carol']='Carol',['Wind Carol']='Carol',['Earth Carol']='Carol',['Lightning Carol']='Carol',['Water Carol']='Carol',['Light Carol']='Carol',['Dark Carol']='Carol',
-    ['Fire Carol II']='Carol',['Ice Carol II']='Carol',['Wind Carol II']='Carol',['Earth Carol II']='Carol',['Lightning Carol II']='Carol',['Water Carol II']='Carol',['Light Carol II']='Carol',['Dark Carol II']='Carol',
+    ['Fire Carol II']='Carol',['Ice Carol II']='Carol',['Wind Carol II']='Carol',['Earth Carol II']='Carol',['Lightning Carol II']='Carol',
+	['Water Carol II']='Carol',['Light Carol II']='Carol',['Dark Carol II']='Carol',
     ['Foe Lullaby']='Lullaby',['Foe Lullaby II']='Lullaby',['Horde Lullaby']='Lullaby',['Horde Lullaby II']='Lullaby',
-    ['Fire Threnody']='Threnody',['Ice Threnody']='Threnody',['Wind Threnody']='Threnody',['Earth Threnody']='Threnody',['Lightning Threnody']='Threnody',['Water Threnody']='Threnody',['Light Threnody']='Threnody',['Dark Threnody']='Threnody',
+    ['Fire Threnody']='Threnody',['Ice Threnody']='Threnody',['Wind Threnody']='Threnody',['Earth Threnody']='Threnody',['Lightning Threnody']='Threnody',
+	['Water Threnody']='Threnody',['Light Threnody']='Threnody',['Dark Threnody']='Threnody',
     ['Battlefield Elegy']='Elegy',['Carnage Elegy']='Elegy',
     ['Foe Requiem']='Requiem',['Foe Requiem II']='Requiem',['Foe Requiem III']='Requiem',['Foe Requiem IV']='Requiem',['Foe Requiem V']='Requiem',['Foe Requiem VI']='Requiem',['Foe Requiem VII']='Requiem',
     ---- Ninjutsu 
@@ -293,7 +294,7 @@ spell_maps = {
 	['Filamented Hold']='Debuffs',['Cimicine Discharge']='Debuffs',['Demoralizing Roar']='Debuffs',['Venom Shell']='Debuffs',['Light of Penance']='Debuffs',['Sandspray']='Debuffs', 
 	['Auroral Drape']='Debuffs',['Frightful Roar']='Debuffs',['Enervation']='Debuffs',['Infrasonics']='Debuffs',['Lowing']='Debuffs',['Cold Wave']='Debuffs',['Awful Eye']='Debuffs',
 	['Sheep Song']='Debuffs',['Soporific']='Debuffs',['Yawn']='Debuffs',['Dream Flower']='Debuffs',['Chaotic Eye']='Debuffs',['Sound Blast']='Debuffs',['Blank Gaze']='Debuffs',
-	['Stinking Gas']='Debuffs',['Geist Wall']='Debuffs',['Jettatura']='Debuffs',['Feather Tickle']='Debuffs',['Temporal Shift']='Debuffs',['Actinic Burst']='Debuffs',
+	['Stinking Gas']='Debuffs',['Geist Wall']='Debuffs',['Jettatura']='Debuffs',['Feather Tickle']='Debuffs',['Temporal Shift']='Debuffs',
 	['Reaving Wind']='Debuffs',['Mortal Ray']='Debuffs',['Absolute Terror']='Debuffs',['Blistering Roar']='Debuffs',['Voracious Trunk']='Debuffs',
 	--- Buffs
 	['Cocoon']='Buffs',['Refueling']='Buffs',['Feather Barrier']='Buffs',['Memento Mori']='Buffs',['Zephyr Mantle']='Buffs',['Warm-Up']='Buffs',['Amplification']='Buffs',

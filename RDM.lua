@@ -25,7 +25,7 @@ end
 function user_setup()
     state.OffenseMode:options('None', 'Normal', 'Low', 'Mid', 'High')
 	state.WeaponskillMode:options('Normal', 'Low', 'Mid', 'High')
-	state.PhysicalDefenseMode:options('PDT', 'MDT')
+	state.PhysicalDefenseMode:options('PDT')
     state.HybridMode:options('Normal', 'DT')
     state.CastingMode:options('Normal', 'Resistant', 'Potency')
     state.IdleMode:options('Normal', 'DT')

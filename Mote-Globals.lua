@@ -19,7 +19,6 @@ function define_global_sets()
 	-- Special gear info that may be useful across jobs.
 
 	-- Staffs
-	gear.Grioavolr_Enh = { name="Grioavolr", augments={'Enh. Mag. eff. dur. +9','INT+15','Mag. Acc.+21','Magic Damage +6'}}
 	gear.Grioavolr_Enf = { name="Grioavolr", augments={'Enfb.mag. skill +10','INT+17','Mag. Acc.+22','"Mag.Atk.Bns."+20','Magic Damage +9'}}
 	gear.Grioavolr_Pet = { name="Grioavolr", augments={'Blood Pact Dmg.+10','Pet: STR+4','Pet: Mag. Acc.+11','Pet: "Mag.Atk.Bns."+17'}}
 	
@@ -33,18 +32,35 @@ function define_global_sets()
 	gear.RDMCape_Nuke = { name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10','Phys. dmg. taken-10%'}}
 	gear.RDMCape_DW = { name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dual Wield"+10','Phys. dmg. taken -10%'}}
 	gear.RDMCape_WSD = { name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%'}}
-	gear.RDMCape_Crit = { name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Crit.hit rate+10'}}
+	gear.RDMCape_Crit = { name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Crit.hit rate+10'}}
+	gear.RDMCape_STP = { name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken -10%'}}
 	gear.RDMCape_ENF = { name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%'}}
+	
+	gear.SCHCape_Nuke = { name="Lugh's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10','Phys. dmg. taken-10%'}}
+	gear.SCHCape_ENF = { name="Lugh's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10%'}}
 	
 	gear.RUNCape_STP = { name="Ogma's cape", augments={'DEX+20','Accuracy+20 Attack+20','"Store TP"+10','Phys. dmg. taken-10%',}}
 	gear.RUNCape_FC = { name="Ogma's cape", augments={'Eva.+20 /Mag. Eva.+20','"Fast Cast"+10',}}
 	
+	gear.THFCape_STP = { name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Store TP"+10','Phys. dmg. taken-10%',}}
+	gear.THFCape_Crit = { name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Crit.hit rate+10',}}
+	
+	gear.SMNCape_Phys = { name="Campestres's Cape", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+10 /Mag. Eva.+10','Pet: "Regen"+10',}}
+	gear.SMNCape_Mag =  { name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+10 /Mag. Eva.+10','"Fast Cast"+10','Phys. dmg. taken-10%',}}
+	
 	-- Colada
 	gear.Colada_ENH = { name="Colada", augments={'Enh. Mag. eff. dur. +4','Mag. Acc.+8','DMG:+14'}}
+	
+	-- Apogee
+	gear.ASlacks_MAB = { name="Apogee Slacks +1", augments={'MP+80','Pet: "Mag.Atk.Bns."+35','Blood Pact Dmg.+8',}}
+	gear.ASlacks_DA = { name="Apogee Slacks +1", augments={'Pet: STR+20','Blood Pact Dmg.+14','Pet: "Dbl. Atk."+4',}}
 	
 	--Merlinic
 	gear.PetHood = { name="Merlinic Hood", augments={'Blood Pact Dmg.+9','Pet: STR+7','Pet: Mag. Acc.+11','Pet: "Mag.Atk.Bns."+14'}}
 	gear.NukeHood = { name="Merlinic Hood", augments={'Mag. Acc.+21 "Mag.Atk.Bns."+21','"Occult Acumen"+8','INT+8','Mag. Acc.+10','"Mag.Atk.Bns."+15',}}
+	
+	gear.PetAtkHands = { name="Merlinic Dastanas", augments={'Pet: Attack+24 Pet: Rng.Atk.+24','Blood Pact Dmg.+10','Pet: DEX+2','Pet: Mag. Acc.+10',}}
+	gear.PetNukeHands = { name="Merlinic Dastanas", augments={'Pet: Mag. Acc.+17 Pet: "Mag.Atk.Bns."+17','Blood Pact Dmg.+9','Pet: INT+9','Pet: "Mag.Atk.Bns."+3',}}
 	
 	gear.NukeCrackows = { name="Merlinic Crackows", augments={'Mag. Acc.+21 "Mag.Atk.Bns."+21','Magic burst dmg.+11%','Mag. Acc.+14',}}
 	gear.PetCrackows = { name="Merlinic Crackows", augments={'Pet: "Mag.Atk.Bns."+26','Blood Pact Dmg.+9','Pet: VIT+10','Pet: Mag. Acc.+10'}}
@@ -54,8 +70,8 @@ function define_global_sets()
 	gear.HHead_WSD = { name="Herculean Helm", augments={'Accuracy+29','Weapon skill damage +4%','STR+9','Attack+15'}}
 	
 	gear.HBoots_TP = { name="Herculean Boots", augments={'Accuracy+20 Attack+20','"Triple Atk."+4','Accuracy+6','Attack+15',}}
-	gear.HBoots_Crit = { name="Herculean Boots", augments={'Accuracy+6','Crit. hit damage +4%','DEX+7',}}
-	gear.HBoots_WSD = { name="Herculean Boots", augments={'Weapon skill damage +5%','STR+4','Accuracy+7',}}
+	gear.HBoots_Crit = { name="Herculean Boots", augments={'Accuracy+26','Crit. hit damage +5%','DEX+8',}}
+	gear.HBoots_WSD = { name="Herculean Boots", augments={'Weapon skill damage +4%','STR+10','Attack+26',}}
 	
 	--- Taeon
 	gear.THead_Phalanx ={ name="Taeon Chapeau", augments={'Mag. Evasion+5','Spell interruption rate down -8%','Phalanx +3',}}

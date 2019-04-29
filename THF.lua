@@ -203,7 +203,7 @@ function init_gear_sets()
 	sets.idle.PDT = set_combine (sets.idle,
 	{
 		ammo="Staunch Tathlum +1",
-		head="Meghanada Visor +1", neck="Loricate Torque +1",
+		head="Meghanada Visor +2", neck="Loricate Torque +1",
 		body="Meg. Cuirie +2", lring="Defending Ring", rring="Vocane Ring",
 	})
 
