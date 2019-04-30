@@ -410,7 +410,7 @@ function init_gear_sets()
 		main="Bolelabunga", sub="Genmei Shield", ammo="Homiliary",
 		head="Viti. Chapeau +3", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 		body="Atrophy Tabard +3", hands="Chironic Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-        back=gear.RDMCape_DW, waist="Flume Belt", legs="Carmine Cuisses +1", feet="Chironic Slippers"
+        back=gear.RDMCape_DW, waist="Flume Belt +1", legs="Carmine Cuisses +1", feet="Chironic Slippers"
 	}
 
 	sets.idle.DT =
@@ -418,7 +418,7 @@ function init_gear_sets()
 		main="Mafic Cudgel", sub="Genmei Shield", ammo="Staunch Tathlum +1",
 		head="Viti. Chapeau +3", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Static Earring",
 		body="Atrophy Tabard +3", hands="Chironic Gloves", lring="Defending Ring", rring="Vocane Ring",
-		back=gear.RDMCape_DW, waist="Flume Belt", legs="Carmine Cuisses +1", feet="Chironic Slippers"
+		back=gear.RDMCape_DW, waist="Flume Belt +1", legs="Carmine Cuisses +1", feet="Chironic Slippers"
 	}
 
 	sets.idle.Town = set_combine(sets.idle,
@@ -447,7 +447,7 @@ function init_gear_sets()
 			main="Mafic Cudgel", sub="Genmei Shield", ammo="Staunch Tathlum +1",
 			head="Viti. Chapeau +3", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
 			body="Atrophy Tabard +3", hands="Chironic GLoves", lring="Defending Ring", rring="Vocane Ring",
-			back=gear.RDMCape_DW, waist="Flume Belt", legs="Lengo Pants", feet="Chironic Slippers"
+			back=gear.RDMCape_DW, waist="Flume Belt +1", legs="Lengo Pants", feet="Chironic Slippers"
 		}
 		
 		sets.defense.MDT = 
@@ -455,7 +455,7 @@ function init_gear_sets()
 			main="Mafic Cudgel", sub="Genmei Shield", ammo="Staunch Tathlum +1",
 			head="Viti. Chapeau +3", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Static Earring",
 			body="Viti. Tabard +3", hands="Leyline Gloves", lring="Defending Ring", rring="Vocane Ring",
-			back="Reiki Cloak", waist="Flume Belt", legs="Viti. Tights +3", feet="Vitiation Boots +3"
+			back="Reiki Cloak", waist="Flume Belt +1", legs="Viti. Tights +3", feet="Vitiation Boots +3"
 		}
 	
 	--------------------------------------
@@ -1250,14 +1250,14 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 		})
 	end
 
-	if spell.skill == 'Elemental Magic' and state.MagicBurst.value then
-		if (spell.element ~= 'Dark' and (spell.element == world.day_element or spell.element == world.weather_element)) then
+	if spell.skill == 'Elemental Magic' and state.MagicBurst.value and CastingMode ~= 'Resistant' then
+		if spellMap ~= 'Helix' and spell.element ~= 'Dark' and (spell.element == world.day_element or spell.element == world.weather_element) then
 			equip(set_combine(sets.magic_burst,
 			{
 				waist="Hachirin-no-Obi"
 			}))
 		elseif spell.element == 'Dark' and spell.english ~= 'Impact' then
-			if (world.weather_element == 'Dark' or world.day_element == 'Dark') then
+			if spellMap ~= 'Helix' and (world.weather_element == 'Dark' or world.day_element == 'Dark') then
 				equip(set_combine(sets.magic_burst,
 				{
 					head="Pixie Hairpin +1",
@@ -1291,7 +1291,48 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 		else
 			equip(sets.magic_burst)
 		end
-	elseif spell.skill =='Elemental Magic' and (spell.element == world.day_element or spell.element == world.weather_element) then
+	elseif spell.skill == 'Elemental Magic' and state.MagicBurst.value and CastingMode == 'Resistant' then
+		if spellMap ~= 'Helix' and spell.element ~= 'Dark' and (spell.element == world.day_element or spell.element == world.weather_element) then
+			equip(set_combine(sets.magic_burst.Resistant,
+			{
+				waist="Hachirin-no-Obi"
+			}))
+		elseif spell.element == 'Dark' and spell.english ~= 'Impact' then
+			if spellMap ~= 'Helix' and (world.weather_element == 'Dark' or world.day_element == 'Dark') then
+				equip(set_combine(sets.magic_burst.Resistant,
+				{
+					head="Pixie Hairpin +1",
+					lring="Archon Ring",
+					waist="Hachirin-no-Obi"
+				}))
+			else
+				equip(set_combine(sets.magic_burst.Resistant,
+				{
+					head="Pixie Hairpin +1",
+					lring="Archon Ring"
+				}))
+
+			end
+		elseif spell.element == 'Dark' and spell.english == 'Impact' then
+			if (world.weather_element == 'Dark' or world.day_element == 'Dark') then
+				equip(set_combine(sets.magic_burst.Resistant,
+				{
+					head=empty,
+					body="Twilight Cloak", lring="Archon Ring",
+					waist="Hachirin-no-Obi"
+				}))
+			else
+				equip(set_combine(sets.magic_burst.Resistant,
+				{
+					head=empty,
+					body="Twilight Cloak", lring="Archon Ring"
+				}))
+			end
+
+		else
+			equip(sets.magic_burst.Resistant)
+		end
+	elseif spell.skill =='Elemental Magic' and spellMap ~= 'Helix' and (spell.element == world.day_element or spell.element == world.weather_element) then
 		if spell.element == 'Dark' then
 			equip
 			{
