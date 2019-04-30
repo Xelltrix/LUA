@@ -238,6 +238,8 @@ spell_maps = {
 	['Drain']='Sap',['Drain II']='Sap',['Drain III']='Sap',['Aspir']='Sap',['Aspir II']='Sap',['Aspir III']='Sap',
 	['Absorb-Str']='Absorb',['Absorb-Dex']='Absorb',['Absorb-Vit']='Absorb',['Absorb-Agi']='Absorb',['Absorb-Int']='Absorb',['Absorb-Mnd']='Absorb',['Absorb-Chr']='Absorb',
     ['Absorb-Acc']='Absorb',
+	---Static
+	['Sleep']='Static',['Sleep II']='Static',['Sleepga']='Static',['Sleepga II']='Static',['Break']='Static',['Breakga']='Static',['Bind']='Static',['Gravity']='Static',['Gravity II']='Static',['Silence']='Static',
     --- Elemental Debuffs
 	['Burn']='ElementalDebuff',['Frost']='ElementalDebuff',['Choke']='ElementalDebuff',['Rasp']='ElementalDebuff',['Shock']='ElementalDebuff',['Drown']='ElementalDebuff',
     --- Helices
