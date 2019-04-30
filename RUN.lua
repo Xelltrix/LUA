@@ -35,6 +35,8 @@ function user_setup()
 	send_command('bind @q gs c cycleback WeaponSet')
 
 	select_default_macro_book()
+	
+	set_lockstyle()
 end
 
 function user_unload()
@@ -200,8 +202,9 @@ function init_gear_sets()
 		
 		sets.midcast.FC.SIRD = set_combine(sets.midcast.FC.HP,
 		{
-			body=TBody_Phalanx, hands="Rawhide Gloves", lring="Defending Ring", rring="Moonbeam Ring",
-			waist="Flume Belt", legs="Carmine Cuisses +1", feet=TFeet_Phalanx
+			head=gear.THead_Phalanx, neck="Moonbeam Necklace",
+			body=gear.TBody_Phalanx, hands="Rawhide Gloves", lring="Defending Ring", rring="Moonbeam Ring",
+			waist="Flume Belt +1", legs="Carmine Cuisses +1", feet=gear.TFeet_Phalanx
 		})
 
 	
@@ -209,30 +212,23 @@ function init_gear_sets()
 	-- Buffing Midcast sets
 	--------------------------------------	
 		
-		sets.midcast.Duration = set_combine(sets.midcast.FC,
+		sets.midcast.Duration = 
 		{
 			head="Erilaz Galea +1",
 			legs="Futhark Trousers +1"
-		})
+		}
 		
-		sets.midcast.Duration.HP = set_combine(sets.midcast.FC.HP,
-		{
-			head="Erilaz Galea +1",
-			legs="Futhark Trousers +1"
-		})
-		
-		sets.midcast.Regen = set_combine(sets.midcast.FC.SIRD,
+		sets.midcast.Regen =
 		{
 			head="Rune. Bandeau +1",
 			body="Futhark Coat +1",
-		})
+		}
 
-		sets.midcast.Refresh = set_combine(sets.midcast.FC.SIRD,
+		sets.midcast.Refresh =
 		{
 			head="Erilaz Galea +1",
-			hands="Rawhide Gloves", lring="Defending Ring", rring="Vocane Ring",
-			waist="Gishdubar Sash",
-		})
+			waist="Gishdubar Sash", legs ="Futhark Trousers +1"
+		}
 
 		sets.midcast.Phalanx =
 		{
@@ -263,28 +259,12 @@ function init_gear_sets()
 		sets.midcast.Stoneskin = sets.midcast.FC.SIRD
 
 		sets.midcast.Aquaveil = sets.midcast.Duration
-		
-		sets.midcast.Aquaveil.HP = sets.midcast.Duration.HP
-		
-		sets.midcast.Aquaveil.SIRD = sets.midcast.Duration.SIRD
 
 		sets.midcast.Statless = sets.midcast.Duration
-		
-		sets.midcast.Statless.HP = sets.midcast.Duration.HP
-		
-		sets.midcast.Statless.SIRD = sets.midcast.Duration.SIRD
 
 		sets.midcast['Enhancing Magic'] = sets.midcast.Duration
 		
-		sets.midcast['Enhancing Magic'].HP = sets.midcast.Duration.HP
-		
-		sets.midcast['Enhancing Magic'].SIRD = sets.midcast.Duration.SIRD
-		
 		sets.midcast.Utsusemi = sets.midcast.FC
-		
-		sets.midcast.Utsusemi.HP = sets.midcast.FC.HP
-		
-		sets.midcast.Utsusemi.SIRD = sets.midcast.FC.SIRD
 
 		sets.midcast.Protect = sets.midcast.Duration
 
@@ -299,23 +279,11 @@ function init_gear_sets()
 	
 		sets.midcast.Flash = sets.Enmity
 		
-		sets.midcast.Flash.HP = sets.Enmity.HP
-		
 		sets.midcast.Stun = sets.Enmity
 		
-		sets.midcast.Stun.HP = sets.Enmity.HP
-		
-		sets.midcast.Poisonga = sets.midcast.FC
-		
-		sets.midcast.Poisonga.HP = sets.midcast.FC.HP
-		
-		sets.midcast.Poisonga.SIRD = sets.midcast.FC.SIRD
+		sets.midcast.Foil = sets.Enmity
 		
 		sets.midcast.Debuffs = sets.Enmity
-		
-		sets.midcast['Blue Magic'].HP = sets.Enmity.HP
-		
-		sets.midcast['Blue Magic'].SIRD = sets.midcast.FC.SIRD
 
 	
 	
@@ -370,7 +338,7 @@ function init_gear_sets()
 			ammo="Homiliary",
 			head="Erilaz Galea +1", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 			body="Runeist Coat +1", hands="Runeist Mitons +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Moonbeam Cape", waist="Flume Belt", legs="Carmine Cuisses +1", feet="Erilaz Greaves +1"
+			back="Moonbeam Cape", waist="Flume Belt +1", legs="Carmine Cuisses +1", feet="Erilaz Greaves +1"
 		}
 
 		sets.idle.DT = 
@@ -378,7 +346,7 @@ function init_gear_sets()
 			ammo="Staunch Tathlum +1",
 			head="Aya. Zucchetto +2", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
 			body="Futhark Coat +1", hands="Aya. Manopolas +2", lring="Defending Ring", rring="Moonbeam Ring",
-			back="Moonbeam Cape", waist="Flume Belt", legs="Carmine Cuisses +1", feet="Erilaz Greaves +1"
+			back="Moonbeam Cape", waist="Flume Belt +1", legs="Carmine Cuisses +1", feet="Erilaz Greaves +1"
 		}
 		
 		sets.idle.Refresh =
@@ -386,7 +354,7 @@ function init_gear_sets()
 			ammo="Homiliary",
 			head="Rawhide Mask", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 			body="Runeist Coat +1", hands="Runeist Mitons +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Moonbeam Cape", waist="Flume Belt", legs="Rawhide Trousers", feet="Erilaz Greaves +1"
+			back="Moonbeam Cape", waist="Flume Belt +1", legs="Rawhide Trousers", feet="Erilaz Greaves +1"
 		}
 
 		sets.idle.Town = set_combine(sets.idle,
@@ -412,7 +380,7 @@ function init_gear_sets()
 			ammo="Staunch Tathlum +1",
 			head="Aya. Zucchetto +2", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
 			body="Erilaz Surcoat +1", hands="Aya. Manopolas +2", lring="Defending Ring", rring="Moonbeam Ring",
-			back="Moonbeam Cape", waist="Flume Belt", legs="Eri. Leg Guards +1", feet="Erilaz Greaves +1"
+			back="Moonbeam Cape", waist="Flume Belt +1", legs="Eri. Leg Guards +1", feet="Erilaz Greaves +1"
 		}
 		
 		
@@ -421,7 +389,7 @@ function init_gear_sets()
 			ammo="Staunch Tathlum +1",
 			head="Erilaz Galea +1", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
 			body="Futhark Coat +1", hands="Erilaz Gauntlets +1", lring="Defending Ring", rring="Moonbeam Ring",
-			back="Moonbeam Cape", waist="Flume Belt", legs="Eri. Leg Guards +1", feet="Erilaz Greaves +1"
+			back="Moonbeam Cape", waist="Flume Belt +1", legs="Eri. Leg Guards +1", feet="Erilaz Greaves +1"
 		}
 
 	
@@ -629,7 +597,7 @@ function init_gear_sets()
 			ammo="Staunch Tathlum +1",
 			head="Dampening Tam", neck="Loricate Torque +1",
 			body="Ayanmo Corazza +2", lring="Defending Ring", rring="Moonbeam Ring",
-			back=gear.RUNCape_STP, waist="Flume Belt"
+			back=gear.RUNCape_STP, waist="Flume Belt +1"
 		}
 		
 		sets.engaged.Hybrid2 =
@@ -637,7 +605,7 @@ function init_gear_sets()
 			ammo="Staunch Tathlum +1",
 			head="Aya. Zucchetto +2", neck="Loricate Torque +1",
 			body="Ayanmo Corazza +2", hands="Aya. Manopolas +2", lring="Defending Ring", rring="Moonbeam Ring",
-			back="Moonbeam Cape", waist="Flume Belt", legs="Aya. Cosciales +2", feet="Aya. Gambieras +2"
+			back="Moonbeam Cape", waist="Flume Belt +1", legs="Aya. Cosciales +2", feet="Aya. Gambieras +2"
 		}
 		
 	---Hybrid Combat
@@ -660,14 +628,7 @@ end
 function job_precast(spell, action, spellMap, eventArgs)
 	currentSpell = spell.english
 	
-	if spell.action_type == 'Magic' and buffactive['Fast Cast'] and state.CastingMode.value ~= 'SIRD' then
-		eventArgs.handled = true
-		
-		equip(sets.precast.FC.HP)
-		equip(sets.precast.FC['currentSpell'])
-	end
-	
-	if state.CastingMode.value == 'HP' then
+	if state.CastingMode.value ~= 'Normal' or (spell.action_type == 'Magic' and buffactive['Fast Cast']) then
 		eventArgs.handled = true
 		
 		if spell.action_type == 'Magic' then
@@ -678,7 +639,10 @@ function job_precast(spell, action, spellMap, eventArgs)
 			equip(sets.precast.JA[currentSpell])
 		end
 	else
-		if spell.action_type == 'Ability' then
+		if spell.action_type == 'Magic' then
+			equip(sets.precast.FC)
+			equip(sets.precast.FC['currentSpell'])
+		elseif spell.action_type == 'Ability' then
 			equip(sets.Enmity)
 			equip(sets.precast.JA[currentSpell])
 		end
@@ -688,13 +652,28 @@ end
 function job_midcast(spell, action, spellMap, eventArgs)
     currentSpell = spell.english
 	
-	if (spell.action_type == 'Magic' and buffactive['Fast Cast'] and state.CastingMode.value ~= 'SIRD') or 
-				state.CastingMode.value == 'HP'	then
-		eventArgs.handled = true
-		
-		equip(sets.midcast.FC.HP['currentSpell'])
+	if spell.action_type == 'Magic' then
+		if state.CastingMode.value == 'HP' then
+			if spell.English == 'Flash' or spell.English == 'Foil' or spell.English == 'Stun' or spellMap == 'Debuffs' then
+				equip(sets.Enmity.HP)
+			else
+				equip(sets.midcast.FC.HP)
+				equip(sets.midcast['currentSpell'])
+			end
+		elseif state.CastingMode.value == 'SIRD' then
+			eventArgs.handled = true
+			
+			if spellMap == 'Debuffs' then
+				equip(sets.midcast.FC.SIRD)
+			else
+				equip(sets.midcast.FC.SIRD)
+				equip(sets.midcast['currentSpell'])
+			end
+		else
+			equip(sets.midcast.FC)
+			equip(sets.midcast['currentSpell'])
+		end
 	end
-	
 end
 
 function job_aftercast(spell,action, spellMap, eventArgs)
@@ -759,8 +738,8 @@ function display_current_job_state(eventArgs)
 		msg = msg .. ', Kiting'
 	end
 	
-	if state.CastingMode ~= 'Normal' then
-		msg = msg .. ', ' .. 'Casting Mode:' .. state.CastingMode.value ..
+	if state.CastingMode.value ~= 'Normal' then
+		msg = msg .. ', ' .. 'Casting Mode:' .. state.CastingMode.value
 	end
 
 	add_to_chat(122, msg)

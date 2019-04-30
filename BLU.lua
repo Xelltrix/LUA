@@ -348,7 +348,7 @@ function init_gear_sets()
 		
 		sets.midcast['Regeneration'] = set_combine(sets.midcast.ConserveMP,
 		{
-			body="Techine Chas."
+			body="Telchine Chas."
 		})
 
 	--------------------------------------
@@ -406,8 +406,8 @@ function init_gear_sets()
 		sets.midcast.Cursna = set_combine(sets.precast.FC,
 		{
 			neck="Debilis Medallion", lear="Beatific Earring",
-			hands="Hieros Mittens", lring="Haoma's Ring", rring="Menelaus's Ring"
-			back="Oretan. Cape +1", waist="Bishop Sash", legs="Carmine Cuisses +1"
+			hands="Hieros Mittens", lring="Haoma's Ring", rring="Menelaus's Ring",
+			back="Oretan. Cape +1", waist="Bishop's Sash", legs="Carmine Cuisses +1"
 		})
 
 		sets.midcast.StatusRemoval = sets.midcast.FastRecast
@@ -510,7 +510,7 @@ function init_gear_sets()
 			ammo="Staunch Tathlum +1",
 			head="Rawhide Mask", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 			body="Assim. Jubbah +3", hands="Aya. Manopolas +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back=gear.BLUCape_STP, waist="Flume Belt", legs="Carmine Cuisses +1", feet="Aya. Gambieras +2"
+			back=gear.BLUCape_STP, waist="Flume Belt +1", legs="Carmine Cuisses +1", feet="Aya. Gambieras +2"
 		}
 
 		sets.idle.DT =
@@ -518,7 +518,7 @@ function init_gear_sets()
 			ammo="Staunch Tathlum +1",
 			head="Rawhide Mask", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
 			body="Assim. Jubbah +3", hands="Aya. Manopolas +2", lring="Defending Ring", rring="Vocane Ring",
-			back=gear.BLUCape_STP, waist="Flume Belt", legs="Carmine Cuisses +1", feet="Aya. Gambieras +2"
+			back=gear.BLUCape_STP, waist="Flume Belt +1", legs="Carmine Cuisses +1", feet="Aya. Gambieras +2"
 		}
 		
 		sets.idle.Refresh = set_combine(sets.idle,
@@ -553,7 +553,7 @@ function init_gear_sets()
 			ammo="Staunch Tathlum +1",
 			head="Aya. Zucchetto +2", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
 			body="Ayanmo Corazza +2", hands="Aya. Manopolas +2", lring="Defending Ring", rring="Vocane Ring",
-			back=gear.BLUCape_STP, waist="Flume Belt", legs="Carmine Cuisses +1", feet="Aya. Gambieras +2"
+			back=gear.BLUCape_STP, waist="Flume Belt +1", legs="Carmine Cuisses +1", feet="Aya. Gambieras +2"
 		}
 
 		sets.defense.MDT = set_combine(sets.defense.PDT,
@@ -872,7 +872,7 @@ function init_gear_sets()
 		sets.engaged.High = set_combine(sets.engaged.Mid,
 		{
 			head="Carmine Mask +1", lear={name="Mache Earring +1", bag="wardrobe2"}, 
-			body="Luhalaza Jubbah +3",
+			body="Luhlaza Jubbah +3",
 			waist="Kentarch Belt +1", legs="Carmine Cuisses +1", feet="Assim. Charuqs +2"
 		})
 	
