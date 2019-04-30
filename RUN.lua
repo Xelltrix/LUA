@@ -298,6 +298,14 @@ function init_gear_sets()
 			body="Ayanmo Corazza +2", hands="Aya. Manopolas +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back=gear.RUNCape_FC, waist="Luminary Sash", legs="Aya. Cosciales +2", feet="Aya. Gambieras +2"
 		}
+	
+		sets.midcast.Cures =
+		{
+			ammo="Staunch Tathlum +1",
+			head="Erilaz Galea +1", neck="Moonbeam Necklace", lear="Mendi. Earring", rear="Odnowa Earring +1",
+			body="Vrikodara Jupon", hands="Runeist Mitons +1", lring="Eihwaz Ring", rring="Moonbeam Ring",
+			back="Moonbeam Cape", waist="Gishdubar Sash", legs="Futhark Trousers +1", feet="Erilaz Greaves +1"
+		}
 		
 		sets.midcast['Elemental Magic'] = sets.precast.JA['Swipe']
 
@@ -344,9 +352,9 @@ function init_gear_sets()
 		sets.idle.DT = 
 		{
 			ammo="Staunch Tathlum +1",
-			head="Aya. Zucchetto +2", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
-			body="Futhark Coat +1", hands="Aya. Manopolas +2", lring="Defending Ring", rring="Moonbeam Ring",
-			back="Moonbeam Cape", waist="Flume Belt +1", legs="Carmine Cuisses +1", feet="Erilaz Greaves +1"
+			head="Erilaz Galea +1", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
+			body="Futhark Coat +1", hands="Erilaz Gauntlets +1", lring="Defending Ring", rring="Moonbeam Ring",
+			back="Moonbeam Cape", waist="Flume Belt +1", legs="Eri. Leg Guard +1", feet="Erilaz Greaves +1"
 		}
 		
 		sets.idle.Refresh =
@@ -378,8 +386,8 @@ function init_gear_sets()
 		sets.defense.PDT =
 		{
 			ammo="Staunch Tathlum +1",
-			head="Aya. Zucchetto +2", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
-			body="Erilaz Surcoat +1", hands="Aya. Manopolas +2", lring="Defending Ring", rring="Moonbeam Ring",
+			head="Fu. Bandeau +1", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
+			body="Erilaz Surcoat +1", hands="Runeist Mitons +1", lring="Defending Ring", rring="Moonbeam Ring",
 			back="Moonbeam Cape", waist="Flume Belt +1", legs="Eri. Leg Guards +1", feet="Erilaz Greaves +1"
 		}
 		
@@ -411,6 +419,8 @@ function init_gear_sets()
 	
 		sets.Kiting =
 		{
+			head="Fu. Bandeau +1",
+			hands="Runeist Mitons +1",
 			legs="Carmine Cuisses +1"
 		}
 
@@ -562,7 +572,7 @@ function init_gear_sets()
 
 		sets.engaged =
 		{
-			sub="Utu Grip", ammo="Yamarang",
+			ammo="Yamarang",
 			head="Adhemar Bonnet +1", neck="Anu Torque", lear="Sherida Earring", rear="Telos Earring",
 			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Niqmaddu Ring", rring="Epona's Ring",
 			back=gear.RUNCape_STP, waist="Windbuffet Belt +1", legs="Samnuha Tights", feet=gear.HBoots_TP
@@ -604,7 +614,7 @@ function init_gear_sets()
 		{
 			ammo="Staunch Tathlum +1",
 			head="Aya. Zucchetto +2", neck="Loricate Torque +1",
-			body="Ayanmo Corazza +2", hands="Aya. Manopolas +2", lring="Defending Ring", rring="Moonbeam Ring",
+			body="Ayanmo Corazza +2", lring="Defending Ring", rring="Moonbeam Ring",
 			back="Moonbeam Cape", waist="Flume Belt +1", legs="Aya. Cosciales +2", feet="Aya. Gambieras +2"
 		}
 		
@@ -762,7 +772,11 @@ end
 
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
-    set_macro_page(1, 14)
+	if player.sub_job == 'DRK' then
+		set_macro_page(1, 14)
+	elseif player.sub_job == 'BLU' then
+		set_macro_page(5,14)
+	end
 end
 
 function set_lockstyle()
