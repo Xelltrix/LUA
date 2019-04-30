@@ -29,6 +29,12 @@ function user_setup()
     state.HybridMode:options('Normal', 'DT')
     state.CastingMode:options('Normal', 'Resistant', 'Potency')
     state.IdleMode:options('Normal', 'DT')
+	
+	state.WeaponSet = M{['description']='Weapon Set',
+		'SequenceA',
+		'SequenceT',
+		'Almace',
+	}
 
 	state.MagicBurst = M(false, 'Magic Burst')
 
@@ -40,6 +46,9 @@ end
 
 function user_unload()
 	send_command('unbind !`')
+	
+	send_command('unbind @w')
+	send_command('unbind @q')
 end
 
 -- Define sets and vars used by this job file.
@@ -633,7 +642,7 @@ function init_gear_sets()
 			ammo="Pemphredo Tathlum",
 			head="Pixie Hairpin +1", neck="Sanctity Necklace", lear="Regal Earring", rear="Friomisi Earring",
 			body="Amalric Doublet +1", hands="Jhakri Cuffs +2", lring="Archon Ring", rring={name="Shiva Ring +1", bag="wardrobe3"}, 
-			back=gear.RDMCape_ENF, waist="Refoccilation Stone", legs="Amalric Slops +1", feet="Vitiation Boots +3"
+			back=gear.RDMCape_ENF, waist="Orpheus's Sash", legs="Amalric Slops +1", feet="Vitiation Boots +3"
 		}
 	
 	
@@ -674,8 +683,9 @@ function init_gear_sets()
 	---Aeolian Edge
 		sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS['Sanguine Blade'] ,
 		{
-			head=gear.NukeHood, rear="Friomisi Earring",
-			back=gear.RDMCape_WSD
+			head=gear.NukeHood, 
+			lring={name="Shiva Ring +1", bag="wardrobe2"},
+			back=gear.RDMCape_Nuke
 		})
 
 
@@ -696,7 +706,7 @@ function init_gear_sets()
 		-----------------------------------------------------------
 		sets.engaged =
 		{
-			main="Sequence", sub="Genmei Shield", ammo="Ginsen",
+			sub="Genmei Shield", ammo="Ginsen",
 			head=gear.THead_TP, neck="Anu Torque", lear="Sherida Earring", rear="Brutal Earring",
 			body="Ayanmo Corazza +2", hands="Carmine Fin. Ga. +1", lring="Petrov Ring", rring="Hetairoi Ring",
 			back=gear.RDMCape_STP, waist="Windbuffet Belt +1", legs=gear.TLegs_TP, feet="Carmine Greaves +1"
@@ -732,7 +742,7 @@ function init_gear_sets()
 		sets.engaged.High = set_combine(sets.engaged.Mid,
 		{
 			lear={name="Mache Earring +1", bag="wardrobe2"}, 
-			waist="Kentarch Belt +1", legs="Viti. Tights +3"
+			waist="Kentarch Belt +1", legs="Viti. Tights +3", feet="Aya. Gambieras +2"
 		})
 
 		
@@ -752,7 +762,7 @@ function init_gear_sets()
 		-----------------------------------------------------------
 		sets.engaged.DW2 =
 		{
-			main="Sequence", sub="Almace", ammo="Ginsen",
+			ammo="Ginsen",
 			head=gear.THead_TP, neck="Anu Torque", lear="Eabani Earring", rear="Suppanomimi",
 			body="Ayanmo Corazza +2", hands=gear.THands_TP, lring="Petrov Ring", rring="Ilabrat Ring",
 			back=gear.RDMCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet=gear.TFeet_TP
@@ -808,7 +818,7 @@ function init_gear_sets()
 		-----------------------------------------------------------	
 		sets.engaged.DW3 = 
 		{
-			main="Sequence", sub="Almace", ammo="Ginsen",
+			ammo="Ginsen",
 			head=gear.THead_TP, neck="Anu Torque", lear="Eabani Earring", rear="Suppanomimi",
 			body="Ayanmo Corazza +2", hands=gear.THands_TP, lring="Petrov Ring", rring="Ilabrat Ring",
 			back=gear.RDMCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet=gear.TFeet_TP
@@ -977,7 +987,7 @@ function init_gear_sets()
 		-----------------------------------------------------------		
 		sets.engaged.DW3.Med =
 		{
-			main="Sequence", sub="Almace", ammo="Ginsen",
+			ammo="Ginsen",
 			head=gear.THead_TP, neck="Anu Torque", lear="Sherida Earring", rear="Suppanomimi",
 			body="Ayanmo Corazza +2", hands=gear.THands_TP, lring="Petrov Ring", rring="Ilabrat Ring",
 			back=gear.RDMCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet=gear.TFeet_TP
@@ -1032,7 +1042,7 @@ function init_gear_sets()
 		-----------------------------------------------------------	
 		sets.engaged.DW2.Max =
 		{
-			main="Sequence", sub="Almace", ammo="Ginsen",
+			ammo="Ginsen",
 			head=gear.THead_TP, neck="Anu Torque", lear="Sherida Earring", rear="Suppanomimi",
 			body="Ayanmo Corazza +2", hands=gear.THands_TP, lring="Petrov Ring", rring="Hetairoi Ring",
 			back=gear.RDMCape_DW, waist="Windbuffet Belt +1", legs="Carmine Cuisses +1", feet="Carmine Greaves +1"
@@ -1086,7 +1096,7 @@ function init_gear_sets()
 		-----------------------------------------------------------	
 		sets.engaged.DW3.Max =
 		{
-			main="Sequence", sub="Almace", ammo="Ginsen",
+			ammo="Ginsen",
 			head=gear.THead_TP, neck="Anu Torque", lear="Sherida Earring", rear="Dedition Earring",
 			body="Ayanmo Corazza +2", hands="Carmine Fin. Ga. +1", lring="Petrov Ring", rring="Ilabrat Ring",
 			back=gear.RDMCape_DW, waist="Windbuffet Belt +1", legs=gear.TLegs_TP, feet="Carmine Greaves +1"
@@ -1134,9 +1144,16 @@ function init_gear_sets()
 		sets.engaged.Hybrid = 
 		{
 			ammo="Staunch Tathlum +1",
-			head="Dampening Tam", neck="Loricate Torque +1", rear="Suppanomimi",
-			body="Ayanmo Corazza +2", lring="Defending Ring", rring="Vocane Ring",
-			feet="Aya. Gambieras +2"
+			neck="Loricate Torque +1",
+			lring="Defending Ring", rring="Vocane Ring",
+		}
+	
+		sets.engaged.Hybrid2 = 
+		{
+			ammo="Staunch Tathlum +1",
+			neck="Loricate Torque +1",
+			body="Ayanmo Corazza +2", hands="Aya. Manopolas +2", lring="Defending Ring", rring="Vocane Ring",
+			waist="Flume Belt +1", feet="Aya. Gambieras +2"
 		}
 		
 		
@@ -1371,6 +1388,8 @@ function job_buff_change(buff,gain)
 end
 
 function job_status_change(new_status, old_status)
+	equip(sets[state.WeaponSet.current])
+	
 	if new_status == 'Engaged' then
 		determine_haste_group()
 		update_combat_form()
@@ -1435,6 +1454,7 @@ end
 
 -- Called by the 'update' self-command.
 function job_update(cmdParams, eventArgs)
+	equip(sets[state.WeaponSet.current])
 	determine_haste_group()
 	update_combat_form()
 	update_active_abilities()
