@@ -1291,105 +1291,56 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 	end
 
 	if spell.skill == 'Elemental Magic' and state.MagicBurst.value and state.CastingMode.value ~= 'Resistant' then
-		if spellMap ~= 'Helix' and spell.element ~= 'Dark' and (spell.element == world.day_element or spell.element == world.weather_element) then
+		if spell.element ~= 'Dark' then
+			equip(sets.magic_burst)
+		elseif spell.element == 'Dark' and spell.english ~= 'Impact' then
 			equip(set_combine(sets.magic_burst,
 			{
-				waist="Hachirin-no-Obi"
+				head="Pixie Hairpin +1",
+				lring="Archon Ring"
 			}))
-		elseif spell.element == 'Dark' and spell.english ~= 'Impact' then
-			if spellMap ~= 'Helix' and (world.weather_element == 'Dark' or world.day_element == 'Dark') then
-				equip(set_combine(sets.magic_burst,
-				{
-					head="Pixie Hairpin +1",
-					lring="Archon Ring",
-					waist="Hachirin-no-Obi"
-				}))
-			else
-				equip(set_combine(sets.magic_burst,
-				{
-					head="Pixie Hairpin +1",
-					lring="Archon Ring"
-				}))
-
-			end
-		elseif spell.element == 'Dark' and spell.english == 'Impact' then
-			if (world.weather_element == 'Dark' or world.day_element == 'Dark') then
-				equip(set_combine(sets.magic_burst,
-				{
-					head=empty,
-					body="Twilight Cloak", lring="Archon Ring",
-					waist="Hachirin-no-Obi"
-				}))
-			else
-				equip(set_combine(sets.magic_burst,
-				{
-					head=empty,
-					body="Twilight Cloak", lring="Archon Ring"
-				}))
-			end
-
 		else
-			equip(sets.magic_burst)
+			equip(set_combine(sets.magic_burst,
+			{
+				head=empty,
+				body="Twilight Cloak", lring="Archon Ring"
+			}))
 		end
 	elseif spell.skill == 'Elemental Magic' and state.MagicBurst.value and state.CastingMode.value == 'Resistant' then
-		if spellMap ~= 'Helix' and spell.element ~= 'Dark' and (spell.element == world.day_element or spell.element == world.weather_element) then
+		if spell.element ~= 'Dark' then
+			equip(sets.magic_burst.Resistant)
+		elseif spell.element == 'Dark' and spell.english ~= 'Impact' then
 			equip(set_combine(sets.magic_burst.Resistant,
 			{
-				waist="Hachirin-no-Obi"
+				head="Pixie Hairpin +1",
+				lring="Archon Ring"
 			}))
-		elseif spell.element == 'Dark' and spell.english ~= 'Impact' then
-			if spellMap ~= 'Helix' and (world.weather_element == 'Dark' or world.day_element == 'Dark') then
-				equip(set_combine(sets.magic_burst.Resistant,
-				{
-					head="Pixie Hairpin +1",
-					lring="Archon Ring",
-					waist="Hachirin-no-Obi"
-				}))
-			else
-				equip(set_combine(sets.magic_burst.Resistant,
-				{
-					head="Pixie Hairpin +1",
-					lring="Archon Ring"
-				}))
-
-			end
-		elseif spell.element == 'Dark' and spell.english == 'Impact' then
-			if (world.weather_element == 'Dark' or world.day_element == 'Dark') then
-				equip(set_combine(sets.magic_burst.Resistant,
-				{
-					head=empty,
-					body="Twilight Cloak", lring="Archon Ring",
-					waist="Hachirin-no-Obi"
-				}))
-			else
-				equip(set_combine(sets.magic_burst.Resistant,
-				{
-					head=empty,
-					body="Twilight Cloak", lring="Archon Ring"
-				}))
-			end
-
 		else
-			equip(sets.magic_burst.Resistant)
-		end
-	elseif spell.skill =='Elemental Magic' and spellMap ~= 'Helix' and (spell.element == world.day_element or spell.element == world.weather_element) then
-		if spell.element == 'Dark' then
-			equip
+			equip(set_combine(sets.magic_burst,
 			{
-				lring="Archon Ring",
-				waist="Hachirin-no-Obi"
-			}
-		else
-			equip
-			{
-				waist="Hachirin-no-Obi"
-			}
+				head=empty,
+				body="Twilight Cloak", lring="Archon Ring"
+			}))
 		end
 	end
 
-	if spell.skill == 'Elemental Magic' and spell.target.distance < (8 + spell.target.model_size) 
-			and (spell.element ~= world.day_element or spell.element ~= world.weather_element) then
-		equip{waist="Orpheus's Sash"}
+	if spell.skill == 'Elemental Magic' and (spell.element ~= world.day_element and spell.element ~= world.weather_element) then
+		if spell.target.distance < (15 - spell.target.model_size) then
+			equip{waist="Orpheus's Sash"}
+		end
+	elseif spell.skill == 'Elemental Magic' and (spell.element == world.day_element and spell.element == world.weather_element)
+			or (spell.element == world.weather_element and get_weather_intensity() == 2) then
+		if spellMap ~= 'Helix' then
+			equip{waist="Hachirin-no-Obi"}
+		elseif spell.target.distance < (15 - spell.target.model_size) then
+			equip{waist="Orpheus's Sash"}
+		end
+	elseif spell.skill == 'Elemental Magic' and (spell.element == world.day_element or (spell.element == world.weather_element and get_weather_intensity() == 1)) then
+		if spell.target.distance < (7 - spell.target.model_size) then
+			equip{waist="Orpheus's Sash"}
+		elseif spellMap ~= 'Helix' then
+			equip{waist="Hachirin-no-Obi"}
+		end
 	end
 end
 

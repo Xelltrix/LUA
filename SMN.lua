@@ -532,13 +532,6 @@ function init_gear_sets()
 			body="Apo. Dalmatica +1", hands="Asteria Mitts +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back=gear.SMNCape_Phys, waist="Isa Belt", legs="Enticer's Pants", feet="Apogee Pumps +1"
 		}
-
-		sets.idle.Movement.Avatar = set_combine(sets.idle.Avatar,
-		{
-			head="Apogee Crown", rear="Evans Earring",
-			lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			feet="Crier's Gaiters"
-		})
 		
 		sets.idle.Favor.Avatar =
 		{

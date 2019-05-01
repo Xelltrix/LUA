@@ -73,7 +73,10 @@ function init_gear_sets()
 		waist="Siegel Sash"
 	})
 
-	sets.precast.FC['Enfeebling Magic'] = sets.precast.FC
+	sets.precast.FC['Enfeebling Magic'] = set_combine(sets.precast.FC,
+	{
+		waist="Channeler's Stone"
+	})
 
 	sets.precast.FC['Divine Magic'] = sets.precast.FC['Enfeebling Magic']
 
@@ -81,7 +84,7 @@ function init_gear_sets()
 
 	sets.precast.FC['Healing Magic'] = set_combine(sets.precast.FC,
 	{
-		legs="Ebers Pant. +1"
+		waist="Channeler's Stone", legs="Ebers Pant. +1"
 	})
 
 	sets.precast.FC.StatusRemoval = set_combine(sets.precast.FC['Healing Magic'],
@@ -110,6 +113,7 @@ function init_gear_sets()
 	{
 		head=empty,
 		body="Twilight Cloak",
+		waist="Channeler's Stone"
 	})
 
 	
@@ -349,7 +353,7 @@ function init_gear_sets()
 		sets.midcast['Enfeebling Magic'] = set_combine(sets.midcast.Macc,
 		{
 			head="Befouled Crown",
-			hands="Kaykaus Cuffs +1",
+			hands="Kaykaus Cuffs +1", lring="Kishar Ring",
 		})
 	
 		sets.midcast.Silence = set_combine(sets.midcast['Enfeebling Magic'],
@@ -375,7 +379,7 @@ function init_gear_sets()
 		sets.midcast['Dark Magic'] = set_combine(sets.midcast.Macc,
 		{
 			head="Pixie Hairpin +1",
-			body="Shango Robe", rring="Archon Ring",
+			body="Shango Robe", lring="Archon Ring", rring={name="Stikini Ring +1", bag="wardrobe3"},
 			waist="Fucho-no-Obi"
 		})
 
@@ -488,7 +492,6 @@ function init_gear_sets()
 		sets.buff.Doom = 
 		{
 			neck="Nicander's Necklace",
-			lring="Saida Ring",
 			waist="Gishdubar Sash"
 		}
 	
@@ -559,9 +562,11 @@ function job_buff_change(buff,gain)
 	if buff == "doom" then
         if gain then
             equip(sets.buff.Doom)
-             disbale('neck', 'lring','waist')
+             disable('neck')
+			 disable('waist')
         else
-			enable('neck', 'lring','waist')
+			enable('neck')
+            enable('waist')
             handle_equipping_gear(player.status)
         end
     end

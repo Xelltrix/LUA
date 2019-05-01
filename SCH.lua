@@ -191,7 +191,7 @@ function init_gear_sets()
 		main="Gada", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 		head="Amalric Coif +1", neck="Orunmila's Torque", lear="Gwati Earring", rear="Mendi. Earring",
         body="Peda. Gown +3", hands="Telchine Gloves", lring="Lebeche Ring", rring="Rahab Ring",
-        back="Grapevine Cape", waist="Gishdubar Sash", legs="Telchine Braconi", feet="Telchine Pigaches"
+        back="Grapevine Cape", waist="Luminary Sash", legs="Telchine Braconi", feet="Telchine Pigaches"
 	}
 
 	sets.midcast.StatusRemoval = sets.midcast.FC
@@ -477,7 +477,7 @@ function init_gear_sets()
 
 		sets.magic_burst =
 		{
-			main="Akademos", sub="Niobid Strap", ammo="Pemphredo Tathlum",
+			main="Maxentius", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head="Peda. M.Board +3", neck="Mizu. Kubikazari", lear="Regal Earring", rear="Static Earring",
 			body="Merlinic Jubbah", hands="Amalric Gages +1", lring="Locus Ring", rring="Mujin Band",
 			back=gear.SCHCape_Nuke, waist="Refoccilation Stone", legs="Amalric Slops +1", feet="Amalric Nails +1"
@@ -540,63 +540,70 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 			waist="Gishdubar Sash"
 		})
 	end
+	
+	if spellMap == 'Refresh' and spell.target.type == 'Self' then
+		equip(
+		{
+			waist="Gishdubar Sash"
+		})
+	end
 
-	if spell.skill == 'Elemental Magic' and state.MagicBurst.value then
-		if (spell.element ~= 'Dark' and (spell.element == world.day_element or spell.element == world.weather_element)) then
+	if spell.skill == 'Elemental Magic' and state.MagicBurst.value and state.CastingMode.value ~= 'Resistant' then
+		if spell.element ~= 'Dark' then
+			equip(sets.magic_burst)
+		elseif spell.element == 'Dark' and spell.english ~= 'Impact' then
 			equip(set_combine(sets.magic_burst,
 			{
-				main="Akademos",
-				waist="Hachirin-no-Obi", feet="Arbatel Loafers +1"
+				head="Pixie Hairpin +1",
+				lring="Archon Ring"
 			}))
-		elseif spell.element == 'Dark' and spell.english ~= 'Impact' then
-			if (world.weather_element == 'Dark' or world.day_element == 'Dark') then
-				equip(set_combine(sets.magic_burst,
-				{
-					main="Akademos",
-					head="Pixie Hairpin +1",
-					lring="Archon Ring",
-					waist="Hachirin-no-Obi", feet="Arbatel Loafers +1"
-				}))
-			else
-				equip(set_combine(sets.magic_burst,
-				{
-					head="Pixie Hairpin +1",
-					lring="Archon Ring"
-				}))
-
-			end
-		elseif spell.element == 'Dark' and spell.english == 'Impact' then
-			if (world.weather_element == 'Dark' or world.day_element == 'Dark') then
-				equip(set_combine(sets.magic_burst,
-				{
-					main="Akademos",
-					head=empty,
-					body="Twilight Cloak", lring="Archon Ring",
-					waist="Hachirin-no-Obi", feet="Arbatel Loafers +1"
-				}))
-			else
-				equip(set_combine(sets.magic_burst,
-				{
-					head=empty,
-					body="Twilight Cloak", lring="Archon Ring"
-				}))
-			end
-
 		else
-			equip(sets.magic_burst)
+			equip(set_combine(sets.magic_burst,
+			{
+				head=empty,
+				body="Twilight Cloak", lring="Archon Ring"
+			}))
 		end
-	elseif spell.skill =='Elemental Magic' and (spell.element == world.day_element or spell.element == world.weather_element) then
-		if spell.element == 'Dark' then
+	elseif spell.skill == 'Elemental Magic' and state.MagicBurst.value and state.CastingMode.value == 'Resistant' then
+		if spell.element ~= 'Dark' then
+			equip(sets.magic_burst.Resistant)
+		elseif spell.element == 'Dark' and spell.english ~= 'Impact' then
+			equip(set_combine(sets.magic_burst.Resistant,
+			{
+				head="Pixie Hairpin +1",
+				lring="Archon Ring"
+			}))
+		else
+			equip(set_combine(sets.magic_burst,
+			{
+				head=empty,
+				body="Twilight Cloak", lring="Archon Ring"
+			}))
+		end
+	end
+
+	if spell.skill == 'Elemental Magic' and (spell.element ~= world.day_element and spell.element ~= world.weather_element) then
+		if spell.target.distance < (15 - spell.target.model_size) then
+			equip{waist="Orpheus's Sash"}
+		end
+	elseif spell.skill == 'Elemental Magic' and (spell.element == world.day_element and spell.element == world.weather_element)
+			or (spell.element == world.weather_element and get_weather_intensity() == 2) then
+		if spellMap ~= 'Helix' then
 			equip
 			{
-				main="Akademos",
-				lring="Archon Ring",
+				main="Akademos", sub="Niobid Strap",
 				waist="Hachirin-no-Obi"
 			}
-		else
+		elseif spell.target.distance < (15 - spell.target.model_size) then
+			equip{waist="Orpheus's Sash"}
+		end
+	elseif spell.skill == 'Elemental Magic' and (spell.element == world.day_element or (spell.element == world.weather_element and get_weather_intensity() == 1)) then
+		if spell.target.distance < (7 - spell.target.model_size) then
+			equip{waist="Orpheus's Sash"}
+		elseif spellMap ~= 'Helix' then
 			equip
 			{
-				main="Akademos",
+				main="Akademos", sub="Niobid Strap",
 				waist="Hachirin-no-Obi"
 			}
 		end
@@ -697,20 +704,6 @@ function display_current_job_state(eventArgs)
 	eventArgs.handled = true
 end
 
--------------------------------------------------------------------------------------------------------------------
--- User code that supplements self-commands.
--------------------------------------------------------------------------------------------------------------------
-
--- Called for direct player commands.
-function job_self_command(cmdParams, eventArgs)
-	if cmdParams[1]:lower() == 'scholar' then
-		handle_strategems(cmdParams)
-		eventArgs.handled = true
-	elseif cmdParams[1]:lower() == 'nuke' then
-		handle_nuking(cmdParams)
-		eventArgs.handled = true
-	end
-end
 
 -------------------------------------------------------------------------------------------------------------------
 -- Utility functions specific to this job.
@@ -758,101 +751,6 @@ function apply_grimoire_bonuses(spell, action, spellMap)
 	if state.Buff.Parsimony then equip(sets.buff['Parsimony']) end
 	if state.Buff.Celerity then equip(sets.buff['Celerity']) end
 	if state.Buff.Alacrity then equip(sets.buff['Alacrity']) end
-end
-
-
--- General handling of strategems in an Arts-agnostic way.
--- Format: gs c scholar <strategem>
-function handle_strategems(cmdParams)
-	-- cmdParams[1] == 'scholar'
-	-- cmdParams[2] == strategem to use
-
-	if not cmdParams[2] then
-		add_to_chat(123,'Error: No strategem command given.')
-		return
-	end
-	local strategem = cmdParams[2]:lower()
-
-	if strategem == 'light' then
-		if buffactive['light arts'] then
-			send_command('input /ja "Addendum: White" <me>')
-		elseif buffactive['addendum: white'] then
-			add_to_chat(122,'Error: Addendum: White is already active.')
-		else
-			send_command('input /ja "Light Arts" <me>')
-		end
-	elseif strategem == 'dark' then
-		if buffactive['dark arts'] then
-			send_command('input /ja "Addendum: Black" <me>')
-		elseif buffactive['addendum: black'] then
-			add_to_chat(122,'Error: Addendum: Black is already active.')
-		else
-			send_command('input /ja "Dark Arts" <me>')
-		end
-	elseif buffactive['light arts'] or buffactive['addendum: white'] then
-		if strategem == 'cost' then
-			send_command('input /ja Penury <me>')
-		elseif strategem == 'speed' then
-			send_command('input /ja Celerity <me>')
-		elseif strategem == 'aoe' then
-			send_command('input /ja Accession <me>')
-		elseif strategem == 'power' then
-			send_command('input /ja Rapture <me>')
-		elseif strategem == 'duration' then
-			send_command('input /ja Perpetuance <me>')
-		elseif strategem == 'accuracy' then
-			send_command('input /ja Altruism <me>')
-		elseif strategem == 'enmity' then
-			send_command('input /ja Tranquility <me>')
-		elseif strategem == 'skillchain' then
-			add_to_chat(122,'Error: Light Arts does not have a skillchain strategem.')
-		elseif strategem == 'addendum' then
-			send_command('input /ja "Addendum: White" <me>')
-		else
-			add_to_chat(123,'Error: Unknown strategem ['..strategem..']')
-		end
-	elseif buffactive['dark arts']  or buffactive['addendum: black'] then
-		if strategem == 'cost' then
-			send_command('input /ja Parsimony <me>')
-		elseif strategem == 'speed' then
-			send_command('input /ja Alacrity <me>')
-		elseif strategem == 'aoe' then
-			send_command('input /ja Manifestation <me>')
-		elseif strategem == 'power' then
-			send_command('input /ja Ebullience <me>')
-		elseif strategem == 'duration' then
-			add_to_chat(122,'Error: Dark Arts does not have a duration strategem.')
-		elseif strategem == 'accuracy' then
-			send_command('input /ja Focalization <me>')
-		elseif strategem == 'enmity' then
-			send_command('input /ja Equanimity <me>')
-		elseif strategem == 'skillchain' then
-			send_command('input /ja Immanence <me>')
-		elseif strategem == 'addendum' then
-			send_command('input /ja "Addendum: Black" <me>')
-		else
-			add_to_chat(123,'Error: Unknown strategem ['..strategem..']')
-		end
-	else
-		add_to_chat(123,'No arts has been activated yet.')
-	end
-end
-
-
--- Gets the current number of available strategems based on the recast remaining
--- and the level of the sch.
-function get_current_strategem_count()
-	-- returns recast in seconds.
-	local allRecasts = windower.ffxi.get_ability_recasts()
-	local stratsRecast = allRecasts[231]
-
-	local maxStrategems = (player.main_job_level + 10) / 20
-
-	local fullRechargeTime = 4*60
-
-	local currentCharges = math.floor(maxStrategems - maxStrategems * stratsRecast / fullRechargeTime)
-
-	return currentCharges
 end
 
 

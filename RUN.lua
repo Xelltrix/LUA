@@ -221,7 +221,7 @@ function init_gear_sets()
 		sets.midcast.Regen =
 		{
 			head="Rune. Bandeau +1",
-			body="Futhark Coat +1",
+			body="Futhark Coat +1", legs ="Futhark Trousers +1"
 		}
 
 		sets.midcast.Refresh =
@@ -354,7 +354,7 @@ function init_gear_sets()
 			ammo="Staunch Tathlum +1",
 			head="Erilaz Galea +1", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
 			body="Futhark Coat +1", hands="Erilaz Gauntlets +1", lring="Defending Ring", rring="Moonbeam Ring",
-			back="Moonbeam Cape", waist="Flume Belt +1", legs="Eri. Leg Guard +1", feet="Erilaz Greaves +1"
+			back="Moonbeam Cape", waist="Flume Belt +1", legs="Eri. Leg Guards +1", feet="Erilaz Greaves +1"
 		}
 		
 		sets.idle.Refresh =
@@ -772,11 +772,7 @@ end
 
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
-	if player.sub_job == 'DRK' then
-		set_macro_page(1, 14)
-	elseif player.sub_job == 'BLU' then
-		set_macro_page(5,14)
-	end
+	set_macro_page(1, 14)
 end
 
 function set_lockstyle()
