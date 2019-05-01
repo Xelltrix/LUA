@@ -38,6 +38,8 @@ function user_setup()
 
 	state.MagicBurst = M(false, 'Magic Burst')
 
+	send_command('bind @w gs c cycle WeaponSet')
+	send_command('bind @q gs c cycleback WeaponSet')
     send_command('bind !` gs c toggle MagicBurst')
 
 	select_default_macro_book()
@@ -411,6 +413,27 @@ function init_gear_sets()
 ----------------------------------------------------------------------------	
 
 	------------------------------------------------------------------------------------------------
+	----------------------------------------- Weapon Sets ------------------------------------------
+	------------------------------------------------------------------------------------------------
+
+
+	sets.SequenceA =
+	{
+		main="Sequence", sub="Almace"
+	}
+		
+	sets.SequenceT =
+	{
+		main="Sequence", sub="Thibron"
+	}
+		
+	sets.Almace =
+	{
+		main="Almace", sub="Sequence"
+	}
+	
+	
+	------------------------------------------------------------------------------------------------
 	------------------------------------------ Idle Sets -------------------------------------------
 	------------------------------------------------------------------------------------------------
 
@@ -496,7 +519,7 @@ function init_gear_sets()
 		sets.buff.Doom = 
 		{
 			neck="Nicander's Necklace",
-			lring='Saida Ring",
+			lring="Saida Ring",
 			waist="Gishdubar Sash"
 		}
 
@@ -1267,7 +1290,7 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 		})
 	end
 
-	if spell.skill == 'Elemental Magic' and state.MagicBurst.value and CastingMode ~= 'Resistant' then
+	if spell.skill == 'Elemental Magic' and state.MagicBurst.value and state.CastingMode.value ~= 'Resistant' then
 		if spellMap ~= 'Helix' and spell.element ~= 'Dark' and (spell.element == world.day_element or spell.element == world.weather_element) then
 			equip(set_combine(sets.magic_burst,
 			{
@@ -1308,7 +1331,7 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 		else
 			equip(sets.magic_burst)
 		end
-	elseif spell.skill == 'Elemental Magic' and state.MagicBurst.value and CastingMode == 'Resistant' then
+	elseif spell.skill == 'Elemental Magic' and state.MagicBurst.value and state.CastingMode.value == 'Resistant' then
 		if spellMap ~= 'Helix' and spell.element ~= 'Dark' and (spell.element == world.day_element or spell.element == world.weather_element) then
 			equip(set_combine(sets.magic_burst.Resistant,
 			{
@@ -1363,8 +1386,17 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 			}
 		end
 	end
+
+	if spell.skill == 'Elemental Magic' and spell.target.distance < (8 + spell.target.model_size) 
+			and (spell.element ~= world.day_element or spell.element ~= world.weather_element) then
+		equip{waist="Orpheus's Sash"}
+	end
 end
 
+
+function job_aftercast(spell,action, spellMap, eventArgs)
+	equip(sets[state.WeaponSet.current])
+end
 
 -------------------------------------------------------------------------------------------------------------------
 -- Job-specific hooks for non-casting events.
@@ -1388,9 +1420,8 @@ function job_buff_change(buff,gain)
 end
 
 function job_status_change(new_status, old_status)
-	equip(sets[state.WeaponSet.current])
-	
 	if new_status == 'Engaged' then
+		equip(sets[state.WeaponSet.current])
 		determine_haste_group()
 		update_combat_form()
 	end
@@ -1398,6 +1429,8 @@ end
 
 -- Handle notifications of general user state change.
 function job_state_change(stateField, newValue, oldValue)
+	equip(sets[state.WeaponSet.current])
+	
 	if stateField == 'Offense Mode' then
 		if newValue == 'None' then
 			enable('main','sub','range')
@@ -1481,13 +1514,14 @@ function display_current_job_state(eventArgs)
 		msg = msg .. ', ' .. 'Defense: ' .. state.DefenseMode.value .. ' (' .. state[state.DefenseMode.value .. 'DefenseMode'].value .. ')'
 	end
 	
-	msg = msg .. state.CastingMode.value
+	msg = msg .. ' ' .. 'Casting Mode: ' .. state.CastingMode.value
 	
 	if state.MagicBurst.value == true then
 		msg= msg .. ' (Magic Burst On)'
+	end
 
 	if state.Kiting.value == true then
-		msg = msg .. ', Kiting'
+		msg = msg .. ', [KITING]'
 	end
 
 	add_to_chat(122, msg)
