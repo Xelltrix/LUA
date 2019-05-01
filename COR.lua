@@ -297,12 +297,9 @@ function init_gear_sets()
 
 		sets.buff.Doom = 
 		{
+			neck="Nicander's Necklace",
+			lring="Saida Ring",
 			waist="Gishdubar Sash"
-		}
-
-		sets.Obi = 
-		{
-			waist="Hachirin-no-Obi"
 		}
 
 
@@ -1055,9 +1052,9 @@ function job_buff_change(buff,gain)
     if buff == "doom" then
         if gain then
             equip(sets.buff.Doom)
-            disable('waist')
+             disable('neck','lring','waist')
         else
-            enable('waist')
+			enable('neck','lring','waist')
             handle_equipping_gear(player.status)
         end
     end

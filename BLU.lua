@@ -594,6 +594,7 @@ function init_gear_sets()
 		sets.buff.Doom = 
 		{
 			neck="Nicander's Necklace",
+			lring="Saida Ring",
 			waist="Gishdubar Sash"
 		}
 		
