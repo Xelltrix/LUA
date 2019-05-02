@@ -58,42 +58,40 @@ function init_gear_sets()
 	-- Precast Magic --
 	------------------- 
 		sets.precast.FC =
-		{
-			ammo="Sapience Orb",
+		{--Fast Cast 58
+			main=gear.Grioavolr_Enf, sub="Kaja Grip", ammo="Sapience Orb",
 			head="Vanya Hood", neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
 			body="Shango Robe", hands="Telchine Gloves", lring="Kishar Ring", rring="Rahab Ring",
 			back="Swith Cape +1", waist="Witful Belt", legs="Psycloth Lappas", feet="Amalric Nails +1"
 		}
 
 		sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC,
-		{
+		{--Fast Cast 55 / -8% Enhancing Magic Cast Time
 			waist="Siegel Sash"
 		})
 
 		sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'],
-		{
+		{--Fast Cast 48 / -30% Stoneskin Casting Time
 			head="Umuthi Hat",
 			hands="Carapacho Cuffs"
 		})
 
 
 		sets.precast.FC.Impact = set_combine(sets.precast.FC,
-		{
+		{--Fast Cast 40
 			head=empty,
 			body="Twilight Cloak"
 		})
 
-		sets.precast.FC.Death =
-		{
-			main=gear.Grioavolr_Enf, sub="Enki Strap", ammo="Sapience Orb",
-			head="Vanya Hood", neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
-			body="Shango Robe", hands="Regal Cuffs", lring="Kishar Ring", rring="Mephitas's Ring +1",
-			back="Swith Cape +1", waist="Witful Belt", legs="Psycloth Lappas", feet="Amalric Nails +1"
-		}
+		sets.precast.FC.Death = set_combine(sets.precast.FC,
+		{--Fast Cast 54
+			ammo="Psilomene",
+			hands="Regal Cuffs", ring="Mephitas's Ring +1",
+		})
 
 		sets.precast.FC.Cures = set_combine(sets.precast.FC,
-		{
-			rear="Mendi. Earring"
+		{--Fast Cast 57 / -5% Cure Cast Time
+			lear="Mendi. Earring"
 		})
 
 		sets.precast.FC.Curaga = sets.precast.FC.Cures
@@ -113,7 +111,7 @@ function init_gear_sets()
 
 
 		sets.midcast.Duration =
-		{
+		{ --1.5 x 1.16 Duration Bonus
 			main="Gada", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head="Telchine Cap", neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
 			body="Telchine Chas.", hands="Telchine Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
@@ -131,7 +129,7 @@ function init_gear_sets()
 		sets.midcast.ConserveMP = 
 		{
 			main="Gada", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
-			head="Vanya Hood", neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
+			head="Vanya Hood", neck="Incanter's Torque", lear="Mendi. Earring", rear="Gwati Earring",
 			body="Vanya Robe", hands="Telchine Gloves", lring="Kishar Ring", rring="Rahab Ring",
 			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Lengo Pants", feet=gear.NukeCrackows
 		}
@@ -140,10 +138,11 @@ function init_gear_sets()
 	-- Healing Midcast sets
 	--------------------------------------	
 	
+		--Cure Potency: 50%
 		sets.midcast.Cures =
 		{
 			ammo="Esper Stone +1",
-			head="Vanya Hood", neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
+			head="Vanya Hood", neck="Incanter's Torque", lear="Mendi. Earring", rear="Gwati Earring",
 			body="Merlinic Jubbah", hands="Telchine Gloves", lring="Lebeche Ring", rring="Vocane Ring",
 			back="Solemnity Cape", waist="Channeler's Stone", legs="Gyve Trousers", feet="Vanya Clogs"
 		}
@@ -301,7 +300,7 @@ function init_gear_sets()
 		})
 	
 		sets.magic_burst =
-		{
+		{--MBD/II: 42/11
 			main="Lathi", sub="Niobid Strap", ammo="Pemphredo Tathlum",
 			head=gear.NukeHood, neck="Mizu. Kubikazari", lear="Regal Earring", rear="Static Earring",
 			body="Merlinic Jubbah", hands="Amalric Gages +1", lring="Locus Ring", rring="Mujin Band",
@@ -309,7 +308,7 @@ function init_gear_sets()
 		}
 
 		sets.magic_burst.Resistant = set_combine(sets.magic_burst,
-		{
+		{--MBD/II: 42/11
 			main="Maxentius", sub="Ammurapi Shield",
 			hands="Regal Cuffs", 
 			waist="Eschan Stone", legs="Merlinic Shalwar"
@@ -340,7 +339,7 @@ function init_gear_sets()
 	------------------------------------------------------------------------------------------------
 	
 		sets.idle =
-		{
+		{--Regen+3 | Refresh+8~9 | PDT/MDT: (13/15)
 			main="Lathi", sub="Kaja Grip", ammo="Staunch Tathlum +1",
 			head="Befouled Crown", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 			body="Witching Robe", hands="Amalric Gages +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
@@ -348,13 +347,13 @@ function init_gear_sets()
 		}
 
 		sets.idle.DT = set_combine(sets.idle,
-		{
+		{--Regen+0 | Refresh+6~7 | PDT/MDT: (36/43)
 			neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
 			lring="Defending Ring", rring="Vocane Ring"
 		})
 
 		sets.idle.DeathMode =
-		{
+		{--Regen+1 | Refresh+4~5 | PDT/MDT: (5/8)
 			main="Lathi", sub="Kaja Grip", ammo="Psilomene",
 			head="Vanya Hood", neck="Sanctity Necklace", lear="Etiolation Earring", rear="Loquac. Earring",
 			body="Amalric Doublet +1", hands="Regal Cuffs", lring="Lebeche Ring", rring="Mephitas's Ring +1",
@@ -385,7 +384,7 @@ function init_gear_sets()
 	--------------------------------------
 	
 		sets.defense.PDT =
-		{
+		{--PDT: 58 / MDT: 40
 			main="Mafic Cudgel", sub="Genmei Shield", ammo="Staunch Tathlum +1",
 			head="Vanya Hood", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
 			body="Merlinic Jubbah", hands="Amalric Gages +1", lring="Defending Ring", rring="Vocane Ring",
@@ -393,7 +392,7 @@ function init_gear_sets()
 		}
 
 		sets.defense.MDT = 
-		{
+		{--MDT: 45 / PDT: 31
 			main="Lathi", sub="Irenic Strap +1", ammo="Staunch Tathlum +1",
 			head="Vanya Hood", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
 			body="Witching Robe", hands="Amalric Gages +1", lring="Defending Ring", rring="Vocane Ring",
