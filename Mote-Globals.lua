@@ -106,9 +106,6 @@ function global_on_load()
 	send_command('bind f12 gs c update user')
 	send_command('bind ^f12 gs c cycle IdleMode')
 	send_command('bind !f12 gs c reset DefenseMode')
-
-	--send_command('bind ^- gs c toggle selectnpctargets')
-	--send_command('bind ^= gs c cycle pctargetmode')
 end
 
 -- Function to revert binds when unloading.
@@ -126,9 +123,6 @@ function global_on_unload()
 	send_command('unbind f12')
 	send_command('unbind ^f12')
 	send_command('unbind !f12')
-
-	--send_command('unbind ^-')
-	--send_command('unbind ^=')
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -138,14 +132,13 @@ end
 -- Global intercept on precast.
 function user_precast(spell, action, spellMap, eventArgs)
     cancel_conflicting_buffs(spell, action, spellMap, eventArgs)
-    --refine_waltz(spell, action, spellMap, eventArgs)
 end
 
 -- Global intercept on midcast.
 function user_midcast(spell, action, spellMap, eventArgs)
 	-- Default base equipment layer of fast recast.
-	if spell.action_type == 'Magic' and sets.midcast and sets.midcast.FastRecast then
-		equip(sets.midcast.FastRecast)
+	if spell.action_type == 'Magic' and sets.midcast and sets.midcast.FC then
+		equip(sets.midcast.FC)
 	end
 end
 
