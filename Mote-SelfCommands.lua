@@ -384,13 +384,23 @@ function display_current_caster_state()
     
     msg = msg .. 'Casting ['..state.CastingMode.value..'], Idle ['..state.IdleMode.value..']'
     
-    if state.DefenseMode.value ~= 'None' then
+	if state.SaveMP.value == true then
+		msg= msg .. ' (SaveMP On)'
+	end
+	
+    if state.MagicBurst.value == true then
+		msg= msg .. ' (Magic Burst On)'
+	end
+	
+	if state.DefenseMode.value ~= 'None' then
         msg = msg .. ', ' .. 'Defense: ' .. state.DefenseMode.value .. ' (' .. state[state.DefenseMode.value .. 'DefenseMode'].value .. ')'
     end
     
     if state.Kiting.value == true then
-        msg = msg .. ', Kiting'
-    end
+		msg = msg .. ', [KITING]'
+	end
+	
+
 
     if state.PCTargetMode.value ~= 'default' then
         msg = msg .. ', Target PC: '..state.PCTargetMode.value

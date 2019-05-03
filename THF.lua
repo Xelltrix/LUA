@@ -135,7 +135,7 @@ function init_gear_sets()
 		ammo="Sapience Orb",
 		head=gear.HHead_WSD, neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
 		body="Samnuha Coat", hands="Leyline Gloves", lring="Rahab Ring", rring="Prolix Ring",
-		back=gear.THFCape_STP, waist="Flume Belt", legs="Rawhide Trousers", gear.TFeet_Phalanx
+		back=gear.THFCape_STP, waist="Flume Belt +1", legs="Rawhide Trousers", gear.TFeet_Phalanx
 	}
 	
 	sets.precast.Utsusemi = set_combine(sets.precast.FC, 
@@ -197,7 +197,7 @@ function init_gear_sets()
 		ammo="Staunch Tathlum +1",
 		head="Dampening Tam", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 		body="Meg. Cuirie +2", hands="Meg. Gloves +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
-		back=gear.THFCape_STP, waist="Flume Belt", legs="Mummu Kecks +2", feet="Jute Boots +1"
+		back=gear.THFCape_STP, waist="Flume Belt +1", legs="Mummu Kecks +2", feet="Jute Boots +1"
 	}
 
 	sets.idle.PDT = set_combine (sets.idle,
@@ -212,7 +212,7 @@ function init_gear_sets()
 		ammo="Staunch Tathlum +1",
 		head="Dampening Tam", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
 		body="Samnuha Coat", hands="Leyline Gloves", lring="Defending Ring", rring="Vocane Ring",
-		back="Reiki Cloak", waist="Flume Belt"
+		back="Reiki Cloak", waist="Flume Belt +1"
 	})
 
 	sets.idle.Town = set_combine(sets.idle,

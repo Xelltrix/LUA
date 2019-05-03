@@ -105,13 +105,13 @@ function init_gear_sets()
 
 		sets.precast.JA['Vallation'] = 
 		{
-			body="Runeist Coat +1",
+			body="Runeist's Coat +2",
 			back="Ogma's Cape"
 		}
 
 		sets.precast.JA['Valiance'] =
 		{
-			body="Runeist Coat +1",
+			body="Runeist's Coat +2",
 			back="Ogma's Cape"
 		}
 
@@ -145,7 +145,7 @@ function init_gear_sets()
 		sets.precast.JA['One for All'] = set_combine(sets.Enmity.HP,
 		{
 			head="Erilaz Galea +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
-			body="Runeist Coat +1", hands="Nilas Gloves", lring="Ilabrat Ring",
+			body="Runeist's Coat +2", hands="Nilas Gloves", lring="Ilabrat Ring",
 			feet="Runeist Bottes +1"
 		})
 	
@@ -235,7 +235,7 @@ function init_gear_sets()
 			ammo="Staunch Tathlum +1",
 			head="Fu. Bandeau +1", neck="Incanter's Torque", lear="Andoaa Earring", rear="Augment. Earring",
 			body=gear.TBody_Phalanx, hands=gear.THands_Phalanx, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Moonbeam Cape", waist="Olympus Sash", legs=gear.TLegs_Phalanx, feet=gear.TFeet_Phalanx
+			back="Merciful Cape", waist="Olympus Sash", legs=gear.TLegs_Phalanx, feet=gear.TFeet_Phalanx
 		}
 
 		sets.midcast.Temper = 
@@ -243,7 +243,7 @@ function init_gear_sets()
 			ammo="Staunch Tathlum +1",
 			head="Carmine Mask +1", neck="Incanter's Torque", lear="Andoaa Earring", rear="Odnowa Earring +1",
 			body="Futhark Coat +1", hands="Runeist Mitons +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Moonbeam Cape", waist="Olympus Sash", legs="Carmine Cuisses +1", feet="Runeist Bottes +1"
+			back="Merciful Cape", waist="Olympus Sash", legs="Carmine Cuisses +1", feet="Runeist Bottes +1"
 		}
 
 		sets.midcast.BarElement = 
@@ -251,7 +251,7 @@ function init_gear_sets()
 			ammo="Staunch Tathlum +1",
 			head="Carmine Mask +1", neck="Incanter's Torque", lear="Andoaa Earring", rear="Augment. Earring",
 			body="Futhark Coat +1", hands="Runeist Mitons +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Moonbeam Cape", waist="Olympus Sash", legs="Carmine Cuisses +1", feet="Runeist Bottes +1"
+			back="Merciful Cape", waist="Olympus Sash", legs="Carmine Cuisses +1", feet="Runeist Bottes +1"
 		}
 
 		sets.midcast.BarStatus = sets.midcast.Duration
@@ -345,15 +345,15 @@ function init_gear_sets()
 		{
 			ammo="Homiliary",
 			head="Erilaz Galea +1", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
-			body="Runeist Coat +1", hands="Runeist Mitons +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			body="Runeist's Coat +2", hands="Runeist Mitons +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Moonbeam Cape", waist="Flume Belt +1", legs="Carmine Cuisses +1", feet="Erilaz Greaves +1"
 		}
 
 		sets.idle.DT = 
 		{
 			ammo="Staunch Tathlum +1",
-			head="Erilaz Galea +1", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
-			body="Futhark Coat +1", hands="Erilaz Gauntlets +1", lring="Defending Ring", rring="Moonbeam Ring",
+			head="Fu. Bandeau +1", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
+			body="Runeist's Coat +2", hands="Runeist Mitons +1", lring="Defending Ring", rring="Moonbeam Ring",
 			back="Moonbeam Cape", waist="Flume Belt +1", legs="Eri. Leg Guards +1", feet="Erilaz Greaves +1"
 		}
 		
@@ -361,7 +361,7 @@ function init_gear_sets()
 		{
 			ammo="Homiliary",
 			head="Rawhide Mask", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
-			body="Runeist Coat +1", hands="Runeist Mitons +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			body="Runeist's Coat +2", hands="Runeist Mitons +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Moonbeam Cape", waist="Flume Belt +1", legs="Rawhide Trousers", feet="Erilaz Greaves +1"
 		}
 
@@ -420,7 +420,7 @@ function init_gear_sets()
 		sets.Kiting =
 		{
 			head="Fu. Bandeau +1",
-			hands="Runeist Mitons +1",
+			body="Futhark Coat +1", hands="Runeist Mitons +1",
 			legs="Carmine Cuisses +1"
 		}
 
@@ -722,6 +722,9 @@ end
 -------------------------------------------------------------------------------------------------------------------
 
 -- Called by the 'update' self-command.
+function job_update(cmdParams, eventArgs)
+	equip(sets[state.WeaponSet.current])
+end
 
 -- Function to display the current relevant user state when doing an update.
 -- Return true if display was handled, and you don't want the default info shown.

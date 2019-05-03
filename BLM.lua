@@ -26,11 +26,11 @@ function user_setup()
 	state.CastingMode:options('Normal', 'Resistant','Potency')
 	state.IdleMode:options('Normal', 'DT', 'DeathMode')
 	state.MagicBurst = M(false, 'Magic Burst')
-	state.Spaekona = M(false, 'Spaekona')
+	state.SaveMP = M(false, 'Save MP')
 
 	-- Additional local binds
 	send_command('bind !` gs c toggle MagicBurst')
-	send_command('bind !s gs c toggle Spaekona')
+	send_command('bind !s gs c toggle SaveMP')
 
 	select_default_macro_book()
 end
@@ -479,11 +479,7 @@ end
 
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
 function job_post_midcast(spell, action, spellMap, eventArgs)
-    	if spell.action_type == 'Magic' then
-		apply_abilities(spell, action, spellMap, eventArgs)
-	end
-	
-	if spellMap == 'Cures' and spell.target.type == 'SELF' then
+ 	if spellMap == 'Cures' and spell.target.type == 'SELF' then
         equip(
 		{
 			rring="Vocane Ring",
@@ -498,7 +494,7 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 		})
 	end
 
-	if spell.skill == 'Elemental Magic' and state.MagicBurst.value and (state.CastingMode.value == 'Normal' or state.CastingMode.value == 'Potency') then
+	if (spell.skill == 'Elemental Magic' or spell.english == 'Death') and state.MagicBurst.value and (state.CastingMode.value == 'Normal' or state.CastingMode.value == 'Potency') then
 		if spell.element ~= 'Dark' then
 			equip(sets.magic_burst)
 		elseif spell.english == 'Comet' or spell.english == 'Noctohelix' then
@@ -521,7 +517,7 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 				feet=gear.NukeCrackows
 			}))
 		end
-	elseif spell.skill == 'Elemental Magic' and state.MagicBurst.value and state.CastingMode.value == 'Resistant' then
+	elseif (spell.skill == 'Elemental Magic' or spell.english == 'Death') and state.MagicBurst.value and state.CastingMode.value == 'Resistant' then
 		if spell.element ~= 'Dark' then
 			equip(sets.magic_burst.Resistant)
 		elseif spell.english == 'Comet' or spell.english == 'Noctohelix' then
@@ -545,7 +541,7 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 		end
 	end
 	
-	if spell.skill == 'Elemental Magic' and state.Spaekona.value and spell.english ~= 'Death' then
+	if spell.skill == 'Elemental Magic' and state.SaveMP.value and spell.english ~= 'Death' and spell.english ~= 'Impact' then
 		equip{body="Spae. Coat +1"}
 	end
 
@@ -628,26 +624,6 @@ end
 -- Function to display the current relevant user state when doing an update.
 function display_current_job_state(eventArgs)
 	display_current_caster_state()
-	
-	msg = msg .. state.OffenseMode.value
-	
-	if state.DefenseMode.value ~= 'None' then
-		msg = msg .. ', ' .. 'Defense: ' .. state.DefenseMode.value .. ' (' .. state[state.DefenseMode.value .. 'DefenseMode'].value .. ')'
-	end
-	
-	msg = msg .. ' ' .. 'Casting Mode: ' .. state.CastingMode.value
-	
-	if state.MagicBurst.value == true then
-		msg= msg .. ' (Magic Burst On)'
-	end
-	
-	if state.Spaekona.value == true then
-		msg= msg .. ' (Spaekona On)'
-	end
-
-	if state.Kiting.value == true then
-		msg = msg .. ', [KITING]'
-	end
 	eventArgs.handled = true
 end
 

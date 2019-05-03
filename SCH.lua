@@ -12,9 +12,6 @@ end
 
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
 function job_setup()
-	info.addendumNukes = S{"Stone IV", "Water IV", "Aero IV", "Fire IV", "Blizzard IV", "Thunder IV",
-		"Stone V", "Water V", "Aero V", "Fire V", "Blizzard V", "Thunder V"}
-
 	state.Buff['Sublimation: Activated'] = buffactive['Sublimation: Activated'] or false
 	update_active_strategems()
 	
@@ -30,7 +27,7 @@ function user_setup()
 	state.OffenseMode:options('None', 'Normal', 'Refresh')
 	state.CastingMode:options('Normal', 'Resistant')
 	state.IdleMode:options('Normal', 'Movement', 'DT')
-
+	state.SaveMP = M(false, 'Save MP')
 	state.MagicBurst = M(false, 'Magic Burst')
 
 	-- Additional local binds
