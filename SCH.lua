@@ -24,8 +24,8 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-	state.OffenseMode:options('None', 'Normal', 'Refresh')
-	state.CastingMode:options('Normal', 'Resistant')
+	state.OffenseMode:options('None', 'Refresh', 'Normal')
+	state.CastingMode:options('Normal', 'Resistant','Potency')
 	state.IdleMode:options('Normal', 'DT')
 	state.SaveMP = M(false, 'Save MP')
 	state.MagicBurst = M(false, 'Magic Burst')
@@ -81,7 +81,7 @@ function init_gear_sets()
 	
 		sets.precast.FC =
 		{
-			main="Vadose Rod", sub="Chanter's Shield", ammo="Sapience Orb",
+			ammo="Sapience Orb",
 			head="Amalric Coif +1", neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
 			body="Pinga Tunic", hands="Acad. Bracers +2", lring="Kishar Ring", rring="Rahab Ring",
 			back=gear.SCHCape_ENF, waist="Witful Belt", legs="Pinga Pants", feet="Peda. Loafers +3"
@@ -100,10 +100,7 @@ function init_gear_sets()
 
 		sets.precast.Statless = sets.precast.FC['Enhancing Magic']
 
-		sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'],
-		{
-			hands="Carapacho Cuffs"
-		})
+		sets.precast.FC.Stoneskin = sets.precast.FC['Enhancing Magic']
 		
 		sets.precast.FC.Teleport = sets.precast.FC
 	
@@ -161,7 +158,7 @@ function init_gear_sets()
 		{
 			main="Gada", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head="Telchine Cap",  neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
-			body="Peda. Gown +3", hands="Telchine Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			body="Peda. Gown +3", hands=gear.ENH_Gloves, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back=gear.SCHCape_ENF, waist="Luminary Sash", legs="Telchine Braconi", feet="Telchine Pigaches"
 		}
 
@@ -173,7 +170,7 @@ function init_gear_sets()
 		-- Cure Potency/II: 51%/3%		Enmity: -52		Healing Magic Skill: +108
 		sets.midcast.Cures =
 		{
-			main="Gada", sub="Sor's Shield", ammo="Esper Stone +1",
+			main="Gada", sub="Sors Shield", ammo="Esper Stone +1",
 			head="Kaykaus Mitra", neck="Lasaia Pendant", lear="Novia Earring", rear="Mendi. Earring",
 			body="Kaykaus Bliaut", hands="Peda. Bracers +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Oretan. Cape +1", waist="Luminary Sash", legs="Pinga Pants", feet="Vanya Clogs"
@@ -190,7 +187,7 @@ function init_gear_sets()
 
 		sets.midcast.Curagas = sets.midcast.Cures
 
--[[		 Cure Potency/II: 52%/3%		Enmity: -50		Healing Magic Skill: +59
+--[[		 Cure Potency/II: 52%/3%		Enmity: -50		Healing Magic Skill: +59
 		sets.midcast.CuresWeather = set_combine(sets.midcast.Cures,
 		{
 			main="Chatoyant Staff", sub="Achaq Grip",
@@ -198,14 +195,13 @@ function init_gear_sets()
 			lring="Lebeche Ring", rring="Menelaus's Ring",
 			back="Twilight Cape", waist="Hachirin-no-Obi", feet="Kaykaus Boots"
 		})
-
 		sets.midcast.CuragaWeather = sets.midcast.CuresWeather]]
 
 		sets.midcast.StatusRemoval = sets.midcast.FC
 
 		sets.midcast.Cursna = set_combine(sets.precast.FC,
 		{
-			main="Gada", sub="Chanter's Shield", 
+			main="Gada", sub="Sors Shield",
 			head="Kaykaus Mitra", neck="Debilis Medallion", lear="Beatific Earring", rear="Healing Earring",
 			body="Peda. Gown +3", hands="Hieros Mittens", lring="Haoma's Ring", rring="Menelaus's Ring",
 			back="Oretan. Cape +1", waist="Bishop's Sash", legs="Acad. Pants +2", feet="Vanya Clogs"
@@ -223,7 +219,7 @@ function init_gear_sets()
 		{
 			main="Gada", sub="Ammurapi Shield", ammo="Savant's Treatise",
 			head="Befouled Crown", neck="Incanter's Torque", lear="Andoaa Earring", rear="Augment. Earring",
-			body="Peda. Gown +3", hands="Telchine Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			body="Peda. Gown +3", hands=gear.ENH_Gloves, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Fi Follet Cape +1", waist="Olympus Sash", legs="Telchine Braconi", feet="Telchine Pigaches"
 		}
 
@@ -237,8 +233,7 @@ function init_gear_sets()
 
 		sets.midcast.Refresh = set_combine(sets.midcast.Duration,
 		{
-			head="Amalric Coif +1",
-			back="Grapevine Cape",
+			head="Amalric Coif +1"
 		})
 
 		sets.midcast.BarElement = set_combine(sets.midcast['Enhancing Magic'],
@@ -306,7 +301,8 @@ function init_gear_sets()
 
 		sets.midcast['Enfeebling Magic'].Potency = set_combine(sets.midcast['Enfeebling Magic'],
 		{
-			rear="Enfeebling Earring"
+			rear="Enfeebling Earring",
+			hands="Peda. Bracers +3"
 		})
 
 		sets.midcast.ElementalDebuffs = sets.midcast.Macc
@@ -327,7 +323,7 @@ function init_gear_sets()
 
 		sets.midcast.Stun =
 		{
-			main="Maxentius", sub="Chanter's Shield", ammo="Pemphredo Tathlum",
+			main="Maxentius", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head="Amalric Coif +1", neck="Orunmila's Torque", lear="Digni. Earring", rear="Barkaro. Earring",
 			body="Shango Robe", hands="Kaykaus Cuffs +1", lring="Kishar Ring", rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back=gear.SCHCape_ENF, waist="Witful Belt", legs="Peda. Pants +3", feet="Peda. Loafers +3"
@@ -335,7 +331,6 @@ function init_gear_sets()
 
 		sets.midcast.Stun.Resistant = set_combine(sets.midcast.Stun,
 		{
-			sub="Ammurapi Shield",
 			head="Acad. Mortar. +2", neck="Erra Pendant", lear="Regal Earring", rear="Digni. Earring",
 			body="Acad. Gown +2", lring={name="Stikini Ring +1", bag="wardrobe2"},
 			waist="Luminary Sash", feet="Acad. Loafers +2"
@@ -352,30 +347,56 @@ function init_gear_sets()
 
 		sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'],
 		{
-			head="Acad. Mortar. +2",
 			hands="Jhakri Cuffs +2",
-			waist="Eschan Stone", legs="Merlinic Shalwar", feet="Jhakri Pigaches +2"
+			waist="Eschan Stone", legs="Peda. Pants +3", feet="Jhakri Pigaches +2"
 		})
+		
+		sets.midcast['Elemental Magic'].Potency =
+		{
+			main="Maxentius", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
+			head="Peda. M.Board +3", neck="Sanctity Necklace", lear="Regal Earring", rear="Barkaro. Earring",
+			body="Amalric Doublet +1", hands="Amalric Gages +1", lring={name="Shiva Ring +1", bag="wardrobe2"}, rring={name="Shiva Ring +1", bag="wardrobe3"},
+			back=gear.SCHCape_Nuke, waist="Refoccilation Stone", legs="Amalric Slops +1", feet="Amalric Nails +1"
+		}
 
 		sets.midcast.Impact = set_combine(sets.midcast.Macc,
 		{
 			head=empty, 
-			body="Twilight Cloak"
+			body="Twilight Cloak",
+			legs="Peda. Pants +3"
 		})
-
-		sets.midcast.Helix = sets.midcast['Elemental Magic']
+		
+		---Kaustra
+		sets.midcast.Kaustra = set_combine(sets.midcast['Elemental Magic'],
+		{
+			head="Pixie Hairpin +1",
+			lring="Archon Ring"
+		})
+		
+		sets.midcast.Kaustra.Resistant = set_combine(sets.midcast['Elemental Magic'].Resistant,
+		{
+			head="Pixie Hairpin +1",
+			lring="Archon Ring"
+		})
+		
+		sets.midcast.Kaustra.Potency = set_combine(sets.midcast['Elemental Magic'].Potency,
+		{
+			head="Pixie Hairpin +1",
+			lring="Archon Ring"
+		})
 	
+		---Magic Burst
 		sets.magic_burst = set_combine(sets.midcast['Elemental Magic'],
 		{
 			head="Peda. M.Board +3", neck="Mizu. Kubikazari", rear="Static Earring",
 			body="Merlinic Jubbah", hands="Amalric Gages +1", lring="Locus Ring", rring="Mujin Band",
-			feet=gear.NukeCrackows
+			feet="Jhakri Pigaches +2"
 		})
 		
 		sets.magic_burst.Resistant = set_combine(sets.magic_burst,
 		{
 			hands="Regal Cuffs",
-			waist="Eschan Stone", legs="Merlinic Shalwar"
+			waist="Eschan Stone", legs="Peda. Pants +3"
 		})
 
 	
@@ -402,7 +423,7 @@ function init_gear_sets()
 		{
 			ammo="Staunch Tathlum +1",
 			neck="Loricate Torque +1", lear="Etiolation Earring",
-			lring="Defending Ring", rring="Vocane Ring"
+			lring="Defending Ring", rring="Gelatinous Ring +1"
 		})
 
 		sets.idle.Town = set_combine(sets.idle,
@@ -424,16 +445,16 @@ function init_gear_sets()
 		{
 			main="Akademos", sub="Kaja Grip", ammo="Staunch Tathlum +1",
 			head="Befouled Crown", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
-			body="Mallquis Saio +2", hands="Chironic Gloves", lring="Defending Ring", rring="Vocane Ring",
+			body="Mallquis Saio +2", hands="Chironic Gloves", lring="Defending Ring", rring="Gelatinous Ring +1",
 			back=gear.SCHCape_Nuke, waist="Lieutenant's Sash", legs="Assid. Pants +1", feet="Chironic Slippers"
 		}
 
 		sets.defense.MDT =
 		{
 			main="Akademos", sub="Irenic Strap +1", ammo="Staunch Tathlum +1",
-			head="Chironic Hat", neck="Loricate Torque +1", lear="Eabani Earring", rear="Static Earring",
-			body="Peda. Gown +3", hands="Peda. Bracers +3", lring="Defending Ring", rring="Vocane Ring",
-			back=gear.SCHCape_Nuke, waist="Lieutenant's Sash", legs="Peda. Pants +3", feet="Amalric Nails +1"
+			head="Chironic Hat", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Static Earring",
+			body="Peda. Gown +3", hands="Peda. Bracers +3", lring="Defending Ring", rring="Shukuyu Ring",
+			back="Moonbeam Cape", waist="Lieutenant's Sash", legs="Peda. Pants +3", feet="Amalric Nails +1"
 		}
 
 		sets.Kiting =
@@ -449,7 +470,7 @@ function init_gear_sets()
 		sets.buff.Doom = 
 		{
 			neck="Nicander's Necklace",
-			lring="Saida Ring",
+			lring={name="Eshmun's Ring", bag="wardrobe2"}, rring={name="Eshmun's Ring", bag="wardrobe3"},
 			waist="Gishdubar Sash"
 		}
 		
@@ -537,7 +558,7 @@ function init_gear_sets()
 		sets.engaged = 
 		{
 			ammo="Floestone",
-			head="Peda. M.Board +3", neck="Combatant's Torque", lear="Telos Earring", rear="Mache Earring +1",
+			head="Peda. M.Board +3", neck="Combatant's Torque", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Jhakri Robe +2", hands="Peda. Bracers +3", lring="Chirich Ring +1", rring="Chirich Ring +1",
 			back=gear.SCHCape_Nuke, waist="Windbuffet Belt +1", legs="Telchine Braconi", feet="Peda. Loafers +3"
 		}
@@ -563,7 +584,7 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 		apply_grimoire_bonuses(spell, action, spellMap, eventArgs)
 	end
 
-	if spellMap == 'Cure' or spellMap == 'Curaga' and (spell.element == world.day_element and spell.element == world.weather_element) then
+	if spellMap == 'Cures' or spellMap == 'Curagas' and (spell.element == world.day_element and spell.element == world.weather_element) then
 		equip
 		{
 			main="Chatoyant Staff", sub="Achaq Grip",
@@ -573,56 +594,54 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 		}
 	end
 	
-	if spellMap == 'Cure' and spell.target.type == 'SELF' then
+	if spellMap == 'Cures' and spell.target.type == 'SELF' then
         	equip
 		{
-			rring="Vocane Ring",
 			waist="Gishdubar Sash"
 		}
 	end
 	
-	if spellMap == 'Refresh' and spell.target.type == 'Self' then
+	if spellMap == 'Refresh' and spell.target.type == 'SELF' then
 		equip
 		{
-			waist="Gishdubar Sash",
-			feet="Inspirited Boots"
+			back="Grapevine Cape", waist="Gishdubar Sash", feet="Inspirited Boots"
 		}
 	end
 
 	if (spell.skill == 'Elemental Magic' or spell.english == 'Kaustra') and state.MagicBurst.value and state.CastingMode.value ~= 'Resistant' then
-		if spell.english ~= 'Impact' then
+		if spell.element ~= 'Dark' then
 			equip(sets.magic_burst)
+		elseif spell.element == 'Dark' and spell.english ~= 'Impact' then
+			equip(set_combine(sets.magic_burst,
+			{
+				head="Pixie Hairpin +1",
+				lring="Archon Ring",
+				feet=gear.NukeCrackows
+			}))
 		else
 			equip(set_combine(sets.magic_burst,
 			{
 				head=empty,
-				body="Twilight Cloak", lring="Archon Ring"
+				body="Twilight Cloak", lring="Archon Ring",
+				feet=gear.NukeCrackows
 			}))
 		end
 	elseif (spell.skill == 'Elemental Magic' or spell.english == 'Kaustra') and state.MagicBurst.value and state.CastingMode.value == 'Resistant' then
-		if spell.english ~= 'Impact' then
+		if spell.element ~= 'Dark' then
 			equip(sets.magic_burst.Resistant)
+		elseif spell.element == 'Dark' and spell.english ~= 'Impact' then
+			equip(set_combine(sets.magic_burst.Resistant,
+			{
+				lring="Archon Ring",
+				feet=gear.NukeCrackows
+			}))
 		else
 			equip(set_combine(sets.magic_burst.Resistant,
 			{
 				head=empty,
-				body="Twilight Cloak", lring="Archon Ring"
+				body="Twilight Cloak", lring="Archon Ring",
+				feet=gear.NukeCrackows
 			}))
-		end
-	end
-	
-	if (spell.skill == 'Elemental Magic' or spell.English == 'Kaustra') and spell.element == 'Dark' and spell.english ~= 'Impact' then
-		if CastingMode.value ~= 'Resistant' then
-			equip
-			{
-				head-"Pixie Hairpin +1",
-				lring="Archon Ring"
-			}
-		else
-			equip
-			{
-				lring="Archon Ring"
-			}
 		end
 	end
 
@@ -639,13 +658,15 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 			equip
 			{
 				main="Akademos", sub="Niobid Strap",
-				waist="Hachirin-no-Obi"
+				waist="Hachirin-no-Obi",
+				feet="Amalric Nails +1"
 			}
 		elseif spell.target.distance < (15 - spell.target.model_size) then
 			equip
 			{
 				main="Akademos", sub="Niobid Strap",
-				waist="Orpheus's Sash"
+				waist="Orpheus's Sash",
+				feet="Amalric Nails +1"
 			}
 		end
 	elseif spell.skill == 'Elemental Magic' and (spell.element == world.day_element or (spell.element == world.weather_element and get_weather_intensity() == 1)) then
@@ -653,13 +674,15 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 			equip
 			{
 				main="Akademos", sub="Niobid Strap",
-				waist="Orpheus's Sash"
+				waist="Orpheus's Sash",
+				feet="Amalric Nails +1"
 			}
 		elseif spellMap ~= 'Helix' then
 			equip
 			{
 				main="Akademos", sub="Niobid Strap",
-				waist="Hachirin-no-Obi"
+				waist="Hachirin-no-Obi",
+				feet="Amalric Nails +1"
 			}
 		end
 	end
@@ -680,9 +703,9 @@ function job_buff_change(buff, gain)
 	if buff == "doom" then
 		if gain then
 			equip(sets.buff.Doom)
-			disable('neck','lring','waist')
+			disable('neck','lring','rring','waist')
 		else
-			enable('neck','lring','waist')
+			disable('neck','lring','rring','waist')
 			handle_equipping_gear(player.status)
 		end
 	end
@@ -702,25 +725,6 @@ end
 -------------------------------------------------------------------------------------------------------------------
 -- User code that supplements standard library decisions.
 -------------------------------------------------------------------------------------------------------------------
-
--- Custom spell mapping.
--[[function job_get_spell_map(spell, default_spell_map)
-	if spell.action_type == 'Magic' then
-		if default_spell_map == 'Cures' then
-			if (world.weather_element == 'Light' or world.day_element == 'Light') then
-				return "CuresWeather"
-			else
-				return "Cures"
-			end
-		elseif default_spell_map == 'Curagas' then
-			if (world.weather_element == 'Light' or world.day_element == 'Light') then
-				return "CuragaWeather"
-			else
-				return "Curagas"
-			end
-		end
-	end
-end]]
 
 function customize_idle_set(idleSet)
 	if state.Buff['Sublimation: Activated'] then
