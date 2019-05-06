@@ -305,8 +305,9 @@ function init_gear_sets()
 		sets.magic_burst.Resistant = set_combine(sets.magic_burst,
 		{--MBD/II: 42/11
 			main="Maxentius", sub="Ammurapi Shield",
+			rear="Barkaro. Earring",
 			hands="Regal Cuffs", 
-			waist="Eschan Stone", legs="Jhakri Slops +2"
+			waist="Eschan Stone", legs="Jhakri Slops +2", feet="Jhakri Pigaches +2"
 		})
 	
 	
