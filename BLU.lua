@@ -692,7 +692,6 @@ function init_gear_sets()
 
 		sets.precast.WS['Chant du Cygne'].Low = set_combine(sets.precast.WS['Chant du Cygne'],
 		{
-			body="Adhemar Jacket +1",
 			lring="Ilabrat Ring",
 			legs="Adhemar Kecks +1"
 		})
@@ -706,26 +705,34 @@ function init_gear_sets()
 		sets.precast.WS['Chant du Cygne'].High = set_combine(sets.precast.WS['Chant du Cygne'].Mid,
 		{
 			head="Dampening Tam",
-			hands="Aya. Manopolas +2",
-			legs="Carmine Cuisses +1",
+			hands="Luh. Bazubands +3"
 		})
 
 	---Vorpal Blade
 		sets.precast.WS['Vorpal Blade'] = set_combine(sets.precast.WS['Chant du Cygne'],
 		{
 			ammo="Floestone",
-			lear="Brutal Earring", rear="Moonshade Earring",
-			rring="Shukuyu Ring"
+			lear="Brutal Earring", rear="Moonshade Earring"
 		})
 
-		sets.precast.WS['Vorpal Blade'].Low = sets.precast.WS['Chant du Cygne'].Low
-		
-		sets.precast.WS['Vorpal Blade'].Mid = set_combine(sets.precast.WS['Chant du Cygne'].Mid,
+		sets.precast.WS['Vorpal Blade'].Low = set_combine(sets.precast.WS['Vorpal Blade'],
 		{
-			ammo="Falcon Eye"
+			lring="Ilabrat Ring",
+			legs="Adhemar Kecks +1"
 		})
 		
-		sets.precast.WS['Vorpal Blade'].High = sets.precast.WS['Chant du Cygne'].High
+		sets.precast.WS['Vorpal Blade'].Mid = set_combine(sets.precast.WS['Vorpal Blade'].Low,
+		{
+			ammo="Falcon Eye",
+			rring="Begrudging Ring",
+			feet="Aya. Gambieras +2"
+		})
+		
+		sets.precast.WS['Vorpal Blade'].High = set_combine(sets.precast.WS['Vorpal Blade'].Mid,
+		{
+			head="Dampening Tam",
+			hands="Luh. Bazubands +3"
+		})
 		
 	---Requiescat
 		sets.precast.WS['Requiescat'] = set_combine(sets.precast.WS,
@@ -748,8 +755,7 @@ function init_gear_sets()
 		
 		sets.precast.WS['Requiescat'].High = set_combine(sets.precast.WS['Requiescat'].Mid,
 		{
-			hands="Jhakri Cuffs +2",
-			legs="Carmine Cuisses +1"
+			legs="Adhemar Kecks +1"
 		})
 
 	---Savage Blade
@@ -803,7 +809,7 @@ function init_gear_sets()
 			ammo="Psilomene",
 			head="Luh. Keffiyeh +3", neck="Sanctity Necklace", lear="Odnowa Earring +1", rear="Moonshade Earring",
 			body="Assim. Jubbah +3", hands="Regal Cuffs", lring="Ilabrat Ring", rring="Gelatinous Ring +1",
-			back="Reiki Cloak", waist="Eschan Stone", legs="Assim. Shalwar +3", feet="Assim. Charuqs +2"
+			back="Moonbeam Cape", waist="Eschan Stone", legs="Assim. Shalwar +3", feet="Assim. Charuqs +2"
 		}
 	
 
@@ -813,14 +819,15 @@ function init_gear_sets()
 	sets.precast.WS['True Strike']= set_combine(sets.precast.WS['Savage Blade'],
 	{
 		lear="Ishvara Earring",
+		lring="Shukuyu Ring",
 		waist="Prosilio Belt +1"
 	})
 
 	sets.precast.WS['True Strike'].Low = sets.precast.WS['True Strike']
 	
-	sets.precast.WS['True Strike'].Mid = sets.precast.WS['Savage Blade'].Low
+	sets.precast.WS['True Strike'].Mid = sets.precast.WS['True Strike'].Low
 	
-	sets.precast.WS['True Strike'].High = sets.precast.WS['Savage Blade'].Mid
+	sets.precast.WS['True Strike'].High = sets.precast.WS['True Strike'].Mid
 	
 	sets.precast.WS['Judgment'] = sets.precast.WS['Savage Blade']
 
@@ -828,11 +835,10 @@ function init_gear_sets()
 	
 	sets.precast.WS['Judgment'].Mid = sets.precast.WS['Savage Blade'].Mid
 	
-	sets.precast.WS['Judgment'].High = sets.precast.WS['Savage Blade'].High
+	sets.precast.WS['Judgment'].High = sets.precast.WS['Judgment'].Mid
 
 	sets.precast.WS['Black Halo'] = set_combine(sets.precast.WS['Savage Blade'],
 	{
-		rring={name="Stikini Ring +1", bag="wardrobe3"},
 		feet="Carmine Greaves +1"
 	})
 
@@ -840,7 +846,12 @@ function init_gear_sets()
 	
 	sets.precast.WS['Black Halo'].Mid = sets.precast.WS['Black Halo'].Low
 	
-	sets.precast.WS['Black Halo'].High = sets.precast.WS['Black Halo'].Mid
+	sets.precast.WS['Black Halo'].High = set_combine(sets.precast.WS['Black Halo'].Mid,
+	{
+		ammo="Falcon Eye",
+		head="Jhakri Coronal +2", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
+		feet="Assim. Charuqs +2"
+	})
 
 	sets.precast.WS['Realmrazer'] = sets.precast.WS['Requiescat']
 	
@@ -1006,8 +1017,8 @@ function init_gear_sets()
 		-----------------------------------------------------------
 		sets.engaged.DW3.Low = set_combine(sets.engaged.DW3,
 		{
-			ammo="Falcon Eye",
 			head="Dampening Tam",
+			lring={name="Chirich Ring +1", bag="wardrobe2"}
 		})
 
 		-----------------------------------------------------------------------------------
@@ -1015,8 +1026,7 @@ function init_gear_sets()
 		-----------------------------------------------------------
 		sets.engaged.DW3.Mid = set_combine(sets.engaged.DW3.Low,
 		{
-			
-			lring="Ilabrat Ring"
+			ammo="Falcon Eye"
 		})
 
 		-----------------------------------------------------------------------------------
@@ -1025,7 +1035,7 @@ function init_gear_sets()
 		sets.engaged.DW3.High = set_combine(sets.engaged.DW3.Mid,
 		{
 			head="Carmine Mask +1",
-			lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			rring={name="Chirich Ring +1", bag="wardrobe3"}
 		})
 		
 		
@@ -1060,8 +1070,7 @@ function init_gear_sets()
 		---	TP/h:79	(DW:41	STP:39		QA:0%	TA:16%	DA:5%)
 		-----------------------------------------------------------
 		sets.engaged.DW4.Low = set_combine(sets.engaged.DW4,
-		{
-			
+		{	
 			head="Dampening Tam",
 			lring={name="Chirich Ring +1", bag="wardrobe2"}
 		})
@@ -1080,7 +1089,7 @@ function init_gear_sets()
 		sets.engaged.DW4.High = set_combine(sets.engaged.DW4.Mid,
 		{
 			head="Carmine Mask +1",
-			lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			rring={name="Chirich Ring +1", bag="wardrobe3"}
 		})
 		
 
@@ -1182,8 +1191,8 @@ function init_gear_sets()
 		-----------------------------------------------------------
 		sets.engaged.DW3.Low.Min = set_combine(sets.engaged.DW3.Min,
 		{
-			ammo="Falcon Eye",
 			head="Dampening Tam",
+			lring={name="Chirich Ring +1", bag="wardrobe2"}
 		})
 
 		-----------------------------------------------------------------------------------
@@ -1191,7 +1200,7 @@ function init_gear_sets()
 		-----------------------------------------------------------
 		sets.engaged.DW3.Mid.Min = set_combine(sets.engaged.DW3.Low.Min,
 		{
-			lring="Ilabrat Ring"
+			ammo="Falcon Eye"
 		})
 
 		-----------------------------------------------------------------------------------
@@ -1200,7 +1209,7 @@ function init_gear_sets()
 		sets.engaged.DW3.High.Min = set_combine(sets.engaged.DW3.Mid.Min,
 		{
 			head="Carmine Mask +1",
-			lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			rring={name="Chirich Ring +1", bag="wardrobe3"}
 		})
 	
 	
