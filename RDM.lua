@@ -1269,15 +1269,10 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 		}
 	end
 
+
 	if spell.skill == 'Elemental Magic' and state.MagicBurst.value and state.CastingMode.value ~= 'Resistant' then
-		if spell.element ~= 'Dark' then
+		if spell.english ~= 'Impact' then
 			equip(sets.magic_burst)
-		elseif spell.element == 'Dark' and spell.english ~= 'Impact' then
-			equip(set_combine(sets.magic_burst,
-			{
-				head="Pixie Hairpin +1",
-				lring="Archon Ring"
-			}))
 		else
 			equip(set_combine(sets.magic_burst,
 			{
@@ -1286,20 +1281,29 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 			}))
 		end
 	elseif spell.skill == 'Elemental Magic' and state.MagicBurst.value and state.CastingMode.value == 'Resistant' then
-		if spell.element ~= 'Dark' then
+		if spell.english ~= 'Impact' then
 			equip(sets.magic_burst.Resistant)
-		elseif spell.element == 'Dark' and spell.english ~= 'Impact' then
+		else
 			equip(set_combine(sets.magic_burst.Resistant,
+			{
+				head=empty,
+				body="Twilight Cloak", lring="Archon Ring",
+			}))
+		end
+	end
+
+	if spell.skill == 'Elemental Magic' and spell.element == 'Dark' and spell.english ~= 'Impact' then
+		if state.CastingMode.value ~= 'Resistant' then
+			equip
 			{
 				head="Pixie Hairpin +1",
 				lring="Archon Ring"
-			}))
+			}
 		else
-			equip(set_combine(sets.magic_burst,
+			equip
 			{
-				head=empty,
-				body="Twilight Cloak", lring="Archon Ring"
-			}))
+				lring="Archon Ring"
+			}
 		end
 	end
 

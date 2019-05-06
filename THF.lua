@@ -173,7 +173,7 @@ function init_gear_sets()
 		{
 			ammo="Pemphredo Tathlum",
 			head=gear.HHead_MAB, neck="Sanctity Necklace", lear="Friomisi Earring", rear="Novio Earring",
-			body="Samnuha Coat", hands="Leyline Gloves", lring={name="Shiva Ring +1", bag="wardrobe2"}, rring="Dingir Ring", 
+			body="Samnuha Coat", hands="Leyline Gloves", lring="Dingir Ring", rring={name="Shiva Ring +1", bag="wardrobe3"},
 			back=gear.THFCape_STP, waist="Eschan Stone", legs="Herculean Trousers", feet=gear.HBoots_WSD
 		}
 		
@@ -192,88 +192,91 @@ function init_gear_sets()
 	------------------------------------------ Idle Sets -------------------------------------------
 	------------------------------------------------------------------------------------------------
 
-	sets.idle =
-	{
-		ammo="Staunch Tathlum +1",
-		head="Dampening Tam", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
-		body="Meg. Cuirie +2", hands="Meg. Gloves +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
-		back=gear.THFCape_STP, waist="Flume Belt +1", legs="Mummu Kecks +2", feet="Jute Boots +1"
-	}
+		sets.idle =
+		{
+			ammo="Staunch Tathlum +1",
+			head="Meghanada Visor +2", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
+			body="Meg. Cuirie +2", hands="Meg. Gloves +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			back="Moonbeam Cape", waist="Flume Belt +1", legs="Mummu Kecks +2", feet="Jute Boots +1"
+		}
 
-	sets.idle.PDT = set_combine (sets.idle,
-	{
-		ammo="Staunch Tathlum +1",
-		head="Meghanada Visor +2", neck="Loricate Torque +1",
-		body="Meg. Cuirie +2", lring="Defending Ring", rring="Vocane Ring",
-	})
+		sets.idle.DT = set_combine (sets.idle,
+		{
+			ammo="Staunch Tathlum +1",
+			neck="Loricate Torque +1",
+			lring="Defending Ring", rring="Moonbeam Ring",
+		})
 
-	sets.idle.MDT = set_combine (sets.idle,
-	{
-		ammo="Staunch Tathlum +1",
-		head="Dampening Tam", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
-		body="Samnuha Coat", hands="Leyline Gloves", lring="Defending Ring", rring="Vocane Ring",
-		back="Reiki Cloak", waist="Flume Belt +1"
-	})
+		sets.idle.Town = set_combine(sets.idle,
+		{
+			feet="Jute Boots +1"
+		})
+		
+		sets.idle.AdoulinCity = set_combine(sets.idle,
+		{
+			body="Councilor's Garb"
+		})
 
-	sets.idle.Town = set_combine(sets.idle,
-	{
-		feet="Jute Boots +1"
-	})
-	
-	sets.idle.AdoulinCity = set_combine(sets.idle,
-	{
-		body="Councilor's Garb"
-	})
-
-	sets.idle.Weak = sets.idle.PDT
+		sets.idle.Weak = sets.idle.PDT
 
 
-	-- Defense sets
+		-- Defense sets
 
-	sets.defense.PDT = sets.idle.PDT
+		sets.defense.PDT = sets.idle.DT
 
-	sets.defense.MDT = sets.idle.MDT
+		sets.defense.MDT = set_combine(sets.PDT,
+		{
+			hands="Leyline Gloves",
+			waist="Lieutenant's Sash"
+		})
 	
 	
 	--------------------------------------
 	-- Special sets (required by rules)
 	--------------------------------------
 
-	sets.TreasureHunter =
-	{
+		sets.TreasureHunter =
+		{
+			
+			hands="Plun. Armlets +1",
+			feet="Skulk. Poulaines +1"
+		}
+
+		sets.Kiting =
+		{
+			feet="Jute Boots +1",
+		}
+
+		sets.buff['Sneak Attack'] =
+		{
+			ammo="Yetshila",
+			head="Adhemar Bonnet +1", neck="Caro Necklace", lear="Sherida Earring", rear="Suppanomimi",
+			body="Adhemar Jacket +1", hands="Meg. Gloves +2", lring="Ilabrat Ring", rring="Regal Ring",
+			back=gear.THFCape_STP, waist="Chaac Belt", legs="Samnuha Tights", feet="Meg. Jam. +2"
+		}
+
+		sets.buff['Trick Attack'] =
+		{
+			ammo="Yetshila",
+			head="Adhemar Bonnet +1", neck="Pentalagus Charm", lear="Dawn Earring", rear="Suppanomimi",
+			body="Adhemar Jacket +1", hands="Meg. Gloves +2", lring="Ilabrat Ring", rring="Regal Ring",
+			back=gear.THFCape_STP, waist="Chaac Belt", legs="Meg. Chausses +2", feet="Meg. Jam. +2"
+		}
 		
-		hands="Plun. Armlets +1",
-		feet="Skulk. Poulaines +1"
-	}
-
-	sets.Kiting =
-	{
-		feet="Jute Boots +1",
-	}
-
-	sets.buff['Sneak Attack'] =
-	{
-		ammo="Yetshila",
-		head="Adhemar Bonnet +1", neck="Caro Necklace", lear="Sherida Earring", rear="Suppanomimi",
-		body="Adhemar Jacket +1", hands="Meg. Gloves +2", lring="Ilabrat Ring", rring="Regal Ring",
-		back=gear.THFCape_STP, waist="Chaac Belt", legs="Samnuha Tights", feet="Meg. Jam. +2"
-	}
-
-	sets.buff['Trick Attack'] =
-	{
-		ammo="Yetshila",
-		head="Adhemar Bonnet +1", neck="Pentalagus Charm", lear="Dawn Earring", rear="Suppanomimi",
-		body="Adhemar Jacket +1", hands="Meg. Gloves +2", lring="Ilabrat Ring", rring="Regal Ring",
-		back=gear.THFCape_STP, waist="Chaac Belt", legs="Meg. Chausses +2", feet="Meg. Jam. +2"
-	}
+			sets.buff.Doom = 
+		{
+			neck="Nicander's Necklace",
+			lring={name="Eshmun's Ring", bag="wardrobe2"}, rring={name="Eshmun's Ring", bag="wardrobe3"},
+			waist="Gishdubar Sash"
+		}
 	
-	sets.buff['Feint'] = sets.TreasureHunter
+		sets.buff['Feint'] = sets.TreasureHunter
 
-	-- Actions we want to use to tag TH.
-	sets.precast.Step = sets.TreasureHunter
-	sets.precast.Flourish1 = sets.TreasureHunter
-	sets.precast.JA.Provoke = sets.TreasureHunter	
-	
+		-- Actions we want to use to tag TH.
+		sets.precast.Step = sets.TreasureHunter
+		sets.precast.Flourish1 = sets.TreasureHunter
+		sets.precast.JA.Provoke = sets.TreasureHunter	
+		
 	
 	
 ----------------------------------------------------------------------------
@@ -429,7 +432,7 @@ function init_gear_sets()
 		sets.precast.WS['Rudra\'s Storm'] = set_combine(sets.precast.WS,
 		{
 			neck="Caro Necklace", lear={name="Mache Earring +1", bag="wardrobe2"},
-			body="Herculean Vest", rring="Regal Ring",
+			body="Herculean Vest", rring="Karieyh Ring +1",
 			legs="Herculean Trousers", waist="Grunfeld Rope", feet=gear.HBoots_WSD
 		})
 
@@ -465,7 +468,7 @@ function init_gear_sets()
 		{
 			ammo="Pemphredo Tathlum",
 			head=gear.HHead_MAB, lear="Friomisi Earring",
-			body="Samnuha Coat", hands="Leyline Gloves", lring={name="Shiva Ring +1", bag="wardrobe2"}, rring="Dingir Ring", 
+			body="Samnuha Coat", hands="Leyline Gloves", lring="Dingir Ring", rring="Karieyh Ring +1",
 			back="Toutatis's Cape", waist="Orpheus's Sash", legs="Herculean Trousers", feet=gear.HBoots_WSD
 		})
 
@@ -514,6 +517,7 @@ function init_gear_sets()
 		sets.engaged.High = set_combine(sets.engaged.Mid,
 		{
 			lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
+			lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			waist="Kentarch Belt +1", feet="Meg. Jam. +2"
 		})
 	
@@ -675,6 +679,16 @@ end
 -- buff == buff gained or lost
 -- gain == true if the buff was gained, false if it was lost.
 function job_buff_change(buff,gain)
+    if buff == "doom" then
+        if gain then
+            equip(sets.buff.Doom)
+            disable('neck','lring','rring','waist')
+        else
+            enable('neck','lring','rring','waist')
+            handle_equipping_gear(player.status)
+        end
+    end
+
 	-- If we gain or lose any haste buffs, adjust which gear set we target.
 	if S{'haste','march','embrava','haste samba', 'mighty guard'}:contains(buff:lower()) then
 		determine_haste_group()

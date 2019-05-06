@@ -249,6 +249,13 @@ function init_gear_sets()
 	{
 		feet="Jute Boots +1"
 	}
+	
+		sets.buff.Doom = 
+		{
+			neck="Nicander's Necklace",
+			lring={name="Eshmun's Ring", bag="wardrobe2"}, rring={name="Eshmun's Ring", bag="wardrobe3"},
+			waist="Gishdubar Sash"
+		}
 
 
 	--------------------------------------
@@ -468,7 +475,17 @@ end
 -------------------------------------------------------------------------------------------------------------------
 -- Job-specific hooks for non-casting events.
 -------------------------------------------------------------------------------------------------------------------
-
+function job_buff_change(buff,gain)
+    if buff == "doom" then
+        if gain then
+            equip(sets.buff.Doom)
+            disable('neck','lring','rring','waist')
+        else
+            enable('neck','lring','rring','waist')
+            handle_equipping_gear(player.status)
+        end
+    end
+end
 
 
 -------------------------------------------------------------------------------------------------------------------

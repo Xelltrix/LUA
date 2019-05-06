@@ -14,7 +14,6 @@ end
 function job_setup()
 	state.Buff['Sublimation: Activated'] = buffactive['Sublimation: Activated'] or false
 	update_active_strategems()
-	
 	lockstyleset = 4
 end
 
@@ -580,9 +579,7 @@ end
 
 -- Run after the general midcast() is done.
 function job_post_midcast(spell, action, spellMap, eventArgs)
-	if spell.action_type == 'Magic' then
-		apply_grimoire_bonuses(spell, action, spellMap, eventArgs)
-	end
+	
 
 	if spellMap == 'Cures' or spellMap == 'Curagas' and (spell.element == world.day_element and spell.element == world.weather_element) then
 		equip
@@ -686,6 +683,10 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 			}
 		end
 	end
+	
+	if spell.action_type == 'Magic' then
+		apply_grimoire_bonuses(spell, action, spellMap, eventArgs)
+	end
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -782,7 +783,7 @@ function apply_grimoire_bonuses(spell, action, spellMap)
 	if state.Buff.Rapture and (spellMap == 'Cures' or spellMap == 'Curaga') then
 		equip(sets.buff['Rapture'])
 	end
-	if spell.skill == 'Elemental Magic' and spellMap ~= 'ElementalEnfeeble' then
+	if (spell.skill == 'Elemental Magic' or spell.english == 'Kaustra' or spell.english == 'Impact') and spellMap ~= 'ElementalEnfeeble' then
 		if state.Buff.Ebullience and spell.english ~= 'Impact' then
 			equip(sets.buff['Ebullience'])
 		end

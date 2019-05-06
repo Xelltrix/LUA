@@ -74,16 +74,20 @@ function define_global_sets()
 	gear.HBoots_WSD = { name="Herculean Boots", augments={'Weapon skill damage +4%','STR+10','Attack+26',}}
 	
 	--- Taeon
-	gear.THead_Phalanx ={ name="Taeon Chapeau", augments={'Mag. Evasion+5','Spell interruption rate down -8%','Phalanx +3',}}
-    gear.TBody_Phalanx ={ name="Taeon Tabard", augments={'Mag. Evasion+8','Spell interruption rate down -6%','Phalanx +3',}}
-    gear.THands_Phalanx ={ name="Taeon Gloves", augments={'Mag. Evasion+13','Spell interruption rate down -7%','Phalanx +3',}}
-    gear.TLegs_Phalanx ={ name="Taeon Tights", augments={'Mag. Evasion+20','Spell interruption rate down -7%','Phalanx +3',}}
-    gear.TFeet_Phalanx ={ name="Taeon Boots", augments={'Mag. Evasion+19','Spell interruption rate down -6%','Phalanx +3',}}
+	gear.THead_Phalanx = { name="Taeon Chapeau", augments={'Mag. Evasion+5','Spell interruption rate down -8%','Phalanx +3',}}
+    gear.TBody_Phalanx = { name="Taeon Tabard", augments={'Mag. Evasion+8','Spell interruption rate down -7%','Phalanx +3',}}
+    gear.THands_Phalanx = { name="Taeon Gloves", augments={'Mag. Evasion+13','"Fast Cast"+5','Phalanx +3',}}
+    gear.TLegs_Phalanx = { name="Taeon Tights", augments={'Mag. Evasion+20','Spell interruption rate down -10%','Phalanx +3',}}
+    gear.TFeet_Phalanx = { name="Taeon Boots", augments={'Mag. Evasion+19','Spell interruption rate down -6%','Phalanx +3',}}
 	
-	gear.THead_TP ={ name="Taeon Chapeau", augments={'Accuracy+19 Attack+19','"Triple Atk."+2','DEX+10',}}
-    gear.THands_TP ={ name="Taeon Gloves", augments={'Accuracy+17 Attack+17','"Triple Atk."+2','STR+7 DEX+7',}}
-    gear.TLegs_TP ={ name="Taeon Tights", augments={'Accuracy+20 Attack+20','"Triple Atk."+2','STR+7 DEX+7',}}
-    gear.TFeet_TP ={ name="Taeon Boots", augments={'Accuracy+19 Attack+19','"Triple Atk."+2','DEX+10',}}
+	gear.THead_TP = { name="Taeon Chapeau", augments={'Accuracy+19 Attack+19','"Triple Atk."+2','DEX+10',}}
+    gear.THands_TP = { name="Taeon Gloves", augments={'Accuracy+17 Attack+17','"Triple Atk."+2','STR+7 DEX+7',}}
+    gear.TLegs_TP = { name="Taeon Tights", augments={'Accuracy+20 Attack+20','"Triple Atk."+2','STR+7 DEX+7',}}
+    gear.TFeet_TP = { name="Taeon Boots", augments={'Accuracy+19 Attack+19','"Triple Atk."+2','DEX+10',}}
+	
+	---Telchine
+	gear.SiphonHands = { name="Telchine Gloves", augments={'"Elemental Siphon"+35',}}
+	gear.ENH_Gloves = { name="Telchine Gloves", augments={'"Mag.Atk.Bns."+15','"Fast Cast"+5','Enh. Mag. eff. dur. +10',}}
 	
 end
 
@@ -106,6 +110,9 @@ function global_on_load()
 	send_command('bind f12 gs c update user')
 	send_command('bind ^f12 gs c cycle IdleMode')
 	send_command('bind !f12 gs c reset DefenseMode')
+
+	--send_command('bind ^- gs c toggle selectnpctargets')
+	--send_command('bind ^= gs c cycle pctargetmode')
 end
 
 -- Function to revert binds when unloading.
@@ -123,6 +130,9 @@ function global_on_unload()
 	send_command('unbind f12')
 	send_command('unbind ^f12')
 	send_command('unbind !f12')
+
+	--send_command('unbind ^-')
+	--send_command('unbind ^=')
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -132,13 +142,14 @@ end
 -- Global intercept on precast.
 function user_precast(spell, action, spellMap, eventArgs)
     cancel_conflicting_buffs(spell, action, spellMap, eventArgs)
+    --refine_waltz(spell, action, spellMap, eventArgs)
 end
 
 -- Global intercept on midcast.
 function user_midcast(spell, action, spellMap, eventArgs)
 	-- Default base equipment layer of fast recast.
-	if spell.action_type == 'Magic' and sets.midcast and sets.midcast.FC then
-		equip(sets.midcast.FC)
+	if spell.action_type == 'Magic' and sets.midcast and sets.midcast.FastRecast then
+		equip(sets.midcast.FastRecast)
 	end
 end
 

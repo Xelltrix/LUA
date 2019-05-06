@@ -299,13 +299,12 @@ function init_gear_sets()
 			back=gear.RUNCape_FC, waist="Luminary Sash", legs="Aya. Cosciales +2", feet="Aya. Gambieras +2"
 		}
 	
-		sets.midcast.Cures =
+		sets.midcast.Cures = set_combine(sets.midcast.FC.SIRD,
 		{
-			ammo="Staunch Tathlum +1",
-			head="Erilaz Galea +1", neck="Moonbeam Necklace", lear="Mendi. Earring", rear="Odnowa Earring +1",
-			body="Vrikodara Jupon", hands="Runeist Mitons +1", lring="Eihwaz Ring", rring="Moonbeam Ring",
+			head="Erilaz Galea +1", lear="Mendi. Earring", rear="Odnowa Earring +1",
+			hands="Runeist Mitons +1", lring="Eihwaz Ring", rring="Moonbeam Ring",
 			back="Moonbeam Cape", waist="Gishdubar Sash", legs="Futhark Trousers +1", feet="Erilaz Greaves +1"
-		}
+		})
 		
 		sets.midcast['Elemental Magic'] = sets.precast.JA['Swipe']
 
@@ -404,10 +403,11 @@ function init_gear_sets()
 	--------------------------------------
 	-- Special Sets
 	--------------------------------------
-    	sets.buff.Doom = 
+		
+		sets.buff.Doom = 
 		{
 			neck="Nicander's Necklace",
-			lring="Saida Ring",
+			lring={name="Eshmun's Ring", bag="wardrobe2"}, rring={name="Eshmun's Ring", bag="wardrobe3"},
 			waist="Gishdubar Sash"
 		}
 		
@@ -456,7 +456,7 @@ function init_gear_sets()
 		{
 			ammo="Knobkierrie",
 			head=gear.HHead_WSD, neck="Fotia Gorget", lear="Ishvara Earring", rear="Moonshade Earring",
-			body="Adhemar Jacket +1", hands="Meg. Gloves +2", lring="Niqmaddu Ring", rring="Regal Ring",
+			body="Adhemar Jacket +1", hands="Meg. Gloves +2", lring="Regal Ring", rring="Karieyh Ring +1",
 			back=gear.RUNCape_STP, waist="Fotia Belt", legs="Herculean Trousers", feet=gear.HBoots_WSD
 		}
 
@@ -531,7 +531,7 @@ function init_gear_sets()
 		{
 			ammo="Seeth. Bomblet +1",
 			head="Adhemar Bonnet +1", lear="Sherida Earring",
-			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", rring="Epona's Ring",
+			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Niqmaddu Ring", rring="Epona's Ring",
 			legs="Samnuha Tights", feet=gear.HBoots_TP
 		})
 		
@@ -697,9 +697,9 @@ function job_buff_change(buff,gain)
 	if buff == "doom" then
         if gain then
             equip(sets.buff.Doom)
-            disbale('neck', 'lring','waist')
+            disbale('neck', 'lring','rring','waist')
         else
-            enable('neck','lring','waist')
+            enable('neck','lring','rring','waist')
             handle_equipping_gear(player.status)
         end
     end

@@ -125,7 +125,7 @@ function init_gear_sets()
 		{
 			ammo="Pemphredo Tathlum",
 			head="Carmine Mask +1", neck="Erra Pendant", lear="Gwati Earring", rear="Digni. Earring",
-			body="Flamma Korazin +2", hands="Leyline Gloves", lring="Stikini Ring", rring="Stikini Ring",
+			body="Flamma Korazin +2", hands="Leyline Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Ankou's Mantle", waist="Eschan Stone", legs="Flamma Dirs +2", feet="Flam. Gambieras +2"
 		}
 	
@@ -159,7 +159,7 @@ function init_gear_sets()
 	{
 		ammo="Pemphredo Tathlum", 
 		head="Befouled Crown", neck="Sanctity Necklace", lear="Friomisi Earring", rear="Novio Earring",
-		body="Flamma Korazin +2", hands="Carmine Fin. Ga. +1", lring="Shiva Ring +1", rring="Shiva Ring +1",
+		body="Flamma Korazin +2", hands="Carmine Fin. Ga. +1", lring={name="Shiva Ring +1", bag="wardrobe2"}, rring={name="Shiva Ring +1", bag="wardrobe3"},
 		back="Ankou's Mantle", waist="Eschan Stone", legs="Flamma Dirs +2", feet="Flam. Gambieras +2"
 	}
 
@@ -185,17 +185,17 @@ function init_gear_sets()
 	
 		sets.idle =
 		{
-			ammo="Staunch Tathlum",
+			ammo="Staunch Tathlum +1",
 			neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
-			body="Lugra Cloak +1", hands="Sulev. Gauntlets +2", lring="Sheltered Ring", rring="Paguroidea Ring",
+			body="Lugra Cloak +1", hands="Sulev. Gauntlets +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Reiki Cloak", waist="Flume Belt", legs="Carmine Cuisses +1", feet="Sulev. Leggings +2"
 		}
 
 		sets.idle.DT =
 		{
-			ammo="Staunch Tathlum",
+			ammo="Staunch Tathlum +1",
 			neck="Loricate Torque +1", lear="Dawn Earring", rear="Infused Earring",
-			body="Lugra Cloak +1", hands="Sulev. Gauntlets +2", lring="Defending Ring", rring="Vocane Ring",
+			body="Lugra Cloak +1", hands="Sulev. Gauntlets +2", lring="Defending Ring", rring="Moonbeam Ring",
 			back="Reiki Cloak", waist="Flume Belt", legs="Carmine Cuisses +1", feet="Sulev. Leggings +2"
 		}
 
@@ -223,18 +223,18 @@ function init_gear_sets()
 	--------------------------------------
 		sets.defense.PDT =
 		{
-			ammo="Staunch Tathlum",
-			head="Sulevia's Mask +2", neck="Loricate Torque +1", lear="Dawn Earring", rear="Infused Earring",
-			body="Sulevia's Plate. +1", hands="Sulev. Gauntlets +2", lring="Defending Ring", rring="Vocane Ring",
-			back="Reiki Cloak", waist="Flume Belt", legs="Sulev. Cuisses +2", feet="Sulev. Leggings +2"
+			ammo="Staunch Tathlum +1",
+			head="Sulevia's Mask +2", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
+			body="Sulevia's Plate. +1", hands="Sulev. Gauntlets +2", lring="Defending Ring", rring="Moonbeam Ring",
+			back="Moonbeam Cape", waist="Flume Belt +1", legs="Sulev. Cuisses +2", feet="Sulev. Leggings +2"
 		}
 
 		sets.defense.MDT = 
 		{
-			ammo="Staunch Tathlum",
-			head="Sulevia's Mask +2", neck="Loricate Torque +1", lear="Dawn Earring", rear="Infused Earring",
-			body="Sulevia's Plate. +1", hands="Sulev. Gauntlets +2", lring="Defending Ring", rring="Vocane Ring",
-			back="Reiki Cloak", waist="Flume Belt", legs="Sulev. Cuisses +2", feet="Sulev. Leggings +2"
+			ammo="Staunch Tathlum +1",
+			head="Sulevia's Mask +2", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
+			body="Sulevia's Plate. +1", hands="Sulev. Gauntlets +2", lring="Defending Ring", rring="Moonbeam Ring",
+			back="Moonbeam Cape", waist="Flume Belt +1", legs="Sulev. Cuisses +2", feet="Sulev. Leggings +2"
 		}
 
 	--------------------------------------
@@ -254,6 +254,8 @@ function init_gear_sets()
 	---Buffs
 		sets.buff.Doom = 
 		{
+			neck="Nicander's Necklace",
+			lring={name="Eshmun's Ring", bag="wardrobe2"}, rring={name="Eshmun's Ring", bag="wardrobe3"},
 			waist="Gishdubar Sash"
 		}
 		
@@ -306,16 +308,16 @@ function init_gear_sets()
 	--------------------------------------
 		sets.engaged.Hybrid = 
 		{
-			ammo="Staunch Tathlum",
+			ammo="Staunch Tathlum +1",
 			neck="Loricate Torque +1",
 			lring="Defending Ring",
 		}
 		
 		sets.engaged.Hybrid2 = 
 		{
-			ammo="Staunch Tathlum",
+			ammo="Staunch Tathlum +1",
 			neck="Loricate Torque +1",
-			lring="Defending Ring", rring="Vocane Ring",
+			lring="Defending Ring",
 			legs="Sulev. Cuisses +2", feet="Sulev. Leggings +2"
 		}
 
@@ -341,9 +343,9 @@ function job_buff_change(buff,gain)
     if buff == "doom" then
         if gain then
             equip(sets.buff.Doom)
-            disable('waist')
+            disable('neck','lring','rring','waist')
         else
-            enable('waist')
+            enable('neck','lring','rring','waist')
             handle_equipping_gear(player.status)
         end
     end
