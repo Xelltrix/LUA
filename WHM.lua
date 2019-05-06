@@ -235,13 +235,12 @@ function init_gear_sets()
 		
 
 
-		sets.midcast.Stoneskin =
+		sets.midcast.Stoneskin = set_combine(sets.midcast.Duration,
 		{
-			main="Gada", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
-			head="Telchine Cap", neck="Stone Gorget", lear="Andoaa Earring", rear="Earthcry Earring",
-			body="Telchine Chas.", hands=gear.ENH_Gloves, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Alaunus's Cape", waist="Siegel Sash", legs="Shedir Seraweels", feet="Telchine Pigaches"
-		}
+			neck="Stone Gorget", rear="Earthcry Earring",
+			lring="Kishar Ring", rring="Rahab Ring",
+			waist="Siegel Sash", legs="Shedir Seraweels"
+		})
 
 		sets.midcast.Aquaveil = set_combine(sets.midcast.Duration,
 		{
@@ -261,15 +260,24 @@ function init_gear_sets()
 			body="Ebers Bliaud +1", hands="Dynasty Mitts", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Alaunus's Cape", waist="Olympus Sash", legs="Piety Pantaln. +1", feet="Ebers Duckbills +1"
 		}
-
-		sets.midcast.BarStatus =
+		
+		sets.midcast.BarElementLA = set_combine(sets.midcast.BarElement,
 		{
-			main="Gada", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
-			head="Telchine Cap", neck="Incanter's Torque", lear="Andoaa Earring", rear="Augment. Earring",
-			body="Telchine Chas.", hands="Dynasty Mitts", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Fi Follet Cape +1", waist="Olympus Sash", legs="Telchine Braconi", feet="Theo. Duckbills +3"
-		}
+			hands="Ebers Mitts +1"
+		})
 
+		sets.midcast.BarStatus = set_combine(sets.midcast.Duration,
+		{
+			neck="Incanter's Torque", lear="Andoaa Earring", rear="Augment. Earring",
+			hands="Dynasty Mitts",
+			back="Fi Follet Cape +1",
+		})
+
+		sets.midcast.BarStatusLA = set_combine(sets.midcast.BarStatus,
+		{
+			hands=gear.ENH_Gloves
+		})
+	
 		sets.midcast.BoostStat =
 		{
 			main="Gada", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
@@ -277,66 +285,47 @@ function init_gear_sets()
 			body="Telchine Chas.", hands="Dynasty Mitts", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Fi Follet Cape +1", waist="Olympus Sash", legs="Telchine Braconi", feet="Theo. Duckbills +3"
 		}
-		
-		sets.midcast.BarElementLA =
-		{
-			main="Beneficus", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
-			head="Ebers Cap +1", neck="Incanter's Torque", lear="Andoaa Earring", rear="Augment. Earring",
-			body="Ebers Bliaud +1", hands="Ebers Mitts +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Alaunus's Cape", waist="Olympus Sash", legs="Piety Pantaln. +1", feet="Ebers Duckbills +1"
-		}
 
-		sets.midcast.BarStatusLA =
+		sets.midcast.BoostStatLA = set_combine(sets.midcast.BoostStat,
 		{
-			main="Gada", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
-			head="Telchine Cap", neck="Incanter's Torque", lear="Andoaa Earring", rear="Augment. Earring",
-			body="Telchine Chas.", hands=gear.ENH_Gloves, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Fi Follet Cape +1", waist="Olympus Sash", legs="Telchine Braconi", feet="Theo. Duckbills +3"
-		}
+			hands=gear.ENH_Gloves
+		})
 
-		sets.midcast.BoostStatLA =
-		{
-			main="Gada", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
-			head="Telchine Cap", neck="Incanter's Torque", lear="Andoaa Earring", rear="Augment. Earring",
-			body="Telchine Chas.", hands=gear.ENH_Gloves, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Fi Follet Cape +1", waist="Olympus Sash", legs="Telchine Braconi", feet="Theo. Duckbills +3"
-		}
-
-		sets.midcast.Regen =
+		sets.midcast.Regen = set_combine(sets.midcast.Duration,
 		{
 			main="Bolelabunga", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head="Inyanga Tiara +2", neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
 			body="Piety Briault +3", hands="Ebers Mitts +1", lring="Lebeche Ring", rring="Rahab Ring",
 			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Th. Pant. +3", feet="Theo. Duckbills +3"
-		}
+		})
 
-		sets.midcast.Refresh =
+		sets.midcast.Refresh = set_combine(sets.midcast.Duration,
 		{
-			main="Gada", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
-			head="Telchine Cap", neck="Cleric's Torque", lear="Gwati Earring", rear="Mendi. Earring",
-			body="Telchine Chas.", hands=gear.ENH_Gloves, lring="Lebeche Ring", rring="Rahab Ring",
-			back="Grapevine Cape", waist="Gishdubar Sash", legs="Telchine Braconi", feet="Theo. Duckbills +3"
-		}
+			lear="Gwati Earring", rear="Mendi. Earring",
+			ring="Lebeche Ring", rring="Rahab Ring",
+		})
 
 		sets.midcast.Statless = sets.midcast.Duration
 
 		sets.midcast.Storm = sets.midcast.Duration
 
-		sets.midcast.Protectra = set_combine(sets.midcast.Duration,
+		sets.midcast.Protect = set_combine(sets.midcast.Duration,
 		{
 			neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
-			back="Fi Follet Cape +1", waist="Luminary Sash", feet="Piety Duckbills +1"
+			back="Fi Follet Cape +1", waist="Luminary Sash"
 		})
-
-		sets.midcast.Protect = sets.midcast.Duration
-
-		sets.midcast.Shellra = set_combine(sets.midcast.Duration,
+	
+		sets.midcast.Protectra = set_combine(sets.midcast.Protect,
 		{
-			neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
-			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Piety Pantaln. +1"
+			feet="Piety Duckbills +1"
 		})
 
-		sets.midcast.Shell = sets.midcast.Duration
+		sets.midcast.Shellra = set_combine(sets.midcast.Protect,
+		{
+			legs="Piety Pantaln. +1"
+		})
+
+		sets.midcast.Shell = sets.midcast.Protect
 
 		sets.midcast.Teleport = sets.midcast.ConserveMP
 
@@ -360,18 +349,10 @@ function init_gear_sets()
 			hands="Kaykaus Cuffs +1", lring="Kishar Ring",
 		})
 	
-		sets.midcast.Silence = set_combine(sets.midcast['Enfeebling Magic'],
+		sets.midcast.Static = set_combine(sets.midcast['Enfeebling Magic'],
 		{
 			hands="Regal Cuffs", lring="Kishar Ring"
 		})
-		
-		sets.midcast.Sleep = sets.midcast.Silence
-		
-		sets.midcast['Sleep II'] = sets.midcast.Silence
-		
-		sets.midcast['Sleepga'] = sets.midcast.Silence
-		
-		sets.midcast.Bind = sets.midcast.Silence
 
 		sets.midcast['Dia'] = sets.midcast.FastRecast
 		
@@ -382,14 +363,14 @@ function init_gear_sets()
 	---Dark Magic	
 		sets.midcast['Dark Magic'] = set_combine(sets.midcast.Macc,
 		{
-			head="Pixie Hairpin +1",
-			body="Shango Robe", lring="Archon Ring", rring={name="Stikini Ring +1", bag="wardrobe3"},
-			waist="Fucho-no-Obi"
+			body="Shango Robe", lring="Archon Ring", rring={name="Stikini Ring +1", bag="wardrobe3"}
 		})
 
 		sets.midcast.Sap = set_combine(sets.midcast['Dark Magic'],
 		{
-			body="Chironic Doublet", lring="Evanescence Ring", rring="Archon Ring"
+			head="Pixie Hairpin +1",
+			body="Chironic Doublet", rring="Evanescence Ring",
+			waist="Fucho-no-Obi"
 		})
 		
 		
@@ -410,7 +391,7 @@ function init_gear_sets()
 		sets.midcast.Impact = set_combine(sets.midcast.DivineNuke,
 		{
 			head=empty,
-			body="Twilight Cloak",lring={name="Shiva Ring +1", bag="wardrobe2"}, rring="Archon Ring",
+			body="Twilight Cloak", lring="Archon Ring", rring={name="Shiva Ring +1", bag="wardrobe3"},
 			waist="Eschan Stone"
 		})
 
@@ -435,13 +416,11 @@ function init_gear_sets()
 			back="Alaunus's Cape", waist="Lieutenant's Sash", legs="Assid. Pants +1", feet="Chironic Slippers"
 		}
 		
-		sets.idle.DT =
+		sets.idle.DT = set_combine(sets.idle,
 		{
-			main="Bolelabunga", sub="Genmei Shield", ammo="Homiliary",
 			head="Inyanga Tiara +2", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Static Earring",
-			body="Piety Briault +3", hands="Chironic Gloves", lring="Defending Ring", rring="Gelatinous Ring +1",
-			back="Alaunus's Cape", waist="Lieutenant's Sash", legs="Assid. Pants +1", feet="Chironic Slippers"
-		}
+			lring="Defending Ring", rring="Gelatinous Ring +1"
+		})
 
 		sets.idle.Town = set_combine(sets.idle,
 		{
@@ -550,10 +529,17 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 	end
 	
 	if spellMap == 'Cures' and spell.target.type == 'SELF' then
-        equip(
+        	equip
 		{
 			waist="Gishdubar Sash"
-		})
+		}
+	end
+	
+	if spellMap == 'Refresh' and spell.target.type == 'SELF' then
+		equip
+		{
+			back="Grapevine Cape", waist="Gishdubar Sash", feet="Inspirited Boots"
+		}
 	end
 end
 
