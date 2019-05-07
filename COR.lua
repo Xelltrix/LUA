@@ -12,7 +12,6 @@ function job_setup()
     state.Mainqd = M{['description']='Primary Shot', 'Fire Shot', 'Ice Shot', 'Wind Shot', 'Earth Shot', 'Thunder Shot', 'Water Shot'}
     state.Altqd = M{['description']='Secondary Shot', 'Fire Shot', 'Ice Shot', 'Wind Shot', 'Earth Shot', 'Thunder Shot', 'Water Shot'}
     state.UseAltqd = M(false, 'Use Secondary Shot')
-    state.SelectqdTarget = M(false, 'Select Quick Draw Target')
 	
 	state.QDMode = M{['description']='Quick Draw Mode', 'STP', 'Magic Attack'}
 
@@ -41,13 +40,6 @@ function user_setup()
     state.WeaponskillMode:options('Normal', 'Acc')
     state.IdleMode:options('Normal', 'DT')
 
-	
-	state.Gun = M{['description']='Current Gun', 'Fomalhaut'}
-	
-	gear.RAbullet = "Eminent Bullet"
-    gear.WSbullet = "Eminent Bullet"
-    gear.MAbullet = "Eminent Bullet"
-    gear.QDbullet = "Eminent Bullet"
     options.ammo_warning_limit = 15
 	
 	
@@ -66,8 +58,7 @@ function user_setup()
     send_command('bind ^[ gs c toggle selectqdtarget')
     send_command('bind ^] gs c toggle usealtqd')
 	
-	send_command('bind @z gs c cycle QDMode')
-    send_command('bind @w gs c cycle Gun')
+	send_command('bind @q gs c cycle QDMode')
 	
 	determine_haste_group()
 	
@@ -93,8 +84,7 @@ function user_unload()
     send_command('unbind ^[')
     send_command('unbind ^]')
 	
-	send_command('unbind @z')
-    send_command('unbind @w')
+	send_command('unbind @q')
 end
 
 -- Define sets and vars used by this job file.
@@ -239,7 +229,7 @@ function init_gear_sets()
 
 		sets.idle =
 		{
-			ammo=gear.RAbullet,
+			ranged="Fomalhaut", ammo="Chrono Bullet",
 			head="Meghanada Visor +2", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 			body="Meg. Cuirie +2", hands="Meg. Gloves +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back="Moonbeam Cape", waist="Flume Belt +1", legs="Carmine Cuisses +1", feet="Lanun Bottes +1"
@@ -374,13 +364,12 @@ function init_gear_sets()
 		sets.precast.WS['Vorpal Blade'] = set_combine(sets.precast.WS,
 		{
 			head="Adhemar Bonnet +1", lear="Brutal Earring",
-			body="Abnoba Kaftan", hands="Adhemar Wrist. +1", lring="Begrudging Ring", rring="Epona's Ring",
+			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Begrudging Ring", rring="Epona's Ring",
 			legs="Samnuha Tights", feet=gear.HBoots_TP
 		})
 		
 		sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, 
 		{
-			neck="Caro Necklace",
 			lring="Shukuyu Ring",
 			waist="Prosilio Belt +1", feet="Carmine Greaves +1"
 		})
@@ -433,7 +422,7 @@ function init_gear_sets()
 		sets.engaged =
 		{
 			head="Adhemar Bonnet +1", neck="Iskur Gorget", lear="Telos Earring", rear="Cessance Earring",
-			body="Adhemar jacket +1", hands="Adhemar Wrist. +1", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring="Epona's Ring",
+			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring="Epona's Ring",
 			back="Camulus's Mantle", waist="Windbuffet Belt +1", legs="Samnuha Tights", feet="Carmine Greaves +1"
 		}
 
@@ -960,11 +949,6 @@ end
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
 -- Set eventArgs.useMidcastGear to true if we want midcast gear equipped on precast.
 function job_precast(spell, action, spellMap, eventArgs)
-    -- Check that proper ammo is available if we're using ranged attacks or similar.
---[[    if spell.action_type == 'Ranged Attack' or spell.type == 'WeaponSkill' or spell.type == 'CorsairShot' then
-        do_bullet_checks(spell, spellMap, eventArgs)
-    end
-]]
     -- Gear
     if (spell.type == 'CorsairRoll' or spell.english == "Double-Up") then
         if state.LuzafRing.value then
@@ -972,17 +956,6 @@ function job_precast(spell, action, spellMap, eventArgs)
         end
     elseif spell.type == 'CorsairShot' and state.CastingMode.value == 'Resistant' then
         classes.CustomClass = 'Acc'
-    end
-
-    if spellMap == 'Utsusemi' then
-        if buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
-            cancel_spell()
-            add_to_chat(123, '**!! '..spell.english..' Canceled: [3+ IMAGES] !!**')
-            eventArgs.handled = true
-            return
-        elseif buffactive['Copy Image'] or buffactive['Copy Image (2)'] then
-            send_command('cancel 66; cancel 444; cancel Copy Image; cancel Copy Image (2)')
-        end
     end
 end
 
@@ -995,12 +968,10 @@ function job_post_precast(spell, action, spellMap, eventArgs)
         end
     -- Equip obi if weather/day matches for WS.
     elseif spell.type == 'WeaponSkill' then
-        if spell.english == 'Leaden Salute' or spell.english == 'Sanguine Blade' then
-            if world.weather_element == 'Dark' or world.day_element == 'Dark' then
-                equip(sets.Obi)
-            end
-        elseif spell.english == 'Wildfire' and (world.weather_element == 'Fire' or world.day_element == 'Fire') then
-            equip(sets.Obi)
+        if (spell.english == 'Leaden Salute' or spell.english == 'Sanguine Blade') and world.weather_element == 'Dark' and world.day_element == 'Dark' then
+		equip{waist="Hachirin-no-Obi"}
+	elseif spell.english == 'Wildfire' and (world.weather_element == 'Fire' or world.day_element == 'Fire') then
+		equip{waist="Hachirin-no-Obi"}
         end
     end
 end
@@ -1010,7 +981,7 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
     if spell.type == 'CorsairShot' then
         if (spell.element == world.day_element or spell.element == world.weather_element) and
         (spell.english ~= 'Light Shot' and spell.english ~= 'Dark Shot') then
-            equip(sets.Obi)
+            equip{waist="Hachirin-no-Obi"}
 		end
 		if state.QDMode.value == 'STP' then
             equip(sets.midcast.CorsairShot.STP)
@@ -1134,13 +1105,6 @@ function update_combat_form()
     end
 end
 
-function customize_idle_set(idleSet)
-    if state.Gun.current == 'Fomalhaut' then
-        equip({ranged="Fomalhaut"})
-	
-	return idleSet
-end
-
 
 -- Set eventArgs.handled to true if we don't want the automatic display to be run.
 function display_current_job_state(eventArgs)
@@ -1258,63 +1222,8 @@ function display_roll_info(spell)
     end
 end
 
---[[
--- Determine whether we have sufficient ammo for the action being attempted.
-function do_bullet_checks(spell, spellMap, eventArgs)
-    local bullet_name
-    local bullet_min_count = 1
 
-    if spell.action_type == 'Ranged Attack' then
-        bullet_name = gear.RAbullet
-        if buffactive['Triple Shot'] then
-            bullet_min_count = 3
-        end
-    end
 
-    local available_bullets = player.inventory[bullet_name] or player.wardrobe[bullet_name]
-
-    --If no ammo is available, give appropriate warning and end.
-    if not available_bullets then
-        if spell.type == 'CorsairShot' and player.equipment.ammo ~= 'empty' then
-            add_to_chat(104, 'No Quick Draw ammo left.  Using what\'s currently equipped ('..player.equipment.ammo..').')
-            return
-        elseif spell.type == 'WeaponSkill' and player.equipment.ammo == gear.RAbullet then
-            add_to_chat(104, 'No weaponskill ammo left.  Using what\'s currently equipped (standard ranged bullets: '..player.equipment.ammo..').')
-            return
-        else
-            add_to_chat(104, 'No ammo ('..tostring(bullet_name)..') available for that action.')
-            eventArgs.cancel = true
-            return
-        end
-    end
-
-    -- Don't allow shooting or weaponskilling with ammo reserved for quick draw.
-    if spell.type ~= 'CorsairShot' and bullet_name == gear.QDbullet and available_bullets.count <= bullet_min_count then
-        add_to_chat(104, 'No ammo will be left for Quick Draw.  Cancelling.')
-        eventArgs.cancel = true
-        return
-    end
-
-    -- Low ammo warning.
-    if spell.type ~= 'CorsairShot' and state.warned.value == false
-        and available_bullets.count > 1 and available_bullets.count <= options.ammo_warning_limit then
-        local msg = '*****  LOW AMMO WARNING: '..bullet_name..' *****'
-        --local border = string.repeat("*", #msg)
-        local border = ""
-        for i = 1, #msg do
-            border = border .. "*"
-        end
-
-        add_to_chat(104, border)
-        add_to_chat(104, msg)
-        add_to_chat(104, border)
-
-        state.warned:set()
-    elseif available_bullets.count > options.ammo_warning_limit and state.warned then
-        state.warned:reset()
-    end
-end
-]]
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
     set_macro_page(6, 10)
