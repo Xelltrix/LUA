@@ -75,8 +75,8 @@ function define_global_sets()
 	
 	--- Taeon
 	gear.THead_Phalanx = { name="Taeon Chapeau", augments={'Mag. Evasion+5','Spell interruption rate down -8%','Phalanx +3',}}
-    gear.TBody_Phalanx = { name="Taeon Tabard", augments={'Mag. Evasion+8','Spell interruption rate down -7%','Phalanx +3',}}
-    gear.THands_Phalanx = { name="Taeon Gloves", augments={'Mag. Evasion+13','"Fast Cast"+5','Phalanx +3',}}
+    gear.TBody_Phalanx = { name="Taeon Tabard", augments={'Mag. Evasion+8','"Fast Cast"+5','Phalanx +3',}}
+    gear.THands_Phalanx = { name="Taeon Gloves", augments={'Mag. Evasion+13','Spell interruption rate down -7%','Phalanx +3',}}
     gear.TLegs_Phalanx = { name="Taeon Tights", augments={'Mag. Evasion+20','Spell interruption rate down -10%','Phalanx +3',}}
     gear.TFeet_Phalanx = { name="Taeon Boots", augments={'Mag. Evasion+19','Spell interruption rate down -6%','Phalanx +3',}}
 	

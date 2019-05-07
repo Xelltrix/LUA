@@ -153,7 +153,7 @@ return {
 	[702]={id=702,en="Rending Deluge",level=99,cost=6,points=8,trait="Magic Def. Bonus",["HP"]=0, ["MP"]=0, ["MND"]=0, ["AGI"]=0, ["INT"]=0, ["CHR"]=0, ["STR"]=0, ["VIT"]=6, ["DEX"]=0,},
 	[703]={id=703,en="Embalming Earth",level=99,cost=6,points=8,trait="Attack",["HP"]=0, ["MP"]=0, ["MND"]=0, ["AGI"]=0, ["INT"]=0, ["CHR"]=0, ["STR"]=6, ["VIT"]=0, ["DEX"]=0,},
 	[704]={id=704,en="Paralyzing Triad",level=99,cost=6,points=8,trait="Skillchain Bonus",["HP"]=-10, ["MP"]=0, ["MND"]=0, ["AGI"]=0, ["INT"]=0, ["CHR"]=0, ["STR"]=4, ["VIT"]=0, ["DEX"]=4,},
-	[705]={id=705,en="Foul Waters",level=99,cost=3,points=8,trait="Resist Silence",["HP"]=10, ["MP"]=0, ["MND"]=0, ["AGI"]=0, ["INT"]=0, ["CHR"]=0, ["STR"]=0, ["VIT"]=4, ["DEX"]=0,},
+	[705]={id=705,en="Foul Waters",level=99,cost=4,points=8,trait="Resist Silence",["HP"]=10, ["MP"]=0, ["MND"]=0, ["AGI"]=0, ["INT"]=0, ["CHR"]=0, ["STR"]=0, ["VIT"]=4, ["DEX"]=0,},
 	[706]={id=706,en="Glutinous Dart",level=99,cost=2,points=4,trait="Max HP Boost",["HP"]=15, ["MP"]=0, ["MND"]=0, ["AGI"]=0, ["INT"]=-3, ["CHR"]=0, ["STR"]=3, ["VIT"]=0, ["DEX"]=3,},
 	[707]={id=707,en="Retinal Glare",level=99,cost=5,points=8,trait="Conserve MP",["HP"]=0, ["MP"]=15, ["MND"]=0, ["AGI"]=0, ["INT"]=3, ["CHR"]=0, ["STR"]=0, ["VIT"]=0, ["DEX"]=0,},
 	[708]={id=708,en="Subduction",level=99,cost=6,points=8,trait="'Magic Atk. Bonus'",["HP"]=0, ["MP"]=25, ["MND"]=0, ["AGI"]=0, ["INT"]=6, ["CHR"]=0, ["STR"]=0, ["VIT"]=6, ["DEX"]=0,},

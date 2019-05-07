@@ -42,7 +42,7 @@ function user_setup()
     state.IdleMode:options('Normal', 'DT')
 
 	
-	state.Gun = M{['description']='Current Gun', 'Molybdosis', 'Holliday'}
+	state.Gun = M{['description']='Current Gun', 'Fomalhaut'}
 	
 	gear.RAbullet = "Eminent Bullet"
     gear.WSbullet = "Eminent Bullet"
@@ -66,8 +66,8 @@ function user_setup()
     send_command('bind ^[ gs c toggle selectqdtarget')
     send_command('bind ^] gs c toggle usealtqd')
 	
-	send_command('bind @q gs c cycle QDMode')
-    send_command('bind @e gs c cycle Gun')
+	send_command('bind @z gs c cycle QDMode')
+    send_command('bind @w gs c cycle Gun')
 	
 	determine_haste_group()
 	
@@ -93,8 +93,8 @@ function user_unload()
     send_command('unbind ^[')
     send_command('unbind ^]')
 	
-	send_command('unbind @q')
-    send_command('unbind @e')
+	send_command('unbind @z')
+    send_command('unbind @w')
 end
 
 -- Define sets and vars used by this job file.
@@ -1135,11 +1135,8 @@ function update_combat_form()
 end
 
 function customize_idle_set(idleSet)
-    if state.Gun.current == 'Molybdosis' then
-        equip({ranged="Molybdosis"})
-    elseif state.Gun.current == 'Holliday' then
-        equip({ranged="Holliday"})
-	end
+    if state.Gun.current == 'Fomalhaut' then
+        equip({ranged="Fomalhaut"})
 	
 	return idleSet
 end

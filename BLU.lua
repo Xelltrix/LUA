@@ -116,7 +116,7 @@ function init_gear_sets()
 			ammo="Sapience Orb",
 			head="Rabid Visor", neck="Unmoving Collar +1", lear="Cryptic Earring", rear="Friomisi Earring",
 			body="Emet Harness +1", hands="Nilas Gloves", lring="Petrov Ring", rring="Begrudging Ring",
-			back="Reiki Cloak", legs="Zoar Subligar +1"
+			back="Reiki Cloak", waist="Trance Belt", legs="Zoar Subligar +1"
 		}
 		
 		sets.precast.JA['Warcry'] = sets.precast.JA['Provoke']
@@ -249,13 +249,13 @@ function init_gear_sets()
 			body="Telchine Chas."
 		})
 		
-		sets.midcast.Fantod = set_combine(sets.midcast.FC,
+		sets.midcast.Fantod = 
 		{
 			ammo="Sapience Orb",
 			head="Rabid Visor", neck="Unmoving Collar +1", lear="Cryptic Earring", rear="Friomisi Earring",
 			body="Emet Harness +1", hands="Nilas Gloves", lring="Petrov Ring", rring="Begrudging Ring",
-			back="Reiki Cloak", legs="Zoar Subligar +1"
-		})
+			back="Reiki Cloak", waist="Trance Belt", legs="Zoar Subligar +1", feet="Carmine Greaves +1"
+		}
 
     --------------------------------------
 	-- Healing Midcast sets
@@ -273,15 +273,15 @@ function init_gear_sets()
 		{
 			ammo="Psilomene",
 			head="Luh. Keffiyeh +3", neck="Sanctity Necklace", lear="Odnowa Earring +1",
-			lring="Lebeche Ring", rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Reiki Cloak"
+			lring="Lebeche Ring", rring="Ilabrat Ring",
+			back="Moonbeam Cape"
 		})
 		
 		sets.midcast.StatusRemoval = sets.midcast.FC
 
 		sets.midcast.Cursna = set_combine(sets.precast.FC,
 		{
-			neck="Debilis Medallion", lear="Beatific Earring",
+			neck="Debilis Medallion", lear="Beatific Earring", rear="Healing Earring",
 			hands="Hieros Mittens", lring="Haoma's Ring", rring="Menelaus's Ring",
 			back="Oretan. Cape +1", waist="Bishop's Sash", legs="Carmine Cuisses +1"
 		})
@@ -410,7 +410,8 @@ function init_gear_sets()
 		sets.midcast.Stoneskin = set_combine(sets.midcast.Duration,
 		{
 			ammo="Staunch Tathlum +1",
-			legs="Shedir Seraweels"
+			neck="Stone Gorget", rear="Earthcry Earring",
+			waist="Siegel Sash", legs="Shedir Seraweels"
 		})
 
 		sets.midcast.Aquaveil = set_combine(sets.midcast.Duration,

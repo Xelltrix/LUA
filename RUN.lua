@@ -76,7 +76,7 @@ function init_gear_sets()
 	-- Job Abilities --
 	------------------- 
 
-		sets.precast.Rune = sets.Enmity.HP
+		sets.precast.Rune = {}
 
 		sets.precast.JA['Swipe'] =
 		{
