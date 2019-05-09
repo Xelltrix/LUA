@@ -44,8 +44,8 @@ end
 function user_setup()
 	state.OffenseMode:options('None', 'Normal', 'Low', 'Mid', 'High')
 	state.HybridMode:options('Normal', 'DT', 'DTMAX')
-	state.WeaponskillMode:options('Normal', 'Low', 'Mid', 'High')
-    state.IdleMode:options('Normal', 'DT', 'Refresh')
+	state.WeaponskillMode:options('None', 'Normal', 'Low', 'Mid', 'High')
+	state.IdleMode:options('Normal', 'DT', 'Refresh')
 	state.PhysicalDefenseMode:options('PDT')
 	state.MagicalDefenseMode:options('MEVA', 'MDT')
 
@@ -169,7 +169,7 @@ function init_gear_sets()
 ----------------------------------------------------------------------------
 	
 	
-    --------------------------------------
+    	--------------------------------------
 	-- Base Midcast sets
 	--------------------------------------
 
@@ -204,7 +204,7 @@ function init_gear_sets()
 		})
 
 
-    --------------------------------------
+    	--------------------------------------
 	-- Buffing Midcast sets
 	--------------------------------------
 	
@@ -229,20 +229,6 @@ function init_gear_sets()
 		sets.midcast['Cocoon'] = sets.midcast.FC
 		
 		sets.midcast['Zephy Mantle'] = sets.midcast.FC
-
-		sets.midcast.Refresh = set_combine(sets.midcast.ConserveMP,
-		{
-			head="Amalric Coif +1", 
-			body="Telchine Chas.", hands=gear.ENH_Gloves,
-			legs="Telchine Braconi", feet="Telchine Pigaches"
-		})
-
-		sets.midcast.Regen = set_combine(sets.midcast.ConserveMP,
-		{
-			head="Telchine Cap", 
-			body="Telchine Chas.", hands=gear.ENH_Gloves, 
-			legs="Telchine Braconi", feet="Telchine Pigaches"
-		})
 		
 		sets.midcast['Regeneration'] = set_combine(sets.midcast.ConserveMP,
 		{
@@ -257,7 +243,7 @@ function init_gear_sets()
 			back="Reiki Cloak", waist="Trance Belt", legs="Zoar Subligar +1", feet="Carmine Greaves +1"
 		}
 
-    --------------------------------------
+    	--------------------------------------
 	-- Healing Midcast sets
 	--------------------------------------	
 	
@@ -266,7 +252,7 @@ function init_gear_sets()
 			ammo="Staunch Tathlum +1",
 			head="Carmine Mask +1", neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
 			body="Pinga Tunic", hands=gear.ENH_Gloves, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Oretan. Cape +1", waist="Gishdubar Sash", legs="Pinga Pants", feet="Medium's Sabots"
+			back="Oretan. Cape +1", waist="Luminary Sash", legs="Pinga Pants", feet="Medium's Sabots"
 		}
 
 		sets.midcast['White Wind'] = set_combine(sets.midcast.Cures,
@@ -290,7 +276,7 @@ function init_gear_sets()
 		
 		sets.midcast.Reraise = sets.midcast.ConserveMP
 		
-    --------------------------------------
+    	--------------------------------------
 	-- Offensive Midcast sets
 	--------------------------------------    
 	
@@ -409,9 +395,22 @@ function init_gear_sets()
 		
 		sets.midcast.Stoneskin = set_combine(sets.midcast.Duration,
 		{
-			ammo="Staunch Tathlum +1",
 			neck="Stone Gorget", rear="Earthcry Earring",
 			waist="Siegel Sash", legs="Shedir Seraweels"
+		})
+
+		sets.midcast.Refresh = set_combine(sets.midcast.ConserveMP,
+		{
+			head="Amalric Coif +1", 
+			body="Telchine Chas.", hands=gear.ENH_Gloves,
+			legs="Telchine Braconi", feet="Telchine Pigaches"
+		})
+
+		sets.midcast.Regen = set_combine(sets.midcast.ConserveMP,
+		{
+			head="Telchine Cap", 
+			body="Telchine Chas.", hands=gear.ENH_Gloves, 
+			legs="Telchine Braconi", feet="Telchine Pigaches"
 		})
 
 		sets.midcast.Aquaveil = set_combine(sets.midcast.Duration,
@@ -463,9 +462,9 @@ function init_gear_sets()
 			waist="Fucho-no-Obi"
 		})
 
-		sets.midcast.Stun = set_combine(sets.midcast['Dark Magic'],
+		sets.midcast.Stun = set_combine(sets.midcast['Enfeebling Magic'],
 		{
-			head="Carmine Mask +1", rear="Gwati Earring",
+			head="Carmine Mask +1", neck="Erra Pendant", rear="Gwati Earring",
 			body="Luhlaza Jubbah +3", hands="Leyline Gloves",
 			legs="Aya. Cosciales +2", feet="Amalric Nails +1"
 		})
@@ -1690,10 +1689,26 @@ function init_gear_sets()
 		sets.engaged.High.DT			= set_combine(sets.engaged.High, 	sets.engaged.Hybrid)
 		
 	
-		sets.engaged.DTMAX 			= set_combine(sets.engaged, 		sets.engaged.Hybrid2)
-		sets.engaged.Low.DTMAX 			= set_combine(sets.engaged.Low, 	sets.engaged.Hybrid2)
-		sets.engaged.Mid.DTMAX			= set_combine(sets.engaged.Mid, 	sets.engaged.Hybrid2)
-		sets.engaged.High.DTMAX			= set_combine(sets.engaged.High, 	sets.engaged.Hybrid2)
+		sets.engaged.DTMAX 			= set_combine(sets.engaged, 		sets.engaged.Hybrid2,
+		{
+			neck="Mirage Stole +1",
+			waist="Windbuffet Belt +1"
+		})
+		sets.engaged.Low.DTMAX 			= set_combine(sets.engaged.Low, 	sets.engaged.Hybrid2,
+		{
+			neck="Mirage Stole +1",
+			waist="Windbuffet Belt +1"
+		})
+		sets.engaged.Mid.DTMAX			= set_combine(sets.engaged.Mid, 	sets.engaged.Hybrid2,
+		{
+			neck="Mirage Stole +1",
+			waist="Windbuffet Belt +1"
+		})
+		sets.engaged.High.DTMAX			= set_combine(sets.engaged.High, 	sets.engaged.Hybrid2,
+		{
+			neck="Mirage Stole +1",
+			waist="Kentarch Belt +1"
+		})
 
 		
 	
@@ -1772,8 +1787,14 @@ function init_gear_sets()
 		sets.engaged.DW3.High.DTMAX.Min 	= set_combine(sets.engaged.DW3.High.Min, 	sets.engaged.Hybrid2)
 		
 	
-		sets.engaged.DW4.DTMAX.Min 	 	= set_combine(sets.engaged.DW4.Min, 		sets.engaged.Hybrid2)
-		sets.engaged.DW4.Low.DTMAX.Min  	= set_combine(sets.engaged.DW4.Low.Min, 	sets.engaged.Hybrid2)
+		sets.engaged.DW4.DTMAX.Min 	 	= set_combine(sets.engaged.DW4.Min, 		sets.engaged.Hybrid2,
+		{
+			feet=gear.TFeet_TP
+		})
+		sets.engaged.DW4.Low.DTMAX.Min  	= set_combine(sets.engaged.DW4.Low.Min, 	sets.engaged.Hybrid2,
+		{
+			feet=gear.TFeet_TP
+		})
 		sets.engaged.DW4.Mid.DTMAX.Min  	= set_combine(sets.engaged.DW4.Mid.Min, 	sets.engaged.Hybrid2)
 		sets.engaged.DW4.High.DTMAX.Min 	= set_combine(sets.engaged.DW4.High.Min, 	sets.engaged.Hybrid2)
 		
@@ -1955,7 +1976,7 @@ function determine_DW()
 	end
 		
 	--the we determine the actual % value of DW equipped via blu spells 
-	if 		spell_value == 0 then main_job_dw = 0
+	if 	spell_value == 0 then main_job_dw = 0
 	elseif 	spell_value == 1 then main_job_dw = 10
 	elseif 	spell_value == 2 then main_job_dw = 15
 	elseif 	spell_value == 3 then main_job_dw = 25
@@ -1998,7 +2019,7 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 	end
 	
 	if (spell.skill =='Elemental Magic' or spellMap == 'Magical' or spellMap == 'DarkBlue' or spellMap == 'LightBlue' or spellMap == 'Breath')
-				and (spell.element == world.day_element and spell.element == world.weather_element) then
+			and (spell.element == world.day_element and spell.element == world.weather_element) then
 		equip
 			{
 				waist="Hachirin-no-Obi"
@@ -2033,21 +2054,21 @@ end
 function job_buff_change(buff,gain)
 	
 	if state.Buff[buff] ~= nil then
-        if not midaction() then
-            handle_equipping_gear(player.status)
-        end
-    end
+        	if not midaction() then
+        		handle_equipping_gear(player.status)
+        	end
+	end
 	
 	---Gearswap for Doom Status
 	if buff == "doom" then
-        if gain then
-            equip(sets.buff.Doom)
-             disable('neck','lring','rring','waist')
-        else
+        	if gain then
+        		equip(sets.buff.Doom)
+        		disable('neck','lring','rring','waist')
+        	else
 			enable('neck','lring','rring','waist')
-            handle_equipping_gear(player.status)
-        end
-    end
+        		handle_equipping_gear(player.status)
+        	end
+	end
 	
 	-- If we gain or lose any haste buffs, adjust which gear set we target.
 	if S{'haste','march','embrava','haste samba', 'mighty guard', 'geo-haste', 'indi-haste', 'slow', 'indi-slow', 'elegy',}:contains(buff:lower()) then
@@ -2207,26 +2228,26 @@ function update_combat_form()
 end
 
 function update_combat_weapon()
-	if 		player.equipment.main=="Tizona" and player.equipment.sub=="Thibron" 	then
-		state.CombatWeapon:set('TizonaT')
+	if 	player.equipment.main=="Tizona" and player.equipment.sub=="Thibron" 	then
+			state.CombatWeapon:set('TizonaT')
 		--add_to_chat(8, '------------- Tizona / Thibron --------------')
-	elseif 		player.equipment.main=="Tizona" and player.equipment.sub~="Thibron"	then
-		state.CombatWeapon:set('TizonaA')
+	elseif 	player.equipment.main=="Tizona" and player.equipment.sub~="Thibron"	then
+			state.CombatWeapon:set('TizonaA')
 		--add_to_chat(8, '------------- Tizona --------------')
 	elseif 	player.equipment.main=="Almace" 	then
-		state.CombatWeapon:set('Almace')
+			state.CombatWeapon:set('Almace')
 		--add_to_chat(8, '------------- Almace --------------')
 	elseif 	player.equipment.main=="Sequence" and player.equipment.sub=="Thibron"	then
-		state.CombatWeapon:set('SequenceT')
+			state.CombatWeapon:set('SequenceT')
 		--add_to_chat(8, '------------- Sequence / Thibron --------------')
 	elseif 	player.equipment.main=="Sequence" and player.equipment.sub~="Thibron"	then
-		state.CombatWeapon:set('SequenceA')
+			state.CombatWeapon:set('SequenceA')
 		--add_to_chat(8, '------------- Sequence --------------')
 	elseif 	player.equipment.main=="Maxentius" and player.equipment.sub~="Thibron"	then
-		state.CombatWeapon:set('MaxentiusT')
+			state.CombatWeapon:set('MaxentiusT')
 		--add_to_chat(8, '------------- Maxentius / Thibron --------------')
 	elseif 	player.equipment.main=="Maxentius" and player.equipment.sub~="Thibron"	then
-		state.CombatWeapon:set('MaxentiusN')
+			state.CombatWeapon:set('MaxentiusN')
 		--add_to_chat(8, '------------- Maxentius --------------')
 	end
 end
@@ -2261,7 +2282,7 @@ end)
 ]]
 
 function update_active_abilities()
---	state.Buff['Burst Affinity'] 	= buffactive['Burst Affinity'] or false
+--	state.Buff['Burst Affinity'] 		= buffactive['Burst Affinity'] or false
 --	state.Buff['Efflux'] 			= buffactive['Efflux'] or false
 	state.Buff['Diffusion'] 		= buffactive['Diffusion'] or false
 end
