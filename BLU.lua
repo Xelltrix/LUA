@@ -1316,7 +1316,7 @@ function init_gear_sets()
 		-----------------------------------------------------------------------------------
 		---	TP/h:79	(DW:41	STP:39		QA:0%	TA:16%	DA:5%)
 		-----------------------------------------------------------
-		sets.engaged.DW3.Low.Min = set_combine(sets.engaged.DW3.Min,
+		sets.engaged.DW2.Low.Min = set_combine(sets.engaged.DW2.Min,
 		{
 			ammo="Falcon Eye",
 			head="Dampening Tam"
@@ -1325,7 +1325,7 @@ function init_gear_sets()
 		-----------------------------------------------------------------------------------
 		---	TP/h:79	(DW:41	STP:39		QA:0%	TA:16%	DA:5%)
 		-----------------------------------------------------------
-		sets.engaged.DW3.Mid.Min = set_combine(sets.engaged.DW3.Low.Min,
+		sets.engaged.DW2.Mid.Min = set_combine(sets.engaged.DW2.Low.Min,
 		{
 			hands="Luh. Lazubands +3", lring={name="Chirich Ring +1", bag="wardrobe2"}
 		})
@@ -1333,7 +1333,7 @@ function init_gear_sets()
 		-----------------------------------------------------------------------------------
 		---	TP/h:79	(DW:41	STP:39		QA:0%	TA:16%	DA:5%)
 		-----------------------------------------------------------
-		sets.engaged.DW3.High.Min = set_combine(sets.engaged.DW3.Mid.Min,
+		sets.engaged.DW2.High.Min = set_combine(sets.engaged.DW2.Mid.Min,
 		{
 			head="Carmine Mask +1",
 			rring={name="Chirich Ring +1", bag="wardrobe3"}
@@ -1448,7 +1448,7 @@ function init_gear_sets()
 		{
 			lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
 			rring={name="Chirich Ring +1", bag="wardrobe3"},
-			legs="Adhemar Kecks +1", waist="Reiki Yotai", feet=gear.TFeet_TP
+			waist="Reiki Yotai", legs="Adhemar Kecks +1", feet=gear.TFeet_TP
 		})
 
 		-----------------------------------------------------------------------------------
@@ -1675,7 +1675,7 @@ function init_gear_sets()
 		sets.engaged.Hybrid2 = 
 		{
 			ammo="Staunch Tathlum +1",
-			neck="Loricate Torque +1",
+			head="Dampening Tam", neck="Loricate Torque +1",
 			body="Ayanmo Corazza +2", hands="Assim. Bazu. +3", lring="Defending Ring", rring="Gelatinous Ring +1",
 			waist="Flume Belt +1"
 		}
@@ -1809,20 +1809,42 @@ function init_gear_sets()
 	
 		sets.engaged.DW3.DTMAX.Med 	 	= set_combine(sets.engaged.DW3.Med, 		sets.engaged.Hybrid2,
 		{
-			feet=gear.TFeet_TP
+			waist="Reiki Yotai", legs="Carmine Cuisses +1"
 		})
-		sets.engaged.DW3.Low.DTMAX.Med  	= set_combine(sets.engaged.DW3.Low.Med, 	sets.engaged.Hybrid2)
-		sets.engaged.DW3.Mid.DTMAX.Med  	= set_combine(sets.engaged.DW3.Mid.Med, 	sets.engaged.Hybrid2)
-		sets.engaged.DW3.High.DTMAX.Min 	= set_combine(sets.engaged.DW3.High.Min, 	sets.engaged.Hybrid2)
+		sets.engaged.DW3.Low.DTMAX.Med  	= set_combine(sets.engaged.DW3.Low.Med, 	sets.engaged.Hybrid2,
+		{
+			waist="Reiki Yotai", legs="Carmine Cuisses +1"
+		})
+		sets.engaged.DW3.Mid.DTMAX.Med  	= set_combine(sets.engaged.DW3.Mid.Med, 	sets.engaged.Hybrid2,
+		{
+			head="Carmine Mask +1", lear="Eabani Earring",
+			waist="Reiki Yotai", legs="Carmine Cuisses +1", feet="Aya. Gambieras +2"
+		})
+		sets.engaged.DW3.High.DTMAX.Med 	= set_combine(sets.engaged.DW3.High.Min, 	sets.engaged.Hybrid2,
+		{
+			head="Carmine Mask +1", lear="Eabani Earring", rear="Suppanomimi",
+			waist="Reiki Yotai", feet="Aya. Gambieras +2"
+		})
 
 	
 		sets.engaged.DW4.DTMAX.Med 	 	= set_combine(sets.engaged.DW4.Med, 		sets.engaged.Hybrid2,
 		{
-			waist="Reiki Yotai"
+			legs="Carmine Cuisses +1"
 		})
-		sets.engaged.DW4.Low.DTMAX.Med  	= set_combine(sets.engaged.DW4.Low.Med, 	sets.engaged.Hybrid2)
-		sets.engaged.DW4.Mid.DTMAX.Med  	= set_combine(sets.engaged.DW4.Mid.Med, 	sets.engaged.Hybrid2)
-		sets.engaged.DW4.High.DTMAX.Med 	= set_combine(sets.engaged.DW4.High.Med, 	sets.engaged.Hybrid2)
+		sets.engaged.DW4.Low.DTMAX.Med  	= set_combine(sets.engaged.DW4.Low.Med, 	sets.engaged.Hybrid2,
+		{
+			legs="Carmine Cuisses +1"
+		})
+		sets.engaged.DW4.Mid.DTMAX.Med  	= set_combine(sets.engaged.DW4.Mid.Med, 	sets.engaged.Hybrid2,
+		{
+			lear="Eabani Earring", rear="Suppanomimi",
+			waist="Kentarch Belt +1", legs="Carmine Cuisses +1"
+		})
+		sets.engaged.DW4.High.DTMAX.Med 	= set_combine(sets.engaged.DW4.High.Med, 	sets.engaged.Hybrid2,
+		{
+			head="Carmine Mask +1", lear="Eabani Earring", rear="Suppanomimi",
+			waist="Kentarch Belt +1", feet="Aya. Gambieras +2"
+		})
 		
 	
 	
