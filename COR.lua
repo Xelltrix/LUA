@@ -185,7 +185,7 @@ function init_gear_sets()
 		{
 			head="Carmine Mask +1", neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
 			body="Samnuha Coat", hands="Leyline Gloves", lring="Kishar Ring", rring="Prolix Ring",
-			back="Solemnity Cape", waist="Flume Belt +1", legs="Carmine Cuisses +1", feet="Carmine Greaves +1"
+			back="Moonbeam Cape", waist="Flume Belt +1", legs="Carmine Cuisses +1", feet="Carmine Greaves +1"
 		}
 		
 		sets.precast.FC.Utsusemi = set_combine(sets.precast.FC,
@@ -307,7 +307,7 @@ function init_gear_sets()
 		{
 			head="Meghanada Visor +2", neck="Iskur Gorget", lear="Telos Earring", rear="Enervating Earring",
 			body="Lak. Frac +1", hands="Carmine Fin. Ga. +1", lring="Dingir Ring", lring="Regal Ring",
-			back="Camulus's Mantle", waist="Yemaya Belt", legs="Adhemar Kecks", feet="Adhemar Gamashes"
+			back="Camulus's Mantle", waist="Yemaya Belt", legs="Adhemar Kecks +1", feet="Adhemar Gamashes"
 		}
 		
 		sets.midcast.RA.Flurry = set_combine(sets.midcast.RA,
@@ -389,7 +389,7 @@ function init_gear_sets()
 		sets.precast.WS['Evisceration'] = set_combine(sets.precast.WS,
 		{
 			head="Adhemar Bonnet +1", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-			body="Abnoba Kaftan", hands="Adhemar Wrist. +1", lring="Begrudging Ring", rring="Epona's Ring",
+			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Begrudging Ring", rring="Epona's Ring",
 			legs="Samnuha Tights", feet=gear.HBoots_TP
 		})
 		
@@ -853,7 +853,7 @@ function init_gear_sets()
 		sets.engaged.Hybrid = 
 		{
 			neck="Loricate Torque +1",
-			lring="Defending Ring", rring="Vocane Ring",
+			lring="Defending Ring",
 			legs="Meg. Chausses +2"
 		}
 

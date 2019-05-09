@@ -218,7 +218,7 @@ function init_gear_sets()
 			main="Espiritus", sub="Vox Grip", ammo="Sancus Sachet +1",
 			head="Apogee Crown +1", neck="Smn. Collar +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
 			body="Apo. Dalmatica +1", hands="Asteria Mitts +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Evoker's Ring",
-			back="Conveyance Cape", waist="Regal Belt", legs=gear.ASlacks_MAB, feet="Apogee Pumps +1"
+			back=gear.SMNCape_Mag, waist="Regal Belt", legs=gear.ASlacks_MAB, feet="Apogee Pumps +1"
 		}
 	
 		sets.midcast.Pet.bp_Buffs =
@@ -240,7 +240,7 @@ function init_gear_sets()
 		sets.midcast.Pet.bp_Physical =
 		{
 			main="Gridarvor", sub="Elan Strap +1", ammo="Sancus Sachet +1",
-			head="Helios Band", neck="Smn. Collar +1", lear="Gelos Earring", rear="Lugalbanda Earring",
+			head="Helios Band", neck="Smn. Collar +1", lear="Kyrene's Earring", rear="Lugalbanda Earring",
 			body="Con. Doublet +3", hands=gear.PetAtkHands, lring="Varar Ring +1", rring="Varar Ring +1",
 			back=gear.SMNCape_Phys, waist="Incarnation Sash", legs=gear.ASlacks_DA, feet="Helios Boots"
 		}

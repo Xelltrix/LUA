@@ -277,6 +277,14 @@ function init_gear_sets()
 			back="Moonbeam Cape"
 		})
 		
+--[[		sets.midcast['Magic Fruit'] =
+		{
+			ammo="Staunch Tathlum +1",
+			head="Carmine Mask +1",neck="Loricate Torque +1",  lear="Etiolation Earring", rear="Mendi. Earring",
+			body="Ayanmo Corazza +2", hands=gear.ENH_Gloves, lring="Defending Ring", rring="Gelatinous Ring +1",
+			back=gear.BLUCape_STP, waist="Gishdubar Sash", legs="Aya. Cosciales +2", feet="Aya. Gambieras +2"
+		}]]
+		
 		sets.midcast.StatusRemoval = sets.midcast.FC
 
 		sets.midcast.Cursna = set_combine(sets.precast.FC,
@@ -288,7 +296,7 @@ function init_gear_sets()
 
 		sets.midcast.Raise = sets.midcast.ConserveMP
 		
-		sets.midcast.Raise = sets.midcast.ConserveMP
+		sets.midcast.Reraise = sets.midcast.ConserveMP
 		
     --------------------------------------
 	-- Offensive Midcast sets
@@ -313,7 +321,7 @@ function init_gear_sets()
 
 		sets.midcast.Magical =
 		{
-			main="Maxentius", sub="Nibiru Cudgel", ammo="Pemphredo Tathlum",
+			ammo="Pemphredo Tathlum",
 			head="Jhakri Coronal +2", neck="Sanctity Necklace", lear="Friomisi Earring", rear="Regal Earring",
 			body="Amalric Doublet +1", hands="Amalric Gages +1", lring={name="Shiva Ring +1", bag="wardrobe2"}, rring={name="Shiva Ring +1", bag="wardrobe3"},
 			back=gear.BLUCape_Nuke, waist="Orpheus's Sash", legs="Amalric Slops +1", feet="Amalric Nails +1"
@@ -370,8 +378,8 @@ function init_gear_sets()
 		{
 			ammo="Staunch Tathlum +1",
 			head="Assim. Keffiyeh +3", neck="Mirage Stole +2", lear="Digni. Earring", rear="Regal Earring",
-			body="Ayanmo Corazza +2", hands="Aya. Manopolas +2", lring="Defending Ring", rring="Gelatinous Ring +1",
-			back=gear.BLUCape_Nuke, waist="Fotia Belt", legs="Assim. Shalwar +3", feet="Aya. Gambieras +2"
+			body="Ayanmo Corazza +2", hands="Assim. Bazu. +3", lring="Defending Ring", rring="Gelatinous Ring +1",
+			back=gear.BLUCape_Nuke, waist="Flume Belt +1", legs="Assim. Shalwar +3", feet="Aya. Gambieras +2"
 		}
 
 		sets.midcast.BlueDrain = set_combine(sets.midcast.Debuffs,
@@ -448,7 +456,7 @@ function init_gear_sets()
 		
 		sets.midcast['Elemental Magic'] =
 		{
-			main="Maxentius", sub="Nibiru Cudgel", ammo="Pemphredo Tathlum",
+			ammo="Pemphredo Tathlum",
 			head="Jhakri Coronal +2", neck="Sanctity Necklace", lear="Friomisi Earring", rear="Regal Earring",
 			body="Amalric Doublet +1", hands="Amalric Gages +1", lring={name="Shiva Ring +1", bag="wardrobe2"}, rring={name="Shiva Ring +1", bag="wardrobe3"},
 			back=gear.BLUCape_Nuke, waist="Eschan Stone", legs="Amalric Slops +1", feet="Amalric Nails +1"
@@ -544,7 +552,7 @@ function init_gear_sets()
 		{
 			ammo="Staunch Tathlum +1",
 			head="Rawhide Mask", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
-			body="Assim. Jubbah +3", hands="Aya. Manopolas +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			body="Assim. Jubbah +3", hands="Assim. Bazu. +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Moonbeam Cape", waist="Flume Belt +1", legs="Carmine Cuisses +1", feet="Aya. Gambieras +2"
 		}
 
@@ -552,7 +560,7 @@ function init_gear_sets()
 		{
 			ammo="Staunch Tathlum +1",
 			head="Rawhide Mask", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
-			body="Assim. Jubbah +3", hands="Aya. Manopolas +2", lring="Defending Ring", rring="Gelatinous Ring +1",
+			body="Assim. Jubbah +3", hands="Assim. Bazu. +3", lring="Defending Ring", rring="Gelatinous Ring +1",
 			back="Moonbeam Cape", waist="Flume Belt +1", legs="Carmine Cuisses +1", feet="Aya. Gambieras +2"
 		}
 		
@@ -587,22 +595,22 @@ function init_gear_sets()
 		{
 			ammo="Staunch Tathlum +1",
 			head="Aya. Zucchetto +2", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
-			body="Ayanmo Corazza +2", hands="Aya. Manopolas +2", lring="Defending Ring", rring="Gelatinous Ring +1",
-			back=gear.BLUCape_STP, waist="Flume Belt +1", legs="Carmine Cuisses +1", feet="Aya. Gambieras +2"
+			body="Ayanmo Corazza +2", hands="Assim. Bazu. +3", lring="Defending Ring", rring="Gelatinous Ring +1",
+			back="Moonbeam Cape", waist="Flume Belt +1", legs="Carmine Cuisses +1", feet="Aya. Gambieras +2"
 		}
 
 		sets.defense.MDT = set_combine(sets.defense.PDT,
 		{
 			head="Amalric Coif +1", rear="Static Earring",
-			hands="Assim. Bazu. +2", rring="Shukuyu Ring",
-			back="Reiki Cloak", legs="Pinga Pants", feet="Amalric Nails +1"
+			hands="Assim. Bazu. +3", rring="Shukuyu Ring",
+			back="Reiki Cloak", waist="Lieutenant's Sash", legs="Aya. Cosciales +2", feet="Amalric Nails +1"
 		})
 		
 		sets.defense.MEVA = set_combine(sets.defense.MDT,
 		{
 			lear="Eabani Earring",
-			body="Pinga Tunic", hands="Luh. Bazubands +3",
-			waist="Lieutenant's Sash"
+			body="Pinga Tunic",
+			legs="Pinga Pants",
 		})
 
 	--------------------------------------
@@ -618,13 +626,6 @@ function init_gear_sets()
 		{
 			waist="Chaac Belt"
 		}
-		
-		sets.magic_burst= set_combine(sets.midcast.Magical,
-		{
-			lear="Static Earring",
-			body="Samnuha Coat", hands="Amalric Gages +1",	lring="Locus Ring", rring="Mujin Band",
-			feet="Jhakri Pigaches +2"
-		})
 
 	---Buffs
 		sets.buff.Doom = 
@@ -1661,16 +1662,15 @@ function init_gear_sets()
 		sets.engaged.Hybrid = 
 		{
 			ammo="Staunch Tathlum +1",
-			lring="Defending Ring",
-			feet=gear.HBoots_TP
+			hands="Assim. Bazu. +3", lring="Defending Ring", rring="Gelatinous Ring +1",
 		}
 		
 		sets.engaged.Hybrid2 = 
 		{
 			ammo="Staunch Tathlum +1",
 			neck="Loricate Torque +1",
-			body="Ayanmo Corazza +2", lring="Defending Ring",
-			waist="Fotia Belt", feet=gear.HBoots_TP
+			body="Ayanmo Corazza +2", hands="Assim. Bazu. +3", lring="Defending Ring", rring="Gelatinous Ring +1",
+			waist="Flume Belt +1"
 		}
 		
 		
