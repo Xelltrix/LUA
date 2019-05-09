@@ -250,15 +250,15 @@ function init_gear_sets()
 		sets.midcast.Cures =
 		{
 			ammo="Staunch Tathlum +1",
-			head="Carmine Mask +1", neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
+			head="Carmine Mask +1", neck="Incanter's Torque", lear="Gwati Earring", rear="Beaitfic Earring",
 			body="Pinga Tunic", hands=gear.ENH_Gloves, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Oretan. Cape +1", waist="Luminary Sash", legs="Pinga Pants", feet="Medium's Sabots"
 		}
 
 		sets.midcast['White Wind'] = set_combine(sets.midcast.Cures,
 		{
-			ammo="Psilomene",
-			head="Luh. Keffiyeh +3", neck="Sanctity Necklace", lear="Odnowa Earring +1",
+			ammo="Psilomene", 
+			head="Luh. Keffiyeh +3", neck="Sanctity Necklace", lear="Odnowa Earring +1", rear="Mendi. Earring",
 			lring="Lebeche Ring", rring="Ilabrat Ring",
 			back="Moonbeam Cape"
 		})
@@ -267,7 +267,7 @@ function init_gear_sets()
 
 		sets.midcast.Cursna = set_combine(sets.precast.FC,
 		{
-			neck="Debilis Medallion", lear="Beatific Earring", rear="Healing Earring",
+			neck="Debilis Medallion", lear="Healing Earring", rear="Beatific Earring",
 			hands="Hieros Mittens", lring="Haoma's Ring", rring="Menelaus's Ring",
 			back="Oretan. Cape +1", waist="Bishop's Sash", legs="Carmine Cuisses +1"
 		})
@@ -437,6 +437,11 @@ function init_gear_sets()
 
 
 	---Offensive Magic
+		sets.midcast['Elemental Magic'] = set_combine(sets.midcast.Magical,
+		{
+			waist="Eschan Stone"
+		})
+	
 		sets.midcast['Enfeebling Magic'] =
 		{
 			ammo="Pemphredo Tathlum",
@@ -444,16 +449,11 @@ function init_gear_sets()
 			body="Jhakri Robe +2", hands="Regal Cuffs", lring="Kishar Ring", rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back=gear.BLUCape_Nuke, waist="Luminary Sash", legs="Assim. Shalwar +3", feet="Jhakri Pigaches +2"
 		}
-			
-		sets.midcast['Elemental Magic'] = set_combine(sets.midcast.Magical,
-		{
-			waist="Eschan Stone"
-		})
 		
 		sets.midcast['Dark Magic'] = set_combine(sets.midcast['Enfeebling Magic'],
 		{
 			neck="Erra Pendant",
-			lring={name="Stikini Ring +1", bag="wardrobe2"}
+			hands="Aya. Manopolas +2", lring={name="Stikini Ring +1", bag="wardrobe2"}
 		})
 		
 		sets.midcast.Sap = set_combine(sets.midcast['Dark Magic'],
