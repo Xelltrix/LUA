@@ -189,7 +189,7 @@ function init_gear_sets()
 		
 		sets.midcast.Duration =
 		{
-			ammo="Pemphredo Tathlum",
+			ammo="Staunch Tathlum +1",
 			head="Telchine Cap", neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
 			body="Telchine Chas.", hands=gear.ENH_Gloves, lring="Kishar Ring", rring="Rahab Ring",
 			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Telchine Braconi", feet="Telchine Pigaches"
@@ -234,7 +234,7 @@ function init_gear_sets()
 		{
 			head="Amalric Coif +1", 
 			body="Telchine Chas.", hands=gear.ENH_Gloves,
-			back="Grapevine Cape", waist="Gishdubar Sash", legs="Telchine Braconi", feet="Telchine Pigaches"
+			legs="Telchine Braconi", feet="Telchine Pigaches"
 		})
 
 		sets.midcast.Regen = set_combine(sets.midcast.ConserveMP,
@@ -263,7 +263,7 @@ function init_gear_sets()
 	
 		sets.midcast.Cures =
 		{
-			ammo="Pemphredo Tathlum",
+			ammo="Staunch Tathlum +1",
 			head="Carmine Mask +1", neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
 			body="Pinga Tunic", hands=gear.ENH_Gloves, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Oretan. Cape +1", waist="Gishdubar Sash", legs="Pinga Pants", feet="Medium's Sabots"
@@ -276,14 +276,6 @@ function init_gear_sets()
 			lring="Lebeche Ring", rring="Ilabrat Ring",
 			back="Moonbeam Cape"
 		})
-		
---[[		sets.midcast['Magic Fruit'] =
-		{
-			ammo="Staunch Tathlum +1",
-			head="Carmine Mask +1",neck="Loricate Torque +1",  lear="Etiolation Earring", rear="Mendi. Earring",
-			body="Ayanmo Corazza +2", hands=gear.ENH_Gloves, lring="Defending Ring", rring="Gelatinous Ring +1",
-			back=gear.BLUCape_STP, waist="Gishdubar Sash", legs="Aya. Cosciales +2", feet="Aya. Gambieras +2"
-		}]]
 		
 		sets.midcast.StatusRemoval = sets.midcast.FC
 
@@ -321,7 +313,7 @@ function init_gear_sets()
 
 		sets.midcast.Magical =
 		{
-			ammo="Pemphredo Tathlum",
+			main="Maxentius", sub="Nibiru Cudgel", ammo="Pemphredo Tathlum",
 			head="Jhakri Coronal +2", neck="Sanctity Necklace", lear="Friomisi Earring", rear="Regal Earring",
 			body="Amalric Doublet +1", hands="Amalric Gages +1", lring={name="Shiva Ring +1", bag="wardrobe2"}, rring={name="Shiva Ring +1", bag="wardrobe3"},
 			back=gear.BLUCape_Nuke, waist="Orpheus's Sash", legs="Amalric Slops +1", feet="Amalric Nails +1"
@@ -453,14 +445,11 @@ function init_gear_sets()
 			body="Jhakri Robe +2", hands="Regal Cuffs", lring="Kishar Ring", rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back=gear.BLUCape_Nuke, waist="Luminary Sash", legs="Assim. Shalwar +3", feet="Jhakri Pigaches +2"
 		}
-		
-		sets.midcast['Elemental Magic'] =
+			
+		sets.midcast['Elemental Magic'] = set_combine(sets.midcast.Magical,
 		{
-			ammo="Pemphredo Tathlum",
-			head="Jhakri Coronal +2", neck="Sanctity Necklace", lear="Friomisi Earring", rear="Regal Earring",
-			body="Amalric Doublet +1", hands="Amalric Gages +1", lring={name="Shiva Ring +1", bag="wardrobe2"}, rring={name="Shiva Ring +1", bag="wardrobe3"},
-			back=gear.BLUCape_Nuke, waist="Eschan Stone", legs="Amalric Slops +1", feet="Amalric Nails +1"
-		}
+			waist="Eschan Stone"
+		})
 		
 		sets.midcast['Dark Magic'] = set_combine(sets.midcast['Enfeebling Magic'],
 		{
@@ -694,20 +683,20 @@ function init_gear_sets()
 
 		sets.precast.WS['Chant du Cygne'].Low = set_combine(sets.precast.WS['Chant du Cygne'],
 		{
-			lring="Ilabrat Ring",
+			lring="Ilabrat Ring", rring="Begrudging Ring",
 			legs="Adhemar Kecks +1"
 		})
 		
 		sets.precast.WS['Chant du Cygne'].Mid = set_combine(sets.precast.WS['Chant du Cygne'].Low,
 		{
-			rring="Begrudging Ring",
+			hands="Luh. Bazubands +3",
 			feet="Aya. Gambieras +2"
 		})
 		
 		sets.precast.WS['Chant du Cygne'].High = set_combine(sets.precast.WS['Chant du Cygne'].Mid,
 		{
 			head="Dampening Tam",
-			hands="Luh. Bazubands +3"
+			feet="Luhlaza Charuqs +3"
 		})
 
 	---Vorpal Blade
@@ -719,21 +708,20 @@ function init_gear_sets()
 
 		sets.precast.WS['Vorpal Blade'].Low = set_combine(sets.precast.WS['Vorpal Blade'],
 		{
-			lring="Ilabrat Ring",
-			legs="Adhemar Kecks +1"
+			lring="Ilabrat Ring", rring="Begrudging Ring",
+			legs="Adhemar Kecks +1", feet="Aya. Gambieras +2"
 		})
 		
 		sets.precast.WS['Vorpal Blade'].Mid = set_combine(sets.precast.WS['Vorpal Blade'].Low,
 		{
 			ammo="Falcon Eye",
-			rring="Begrudging Ring",
-			feet="Aya. Gambieras +2"
+			hands="Luh. Bazubands +3"
 		})
 		
 		sets.precast.WS['Vorpal Blade'].High = set_combine(sets.precast.WS['Vorpal Blade'].Mid,
 		{
 			head="Dampening Tam",
-			hands="Luh. Bazubands +3"
+			feet="Luhlaza Charuqs +3"
 		})
 		
 	---Requiescat
@@ -747,16 +735,18 @@ function init_gear_sets()
 		sets.precast.WS['Requiescat'].Low = set_combine(sets.precast.WS['Requiescat'],
 		{
 			ammo="Falcon Eye",
-			lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
+			rear={name="Mache Earring +1", bag="wardrobe3"},
 		})
 		
 		sets.precast.WS['Requiescat'].Mid = set_combine(sets.precast.WS['Requiescat'].Low,
 		{
-			lring="Ilabrat Ring", rring="Rufescent Ring",
+			lear={name="Mache Earring +1", bag="wardrobe2"},
+			rring={name="Chirich Ring +1", bag="wardrobe3"}
 		})
 		
 		sets.precast.WS['Requiescat'].High = set_combine(sets.precast.WS['Requiescat'].Mid,
 		{
+			neck="Mirage Stole +2",
 			legs="Adhemar Kecks +1"
 		})
 
@@ -783,7 +773,7 @@ function init_gear_sets()
 		sets.precast.WS['Expiacion'] = set_combine(sets.precast.WS['Savage Blade'],
 		{
 			lear="Ishvara Earring",
-			lring="Ilabrat Ring",
+			lring="Shukuyu Ring",
 		})
 
 		sets.precast.WS['Expiacion'].Low = sets.precast.WS['Expiacion']
@@ -792,7 +782,9 @@ function init_gear_sets()
 		
 		sets.precast.WS['Expiacion'].High = set_combine(sets.precast.WS['Expiacion'].Mid,
 		{
+			ammo="Falcon Eye",
 			head="Jhakri Coronal +2", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
+			lring="Ilabrat Ring",
 			feet="Assim. Charuqs +2"
 		})
 
@@ -829,7 +821,13 @@ function init_gear_sets()
 	
 	sets.precast.WS['True Strike'].Mid = sets.precast.WS['True Strike'].Low
 	
-	sets.precast.WS['True Strike'].High = sets.precast.WS['True Strike'].Mid
+	sets.precast.WS['True Strike'].High = set_combine(sets.precast.WS['True Strike'].Mid,
+	{
+		ammo="Falcon Eye",
+		head="Jhakri Coronal +2", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
+		lring="Rufescent Ring",
+		feet="Assim. Charuqs +2"
+	})
 	
 	sets.precast.WS['Judgment'] = sets.precast.WS['Savage Blade']
 
@@ -837,7 +835,7 @@ function init_gear_sets()
 	
 	sets.precast.WS['Judgment'].Mid = sets.precast.WS['Savage Blade'].Mid
 	
-	sets.precast.WS['Judgment'].High = sets.precast.WS['Judgment'].Mid
+	sets.precast.WS['Judgment'].High = sets.precast.WS['Savage Blade'].High
 
 	sets.precast.WS['Black Halo'] = set_combine(sets.precast.WS['Savage Blade'],
 	{
@@ -914,8 +912,8 @@ function init_gear_sets()
 		sets.engaged.High = set_combine(sets.engaged.Mid,
 		{
 			head="Carmine Mask +1", lear={name="Mache Earring +1", bag="wardrobe2"}, 
-			body="Luhlaza Jubbah +3",
-			waist="Kentarch Belt +1", legs="Carmine Cuisses +1", feet="Assim. Charuqs +2"
+			body="Luhlaza Jubbah +3", hands="Luh. Bazubands +3",
+			waist="Kentarch Belt +1", feet="Assim. Charuqs +2"
 		})
 	
 	
@@ -964,7 +962,7 @@ function init_gear_sets()
 		sets.engaged.DW2.Low = set_combine(sets.engaged.DW2,
 		{
 			ammo="Falcon Eye",
-			head="Dampening Tam",
+			head="Dampening Tam"
 		})
 
 		-----------------------------------------------------------------------------------
@@ -973,7 +971,7 @@ function init_gear_sets()
 		sets.engaged.DW2.Mid = set_combine(sets.engaged.DW2.Low,
 		{
 			
-			lring="Ilabrat Ring"
+			hands="Luh. Lazubands +3", lring={name="Chirich Ring +1", bag="wardrobe2"}
 		})
 
 		-----------------------------------------------------------------------------------
@@ -982,7 +980,7 @@ function init_gear_sets()
 		sets.engaged.DW2.High = set_combine(sets.engaged.DW2.Mid,
 		{
 			head="Carmine Mask +1",
-			lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			rring={name="Chirich Ring +1", bag="wardrobe3"}
 		})
 		
 		
@@ -1019,8 +1017,8 @@ function init_gear_sets()
 		-----------------------------------------------------------
 		sets.engaged.DW3.Low = set_combine(sets.engaged.DW3,
 		{
-			head="Dampening Tam",
-			lring={name="Chirich Ring +1", bag="wardrobe2"}
+			ammo="Falcon Eye",
+			head="Dampening Tam"
 		})
 
 		-----------------------------------------------------------------------------------
@@ -1028,7 +1026,7 @@ function init_gear_sets()
 		-----------------------------------------------------------
 		sets.engaged.DW3.Mid = set_combine(sets.engaged.DW3.Low,
 		{
-			ammo="Falcon Eye"
+			hands="Luh. Lazubands +3", lring={name="Chirich Ring +1", bag="wardrobe2"}
 		})
 
 		-----------------------------------------------------------------------------------
@@ -1073,8 +1071,8 @@ function init_gear_sets()
 		-----------------------------------------------------------
 		sets.engaged.DW4.Low = set_combine(sets.engaged.DW4,
 		{	
-			head="Dampening Tam",
-			lring={name="Chirich Ring +1", bag="wardrobe2"}
+			ammo="Falcon Eye",
+			head="Dampening Tam"
 		})
 
 		-----------------------------------------------------------------------------------
@@ -1082,7 +1080,7 @@ function init_gear_sets()
 		-----------------------------------------------------------
 		sets.engaged.DW4.Mid = set_combine(sets.engaged.DW4.Low,
 		{
-			ammo="Falcon Eye"
+			hands="Luh. Lazubands +3", lring={name="Chirich Ring +1", bag="wardrobe2"}
 		})
 
 		-----------------------------------------------------------------------------------
@@ -1140,7 +1138,7 @@ function init_gear_sets()
 		sets.engaged.DW2.Low.Min = set_combine(sets.engaged.DW2.Min,
 		{
 			ammo="Falcon Eye",
-			head="Dampening Tam",
+			head="Dampening Tam"
 		})
 
 		-----------------------------------------------------------------------------------
@@ -1148,7 +1146,7 @@ function init_gear_sets()
 		-----------------------------------------------------------
 		sets.engaged.DW2.Mid.Min = set_combine(sets.engaged.DW2.Low.Min,
 		{
-			lring="Ilabrat Ring"
+			hands="Luh. Lazubands +3", lring={name="Chirich Ring +1", bag="wardrobe2"}
 		})
 
 		-----------------------------------------------------------------------------------
@@ -1157,7 +1155,7 @@ function init_gear_sets()
 		sets.engaged.DW2.High.Min = set_combine(sets.engaged.DW2.Mid.Min,
 		{
 			head="Carmine Mask +1",
-			lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			rring={name="Chirich Ring +1", bag="wardrobe3"}
 		})	
 	
 	
@@ -1184,7 +1182,7 @@ function init_gear_sets()
 		{
 			ammo="Ginsen",
 			head="Adhemar Bonnet +1", neck="Mirage Stole +2", lear="Eabani Earring", rear="Suppanomimi",
-			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Chirich Ring +1", rring="Epona's Ring",
+			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring="Epona's Ring",
 			back=gear.BLUCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet=gear.TFeet_TP
 		}
 		
@@ -1193,8 +1191,8 @@ function init_gear_sets()
 		-----------------------------------------------------------
 		sets.engaged.DW3.Low.Min = set_combine(sets.engaged.DW3.Min,
 		{
-			head="Dampening Tam",
-			lring={name="Chirich Ring +1", bag="wardrobe2"}
+			ammo="Falcon Eye",
+			head="Dampening Tam"
 		})
 
 		-----------------------------------------------------------------------------------
@@ -1202,7 +1200,7 @@ function init_gear_sets()
 		-----------------------------------------------------------
 		sets.engaged.DW3.Mid.Min = set_combine(sets.engaged.DW3.Low.Min,
 		{
-			ammo="Falcon Eye"
+			hands="Luh. Lazubands +3", lring={name="Chirich Ring +1", bag="wardrobe2"}
 		})
 
 		-----------------------------------------------------------------------------------
@@ -1224,7 +1222,7 @@ function init_gear_sets()
 		----------------------------------------------------------
 
 		-----------------------------------------------------------------------------------
-		---	TP/h:79	(DW:37	STP:39		QA:0%	TA:16%	DA:5%)
+		---	TP/h:79	(DW:38	STP:39		QA:0%	TA:16%	DA:5%)
 		-----------------------------------------------------------	
 		sets.engaged.DW4.Min =
 		{
@@ -1238,7 +1236,7 @@ function init_gear_sets()
 		{
 			ammo="Ginsen",
 			head="Adhemar Bonnet +1", neck="Mirage Stole +2", lear="Eabani Earring", rear="Suppanomimi",
-			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Chirich Ring +1", rring="Epona's Ring",
+			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring="Epona's Ring",
 			back=gear.BLUCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet=gear.HBoots_TP
 		}
 		
@@ -1249,7 +1247,6 @@ function init_gear_sets()
 		{
 			ammo="Falcon Eye",
 			head="Dampening Tam",
-			lring="Ilabrat Ring",
 		})
 
 		-----------------------------------------------------------------------------------
@@ -1258,6 +1255,7 @@ function init_gear_sets()
 		sets.engaged.DW4.Mid.Min = set_combine(sets.engaged.DW4.Low.Min,
 		{
 			lear={name="Mache Earring +1", bag="wardrobe2"},
+			hands="Luh. Lazubands +3", lring={name="Chirich Ring +1", bag="wardrobe2"},
 			feet=gear.TFeet_TP
 		})
 
@@ -1267,7 +1265,7 @@ function init_gear_sets()
 		sets.engaged.DW4.High.Min = set_combine(sets.engaged.DW4.Mid.Min,
 		{
 			head="Carmine Mask +1",
-			lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			rring={name="Chirich Ring +1", bag="wardrobe3"}
 		})
 	
 	
@@ -1311,34 +1309,34 @@ function init_gear_sets()
 		{
 			ammo="Ginsen",
 			head="Adhemar Bonnet +1", neck="Mirage Stole +2", lear="Eabani Earring", rear="Suppanomimi",
-			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Chirich Ring +1", rring="Epona's Ring",
+			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring="Epona's Ring",
 			back=gear.BLUCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet=gear.TFeet_TP
 		}
 
 		-----------------------------------------------------------------------------------
-		---	TP/h:79	(DW:31	STP:40		QA:2%	TA:10%	DA:2%)
+		---	TP/h:79	(DW:41	STP:39		QA:0%	TA:16%	DA:5%)
 		-----------------------------------------------------------
-		sets.engaged.DW2.Low.Med = set_combine(sets.engaged.DW2.Med,
+		sets.engaged.DW3.Low.Min = set_combine(sets.engaged.DW3.Min,
 		{
-			head="Dampening Tam",
-			lring="Ilabrat Ring",
+			ammo="Falcon Eye",
+			head="Dampening Tam"
 		})
 
 		-----------------------------------------------------------------------------------
-		---	TP/h:78	(DW:31	STP:36		QA:2%	TA:8%	DA:3%)
+		---	TP/h:79	(DW:41	STP:39		QA:0%	TA:16%	DA:5%)
 		-----------------------------------------------------------
-		sets.engaged.DW2.Mid.Med = set_combine(sets.engaged.DW2.Low.Med,
+		sets.engaged.DW3.Mid.Min = set_combine(sets.engaged.DW3.Low.Min,
 		{
-			ammo="Falcon Eye"
+			hands="Luh. Lazubands +3", lring={name="Chirich Ring +1", bag="wardrobe2"}
 		})
 
 		-----------------------------------------------------------------------------------
-		---	TP/h:78	(DW:31	STP:36		QA:0%	TA:5%	DA:0%)
+		---	TP/h:79	(DW:41	STP:39		QA:0%	TA:16%	DA:5%)
 		-----------------------------------------------------------
-		sets.engaged.DW2.High.Med = set_combine(sets.engaged.DW2.Mid.Med,
+		sets.engaged.DW3.High.Min = set_combine(sets.engaged.DW3.Mid.Min,
 		{
 			head="Carmine Mask +1",
-			lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			rring={name="Chirich Ring +1", bag="wardrobe3"}
 		})
 	
 	
@@ -1351,7 +1349,7 @@ function init_gear_sets()
 		----------------------------------------------------------
 	
 		-----------------------------------------------------------------------------------
-		---	TP/h:79	(DW:31	STP:39		QA:0%	TA:16%	DA:5%)
+		---	TP/h:79	(DW:32	STP:39		QA:0%	TA:16%	DA:5%)
 		-----------------------------------------------------------
 		sets.engaged.DW3.Med =
 		{
@@ -1362,23 +1360,24 @@ function init_gear_sets()
 		}
 		
 		-----------------------------------------------------------------------------------
-		---	TP/h:100	(DW:6	STP:50		QA:2%	TA:20%	DA:11%)
+		---	TP/h:100	(DW:31	STP:50		QA:2%	TA:20%	DA:11%)
 		-----------------------------------------------------------
 		sets.engaged.DW3.Med.AM3 =
 		{
 			ammo="Ginsen",
 			head="Adhemar Bonnet +1", neck="Mirage Stole +2", lear="Eabani Earring", rear="Dedition Earring",
-			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Chirich Ring +1", rring="Epona's Ring",
+			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring="Epona's Ring",
 			back=gear.BLUCape_DW, waist="Reiki Yotai", legs="Samnuha Tights", feet=gear.TFeet_TP
 		}
 
 		-----------------------------------------------------------------------------------
-		---	TP/h:79	(DW:31	STP:40		QA:2%	TA:10%	DA:2%)
+		---	TP/h:79	(DW:32	STP:40		QA:2%	TA:10%	DA:2%)
 		-----------------------------------------------------------
 		sets.engaged.DW3.Low.Med = set_combine(sets.engaged.DW3.Med,
 		{
 			head="Dampening Tam",
-			lring="Ilabrat Ring",
+			lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			legs="Adhemar Kecks +1"
 		})
 
 		-----------------------------------------------------------------------------------
@@ -1388,17 +1387,17 @@ function init_gear_sets()
 		{
 			ammo="Falcon Eye",
 			lear={name="Mache Earring +1", bag="wardrobe2"},
-			lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			hands="Luh. Lazubands +3",
 			feet=gear.TFeet_TP
 		})
 
 		-----------------------------------------------------------------------------------
-		---	TP/h:78	(DW:31	STP:36		QA:0%	TA:5%	DA:0%)
+		---	TP/h:78	(DW:32	STP:36		QA:0%	TA:5%	DA:0%)
 		-----------------------------------------------------------
 		sets.engaged.DW3.High.Med = set_combine(sets.engaged.DW3.Mid.Med,
 		{
 			head="Carmine Mask +1", rear={name="Mache Earring +1", bag="wardrobe3"},
-			legs="Carmine Cuisses +1",
+			legs="Carmine Cuisses +1"
 		})
 
 		
@@ -1411,7 +1410,7 @@ function init_gear_sets()
 		----------------------------------------------------------
 	
 		-----------------------------------------------------------------------------------
-		---	TP/h:84	(DW:26	STP:46		QA:0%	TA:19%	DA:8%)
+		---	TP/h:84	(DW:25	STP:46		QA:0%	TA:19%	DA:8%)
 		-----------------------------------------------------------
 		sets.engaged.DW4.Med =
 		{
@@ -1422,7 +1421,7 @@ function init_gear_sets()
 		}
 		
 		-----------------------------------------------------------------------------------
-		---	TP/h:100	(DW:6	STP:50		QA:2%	TA:20%	DA:11%)
+		---	TP/h:100	(DW:27	STP:50		QA:2%	TA:20%	DA:11%)
 		-----------------------------------------------------------
 		sets.engaged.DW4.Med.AM3 =
 		{
@@ -1443,7 +1442,7 @@ function init_gear_sets()
 		})
 
 		-----------------------------------------------------------------------------------
-		---	TP/h:85	(DW:26	STP:48		QA:2%	TA:8%	DA:4%)
+		---	TP/h:85	(DW:26	STP:48		QA:2%	TA:8%	DA:4%)I 
 		-----------------------------------------------------------
 		sets.engaged.DW4.Mid.Med = set_combine(sets.engaged.DW4.Low.Med,
 		{
@@ -1453,13 +1452,13 @@ function init_gear_sets()
 		})
 
 		-----------------------------------------------------------------------------------
-		---	TP/h:78	(DW:28	STP:36		QA:0%	TA:3%	DA:0%)
+		---	TP/h:78	(DW:26	STP:36		QA:0%	TA:3%	DA:0%)
 		-----------------------------------------------------------
 		sets.engaged.DW4.High.Med = set_combine(sets.engaged.DW4.Mid.Med,
 		{
 			head="Carmine Mask +1",
-			body="Luhlaza Jubbah +3", 
-			legs="Carmine Cuisses +1", feet="Assim. Charuqs +2"
+			body="Luhlaza Jubbah +3", hands="Luh. Lazubands +3",
+			legs="Carmine Cuisses +1"
 		})
 	
 	
@@ -1486,7 +1485,7 @@ function init_gear_sets()
 		----------------------------------------------------------
 	
 		-----------------------------------------------------------------------------------
-		---		(DW:11	STP:52		QA:2%	TA:22%	DA:9%)
+		---		(DW:21	STP:52		QA:2%	TA:22%	DA:9%)
 		-----------------------------------------------------------
 		sets.engaged.DW2.Max =
 		{
@@ -1496,41 +1495,46 @@ function init_gear_sets()
 			back=gear.BLUCape_DW, waist="Windbuffet Belt +1", legs="Samnuha Tights", feet=gear.HBoots_TP
 		}
 		
+		-----------------------------------------------------------------------------------
+		---		(DW:21	STP:52		QA:2%	TA:22%	DA:9%)
+		-----------------------------------------------------------
 		sets.engaged.DW2.Max.AM3 =
 		{
 			ammo="Ginsen",
 			head="Adhemar Bonnet +1", neck="Mirage Stole +2", lear="Telos Earring", rear="Suppanomimi",
-			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Chirich Ring +1", rring="Epona's Ring",
+			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring="Epona's Ring",
 			back=gear.BLUCape_DW, waist="Windbuffet Belt +1", legs="Samnuha Tights", feet=gear.HBoots_TP
 		}
 
 		-----------------------------------------------------------------------------------
-		---		(DW:11	STP:53		QA:4%	TA:19%	DA:7%)
+		---		(DW:21	STP:53		QA:4%	TA:19%	DA:7%)
 		-----------------------------------------------------------
 		sets.engaged.DW2.Low.Max = set_combine(sets.engaged.DW2.Max,
 		{
-			head="Dampening Tam", lear="Mache Earring +1"
+			head="Dampening Tam", lear={name="Mache Earring +1", bag="wardrobe2"},
+			lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe2"}, 
+			legs="Adhemar Kecks +1"
 		})
 
 		-----------------------------------------------------------------------------------
-		---		(DW:11	STP:54		QA:2%	TA:14%	DA:14%)
+		---		(DW:22	STP:54		QA:2%	TA:14%	DA:14%)
 		-----------------------------------------------------------
 		sets.engaged.DW2.Mid.Max = set_combine(sets.engaged.DW2.Low.Max,
 		{
 			ammo="Falcon Eye",
 			rear={name="Mache Earring +1", bag="wardrobe3"},
-			lring="Ilabrat Ring",
-			waist="Reiki Yotai"
+			hands="Luh. Bazubands +3",
+			legs="Carmine Cuisses +1"
 		})
 
 		-----------------------------------------------------------------------------------
-		---		(DW:11	STP:46~50	QA:0%	TA:5%	DA:15%)
+		---		(DW:23	STP:46~50	QA:0%	TA:5%	DA:15%)
 		-----------------------------------------------------------
 		sets.engaged.DW2.High.Max = set_combine(sets.engaged.DW2.Mid.Max,
 		{
 			head="Carmine Mask +1",
-			body="Ayanmo Corazza +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
-			legs="Carmine Cuisses +1", feet="Aya. Gambieras +2"
+			body="Luhlaza Jubbah +3", lring={name="Chirich Ring +1", bag="wardrobe3"},
+			waist="Reiki Yotai", feet="Assim. Charuqs +1"
 		})
 	
 	
@@ -1560,7 +1564,7 @@ function init_gear_sets()
 		{
 			ammo="Ginsen",
 			head="Adhemar Bonnet +1", neck="Mirage Stole +2", lear="Telos Earring", rear="Cessance Earring",
-			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Chirich Ring +1", rring="Epona's Ring",
+			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring="Epona's Ring",
 			back=gear.BLUCape_STP, waist="Reiki Yotai", legs="Samnuha Tights", feet="Carmine Greaves +1"
 		}
 
@@ -1569,17 +1573,19 @@ function init_gear_sets()
 		-----------------------------------------------------------
 		sets.engaged.DW3.Low.Max = set_combine(sets.engaged.DW3.Max,
 		{
+			ammo="Falcon Eye",
 			head="Dampening Tam", lear="Telos Earring", 
-			lring="Chirich Ring +1",
+			lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 		})
 
 		-----------------------------------------------------------------------------------
-		---		(DW:13	STP:38		QA:3%	TA:22%	DA:10%)
+		---		(DW:12	STP:38		QA:3%	TA:22%	DA:10%)
 		-----------------------------------------------------------
 		sets.engaged.DW3.Mid.Max = set_combine(sets.engaged.DW3.Low.Max,
 		{
 			rear={name="Mache Earring +1", bag="wardrobe3"},
-			waist="Reiki Yotai", legs="Adhemar Kecks +1",
+			hands="Luh. Bazubands +3",
+			waist="Kentarch Belt +1", legs="Carmine Cuisses +1",
 		})
 
 		-----------------------------------------------------------------------------------
@@ -1587,10 +1593,9 @@ function init_gear_sets()
 		-----------------------------------------------------------
 		sets.engaged.DW3.High.Max = set_combine(sets.engaged.DW3.Mid.Max,
 		{
-			ammo="Falcon Eye",
 			head="Carmine Mask +1", lear={name="Mache Earring +1", bag="wardrobe2"},
-			body="Ayanmo Corazza +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
-			legs="Carmine Cuisses +1", feet="Aya. Gambieras +2"
+			body="Luhlaza Jubbah +3",
+			waist="Reiki Yotai", feet="Assim. Charuqs +2"
 		})
 
 		
@@ -1620,7 +1625,7 @@ function init_gear_sets()
 		{
 			ammo="Ginsen",
 			head="Adhemar Bonnet +1", neck="Mirage Stole +2", lear="Telos Earring", rear="Dedition Earring",
-			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Chirich Ring +1", rring="Epona's Ring",
+			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring="Epona's Ring",
 			back=gear.BLUCape_STP, waist="Windbuffet Belt +1", legs="Samnuha Tights", feet="Carmine Greaves +1"
 		}
 
@@ -1629,8 +1634,9 @@ function init_gear_sets()
 		-----------------------------------------------------------
 		sets.engaged.DW4.Low.Max = set_combine(sets.engaged.DW4.Max,
 		{
+			ammo="Falcon Eye",
 			head="Dampening Tam", lear="Telos Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
-			lring="Chirich Ring +1", rring="Chirich Ring +1",
+			lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 		})
 
 		-----------------------------------------------------------------------------------
@@ -1638,6 +1644,8 @@ function init_gear_sets()
 		-----------------------------------------------------------
 		sets.engaged.DW4.Mid.Max = set_combine(sets.engaged.DW4.Low.Max,
 		{
+			lear={name="Mache Earring +1", bag="wardrobe2"}, 
+			hands="Luh. Bazubands +3",
 			waist="Kentarch Belt +1", legs="Adhemar Kecks +1",
 		})
 
@@ -1646,8 +1654,7 @@ function init_gear_sets()
 		-----------------------------------------------------------
 		sets.engaged.DW4.High.Max = set_combine(sets.engaged.DW4.Mid.Max,
 		{
-			ammo="Falcon Eye",
-			head="Carmine Mask +1", lear={name="Mache Earring +1", bag="wardrobe2"}, 
+			head="Carmine Mask +1",
 			body="Luhlaza Jubbah +3",
 			legs="Carmine Cuisses +1", feet="Assim. Charuqs +2"
 		})
@@ -1677,147 +1684,147 @@ function init_gear_sets()
 		----------------------------------------------------------
 		-- Sword & Board
 		----------------------------------------------------------	
-	    sets.engaged.DT 			= set_combine(sets.engaged, 		sets.engaged.Hybrid)
-		sets.engaged.Low.DT 		= set_combine(sets.engaged.Low, 	sets.engaged.Hybrid)
-		sets.engaged.Mid.DT 		= set_combine(sets.engaged.Mid, 	sets.engaged.Hybrid)
-		sets.engaged.High.DT		= set_combine(sets.engaged.High, 	sets.engaged.Hybrid)
+	    	sets.engaged.DT 			= set_combine(sets.engaged, 		sets.engaged.Hybrid)
+		sets.engaged.Low.DT 			= set_combine(sets.engaged.Low, 	sets.engaged.Hybrid)
+		sets.engaged.Mid.DT 			= set_combine(sets.engaged.Mid, 	sets.engaged.Hybrid)
+		sets.engaged.High.DT			= set_combine(sets.engaged.High, 	sets.engaged.Hybrid)
 		
 		sets.engaged.DTMAX 			= set_combine(sets.engaged, 		sets.engaged.Hybrid2)
-		sets.engaged.Low.DTMAX 		= set_combine(sets.engaged.Low, 	sets.engaged.Hybrid2)
-		sets.engaged.Mid.DTMAX		= set_combine(sets.engaged.Mid, 	sets.engaged.Hybrid2)
-		sets.engaged.High.DTMAX		= set_combine(sets.engaged.High, 	sets.engaged.Hybrid2)
+		sets.engaged.Low.DTMAX 			= set_combine(sets.engaged.Low, 	sets.engaged.Hybrid2)
+		sets.engaged.Mid.DTMAX			= set_combine(sets.engaged.Mid, 	sets.engaged.Hybrid2)
+		sets.engaged.High.DTMAX			= set_combine(sets.engaged.High, 	sets.engaged.Hybrid2)
 
 		
 		----------------------------------------------------------
 		-- No Haste
 		----------------------------------------------------------
-		sets.engaged.DW2.DT 		= set_combine(sets.engaged.DW2, 		sets.engaged.Hybrid)
-		sets.engaged.DW2.Low.DT 	= set_combine(sets.engaged.DW2.Low, 	sets.engaged.Hybrid)
-		sets.engaged.DW2.Mid.DT 	= set_combine(sets.engaged.DW2.Mid, 	sets.engaged.Hybrid)
-		sets.engaged.DW2.High.DT 	= set_combine(sets.engaged.DW2.High, 	sets.engaged.Hybrid)
+		sets.engaged.DW2.DT 			= set_combine(sets.engaged.DW2, 	sets.engaged.Hybrid)
+		sets.engaged.DW2.Low.DT 		= set_combine(sets.engaged.DW2.Low, 	sets.engaged.Hybrid)
+		sets.engaged.DW2.Mid.DT 		= set_combine(sets.engaged.DW2.Mid, 	sets.engaged.Hybrid)
+		sets.engaged.DW2.High.DT 		= set_combine(sets.engaged.DW2.High, 	sets.engaged.Hybrid)
 
-		sets.engaged.DW3.DT 		= set_combine(sets.engaged.DW3, 		sets.engaged.Hybrid)
-		sets.engaged.DW3.Low.DT 	= set_combine(sets.engaged.DW3.Low, 	sets.engaged.Hybrid)
-		sets.engaged.DW3.Mid.DT 	= set_combine(sets.engaged.DW3.Mid, 	sets.engaged.Hybrid)
-		sets.engaged.DW3.High.DT 	= set_combine(sets.engaged.DW3.High, 	sets.engaged.Hybrid)
+		sets.engaged.DW3.DT 			= set_combine(sets.engaged.DW3, 	sets.engaged.Hybrid)
+		sets.engaged.DW3.Low.DT 		= set_combine(sets.engaged.DW3.Low, 	sets.engaged.Hybrid)
+		sets.engaged.DW3.Mid.DT 		= set_combine(sets.engaged.DW3.Mid, 	sets.engaged.Hybrid)
+		sets.engaged.DW3.High.DT 		= set_combine(sets.engaged.DW3.High, 	sets.engaged.Hybrid)
 		
-		sets.engaged.DW4.DT 		= set_combine(sets.engaged.DW4, 		sets.engaged.Hybrid)
-		sets.engaged.DW4.Low.DT 	= set_combine(sets.engaged.DW4.Low, 	sets.engaged.Hybrid)
-		sets.engaged.DW4.Mid.DT 	= set_combine(sets.engaged.DW4.Mid, 	sets.engaged.Hybrid)
-		sets.engaged.DW4.High.DT 	= set_combine(sets.engaged.DW4.High, 	sets.engaged.Hybrid)
+		sets.engaged.DW4.DT 			= set_combine(sets.engaged.DW4, 	sets.engaged.Hybrid)
+		sets.engaged.DW4.Low.DT 		= set_combine(sets.engaged.DW4.Low, 	sets.engaged.Hybrid)
+		sets.engaged.DW4.Mid.DT 		= set_combine(sets.engaged.DW4.Mid, 	sets.engaged.Hybrid)
+		sets.engaged.DW4.High.DT 		= set_combine(sets.engaged.DW4.High, 	sets.engaged.Hybrid)
 		
 		
 		
-		sets.engaged.DW2.DTMAX 		= set_combine(sets.engaged.DW2, 		sets.engaged.Hybrid2)
-		sets.engaged.DW2.Low.DTMAX 	= set_combine(sets.engaged.DW2.Low, 	sets.engaged.Hybrid2)
-		sets.engaged.DW2.Mid.DTMAX 	= set_combine(sets.engaged.DW2.Mid, 	sets.engaged.Hybrid2)
-		sets.engaged.DW2.High.DTMAX	= set_combine(sets.engaged.DW2.High, 	sets.engaged.Hybrid2)
+		sets.engaged.DW2.DTMAX 			= set_combine(sets.engaged.DW2, 	sets.engaged.Hybrid2)
+		sets.engaged.DW2.Low.DTMAX 		= set_combine(sets.engaged.DW2.Low, 	sets.engaged.Hybrid2)
+		sets.engaged.DW2.Mid.DTMAX 		= set_combine(sets.engaged.DW2.Mid, 	sets.engaged.Hybrid2)
+		sets.engaged.DW2.High.DTMAX		= set_combine(sets.engaged.DW2.High, 	sets.engaged.Hybrid2)
 
-		sets.engaged.DW3.DTMAX 		= set_combine(sets.engaged.DW3, 		sets.engaged.Hybrid2)
-		sets.engaged.DW3.Low.DTMAX 	= set_combine(sets.engaged.DW3.Low, 	sets.engaged.Hybrid2)
-		sets.engaged.DW3.Mid.DTMAX 	= set_combine(sets.engaged.DW3.Mid, 	sets.engaged.Hybrid2)
-		sets.engaged.DW3.High.DTMAX	= set_combine(sets.engaged.DW3.High, 	sets.engaged.Hybrid2)
+		sets.engaged.DW3.DTMAX 			= set_combine(sets.engaged.DW3, 	sets.engaged.Hybrid2)
+		sets.engaged.DW3.Low.DTMAX 		= set_combine(sets.engaged.DW3.Low, 	sets.engaged.Hybrid2)
+		sets.engaged.DW3.Mid.DTMAX 		= set_combine(sets.engaged.DW3.Mid, 	sets.engaged.Hybrid2)
+		sets.engaged.DW3.High.DTMAX		= set_combine(sets.engaged.DW3.High, 	sets.engaged.Hybrid2)
 		
-		sets.engaged.DW4.DTMAX 		= set_combine(sets.engaged.DW4, 		sets.engaged.Hybrid2)
-		sets.engaged.DW4.Low.DTMAX 	= set_combine(sets.engaged.DW4.Low, 	sets.engaged.Hybrid2)
-		sets.engaged.DW4.Mid.DTMAX 	= set_combine(sets.engaged.DW4.Mid, 	sets.engaged.Hybrid2)
-		sets.engaged.DW4.High.DTMAX	= set_combine(sets.engaged.DW4.High, 	sets.engaged.Hybrid2)
+		sets.engaged.DW4.DTMAX 			= set_combine(sets.engaged.DW4, 	sets.engaged.Hybrid2)
+		sets.engaged.DW4.Low.DTMAX 		= set_combine(sets.engaged.DW4.Low, 	sets.engaged.Hybrid2)
+		sets.engaged.DW4.Mid.DTMAX 		= set_combine(sets.engaged.DW4.Mid, 	sets.engaged.Hybrid2)
+		sets.engaged.DW4.High.DTMAX		= set_combine(sets.engaged.DW4.High, 	sets.engaged.Hybrid2)
 		
 		
 		----------------------------------------------------------
 		-- Minimum Haste
 		----------------------------------------------------------
-		sets.engaged.DW2.DT.Min 	 = set_combine(sets.engaged.DW2.Min, 		sets.engaged.Hybrid)
-		sets.engaged.DW2.Low.DT.Min  = set_combine(sets.engaged.DW2.Low.Min, 	sets.engaged.Hybrid)
-		sets.engaged.DW2.Mid.DT.Min  = set_combine(sets.engaged.DW2.Mid.Min, 	sets.engaged.Hybrid)
-		sets.engaged.DW2.High.DT.Min = set_combine(sets.engaged.DW2.High.Min, 	sets.engaged.Hybrid)
+		sets.engaged.DW2.DT.Min 		= set_combine(sets.engaged.DW2.Min,		sets.engaged.Hybrid)
+		sets.engaged.DW2.Low.DT.Min  		= set_combine(sets.engaged.DW2.Low.Min, 	sets.engaged.Hybrid)
+		sets.engaged.DW2.Mid.DT.Min  		= set_combine(sets.engaged.DW2.Mid.Min, 	sets.engaged.Hybrid)
+		sets.engaged.DW2.High.DT.Min 		= set_combine(sets.engaged.DW2.High.Min, 	sets.engaged.Hybrid)
 		
-		sets.engaged.DW3.DT.Min 	 = set_combine(sets.engaged.DW3.Min, 		sets.engaged.Hybrid)
-		sets.engaged.DW3.Low.DT.Min  = set_combine(sets.engaged.DW3.Low.Min, 	sets.engaged.Hybrid)
-		sets.engaged.DW3.Mid.DT.Min  = set_combine(sets.engaged.DW3.Mid.Min, 	sets.engaged.Hybrid)
-		sets.engaged.DW3.High.DT.Min = set_combine(sets.engaged.DW3.High.Min, 	sets.engaged.Hybrid)
+		sets.engaged.DW3.DT.Min 	 	= set_combine(sets.engaged.DW3.Min, 		sets.engaged.Hybrid)
+		sets.engaged.DW3.Low.DT.Min  		= set_combine(sets.engaged.DW3.Low.Min, 	sets.engaged.Hybrid)
+		sets.engaged.DW3.Mid.DT.Min  		= set_combine(sets.engaged.DW3.Mid.Min, 	sets.engaged.Hybrid)
+		sets.engaged.DW3.High.DT.Min 		= set_combine(sets.engaged.DW3.High.Min, 	sets.engaged.Hybrid)
 		
-		sets.engaged.DW4.DT.Min 	 = set_combine(sets.engaged.DW4.Min, 		sets.engaged.Hybrid)
-		sets.engaged.DW4.Low.DT.Min  = set_combine(sets.engaged.DW4.Low.Min, 	sets.engaged.Hybrid)
-		sets.engaged.DW4.Mid.DT.Min  = set_combine(sets.engaged.DW4.Mid.Min, 	sets.engaged.Hybrid)
-		sets.engaged.DW4.High.DT.Min = set_combine(sets.engaged.DW4.High.Min, 	sets.engaged.Hybrid)
+		sets.engaged.DW4.DT.Min			= set_combine(sets.engaged.DW4.Min, 		sets.engaged.Hybrid)
+		sets.engaged.DW4.Low.DT.Min  		= set_combine(sets.engaged.DW4.Low.Min, 	sets.engaged.Hybrid)
+		sets.engaged.DW4.Mid.DT.Min  		= set_combine(sets.engaged.DW4.Mid.Min, 	sets.engaged.Hybrid)
+		sets.engaged.DW4.High.DT.Min 		= set_combine(sets.engaged.DW4.High.Min, 	sets.engaged.Hybrid)
 		
 		
 		
 		sets.engaged.DW2.DTMAX.Min 	 	= set_combine(sets.engaged.DW2.Min, 		sets.engaged.Hybrid2)
-		sets.engaged.DW2.Low.DTMAX.Min  = set_combine(sets.engaged.DW2.Low.Min, 	sets.engaged.Hybrid2)
-		sets.engaged.DW2.Mid.DTMAX.Min  = set_combine(sets.engaged.DW2.Mid.Min, 	sets.engaged.Hybrid2)
-		sets.engaged.DW2.High.DTMAX.Min = set_combine(sets.engaged.DW2.High.Min, 	sets.engaged.Hybrid2)
+		sets.engaged.DW2.Low.DTMAX.Min  	= set_combine(sets.engaged.DW2.Low.Min, 	sets.engaged.Hybrid2)
+		sets.engaged.DW2.Mid.DTMAX.Min  	= set_combine(sets.engaged.DW2.Mid.Min, 	sets.engaged.Hybrid2)
+		sets.engaged.DW2.High.DTMAX.Min		= set_combine(sets.engaged.DW2.High.Min, 	sets.engaged.Hybrid2)
 		
 		sets.engaged.DW3.DTMAX.Min 	 	= set_combine(sets.engaged.DW3.Min, 		sets.engaged.Hybrid2)
-		sets.engaged.DW3.Low.DTMAX.Min  = set_combine(sets.engaged.DW3.Low.Min, 	sets.engaged.Hybrid2)
-		sets.engaged.DW3.Mid.DTMAX.Min  = set_combine(sets.engaged.DW3.Mid.Min, 	sets.engaged.Hybrid2)
-		sets.engaged.DW3.High.DTMAX.Min = set_combine(sets.engaged.DW3.High.Min, 	sets.engaged.Hybrid2)
+		sets.engaged.DW3.Low.DTMAX.Min  	= set_combine(sets.engaged.DW3.Low.Min, 	sets.engaged.Hybrid2)
+		sets.engaged.DW3.Mid.DTMAX.Min  	= set_combine(sets.engaged.DW3.Mid.Min, 	sets.engaged.Hybrid2)
+		sets.engaged.DW3.High.DTMAX.Min 	= set_combine(sets.engaged.DW3.High.Min, 	sets.engaged.Hybrid2)
 		
 		sets.engaged.DW4.DTMAX.Min 	 	= set_combine(sets.engaged.DW4.Min, 		sets.engaged.Hybrid2)
-		sets.engaged.DW4.Low.DTMAX.Min  = set_combine(sets.engaged.DW4.Low.Min, 	sets.engaged.Hybrid2)
-		sets.engaged.DW4.Mid.DTMAX.Min  = set_combine(sets.engaged.DW4.Mid.Min, 	sets.engaged.Hybrid2)
-		sets.engaged.DW4.High.DTMAX.Min = set_combine(sets.engaged.DW4.High.Min, 	sets.engaged.Hybrid2)
+		sets.engaged.DW4.Low.DTMAX.Min  	= set_combine(sets.engaged.DW4.Low.Min, 	sets.engaged.Hybrid2)
+		sets.engaged.DW4.Mid.DTMAX.Min  	= set_combine(sets.engaged.DW4.Mid.Min, 	sets.engaged.Hybrid2)
+		sets.engaged.DW4.High.DTMAX.Min 	= set_combine(sets.engaged.DW4.High.Min, 	sets.engaged.Hybrid2)
 		
 		
 		----------------------------------------------------------
 		-- Medium Haste
 		----------------------------------------------------------
-		sets.engaged.DW2.DT.Med 	 = set_combine(sets.engaged.DW2.Med, 		sets.engaged.Hybrid)
-		sets.engaged.DW2.Low.DT.Med  = set_combine(sets.engaged.DW2.Low.Med, 	sets.engaged.Hybrid)
-		sets.engaged.DW2.Mid.DT.Med  = set_combine(sets.engaged.DW2.Mid.Med, 	sets.engaged.Hybrid)
-		sets.engaged.DW2.High.DT.Med = set_combine(sets.engaged.DW2.High.Med, 	sets.engaged.Hybrid)
+		sets.engaged.DW2.DT.Med 	 	= set_combine(sets.engaged.DW2.Med, 		sets.engaged.Hybrid)
+		sets.engaged.DW2.Low.DT.Med  		= set_combine(sets.engaged.DW2.Low.Med, 	sets.engaged.Hybrid)
+		sets.engaged.DW2.Mid.DT.Med  		= set_combine(sets.engaged.DW2.Mid.Med, 	sets.engaged.Hybrid)
+		sets.engaged.DW2.High.DT.Med 		= set_combine(sets.engaged.DW2.High.Med, 	sets.engaged.Hybrid)
 
-		sets.engaged.DW3.DT.Med 	 = set_combine(sets.engaged.DW3.Med, 		sets.engaged.Hybrid)
-		sets.engaged.DW3.Low.DT.Med  = set_combine(sets.engaged.DW3.Low.Med, 	sets.engaged.Hybrid)
-		sets.engaged.DW3.Mid.DT.Med  = set_combine(sets.engaged.DW3.Mid.Med, 	sets.engaged.Hybrid)
-		sets.engaged.DW3.High.DT.Min = set_combine(sets.engaged.DW3.High.Min, 	sets.engaged.Hybrid)
+		sets.engaged.DW3.DT.Med 	 	= set_combine(sets.engaged.DW3.Med, 		sets.engaged.Hybrid)
+		sets.engaged.DW3.Low.DT.Med  		= set_combine(sets.engaged.DW3.Low.Med, 	sets.engaged.Hybrid)
+		sets.engaged.DW3.Mid.DT.Med  		= set_combine(sets.engaged.DW3.Mid.Med, 	sets.engaged.Hybrid)
+		sets.engaged.DW3.High.DT.Min 		= set_combine(sets.engaged.DW3.High.Min, 	sets.engaged.Hybrid)
 
-		sets.engaged.DW4.DT.Med 	 = set_combine(sets.engaged.DW4.Med, 		sets.engaged.Hybrid)
-		sets.engaged.DW4.Low.DT.Med  = set_combine(sets.engaged.DW4.Low.Med, 	sets.engaged.Hybrid)
-		sets.engaged.DW4.Mid.DT.Med  = set_combine(sets.engaged.DW4.Mid.Med, 	sets.engaged.Hybrid)
-		sets.engaged.DW4.High.DT.Med = set_combine(sets.engaged.DW4.High.Med, 	sets.engaged.Hybrid)
+		sets.engaged.DW4.DT.Med 	 	= set_combine(sets.engaged.DW4.Med, 		sets.engaged.Hybrid)
+		sets.engaged.DW4.Low.DT.Med  		= set_combine(sets.engaged.DW4.Low.Med, 	sets.engaged.Hybrid)
+		sets.engaged.DW4.Mid.DT.Med  		= set_combine(sets.engaged.DW4.Mid.Med, 	sets.engaged.Hybrid)
+		sets.engaged.DW4.High.DT.Med 		= set_combine(sets.engaged.DW4.High.Med, 	sets.engaged.Hybrid)
 		
 		
 		
 		sets.engaged.DW2.DTMAX.Med 	 	= set_combine(sets.engaged.DW2.Med, 		sets.engaged.Hybrid2)
-		sets.engaged.DW2.Low.DTMAX.Med  = set_combine(sets.engaged.DW2.Low.Med, 	sets.engaged.Hybrid2)
-		sets.engaged.DW2.Mid.DTMAX.Med  = set_combine(sets.engaged.DW2.Mid.Med, 	sets.engaged.Hybrid2)
-		sets.engaged.DW2.High.DTMAX.Med = set_combine(sets.engaged.DW2.High.Med, 	sets.engaged.Hybrid2)
+		sets.engaged.DW2.Low.DTMAX.Med  	= set_combine(sets.engaged.DW2.Low.Med, 	sets.engaged.Hybrid2)
+		sets.engaged.DW2.Mid.DTMAX.Med  	= set_combine(sets.engaged.DW2.Mid.Med, 	sets.engaged.Hybrid2)
+		sets.engaged.DW2.High.DTMAX.Med 	= set_combine(sets.engaged.DW2.High.Med, 	sets.engaged.Hybrid2)
 
 		sets.engaged.DW3.DTMAX.Med 	 	= set_combine(sets.engaged.DW3.Med, 		sets.engaged.Hybrid2,
 		{
 			feet=gear.TFeet_TP
 		})
-		sets.engaged.DW3.Low.DTMAX.Med  = set_combine(sets.engaged.DW3.Low.Med, 	sets.engaged.Hybrid2)
-		sets.engaged.DW3.Mid.DTMAX.Med  = set_combine(sets.engaged.DW3.Mid.Med, 	sets.engaged.Hybrid2)
-		sets.engaged.DW3.High.DTMAX.Min = set_combine(sets.engaged.DW3.High.Min, 	sets.engaged.Hybrid2)
+		sets.engaged.DW3.Low.DTMAX.Med  	= set_combine(sets.engaged.DW3.Low.Med, 	sets.engaged.Hybrid2)
+		sets.engaged.DW3.Mid.DTMAX.Med  	= set_combine(sets.engaged.DW3.Mid.Med, 	sets.engaged.Hybrid2)
+		sets.engaged.DW3.High.DTMAX.Min 	= set_combine(sets.engaged.DW3.High.Min, 	sets.engaged.Hybrid2)
 
 		sets.engaged.DW4.DTMAX.Med 	 	= set_combine(sets.engaged.DW4.Med, 		sets.engaged.Hybrid2,
 		{
 			waist="Reiki Yotai"
 		})
-		sets.engaged.DW4.Low.DTMAX.Med  = set_combine(sets.engaged.DW4.Low.Med, 	sets.engaged.Hybrid2)
-		sets.engaged.DW4.Mid.DTMAX.Med  = set_combine(sets.engaged.DW4.Mid.Med, 	sets.engaged.Hybrid2)
-		sets.engaged.DW4.High.DTMAX.Med = set_combine(sets.engaged.DW4.High.Med, 	sets.engaged.Hybrid2)
+		sets.engaged.DW4.Low.DTMAX.Med  	= set_combine(sets.engaged.DW4.Low.Med, 	sets.engaged.Hybrid2)
+		sets.engaged.DW4.Mid.DTMAX.Med  	= set_combine(sets.engaged.DW4.Mid.Med, 	sets.engaged.Hybrid2)
+		sets.engaged.DW4.High.DTMAX.Med 	= set_combine(sets.engaged.DW4.High.Med, 	sets.engaged.Hybrid2)
 		
 		----------------------------------------------------------
 		-- Maximum Haste
 		----------------------------------------------------------		
-		sets.engaged.DW2.DT.Max 	 = set_combine(sets.engaged.DW2.Max, 		sets.engaged.Hybrid)
-		sets.engaged.DW2.Low.DT.Max  = set_combine(sets.engaged.DW2.Low.Max, 	sets.engaged.Hybrid)
-		sets.engaged.DW2.Mid.DT.Max  = set_combine(sets.engaged.DW2.Mid.Max, 	sets.engaged.Hybrid)
-		sets.engaged.DW2.High.DT.Max = set_combine(sets.engaged.DW2.High.Max, 	sets.engaged.Hybrid)
+		sets.engaged.DW2.DT.Max 	 	= set_combine(sets.engaged.DW2.Max, 		sets.engaged.Hybrid)
+		sets.engaged.DW2.Low.DT.Max  		= set_combine(sets.engaged.DW2.Low.Max, 	sets.engaged.Hybrid)
+		sets.engaged.DW2.Mid.DT.Max  		= set_combine(sets.engaged.DW2.Mid.Max, 	sets.engaged.Hybrid)
+		sets.engaged.DW2.High.DT.Max 		= set_combine(sets.engaged.DW2.High.Max, 	sets.engaged.Hybrid)
 		
-		sets.engaged.DW3.DT.Max 	 = set_combine(sets.engaged.DW3.Max, 		sets.engaged.Hybrid)
-		sets.engaged.DW3.Low.DT.Max  = set_combine(sets.engaged.DW3.Low.Max, 	sets.engaged.Hybrid)
-		sets.engaged.DW3.Mid.DT.Max  = set_combine(sets.engaged.DW3.Mid.Max, 	sets.engaged.Hybrid)
-		sets.engaged.DW3.High.DT.Max = set_combine(sets.engaged.DW3.High.Max, 	sets.engaged.Hybrid)
+		sets.engaged.DW3.DT.Max 	 	= set_combine(sets.engaged.DW3.Max, 		sets.engaged.Hybrid)
+		sets.engaged.DW3.Low.DT.Max  		= set_combine(sets.engaged.DW3.Low.Max, 	sets.engaged.Hybrid)
+		sets.engaged.DW3.Mid.DT.Max  		= set_combine(sets.engaged.DW3.Mid.Max, 	sets.engaged.Hybrid)
+		sets.engaged.DW3.High.DT.Max 		= set_combine(sets.engaged.DW3.High.Max, 	sets.engaged.Hybrid)
 
-		sets.engaged.DW4.DT.Max 	 = set_combine(sets.engaged.DW4.Max, 		sets.engaged.Hybrid)
-		sets.engaged.DW4.Low.DT.Max  = set_combine(sets.engaged.DW4.Low.Max, 	sets.engaged.Hybrid)
-		sets.engaged.DW4.Mid.DT.Max  = set_combine(sets.engaged.DW4.Mid.Max, 	sets.engaged.Hybrid)
-		sets.engaged.DW4.High.DT.Max = set_combine(sets.engaged.DW4.High.Max, 	sets.engaged.Hybrid)
+		sets.engaged.DW4.DT.Max 	 	= set_combine(sets.engaged.DW4.Max, 		sets.engaged.Hybrid)
+		sets.engaged.DW4.Low.DT.Max  		= set_combine(sets.engaged.DW4.Low.Max, 	sets.engaged.Hybrid)
+		sets.engaged.DW4.Mid.DT.Max  		= set_combine(sets.engaged.DW4.Mid.Max, 	sets.engaged.Hybrid)
+		sets.engaged.DW4.High.DT.Max 		= set_combine(sets.engaged.DW4.High.Max, 	sets.engaged.Hybrid)
 		
 		
 		
@@ -1825,25 +1832,25 @@ function init_gear_sets()
 		{
 			waist="Reiki Yotai"
 		})
-		sets.engaged.DW2.Low.DTMAX.Max  = set_combine(sets.engaged.DW2.Low.Max, 	sets.engaged.Hybrid2)
-		sets.engaged.DW2.Mid.DTMAX.Max  = set_combine(sets.engaged.DW2.Mid.Max, 	sets.engaged.Hybrid2)
-		sets.engaged.DW2.High.DTMAX.Max = set_combine(sets.engaged.DW2.High.Max, 	sets.engaged.Hybrid2)
+		sets.engaged.DW2.Low.DTMAX.Max  	= set_combine(sets.engaged.DW2.Low.Max, 	sets.engaged.Hybrid2)
+		sets.engaged.DW2.Mid.DTMAX.Max  	= set_combine(sets.engaged.DW2.Mid.Max, 	sets.engaged.Hybrid2)
+		sets.engaged.DW2.High.DTMAX.Max 	= set_combine(sets.engaged.DW2.High.Max, 	sets.engaged.Hybrid2)
 		
 		sets.engaged.DW3.DTMAX.Max 	 	= set_combine(sets.engaged.DW3.Max, 		sets.engaged.Hybrid2,
 		{
 			waist="Reiki Yotai"
 		})
-		sets.engaged.DW3.Low.DTMAX.Max  = set_combine(sets.engaged.DW3.Low.Max, 	sets.engaged.Hybrid2)
-		sets.engaged.DW3.Mid.DTMAX.Max  = set_combine(sets.engaged.DW3.Mid.Max, 	sets.engaged.Hybrid2)
-		sets.engaged.DW3.High.DTMAX.Max = set_combine(sets.engaged.DW3.High.Max, 	sets.engaged.Hybrid2)
+		sets.engaged.DW3.Low.DTMAX.Max  	= set_combine(sets.engaged.DW3.Low.Max, 	sets.engaged.Hybrid2)
+		sets.engaged.DW3.Mid.DTMAX.Max  	= set_combine(sets.engaged.DW3.Mid.Max, 	sets.engaged.Hybrid2)
+		sets.engaged.DW3.High.DTMAX.Max 	= set_combine(sets.engaged.DW3.High.Max, 	sets.engaged.Hybrid2)
 
 		sets.engaged.DW4.DTMAX.Max 	 	= set_combine(sets.engaged.DW4.Max, 		sets.engaged.Hybrid2,
 		{
 			waist="Reiki Yotai"
 		})
-		sets.engaged.DW4.Low.DTMAX.Max  = set_combine(sets.engaged.DW4.Low.Max, 	sets.engaged.Hybrid2)
-		sets.engaged.DW4.Mid.DTMAX.Max  = set_combine(sets.engaged.DW4.Mid.Max, 	sets.engaged.Hybrid2)
-		sets.engaged.DW4.High.DTMAX.Max = set_combine(sets.engaged.DW4.High.Max, 	sets.engaged.Hybrid2)
+		sets.engaged.DW4.Low.DTMAX.Max  	= set_combine(sets.engaged.DW4.Low.Max, 	sets.engaged.Hybrid2)
+		sets.engaged.DW4.Mid.DTMAX.Max  	= set_combine(sets.engaged.DW4.Mid.Max, 	sets.engaged.Hybrid2)
+		sets.engaged.DW4.High.DTMAX.Max 	= set_combine(sets.engaged.DW4.High.Max, 	sets.engaged.Hybrid2)
 end
 
 
@@ -1909,6 +1916,20 @@ end
 
 -- Run after the general midcast() set is constructed.
 function job_post_midcast(spell, action, spellMap, eventArgs)
+	if spellMap == 'Cures' and spell.target.type == 'SELF' then
+        	equip
+		{
+			waist="Gishdubar Sash"
+		}
+	end
+	
+	if spellMap == 'Refresh' and spell.target.type == 'SELF' then
+		equip
+		{
+			back="Grapevine Cape", waist="Gishdubar Sash"
+		}
+	end
+	
 	if (spell.skill =='Elemental Magic' or spellMap == 'Magical' or spellMap == 'DarkBlue' or spellMap == 'LightBlue' or spellMap == 'Breath')
 				and (spell.element == world.day_element and spell.element == world.weather_element) then
 		equip
