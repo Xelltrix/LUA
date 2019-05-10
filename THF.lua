@@ -47,9 +47,9 @@ end
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
 	state.OffenseMode:options('Normal', 'Low', 'Mid', 'High')
-	state.HybridMode:options('Normal', 'DT')
-	state.WeaponskillMode:options('Normal', 'Low', 'Mid', 'High')
-	state.PhysicalDefenseMode:options('PDT', 'MDT')
+	state.WeaponskillMode:options('Normal', 'Low', 'Mid', 'High')	
+	state.HybridMode:options('Normal','DT','DTMAX')
+	state.PhysicalDefenseMode:options('PDT')
 	state.IdleMode:options('Normal', 'DT')
 
 	-- Additional local binds
@@ -505,19 +505,18 @@ function init_gear_sets()
 		sets.engaged.Low = set_combine(sets.engaged,
 		{
 			head="Dampening Tam", neck="Combatant's Torque",
-			lring="Ilabrat Ring"
+			lring={name="Chirich Ring +1", bag="wardrobe2"}
 		})
 
 		sets.engaged.Mid = set_combine(sets.engaged.Low,
 		{
-			rring="Regal Ring",
+			rring={name="Chirich Ring +1", bag="wardrobe3"},
 			legs="Meg. Chausses +2"
 		})
 
 		sets.engaged.High = set_combine(sets.engaged.Mid,
 		{
 			lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-			lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			waist="Kentarch Belt +1", feet="Meg. Jam. +2"
 		})
 	
@@ -542,12 +541,12 @@ function init_gear_sets()
 		sets.engaged.Low.Min = set_combine(sets.engaged.Min,
 		{
 			head="Dampening Tam", neck="Combatant's Torque",
-			lring="Ilabrat Ring"
+			lring={name="Chirich Ring +1", bag="wardrobe2"}
 		})
 
 		sets.engaged.Mid.Min = set_combine(sets.engaged.Low.Min,
 		{
-			rring="Regal Ring",
+			rring={name="Chirich Ring +1", bag="wardrobe3"},
 			legs="Meg. Chausses +2"
 		})
 
@@ -577,12 +576,12 @@ function init_gear_sets()
 		sets.engaged.Low.Med = set_combine(sets.engaged.Med,
 		{
 			head="Dampening Tam", neck="Combatant's Torque",
-			lring="Ilabrat Ring"
+			lring={name="Chirich Ring +1", bag="wardrobe2"}
 		})
 
 		sets.engaged.Mid.Med = set_combine(sets.engaged.Low.Med,
 		{
-			rring="Regal Ring",
+			rring={name="Chirich Ring +1", bag="wardrobe3"},
 			legs="Meg. Chausses +2"
 		})
 
@@ -613,22 +612,103 @@ function init_gear_sets()
 		sets.engaged.Low.Max = set_combine(sets.engaged.Max,
 		{
 			head="Dampening Tam", neck="Combatant's Torque",
-			lring="Ilabrat Ring" 
+			lring={name="Chirich Ring +1", bag="wardrobe2"}
 		})
 
 		sets.engaged.Mid.Max = set_combine(sets.engaged.Low.Max,
 		{
-			hands="Meg. Gloves +2",
+			hands="Meg. Gloves +2", rring={name="Chirich Ring +1", bag="wardrobe3"},
 			legs="Meg. Chausses +2"
 		})
 
 		sets.engaged.High.Max = set_combine(sets.engaged.Mid.Max,
 		{
 			lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-			rring="Regal Ring",
 			waist="Kentarch Belt +1", feet="Meg. Jam. +2"
 		})
 
+	
+	--------------------------------------
+	-- Hybrid Sets
+	--------------------------------------
+		sets.engaged.Hybrid = 
+		{
+			ammo="Staunch Tathlum +1",
+			lring="Defending Ring", rring="Gelatinous Ring +1",
+		}
+		
+		sets.engaged.Hybrid2 = 
+		{
+			ammo="Staunch Tathlum +1",
+			neck="Loricate Torque +1",
+			lring="Defending Ring", rring="Gelatinous Ring +1",
+			waist="Flume Belt +1", legs="Meg. Chausses +2"
+		}
+	
+
+		----------------------------------------------------------
+		-- No Haste
+		----------------------------------------------------------	
+	    	sets.engaged.DT 			= set_combine(sets.engaged, 		sets.engaged.Hybrid)
+		sets.engaged.Low.DT 			= set_combine(sets.engaged.Low, 	sets.engaged.Hybrid)
+		sets.engaged.Mid.DT 			= set_combine(sets.engaged.Mid, 	sets.engaged.Hybrid)
+		sets.engaged.High.DT			= set_combine(sets.engaged.High, 	sets.engaged.Hybrid)
+	
+	
+	    	sets.engaged.DTMAX 			= set_combine(sets.engaged, 		sets.engaged.Hybrid)
+		sets.engaged.Low.DTMAX 			= set_combine(sets.engaged.Low, 	sets.engaged.Hybrid)
+		sets.engaged.Mid.DTMAX 			= set_combine(sets.engaged.Mid, 	sets.engaged.Hybrid)
+		sets.engaged.High.DTMAX			= set_combine(sets.engaged.High, 	sets.engaged.Hybrid)
+	
+	
+	
+		----------------------------------------------------------
+		-- Minimum Haste
+		----------------------------------------------------------	
+	    	sets.engaged.DT.Min 			= set_combine(sets.engaged, 		sets.engaged.Hybrid)
+		sets.engaged.Low.DT.Min			= set_combine(sets.engaged.Low, 	sets.engaged.Hybrid)
+		sets.engaged.Mid.DT.Min			= set_combine(sets.engaged.Mid, 	sets.engaged.Hybrid)
+		sets.engaged.High.DT.Min		= set_combine(sets.engaged.High, 	sets.engaged.Hybrid)
+	
+	
+	    	sets.engaged.DTMAX.Min 			= set_combine(sets.engaged, 		sets.engaged.Hybrid)
+		sets.engaged.Low.DTMAX.Min		= set_combine(sets.engaged.Low, 	sets.engaged.Hybrid)
+		sets.engaged.Mid.DTMAX.Min		= set_combine(sets.engaged.Mid, 	sets.engaged.Hybrid)
+		sets.engaged.High.DTMAX.Min		= set_combine(sets.engaged.High, 	sets.engaged.Hybrid)	
+	
+	
+	
+		----------------------------------------------------------
+		-- Medium Haste
+		----------------------------------------------------------	
+	    	sets.engaged.DT.Med 			= set_combine(sets.engaged, 		sets.engaged.Hybrid)
+		sets.engaged.Low.DT.Med			= set_combine(sets.engaged.Low, 	sets.engaged.Hybrid)
+		sets.engaged.Mid.DT.Med			= set_combine(sets.engaged.Mid, 	sets.engaged.Hybrid)
+		sets.engaged.High.DT.Med		= set_combine(sets.engaged.High, 	sets.engaged.Hybrid)	
+	
+	
+	    	sets.engaged.DTMAX.Med 			= set_combine(sets.engaged, 		sets.engaged.Hybrid)
+		sets.engaged.Low.DTMAX.Med		= set_combine(sets.engaged.Low, 	sets.engaged.Hybrid)
+		sets.engaged.Mid.DTMAX.Med		= set_combine(sets.engaged.Mid, 	sets.engaged.Hybrid)
+		sets.engaged.High.DTMAX.Med		= set_combine(sets.engaged.High, 	sets.engaged.Hybrid)		
+	
+	
+	
+		----------------------------------------------------------
+		-- Maximum Haste
+		----------------------------------------------------------		
+	    	sets.engaged.DT.Max 			= set_combine(sets.engaged, 		sets.engaged.Hybrid)
+		sets.engaged.Low.DT.Max			= set_combine(sets.engaged.Low, 	sets.engaged.Hybrid)
+		sets.engaged.Mid.DT.Max			= set_combine(sets.engaged.Mid, 	sets.engaged.Hybrid)
+		sets.engaged.High.DT.Max		= set_combine(sets.engaged.High, 	sets.engaged.Hybrid)
+	
+	
+	    	sets.engaged.DTMAX.Max 			= set_combine(sets.engaged, 		sets.engaged.Hybrid)
+		sets.engaged.Low.DTMAX.Max		= set_combine(sets.engaged.Low, 	sets.engaged.Hybrid)
+		sets.engaged.Mid.DTMAX.Max		= set_combine(sets.engaged.Mid, 	sets.engaged.Hybrid)
+		sets.engaged.High.DTMAX.Max		= set_combine(sets.engaged.High, 	sets.engaged.Hybrid)		
+
+	
 end
 
 
