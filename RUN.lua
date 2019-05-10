@@ -21,6 +21,7 @@ end
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
     state.OffenseMode:options('None','Normal', 'Low', 'Mid', 'High')
+	state.WeaponskillMode:options('None', 'Normal', 'Low', 'Mid', 'High')
     state.HybridMode:options('Normal', 'DT', 'DTMAX')
 	state.CastingMode:options('Normal', 'HP', 'SIRD')
     state.IdleMode:options('Normal', 'DT', 'Refresh')
@@ -132,9 +133,10 @@ function init_gear_sets()
 
 		sets.precast.JA['Vivacious Pulse'] = 
 		{
-			head="Erilaz Galea +1", neck="Incanter's Torque", lear="Beatific Earring",
-			lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			waist="Bishop's Sash", legs="Rune. Trousers +1"
+			ammo="Staunch Tathlum +1",	
+			head="Erilaz Galea +1", neck="Incanter's Torque", lear="Beatific Earring", rear="Odnowa Earring +1",
+			body="Runeist's Coat +2", hands="Nilas Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			back="Moonbeam Cape", waist="Bishop's Sash", legs="Rune. Trousers +1", feet="Erilaz Greaves +1"
 		}
 
 		sets.precast.JA['Elemental Sforzo'] =
@@ -197,7 +199,7 @@ function init_gear_sets()
 			ammo="Staunch Tathlum +1",
 			head="Carmine Mask +1", rear="Odnowa Earring +1",
 			body="Futhark Coat +1", lring="Eihwaz Ring", rring="Moonbeam Ring",
-			back="Moonbeam Cape", waist="Trance Belt", legs="Futhark Trousers +1"
+			back="Moonbeam Cape", waist="Trance Belt"
 		})
 		
 		sets.midcast.FC.SIRD = set_combine(sets.midcast.FC.HP,
@@ -312,8 +314,9 @@ function init_gear_sets()
 
 		sets.midcast.Cursna = set_combine(sets.midcast.FastRecast,
 		{
-			neck="Debilis Medallion",
-			lring="Haoma's Ring", rring="Haoma's Ring",
+			neck="Debilis Medallion", lear="Healing Earring", rear="Beatific Earring",
+			lring="Haoma's Ring", rring="Menelaus's Ring",
+			waist="Bishop's Sash"
 		})
 		
 		sets.midcast.Teleport = sets.midcast.FC
@@ -659,6 +662,12 @@ function job_precast(spell, action, spellMap, eventArgs)
 	end
 end
 
+function job_post_precast(spell, action, spellMap, eventArgs)
+    if buffactive['Fast Cast'] then
+        equip(legs="Futhark Trousers +1")
+	end
+end
+
 function job_midcast(spell, action, spellMap, eventArgs)
     currentSpell = spell.english
 	
@@ -731,6 +740,8 @@ end
 function display_current_job_state(eventArgs)
 	local msg = 'Melee'
 
+	msg = msg .. '[IDLE: ' .. state.IdleMode.value .. ']   '
+	
 	if state.CombatForm.has_value then
 		msg = msg .. ' (' .. state.CombatForm.value .. ')'
 	end
