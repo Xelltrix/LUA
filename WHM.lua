@@ -315,15 +315,9 @@ function init_gear_sets()
 			back="Fi Follet Cape +1", waist="Luminary Sash"
 		})
 	
-		sets.midcast.Protectra = set_combine(sets.midcast.Protect,
-		{
-			feet="Piety Duckbills +1"
-		})
+		sets.midcast.Protectra = set_combine(sets.midcast.Protect)
 
-		sets.midcast.Shellra = set_combine(sets.midcast.Protect,
-		{
-			legs="Piety Pantaln. +1"
-		})
+		sets.midcast.Shellra = set_combine(sets.midcast.Protect)
 
 		sets.midcast.Shell = sets.midcast.Protect
 

@@ -1154,35 +1154,35 @@ function init_gear_sets()
 		----------------------------------------------------------
 		-- Sword & Board
 		----------------------------------------------------------	
-	    	sets.engaged.DT 		= set_combine(sets.engaged, 			sets.engaged.Hybrid)
-		sets.engaged.Low.DT 		= set_combine(sets.engaged.Low, 		sets.engaged.Hybrid)
-		sets.engaged.Mid.DT 		= set_combine(sets.engaged.Mid, 		sets.engaged.Hybrid)
-		sets.engaged.High.DT		= set_combine(sets.engaged.High, 		sets.engaged.Hybrid)
+	    sets.engaged.DT 				= set_combine(sets.engaged, 				sets.engaged.Hybrid)
+		sets.engaged.Low.DT 			= set_combine(sets.engaged.Low, 			sets.engaged.Hybrid)
+		sets.engaged.Mid.DT 			= set_combine(sets.engaged.Mid, 			sets.engaged.Hybrid)
+		sets.engaged.High.DT			= set_combine(sets.engaged.High, 			sets.engaged.Hybrid)
 
 		
 		----------------------------------------------------------
 		-- No Haste
 		----------------------------------------------------------
-		sets.engaged.DW2.DT 		= set_combine(sets.engaged.DW2, 		sets.engaged.Hybrid)
-		sets.engaged.DW2.Low.DT 	= set_combine(sets.engaged.DW2.Low, 		sets.engaged.Hybrid)
-		sets.engaged.DW2.Mid.DT 	= set_combine(sets.engaged.DW2.Mid, 		sets.engaged.Hybrid)
-		sets.engaged.DW2.High.DT 	= set_combine(sets.engaged.DW2.High, 		sets.engaged.Hybrid)
+		sets.engaged.DW2.DT 			= set_combine(sets.engaged.DW2, 			sets.engaged.Hybrid)
+		sets.engaged.DW2.Low.DT 		= set_combine(sets.engaged.DW2.Low, 		sets.engaged.Hybrid)
+		sets.engaged.DW2.Mid.DT 		= set_combine(sets.engaged.DW2.Mid, 		sets.engaged.Hybrid)
+		sets.engaged.DW2.High.DT 		= set_combine(sets.engaged.DW2.High, 		sets.engaged.Hybrid)
 
-		sets.engaged.DW3.DT 		= set_combine(sets.engaged.DW3, 		sets.engaged.Hybrid)
-		sets.engaged.DW3.Low.DT 	= set_combine(sets.engaged.DW3.Low, 		sets.engaged.Hybrid)
-		sets.engaged.DW3.Mid.DT 	= set_combine(sets.engaged.DW3.Mid, 		sets.engaged.Hybrid)
-		sets.engaged.DW3.High.DT 	= set_combine(sets.engaged.DW3.High, 		sets.engaged.Hybrid)
+		sets.engaged.DW3.DT 			= set_combine(sets.engaged.DW3, 			sets.engaged.Hybrid)
+		sets.engaged.DW3.Low.DT 		= set_combine(sets.engaged.DW3.Low, 		sets.engaged.Hybrid)
+		sets.engaged.DW3.Mid.DT 		= set_combine(sets.engaged.DW3.Mid, 		sets.engaged.Hybrid)
+		sets.engaged.DW3.High.DT 		= set_combine(sets.engaged.DW3.High, 		sets.engaged.Hybrid)
 		
 		
 		----------------------------------------------------------
 		-- Minimum Haste
 		----------------------------------------------------------
-		sets.engaged.DW2.DT.Min		= set_combine(sets.engaged.DW2.Min, 		sets.engaged.Hybrid)
+		sets.engaged.DW2.DT.Min 	 	= set_combine(sets.engaged.DW2.Min, 		sets.engaged.Hybrid)
 		sets.engaged.DW2.Low.DT.Min  	= set_combine(sets.engaged.DW2.Low.Min, 	sets.engaged.Hybrid)
 		sets.engaged.DW2.Mid.DT.Min  	= set_combine(sets.engaged.DW2.Mid.Min, 	sets.engaged.Hybrid)
-		sets.engaged.DW2.High.DT.Min 	= set_combine(sets.engaged.DW2.High.Min,	sets.engaged.Hybrid)
+		sets.engaged.DW2.High.DT.Min 	= set_combine(sets.engaged.DW2.High.Min, 	sets.engaged.Hybrid)
 		
-		sets.engaged.DW3.DT.Min 	= set_combine(sets.engaged.DW3.Min, 		sets.engaged.Hybrid)
+		sets.engaged.DW3.DT.Min 	 	= set_combine(sets.engaged.DW3.Min, 		sets.engaged.Hybrid)
 		sets.engaged.DW3.Low.DT.Min  	= set_combine(sets.engaged.DW3.Low.Min, 	sets.engaged.Hybrid)
 		sets.engaged.DW3.Mid.DT.Min  	= set_combine(sets.engaged.DW3.Mid.Min, 	sets.engaged.Hybrid)
 		sets.engaged.DW3.High.DT.Min 	= set_combine(sets.engaged.DW3.High.Min, 	sets.engaged.Hybrid)
@@ -1191,12 +1191,12 @@ function init_gear_sets()
 		----------------------------------------------------------
 		-- Medium Haste
 		----------------------------------------------------------
-		sets.engaged.DW2.DT.Med 	= set_combine(sets.engaged.DW2.Med, 		sets.engaged.Hybrid)
+		sets.engaged.DW2.DT.Med 	 	= set_combine(sets.engaged.DW2.Med, 		sets.engaged.Hybrid)
 		sets.engaged.DW2.Low.DT.Med  	= set_combine(sets.engaged.DW2.Low.Med, 	sets.engaged.Hybrid)
 		sets.engaged.DW2.Mid.DT.Med  	= set_combine(sets.engaged.DW2.Mid.Med, 	sets.engaged.Hybrid)
 		sets.engaged.DW2.High.DT.Med 	= set_combine(sets.engaged.DW2.High.Med, 	sets.engaged.Hybrid)
 
-		sets.engaged.DW3.DT.Med 	= set_combine(sets.engaged.DW3.Med, 		sets.engaged.Hybrid)
+		sets.engaged.DW3.DT.Med 	 	= set_combine(sets.engaged.DW3.Med, 		sets.engaged.Hybrid)
 		sets.engaged.DW3.Low.DT.Med  	= set_combine(sets.engaged.DW3.Low.Med, 	sets.engaged.Hybrid)
 		sets.engaged.DW3.Mid.DT.Med  	= set_combine(sets.engaged.DW3.Mid.Med, 	sets.engaged.Hybrid)
 		sets.engaged.DW3.High.DT.Min 	= set_combine(sets.engaged.DW3.High.Min, 	sets.engaged.Hybrid)
@@ -1204,12 +1204,12 @@ function init_gear_sets()
 		----------------------------------------------------------
 		-- Maximum Haste
 		----------------------------------------------------------		
-		sets.engaged.DW2.DT.Max 	= set_combine(sets.engaged.DW2.Max, 		sets.engaged.Hybrid)
+		sets.engaged.DW2.DT.Max 	 	= set_combine(sets.engaged.DW2.Max, 		sets.engaged.Hybrid)
 		sets.engaged.DW2.Low.DT.Max  	= set_combine(sets.engaged.DW2.Low.Max, 	sets.engaged.Hybrid)
 		sets.engaged.DW2.Mid.DT.Max  	= set_combine(sets.engaged.DW2.Mid.Max, 	sets.engaged.Hybrid)
 		sets.engaged.DW2.High.DT.Max 	= set_combine(sets.engaged.DW2.High.Max, 	sets.engaged.Hybrid)
 		
-		sets.engaged.DW3.DT.Max 	= set_combine(sets.engaged.DW3.Max, 		sets.engaged.Hybrid)
+		sets.engaged.DW3.DT.Max 	 	= set_combine(sets.engaged.DW3.Max, 		sets.engaged.Hybrid)
 		sets.engaged.DW3.Low.DT.Max  	= set_combine(sets.engaged.DW3.Low.Max, 	sets.engaged.Hybrid)
 		sets.engaged.DW3.Mid.DT.Max  	= set_combine(sets.engaged.DW3.Mid.Max, 	sets.engaged.Hybrid)
 		sets.engaged.DW3.High.DT.Max 	= set_combine(sets.engaged.DW3.High.Max, 	sets.engaged.Hybrid)
