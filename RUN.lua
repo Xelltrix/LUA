@@ -99,7 +99,7 @@ function init_gear_sets()
 			feet="Futhark Boots +1"
 		}
 
-		sets.precast.Swordplay = 
+		sets.precast.JA['Swordplay'] = 
 		{
 			hands="Futhark Mitons +1"
 		}
@@ -156,7 +156,7 @@ function init_gear_sets()
 	------------------- 
 	
 		sets.precast.FC =
-		{
+		{---71%
 			ammo="Sapience Orb",
 			head="Carmine Mask +1", neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
 			body=gear.TBody_Phalanx, hands="Leyline Gloves", lring="Kishar Ring", rring="Rahab Ring",
@@ -164,9 +164,10 @@ function init_gear_sets()
 		}
 		
 		sets.precast.FC.HP = set_combine(sets.precast.FC,
-		{
+		{---54%
+			rear="Odnowa Earring",
 			lring="Eihwaz Ring", rring="Moonbeam Ring",
-			back="Moonbeam Cape", waist="Trance Belt", legs="Futhark Trousers +1"
+			back="Moonbeam Cape", waist="Trance Belt"
 		})
 
 		sets.precast.FC['Utsusemi'] = 
@@ -194,12 +195,9 @@ function init_gear_sets()
 
 		sets.midcast.FC = sets.precast.FC
 		
-		sets.midcast.FC.HP = set_combine(sets.precast.FC,
+		sets.midcast.FC.HP = set_combine(sets.precast.FC.HP,
 		{
-			ammo="Staunch Tathlum +1",
-			head="Carmine Mask +1", rear="Odnowa Earring +1",
-			body="Futhark Coat +1", lring="Eihwaz Ring", rring="Moonbeam Ring",
-			back="Moonbeam Cape", waist="Trance Belt"
+			ammo="Staunch Tathlum +1"
 		})
 		
 		sets.midcast.FC.SIRD = set_combine(sets.midcast.FC.HP,
@@ -420,6 +418,12 @@ function init_gear_sets()
 			back="Evasionist's Cape", legs="Futhark Trousers +1"
 		}
 	
+		sets.buff['Battuta'] =
+		{
+			hands="Turms Mittens +1",
+			legs="Eri. Leg Guards +1"
+		}
+	
 		sets.Kiting =
 		{
 			head="Fu. Bandeau +1",
@@ -610,7 +614,7 @@ function init_gear_sets()
 			ammo="Staunch Tathlum +1",
 			head="Dampening Tam", neck="Loricate Torque +1",
 			body="Ayanmo Corazza +2", lring="Defending Ring", rring="Moonbeam Ring",
-			back=gear.RUNCape_STP, waist="Flume Belt +1"
+			back=gear.RUNCape_STP
 		}
 		
 		sets.engaged.Hybrid2 =
@@ -775,6 +779,7 @@ end
 -------------------------------------------------------------------------------------------------------------------
 function update_active_abilities()
 	state.Buff['Embolden'] = buffactive['Embolden'] or false
+	state.Buff['Battuta'] = buffactive['Battuta'] or false
 end
 
 function apply_ability_bonuses(spell, action, spellMap)
