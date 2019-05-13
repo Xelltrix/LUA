@@ -200,7 +200,7 @@ function init_gear_sets()
 		sets.midcast.Cursna = set_combine(sets.precast.FC['Healing Magic'],
 		{
 			main="Yagrush", sub="Ammurapi Shield",
-			head="Kaykaus Mitra", neck="Debilis Medallion", lear="Beatific Earring",
+			head="Kaykaus Mitra", neck="Debilis Medallion", lear="Beatific Earring", rear="Healing Earring",
 			body="Ebers Bliaud +1", lring="Haoma's Ring", rring="Menelaus's Ring",
 			waist="Bishop's Sash", legs="Th. Pant. +3", feet="Vanya Clogs"
 		})
@@ -442,10 +442,14 @@ function init_gear_sets()
 			main="Mafic Cudgel", sub="Genmei Shield", ammo="Staunch Tathlum +1",
 			head="Inyanga Tiara +2", neck="Loricate Torque +1", lear="Eabani Earring", rear="Static Earring",
 			body="Inyanga Jubbah +2", hands="Inyan. Dastanas +2", lring="Defending Ring", rring="Gelatinous Ring +1",
-			back="Moonbeam Cape", waist="Lieutenant's Sash", legs="Inyanga Shalwar +2", feet="Inyan. Crackows +2"
+			back="Moonbeam Cape", waist="Carrier's Sash", legs="Inyanga Shalwar +2", feet="Inyan. Crackows +2"
 		}
 
-		sets.defense.MDT = sets.defense.PDT
+		sets.defense.MDT = set_combine(sets.defense.PDT,
+		{
+			neck="Warder's Charm +1",
+			waist="Carrier's Sash"
+		})
 	
 	
 	--------------------------------------

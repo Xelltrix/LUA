@@ -241,7 +241,7 @@ function init_gear_sets()
 		{
 			main="Gridarvor", sub="Elan Strap +1", ammo="Sancus Sachet +1",
 			head="Helios Band", neck="Smn. Collar +1", lear="Kyrene's Earring", rear="Lugalbanda Earring",
-			body="Con. Doublet +3", hands=gear.PetAtkHands, lring="Varar Ring +1", rring="Varar Ring +1",
+			body="Glyphic Doublet +3", hands=gear.PetAtkHands, lring="Varar Ring +1", rring="Varar Ring +1",
 			back=gear.SMNCape_Phys, waist="Incarnation Sash", legs=gear.ASlacks_DA, feet="Helios Boots"
 		}
 

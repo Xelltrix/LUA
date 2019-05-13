@@ -72,6 +72,7 @@ function define_global_sets()
 	gear.HBoots_TP = { name="Herculean Boots", augments={'Accuracy+20 Attack+20','"Triple Atk."+4','Accuracy+6','Attack+15',}}
 	gear.HBoots_Crit = { name="Herculean Boots", augments={'Accuracy+26','Crit. hit damage +5%','DEX+8',}}
 	gear.HBoots_WSD = { name="Herculean Boots", augments={'Weapon skill damage +4%','STR+10','Attack+26',}}
+	gear.HBoots_Refresh = { name="Herculean Boots", augments={'CHR+2','"Avatar perpetuation cost" -4','"Refresh"+1',}}
 	
 	--- Taeon
 	gear.THead_Phalanx = { name="Taeon Chapeau", augments={'Mag. Evasion+5','Spell interruption rate down -8%','Phalanx +3',}}

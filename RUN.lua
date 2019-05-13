@@ -364,7 +364,7 @@ function init_gear_sets()
 			ammo="Homiliary",
 			head="Rawhide Mask", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 			body="Runeist's Coat +2", hands="Runeist Mitons +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Moonbeam Cape", waist="Flume Belt +1", legs="Rawhide Trousers", feet="Erilaz Greaves +1"
+			back="Moonbeam Cape", waist="Flume Belt +1", legs="Rawhide Trousers", feet=gear.HBoots_Refresh
 		}
 
 		sets.idle.Town = set_combine(sets.idle,
@@ -389,7 +389,7 @@ function init_gear_sets()
 		{
 			ammo="Staunch Tathlum +1",
 			head="Fu. Bandeau +1", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
-			body="Erilaz Surcoat +1", hands="Runeist Mitons +1", lring="Defending Ring", rring="Moonbeam Ring",
+			body="Runeist's Coat +2", hands="Runeist Mitons +1", lring="Defending Ring", rring="Moonbeam Ring",
 			back="Moonbeam Cape", waist="Flume Belt +1", legs="Eri. Leg Guards +1", feet="Erilaz Greaves +1"
 		}
 		
@@ -397,9 +397,9 @@ function init_gear_sets()
 		sets.defense.MDT = 
 		{
 			ammo="Staunch Tathlum +1",
-			head="Erilaz Galea +1", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
-			body="Futhark Coat +1", hands="Erilaz Gauntlets +1", lring="Defending Ring", rring="Moonbeam Ring",
-			back="Moonbeam Cape", waist="Flume Belt +1", legs="Eri. Leg Guards +1", feet="Erilaz Greaves +1"
+			head="Erilaz Galea +1", neck="Warder's Charm +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
+			body="Runeist's Coat +2", hands="Erilaz Gauntlets +1", lring="Defending Ring", rring="Moonbeam Ring",
+			back="Moonbeam Cape", waist="Carrier's Sash", legs="Eri. Leg Guards +1", feet="Erilaz Greaves +1"
 		}
 
 	
@@ -616,9 +616,9 @@ function init_gear_sets()
 		sets.engaged.Hybrid2 =
 		{
 			ammo="Staunch Tathlum +1",
-			head="Aya. Zucchetto +2", neck="Loricate Torque +1",
-			body="Ayanmo Corazza +2", lring="Defending Ring", rring="Moonbeam Ring",
-			back="Moonbeam Cape", waist="Flume Belt +1", legs="Aya. Cosciales +2", feet="Aya. Gambieras +2"
+			neck="Loricate Torque +1",
+			body="Runeist's Coat +2", lring="Defending Ring", rring="Moonbeam Ring",
+			back="Moonbeam Cape", waist="Flume Belt +1"
 		}
 		
 	---Hybrid Combat
@@ -664,7 +664,7 @@ end
 
 function job_post_precast(spell, action, spellMap, eventArgs)
     if buffactive['Fast Cast'] then
-        equip(legs="Futhark Trousers +1")
+        equip{legs="Futhark Trousers +1"}
 	end
 end
 

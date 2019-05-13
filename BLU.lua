@@ -251,7 +251,7 @@ function init_gear_sets()
 			ammo="Staunch Tathlum +1",
 			head="Carmine Mask +1", neck="Incanter's Torque", lear="Gwati Earring", rear="Beatific Earring",
 			body="Pinga Tunic", hands=gear.ENH_Gloves, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Oretan. Cape +1", waist="Luminary Sash", legs="Pinga Pants", feet="Medium's Sabots"
+			back="Oretan. Cape +1", waist="Bishop's Sash", legs="Pinga Pants", feet="Medium's Sabots"
 		}
 
 		sets.midcast['White Wind'] = set_combine(sets.midcast.Cures,
@@ -291,11 +291,19 @@ function init_gear_sets()
 		sets.midcast.AddEffect =
 		{
 			ammo="Pemphredo Tathlum",
+			head="Jhakri Coronal +2", neck="Mirage Stole +2", lear="Digni. Earring", rear="Gwati Earring",
+			body="Jhakri Robe +2", hands="Jhakri Cuffs +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			back="Cornflower Cape", waist="Eschan Stone", legs="Jhakri Slops +2", feet="Jhakri Pigaches +2"
+		}
+
+--[[		sets.midcast.AddEffect =
+		{
+			ammo="Pemphredo Tathlum",
 			head="Carmine Mask +1", neck="Mirage Stole +2", lear="Digni. Earring", rear="Gwati Earring",
 			body="Luhlaza Jubbah +3", hands="Aya. Manopolas +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Cornflower Cape", waist="Eschan Stone", legs="Aya. Cosciales +2", feet="Luhlaza Charuqs +3"
 		}
-
+]]
 		sets.midcast.Magical =
 		{
 			main="Maxentius", sub="Nibiru Cudgel", ammo="Pemphredo Tathlum",
@@ -310,12 +318,12 @@ function init_gear_sets()
 			legs="Luhlaza Shalwar +3"
 		})
 		
-		--sets.midcast['Silent Storm'] = sets.midcast.Debuffs
-		sets.midcast['Silent Storm'] = set_combine(sets.midcast.Magical,
+		sets.midcast['Silent Storm'] = sets.midcast.Debuffs
+--[[		sets.midcast['Silent Storm'] = set_combine(sets.midcast.Magical,
 		{
 			head="Assim. Keffiyeh +3",
 			legs="Luhlaza Shalwar +3"
-		})
+		})]]
 		
 		sets.midcast['Searing Tempest'] = set_combine(sets.midcast.Magical,
 		{
@@ -340,7 +348,7 @@ function init_gear_sets()
 			ammo="Mavi Tathlum",
 			head="Luh. Keffiyeh +3", neck="Sanctity Necklace", lear="Etiolation Earring", rear="Odnowa Earring +1",
 			body="Assim. Jubbah +3", hands="Regal Cuffs", lring="Ilabrat Ring", rring="Gelatinous Ring +1",
-			back="Moonbeam Cape", waist="Orpheus's Sash", legs="Assim. Shalwar +3", feet="Assim. Charuqs +2"
+			back="Moonbeam Cape", waist="Orpheus's Sash", legs="Assim. Shalwar +3", feet="Assim. Charuqs +3"
 		}
 
 		sets.midcast.Debuffs =
@@ -540,7 +548,7 @@ function init_gear_sets()
 			ammo="Staunch Tathlum +1",
 			head="Rawhide Mask", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 			body="Assim. Jubbah +3", hands="Assim. Bazu. +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Moonbeam Cape", waist="Flume Belt +1", legs="Carmine Cuisses +1", feet="Aya. Gambieras +2"
+			back="Moonbeam Cape", waist="Flume Belt +1", legs="Carmine Cuisses +1", feet=gear.HBoots_Refresh
 		}
 
 		sets.idle.DT =
@@ -548,7 +556,7 @@ function init_gear_sets()
 			ammo="Staunch Tathlum +1",
 			head="Rawhide Mask", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
 			body="Assim. Jubbah +3", hands="Assim. Bazu. +3", lring="Defending Ring", rring="Gelatinous Ring +1",
-			back="Moonbeam Cape", waist="Flume Belt +1", legs="Carmine Cuisses +1", feet="Aya. Gambieras +2"
+			back="Moonbeam Cape", waist="Flume Belt +1", legs="Carmine Cuisses +1", feet=gear.HBoots_Refresh
 		}
 		
 		sets.idle.Refresh = set_combine(sets.idle,
@@ -626,6 +634,11 @@ function init_gear_sets()
 		{
 			feet="Hashi. Basmak +1"
 		}]]
+		
+		sets.buff['Chain Affinity'] =
+		{
+			feet="Assim. Charuqs +3"
+		}
 		
 --[[		sets.buff['Efflux'] = 
 		{
@@ -764,7 +777,7 @@ function init_gear_sets()
 		{
 			ammo="Falcon Eye",
 			head="Jhakri Coronal +2", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-			feet="Assim. Charuqs +2"
+			feet="Assim. Charuqs +3"
 		})
 
 	---Expiacion
@@ -783,7 +796,7 @@ function init_gear_sets()
 			ammo="Falcon Eye",
 			head="Jhakri Coronal +2", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
 			lring="Ilabrat Ring",
-			feet="Assim. Charuqs +2"
+			feet="Assim. Charuqs +3"
 		})
 
 	---Sanguine Blade
@@ -801,7 +814,7 @@ function init_gear_sets()
 			ammo="Psilomene",
 			head="Luh. Keffiyeh +3", neck="Sanctity Necklace", lear="Odnowa Earring +1", rear="Moonshade Earring",
 			body="Assim. Jubbah +3", hands="Regal Cuffs", lring="Ilabrat Ring", rring="Gelatinous Ring +1",
-			back="Moonbeam Cape", waist="Eschan Stone", legs="Assim. Shalwar +3", feet="Assim. Charuqs +2"
+			back="Moonbeam Cape", waist="Eschan Stone", legs="Assim. Shalwar +3", feet="Assim. Charuqs +3"
 		}
 	
 
@@ -824,7 +837,7 @@ function init_gear_sets()
 		ammo="Falcon Eye",
 		head="Jhakri Coronal +2", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
 		lring="Rufescent Ring",
-		feet="Assim. Charuqs +2"
+		feet="Assim. Charuqs +3"
 	})
 	
 	sets.precast.WS['Judgment'] = sets.precast.WS['Savage Blade']
@@ -848,7 +861,7 @@ function init_gear_sets()
 	{
 		ammo="Falcon Eye",
 		head="Jhakri Coronal +2", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-		feet="Assim. Charuqs +2"
+		feet="Assim. Charuqs +3"
 	})
 
 	sets.precast.WS['Realmrazer'] = sets.precast.WS['Requiescat']
@@ -911,7 +924,7 @@ function init_gear_sets()
 		{
 			head="Carmine Mask +1", lear={name="Mache Earring +1", bag="wardrobe2"}, 
 			body="Luhlaza Jubbah +3", hands="Luh. Bazubands +3",
-			waist="Kentarch Belt +1", feet="Assim. Charuqs +2"
+			waist="Kentarch Belt +1", feet="Assim. Charuqs +3"
 		})
 	
 	
@@ -935,7 +948,7 @@ function init_gear_sets()
 		
 		----------------------------------------------------------
 		-----------------------------------------------------------------------------------
-		---	TP/h:79	(DW:41	STP:39		QA:0%	TA:16%	DA:5%)
+		---	TP/h:79	(DW:42	STP:39		QA:0%	TA:16%	DA:5%)
 		-----------------------------------------------------------
 		sets.engaged.DW2 =
 		{
@@ -955,7 +968,7 @@ function init_gear_sets()
 		
 		
 		-----------------------------------------------------------------------------------
-		---	TP/h:79	(DW:41	STP:39		QA:0%	TA:16%	DA:5%)
+		---	TP/h:79	(DW:42	STP:39		QA:0%	TA:16%	DA:5%)
 		-----------------------------------------------------------
 		sets.engaged.DW2.Low = set_combine(sets.engaged.DW2,
 		{
@@ -964,7 +977,7 @@ function init_gear_sets()
 		})
 
 		-----------------------------------------------------------------------------------
-		---	TP/h:79	(DW:41	STP:39		QA:0%	TA:16%	DA:5%)
+		---	TP/h:79	(DW:42	STP:39		QA:0%	TA:16%	DA:5%)
 		-----------------------------------------------------------
 		sets.engaged.DW2.Mid = set_combine(sets.engaged.DW2.Low,
 		{
@@ -973,7 +986,7 @@ function init_gear_sets()
 		})
 
 		-----------------------------------------------------------------------------------
-		---	TP/h:79	(DW:41	STP:39		QA:0%	TA:16%	DA:5%)
+		---	TP/h:79	(DW:42	STP:39		QA:0%	TA:16%	DA:5%)
 		-----------------------------------------------------------
 		sets.engaged.DW2.High = set_combine(sets.engaged.DW2.Mid,
 		{
@@ -991,7 +1004,7 @@ function init_gear_sets()
 		----------------------------------------------------------
 		
 		-----------------------------------------------------------------------------------
-		---	TP/h:79	(DW:41	STP:39		QA:0%	TA:16%	DA:5%)
+		---	TP/h:79	(DW:42	STP:39		QA:0%	TA:16%	DA:5%)
 		-----------------------------------------------------------
 		sets.engaged.DW3 =
 		{
@@ -1011,7 +1024,7 @@ function init_gear_sets()
 		
 		
 		-----------------------------------------------------------------------------------
-		---	TP/h:79	(DW:41	STP:39		QA:0%	TA:16%	DA:5%)
+		---	TP/h:79	(DW:42	STP:39		QA:0%	TA:16%	DA:5%)
 		-----------------------------------------------------------
 		sets.engaged.DW3.Low = set_combine(sets.engaged.DW3,
 		{
@@ -1020,7 +1033,7 @@ function init_gear_sets()
 		})
 
 		-----------------------------------------------------------------------------------
-		---	TP/h:79	(DW:41	STP:39		QA:0%	TA:16%	DA:5%)
+		---	TP/h:79	(DW:42	STP:39		QA:0%	TA:16%	DA:5%)
 		-----------------------------------------------------------
 		sets.engaged.DW3.Mid = set_combine(sets.engaged.DW3.Low,
 		{
@@ -1028,7 +1041,7 @@ function init_gear_sets()
 		})
 
 		-----------------------------------------------------------------------------------
-		---	TP/h:79	(DW:41	STP:39		QA:0%	TA:16%	DA:5%)
+		---	TP/h:79	(DW:42	STP:39		QA:0%	TA:16%	DA:5%)
 		-----------------------------------------------------------
 		sets.engaged.DW3.High = set_combine(sets.engaged.DW3.Mid,
 		{
@@ -1046,7 +1059,7 @@ function init_gear_sets()
 		----------------------------------------------------------
 		
 		-----------------------------------------------------------------------------------
-		---	TP/h:79	(DW:41	STP:39		QA:0%	TA:16%	DA:5%)
+		---	TP/h:79	(DW:42	STP:39		QA:0%	TA:16%	DA:5%)
 		-----------------------------------------------------------
 		sets.engaged.DW4 =
 		{
@@ -1065,7 +1078,7 @@ function init_gear_sets()
 		}
 		
 		-----------------------------------------------------------------------------------
-		---	TP/h:79	(DW:41	STP:39		QA:0%	TA:16%	DA:5%)
+		---	TP/h:79	(DW:42	STP:39		QA:0%	TA:16%	DA:5%)
 		-----------------------------------------------------------
 		sets.engaged.DW4.Low = set_combine(sets.engaged.DW4,
 		{	
@@ -1074,7 +1087,7 @@ function init_gear_sets()
 		})
 
 		-----------------------------------------------------------------------------------
-		---	TP/h:79	(DW:41	STP:39		QA:0%	TA:16%	DA:5%)
+		---	TP/h:79	(DW:42	STP:39		QA:0%	TA:16%	DA:5%)
 		-----------------------------------------------------------
 		sets.engaged.DW4.Mid = set_combine(sets.engaged.DW4.Low,
 		{
@@ -1082,7 +1095,7 @@ function init_gear_sets()
 		})
 
 		-----------------------------------------------------------------------------------
-		---	TP/h:79	(DW:41	STP:39		QA:0%	TA:16%	DA:5%)
+		---	TP/h:79	(DW:42	STP:39		QA:0%	TA:16%	DA:5%)
 		-----------------------------------------------------------
 		sets.engaged.DW4.High = set_combine(sets.engaged.DW4.Mid,
 		{
@@ -1113,7 +1126,7 @@ function init_gear_sets()
 		----------------------------------------------------------
 
 		-----------------------------------------------------------------------------------
-		---	TP/h:79	(DW:41	STP:39		QA:0%	TA:16%	DA:5%)
+		---	TP/h:79	(DW:42	STP:39		QA:0%	TA:16%	DA:5%)
 		-----------------------------------------------------------
 		sets.engaged.DW2.Min =
 		{
@@ -1131,7 +1144,7 @@ function init_gear_sets()
 			back=gear.BLUCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet=gear.TFeet_TP
 		}
 		-----------------------------------------------------------------------------------
-		---	TP/h:79	(DW:41	STP:39		QA:0%	TA:16%	DA:5%)
+		---	TP/h:79	(DW:42	STP:39		QA:0%	TA:16%	DA:5%)
 		-----------------------------------------------------------
 		sets.engaged.DW2.Low.Min = set_combine(sets.engaged.DW2.Min,
 		{
@@ -1140,7 +1153,7 @@ function init_gear_sets()
 		})
 
 		-----------------------------------------------------------------------------------
-		---	TP/h:79	(DW:41	STP:39		QA:0%	TA:16%	DA:5%)
+		---	TP/h:79	(DW:42	STP:39		QA:0%	TA:16%	DA:5%)
 		-----------------------------------------------------------
 		sets.engaged.DW2.Mid.Min = set_combine(sets.engaged.DW2.Low.Min,
 		{
@@ -1148,7 +1161,7 @@ function init_gear_sets()
 		})
 
 		-----------------------------------------------------------------------------------
-		---	TP/h:79	(DW:41	STP:39		QA:0%	TA:16%	DA:5%)
+		---	TP/h:79	(DW:42	STP:39		QA:0%	TA:16%	DA:5%)
 		-----------------------------------------------------------
 		sets.engaged.DW2.High.Min = set_combine(sets.engaged.DW2.Mid.Min,
 		{
@@ -1166,7 +1179,7 @@ function init_gear_sets()
 		----------------------------------------------------------
 
 		-----------------------------------------------------------------------------------
-		---	TP/h:79	(DW:41	STP:39		QA:0%	TA:16%	DA:5%)
+		---	TP/h:79	(DW:42	STP:39		QA:0%	TA:16%	DA:5%)
 		-----------------------------------------------------------
 		sets.engaged.DW3.Min =
 		{
@@ -1185,7 +1198,7 @@ function init_gear_sets()
 		}
 		
 		-----------------------------------------------------------------------------------
-		---	TP/h:79	(DW:41	STP:39		QA:0%	TA:16%	DA:5%)
+		---	TP/h:79	(DW:42	STP:39		QA:0%	TA:16%	DA:5%)
 		-----------------------------------------------------------
 		sets.engaged.DW3.Low.Min = set_combine(sets.engaged.DW3.Min,
 		{
@@ -1194,7 +1207,7 @@ function init_gear_sets()
 		})
 
 		-----------------------------------------------------------------------------------
-		---	TP/h:79	(DW:41	STP:39		QA:0%	TA:16%	DA:5%)
+		---	TP/h:79	(DW:42	STP:39		QA:0%	TA:16%	DA:5%)
 		-----------------------------------------------------------
 		sets.engaged.DW3.Mid.Min = set_combine(sets.engaged.DW3.Low.Min,
 		{
@@ -1202,7 +1215,7 @@ function init_gear_sets()
 		})
 
 		-----------------------------------------------------------------------------------
-		---	TP/h:79	(DW:41	STP:39		QA:0%	TA:16%	DA:5%)
+		---	TP/h:79	(DW:42	STP:39		QA:0%	TA:16%	DA:5%)
 		-----------------------------------------------------------
 		sets.engaged.DW3.High.Min = set_combine(sets.engaged.DW3.Mid.Min,
 		{
@@ -1290,7 +1303,7 @@ function init_gear_sets()
 		----------------------------------------------------------
 	
 		-----------------------------------------------------------------------------------
-		---	TP/h:79	(DW:41	STP:39		QA:0%	TA:16%	DA:5%)
+		---	TP/h:79	(DW:42	STP:39		QA:0%	TA:16%	DA:5%)
 		-----------------------------------------------------------
 		sets.engaged.DW2.Med =
 		{
@@ -1312,7 +1325,7 @@ function init_gear_sets()
 		}
 
 		-----------------------------------------------------------------------------------
-		---	TP/h:79	(DW:41	STP:39		QA:0%	TA:16%	DA:5%)
+		---	TP/h:79	(DW:42	STP:39		QA:0%	TA:16%	DA:5%)
 		-----------------------------------------------------------
 		sets.engaged.DW2.Low.Min = set_combine(sets.engaged.DW2.Min,
 		{
@@ -1321,7 +1334,7 @@ function init_gear_sets()
 		})
 
 		-----------------------------------------------------------------------------------
-		---	TP/h:79	(DW:41	STP:39		QA:0%	TA:16%	DA:5%)
+		---	TP/h:79	(DW:42	STP:39		QA:0%	TA:16%	DA:5%)
 		-----------------------------------------------------------
 		sets.engaged.DW2.Mid.Min = set_combine(sets.engaged.DW2.Low.Min,
 		{
@@ -1329,7 +1342,7 @@ function init_gear_sets()
 		})
 
 		-----------------------------------------------------------------------------------
-		---	TP/h:79	(DW:41	STP:39		QA:0%	TA:16%	DA:5%)
+		---	TP/h:79	(DW:42	STP:39		QA:0%	TA:16%	DA:5%)
 		-----------------------------------------------------------
 		sets.engaged.DW2.High.Min = set_combine(sets.engaged.DW2.Mid.Min,
 		{
@@ -1532,7 +1545,7 @@ function init_gear_sets()
 		{
 			head="Carmine Mask +1",
 			body="Luhlaza Jubbah +3", lring={name="Chirich Ring +1", bag="wardrobe3"},
-			waist="Reiki Yotai", feet="Assim. Charuqs +2"
+			waist="Reiki Yotai", feet="Assim. Charuqs +3"
 		})
 	
 	
@@ -1593,7 +1606,7 @@ function init_gear_sets()
 		{
 			head="Carmine Mask +1", lear={name="Mache Earring +1", bag="wardrobe2"},
 			body="Luhlaza Jubbah +3",
-			back=gear.BLUCape_DW, legs="Adhemar Kecks +1", feet="Assim. Charuqs +2"
+			back=gear.BLUCape_DW, legs="Adhemar Kecks +1", feet="Assim. Charuqs +3"
 		})
 
 		
@@ -1654,7 +1667,7 @@ function init_gear_sets()
 		{
 			head="Carmine Mask +1",
 			body="Luhlaza Jubbah +3",
-			legs="Carmine Cuisses +1", feet="Assim. Charuqs +2"
+			legs="Carmine Cuisses +1", feet="Assim. Charuqs +3"
 		})
 
 		
@@ -2281,6 +2294,7 @@ end)
 
 function update_active_abilities()
 --	state.Buff['Burst Affinity'] 		= buffactive['Burst Affinity'] or false
+	state.Buff['Chain Affinity']	= buffactive['Chain Affinity'] or false
 --	state.Buff['Efflux'] 			= buffactive['Efflux'] or false
 	state.Buff['Diffusion'] 		= buffactive['Diffusion'] or false
 end
@@ -2290,6 +2304,9 @@ function apply_ability_bonuses(spell, action, spellMap)
 --[[	if state.Buff['Burst Affinity'] and (spellMap == 'Magical' or spellMap == 'DarkBlue' or spellMap == 'LightBlue' or spellMap == 'Breath') then
 		equip(sets.buff['Burst Affinity'])
 	end]]
+	if state.Buff['Chain Affinity'] and spellMap == 'Physical' then
+		equip(sets.buff['Chain Affinity'])
+	end
 --[[	if state.Buff['Efflux'] and spellMap == 'Physical' then
 		equip(sets.buff['Efflux'])
 	end]]
@@ -2298,6 +2315,7 @@ function apply_ability_bonuses(spell, action, spellMap)
 	end
 
 --	if state.Buff['Burst Affinity'] then equip (sets.buff['Burst Affinity']) end
+	if state.Buff['Chain Affinity'] then equip (sets.buff['Chain Affinity']) end
 --	if state.Buff['Efflux'] then equip (sets.buff['Efflux']) end
 	if state.Buff['Diffusion'] then equip (sets.buff['Diffusion']) end
 end

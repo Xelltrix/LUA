@@ -5,7 +5,6 @@
 --[[
 	Custom commands:
 	gs c cycle treasuremode (set on ctrl-= by default): Cycles through the available treasure hunter modes.
-
 	Treasure hunter modes:
 		None - Will never equip TH gear
 		Tag - Will equip TH gear sufficient for initial contact with a mob (either melee, ranged hit, or Aeolian Edge AOE)
@@ -89,7 +88,6 @@ function init_gear_sets()
 	{
 		head="Skulker's Bonnet +1"
 	}
-
 	sets.precast.JA['Accomplice'] =
 	{
 		head="Skulker's Bonnet +1"
