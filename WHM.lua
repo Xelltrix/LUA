@@ -183,7 +183,7 @@ function init_gear_sets()
 			back="Alaunus's Cape", waist="Hachirin-no-Obi", legs="Sifahir Slacks", feet="Kaykaus Boots"
 		}
 		
-		sets.midcast.CuragaWeather = set_combine(sets.midcast.CuresWeather
+		sets.midcast.CuragaWeather = sets.midcast.CuresWeather
 
 		--[[	Cursna Formula: (10 + Healing Magic Skill/30)*(1 + Cursna Success/100)*(1 + Cursna Received/100)
 			(10 + 588/30)*(1 + 116/100)	=
