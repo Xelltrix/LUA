@@ -1259,7 +1259,7 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 	if spellMap == 'Cures' or spellMap == 'Curagas' and (spell.element == world.day_element and spell.element == world.weather_element) then
 		equip
 		{
-			main="Chatoyant Staff", sub="Achaq Grip",
+			main="Chatoyant Staff", sub="Enki Strap",
 			back="Twilight Cape", waist="Hachirin-no-Obi",
 		}
 	end
