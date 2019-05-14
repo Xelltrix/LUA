@@ -165,10 +165,10 @@ function init_gear_sets()
 			legs="Ebers Pant. +1", feet="Kaykaus Boots"
 		})
 		
-		-- Cure Potency/II: 50%/7%			Enmity: -53		Healing Magic Skill: +110(573)	MND+171(?)
+		-- Cure Potency/II: 50%/7%			Enmity: -49		Healing Magic Skill: +110(573)	MND+171(?)
 		sets.midcast.CuresWeather =
 		{
-			main="Chatoyant Staff", sub="Achaq Grip", ammo="Esper Stone +1",
+			main="Chatoyant Staff", sub="Enki Strap", ammo="Esper Stone +1",
 			head="Kaykaus Mitra", neck="Cleric's Torque", lear="Glorious Earring", rear="Mendi. Earring",
 			body="Theo. Briault +2", hands="Theophany Mitts +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Menelaus's Ring",
 			back="Twilight Cape", waist="Hachirin-no-Obi", legs="Sifahir Slacks", feet="Vanya Clogs"
