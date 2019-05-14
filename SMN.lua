@@ -24,7 +24,7 @@ function job_setup()
 	S{
 		'Healing Ruby','Healing Ruby II',
 		'Whispering Wind',
-		'Spring Water',
+		'Spring Water'
 	}
 	
 	blood_pacts.bp_Buffs =
@@ -397,7 +397,7 @@ function init_gear_sets()
 
 		sets.midcast['Dark Magic'] = set_combine(sets.midcast.Macc,
 		{
-			body="Shango Robe", 
+			body="Shango Robe"
 		})
 
 
@@ -416,10 +416,10 @@ function init_gear_sets()
 			back="Grapevine Cape", waist="Eschan Stone", legs="Amalric Slops +1", feet="Amalric Nails +1"
 		}
 
-		sets.midcast['Elemental Magic'].Impact = set_combine(sets.midcast['Elemental Magic'],
+		sets.midcast.Impact = set_combine(sets.midcast.Macc,
 		{
-			head=empty, neck="Sanctity Necklace",
-			body="Twilight Cloak", lring={name="Shiva Ring +1", bag="wardrobe2"}, rring="Archon Ring", 
+			head=empty,
+			body="Twilight Cloak", rring="Archon Ring"
 		})
 		
 	
@@ -460,8 +460,6 @@ function init_gear_sets()
         lring="Defending Ring", rring="Gelatinous Ring +1",
 		waist="Regal Belt"
 	})
-	
-	sets.idle.DPS = set_combine(sets.idle)
 	
 	sets.idle.Favor = set_combine(sets.idle)
 
@@ -533,9 +531,9 @@ function init_gear_sets()
 		sets.defense.MDT = set_combine(sets.defense.PDT,
 		{
 			sub="Irenic Strap +1",
-			lear="Eabani Earring", rear="Static Earring",
+			neck="Warder's Charm +1", lear="Eabani Earring", rear="Static Earring",
 			body="Inyanga Jubbah +2", rring="Shukuyu Ring",
-			legs="Inyanga Shalwar +2", feet="Inyan. Crackows +2"
+			waist="Carrier's Sash", legs="Inyanga Shalwar +2", feet="Inyan. Crackows +2"
 		})
 		
 	
@@ -632,7 +630,7 @@ function init_gear_sets()
 		
 		sets.engaged.Avatar =
 		{
-			main="Gridarvor", sub="Vox Grip", ammo="Sancus Sachet +1",
+			main="Gridarvor", sub="Kaja Grip", ammo="Sancus Sachet +1",
 			head="Beckoner's Horn +1", neck="Caller's Pendant", lear="Enmerkar Earring", rear="Handler's Earring +1",
 			body="Apo. Dalmatica +1", hands="Asteria Mitts +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back=gear.SMNCape_Phys, waist="Isa Belt", legs="Assid. Pants +1", feet="Apogee Pumps +1"
