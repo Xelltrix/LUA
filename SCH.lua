@@ -189,8 +189,7 @@ function init_gear_sets()
 --[[		 Cure Potency/II: 52%/3%		Enmity: -50		Healing Magic Skill: +59
 		sets.midcast.CuresWeather = set_combine(sets.midcast.Cures,
 		{
-			main="Chatoyant Staff", sub="Achaq Grip",
-			neck="Incanter's Torque",
+			main="Chatoyant Staff", sub="Enki Strap",
 			lring="Lebeche Ring", rring="Menelaus's Ring",
 			back="Twilight Cape", waist="Hachirin-no-Obi", feet="Kaykaus Boots"
 		})
@@ -584,8 +583,7 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 	if spellMap == 'Cures' or spellMap == 'Curagas' and (spell.element == world.day_element and spell.element == world.weather_element) then
 		equip
 		{
-			main="Chatoyant Staff", sub="Achaq Grip",
-			neck="Incanter's Torque",
+			main="Chatoyant Staff", sub="Enki Strap",
 			lring="Lebeche Ring", rring="Menelaus's Ring",
 			back="Twilight Cape", waist="Hachirin-no-Obi", feet="Kaykaus Boots"
 		}
