@@ -245,7 +245,7 @@ function init_gear_sets()
 			main="Beneficus", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head="Ebers Cap +1", neck="Incanter's Torque", lear="Andoaa Earring", rear="Augment. Earring",
 			body="Ebers Bliaud +1", hands="Dynasty Mitts", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Alaunus's Cape", waist="Olympus Sash", legs="Piety Pantaln. +1", feet="Ebers Duckbills +1"
+			back="Alaunus's Cape", waist="Olympus Sash", legs="Piety Pantaln. +2", feet="Ebers Duckbills +1"
 		}
 		
 		sets.midcast.BarElementLA = set_combine(sets.midcast.BarElement,
@@ -445,7 +445,8 @@ function init_gear_sets()
 
 		sets.buff['Divine Caress'] =
 		{
-			hands="Ebers Mitts +1", back="Mending Cape"
+			hands="Ebers Mitts +1", 
+			back="Mending Cape"
 		}
 		
 		sets.buff.Doom = 
