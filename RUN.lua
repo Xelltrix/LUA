@@ -29,7 +29,8 @@ function user_setup()
 	state.WeaponSet = M{['description']='Weapon Set',
 		'Epeolatry',
 		'Montante',
-		'Aettir'
+		'Aettir',
+		'Hepatizon'
 	}
 	
 	send_command('bind @w gs c cycle WeaponSet')
@@ -61,7 +62,7 @@ function init_gear_sets()
 		sets.Enmity =
 		{
 			ammo="Sapience Orb",
-			head="Rabid Visor", neck="Moonbeam Necklace", lear="Cryptic Earring", rear="Friomisi Earring",
+			head="Rabid Visor", neck="Unmoving Collar +1", lear="Cryptic Earring", rear="Friomisi Earring",
 			body="Emet Harness +1", hands="Nilas Gloves", lring="Eihwaz Ring", rring="Petrov Ring",
 			back="Reiki Cloak", waist="Trance Belt", legs="Eri. Leg Guards +1", feet="Erilaz Greaves +1"
 		}
@@ -135,7 +136,7 @@ function init_gear_sets()
 		{
 			ammo="Staunch Tathlum +1",	
 			head="Erilaz Galea +1", neck="Incanter's Torque", lear="Beatific Earring", rear="Odnowa Earring +1",
-			body="Runeist's Coat +2", hands="Nilas Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			body="Runeist's Coat +2", hands="Turms Mittens +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Moonbeam Cape", waist="Bishop's Sash", legs="Rune. Trousers +1", feet="Erilaz Greaves +1"
 		}
 
@@ -147,7 +148,7 @@ function init_gear_sets()
 		sets.precast.JA['One for All'] = set_combine(sets.Enmity.HP,
 		{
 			head="Erilaz Galea +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
-			body="Runeist's Coat +2", hands="Nilas Gloves", lring="Ilabrat Ring",
+			body="Runeist's Coat +2", hands="Turms Mittens +1", lring="Ilabrat Ring",
 			feet="Runeist Bottes +1"
 		})
 	
@@ -156,7 +157,7 @@ function init_gear_sets()
 	------------------- 
 	
 		sets.precast.FC =
-		{---71%
+		{
 			ammo="Sapience Orb",
 			head="Carmine Mask +1", neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
 			body=gear.TBody_Phalanx, hands="Leyline Gloves", lring="Kishar Ring", rring="Rahab Ring",
@@ -164,8 +165,8 @@ function init_gear_sets()
 		}
 		
 		sets.precast.FC.HP = set_combine(sets.precast.FC,
-		{---54%
-			rear="Odnowa Earring",
+		{
+			rear="Odnowa Earring +1",
 			lring="Eihwaz Ring", rring="Moonbeam Ring",
 			back="Moonbeam Cape", waist="Trance Belt"
 		})
@@ -202,7 +203,7 @@ function init_gear_sets()
 		
 		sets.midcast.FC.SIRD = set_combine(sets.midcast.FC.HP,
 		{
-			head=gear.THead_Phalanx, neck="Moonbeam Necklace",
+			head=gear.THead_Phalanx,
 			body=gear.TBody_Phalanx, hands="Rawhide Gloves", lring="Defending Ring", rring="Moonbeam Ring",
 			waist="Flume Belt +1", legs="Carmine Cuisses +1", feet=gear.TFeet_Phalanx
 		})
@@ -345,15 +346,15 @@ function init_gear_sets()
 		{
 			ammo="Homiliary",
 			head="Erilaz Galea +1", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
-			body="Runeist's Coat +2", hands="Runeist Mitons +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Moonbeam Cape", waist="Flume Belt +1", legs="Carmine Cuisses +1", feet="Erilaz Greaves +1"
+			body="Runeist's Coat +2", hands="Turms Mittens +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			back="Moonbeam Cape", waist="Flume Belt +1", legs="Carmine Cuisses +1", feet="Turms Leggings"
 		}
 
 		sets.idle.DT = 
 		{
 			ammo="Staunch Tathlum +1",
 			head="Fu. Bandeau +1", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
-			body="Runeist's Coat +2", hands="Runeist Mitons +1", lring="Defending Ring", rring="Moonbeam Ring",
+			body="Runeist's Coat +2", hands="Turms Mittens +1", lring="Defending Ring", rring="Moonbeam Ring",
 			back="Moonbeam Cape", waist="Flume Belt +1", legs="Eri. Leg Guards +1", feet="Erilaz Greaves +1"
 		}
 		
@@ -361,7 +362,7 @@ function init_gear_sets()
 		{
 			ammo="Homiliary",
 			head="Rawhide Mask", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
-			body="Runeist's Coat +2", hands="Runeist Mitons +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			body="Runeist's Coat +2", hands="Turms Mittens +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Moonbeam Cape", waist="Flume Belt +1", legs="Rawhide Trousers", feet=gear.HBoots_Refresh
 		}
 
@@ -387,7 +388,7 @@ function init_gear_sets()
 		{
 			ammo="Staunch Tathlum +1",
 			head="Fu. Bandeau +1", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
-			body="Runeist's Coat +2", hands="Runeist Mitons +1", lring="Defending Ring", rring="Moonbeam Ring",
+			body="Runeist's Coat +2", hands="Turms Mittens +1", lring="Defending Ring", rring="Moonbeam Ring",
 			back="Moonbeam Cape", waist="Flume Belt +1", legs="Eri. Leg Guards +1", feet="Erilaz Greaves +1"
 		}
 		
@@ -396,7 +397,7 @@ function init_gear_sets()
 		{
 			ammo="Staunch Tathlum +1",
 			head="Erilaz Galea +1", neck="Warder's Charm +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
-			body="Runeist's Coat +2", hands="Erilaz Gauntlets +1", lring="Defending Ring", rring="Moonbeam Ring",
+			body="Runeist's Coat +2",hands="Turms Mittens +1", lring="Defending Ring", rring="Moonbeam Ring",
 			back="Moonbeam Cape", waist="Carrier's Sash", legs="Eri. Leg Guards +1", feet="Erilaz Greaves +1"
 		}
 
@@ -417,17 +418,17 @@ function init_gear_sets()
 			head="Erilaz Galea +1",
 			back="Evasionist's Cape", legs="Futhark Trousers +1"
 		}
-	
+		
 		sets.buff['Battuta'] =
-		{
-			hands="Turms Mittens +1",
-			legs="Eri. Leg Guards +1"
-		}
+ 		{
+ 			hands="Turms Mittens +1",
+ 			legs="Eri. Leg Guards +1",
+			feet="Turms Leggings"
+ 		}
+
 	
 		sets.Kiting =
 		{
-			head="Fu. Bandeau +1",
-			body="Futhark Coat +1", hands="Runeist Mitons +1",
 			legs="Carmine Cuisses +1"
 		}
 
@@ -444,6 +445,11 @@ function init_gear_sets()
 		sets.Montante = 
 		{
 			main="Montante"
+		}
+		
+		sets.Hepatizon =
+		{
+			main="Hepatizon Axe +1"
 		}
 
 
@@ -572,6 +578,10 @@ function init_gear_sets()
 		
 	--Freezebite
 		sets.precast.WS['Freezebite'] =  sets.precast.WS['Frostbite']
+		
+		
+	--Upheavel
+		sets.precast.WS['Upheavel'] = sets.precast.WS['Resolution']
 	
 	--------------------------------------
 	-- Melee sets
@@ -614,7 +624,7 @@ function init_gear_sets()
 			ammo="Staunch Tathlum +1",
 			head="Dampening Tam", neck="Loricate Torque +1",
 			body="Ayanmo Corazza +2", lring="Defending Ring", rring="Moonbeam Ring",
-			back=gear.RUNCape_STP
+			back=gear.RUNCape_STP, waist="Flume Belt +1"
 		}
 		
 		sets.engaged.Hybrid2 =
@@ -710,7 +720,7 @@ function job_buff_change(buff,gain)
 	if buff == "doom" then
         if gain then
             equip(sets.buff.Doom)
-            disbale('neck', 'lring','rring','waist')
+            disable('neck', 'lring','rring','waist')
         else
             enable('neck','lring','rring','waist')
             handle_equipping_gear(player.status)
