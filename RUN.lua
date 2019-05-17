@@ -148,7 +148,7 @@ function init_gear_sets()
 		sets.precast.JA['One for All'] = set_combine(sets.Enmity.HP,
 		{
 			head="Erilaz Galea +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
-			body="Runeist's Coat +2", hands="Turms Mittens +1", lring="Ilabrat Ring",
+			body="Runeist's Coat +2", hands="Turms Mittens +1", rring="Ilabrat Ring",
 			feet="Runeist Bottes +1"
 		})
 	
@@ -168,7 +168,7 @@ function init_gear_sets()
 		{
 			rear="Odnowa Earring +1",
 			lring="Eihwaz Ring", rring="Moonbeam Ring",
-			back="Moonbeam Cape", waist="Trance Belt"
+			back="Moonbeam Cape"
 		})
 
 		sets.precast.FC['Utsusemi'] = 
@@ -204,7 +204,7 @@ function init_gear_sets()
 		sets.midcast.FC.SIRD = set_combine(sets.midcast.FC.HP,
 		{
 			head=gear.THead_Phalanx,
-			body=gear.TBody_Phalanx, hands="Rawhide Gloves", lring="Defending Ring", rring="Moonbeam Ring",
+			hands="Rawhide Gloves", lring="Defending Ring", rring="Moonbeam Ring",
 			waist="Flume Belt +1", legs="Carmine Cuisses +1", feet=gear.TFeet_Phalanx
 		})
 
