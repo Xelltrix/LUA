@@ -53,9 +53,12 @@ function init_gear_sets()
 	-- Job Abilities --
 	------------------- 
 	
-		sets.precast.JA.Benediction =
+		sets.precast.JA['Benediction'] =
 		{
-			body="Piety Briault +3"
+			main="Queller Rod", sub="Ammurapi Shield", ammo="Psilomene",
+			head="Vanya Hood", neck="Sanctity Necklace", lear="Etiolation Earring", rear="Loquac. Earring",
+			body="Piety Briault +3", hands="Kaykaus Cuffs +1", lring="Lebeche Ring", rring="Mephitas's Ring +1",
+			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Th. Pant. +3", feet="Theo. Duckbills +3"
 		}
 
 	-------------------
