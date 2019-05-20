@@ -2029,7 +2029,8 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 	end
 	
 	if (spell.skill =='Elemental Magic' or spellMap == 'Magical' or spellMap == 'DarkBlue' or spellMap == 'LightBlue' or spellMap == 'Breath')
-			and (spell.element == world.day_element and spell.element == world.weather_element) then
+			and ((spell.element == world.day_element and spell.element == world.weather_element) 
+				or (spell.element == world.weather_element and get_weather_intensity() == 2)) then
 		equip
 			{
 				waist="Hachirin-no-Obi"
@@ -2040,7 +2041,7 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 		apply_ability_bonuses(spell, action, spellMap, eventArgs)
 	end
 	
-	if state.TreasureMode.value ~= 'None' and spell.action_type == 'Magic' and spellMap ~= Buffs then
+	if state.TreasureMode.value ~= 'None' and spell.action_type == 'Magic' and spells.target.type == 'MONSTER' then
 		equip(sets.TreasureHunter)
 	end
 end
