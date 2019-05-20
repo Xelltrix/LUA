@@ -23,6 +23,8 @@ function user_setup()
     state.OffenseMode:options('None','Normal', 'Low', 'Mid', 'High')
 	state.WeaponskillMode:options('None', 'Normal', 'Low', 'Mid', 'High')
     state.HybridMode:options('Normal', 'DT', 'DTMAX')
+	state.PhysicalDefenseMode:options('PDT','Parry')
+	state.MagicalDefenseMode:options('MDT', 'MEVA')
 	state.CastingMode:options('Normal', 'HP', 'SIRD')
     state.IdleMode:options('Normal', 'DT', 'Refresh')
 	
@@ -62,7 +64,7 @@ function init_gear_sets()
 		sets.Enmity =
 		{
 			ammo="Sapience Orb",
-			head="Rabid Visor", neck="Unmoving Collar +1", lear="Cryptic Earring", rear="Friomisi Earring",
+			head="Rabid Visor", neck="Moonbeam Necklace", lear="Cryptic Earring", rear="Friomisi Earring",
 			body="Emet Harness +1", hands="Nilas Gloves", lring="Eihwaz Ring", rring="Petrov Ring",
 			back="Reiki Cloak", waist="Trance Belt", legs="Eri. Leg Guards +1", feet="Erilaz Greaves +1"
 		}
@@ -201,7 +203,7 @@ function init_gear_sets()
 		
 		sets.midcast.FC.SIRD = set_combine(sets.midcast.FC.HP,
 		{
-			head=gear.THead_Phalanx,
+			head=gear.THead_Phalanx, neck="Moonbeam Necklace",
 			hands="Rawhide Gloves", lring="Defending Ring", rring="Moonbeam Ring",
 			waist="Flume Belt +1", legs="Carmine Cuisses +1", feet=gear.TFeet_Phalanx
 		})
