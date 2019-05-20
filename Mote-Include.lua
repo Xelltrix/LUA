@@ -52,9 +52,9 @@ function init_include()
     state.PhysicalDefenseMode = M{['description'] = 'Physical Defense Mode', 'PDT'}
     state.MagicalDefenseMode  = M{['description'] = 'Magical Defense Mode', 'MDT'}
 
-    state.Kiting              = M(false, 'Kiting')
-    state.MagicBurst		= M(false, 'Magic Burst')
-    state.SaveMP        	= M(false, 'Save MP')
+    state.Kiting              = M(false)
+    state.MagicBurst		= M(false)
+    state.SaveMP        	= M(false)
 
     state.EquipStop           = M{['description'] = 'Stop Equipping Gear', 'off', 'precast', 'midcast', 'pet_midcast'}
 
