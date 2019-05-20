@@ -236,7 +236,7 @@ end
 -- Global intercept on midcast.
 function user_midcast(spell, action, spellMap, eventArgs)
 	-- Default base equipment layer of fast recast.
-	if spell.action_type == 'Magic' and sets.midcast and sets.midcast.FastRecast then
-		equip(sets.midcast.FastRecast)
+	if spell.action_type == 'Magic' and sets.midcast and sets.midcast.FC then
+		equip(sets.midcast.FC)
 	end
 end
