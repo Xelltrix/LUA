@@ -27,9 +27,6 @@ end
 function user_setup()
 	state.OffenseMode:options('None', 'Normal')
 	state.CastingMode:options('Normal', 'Resistant')
-	state.SaveMP = M(false, 'Save MP')
-	state.MagicBurst = M(false, 'Magic Burst')
-	state.PhysicalDefenseMode:options('PDT')
 	state.IdleMode:options('Normal', 'DT')
 
 	select_default_macro_book()
