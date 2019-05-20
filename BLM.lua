@@ -25,20 +25,8 @@ function user_setup()
 	state.OffenseMode:options('None', 'Normal', 'Refresh')
 	state.CastingMode:options('Normal', 'Resistant','Potency')
 	state.IdleMode:options('Normal', 'DT', 'DeathMode')
-	state.MagicBurst = M(false, 'Magic Burst')
-	state.SaveMP = M(false, 'Save MP')
-
-	-- Additional local binds
-	send_command('bind !` gs c toggle MagicBurst')
-	send_command('bind !s gs c toggle SaveMP')
 
 	select_default_macro_book()
-end
-
--- Called when this job file is unloaded (eg: job change)
-function user_unload()
-	send_command('unbind !`')
-	send_command('unbind !s')
 end
 
 
