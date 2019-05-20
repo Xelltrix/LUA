@@ -37,19 +37,14 @@ function user_setup()
 		'Almace',
 	}
 
-	state.MagicBurst = M(false, 'Magic Burst')
-
 	send_command('bind @w gs c cycle WeaponSet')
 	send_command('bind @q gs c cycleback WeaponSet')
-    send_command('bind !` gs c toggle MagicBurst')
 
 	select_default_macro_book()
 
 end
 
 function user_unload()
-	send_command('unbind !`')
-	
 	send_command('unbind @w')
 	send_command('unbind @q')
 end
