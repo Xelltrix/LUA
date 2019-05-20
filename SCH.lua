@@ -252,7 +252,7 @@ function init_gear_sets()
 
 		sets.midcast.Storm = set_combine(sets.midcast.Duration,
 		{
-			feet="Peda. Loafers +3",
+			feet="Peda. Loafers +3"
 		})
 
 		sets.midcast.Klimaform = sets.midcast.FC
@@ -463,29 +463,23 @@ function init_gear_sets()
 			feet="Arbatel Loafers +1"
 		}
 
-		sets.buff.FullSublimation =
+		sets.Buff['Sublimation: Activated'] =
 		{
 			head="Acad. Mortar. +2", rear="Savant's Earring",
 			body="Peda. Gown +3"
 		}
 	
 	---Stratagem Buffs
-		sets.buff['Ebullience'] = 
-		{
-			head="Arbatel Bonnet +1"
-		}
 		sets.buff['Rapture'] = 
 		{
 			head="Arbatel Bonnet +1"
 		}
+	
 		sets.buff['Perpetuance'] = 
 		{
 			hands="Arbatel Bracers +1"
 		}
-		sets.buff['Immanence'] = 
-		{
-			hands="Arbatel Bracers +1"
-		}
+	
 		sets.buff['Celerity'] = 
 		{
 			feet="Peda. Loafers +3"
@@ -634,7 +628,7 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 			}
 		end
 	elseif spell.skill == 'Elemental Magic' and (spell.element == world.day_element and spell.element == world.weather_element)
-			or (spell.element == world.weather_element and get_weather_intensity() == 2) then
+			or (spell.element == world.weather_element and get_weather_intensity() == 2 and spell.element ~= elements.weak_to[world.day_element])) then
 		if spellMap ~= 'Helix' then
 			equip
 			{
@@ -650,7 +644,8 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 				feet="Amalric Nails +1"
 			}
 		end
-	elseif spell.skill == 'Elemental Magic' and (spell.element == world.day_element or (spell.element == world.weather_element and get_weather_intensity() == 1)) then
+	elseif spell.skill == 'Elemental Magic' and (spell.element == world.day_element or (spell.element == world.weather_element and get_weather_intensity() == 1)
+		or (spell.element == world.weather_element and get_weather_intensity() == 2 and spell.element == elements.weak_to[world.day_element])) then
 		if spell.target.distance < (7 - spell.target.model_size) then
 			equip
 			{
@@ -714,9 +709,9 @@ end
 function customize_idle_set(idleSet)
 	if state.Buff['Sublimation: Activated'] then
 		if state.IdleMode.value == 'Normal' then
-			idleSet = set_combine(sets.idle, sets.buff.FullSublimation)
+			idleSet = set_combine(sets.idle, sets.Buff['Sublimation: Activated'])
 		elseif state.IdleMode.value == 'DT' then
-			idleSet = set_combine(sets.idle.DT, sets.buff.FullSublimation)
+			idleSet = set_combine(sets.idle.DT, sets.Buff['Sublimation: Activated'])
 		end
 	end
 
@@ -743,12 +738,8 @@ end
 
 -- Reset the state vars tracking strategems.
 function update_active_strategems()
-	state.Buff['Ebullience'] = buffactive['Ebullience'] or false
 	state.Buff['Rapture'] = buffactive['Rapture'] or false
 	state.Buff['Perpetuance'] = buffactive['Perpetuance'] or false
-	state.Buff['Immanence'] = buffactive['Immanence'] or false
-	state.Buff['Penury'] = buffactive['Penury'] or false
-	state.Buff['Parsimony'] = buffactive['Parsimony'] or false
 	state.Buff['Celerity'] = buffactive['Celerity'] or false
 	state.Buff['Alacrity'] = buffactive['Alacrity'] or false
 
@@ -768,22 +759,9 @@ function apply_grimoire_bonuses(spell, action, spellMap)
 		equip(sets.buff['Rapture'])
 	end
 	if (spell.skill == 'Elemental Magic' or spell.english == 'Kaustra' or spell.english == 'Impact') and spellMap ~= 'ElementalEnfeeble' then
-		if state.Buff.Ebullience and spell.english ~= 'Impact' then
-			equip(sets.buff['Ebullience'])
-		end
-		if state.Buff.Immanence then
-			equip(sets.buff['Immanence'])
-		end
 		if state.Buff.Klimaform and spell.element == world.weather_element then
 			equip(sets.buff['Klimaform'])
 		end
-	end
-
-	if state.Buff.Penury then 
-		equip(sets.buff['Penury']) 
-	end
-	if state.Buff.Parsimony then 
-		equip(sets.buff['Parsimony']) 
 	end
 	if state.Buff.Celerity then 
 		equip(sets.buff['Celerity']) 
