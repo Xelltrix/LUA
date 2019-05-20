@@ -204,7 +204,7 @@ function init_gear_sets()
 			legs="Carmine Cuisses +1"
 		})
 		
-		sets.idle.AdoulinCity = set_combine(sets.idle,
+		sets.idle.Adoulin = set_combine(sets.idle,
 		{
 			head="Flam. Zucchetto +2",
 			body="Councilor's Garb"

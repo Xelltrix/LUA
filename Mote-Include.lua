@@ -485,8 +485,8 @@ function get_idle_set(petStatus)
 
 	if areas.Cities:contains(world.area) then
         idleScope = 'Town'
-	elseif areas.AdoulinCity:contains(world.area) then
-		idleScope = 'AdoulinCity'
+	elseif areas.Adoulin:contains(world.area) then
+		idleScope = 'Adoulin'
 	elseif buffactive.weakness then
         idleScope = 'Weak'
     else

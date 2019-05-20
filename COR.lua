@@ -150,7 +150,7 @@ function init_gear_sets()
 		{
 			head=gear.HHead_MAB, neck="Sanctity Necklace", lear="Friomisi Earring", rear="Novio Earring",
 			body="Samnuha Coat", hands="Carmine Fin. Ga. +1", lring="Dingir Ring", rring={name="Shiva Ring +1", bag="wardrobe3"},
-			back="Camulus's Mantle", waist="Eschan Stone", legs="Lak. Trews +1", feet="Lanun Bottes +1"
+			back="Camulus's Mantle", waist="Orpheus's Sash", legs="Lak. Trews +1", feet="Lanun Bottes +1"
 		}
 		
 		sets.midcast.CorsairShot.Resistant =
@@ -247,7 +247,7 @@ function init_gear_sets()
 			legs="Carmine Cuisses +1"
 		})
 		
-		sets.idle.AdoulinCity = set_combine(sets.idle,
+		sets.idle.Adoulin = set_combine(sets.idle,
 		{
 			body="Councilor's Garb"
 		})
@@ -340,7 +340,7 @@ function init_gear_sets()
 		{
 			head="Pixie Hairpin +1", neck="Sanctity Necklace", lear="Friomisi Earring", rear="Moonshade Earring",
 			body="Samnuha Coat", hands="Herculean Gloves", lring="Dingir Ring", rring="Archon Ring",
-			back="Camulus's Mantle", waist="Eschan Stone", legs="Lak. Trews +1", feet="Lanun Bottes +1"
+			back="Camulus's Mantle", waist="Orpheus's Sash", legs="Lak. Trews +1", feet="Lanun Bottes +1"
 		})
 		
 		sets.precast.WS['Wildfire'] = set_combine(sets.precast.WS['Leaden Salute'],

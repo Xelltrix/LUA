@@ -64,7 +64,7 @@ function init_gear_sets()
 	
 		sets.precast.FC =
 		{
-			main="Queller Rod", sub="Ammurapi Shield", ammo="Sapience Orb",
+			main="Sucellus", sub="Chanter's Shield", ammo="Sapience Orb",
 			head="Vanya Hood", neck="Cleric's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
 			body="Pinga Tunic", hands="Fanatic Gloves", lring="Kishar Ring", rring="Rahab Ring",
 			back="Alaunus's Cape", waist="Witful Belt", legs="Pinga Pants", feet="Telchine Pigaches"
@@ -75,8 +75,15 @@ function init_gear_sets()
 			waist="Siegel Sash"
 		})
 
+		sets.precast.FC['Enfeebling Magic'] = sets.precast.FC
+
+		sets.precast.FC['Divine Magic'] = sets.precast.FC['Enfeebling Magic']
+
+		sets.precast.FC['Elemental Magic'] = sets.precast.FC['Divine Magic']
+
 		sets.precast.FC['Healing Magic'] = set_combine(sets.precast.FC,
 		{
+			main="Queller Rod",
 			legs="Ebers Pant. +1"
 		})
 
@@ -93,6 +100,14 @@ function init_gear_sets()
 		})
 
 		sets.precast.FC.Curagas = sets.precast.FC.Cures
+
+		sets.precast.FC.Teleport = sets.precast.FC
+
+		sets.precast.FC.Reraise = sets.precast.FC
+
+		sets.precast.FC.Raise = sets.precast.FC
+
+		sets.precast.FC.Statless = sets.precast.FC
 
 		sets.precast.FC.Impact = set_combine(sets.precast.FC,
 		{
@@ -129,9 +144,9 @@ function init_gear_sets()
 
 		sets.midcast.Duration =
 		{
-			main="Gada", sub="Ammurapi Shield", ammo="Sapience Orb",
+			main="Gada", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head="Telchine Cap", neck="Cleric's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
-			body="Telchine Chas.", hands=gear.ENH_Gloves, lring="Kishar Ring", rring="Rahab Ring",
+			body="Telchine Chas.", hands=gear.ENH_Gloves, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Alaunus's Cape", waist="Olympus Sash", legs="Telchine Braconi", feet="Theo. Duckbills +3"
 		}
 		
@@ -158,20 +173,15 @@ function init_gear_sets()
 			back="Alaunus's Cape", waist="Luminary Sash", legs="Sifahir Slacks", feet="Vanya Clogs"
 		}
 		
-		-- Cure Potency/II: 51%/9%			Enmity: -66		Healing Magic Skill: +70(533)	MND+193(?)
-		sets.midcast.Curagas = set_combine(sets.midcast.Cures,
-		{
-			rring="Menelaus's Ring",
-			legs="Ebers Pant. +1", feet="Kaykaus Boots"
-		})
+		sets.midcast.Curagas = sets.midcast.Cures
 		
-		-- Cure Potency/II: 50%/7%			Enmity: -49		Healing Magic Skill: +110(573)	MND+171(?)
+		-- Cure Potency/II: 50%/7%			Enmity: -54		Healing Magic Skill: +78(541)	MND+181
 		sets.midcast.CuresWeather =
 		{
-			main="Chatoyant Staff", sub="Enki Strap", ammo="Esper Stone +1",
+			main="Chatoyant Staff", sub="Enki Strap", ammo="Pemphredo Tathlum",
 			head="Kaykaus Mitra", neck="Cleric's Torque", lear="Glorious Earring", rear="Mendi. Earring",
-			body="Theo. Briault +2", hands="Theophany Mitts +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Menelaus's Ring",
-			back="Twilight Cape", waist="Hachirin-no-Obi", legs="Sifahir Slacks", feet="Vanya Clogs"
+			body="Theo. Briault +2", hands="Theophany Mitts +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			back="Twilight Cape", waist="Hachirin-no-Obi", legs="Sifahir Slacks", feet="Kaykaus Boots"
 		}
 		
 		-- Cure Potency/II: 50%/4%			Enmity: -54		Healing Magic Skill: +87(550)	MND+193		Solace+24	
@@ -198,14 +208,19 @@ function init_gear_sets()
 
 		sets.midcast.StatusRemoval = set_combine(sets.precast.FC['Healing Magic'],
 		{
-			main="Yagrush", sub="Ammurapi Shield",
+			main="Yagrush",
 			legs="Ebers Pant. +1"
 		})
 		
-		sets.midcast.Esuna = set_combine(sets.midcast.FC,
+		sets.midcast.Erase = set_combine(sets.midcast.StatusRemoval,
 		{
-			main="Piety Wand", sub="Ammurapi Shield"
+			neck="Cleric's Torque"
 		})
+		
+--[[		sets.midcast.Esuna = set_combine(sets.midcast.FC,
+		{
+			main="Piety Wand"
+		})]]
 
 		sets.midcast['Healing Magic'] = sets.precast.FC
 		
@@ -231,8 +246,7 @@ function init_gear_sets()
 		sets.midcast.Aquaveil = set_combine(sets.midcast.Duration,
 		{
 			main="Vadose Rod", sub="Ammurapi Shield",
-			head="Chironic Hat", 
-			waist="Emphatikos Rope", legs="Shedir Seraweels"
+			head="Chironic Hat", waist="Emphatikos Rope", legs="Shedir Seraweels"
 		})
 
 		sets.midcast.Auspice = set_combine(sets.midcast.Duration,
@@ -256,7 +270,7 @@ function init_gear_sets()
 		sets.midcast.BarStatus = set_combine(sets.midcast.Duration,
 		{
 			neck="Incanter's Torque", lear="Andoaa Earring", rear="Augment. Earring",
-			hands="Dynasty Mitts", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			hands="Dynasty Mitts",
 			back="Fi Follet Cape +1",
 		})
 
@@ -286,25 +300,21 @@ function init_gear_sets()
 			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Th. Pant. +3", feet="Theo. Duckbills +3"
 		})
 
-		sets.midcast.Refresh = sets.midcast.Duration
+		sets.midcast.Refresh = set_combine(sets.midcast.Duration,
+		{
+			lear="Gwati Earring", rear="Mendi. Earring",
+			ring="Lebeche Ring", rring="Rahab Ring",
+		})
 
 		sets.midcast.Statless = sets.midcast.Duration
 
 		sets.midcast.Storm = sets.midcast.Duration
 
-		sets.midcast.Protect = set_combine(sets.midcast.Duration,
+		sets.midcast.Protection = set_combine(sets.midcast.Duration,
 		{
-			ammo="Pemphredo Tathlum",
 			neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
 			back="Fi Follet Cape +1", waist="Luminary Sash"
 		})
-	
-		sets.midcast.Protectra = sets.midcast.Protect
-
-		sets.midcast.Shellra = sets.midcast.Protect
-
-		sets.midcast.Shell = sets.midcast.Protect
-
 		sets.midcast.Teleport = sets.midcast.ConserveMP
 
 
@@ -323,7 +333,6 @@ function init_gear_sets()
 		
 		sets.midcast['Enfeebling Magic'] = set_combine(sets.midcast.Macc,
 		{
-			head="Befouled Crown",
 			hands="Kaykaus Cuffs +1", lring="Kishar Ring",
 		})
 	
@@ -341,7 +350,7 @@ function init_gear_sets()
 	---Dark Magic	
 		sets.midcast['Dark Magic'] = set_combine(sets.midcast.Macc,
 		{
-			body="Shango Robe", lring="Archon Ring", rring={name="Stikini Ring +1", bag="wardrobe3"}
+			body="Shango Robe", lring="Archon Ring"
 		})
 
 		sets.midcast.Sap = set_combine(sets.midcast['Dark Magic'],
@@ -361,10 +370,7 @@ function init_gear_sets()
 			back="Alaunus's Cape", waist="Orpheus's Sash", legs="Chironic Hose", feet="Chironic Slippers"
 		}
 
-		sets.midcast['Elemental Magic'] = set_combine(sets.midcast.DivineNuke,
-		{
-			waist="Orpheus's Sash"
-		})
+		sets.midcast['Elemental Magic'] = sets.midcast.DivineNuke
 		
 		sets.midcast.Impact = set_combine(sets.midcast.Macc,
 		{
@@ -390,7 +396,7 @@ function init_gear_sets()
 			main="Bolelabunga", sub="Genmei Shield", ammo="Homiliary",
 			head="Befouled Crown", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 			body="Piety Briault +3", hands="Chironic Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Alaunus's Cape", waist="Carrier's Sash", legs="Assid. Pants +1", feet="Chironic Slippers"
+			back="Alaunus's Cape", waist="Lieutenant's Sash", legs="Assid. Pants +1", feet="Chironic Slippers"
 		}
 		
 		sets.idle.DT = set_combine(sets.idle,
@@ -404,7 +410,7 @@ function init_gear_sets()
 			feet="Crier's Gaiters"
 		})
 		
-		sets.idle.AdoulinCity = set_combine(sets.idle,
+		sets.idle.Adoulin = set_combine(sets.idle,
 		{
 			body="Councilor's Garb"
 		})
@@ -430,7 +436,8 @@ function init_gear_sets()
 
 		sets.defense.MDT = set_combine(sets.defense.PDT,
 		{
-			neck="Warder's Charm +1"
+			neck="Warder's Charm +1",
+			waist="Carrier's Sash"
 		})
 	
 	
@@ -445,7 +452,7 @@ function init_gear_sets()
 
 		sets.buff['Divine Caress'] =
 		{
-			hands="Ebers Mitts +1", 
+			hands="Ebers Mitts +1",
 			back="Mending Cape"
 		}
 		
@@ -470,7 +477,6 @@ function init_gear_sets()
 		
 		sets.precast.WS = 
 		{
-			ammo="Floestone",
 			head="Aya. Zucchetto +2", neck="Fotia Gorget", lear="Brutal Earring", rear="Ishvara Earring",
 			body="Ayanmo Corazza +2", hands="Aya. Manopolas +2", lring="Rufescent Ring", rring="Karieyh Ring +1",
 			back="Alaunus's Cape", waist="Fotia Belt", legs="Telchine Braconi", feet="Aya. Gambieras +2"

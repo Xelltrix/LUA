@@ -212,7 +212,7 @@ function init_gear_sets()
 		feet="Tandava Crackows"
 	})
 	
-	sets.idle.AdoulinCity = set_combine(sets.idle,
+	sets.idle.Adoulin = set_combine(sets.idle,
 	{
 		body="Councilor's Garb"
 	})

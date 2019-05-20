@@ -80,7 +80,7 @@ function init_gear_sets()
 	
 		sets.precast.FC =
 		{
-			ammo="Sapience Orb",
+			main="Sucellus", sub="Chanter's Shield", ammo="Sapience Orb",
 			head="Amalric Coif +1", neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
 			body="Pinga Tunic", hands="Acad. Bracers +2", lring="Kishar Ring", rring="Rahab Ring",
 			back=gear.SCHCape_ENF, waist="Witful Belt", legs="Pinga Pants", feet="Peda. Loafers +3"
@@ -186,15 +186,6 @@ function init_gear_sets()
 
 		sets.midcast.Curagas = sets.midcast.Cures
 
---[[		 Cure Potency/II: 52%/3%		Enmity: -50		Healing Magic Skill: +59
-		sets.midcast.CuresWeather = set_combine(sets.midcast.Cures,
-		{
-			main="Chatoyant Staff", sub="Enki Strap",
-			lring="Lebeche Ring", rring="Menelaus's Ring",
-			back="Twilight Cape", waist="Hachirin-no-Obi", feet="Kaykaus Boots"
-		})
-		sets.midcast.CuragaWeather = sets.midcast.CuresWeather]]
-
 		sets.midcast.StatusRemoval = sets.midcast.FC
 
 		sets.midcast.Cursna = set_combine(sets.precast.FC,
@@ -266,13 +257,7 @@ function init_gear_sets()
 
 		sets.midcast.Klimaform = sets.midcast.FC
 
-		sets.midcast.Protect = sets.midcast.Duration
-
-		sets.midcast.Protectra = sets.midcast.Protect
-
-		sets.midcast.Shell = sets.midcast.Protect
-
-		sets.midcast.Shellra = sets.midcast.Shell
+		sets.midcast.Protection = sets.midcast.Duration
 	
 	
 	--------------------------------------
@@ -429,7 +414,7 @@ function init_gear_sets()
 			feet="Crier's Gaiters"
 		})
 
-		sets.idle.AdoulinCity = set_combine(sets.idle,
+		sets.idle.Adoulin = set_combine(sets.idle,
 		{
 			body="Councilor's Garb"
 		})
@@ -584,6 +569,7 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 		equip
 		{
 			main="Chatoyant Staff", sub="Enki Strap",
+			neck="Incanter's Torque",
 			lring="Lebeche Ring", rring="Menelaus's Ring",
 			back="Twilight Cape", waist="Hachirin-no-Obi", feet="Kaykaus Boots"
 		}

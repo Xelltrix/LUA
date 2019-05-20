@@ -69,6 +69,8 @@ function define_global_sets()
 	gear.HHead_MAB = {name="Herculean Helm", augments={'Mag. Acc.+14 "Mag.Atk.Bns."+14','Magic burst dmg.+5%','MND+10','Mag. Acc.+14','"Mag.Atk.Bns."+15',}}
 	gear.HHead_WSD = { name="Herculean Helm", augments={'Accuracy+29','Weapon skill damage +4%','STR+9','Attack+15'}}
 	
+	gear.HHands_TH = { name="Herculean Gloves", augments={'STR+4','"Waltz" potency +4%','"Treasure Hunter"+1','Accuracy+5 Attack+5',}}
+	
 	gear.HBoots_TP = { name="Herculean Boots", augments={'Accuracy+20 Attack+20','"Triple Atk."+4','Accuracy+6','Attack+15',}}
 	gear.HBoots_Crit = { name="Herculean Boots", augments={'Accuracy+26','Crit. hit damage +5%','DEX+8',}}
 	gear.HBoots_WSD = { name="Herculean Boots", augments={'Weapon skill damage +4%','STR+10','Attack+26',}}
@@ -111,9 +113,6 @@ function global_on_load()
 	send_command('bind f12 gs c update user')
 	send_command('bind ^f12 gs c cycle IdleMode')
 	send_command('bind !f12 gs c reset DefenseMode')
-
-	--send_command('bind ^- gs c toggle selectnpctargets')
-	--send_command('bind ^= gs c cycle pctargetmode')
 end
 
 -- Function to revert binds when unloading.
@@ -131,9 +130,6 @@ function global_on_unload()
 	send_command('unbind f12')
 	send_command('unbind ^f12')
 	send_command('unbind !f12')
-
-	--send_command('unbind ^-')
-	--send_command('unbind ^=')
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -143,7 +139,6 @@ end
 -- Global intercept on precast.
 function user_precast(spell, action, spellMap, eventArgs)
     cancel_conflicting_buffs(spell, action, spellMap, eventArgs)
-    --refine_waltz(spell, action, spellMap, eventArgs)
 end
 
 -- Global intercept on midcast.
@@ -153,16 +148,3 @@ function user_midcast(spell, action, spellMap, eventArgs)
 		equip(sets.midcast.FastRecast)
 	end
 end
-
--- Global intercept on buff change.
-function user_buff_change(buff, gain, eventArgs)
-	-- Create a timer when we gain weakness.  Remove it when weakness is gone.
-	if buff:lower() == 'weakness' then
-		if gain then
-			send_command('timers create "Weakness" 300 up abilities/00255.png')
-		else
-			send_command('timers delete "Weakness"')
-		end
-	end
-end
-

@@ -58,15 +58,15 @@ function init_gear_sets()
 	-- Precast Magic --
 	------------------- 
 		sets.precast.FC =
-		{--Fast Cast 58
-			main=gear.Grioavolr_Enf, sub="Kaja Grip", ammo="Sapience Orb",
+		{--Fast Cast 68
+			main="Sucellus", sub="Chanter's Shield", ammo="Sapience Orb",
 			head="Amalric Coif +1", neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
 			body="Shango Robe", hands=gear.ENH_Gloves, lring="Kishar Ring", rring="Rahab Ring",
 			back="Swith Cape +1", waist="Witful Belt", legs="Psycloth Lappas", feet="Amalric Nails +1"
 		}
 
 		sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC,
-		{--Fast Cast 55 / -8% Enhancing Magic Cast Time
+		{--Fast Cast 65 / -8% Enhancing Magic Cast Time
 			waist="Siegel Sash"
 		})
 
@@ -74,19 +74,19 @@ function init_gear_sets()
 
 
 		sets.precast.FC.Impact = set_combine(sets.precast.FC,
-		{--Fast Cast 40
+		{--Fast Cast 49
 			head=empty,
 			body="Twilight Cloak"
 		})
 
 		sets.precast.FC.Death = set_combine(sets.precast.FC,
-		{--Fast Cast 54
+		{--Fast Cast 59
 			ammo="Psilomene",
-			hands="Regal Cuffs", ring="Mephitas's Ring +1",
+			hands="Regal Cuffs", rring="Mephitas's Ring +1",
 		})
 
 		sets.precast.FC.Cures = set_combine(sets.precast.FC,
-		{--Fast Cast 57 / -5% Cure Cast Time
+		{--Fast Cast 66 / -5% Cure Cast Time
 			lear="Mendi. Earring"
 		})
 
@@ -190,14 +190,7 @@ function init_gear_sets()
 
 		sets.midcast.Klimaform = sets.midcast.FC
 
-		sets.midcast.Protect = sets.midcast.Duration
-
-		sets.midcast.Protectra = sets.midcast.Protect
-
-		sets.midcast.Shell = sets.midcast.Protect
-
-		sets.midcast.Shellra = sets.midcast.Shell
-	
+		sets.midcast.Protection = sets.midcast.Duration
 	
 	--------------------------------------
 	-- Offensive Midcast sets
@@ -338,7 +331,7 @@ function init_gear_sets()
 		{--Regen+3 | Refresh+8~9 | PDT/MDT: (13/15)
 			main="Lathi", sub="Kaja Grip", ammo="Staunch Tathlum +1",
 			head="Befouled Crown", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
-			body="Amalric Doublet +3", hands="Amalric Gages +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			body="Amalric Doublet +1", hands="Amalric Gages +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Moonbeam Cape", waist="Lieutenant's Sash", legs="Assid. Pants +1", feet="Amalric Nails +1"
 		}
 
@@ -363,7 +356,7 @@ function init_gear_sets()
 			feet="Crier's Gaiters"
 		})
 
-		sets.idle.AdoulinCity = set_combine(sets.idle,
+		sets.idle.Adoulin = set_combine(sets.idle,
 		{
 			body="Councilor's Garb"
 		})
@@ -461,7 +454,7 @@ function init_gear_sets()
 		{
 			main="Lathi", sub="Kaja Grip", ammo="Staunch Tathlum +1",
 			head="Befouled Crown", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
-			body="Amalric Doublet +3", hands="Amalric Gages +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			body="Jhakri Robe +2", hands="Amalric Gages +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Moonbeam Cape", waist="Lieutenant's Sash", legs="Assid. Pants +1", feet="Amalric Nails +1"
 		}
 

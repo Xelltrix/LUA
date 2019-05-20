@@ -235,7 +235,7 @@ function init_gear_sets()
 		feet="Jute Boots +1"
 	})
 	
-	sets.idle.AdoulinCity = set_combine(sets.idle,
+	sets.idle.Adoulin = set_combine(sets.idle,
 	{
 		body="Councilor's Garb"
 	})

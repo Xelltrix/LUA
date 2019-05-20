@@ -24,7 +24,7 @@ function job_setup()
 	S{
 		'Healing Ruby','Healing Ruby II',
 		'Whispering Wind',
-		'Spring Water'
+		'Spring Water',
 	}
 	
 	blood_pacts.bp_Buffs =
@@ -163,16 +163,16 @@ function init_gear_sets()
     -------------------
 	-- Precast Magic --
 	------------------- 
-		--Fast Cast: 70%
+		--Fast Cast: 78%
 		sets.precast.FC =
 		{
-			ammo="Sapience Orb",
+			main="Sucellus", sub="Chanter's Shield", ammo="Sapience Orb",
 			head="Amalric Coif +1", neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
 			body="Inyanga Jubbah +2", hands=gear.ENH_Gloves, lring="Kishar Ring", rring="Rahab Ring",
 			back=gear.SMNCape_Mag, waist="Witful Belt", legs="Lengo Pants", feet="Amalric Nails +1"
 		}
 		
-		--Fast Cast: 70%
+		--Fast Cast: 78%
 		sets.precast.FC['Summoning Magic'] = sets.precast.FC
 
 		--Fast Cast: 68%
@@ -373,13 +373,7 @@ function init_gear_sets()
 
 		sets.midcast.Storm = sets.midcast.Duration
 
-		sets.midcast.Protectra = sets.midcast.Duration
-
-		sets.midcast.Protect = sets.midcast.Protectra
-
-		sets.midcast.Shellra = sets.midcast.Protectra
-
-		sets.midcast.Shell = sets.midcast.Protectra
+		sets.midcast.Protection = sets.midcast.Duration
 
 	
 	--------------------------------------
@@ -397,7 +391,7 @@ function init_gear_sets()
 
 		sets.midcast['Dark Magic'] = set_combine(sets.midcast.Macc,
 		{
-			body="Shango Robe"
+			body="Shango Robe", 
 		})
 
 
@@ -416,10 +410,10 @@ function init_gear_sets()
 			back="Grapevine Cape", waist="Eschan Stone", legs="Amalric Slops +1", feet="Amalric Nails +1"
 		}
 
-		sets.midcast.Impact = set_combine(sets.midcast.Macc,
+		sets.midcast['Elemental Magic'].Impact = set_combine(sets.midcast.Macc,
 		{
 			head=empty,
-			body="Twilight Cloak", rring="Archon Ring"
+			body="Twilight Cloak", lring="Archon Ring", 
 		})
 		
 	
@@ -447,7 +441,7 @@ function init_gear_sets()
 	
 	sets.idle =
 	{
-		main="Gridarvor", sub="Kaja Grip", ammo="Staunch Tathlum +1",
+		main="Bolelabunga", sub="Genmei Shield", ammo="Staunch Tathlum +1",
 		head="Beckoner's Horn +1", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 		body="Apo. Dalmatica +1", hands="Asteria Mitts +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
         back=gear.SMNCape_Mag, waist="Regal Belt", legs="Assid. Pants +1", feet="Baayami Sabots"
@@ -461,6 +455,8 @@ function init_gear_sets()
 		waist="Regal Belt"
 	})
 	
+	sets.idle.DPS = set_combine(sets.idle)
+	
 	sets.idle.Favor = set_combine(sets.idle)
 
 	sets.idle.Town = set_combine(sets.idle,
@@ -468,7 +464,7 @@ function init_gear_sets()
 		feet="Crier's Gaiters"
 	})
 	
-	sets.idle.AdoulinCity = set_combine(sets.idle,
+	sets.idle.Adoulin = set_combine(sets.idle,
 	{
 		body="Councilor's Garb"
 	})
@@ -623,7 +619,7 @@ function init_gear_sets()
 		sets.engaged =
 		{
 			main="Gridarvor",sub="Kaja Grip", ammo="Sancus Sachet +1",
-			head="Beckoner's Horn +1", neck="Shulmanu Collar", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
+			head="Beckoner's Horn +1", neck="Combatant's Torque", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Tali'ah Manteel +1", hands="Tali'ah Gages +1", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.SMNCape_Phys, waist="Klouskap Sash", legs="Tali'ah Sera. +2", feet="Apogee Pumps +1"
 		}

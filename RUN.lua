@@ -78,8 +78,6 @@ function init_gear_sets()
 	-- Job Abilities --
 	------------------- 
 
-		sets.precast.Rune = {}
-
 		sets.precast.JA['Swipe'] =
 		{
 			ammo="Seeth. Bomblet +1",
@@ -148,8 +146,8 @@ function init_gear_sets()
 		sets.precast.JA['One for All'] = set_combine(sets.Enmity.HP,
 		{
 			head="Erilaz Galea +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
-			body="Runeist's Coat +2", hands="Turms Mittens +1", rring="Ilabrat Ring",
-			feet="Runeist Bottes +1"
+			body="Runeist's Coat +2", hands="Turms Mittens +1",
+			feet="Turms Leggings"
 		})
 	
 	-------------------
@@ -168,7 +166,7 @@ function init_gear_sets()
 		{
 			rear="Odnowa Earring +1",
 			lring="Eihwaz Ring", rring="Moonbeam Ring",
-			back="Moonbeam Cape"
+			back="Moonbeam Cape",
 		})
 
 		sets.precast.FC['Utsusemi'] = 
@@ -234,9 +232,9 @@ function init_gear_sets()
 		sets.midcast.Phalanx =
 		{
 			ammo="Staunch Tathlum +1",
-			head="Fu. Bandeau +1", neck="Incanter's Torque", lear="Andoaa Earring", rear="Augment. Earring",
-			body=gear.TBody_Phalanx, hands=gear.THands_Phalanx, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Merciful Cape", waist="Olympus Sash", legs=gear.TLegs_Phalanx, feet=gear.TFeet_Phalanx
+			head="Fu. Bandeau +1", neck="Incanter's Torque", lear="Andoaa Earring", rear="Odnowa Earring +1",
+			body=gear.TBody_Phalanx, hands=gear.THands_Phalanx, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Moonbeam Ring",
+			back="Moonbeam Cape", waist="Olympus Sash", legs=gear.TLegs_Phalanx, feet=gear.TFeet_Phalanx
 		}
 
 		sets.midcast.Temper = 
@@ -244,7 +242,7 @@ function init_gear_sets()
 			ammo="Staunch Tathlum +1",
 			head="Carmine Mask +1", neck="Incanter's Torque", lear="Andoaa Earring", rear="Odnowa Earring +1",
 			body="Futhark Coat +1", hands="Runeist Mitons +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Merciful Cape", waist="Olympus Sash", legs="Carmine Cuisses +1", feet="Runeist Bottes +1"
+			back="Merciful Cape", waist="Olympus Sash", legs="Carmine Cuisses +1", feet="Turms Leggings"
 		}
 
 		sets.midcast.BarElement = 
@@ -252,7 +250,7 @@ function init_gear_sets()
 			ammo="Staunch Tathlum +1",
 			head="Carmine Mask +1", neck="Incanter's Torque", lear="Andoaa Earring", rear="Augment. Earring",
 			body="Futhark Coat +1", hands="Runeist Mitons +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Merciful Cape", waist="Olympus Sash", legs="Carmine Cuisses +1", feet="Runeist Bottes +1"
+			back="Moonbeam Cape", waist="Olympus Sash", legs="Carmine Cuisses +1", feet="Runeist Bottes +1"
 		}
 
 		sets.midcast.BarStatus = sets.midcast.Duration
@@ -267,9 +265,7 @@ function init_gear_sets()
 		
 		sets.midcast.Utsusemi = sets.midcast.FC
 
-		sets.midcast.Protect = sets.midcast.Duration
-
-		sets.midcast.Shell = sets.midcast.Protect
+		sets.midcast.Protection = sets.midcast.Duration
 		
 		sets.midcast.Buffs = sets.midcast.FC.HP
 
@@ -371,7 +367,7 @@ function init_gear_sets()
 			legs="Carmine Cuisses +1"
 		})
 		
-		sets.idle.AdoulinCity = set_combine(sets.idle,
+		sets.idle.Adoulin = set_combine(sets.idle,
 		{
 			body="Councilor's Garb"
 		})
@@ -661,7 +657,7 @@ function job_precast(spell, action, spellMap, eventArgs)
 		if spell.action_type == 'Magic' then
 			equip(sets.precast.FC.HP)
 			equip(sets.precast.FC['currentSpell'])
-		elseif spell.action_type == 'Ability' then
+		elseif spell.action_type == 'Ability' and spellMap ~= 'Rune' then
 			equip(sets.Enmity.HP)
 			equip(sets.precast.JA[currentSpell])
 		end
@@ -669,7 +665,7 @@ function job_precast(spell, action, spellMap, eventArgs)
 		if spell.action_type == 'Magic' then
 			equip(sets.precast.FC)
 			equip(sets.precast.FC['currentSpell'])
-		elseif spell.action_type == 'Ability' then
+		elseif spell.action_type == 'Ability' and spellMap ~= 'Rune' then
 			equip(sets.Enmity)
 			equip(sets.precast.JA[currentSpell])
 		end

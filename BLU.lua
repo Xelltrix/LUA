@@ -288,22 +288,22 @@ function init_gear_sets()
 			back=gear.BLUCape_WSD, waist="Prosilio Belt +1", legs="Jhakri Slops +2", feet="Luhlaza Charuqs +3"
 		}
 
-		sets.midcast.AddEffect =
+--[[		sets.midcast.AddEffect =
 		{
 			ammo="Pemphredo Tathlum",
 			head="Jhakri Coronal +2", neck="Mirage Stole +2", lear="Digni. Earring", rear="Gwati Earring",
 			body="Jhakri Robe +2", hands="Jhakri Cuffs +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Cornflower Cape", waist="Eschan Stone", legs="Jhakri Slops +2", feet="Jhakri Pigaches +2"
-		}
+		}]]
 
---[[		sets.midcast.AddEffect =
+-		sets.midcast.AddEffect =
 		{
 			ammo="Pemphredo Tathlum",
 			head="Carmine Mask +1", neck="Mirage Stole +2", lear="Digni. Earring", rear="Gwati Earring",
 			body="Luhlaza Jubbah +3", hands="Aya. Manopolas +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Cornflower Cape", waist="Eschan Stone", legs="Aya. Cosciales +2", feet="Luhlaza Charuqs +3"
 		}
-]]
+
 		sets.midcast.Magical =
 		{
 			main="Maxentius", sub="Nibiru Cudgel", ammo="Pemphredo Tathlum",
@@ -318,12 +318,12 @@ function init_gear_sets()
 			legs="Luhlaza Shalwar +3"
 		})
 		
-		sets.midcast['Silent Storm'] = sets.midcast.Debuffs
---[[		sets.midcast['Silent Storm'] = set_combine(sets.midcast.Magical,
+--		sets.midcast['Silent Storm'] = sets.midcast.Debuffs
+-		sets.midcast['Silent Storm'] = set_combine(sets.midcast.Magical,
 		{
 			head="Assim. Keffiyeh +3",
 			legs="Luhlaza Shalwar +3"
-		})]]
+		})
 		
 		sets.midcast['Searing Tempest'] = set_combine(sets.midcast.Magical,
 		{
@@ -437,11 +437,8 @@ function init_gear_sets()
 
 		sets.midcast.Statless = sets.midcast.Duration
 		
-		sets.midcast.Protect = sets.midcast.Duration
+		sets.midcast.Protection = sets.midcast.Duration
 		
-		sets.midcast.Shell = sets.midcast.Duration
-		
-
 
 	---Offensive Magic
 		sets.midcast['Elemental Magic'] = set_combine(sets.midcast.Magical,
@@ -570,7 +567,7 @@ function init_gear_sets()
 			legs="Carmine Cuisses +1"
 		})
 		
-		sets.idle.AdoulinCity = set_combine(sets.idle,
+		sets.idle.Adoulin = set_combine(sets.idle,
 		{
 			body="Councilor's Garb"
 		})
@@ -619,6 +616,7 @@ function init_gear_sets()
 		
 		sets.TreasureHunter =
 		{
+			hands=gear.HHands_TH,
 			waist="Chaac Belt"
 		}
 
