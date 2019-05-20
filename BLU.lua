@@ -47,6 +47,7 @@ function user_setup()
 	state.IdleMode:options('Normal', 'DT', 'Refresh')
 	state.PhysicalDefenseMode:options('PDT')
 	state.MagicalDefenseMode:options('MEVA', 'MDT')
+	state.CastingMode:options('Normal','Alternate')
 
 	state.WeaponSet = M{['description']='Weapon Set',
 		'TizonaA',
@@ -58,17 +59,9 @@ function user_setup()
 		'MaxentiusN'
 	}
 	
+	send_command('bind ^= gs c cycle treasuremode')
 	send_command('bind @w gs c cycle WeaponSet')
 	send_command('bind @q gs c cycleback WeaponSet')
-
-	
-	
-	
-	
-	
-	-- Additional local binds
-	send_command('bind ^= gs c cycle treasuremode')
-	send_command('bind ^f11 gs c cycle MagicalDefenseMode')
 	
 	set_lockstyle()
 
@@ -77,13 +70,7 @@ end
 
 -- Called when this job file is unloaded (eg: job change)
 function user_unload()
-	send_command('unbind ^`')
-	send_command('unbind !`')
 	send_command('unbind ^=')
-	send_command('unbind !-')
-	send_command('unbind ^,')
-	send_command('unbind ^f11')
-	
 	send_command('unbind @w')
 	send_command('unbind @q')
 end
@@ -296,7 +283,7 @@ function init_gear_sets()
 			back="Cornflower Cape", waist="Eschan Stone", legs="Jhakri Slops +2", feet="Jhakri Pigaches +2"
 		}]]
 
--		sets.midcast.AddEffect =
+		sets.midcast.AddEffect =
 		{
 			ammo="Pemphredo Tathlum",
 			head="Carmine Mask +1", neck="Mirage Stole +2", lear="Digni. Earring", rear="Gwati Earring",
@@ -317,14 +304,16 @@ function init_gear_sets()
 			head="Assim. Keffiyeh +3",
 			legs="Luhlaza Shalwar +3"
 		})
-		
---		sets.midcast['Silent Storm'] = sets.midcast.Debuffs
+				
 -		sets.midcast['Silent Storm'] = set_combine(sets.midcast.Magical,
 		{
 			head="Assim. Keffiyeh +3",
 			legs="Luhlaza Shalwar +3"
 		})
+	
+		sets.midcast['Silent Storm'].Alternate = sets.midcast.Debuffs
 		
+	
 		sets.midcast['Searing Tempest'] = set_combine(sets.midcast.Magical,
 		{
 			legs="Luhlaza Shalwar +3"
@@ -358,8 +347,8 @@ function init_gear_sets()
 			body="Luhlaza Jubbah +3", hands="Regal Cuffs", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Cornflower Cape", waist="Luminary Sash", legs="Assim. Shalwar +3", feet="Luhlaza Charuqs +3"
 		}
-		
-		sets.midcast['Dream Flower'] =
+
+		sets.midcast['Dream Flower'].Alternate =
 		{
 			ammo="Staunch Tathlum +1",
 			head="Assim. Keffiyeh +3", neck="Mirage Stole +2", lear="Digni. Earring", rear="Regal Earring",
@@ -628,20 +617,10 @@ function init_gear_sets()
 			waist="Gishdubar Sash"
 		}
 		
---[[		sets.buff['Burst Affinity'] = 
-		{
-			feet="Hashi. Basmak +1"
-		}]]
-		
 		sets.buff['Chain Affinity'] =
 		{
 			feet="Assim. Charuqs +3"
 		}
-		
---[[		sets.buff['Efflux'] = 
-		{
-			legs="Hashishin Tayt +1"
-		}]]
 		
 		sets.buff['Diffusion'] = 
 		{
@@ -2292,30 +2271,20 @@ end)
 ]]
 
 function update_active_abilities()
---	state.Buff['Burst Affinity'] 		= buffactive['Burst Affinity'] or false
 	state.Buff['Chain Affinity']	= buffactive['Chain Affinity'] or false
---	state.Buff['Efflux'] 			= buffactive['Efflux'] or false
 	state.Buff['Diffusion'] 		= buffactive['Diffusion'] or false
 end
 
 -- State buff checks that will equip buff gear and mark the event as handled.
 function apply_ability_bonuses(spell, action, spellMap)
---[[	if state.Buff['Burst Affinity'] and (spellMap == 'Magical' or spellMap == 'DarkBlue' or spellMap == 'LightBlue' or spellMap == 'Breath') then
-		equip(sets.buff['Burst Affinity'])
-	end]]
 	if state.Buff['Chain Affinity'] and spellMap == 'Physical' then
 		equip(sets.buff['Chain Affinity'])
 	end
---[[	if state.Buff['Efflux'] and spellMap == 'Physical' then
-		equip(sets.buff['Efflux'])
-	end]]
 	if state.Buff['Diffusion'] and (spellMap == 'Buffs' or spellMap == 'BlueSkill') then
 		equip(sets.buff['Diffusion'])
 	end
 
---	if state.Buff['Burst Affinity'] then equip (sets.buff['Burst Affinity']) end
 	if state.Buff['Chain Affinity'] then equip (sets.buff['Chain Affinity']) end
---	if state.Buff['Efflux'] then equip (sets.buff['Efflux']) end
 	if state.Buff['Diffusion'] then equip (sets.buff['Diffusion']) end
 end
 
@@ -2329,5 +2298,6 @@ end
 
 
 function set_lockstyle()
-    send_command('wait 3; input /lockstyleset ' .. lockstyleset)
+    send_command('cancel input')
+	send_command('wait 3; input /lockstyleset ' .. lockstyleset)
 end
