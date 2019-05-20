@@ -98,8 +98,100 @@ end
 -- Functions to set user-specified binds, generally on load and unload.
 -- Kept separate from the main include so as to not get clobbered when the main is updated.
 -------------------------------------------------------------------------------------------------------------------
+--[[
+^ = Control
+! = Alt
+@ = Win
 
--- Function to bind GearSwap binds when loading a GS script.
+
+BKSP, BS, BACKSPACE
+BREAK
+CAPSLOCK
+CLEAR
+DEL
+DELETE
+DOWN
+END
+ENTER
+ESC,ESCAPE
+F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F12, F13, F14, F15, F16, F17, F18, F19, F20, F21, F22, F23, F24
+HELP
+HOME
+INS
+LEFT
+NUM0, NUM1, NUM2, NUM3, NUM4, NUM5, NUM6, NUM7, NUM8, NUM9
+NUMDECIMAL
+NUMDIVIDE
+NUMLOCK
+NUMMINUS
+NUMMULTIPLY
+NUMPLUS
+PGDN
+PGUP
+PRTSC
+RIGHT
+SCROLLLOCK
+TAB
+UP
+
+
+]]--
+
+
+--Function to bind GearSwap binds when loading a GS script.
+function global_on_load()
+	--General Bindings
+	send_command('bind f9 gs c cycle OffenseMode')
+	send_command('bind ^f9 gs c cycle HybridMode')
+	send_command('bind !f9 gs c cycleback HybridMode')
+	
+	send_command('bind f10 gs c set DefenseMode Physical')
+	send_command('bind ^f10 gs c cycle PhysicalDefenseMode')
+	send_command('bind !f10 gs c cycleback PhysicalDefenseMode')
+	
+	send_command('bind f11 gs c set DefenseMode Magical')
+	send_command('bind ^f11 gs c cycle MagicalDefenseMode')
+	send_command('bind !f11 gs c cycleback MagicalDefenseMode')
+	
+	send_command('bind f12 gs c update user')
+	send_command('bind ^f12 gs c cycle IdleMode')
+	send_command('bind !f12 gs c reset DefenseMode')
+	
+	send_command('bind NUMDIVIDE gs c cycle CastingMode')
+	send_command('bind NUMMULTIPLY gs c toggle MagicBurst')
+	send_command('bind NUMPLUS gs c toggle SaveMP')
+	send_command('bind NUMMINUS gs c toggle Kiting')
+	
+	
+end
+
+-- Function to revert binds when unloading.
+function global_on_unload()
+	send_command('unbind f9')
+	send_command('unbind ^f9')
+	send_command('unbind !f9')
+	
+	send_command('unbind f10')
+	send_command('unbind ^f10')
+	send_command('unbind !f10')
+	
+	send_command('unbind f11')
+	send_command('unbind ^f11')
+	send_command('unbind !f11')
+	
+	send_command('unbind f12')
+	send_command('unbind ^f12')
+	send_command('unbind !f12')
+	
+	send_command('unbind NUMDIVIDE')
+	send_command('unbind NUMMULTIPLY')
+	send_command('unbind NUMPLUS')
+	send_command('unbind NUMMINUS')
+end
+
+
+
+--[[ Function to bind GearSwap binds when loading a GS script.
 function global_on_load()
 	send_command('bind f9 gs c cycle OffenseMode')
 	send_command('bind ^f9 gs c cycle HybridMode')
@@ -131,7 +223,7 @@ function global_on_unload()
 	send_command('unbind ^f12')
 	send_command('unbind !f12')
 end
-
+]]--
 -------------------------------------------------------------------------------------------------------------------
 -- Global event-handling functions.
 -------------------------------------------------------------------------------------------------------------------
