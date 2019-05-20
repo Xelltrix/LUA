@@ -732,10 +732,10 @@ end
 -------------------------------------------------------------------------------------------------------------------
 -- User code that supplements standard library decisions.
 -------------------------------------------------------------------------------------------------------------------
-
+--[[
 function pet_midcast(spell)
 	if (spell.type == 'BloodPactRage' or spell.type == 'BloodPactWard') then
-		if bp_Buffs:contains(spell.name) then
+		if bp_Heals:contains(spell.name) then
 			equip(sets.midcast.Pet.Heals)
 		elseif bp_Buffs:contains(spell.name) then
 			equip(sets.midcast.Pet.Buffs)
@@ -745,12 +745,14 @@ function pet_midcast(spell)
 			equip(sets.midcast.Pet.Physical)
 		elseif bp_Magical:contains(spell.name) then
 			equip(sets.midcast.Pet.Magical)
+		elseif bp_Merit:contains(spell.name) then
+			equip(sets.midcast.Pet.Merit)
 		elseif bp_Hybrid:contains(spell.name) then
 			equip(sets.midcast.Pet.Hybrid)
 		end
 	end
 end
-
+]]
 -- Modify the default idle set after it was constructed.
 function customize_idle_set(idleSet)
     if pet.isvalid then
@@ -782,28 +784,12 @@ function job_update(cmdParams, eventArgs)
     end
 end
 
--- Set eventArgs.handled to true if we don't want the automatic display to be run.
-function display_current_job_state(eventArgs)
-
-end
-
-
--------------------------------------------------------------------------------------------------------------------
--- User self-commands.
--------------------------------------------------------------------------------------------------------------------
-
-
-
 -------------------------------------------------------------------------------------------------------------------
 -- Utility functions specific to this job.
 -------------------------------------------------------------------------------------------------------------------
 
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book(reset)
-    if reset == 'reset' then
-        -- lost pet, or tried to use pact when pet is gone
-    end
-
     -- Default macro set/book
     set_macro_page(1, 7)
 end
