@@ -33,7 +33,7 @@ function user_setup()
 	state.WeaponSet = M{['description']='Weapon Set',
 		'SequenceK',
 		'SequenceA',
-		'SequenceT',
+		'KajaT',
 		'Almace',
 	}
 
@@ -112,7 +112,7 @@ function init_gear_sets()
 
 		sets.midcast.FC =
 		{
-			main="Mafic Cudgel", sub="Genmei Shield", ammo="Staunch Tathlum +1",
+			ammo="Staunch Tathlum +1",
 			head="Atrophy Chapeau +3", neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquacious Earring",
 			body="Viti. Tabard +3", hands="Chironic Gloves", lring="Kishar Ring", rring="Evanescence Ring", 
 			back=gear.RDMCape_DW, waist="Witful Belt", legs="Carmine Cuisses +1",feet="Amalric Nails +1"
@@ -120,7 +120,7 @@ function init_gear_sets()
 
 		sets.midcast.ConserveMP = 
 		{
-			main="Colada", sub="Genmei Shield", ammo="Pemphredo Tathlum",
+			ammo="Pemphredo Tathlum",
 			head="Vanya Hood", neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
 			body="Chironic Doublet", hands="Leyline Gloves", lring="Kishar Ring", rring="Rahab Ring",
 			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Lengo Pants", feet="Carmine Greaves +1"
@@ -309,7 +309,7 @@ function init_gear_sets()
 	---Dark Magic
 		sets.midcast['Dark Magic'] = set_combine(sets.midcast.Macc,
 		{
-			main=gear.Grioavolr_Enf, sub="Enki Strap",
+			main="Maxentius", sub="Ammurapi Shield",
 			neck="Erra Pendant", 
 			body="Shango Robe",
 			legs="Aya. Cosciales +2", feet="Vitiation Boots +3"
@@ -324,7 +324,7 @@ function init_gear_sets()
 
 		sets.midcast.Stun = set_combine(sets.midcast.Macc,
 		{
-			main=gear.Grioavolr_Enf, sub="Enki Strap", 
+			main="Maxentius", sub="Chanter's Shield", 
 			neck="Erra Pendant",
 			body="Shango Robe", hands="Leyline Gloves", lring="Kishar Ring",
 			back=gear.RDMCape_Nuke, legs="Aya. Cosciales +2", feet=gear.NukeCrackows
@@ -338,7 +338,7 @@ function init_gear_sets()
 	-- Elemental Magic
 		sets.midcast['Elemental Magic'] =
 		{
-			main=gear.Grioavolr_Enf, sub="Niobid Strap", ammo="Pemphredo Tathlum",
+			main="Maxentius", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head=gear.NukeHood, neck="Sanctity Necklace", lear="Regal Earring", rear="Friomisi Earring", 
 			body="Amalric Doublet +1", hands="Amalric Gages +1", lring={name="Shiva Ring +1", bag="wardrobe2"}, rring={name="Shiva Ring +1", bag="wardrobe3"},
 			back=gear.RDMCape_Nuke, waist="Refoccilation Stone", legs="Amalric Slops +1", feet="Amalric Nails +1"
@@ -355,14 +355,13 @@ function init_gear_sets()
 		{
 			head=empty, lear="Digni. Earring",
 			body="Twilight Cloak",lring="Archon Ring",
-			legs="Jhakri Slops +2"
 		})
 		
 		sets.magic_burst =
 		{
-			main=gear.Grioavolr_Enf, sub="Niobid Strap", ammo="Pemphredo Tathlum",
+			main="Maxentius", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head=gear.NukeHood, neck="Mizu. Kubikazari", lear="Regal Earring", rear="Static Earring",
-			body="Merlinic Jubbah", hands="Amalric Gages +1", lring="Locus Ring", rring="Mujin Band",
+			body="Merlinic Jubbah", hands="Amalric Gages +1", lring={name="Shiva Ring +1", bag="wardrobe2"}, rring="Mujin Band",
 			back=gear.RDMCape_Nuke, waist="Refoccilation Stone", legs="Amalric Slops +1", feet=gear.NukeCrackows
 		}
 		
@@ -382,7 +381,7 @@ function init_gear_sets()
 	
 		sets.midcast.Teleport = sets.midcast.ConserveMP
 		
-		sets.midcast.Utsusemi = sets.midcast.FastRecast
+		sets.midcast.Utsusemi = sets.midcast.FC
 		
 		sets.midcast['Blue Magic'] = sets.midcast.Macc
 
@@ -410,14 +409,14 @@ function init_gear_sets()
 			main="Sequence", sub="Almace"
 		}
 			
-		sets.SequenceT =
+		sets.KajaT =
 		{
-			main="Sequence", sub="Thibron"
+			main="Kaja Sword", sub="Thibron"
 		}
 			
 		sets.Almace =
 		{
-			main="Almace", sub="Sequence"
+			main="Almace", sub="Kaja Knife"
 		}
 		
 	
@@ -1523,9 +1522,9 @@ end
 
 function apply_abilities(spell, action, spellMap)
 	if buffactive.Composure and spell.skill == 'Enhancing Magic' then
-		if spell.target.type == 'PLAYER' and spellMap ~= 'Regen' and spellMap ~='Refresh' then
+		if (spell.target.type == 'PLAYER' or spell.target.type == 'NPC') and spellMap ~= 'Regen' and spellMap ~='Refresh' then
 			equip(sets.buff['Composure'])
-		elseif spell.target.type == 'PLAYER' and spellMap == 'Regen' then
+		elseif (spell.target.type == 'PLAYER' or spell.target.type == 'NPC') and spellMap == 'Regen' then
 			equip(
 			{
 				head="Leth. Chappel +1",
