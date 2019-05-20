@@ -53,8 +53,8 @@ function init_include()
     state.MagicalDefenseMode  = M{['description'] = 'Magical Defense Mode', 'MDT'}
 
     state.Kiting              = M(false, 'Kiting')
-    state.SelectNPCTargets    = M(false, 'Select NPC Targets')
-    state.PCTargetMode        = M{['description'] = 'PC Target Mode', 'default', 'stpt', 'stal', 'stpc'}
+    state.MagicBurst		= M(false, 'Magic Burst')
+    state.SaveMP        	= M(false, 'Save MP')
 
     state.EquipStop           = M{['description'] = 'Stop Equipping Gear', 'off', 'precast', 'midcast', 'pet_midcast'}
 
@@ -164,15 +164,6 @@ function init_include()
 
     -- Load up all the gear sets.
     init_gear_sets()
-end
-
-if not mote_include_version or mote_include_version < current_mote_include_version then
-    add_to_chat(123,'Warning: Your job file is out of date.  Please update to the latest repository baseline.')
-    add_to_chat(123,'For details, visit https://github.com/Kinematics/GearSwap-Jobs/wiki/Upgrading')
-    rev = mote_include_version or 1
-    include_path('rev' .. tostring(rev))
-    include('Mote-Include')
-    return
 end
 
 -- Auto-initialize the include
