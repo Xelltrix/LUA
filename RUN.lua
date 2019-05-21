@@ -239,7 +239,7 @@ function init_gear_sets()
 		}
 
 		sets.midcast.Phalanx =
-		{
+		{-- 28 + ((Enhancing Magic Skill - 300.5)/28.5) + 17 = 50
 			ammo="Staunch Tathlum +1",
 			head="Fu. Bandeau +1", neck="Incanter's Torque", lear="Andoaa Earring", rear="Odnowa Earring +1",
 			body=gear.TBody_Phalanx, hands=gear.THands_Phalanx, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Moonbeam Ring",
@@ -247,7 +247,7 @@ function init_gear_sets()
 		}
 
 		sets.midcast.Temper = 
-		{
+		{-- 
 			ammo="Staunch Tathlum +1",
 			head="Carmine Mask +1", neck="Incanter's Torque", lear="Andoaa Earring", rear="Odnowa Earring +1",
 			body="Futhark Coat +1", hands="Runeist Mitons +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
