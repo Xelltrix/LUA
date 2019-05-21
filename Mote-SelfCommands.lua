@@ -352,14 +352,6 @@ function display_current_state()
             msg = msg .. ', Kiting'
         end
 
-        if state.PCTargetMode.value ~= 'default' then
-            msg = msg .. ', Target PC: '..state.PCTargetMode.value
-        end
-
-        if state.SelectNPCTargets.value == true then
-            msg = msg .. ', Target NPCs'
-        end
-
         add_to_chat(122, msg)
     end
 
@@ -399,16 +391,6 @@ function display_current_caster_state()
     if state.Kiting.value == true then
 		msg = msg .. ', [KITING]'
 	end
-	
-
-
-    if state.PCTargetMode.value ~= 'default' then
-        msg = msg .. ', Target PC: '..state.PCTargetMode.value
-    end
-
-    if state.SelectNPCTargets.value == true then
-        msg = msg .. ', Target NPCs'
-    end
 
     add_to_chat(122, msg)
 end

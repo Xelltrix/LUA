@@ -1,4 +1,4 @@
--------------------------------------------------------------------------------------------------------------------
+	-------------------------------------------------------------------------------------------------------------------
 -- Tables and functions for commonly-referenced gear that job files may need, but
 -- doesn't belong in the global Mote-Include file since they'd get clobbered on each
 -- update.
@@ -103,38 +103,7 @@ end
 ! = Alt
 @ = Win
 
-
-BKSP, BS, BACKSPACE
-BREAK
-CAPSLOCK
-CLEAR
-DEL
-DELETE
-DOWN
-END
-ENTER
-ESC,ESCAPE
-F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F12, F13, F14, F15, F16, F17, F18, F19, F20, F21, F22, F23, F24
-HELP
-HOME
-INS
-LEFT
-NUM0, NUM1, NUM2, NUM3, NUM4, NUM5, NUM6, NUM7, NUM8, NUM9
-NUMDECIMAL
-NUMDIVIDE
-NUMLOCK
-NUMMINUS
-NUMMULTIPLY
-NUMPLUS
-PGDN
-PGUP
-PRTSC
-RIGHT
-SCROLLLOCK
-TAB
-UP
-
-
+https://docs.windower.net/commands/keymapping/#
 ]]--
 
 
@@ -157,10 +126,10 @@ function global_on_load()
 	send_command('bind ^f12 gs c cycle IdleMode')
 	send_command('bind !f12 gs c reset DefenseMode')
 	
-	send_command('bind NUMDIVIDE gs c cycle CastingMode')
-	send_command('bind NUMMULTIPLY gs c toggle MagicBurst')
-	send_command('bind NUMPLUS gs c toggle SaveMP')
-	send_command('bind NUMMINUS gs c toggle Kiting')
+	send_command('bind numpad/ gs c cycle CastingMode')
+	send_command('bind numpad* gs c toggle MagicBurst')
+	send_command('bind numpad. gs c toggle SaveMP')
+	send_command('bind numpad- gs c toggle Kiting')
 	
 	
 end
@@ -183,10 +152,10 @@ function global_on_unload()
 	send_command('unbind ^f12')
 	send_command('unbind !f12')
 	
-	send_command('unbind NUMDIVIDE')
-	send_command('unbind NUMMULTIPLY')
-	send_command('unbind NUMPLUS')
-	send_command('unbind NUMMINUS')
+	send_command('unbind numpad/')
+	send_command('unbind numpad*')
+	send_command('numpad.')
+	send_command('numpad-')
 end
 
 
@@ -206,7 +175,6 @@ function global_on_load()
 	send_command('bind ^f12 gs c cycle IdleMode')
 	send_command('bind !f12 gs c reset DefenseMode')
 end
-
 -- Function to revert binds when unloading.
 function global_on_unload()
 	send_command('unbind f9')

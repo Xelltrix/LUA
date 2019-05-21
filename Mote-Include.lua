@@ -269,10 +269,6 @@ end
 -- Action hooks called by GearSwap.
 --------------------------------------
 
-function pretarget(spell)
-    handle_actions(spell, 'pretarget')
-end
-
 function precast(spell)
     if state.Buff[spell.english] ~= nil then
         state.Buff[spell.english] = true
@@ -302,10 +298,6 @@ end
 --------------------------------------
 -- Default code for each action.
 --------------------------------------
-
-function default_pretarget(spell, spellMap)
-    auto_change_target(spell, spellMap)
-end
 
 function default_precast(spell, spellMap)
     equip(get_precast_set(spell, spellMap))
@@ -1098,5 +1090,3 @@ function display_breadcrumbs(spell, spellMap, action)
         add_to_chat(123, msg)
     end
 end
-
-

@@ -320,5 +320,3 @@ function time_change(new_time, old_time)
         handle_update({'auto'})
     end
 end
-
-

@@ -358,7 +358,6 @@ function init_gear_sets()
 		
 		sets.midcast.Kaustra.Resistant = set_combine(sets.midcast['Elemental Magic'].Resistant,
 		{
-			head="Pixie Hairpin +1",
 			lring="Archon Ring"
 		})
 		
@@ -367,6 +366,18 @@ function init_gear_sets()
 			head="Pixie Hairpin +1",
 			lring="Archon Ring"
 		})
+		
+		sets.midcast['Noctohelix'] = sets.midcast.Kaustra
+		
+		sets.midcast['Noctohelix'].Resistant = sets.midcast.Kaustra.Resistant
+		
+		sets.midcast['Noctohelix'].Potency = sets.midcast.Kaustra.Potency
+		
+		sets.midcast['Noctohelix II'] = sets.midcast.Kaustra
+		
+		sets.midcast['Noctohelix II'].Resistant = sets.midcast.Kaustra.Resistant
+		
+		sets.midcast['Noctohelix II'].Potency = sets.midcast.Kaustra.Potency
 	
 		---Magic Burst
 		sets.magic_burst = set_combine(sets.midcast['Elemental Magic'],
@@ -463,7 +474,7 @@ function init_gear_sets()
 			feet="Arbatel Loafers +1"
 		}
 
-		sets.Buff['Sublimation: Activated'] =
+		sets.buff['Sublimation: Activated'] =
 		{
 			head="Acad. Mortar. +2", rear="Savant's Earring",
 			body="Peda. Gown +3"
@@ -627,7 +638,7 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 				waist="Orpheus's Sash"
 			}
 		end
-	elseif spell.skill == 'Elemental Magic' and (spell.element == world.day_element and spell.element == world.weather_element)
+	elseif spell.skill == 'Elemental Magic' and ((spell.element == world.day_element and spell.element == world.weather_element)
 			or (spell.element == world.weather_element and get_weather_intensity() == 2 and spell.element ~= elements.weak_to[world.day_element])) then
 		if spellMap ~= 'Helix' then
 			equip
@@ -709,9 +720,9 @@ end
 function customize_idle_set(idleSet)
 	if state.Buff['Sublimation: Activated'] then
 		if state.IdleMode.value == 'Normal' then
-			idleSet = set_combine(sets.idle, sets.Buff['Sublimation: Activated'])
+			idleSet = set_combine(sets.idle, sets.buff['Sublimation: Activated'])
 		elseif state.IdleMode.value == 'DT' then
-			idleSet = set_combine(sets.idle.DT, sets.Buff['Sublimation: Activated'])
+			idleSet = set_combine(sets.idle.DT, sets.buff['Sublimation: Activated'])
 		end
 	end
 

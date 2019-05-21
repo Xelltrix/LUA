@@ -44,8 +44,6 @@ function user_setup()
 end
 
 function user_unload()
-	send_command('unbind !`')
-	
 	send_command('unbind @w')
 	send_command('unbind @q')
 end
@@ -390,6 +388,8 @@ function init_gear_sets()
 			back="Moonbeam Cape", waist="Flume Belt +1", legs="Eri. Leg Guards +1", feet="Erilaz Greaves +1"
 		}
 		
+		sets.defense.Parry = sets.defense.PDT
+		
 		
 		sets.defense.MDT = 
 		{
@@ -398,6 +398,8 @@ function init_gear_sets()
 			body="Runeist's Coat +2",hands="Turms Mittens +1", lring="Defending Ring", rring="Moonbeam Ring",
 			back="Moonbeam Cape", waist="Carrier's Sash", legs="Eri. Leg Guards +1", feet="Erilaz Greaves +1"
 		}
+		
+		sets.defense.MEVA = sets.defense.MDT
 
 	
 	--------------------------------------

@@ -305,7 +305,7 @@ function init_gear_sets()
 			legs="Luhlaza Shalwar +3"
 		})
 				
--		sets.midcast['Silent Storm'] = set_combine(sets.midcast.Magical,
+		sets.midcast['Silent Storm'] = set_combine(sets.midcast.Magical,
 		{
 			head="Assim. Keffiyeh +3",
 			legs="Luhlaza Shalwar +3"
@@ -348,13 +348,13 @@ function init_gear_sets()
 			back="Cornflower Cape", waist="Luminary Sash", legs="Assim. Shalwar +3", feet="Luhlaza Charuqs +3"
 		}
 
-		sets.midcast['Dream Flower'].Alternate =
+--[[		sets.midcast['Dream Flower'].Alternate =
 		{
 			ammo="Staunch Tathlum +1",
 			head="Assim. Keffiyeh +3", neck="Mirage Stole +2", lear="Digni. Earring", rear="Regal Earring",
 			body="Ayanmo Corazza +2", hands="Assim. Bazu. +3", lring="Defending Ring", rring="Gelatinous Ring +1",
 			back=gear.BLUCape_Nuke, waist="Flume Belt +1", legs="Assim. Shalwar +3", feet="Aya. Gambieras +2"
-		}
+		}]]
 
 		sets.midcast.BlueDrain = set_combine(sets.midcast.Debuffs,
 		{
@@ -2020,7 +2020,7 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 		apply_ability_bonuses(spell, action, spellMap, eventArgs)
 	end
 	
-	if state.TreasureMode.value ~= 'None' and spell.action_type == 'Magic' and spells.target.type == 'MONSTER' then
+	if state.TreasureMode.value ~= 'None' and spell.action_type == 'Magic' and spell.target.type == 'MONSTER' then
 		equip(sets.TreasureHunter)
 	end
 end

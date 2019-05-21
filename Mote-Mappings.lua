@@ -256,9 +256,9 @@ spell_maps = {
 	['Burn']='ElementalDebuff',['Frost']='ElementalDebuff',['Choke']='ElementalDebuff',['Rasp']='ElementalDebuff',['Shock']='ElementalDebuff',['Drown']='ElementalDebuff',
     --- Helices
 	['Pyrohelix II']='Helix',['Cryohelix II']='Helix',['Anemohelix II']='Helix',['Geohelix II']='Helix',['Ionohelix II']='Helix',
-	['Hydrohelix II']='Helix',['Luminohelix II']='LightHelix',['Noctohelix II']='DarkHelix',
+	['Hydrohelix II']='Helix',['Luminohelix II']='Helix',['Noctohelix II']='Helix',
 	['Pyrohelix']='Helix',['Cryohelix']='Helix',['Anemohelix']='Helix',['Geohelix']='Helix',['Ionohelix']='Helix',
-	['Hydrohelix']='Helix',['Luminohelix']='LightHelix',['Noctohelix']='DarkHelix',
+	['Hydrohelix']='Helix',['Luminohelix']='Helix',['Noctohelix']='Helix',
 	--- Storms
 	['Firestorm II']='Storm',['Hailstorm II']='Storm',['Windstorm II']='Storm',['Sandstorm II']='Storm',['Thunderstorm II']='Storm',
 	['Rainstorm II']='Storm',['Aurorastorm II']='Storm',['Voidstorm II']='Storm',
