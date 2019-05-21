@@ -38,17 +38,23 @@ function user_setup()
 		'Hepatizon'
 	}
 	
-	send_command('bind @w gs c cycle WeaponSet')
-	send_command('bind @q gs c cycleback WeaponSet')
+	state.GripSet = M{['description']='GripSet',
+		'Utu',
+		'Kaja',
+		'Irenic',
+	}
+	
+	send_command('bind pageup gs c cycle WeaponSet')
+	send_command('bind pagedown gs c cycle GripSet')
 
 	select_default_macro_book()
 	
 	set_lockstyle()
-end
-
-function user_unload()
-	send_command('unbind @w')
-	send_command('unbind @q')
+	
+	function user_unload()
+		send_command('unbind pageup')
+		send_command('unbind pagedown')
+	end
 end
 
 -- Define sets and vars used by this job file.
@@ -395,7 +401,7 @@ function init_gear_sets()
 		{
 			hands="Turms Mittens +1",
  			legs="Eri. Leg Guards +1",
-			feet="Turms Leggings"
+			back=gear.RUNCape_STP, feet="Turms Leggings"
 		})
 		
 		
@@ -446,26 +452,37 @@ function init_gear_sets()
 
 		sets.Epeolatry = 
 		{
-			main="Epeolatry",
-			sub="Kaja Strap"
+			main="Epeolatry"
 		}
 		
 		sets.Aettir = 
 		{
-			main="Aettir",
-			sub="Irenic Strap +1"
+			main="Aettir"
 		}
 		
 		sets.Montante = 
 		{
-			main="Montante",
-			sub="Utu Grip"
+			main="Montante"
 		}
 		
 		sets.Hepatizon =
 		{
-			main="Hepatizon Axe +1",
+			main="Hepatizon Axe +1"
+		}
+	
+		sets.Utu =
+		{
 			sub="Utu Grip"
+		}
+	
+		sets.Kaja =
+		{
+			sub="Kaja Grip"
+		}
+	
+		sets.Irenic =
+		{
+			sub="Irenic Strap +1"
 		}
 
 
@@ -610,6 +627,13 @@ function init_gear_sets()
 			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Niqmaddu Ring", rring="Epona's Ring",
 			back=gear.RUNCape_STP, waist="Windbuffet Belt +1", legs="Samnuha Tights", feet=gear.HBoots_TP
 		}
+	
+		sets.engaged.AM3 = set_combine(sets.engaged,
+		{
+			rear="Dedition Earring",
+			lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			feet="Carmine Greaves +1"
+		})
 
 		sets.engaged.Low = set_combine(sets.engaged,
 		{
@@ -742,6 +766,11 @@ function job_buff_change(buff,gain)
             handle_equipping_gear(player.status)
         end
     end
+	
+	if buffactive['Aftermath: Lv.3'] and player.equipment.main == "Epeolatry" then
+		classes.CustomMeleeGroups:append('AM3')
+		handle_equipping_gear(player.status)
+	end
 end
 
 -- Handle notifications of general user state change.
