@@ -23,9 +23,12 @@ function user_setup()
     state.OffenseMode:options('None','Normal', 'Low', 'Mid', 'High')
 	state.WeaponskillMode:options('None', 'Normal', 'Low', 'Mid', 'High')
     state.HybridMode:options('Normal', 'DT', 'DTMAX')
+	
 	state.PhysicalDefenseMode:options('PDT','Parry')
 	state.MagicalDefenseMode:options('MDT', 'MEVA')
+	
 	state.CastingMode:options('Normal', 'HP', 'SIRD')
+	
     state.IdleMode:options('Normal', 'DT', 'Refresh')
 	
 	state.WeaponSet = M{['description']='Weapon Set',
@@ -60,7 +63,7 @@ function init_gear_sets()
 ----------------------------------------------------------------------------
 
 		sets.Enmity =
-		{
+		{--Enmity + 75
 			ammo="Sapience Orb",
 			head="Rabid Visor", neck="Moonbeam Necklace", lear="Cryptic Earring", rear="Friomisi Earring",
 			body="Emet Harness +1", hands="Nilas Gloves", lring="Eihwaz Ring", rring="Petrov Ring",
@@ -68,7 +71,7 @@ function init_gear_sets()
 		}
 		
 		sets.Enmity.HP = set_combine(sets.Enmity,
-		{
+		{--Enmity + 61
 			rear="Odnowa Earring +1",
 			rring="Moonbeam Ring",
 			back="Moonbeam Cape"
@@ -145,7 +148,7 @@ function init_gear_sets()
 		
 		sets.precast.JA['One for All'] = set_combine(sets.Enmity.HP,
 		{
-			head="Erilaz Galea +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
+			head="Erilaz Galea +1", lear="Etiolation Earring",
 			body="Runeist's Coat +2", hands="Turms Mittens +1",
 			feet="Turms Leggings"
 		})
@@ -155,7 +158,7 @@ function init_gear_sets()
 	------------------- 
 	
 		sets.precast.FC =
-		{
+		{--Fast Cast + 71%
 			ammo="Sapience Orb",
 			head="Carmine Mask +1", neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
 			body=gear.TBody_Phalanx, hands="Leyline Gloves", lring="Kishar Ring", rring="Rahab Ring",
@@ -163,14 +166,14 @@ function init_gear_sets()
 		}
 		
 		sets.precast.FC.HP = set_combine(sets.precast.FC,
-		{
+		{--Fast Cast + 53%
 			rear="Odnowa Earring +1",
 			lring="Eihwaz Ring", rring="Moonbeam Ring",
 			back="Moonbeam Cape",
 		})
 
 		sets.precast.FC['Utsusemi'] = 
-		{
+		{--Fast Cast + 71%
 			neck="Magoraga Beads",
 			body="Passion Jacket"
 		}
@@ -381,25 +384,34 @@ function init_gear_sets()
 	-- Defensive Sets
 	--------------------------------------
 		sets.defense.PDT =
-		{
+		{	--DT: -27%	PDT: - 48%	MDT: -30%
 			ammo="Staunch Tathlum +1",
 			head="Fu. Bandeau +1", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
 			body="Runeist's Coat +2", hands="Turms Mittens +1", lring="Defending Ring", rring="Moonbeam Ring",
 			back="Moonbeam Cape", waist="Flume Belt +1", legs="Eri. Leg Guards +1", feet="Erilaz Greaves +1"
 		}
 		
-		sets.defense.Parry = sets.defense.PDT
+		sets.defense.Parry = set_combine(sets.defense.PDT,
+		{
+			hands="Turms Mittens +1",
+ 			legs="Eri. Leg Guards +1",
+			feet="Turms Leggings"
+		})
 		
 		
 		sets.defense.MDT = 
 		{
 			ammo="Staunch Tathlum +1",
-			head="Erilaz Galea +1", neck="Warder's Charm +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
+			head="Erilaz Galea +1", neck="Futhark Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
 			body="Runeist's Coat +2",hands="Turms Mittens +1", lring="Defending Ring", rring="Moonbeam Ring",
 			back="Moonbeam Cape", waist="Carrier's Sash", legs="Eri. Leg Guards +1", feet="Erilaz Greaves +1"
 		}
 		
-		sets.defense.MEVA = sets.defense.MDT
+		sets.defense.MEVA = set_combine(sets.defense.MDT,
+		{
+			neck="Futhark Torque +1", lear="Eabani Earring", rear="Static Earring",
+			feet="Turms Leggings"
+		})
 
 	
 	--------------------------------------
@@ -434,22 +446,26 @@ function init_gear_sets()
 
 		sets.Epeolatry = 
 		{
-			main="Epeolatry"
+			main="Epeolatry",
+			sub="Kaja Strap"
 		}
 		
 		sets.Aettir = 
 		{
-			main="Aettir"
+			main="Aettir",
+			sub="Irenic Strap +1"
 		}
 		
 		sets.Montante = 
 		{
-			main="Montante"
+			main="Montante",
+			sub="Utu Grip"
 		}
 		
 		sets.Hepatizon =
 		{
-			main="Hepatizon Axe +1"
+			main="Hepatizon Axe +1",
+			sub="Utu Grip"
 		}
 
 
@@ -752,32 +768,32 @@ end
 -- Function to display the current relevant user state when doing an update.
 -- Return true if display was handled, and you don't want the default info shown.
 function display_current_job_state(eventArgs)
-	local msg = 'Melee'
+	local msg = 'Rune Fencer  '
 
 	msg = msg .. '[IDLE: ' .. state.IdleMode.value .. ']   '
 	
 	if state.CombatForm.has_value then
-		msg = msg .. ' (' .. state.CombatForm.value .. ')'
+		msg = msg .. ' [COMBAT FORM: ' .. state.CombatForm.value .. '|'
 	end
 
 	msg = msg .. ': '
 
 	msg = msg .. state.OffenseMode.value
 	if state.HybridMode.value ~= 'Normal' then
-		msg = msg .. '/' .. state.HybridMode.value
+		msg = msg .. ' ' .. state.HybridMode.value .. '] '
 	end
-	msg = msg .. ', WS: ' .. state.WeaponskillMode.value
+	msg = msg .. ' [WS: ' .. state.WeaponskillMode.value .. '] '
 
 	if state.DefenseMode.value ~= 'None' then
 		msg = msg .. ', ' .. 'Defense: ' .. state.DefenseMode.value .. ' (' .. state[state.DefenseMode.value .. 'DefenseMode'].value .. ')'
 	end
 
 	if state.Kiting.value == true then
-		msg = msg .. ', Kiting'
+		msg = msg .. '  ~KITING~  '
 	end
 	
 	if state.CastingMode.value ~= 'Normal' then
-		msg = msg .. ', ' .. 'Casting Mode:' .. state.CastingMode.value
+		msg = msg .. ' || ' .. 'Casting Mode:' .. state.CastingMode.value .. ' || '
 	end
 
 	add_to_chat(122, msg)
@@ -801,7 +817,13 @@ end
 
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
-	set_macro_page(1, 14)
+	if player.sub_job == 'DRK' then
+		set_macro_page(1, 14)
+	elseif player.sub_job == 'WAR' or player.sub_job == 'SAM' then
+		set_macro_page(4, 14)
+	elseif player.sub_job == 'BLU' then
+		set_macro_apage(7,15)
+	end
 end
 
 function set_lockstyle()
