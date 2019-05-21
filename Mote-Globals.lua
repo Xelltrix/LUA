@@ -126,9 +126,6 @@ function global_on_load()
 	send_command('bind ^f12 gs c cycle IdleMode')
 	send_command('bind !f12 gs c reset DefenseMode')
 	
-	send_command('bind pageup gs c cycle WeaponSet')
-	send_command('bind pagedown gs c cycleback WeaponSet')
-	
 	send_command('bind numpad/ gs c cycle CastingMode')
 	send_command('bind numpad* gs c toggle MagicBurst')
 	send_command('bind numpad. gs c toggle SaveMP')
@@ -154,9 +151,6 @@ function global_on_unload()
 	send_command('unbind f12')
 	send_command('unbind ^f12')
 	send_command('unbind !f12')
-	
-	send_command('unbind pageup')
-	send_command('unbind pagedown')
 	
 	send_command('unbind numpad/')
 	send_command('unbind numpad*')
