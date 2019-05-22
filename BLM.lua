@@ -14,6 +14,8 @@ end
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
 function job_setup()
 
+	customize_idle_set()
+	
 end
 
 -------------------------------------------------------------------------------------------------------------------
