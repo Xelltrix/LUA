@@ -548,17 +548,6 @@ end
 -------------------------------------------------------------------------------------------------------------------
 
 
--- Handle notifications of general user state change.
-function job_state_change(stateField, newValue, oldValue)
-	if stateField == 'Offense Mode' then
-		if newValue == 'Normal' then
-			disable('main','sub','range')
-		else
-			enable('main','sub','range')
-		end
-	end
-end
-
 
 -------------------------------------------------------------------------------------------------------------------
 -- User code that supplements standard library decisions.
