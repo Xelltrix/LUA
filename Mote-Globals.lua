@@ -125,10 +125,12 @@ function global_on_load()
 	send_command('bind ^f12 gs c cycle IdleMode')
 	send_command('bind !f12 gs c reset DefenseMode')
 	
+	send_command('bind home gs c toggle WeaponLock')
+	send_command('bind end gs c toggle Kiting')
+	
 	send_command('bind numpad/ gs c cycle CastingMode')
 	send_command('bind numpad* gs c toggle MagicBurst')
 	send_command('bind numpad. gs c toggle SaveMP')
-	send_command('bind numpad- gs c toggle Kiting')
 end
 
 -- Function to revert binds when unloading.
@@ -149,10 +151,12 @@ function global_on_unload()
 	send_command('unbind ^f12')
 	send_command('unbind !f12')
 	
+	send_command('unbind home')
+	send_command('unbind end')
+	
 	send_command('unbind numpad/')
 	send_command('unbind numpad*')
 	send_command('unbind numpad.')
-	send_command('unbind numpad-')
 end
 
 -------------------------------------------------------------------------------------------------------------------
