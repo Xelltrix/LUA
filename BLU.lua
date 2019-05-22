@@ -45,7 +45,6 @@ function user_setup()
 	state.HybridMode:options('Normal', 'DT', 'DTMAX')
 	state.WeaponskillMode:options('None', 'Normal', 'Low', 'Mid', 'High')
 	state.IdleMode:options('Normal', 'DT', 'Refresh')
-	state.PhysicalDefenseMode:options('PDT')
 	state.MagicalDefenseMode:options('MEVA', 'MDT')
 	state.CastingMode:options('Normal','Alternate')
 
