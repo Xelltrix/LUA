@@ -348,7 +348,7 @@ function init_gear_sets()
 	------------------------------------------------------------------------------------------------
 
 		sets.idle =
-		{-- DT: 29%	PDT: 49%	MDT: 34%	Refresh: 3	Regen: 
+		{-- DT: 6%	PDT: 4%		MDT: 6%		Refresh: 3	Regen: 
 			ammo="Homiliary",
 			head="Erilaz Galea +1", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 			body="Runeist's Coat +2", hands="Turms Mittens +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
@@ -371,12 +371,12 @@ function init_gear_sets()
 			back="Moonlight Cape", waist="Flume Belt +1", legs="Rawhide Trousers", feet=gear.HBoots_Refresh
 		}
 
-		sets.idle.Town = set_combine(sets.idle,
+		sets.idle.Town = set_combine(sets.idle.Refresh,
 		{
 			legs="Carmine Cuisses +1"
 		})
 		
-		sets.idle.Adoulin = set_combine(sets.idle,
+		sets.idle.Adoulin = set_combine(sets.idle.Refresh,
 		{
 			body="Councilor's Garb"
 		})
@@ -400,8 +400,7 @@ function init_gear_sets()
 		sets.defense.Parry = set_combine(sets.defense.PDT,
 		{--DT: -23%	PDT: -48%	MDT: -28%
 			hands="Turms Mittens +1",
- 			legs="Eri. Leg Guards +1",
-			back=gear.RUNCape_STP, feet="Turms Leggings"
+			back=gear.RUNCape_STP, legs="Eri. Leg Guards +1", feet="Turms Leggings"
 		})
 		
 		
@@ -449,40 +448,19 @@ function init_gear_sets()
 			legs="Carmine Cuisses +1"
 		}
 
-		sets.Epeolatry = 
-		{
-			main="Epeolatry"
-		}
+		sets.Epeolatry = { main="Epeolatry" }
 		
-		sets.Aettir = 
-		{
-			main="Aettir"
-		}
+		sets.Aettir = { main="Aettir" }
 		
-		sets.Montante = 
-		{
-			main="Montante"
-		}
+		sets.Montante = { main="Montante" }
 		
-		sets.Hepatizon =
-		{
-			main="Hepatizon Axe +1"
-		}
+		sets.Hepatizon = { main="Hepatizon Axe +1" }
 	
-		sets.Utu =
-		{
-			sub="Utu Grip"
-		}
+		sets.Utu = { sub="Utu Grip" }
 	
-		sets.Kaja =
-		{
-			sub="Kaja Grip"
-		}
+		sets.Kaja = { sub="Kaja Grip" }
 	
-		sets.Irenic =
-		{
-			sub="Irenic Strap +1"
-		}
+		sets.Irenic = { sub="Irenic Strap +1" }
 
 
 ----------------------------------------------------------------------------
