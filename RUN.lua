@@ -69,7 +69,7 @@ function init_gear_sets()
 ----------------------------------------------------------------------------
 
 		sets.Enmity =
-		{--Enmity + 75
+		{--Enmity + 74
 			ammo="Sapience Orb",
 			head="Rabid Visor", neck="Moonbeam Necklace", lear="Cryptic Earring", rear="Friomisi Earring",
 			body="Emet Harness +1", hands="Nilas Gloves", lring="Eihwaz Ring", rring="Petrov Ring",
@@ -247,7 +247,7 @@ function init_gear_sets()
 		}
 
 		sets.midcast.Temper = 
-		{-- 
+		{ 
 			ammo="Staunch Tathlum +1",
 			head="Carmine Mask +1", neck="Incanter's Torque", lear="Andoaa Earring", rear="Odnowa Earring +1",
 			body="Futhark Coat +1", hands="Runeist Mitons +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
@@ -348,7 +348,7 @@ function init_gear_sets()
 	------------------------------------------------------------------------------------------------
 
 		sets.idle =
-		{
+		{-- DT: 29%	PDT: 49%	MDT: 34%	Refresh: 3	Regen: 
 			ammo="Homiliary",
 			head="Erilaz Galea +1", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 			body="Runeist's Coat +2", hands="Turms Mittens +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
@@ -356,7 +356,7 @@ function init_gear_sets()
 		}
 
 		sets.idle.DT = 
-		{
+		{-- DT: 29%	PDT: 49%	MDT: 34%
 			ammo="Staunch Tathlum +1",
 			head="Fu. Bandeau +1", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
 			body="Runeist's Coat +2", hands="Turms Mittens +1", lring="Defending Ring", rring="Moonbeam Ring",
@@ -364,7 +364,7 @@ function init_gear_sets()
 		}
 		
 		sets.idle.Refresh =
-		{
+		{-- DT: 6%	PDT: 12%	MDT: 6%		Refresh: 7	Regen: 
 			ammo="Homiliary",
 			head="Rawhide Mask", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 			body="Runeist's Coat +2", hands="Turms Mittens +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
@@ -390,7 +390,7 @@ function init_gear_sets()
 	-- Defensive Sets
 	--------------------------------------
 		sets.defense.PDT =
-		{	--DT: -27%	PDT: - 48%	MDT: -30%
+		{--DT: -29%	PDT: -49%	MDT: -34%
 			ammo="Staunch Tathlum +1",
 			head="Fu. Bandeau +1", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
 			body="Runeist's Coat +2", hands="Turms Mittens +1", lring="Defending Ring", rring="Moonbeam Ring",
@@ -398,7 +398,7 @@ function init_gear_sets()
 		}
 		
 		sets.defense.Parry = set_combine(sets.defense.PDT,
-		{
+		{--DT: -23%	PDT: -48%	MDT: -28%
 			hands="Turms Mittens +1",
  			legs="Eri. Leg Guards +1",
 			back=gear.RUNCape_STP, feet="Turms Leggings"
@@ -406,17 +406,16 @@ function init_gear_sets()
 		
 		
 		sets.defense.MDT = 
-		{
+		{--DT: -29%	PDT: -41%	MDT: -34%
 			ammo="Staunch Tathlum +1",
 			head="Erilaz Galea +1", neck="Futhark Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
 			body="Runeist's Coat +2",hands="Turms Mittens +1", lring="Defending Ring", rring="Moonbeam Ring",
-			back="Moonlight Cape", waist="Carrier's Sash", legs="Eri. Leg Guards +1", feet="Erilaz Greaves +1"
+			back="Moonlight Cape", waist="Carrier's Sash", legs="Eri. Leg Guards +1", feet="Turms Leggings"
 		}
 		
 		sets.defense.MEVA = set_combine(sets.defense.MDT,
 		{
-			neck="Futhark Torque +1", lear="Eabani Earring", rear="Static Earring",
-			feet="Turms Leggings"
+			lear="Eabani Earring", rear="Static Earring",
 		})
 
 	
@@ -616,6 +615,12 @@ function init_gear_sets()
 	--Upheavel
 		sets.precast.WS['Upheavel'] = sets.precast.WS['Resolution']
 	
+		sets.precast.WS['Upheavel'].Low = sets.precast.WS['Resolution'].Low
+		
+		sets.precast.WS['Upheavel'].Mid = sets.precast.WS['Resolution'].Mid
+	
+		sets.precast.WS['Upheavel'].High = sets.precast.WS['Resolution'].High
+	
 	--------------------------------------
 	-- Melee sets
 	--------------------------------------
@@ -662,7 +667,7 @@ function init_gear_sets()
 		sets.engaged.Hybrid =
 		{
 			ammo="Staunch Tathlum +1",
-			head="Dampening Tam", neck="Loricate Torque +1",
+			head="Dampening Tam", neck="Futhark Torque +1",
 			body="Ayanmo Corazza +2", lring="Defending Ring", rring="Moonbeam Ring",
 			back=gear.RUNCape_STP, waist="Flume Belt +1"
 		}
@@ -670,7 +675,7 @@ function init_gear_sets()
 		sets.engaged.Hybrid2 =
 		{
 			ammo="Staunch Tathlum +1",
-			neck="Loricate Torque +1",
+			neck="Futhark Torque +1",
 			body="Runeist's Coat +2", lring="Defending Ring", rring="Moonbeam Ring",
 			back="Moonlight Cape", waist="Flume Belt +1"
 		}
@@ -767,6 +772,9 @@ function job_buff_change(buff,gain)
             handle_equipping_gear(player.status)
         end
     end
+	if buffactive['Embolden'] and player.in_combat ~= true then
+		equip(sets.Buff['Embolden])
+	end
 	
 	if buffactive['Aftermath: Lv.3'] and player.equipment.main == "Epeolatry" then
 		classes.CustomMeleeGroups:append('AM3')
@@ -778,14 +786,6 @@ end
 function job_state_change(stateField, newValue, oldValue)
 	equip(sets[state.WeaponSet.current])
 	equip(sets[state.GripSet.current])
-	
-	if stateField == 'Offense Mode' then
-		if newValue == 'Normal' or newValue == 'Low' or newValue == 'Mid' or newValue == 'High' then
-			disable('main','sub','range')
-		else
-			enable('main','sub','range')
-		end
-	end
 end
 -------------------------------------------------------------------------------------------------------------------
 -- User code that supplements standard library decisions.
@@ -802,7 +802,7 @@ end
 function display_current_job_state(eventArgs)
 	local msg = state.WeaponSet.value .. ' '
 
-	msg = msg .. '[IDLE: ' .. state.IdleMode.value .. ']   '
+	msg = msg .. '[IDLE: ' .. state.IdleMode.value .. ']'
 	
 	if state.CombatForm.has_value then
 		msg = msg .. ' [COMBAT FORM: ' .. state.CombatForm.value .. '|'
