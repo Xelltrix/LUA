@@ -306,7 +306,7 @@ function init_gear_sets()
 			main="Maxentius", sub="Ammurapi Shield",
 			neck="Erra Pendant", 
 			body="Shango Robe",
-			legs="Aya. Cosciales +2", feet="Vitiation Boots +3"
+			feet="Vitiation Boots +3"
 		})
 
 		sets.midcast.Sap = set_combine(sets.midcast['Dark Magic'],
@@ -393,25 +393,13 @@ function init_gear_sets()
 	------------------------------------------------------------------------------------------------
 
 
-		sets.SequenceK =
-		{
-			main="Sequence", sub="Kaja Knife"
-		}
+		sets.SequenceK = { main="Sequence", sub="Kaja Knife" }
 
-		sets.SequenceA =
-		{
-			main="Sequence", sub="Almace"
-		}
+		sets.SequenceA = { main="Sequence", sub="Almace" }
 			
-		sets.KajaT =
-		{
-			main="Kaja Sword", sub="Thibron"
-		}
+		sets.KajaT = { main="Kaja Sword", sub="Thibron" }
 			
-		sets.Almace =
-		{
-			main="Almace", sub="Kaja Knife"
-		}
+		sets.Almace = { main="Almace", sub="Kaja Knife" }
 		
 	
 	------------------------------------------------------------------------------------------------
@@ -480,10 +468,7 @@ function init_gear_sets()
 	-- Special Sets
 	--------------------------------------
 
-		sets.Kiting =
-		{
-			legs="Carmine Cuisses +1"
-		}
+		sets.Kiting = { legs="Carmine Cuisses +1" }
 		
 	
 	---Buffs
@@ -1364,8 +1349,7 @@ function customize_idle_set(idleSet)
     if player.mpp < 51 then
         idleSet = set_combine(idleSet,
 		{
-			body="Jhakri Robe +2",
-			waist="Fucho-no-Obi", legs="Lengo Pants"
+			waist="Fucho-no-Obi"
 		})
     end
 	
