@@ -347,14 +347,16 @@ function init_gear_sets()
 			body="Luhlaza Jubbah +3", hands="Regal Cuffs", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Cornflower Cape", waist="Luminary Sash", legs="Assim. Shalwar +3", feet="Luhlaza Charuqs +3"
 		}
+	
+		sets.midcast['Dream Flower'] = sets.midcast.Debuffs
 
---[[		sets.midcast['Dream Flower'].Alternate =
+		sets.midcast['Dream Flower'].Alternate =
 		{
 			ammo="Staunch Tathlum +1",
 			head="Assim. Keffiyeh +3", neck="Mirage Stole +2", lear="Digni. Earring", rear="Regal Earring",
 			body="Ayanmo Corazza +2", hands="Assim. Bazu. +3", lring="Defending Ring", rring="Gelatinous Ring +1",
 			back=gear.BLUCape_Nuke, waist="Flume Belt +1", legs="Assim. Shalwar +3", feet="Aya. Gambieras +2"
-		}]]
+		}
 
 		sets.midcast.BlueDrain = set_combine(sets.midcast.Debuffs,
 		{
@@ -489,40 +491,19 @@ function init_gear_sets()
 	----------------------------------------- Weapon Sets ------------------------------------------
 	------------------------------------------------------------------------------------------------
 	
-		sets.TizonaT =
-		{
-			main="Tizona", sub="Thibron"
-		}
+		sets.TizonaT = { main="Tizona", sub="Thibron" }
 		
-		sets.TizonaA =
-		{
-			main="Tizona", sub="Almace"
-		}
+		sets.TizonaA = { main="Tizona", sub="Almace" }
 			
-		sets.Almace =
-		{
-			main="Almace", sub="Sequence"
-		}
+		sets.Almace = { main="Almace", sub="Sequence" }
 		
-		sets.SequenceT =
-		{
-			main="Sequence", sub="Thibron"
-		}
+		sets.SequenceT = { main="Sequence", sub="Thibron" }
 			
-		sets.SequenceA =
-		{
-			main="Sequence", sub="Almace"
-		}
+		sets.SequenceA = { main="Sequence", sub="Almace" }
 		
-		sets.MaxentiusT =
-		{
-			main="Maxentius", sub="Thibron"
-		}
+		sets.MaxentiusT = { main="Maxentius", sub="Thibron" }
 		
-		sets.MaxentiusN =
-		{
-			main="Maxentius", sub="Nibiru Cudgel"
-		}
+		sets.MaxentiusN = { main="Maxentius", sub="Nibiru Cudgel" }
 	
 	
 	------------------------------------------------------------------------------------------------
@@ -2086,14 +2067,6 @@ end
 -- Handle notifications of general user state change.
 function job_state_change(stateField, newValue, oldValue)
 	equip(sets[state.WeaponSet.current])
-	
-	if stateField == 'Offense Mode' then
-		if newValue ~= 'None' then
-			disable('main','sub','range')
-		else
-			enable('main','sub','range')
-		end
-	end
 end
 
 function customize_idle_set(idleSet)
