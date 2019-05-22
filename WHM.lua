@@ -75,12 +75,6 @@ function init_gear_sets()
 			waist="Siegel Sash"
 		})
 
-		sets.precast.FC['Enfeebling Magic'] = sets.precast.FC
-
-		sets.precast.FC['Divine Magic'] = sets.precast.FC['Enfeebling Magic']
-
-		sets.precast.FC['Elemental Magic'] = sets.precast.FC['Divine Magic']
-
 		sets.precast.FC['Healing Magic'] = set_combine(sets.precast.FC,
 		{
 			main="Queller Rod",
@@ -100,14 +94,6 @@ function init_gear_sets()
 		})
 
 		sets.precast.FC.Curagas = sets.precast.FC.Cures
-
-		sets.precast.FC.Teleport = sets.precast.FC
-
-		sets.precast.FC.Reraise = sets.precast.FC
-
-		sets.precast.FC.Raise = sets.precast.FC
-
-		sets.precast.FC.Statless = sets.precast.FC
 
 		sets.precast.FC.Impact = set_combine(sets.precast.FC,
 		{
