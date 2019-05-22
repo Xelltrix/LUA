@@ -60,8 +60,8 @@ function user_setup()
 	}
 	
 	send_command('bind ^= gs c cycle treasuremode')
-	send_command('bind @w gs c cycle WeaponSet')
-	send_command('bind @q gs c cycleback WeaponSet')
+	send_command('bind pageup gs c cycle WeaponSet')
+	send_command('bind pagedown gs c cycleback WeaponSet')
 	
 	set_lockstyle()
 
@@ -71,8 +71,8 @@ end
 -- Called when this job file is unloaded (eg: job change)
 function user_unload()
 	send_command('unbind ^=')
-	send_command('unbind @w')
-	send_command('unbind @q')
+	send_command('unbind pageup')
+	send_command('unbind pagedown')
 end
 
 -- Define sets and vars used by this job file.
