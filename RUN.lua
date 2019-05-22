@@ -24,28 +24,22 @@ function user_setup()
 	state.WeaponskillMode:options('None', 'Normal', 'Low', 'Mid', 'High')
     state.HybridMode:options('Normal', 'DT', 'DTMAX')
 	
-	state.PhysicalDefenseMode:options('PDT','Parry')
-	state.MagicalDefenseMode:options('MDT', 'MEVA')
+	state.PhysicalDefenseMode:options('PDT')
+	state.MagicalDefenseMode:options('MDT')
 	
 	state.CastingMode:options('Normal', 'HP', 'SIRD')
 	
     state.IdleMode:options('Normal', 'DT', 'Refresh')
 	
-	state.WeaponSet = M{['description']='Weapon Set',
-		'Epeolatry',
-		'Montante',
-		'Aettir',
-		'Hepatizon'
-	}
+	state.WeaponSet = M{['description']='Weapon Set', 'Epeolatry', 'Montante', 'Aettir', 'Hepatizon'}
 	
-	state.GripSet = M{['description']='GripSet',
-		'Utu',
-		'Kaja',
-		'Irenic',
-	}
+	state.GripSet = M{['description']='Grip Set','Utu','Kaja','Irenic',}
 	
 	send_command('bind pageup gs c cycle WeaponSet')
-	send_command('bind pagedown gs c cycle GripSet')
+	send_command('bind pagedown gs c cycleback WeaponSet')
+	
+	send_command('bind ^pageup gs c cycle GripSet')
+	send_command('bind ^pagedown gs cycleback GripSet')
 
 	select_default_macro_book()
 	
@@ -54,6 +48,9 @@ function user_setup()
 	function user_unload()
 		send_command('unbind pageup')
 		send_command('unbind pagedown')
+		
+		send_command('unbind ^pageup')
+		send_command('unbind ^pagedown')
 	end
 end
 
@@ -397,13 +394,6 @@ function init_gear_sets()
 			back="Moonlight Cape", waist="Flume Belt +1", legs="Eri. Leg Guards +1", feet="Erilaz Greaves +1"
 		}
 		
-		sets.defense.Parry = set_combine(sets.defense.PDT,
-		{--DT: -23%	PDT: -48%	MDT: -28%
-			hands="Turms Mittens +1",
-			back=gear.RUNCape_STP, legs="Eri. Leg Guards +1", feet="Turms Leggings"
-		})
-		
-		
 		sets.defense.MDT = 
 		{--DT: -29%	PDT: -41%	MDT: -34%
 			ammo="Staunch Tathlum +1",
@@ -411,11 +401,6 @@ function init_gear_sets()
 			body="Runeist's Coat +2",hands="Turms Mittens +1", lring="Defending Ring", rring="Moonbeam Ring",
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Eri. Leg Guards +1", feet="Turms Leggings"
 		}
-		
-		sets.defense.MEVA = set_combine(sets.defense.MDT,
-		{
-			lear="Eabani Earring", rear="Static Earring",
-		})
 
 	
 	--------------------------------------
@@ -438,8 +423,7 @@ function init_gear_sets()
 		sets.buff['Battuta'] =
  		{
  			hands="Turms Mittens +1",
- 			legs="Eri. Leg Guards +1",
-			feet="Turms Leggings"
+ 			back=gear.RUNCape_STP, legs="Eri. Leg Guards +1", feet="Turms Leggings"
  		}
 
 	
@@ -752,6 +736,11 @@ function job_buff_change(buff,gain)
     end
 	if buffactive['Embolden'] and player.in_combat ~= true then
 		equip(sets.Buff['Embolden])
+	end
+		
+	if buffactive['Battuta'] and player.in_combat == true then
+		meleeSet = set_combine(meleeSet, sets.Buff['Battuta'])
+		defenseSet = set_combine(defenseSet, sets.Buff['Battuta'])
 	end
 	
 	if buffactive['Aftermath: Lv.3'] and player.equipment.main == "Epeolatry" then
