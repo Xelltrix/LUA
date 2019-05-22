@@ -37,16 +37,16 @@ function user_setup()
 		'Almace',
 	}
 
-	send_command('bind @w gs c cycle WeaponSet')
-	send_command('bind @q gs c cycleback WeaponSet')
+	send_command('bind pageup gs c cycle WeaponSet')
+	send_command('bind pagedown c cycleback WeaponSet')
 
 	select_default_macro_book()
 
 end
 
 function user_unload()
-	send_command('unbind @w')
-	send_command('unbind @q')
+	send_command('unbind pageup')
+	send_command('unbind pagedown')
 end
 
 -- Define sets and vars used by this job file.
@@ -1359,14 +1359,6 @@ end
 -- Handle notifications of general user state change.
 function job_state_change(stateField, newValue, oldValue)
 	equip(sets[state.WeaponSet.current])
-	
-	if stateField == 'Offense Mode' then
-		if newValue == 'None' then
-			enable('main','sub','range')
-		else
-			disable('main','sub','range')
-		end
-	end
 end
 
 function customize_idle_set(idleSet)
@@ -1425,7 +1417,7 @@ end
 -- Function to display the current relevant user state when doing an update.
 -- Return true if display was handled, and you don't want the default info shown.
 function display_current_job_state(eventArgs)
-	local msg = 'Melee'
+	local msg = state.WeaponSet.value .. ' '
 
 	if state.CombatForm.has_value then
 		msg = msg .. ' (' .. state.CombatForm.value .. ')'
