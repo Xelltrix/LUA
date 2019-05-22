@@ -23,14 +23,13 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-	state.OffenseMode:options('None', 'Refresh', 'Normal')
+	state.OffenseMode:options('Normal', 'Refresh',)
 	state.CastingMode:options('Normal', 'Resistant','Potency')
 	state.IdleMode:options('Normal', 'DT')
 
 	select_default_macro_book()
 	
 	set_lockstyle()
-
 end
 
 -- Define sets and vars used by this job file.
@@ -85,28 +84,12 @@ function init_gear_sets()
 			waist="Siegel Sash"
 		})
 
-		sets.precast.Statless = sets.precast.FC['Enhancing Magic']
-
-		sets.precast.FC.Stoneskin = sets.precast.FC['Enhancing Magic']
-		
-		sets.precast.FC.Teleport = sets.precast.FC
-	
-		sets.precast.FC.Klimaform = sets.precast.FC
-
 		sets.precast.FC.Cures = set_combine(sets.precast.FC,
 		{
 			rear="Mendi. Earring",
 		})
 
 		sets.precast.FC.Curaga = sets.precast.FC.Cures
-	
-		sets.precast.FC.Reraise = sets.precast.FC
-
-		sets.precast.FC.Raise = sets.precast.FC
-
-		sets.precast.FC['Enfeebling Magic'] = sets.precast.FC
-
-		sets.precast.FC['Elemental Magic'] = sets.precast.FC
 	
 		sets.precast.FC.Impact = set_combine(sets.precast.FC,
 		{
@@ -178,7 +161,7 @@ function init_gear_sets()
 
 		sets.midcast.Cursna = set_combine(sets.precast.FC,
 		{
-			main="Gada", sub="Sors Shield",
+			main="Gada", sub="Chanter's Shield",
 			head="Kaykaus Mitra", neck="Debilis Medallion", lear="Beatific Earring", rear="Healing Earring",
 			body="Peda. Gown +3", hands="Hieros Mittens", lring="Haoma's Ring", rring="Menelaus's Ring",
 			back="Oretan. Cape +1", waist="Bishop's Sash", legs="Acad. Pants +2", feet="Vanya Clogs"
@@ -321,14 +304,6 @@ function init_gear_sets()
 			hands="Jhakri Cuffs +2",
 			waist="Eschan Stone", legs="Peda. Pants +3", feet="Jhakri Pigaches +2"
 		})
-		
-		sets.midcast['Elemental Magic'].Potency =
-		{
-			main="Maxentius", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
-			head="Peda. M.Board +3", neck="Sanctity Necklace", lear="Regal Earring", rear="Barkaro. Earring",
-			body="Amalric Doublet +1", hands="Amalric Gages +1", lring={name="Shiva Ring +1", bag="wardrobe2"}, rring={name="Shiva Ring +1", bag="wardrobe3"},
-			back=gear.SCHCape_Nuke, waist="Refoccilation Stone", legs="Amalric Slops +1", feet="Amalric Nails +1"
-		}
 
 		sets.midcast.Impact = set_combine(sets.midcast.Macc,
 		{
@@ -348,25 +323,15 @@ function init_gear_sets()
 		{
 			lring="Archon Ring"
 		})
-		
-		sets.midcast.Kaustra.Potency = set_combine(sets.midcast['Elemental Magic'].Potency,
-		{
-			head="Pixie Hairpin +1",
-			lring="Archon Ring"
-		})
-		
+
 		sets.midcast['Noctohelix'] = sets.midcast.Kaustra
 		
 		sets.midcast['Noctohelix'].Resistant = sets.midcast.Kaustra.Resistant
-		
-		sets.midcast['Noctohelix'].Potency = sets.midcast.Kaustra.Potency
 		
 		sets.midcast['Noctohelix II'] = sets.midcast.Kaustra
 		
 		sets.midcast['Noctohelix II'].Resistant = sets.midcast.Kaustra.Resistant
 		
-		sets.midcast['Noctohelix II'].Potency = sets.midcast.Kaustra.Potency
-	
 		---Magic Burst
 		sets.magic_burst = set_combine(sets.midcast['Elemental Magic'],
 		{
