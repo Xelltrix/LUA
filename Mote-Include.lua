@@ -51,8 +51,9 @@ function init_include()
     state.DefenseMode         = M{['description'] = 'Defense Mode', 'None', 'Physical', 'Magical'}
     state.PhysicalDefenseMode = M{['description'] = 'Physical Defense Mode', 'PDT'}
     state.MagicalDefenseMode  = M{['description'] = 'Magical Defense Mode', 'MDT'}
-
-    state.Kiting              = M(false)
+	
+    state.WeaponLock		= M(false)
+    state.Kiting		= M(false)
     state.MagicBurst		= M(false)
     state.SaveMP        	= M(false)
 
@@ -422,6 +423,18 @@ function handle_equipping_gear(playerStatus, petStatus)
     if not eventArgs.handled then
         equip_gear_by_status(playerStatus, petStatus)
     end
+end
+
+
+-- Handle notifications of general user state change.
+function job_state_change(stateField, newValue, oldValue)
+    if state.WeaponLock.value == true then
+        disable('main','sub','ranged')
+    else
+        enable('main','sub','ranged')
+    end
+
+    equip(sets[state.WeaponSet.current])
 end
 
 
