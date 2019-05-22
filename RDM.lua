@@ -25,10 +25,9 @@ end
 function user_setup()
     state.OffenseMode:options('None', 'Normal', 'Low', 'Mid', 'High')
 	state.WeaponskillMode:options('None', 'Normal', 'Low', 'Mid', 'High')
-	state.PhysicalDefenseMode:options('PDT')
     state.HybridMode:options('Normal', 'DT')
     state.CastingMode:options('Normal', 'Resistant', 'Potency')
-    state.IdleMode:options('Normal', 'DT')
+    state.IdleMode:options('Normal', 'DT', 'Refresh')
 	
 	state.WeaponSet = M{['description']='Weapon Set',
 		'SequenceK',
@@ -1380,20 +1379,6 @@ end
 -- Custom spell mapping.
 function job_get_spell_map(spell, default_spell_map)
 	if spell.action_type == 'Magic' then
---[[		if default_spell_map == 'Cures' then
-            if (world.weather_element == 'Light' or world.day_element == 'Light') then
-                return "CuresWeather"
-            else
-                return "Cures"
-            end
-        elseif default_spell_map == 'Curagas' then
-            if (world.weather_element == 'Light' or world.day_element == 'Light') then
-                return "CuragaWeather"
-            else
-                return "Curagas"
-            end
-		end]]
-		
 		if determine_DW() > 0 then
 			if default_spell_map == 'Tempers' then
 				return "TempersDW"
