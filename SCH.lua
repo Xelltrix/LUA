@@ -26,24 +26,12 @@ function user_setup()
 	state.OffenseMode:options('None', 'Refresh', 'Normal')
 	state.CastingMode:options('Normal', 'Resistant','Potency')
 	state.IdleMode:options('Normal', 'DT')
-	state.SaveMP = M(false, 'Save MP')
-	state.MagicBurst = M(false, 'Magic Burst')
-
-	-- Additional local binds
-	send_command('bind !` gs c toggle MagicBurst')
 
 	select_default_macro_book()
 	
 	set_lockstyle()
 
 end
-
--- Called when this job file is unloaded (eg: job change)
-function user_unload()
-	send_command('unbind !`')
-end
-
-
 
 -- Define sets and vars used by this job file.
 function init_gear_sets()
@@ -698,17 +686,6 @@ function job_buff_change(buff, gain)
 		else
 			disable('neck','lring','rring','waist')
 			handle_equipping_gear(player.status)
-		end
-	end
-end
-
--- Handle notifications of general user state change.
-function job_state_change(stateField, newValue, oldValue)
-	if stateField == 'Offense Mode' then
-		if newValue == 'None' then
-			enable('main','sub','range')
-		else
-			disable('main','sub','range')
 		end
 	end
 end
