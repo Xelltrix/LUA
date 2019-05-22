@@ -200,7 +200,7 @@ function init_gear_sets()
 		60% Success Rate																								]]
 		sets.midcast.Cursna = set_combine(sets.precast.FC['Healing Magic'],
 		{
-			main="Yagrush", sub="Ammurapi Shield",
+			main="Yagrush",
 			head="Kaykaus Mitra", neck="Debilis Medallion", lear="Beatific Earring", rear="Healing Earring",
 			body="Ebers Bliaud +1", lring="Haoma's Ring", rring="Menelaus's Ring",
 			waist="Bishop's Sash", legs="Th. Pant. +3", feet="Vanya Clogs"
@@ -212,15 +212,10 @@ function init_gear_sets()
 			legs="Ebers Pant. +1"
 		})
 		
-		sets.midcast.Erase = set_combine(sets.midcast.StatusRemoval,
-		{
-			neck="Cleric's Torque"
-		})
-		
---[[		sets.midcast.Esuna = set_combine(sets.midcast.FC,
+		sets.midcast.Esuna = set_combine(sets.midcast.FC,
 		{
 			main="Piety Wand"
-		})]]
+		})
 
 		sets.midcast['Healing Magic'] = sets.precast.FC
 		
@@ -303,7 +298,7 @@ function init_gear_sets()
 		sets.midcast.Refresh = set_combine(sets.midcast.Duration,
 		{
 			lear="Gwati Earring", rear="Mendi. Earring",
-			ring="Lebeche Ring", rring="Rahab Ring",
+			ring="Lebeche Ring", rring="Rahab Ring"
 		})
 
 		sets.midcast.Statless = sets.midcast.Duration
@@ -396,13 +391,14 @@ function init_gear_sets()
 			main="Bolelabunga", sub="Genmei Shield", ammo="Homiliary",
 			head="Befouled Crown", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 			body="Piety Briault +3", hands="Chironic Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Alaunus's Cape", waist="Lieutenant's Sash", legs="Assid. Pants +1", feet="Chironic Slippers"
+			back="Moonlight Cape", waist="Carrier's Sash", legs="Assid. Pants +1", feet="Chironic Slippers"
 		}
 		
 		sets.idle.DT = set_combine(sets.idle,
 		{
-			head="Inyanga Tiara +2", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Static Earring",
-			lring="Defending Ring", rring="Gelatinous Ring +1"
+			head="Inyanga Tiara +2", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
+			lring="Defending Ring", rring="Gelatinous Ring +1",
+			legs="Inyanga Shalwar +2",
 		})
 
 		sets.idle.Town = set_combine(sets.idle,
@@ -414,8 +410,7 @@ function init_gear_sets()
 		{
 			body="Councilor's Garb"
 		})
-
-		sets.idle.Weak = sets.idle.MDT
+	
 	
 	------------------------------------------------------------------------------------------------
 	--------------------------------------- Defense Sets -------------------------------------------
@@ -436,8 +431,9 @@ function init_gear_sets()
 
 		sets.defense.MDT = set_combine(sets.defense.PDT,
 		{
+			main=gear.Grioavolr_Enf, sub="Irenic Strap +1",
 			neck="Warder's Charm +1",
-			waist="Carrier's Sash"
+			rring="Shukuyu Ring"
 		})
 	
 	
@@ -534,18 +530,6 @@ function job_buff_change(buff,gain)
             handle_equipping_gear(player.status)
         end
     end
-end
-
-
--- Handle notifications of general user state change.
-function job_state_change(stateField, newValue, oldValue)
-	if stateField == 'Offense Mode' then
-		if newValue == 'Normal' then
-			disable('main','sub','range')
-		else
-			enable('main','sub','range')
-		end
-	end
 end
 
 
