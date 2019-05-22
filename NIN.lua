@@ -72,7 +72,7 @@ function init_gear_sets()
 		ammo="Sapience Orb",
 		head=gear.HHead_MAB, neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
 		body="Samnuha Coat", hands="Leyline Gloves", lring="Kishar Ring", rring="Rahab Ring",
-		back="Moonbeam Cape", waist="Witful Belt", legs="Rawhide Trousers", feet="Hattori Kyahan +1"
+		back="Moonlight Cape", waist="Witful Belt", legs="Rawhide Trousers", feet="Hattori Kyahan +1"
 	}
 
 	sets.precast.Utsusemi = set_combine(sets.precast.FC,
@@ -140,7 +140,7 @@ function init_gear_sets()
 		ammo="Staunch Tathlum +1",
 		head="Dampening Tam", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 		body="Hiza. Haramaki +1", hands="Floral Gauntlets", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
-		back="Moonbeam Cape", waist="Flume Belt +1", legs="Herculean Trousers", feet="Herculean Boots"
+		back="Moonlight Cape", waist="Flume Belt +1", legs="Herculean Trousers", feet="Herculean Boots"
 	}
 
 	sets.idle.DT = set_combine (sets.idle,

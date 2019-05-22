@@ -195,7 +195,7 @@ function init_gear_sets()
 			ammo="Staunch Tathlum +1",
 			head="Meghanada Visor +2", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 			body="Meg. Cuirie +2", hands="Meg. Gloves +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
-			back="Moonbeam Cape", waist="Flume Belt +1", legs="Mummu Kecks +2", feet="Jute Boots +1"
+			back="Moonlight Cape", waist="Flume Belt +1", legs="Mummu Kecks +2", feet="Jute Boots +1"
 		}
 
 		sets.idle.DT = set_combine (sets.idle,

@@ -121,7 +121,7 @@ function init_gear_sets()
 			ammo="Sapience Orb",
 			head="Carmine Mask +1", neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
 			body="Pinga Tunic", hands="Leyline Gloves", lring="Kishar Ring", rring="Rahab Ring",
-			back="Moonbeam Cape", waist="Witful Belt", legs="Pinga Pants", feet="Carmine Greaves +1"
+			back="Moonlight Cape", waist="Witful Belt", legs="Pinga Pants", feet="Carmine Greaves +1"
 		}
 		
 		sets.precast.FC.Buffs = sets.precast.FC
@@ -246,7 +246,7 @@ function init_gear_sets()
 			ammo="Psilomene", 
 			head="Luh. Keffiyeh +3", neck="Sanctity Necklace", lear="Odnowa Earring +1", rear="Mendi. Earring",
 			lring="Lebeche Ring", rring="Ilabrat Ring",
-			back="Moonbeam Cape"
+			back="Moonlight Cape"
 		})
 		
 		sets.midcast.StatusRemoval = sets.midcast.FC
@@ -337,7 +337,7 @@ function init_gear_sets()
 			ammo="Mavi Tathlum",
 			head="Luh. Keffiyeh +3", neck="Sanctity Necklace", lear="Etiolation Earring", rear="Odnowa Earring +1",
 			body="Assim. Jubbah +3", hands="Regal Cuffs", lring="Ilabrat Ring", rring="Gelatinous Ring +1",
-			back="Moonbeam Cape", waist="Orpheus's Sash", legs="Assim. Shalwar +3", feet="Assim. Charuqs +3"
+			back="Moonlight Cape", waist="Orpheus's Sash", legs="Assim. Shalwar +3", feet="Assim. Charuqs +3"
 		}
 
 		sets.midcast.Debuffs =
@@ -534,7 +534,7 @@ function init_gear_sets()
 			ammo="Staunch Tathlum +1",
 			head="Rawhide Mask", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 			body="Assim. Jubbah +3", hands="Assim. Bazu. +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Moonbeam Cape", waist="Flume Belt +1", legs="Carmine Cuisses +1", feet=gear.HBoots_Refresh
+			back="Moonlight Cape", waist="Flume Belt +1", legs="Carmine Cuisses +1", feet=gear.HBoots_Refresh
 		}
 
 		sets.idle.DT =
@@ -542,7 +542,7 @@ function init_gear_sets()
 			ammo="Staunch Tathlum +1",
 			head="Rawhide Mask", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
 			body="Assim. Jubbah +3", hands="Assim. Bazu. +3", lring="Defending Ring", rring="Gelatinous Ring +1",
-			back="Moonbeam Cape", waist="Flume Belt +1", legs="Carmine Cuisses +1", feet=gear.HBoots_Refresh
+			back="Moonlight Cape", waist="Flume Belt +1", legs="Carmine Cuisses +1", feet=gear.HBoots_Refresh
 		}
 		
 		sets.idle.Refresh = set_combine(sets.idle,
@@ -577,7 +577,7 @@ function init_gear_sets()
 			ammo="Staunch Tathlum +1",
 			head="Aya. Zucchetto +2", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
 			body="Ayanmo Corazza +2", hands="Assim. Bazu. +3", lring="Defending Ring", rring="Gelatinous Ring +1",
-			back="Moonbeam Cape", waist="Flume Belt +1", legs="Carmine Cuisses +1", feet="Aya. Gambieras +2"
+			back="Moonlight Cape", waist="Flume Belt +1", legs="Carmine Cuisses +1", feet="Aya. Gambieras +2"
 		}
 
 		sets.defense.MDT = set_combine(sets.defense.PDT,
@@ -791,7 +791,7 @@ function init_gear_sets()
 			ammo="Psilomene",
 			head="Luh. Keffiyeh +3", neck="Sanctity Necklace", lear="Odnowa Earring +1", rear="Moonshade Earring",
 			body="Assim. Jubbah +3", hands="Regal Cuffs", lring="Ilabrat Ring", rring="Gelatinous Ring +1",
-			back="Moonbeam Cape", waist="Eschan Stone", legs="Assim. Shalwar +3", feet="Assim. Charuqs +3"
+			back="Moonlight Cape", waist="Eschan Stone", legs="Assim. Shalwar +3", feet="Assim. Charuqs +3"
 		}
 	
 

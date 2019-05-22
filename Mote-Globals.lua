@@ -1,4 +1,4 @@
-	-------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------
 -- Tables and functions for commonly-referenced gear that job files may need, but
 -- doesn't belong in the global Mote-Include file since they'd get clobbered on each
 -- update.
@@ -79,7 +79,7 @@ function define_global_sets()
 	--- Taeon
 	gear.THead_Phalanx = { name="Taeon Chapeau", augments={'Mag. Evasion+5','Spell interruption rate down -10%','Phalanx +3',}}
     gear.TBody_Phalanx = { name="Taeon Tabard", augments={'Mag. Evasion+8','"Fast Cast"+5','Phalanx +3',}}
-    gear.THands_Phalanx = { name="Taeon Gloves", augments={'Mag. Evasion+13','Spell interruption rate down -9%','Phalanx +3',}}
+    gear.THands_Phalanx = { name="Taeon Gloves", augments={'Mag. Evasion+13','Spell interruption rate down -10%','Phalanx +3',}}
     gear.TLegs_Phalanx = { name="Taeon Tights", augments={'Mag. Evasion+20','Spell interruption rate down -10%','Phalanx +3',}}
     gear.TFeet_Phalanx = { name="Taeon Boots", augments={'Mag. Evasion+19','Spell interruption rate down -10%','Phalanx +3',}}
 	
@@ -102,7 +102,6 @@ end
 ^ = Control
 ! = Alt
 @ = Win
-
 https://docs.windower.net/commands/keymapping/#
 ]]--
 
@@ -130,8 +129,6 @@ function global_on_load()
 	send_command('bind numpad* gs c toggle MagicBurst')
 	send_command('bind numpad. gs c toggle SaveMP')
 	send_command('bind numpad- gs c toggle Kiting')
-	
-	
 end
 
 -- Function to revert binds when unloading.

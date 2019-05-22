@@ -410,7 +410,7 @@ function init_gear_sets()
 			main="Akademos", sub="Kaja Grip", ammo="Homiliary",
 			head="Befouled Crown", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 			body="Jhakri Robe +2", hands="Chironic Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Moonbeam Cape", waist="Lieutenant's Sash", legs="Assid. Pants +1", feet="Chironic Slippers"
+			back="Moonlight Cape", waist="Lieutenant's Sash", legs="Assid. Pants +1", feet="Chironic Slippers"
 		}
 
 		sets.idle.DT = set_combine(sets.idle,
@@ -440,7 +440,7 @@ function init_gear_sets()
 			main="Akademos", sub="Kaja Grip", ammo="Staunch Tathlum +1",
 			head="Befouled Crown", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
 			body="Mallquis Saio +2", hands="Chironic Gloves", lring="Defending Ring", rring="Gelatinous Ring +1",
-			back="Moonbeam Cape", waist="Lieutenant's Sash", legs="Artsieq Hose", feet="Chironic Slippers"
+			back="Moonlight Cape", waist="Lieutenant's Sash", legs="Artsieq Hose", feet="Chironic Slippers"
 		}
 
 		sets.defense.MDT =
@@ -448,7 +448,7 @@ function init_gear_sets()
 			main="Akademos", sub="Irenic Strap +1", ammo="Staunch Tathlum +1",
 			head="Chironic Hat", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Static Earring",
 			body="Peda. Gown +3", hands="Peda. Bracers +3", lring="Defending Ring", rring="Shukuyu Ring",
-			back="Moonbeam Cape", waist="Lieutenant's Sash", legs="Peda. Pants +3", feet="Amalric Nails +1"
+			back="Moonlight Cape", waist="Lieutenant's Sash", legs="Peda. Pants +3", feet="Amalric Nails +1"
 		}
 
 		sets.Kiting =

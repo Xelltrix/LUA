@@ -128,7 +128,7 @@ function init_gear_sets()
 			range="Compensator",
 			head="Lanun Tricorne", neck="Regal Necklace", lear="Etiolation Earring",
 			body="Meg. Cuirie +2", hands="Chasseur's Gants +1", lring="Defending Ring", rring="Moonbeam Ring",
-			back="Moonbeam Cape", waist="Flume Belt +1", legs="Desultor Tassets", feet="Lanun Bottes +1"
+			back="Moonlight Cape", waist="Flume Belt +1", legs="Desultor Tassets", feet="Lanun Bottes +1"
 		}
 		
 		sets.precast.CorsairRoll["Blitzer's Roll"] = set_combine(sets.precast.CorsairRoll, 
@@ -185,7 +185,7 @@ function init_gear_sets()
 		{
 			head="Carmine Mask +1", neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
 			body="Samnuha Coat", hands="Leyline Gloves", lring="Kishar Ring", rring="Prolix Ring",
-			back="Moonbeam Cape", waist="Flume Belt +1", legs="Carmine Cuisses +1", feet="Carmine Greaves +1"
+			back="Moonlight Cape", waist="Flume Belt +1", legs="Carmine Cuisses +1", feet="Carmine Greaves +1"
 		}
 		
 		sets.precast.FC.Utsusemi = set_combine(sets.precast.FC,
@@ -232,7 +232,7 @@ function init_gear_sets()
 			ranged="Fomalhaut", ammo="Chrono Bullet",
 			head="Meghanada Visor +2", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 			body="Meg. Cuirie +2", hands="Meg. Gloves +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
-			back="Moonbeam Cape", waist="Flume Belt +1", legs="Carmine Cuisses +1", feet="Lanun Bottes +1"
+			back="Moonlight Cape", waist="Flume Belt +1", legs="Carmine Cuisses +1", feet="Lanun Bottes +1"
 		}
 
 		sets.idle.DT = set_combine (sets.idle,

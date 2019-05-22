@@ -284,7 +284,7 @@ spell_maps = {
 	['Cocoon']='Buffs',['Refueling']='Buffs',['Feather Barrier']='Buffs',['Memento Mori']='Buffs',['Zephyr Mantle']='Buffs',['Warm-Up']='Buffs',['Amplification']='Buffs',
 	['Regeneration']='Buffs',['Saline Coat']='Buffs',['Reactor Cool']='Buffs',['Plasma Charge']='Buffs',['Animating Wail']='Buffs',['Magic Barrier']='Buffs',
 	['Barrier Tusk']='Buffs',['O. Counterstance']='Buffs',['Harden Shell']='Buffs',['Pyric Bulwark']='Buffs',['Nat. Meditation']='Buffs',['Carcharian Verve']='Buffs',
-	['Erratic Flutter']='Buffs',['Mighty Guard']='Buffs',['Triumphant Roar']='Buffs'
+	['Erratic Flutter']='Buffs',['Mighty Guard']='Buffs',['Triumphant Roar']='Buffs',
 	--- Skill-Based
 	['Metallic Body']='BlueSkill',['Diamondhide']='BlueSkill',['Magic Barrier']='BlueSkill',['Occultation']='BlueSkill',
 	--- Additional Effects
@@ -323,7 +323,7 @@ spell_maps = {
 	['Sandspray']='Debuffs', ['Auroral Drape']='Debuffs',['Frightful Roar']='Debuffs',['Enervation']='Debuffs',['Infrasonics']='Debuffs',['Lowing']='Debuffs',
 	['Cold Wave']='Debuffs',['Awful Eye']='Debuffs',['Sheep Song']='Debuffs',['Soporific']='Debuffs',['Yawn']='Debuffs',['Dream Flower']='Debuffs',['Chaotic Eye']='Debuffs',
 	['Sound Blast']='Debuffs',['Blank Gaze']='Debuffs',['Stinking Gas']='Debuffs',['Geist Wall']='Debuffs',['Jettatura']='Debuffs',['Feather Tickle']='Debuffs',
-	['Temporal Shift']='Debuffs',['Reaving Wind']='Debuffs',['Mortal Ray']='Debuffs',['Absolute Terror']='Debuffs',['Blistering Roar']='Debuffs',['Voracious Trunk']='Debuffs',
+	['Temporal Shift']='Debuffs',['Reaving Wind']='Debuffs',['Mortal Ray']='Debuffs',['Absolute Terror']='Debuffs',['Blistering Roar']='Debuffs',['Voracious Trunk']='Debuffs'
 }
 
 -------------------------------------------------------------------------------------------------------------------

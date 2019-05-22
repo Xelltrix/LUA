@@ -80,7 +80,7 @@ function init_gear_sets()
 		{--Enmity + 61
 			rear="Odnowa Earring +1",
 			rring="Moonbeam Ring",
-			back="Moonbeam Cape"
+			back="Moonlight Cape"
 		})
 		
 	-------------------
@@ -144,7 +144,7 @@ function init_gear_sets()
 			ammo="Staunch Tathlum +1",	
 			head="Erilaz Galea +1", neck="Incanter's Torque", lear="Beatific Earring", rear="Odnowa Earring +1",
 			body="Runeist's Coat +2", hands="Turms Mittens +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Moonbeam Cape", waist="Bishop's Sash", legs="Rune. Trousers +1", feet="Erilaz Greaves +1"
+			back="Moonlight Cape", waist="Bishop's Sash", legs="Rune. Trousers +1", feet="Erilaz Greaves +1"
 		}
 
 		sets.precast.JA['Elemental Sforzo'] =
@@ -175,7 +175,7 @@ function init_gear_sets()
 		{--Fast Cast + 53%
 			rear="Odnowa Earring +1",
 			lring="Eihwaz Ring", rring="Moonbeam Ring",
-			back="Moonbeam Cape",
+			back="Moonlight Cape",
 		})
 
 		sets.precast.FC['Utsusemi'] = 
@@ -243,7 +243,7 @@ function init_gear_sets()
 			ammo="Staunch Tathlum +1",
 			head="Fu. Bandeau +1", neck="Incanter's Torque", lear="Andoaa Earring", rear="Odnowa Earring +1",
 			body=gear.TBody_Phalanx, hands=gear.THands_Phalanx, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Moonbeam Ring",
-			back="Moonbeam Cape", waist="Olympus Sash", legs=gear.TLegs_Phalanx, feet=gear.TFeet_Phalanx
+			back="Moonlight Cape", waist="Olympus Sash", legs=gear.TLegs_Phalanx, feet=gear.TFeet_Phalanx
 		}
 
 		sets.midcast.Temper = 
@@ -259,7 +259,7 @@ function init_gear_sets()
 			ammo="Staunch Tathlum +1",
 			head="Carmine Mask +1", neck="Incanter's Torque", lear="Andoaa Earring", rear="Augment. Earring",
 			body="Futhark Coat +1", hands="Runeist Mitons +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Moonbeam Cape", waist="Olympus Sash", legs="Carmine Cuisses +1", feet="Runeist Bottes +1"
+			back="Moonlight Cape", waist="Olympus Sash", legs="Carmine Cuisses +1", feet="Runeist Bottes +1"
 		}
 
 		sets.midcast.BarStatus = sets.midcast.Duration
@@ -309,7 +309,7 @@ function init_gear_sets()
 		{
 			head="Erilaz Galea +1", lear="Mendi. Earring", rear="Odnowa Earring +1",
 			hands="Runeist Mitons +1", lring="Eihwaz Ring", rring="Moonbeam Ring",
-			back="Moonbeam Cape", waist="Gishdubar Sash", legs="Futhark Trousers +1", feet="Erilaz Greaves +1"
+			back="Moonlight Cape", waist="Gishdubar Sash", legs="Futhark Trousers +1", feet="Erilaz Greaves +1"
 		})
 		
 		sets.midcast['Elemental Magic'] = sets.precast.JA['Swipe']
@@ -352,7 +352,7 @@ function init_gear_sets()
 			ammo="Homiliary",
 			head="Erilaz Galea +1", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 			body="Runeist's Coat +2", hands="Turms Mittens +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Moonbeam Cape", waist="Flume Belt +1", legs="Carmine Cuisses +1", feet="Turms Leggings"
+			back="Moonlight Cape", waist="Flume Belt +1", legs="Carmine Cuisses +1", feet="Turms Leggings"
 		}
 
 		sets.idle.DT = 
@@ -360,7 +360,7 @@ function init_gear_sets()
 			ammo="Staunch Tathlum +1",
 			head="Fu. Bandeau +1", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
 			body="Runeist's Coat +2", hands="Turms Mittens +1", lring="Defending Ring", rring="Moonbeam Ring",
-			back="Moonbeam Cape", waist="Flume Belt +1", legs="Eri. Leg Guards +1", feet="Erilaz Greaves +1"
+			back="Moonlight Cape", waist="Flume Belt +1", legs="Eri. Leg Guards +1", feet="Erilaz Greaves +1"
 		}
 		
 		sets.idle.Refresh =
@@ -368,7 +368,7 @@ function init_gear_sets()
 			ammo="Homiliary",
 			head="Rawhide Mask", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 			body="Runeist's Coat +2", hands="Turms Mittens +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Moonbeam Cape", waist="Flume Belt +1", legs="Rawhide Trousers", feet=gear.HBoots_Refresh
+			back="Moonlight Cape", waist="Flume Belt +1", legs="Rawhide Trousers", feet=gear.HBoots_Refresh
 		}
 
 		sets.idle.Town = set_combine(sets.idle,
@@ -394,7 +394,7 @@ function init_gear_sets()
 			ammo="Staunch Tathlum +1",
 			head="Fu. Bandeau +1", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
 			body="Runeist's Coat +2", hands="Turms Mittens +1", lring="Defending Ring", rring="Moonbeam Ring",
-			back="Moonbeam Cape", waist="Flume Belt +1", legs="Eri. Leg Guards +1", feet="Erilaz Greaves +1"
+			back="Moonlight Cape", waist="Flume Belt +1", legs="Eri. Leg Guards +1", feet="Erilaz Greaves +1"
 		}
 		
 		sets.defense.Parry = set_combine(sets.defense.PDT,
@@ -410,7 +410,7 @@ function init_gear_sets()
 			ammo="Staunch Tathlum +1",
 			head="Erilaz Galea +1", neck="Futhark Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
 			body="Runeist's Coat +2",hands="Turms Mittens +1", lring="Defending Ring", rring="Moonbeam Ring",
-			back="Moonbeam Cape", waist="Carrier's Sash", legs="Eri. Leg Guards +1", feet="Erilaz Greaves +1"
+			back="Moonlight Cape", waist="Carrier's Sash", legs="Eri. Leg Guards +1", feet="Erilaz Greaves +1"
 		}
 		
 		sets.defense.MEVA = set_combine(sets.defense.MDT,
@@ -672,7 +672,7 @@ function init_gear_sets()
 			ammo="Staunch Tathlum +1",
 			neck="Loricate Torque +1",
 			body="Runeist's Coat +2", lring="Defending Ring", rring="Moonbeam Ring",
-			back="Moonbeam Cape", waist="Flume Belt +1"
+			back="Moonlight Cape", waist="Flume Belt +1"
 		}
 		
 	---Hybrid Combat
@@ -751,6 +751,7 @@ end
 
 function job_aftercast(spell,action, spellMap, eventArgs)
 	equip(sets[state.WeaponSet.current])
+	equip(sets[state.GripSet.current])
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -776,6 +777,7 @@ end
 -- Handle notifications of general user state change.
 function job_state_change(stateField, newValue, oldValue)
 	equip(sets[state.WeaponSet.current])
+	equip(sets[state.GripSet.current])
 	
 	if stateField == 'Offense Mode' then
 		if newValue == 'Normal' or newValue == 'Low' or newValue == 'Mid' or newValue == 'High' then
@@ -792,12 +794,13 @@ end
 -- Called by the 'update' self-command.
 function job_update(cmdParams, eventArgs)
 	equip(sets[state.WeaponSet.current])
+	equip(sets[state.GripSet.current])
 end
 
 -- Function to display the current relevant user state when doing an update.
 -- Return true if display was handled, and you don't want the default info shown.
 function display_current_job_state(eventArgs)
-	local msg = 'Rune Fencer  '
+	local msg = state.WeaponSet.value .. ' '
 
 	msg = msg .. '[IDLE: ' .. state.IdleMode.value .. ']   '
 	

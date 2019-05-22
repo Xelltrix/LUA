@@ -226,7 +226,7 @@ function init_gear_sets()
 			ammo="Staunch Tathlum +1",
 			head="Sulevia's Mask +2", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
 			body="Sulevia's Plate. +1", hands="Sulev. Gauntlets +2", lring="Defending Ring", rring="Moonbeam Ring",
-			back="Moonbeam Cape", waist="Flume Belt +1", legs="Sulev. Cuisses +2", feet="Sulev. Leggings +2"
+			back="Moonlight Cape", waist="Flume Belt +1", legs="Sulev. Cuisses +2", feet="Sulev. Leggings +2"
 		}
 
 		sets.defense.MDT = 
@@ -234,7 +234,7 @@ function init_gear_sets()
 			ammo="Staunch Tathlum +1",
 			head="Sulevia's Mask +2", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
 			body="Sulevia's Plate. +1", hands="Sulev. Gauntlets +2", lring="Defending Ring", rring="Moonbeam Ring",
-			back="Moonbeam Cape", waist="Flume Belt +1", legs="Sulev. Cuisses +2", feet="Sulev. Leggings +2"
+			back="Moonlight Cape", waist="Flume Belt +1", legs="Sulev. Cuisses +2", feet="Sulev. Leggings +2"
 		}
 
 	--------------------------------------
