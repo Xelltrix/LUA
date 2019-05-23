@@ -123,7 +123,8 @@ function init_include()
     sets.engaged = {}
     sets.defense = {}
     sets.buff = {}
-
+	sets.perp = {}
+	
     gear = {}
     gear.default = {}
 
