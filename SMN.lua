@@ -87,15 +87,25 @@ function job_setup()
 	blood_pacts.bp_MagicalTP =
 	S{
 		'Meteorite',
-		'Blizard II','Blizzard IV','Heavenly Strike',
-		'Aero II','Aero IV','Wind Blade',
-		'Stone II','Stone IV','Geocrush',
-		'Thunder II','Thunderspark','Thunder IV','Thunderstorm',
-		'Water II','Water IV','Grand Fall',
-		'Fire II','Fire IV','Meteor Strike','Conflag Strike',
+		'Blizard II','Blizzard IV',
+		'Aero II','Aero IV',
+		'Stone II','Stone IV',
+		'Thunder II','Thunderspark','Thunder IV',
+		'Water II','Water IV',
+		'Fire II','Fire IV','Conflag Strike',
 		'Level ? Holy',
 		'Lunar Bay', 'Impact',
 		'Zantetsuken'
+	}
+	
+	blood_pacts.bp_Merit =
+	S{
+		'Heavenly Strike',
+		'Wind Blade',
+		'Geocrush',
+		'Thunderstorm',
+		'Grand Fall',
+		'Meteor Strike',
 	}
 
 	blood_pacts.bp_Hybrid =
@@ -238,7 +248,7 @@ function init_gear_sets()
 			ammo="Sancus Sachet +1",
 			head="Apogee Crown +1", neck="Smn. Collar +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
 			body="Apo. Dalmatica +1", hands="Asteria Mitts +1",
-			back=gear.SMNCape_Mag, waist="Regal Belt", legs=gear.ASlacks_MAB, feet="Apogee Pumps +1"
+			back=gear.SMNCape_Mag, waist="Regal Belt", legs="Enticer's Pants", feet="Apogee Pumps +1"
 		})
 
 		sets.midcast.Pet.bp_Debuffs = set_combine(sets.midcast.bp_Buffs,
@@ -276,6 +286,8 @@ function init_gear_sets()
 		{
 			legs="Enticer's Pants"
 		})
+	
+		sets.midcast.Pet.bp_Merit = sets.midcast.Pet.bp_MagicalTP
 
 		sets.midcast.Pet.bp_Hybrid = set_combine(sets.midcast.Pet.bp_Magical,
 		{
@@ -655,10 +667,6 @@ function job_precast(spell, action, spellMap, eventArgs)
 end
 
 function job_midcast(spell, action, spellMap, eventArgs)
-	if state.LagMode == true and pet_midaction() then
-		send_commad('wait 0.5)
-		function job_get_spell_map(spell, default_spell_map)
-	end
     if state.Buff['Astral Conduit'] and pet_midaction() then
         eventArgs.handled = true
     end
@@ -715,16 +723,29 @@ function job_pet_status_change(newStatus, oldStatus, eventArgs)
     end
 end
 
+--Determine Pet TP total for Blood Pacts.
+function determine_petTP()
+	local rank = 0
+	local totalTP = 0
+	
+	rank = player.merits.spell.english
+	
+	totalTP = pet.tp + (rank * 400)
+			
+	return totalTP
+end
 
+--Equips the appropriate gear for Blood Pacts
 function job_get_spell_map(spell, default_spell_map)
     if (spell.type == 'BloodPactRage' or spell.type == 'BloodPactWard') then
         for category,spell_list in pairs(blood_pacts) do
             if spell_list:contains(spell.english) then
-                return category
+		return category
             end
         end
     end
 end
+
 -- Called when a player gains or loses a pet.
 -- pet == pet structure
 -- gain == true if the pet was gained, false if it was lost.
