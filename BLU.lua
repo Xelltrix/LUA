@@ -564,7 +564,7 @@ function init_gear_sets()
 		{
 			head="Amalric Coif +1", rear="Static Earring",
 			hands="Assim. Bazu. +3", rring="Shukuyu Ring",
-			back="Reiki Cloak", waist="Lieutenant's Sash", legs="Aya. Cosciales +2", feet="Amalric Nails +1"
+			back="Reiki Cloak", waist="Carrier's Sash", legs="Aya. Cosciales +2", feet="Amalric Nails +1"
 		})
 		
 		sets.defense.MEVA = set_combine(sets.defense.MDT,
@@ -2270,6 +2270,5 @@ end
 
 
 function set_lockstyle()
-    send_command('cancel input')
-	send_command('wait 3; input /lockstyleset ' .. lockstyleset)
+	send_command('input /lockstyleset ' .. lockstyleset)
 end

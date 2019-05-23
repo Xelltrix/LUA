@@ -433,8 +433,6 @@ function job_state_change(stateField, newValue, oldValue)
     else
         enable('main','sub','ranged')
     end
-
-    equip(sets[state.WeaponSet.current])
 end
 
 

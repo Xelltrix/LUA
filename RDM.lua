@@ -37,7 +37,7 @@ function user_setup()
 	}
 
 	send_command('bind pageup gs c cycle WeaponSet')
-	send_command('bind pagedown c cycleback WeaponSet')
+	send_command('bind pagedown gs c cycleback WeaponSet')
 
 	select_default_macro_book()
 
@@ -86,8 +86,8 @@ function init_gear_sets()
 		{
 			ammo="Sapience Orb",
 			head=empty, neck="Orunmila's Torque", neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquacious Earring",
-			body="Twilight Cloak", hands="Leyline Gloves", lring="Kishar Ring", rring="Evanescence Ring", 
-			back="Swith Cape +1", waist="Witful Belt", legs="Lengo Pants", feet="Carmine Greaves +1"
+			body="Twilight Cloak", hands="Leyline Gloves", lring="Kishar Ring", rring="Rahab Ring", 
+			back=gear.RDMCape_DW, waist="Witful Belt", legs="Lengo Pants", feet="Carmine Greaves +1"
 		}
 
 
@@ -461,7 +461,7 @@ function init_gear_sets()
 			main="Mafic Cudgel", sub="Genmei Shield", ammo="Staunch Tathlum +1",
 			head="Viti. Chapeau +3", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Static Earring",
 			body="Viti. Tabard +3", hands="Aya. Manopolas +2", lring="Defending Ring", rring="Shukuyu Ring",
-			back="Reiki Cloak", waist="Lieutenant's Sash", legs="Viti. Tights +3", feet="Vitiation Boots +3"
+			back="Reiki Cloak", waist="Carrier's Sash", legs="Viti. Tights +3", feet="Vitiation Boots +3"
 		}
 	
 	--------------------------------------

@@ -16,6 +16,7 @@ function job_setup()
 
 	customize_idle_set()
 	
+	lockstyleset = 2
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -27,6 +28,8 @@ function user_setup()
 	state.OffenseMode:options('None', 'Normal', 'Refresh')
 	state.CastingMode:options('Normal', 'Resistant','Potency')
 	state.IdleMode:options('Normal', 'DT', 'DeathMode')
+
+	set_lockstyle()
 
 	select_default_macro_book()
 end
@@ -116,7 +119,7 @@ function init_gear_sets()
 		{
 			main="Gada", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head="Vanya Hood", neck="Incanter's Torque", lear="Mendi. Earring", rear="Gwati Earring",
-			body="Vanya Robe", hands=gear.ENH_Gloves, lring="Kishar Ring", rring="Rahab Ring",
+			body="Amalric Doublet +1", hands=gear.ENH_Gloves, lring="Kishar Ring", rring="Rahab Ring",
 			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Lengo Pants", feet=gear.NukeCrackows
 		}
 
@@ -322,7 +325,7 @@ function init_gear_sets()
 			main="Lathi", sub="Kaja Grip", ammo="Staunch Tathlum +1",
 			head="Befouled Crown", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 			body="Amalric Doublet +1", hands="Amalric Gages +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Moonlight Cape", waist="Lieutenant's Sash", legs="Assid. Pants +1", feet="Amalric Nails +1"
+			back="Moonlight Cape", waist="Carrier's Sash", legs="Assid. Pants +1", feet="Amalric Nails +1"
 		}
 
 		sets.idle.DT = set_combine(sets.idle,
@@ -367,7 +370,7 @@ function init_gear_sets()
 			sub="Kaja Grip", ammo="Staunch Tathlum +1",
 			head="Vanya Hood", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
 			body="Mallquis Saio +2", hands="Amalric Gages +1", lring="Defending Ring", rring="Gelatinous Ring +1",
-			back="Moonlight Cape", waist="Lieutenant's Sash", legs="Artsieq Hose", feet="Wicce Sabots +1"
+			back="Moonlight Cape", waist="Carrier's Sash", legs="Artsieq Hose", feet="Wicce Sabots +1"
 		}
 
 		sets.defense.MDT = 
@@ -375,7 +378,7 @@ function init_gear_sets()
 			main="Lathi", sub="Irenic Strap +1", ammo="Staunch Tathlum +1",
 			head="Vanya Hood", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
 			body="Mallquis Saio +2", hands="Amalric Gages +1", lring="Defending Ring", rring="Shukuyu Ring",
-			back="Moonlight Cape", waist="Lieutenant's Sash", legs="Amalric Slops +1", feet="Amalric Nails +1"
+			back="Moonlight Cape", waist="Carrier's Sash", legs="Amalric Slops +1", feet="Amalric Nails +1"
 		}
 
 	--------------------------------------
@@ -445,7 +448,7 @@ function init_gear_sets()
 			main="Lathi", sub="Kaja Grip", ammo="Staunch Tathlum +1",
 			head="Befouled Crown", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 			body="Jhakri Robe +2", hands="Amalric Gages +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Moonlight Cape", waist="Lieutenant's Sash", legs="Assid. Pants +1", feet="Amalric Nails +1"
+			back="Moonlight Cape", waist="Carrier's Sash", legs="Assid. Pants +1", feet="Amalric Nails +1"
 		}
 
 end
@@ -605,4 +608,8 @@ end
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
 	set_macro_page(1, 3)
+end
+
+function set_lockstyle()
+	send_command('input /lockstyleset ' .. lockstyleset)
 end

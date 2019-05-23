@@ -39,7 +39,7 @@ function user_setup()
 	send_command('bind pagedown gs c cycleback WeaponSet')
 	
 	send_command('bind ^pageup gs c cycle GripSet')
-	send_command('bind ^pagedown gs cycleback GripSet')
+	send_command('bind ^pagedown gs c cycleback GripSet')
 
 	select_default_macro_book()
 	
@@ -692,6 +692,8 @@ end
 function job_midcast(spell, action, spellMap, eventArgs)
     currentSpell = spell.english
 	
+	apply_abilities(spell, action, spellMap, eventArgs)
+	
 	if spell.action_type == 'Magic' then
 		if state.CastingMode.value == 'HP' then
 			if spell.English == 'Flash' or spell.English == 'Foil' or spell.English == 'Stun' or spellMap == 'Debuffs' then
@@ -735,12 +737,12 @@ function job_buff_change(buff,gain)
         end
     end
 	if buffactive['Embolden'] and player.in_combat ~= true then
-		equip(sets.Buff['Embolden])
+		equip(sets.buff['Embolden'])
 	end
 		
 	if buffactive['Battuta'] and player.in_combat == true then
-		meleeSet = set_combine(meleeSet, sets.Buff['Battuta'])
-		defenseSet = set_combine(defenseSet, sets.Buff['Battuta'])
+		meleeSet = set_combine(meleeSet, sets.buff['Battuta'])
+		defenseSet = set_combine(defenseSet, sets.buff['Battuta'])
 	end
 	
 	if buffactive['Aftermath: Lv.3'] and player.equipment.main == "Epeolatry" then
@@ -748,7 +750,6 @@ function job_buff_change(buff,gain)
 		handle_equipping_gear(player.status)
 	end
 end
-
 -- Handle notifications of general user state change.
 function job_state_change(stateField, newValue, oldValue)
 	equip(sets[state.WeaponSet.current])
@@ -757,13 +758,13 @@ end
 -------------------------------------------------------------------------------------------------------------------
 -- User code that supplements standard library decisions.
 -------------------------------------------------------------------------------------------------------------------
-
 -- Called by the 'update' self-command.
 function job_update(cmdParams, eventArgs)
+	update_active_abilities()
+
 	equip(sets[state.WeaponSet.current])
 	equip(sets[state.GripSet.current])
 end
-
 -- Function to display the current relevant user state when doing an update.
 -- Return true if display was handled, and you don't want the default info shown.
 function display_current_job_state(eventArgs)
@@ -807,8 +808,8 @@ function update_active_abilities()
 	state.Buff['Battuta'] = buffactive['Battuta'] or false
 end
 
-function apply_ability_bonuses(spell, action, spellMap)
-	if state.Buff['Embolden'] and spell.skill == 'Enhancing Magic' then
+function apply_abilities(spell, action, spellMap)
+	if buffactive['Embolden'] and spell.skill == 'Enhancing Magic' then
 		equip(sets.buff['Embolden'])
 	end
 end
@@ -826,5 +827,5 @@ function select_default_macro_book()
 end
 
 function set_lockstyle()
-    send_command('wait 3; input /lockstyleset ' .. lockstyleset)
+    send_command('input /lockstyleset ' .. lockstyleset)
 end

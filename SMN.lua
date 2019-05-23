@@ -15,16 +15,13 @@ function job_setup()
     state.Buff["Avatar's Favor"] = buffactive["Avatar's Favor"] or false
     state.Buff["Astral Conduit"] = buffactive["Astral Conduit"] or false
 
-	spirits = S{"LightSpirit", "DarkSpirit", "FireSpirit", "EarthSpirit", "WaterSpirit", "AirSpirit", "IceSpirit", "ThunderSpirit"}
-    avatars = S{"Carbuncle", "Fenrir", "Diabolos", "Ifrit", "Titan", "Leviathan", "Garuda", "Shiva", "Ramuh", "Odin", "Alexander", "Cait Sith", "Atomos"}
-
 	blood_pacts = {}
 
 	blood_pacts.bp_Heals =
 	S{
 		'Healing Ruby','Healing Ruby II',
 		'Whispering Wind',
-		'Spring Water',
+		'Spring Water'
 	}
 	
 	blood_pacts.bp_Buffs =
@@ -101,7 +98,6 @@ end
 function user_setup()
     state.OffenseMode:options('Normal', 'Avatar')
     state.IdleMode:options('Normal', 'DT', 'Favor')
-	state.PhysicalDefenseMode:options('PDT')
 
     select_default_macro_book()
 	
@@ -394,7 +390,6 @@ function init_gear_sets()
 			body="Shango Robe", 
 		})
 
-
 		sets.midcast.Sap = set_combine(sets.midcast['Dark Magic'],
 		{
 			head="Pixie Hairpin +1",
@@ -410,7 +405,7 @@ function init_gear_sets()
 			back="Grapevine Cape", waist="Eschan Stone", legs="Amalric Slops +1", feet="Amalric Nails +1"
 		}
 
-		sets.midcast['Elemental Magic'].Impact = set_combine(sets.midcast.Macc,
+		sets.midcast.Impact = set_combine(sets.midcast.Macc,
 		{
 			head=empty,
 			body="Twilight Cloak", lring="Archon Ring", 
@@ -454,8 +449,6 @@ function init_gear_sets()
         lring="Defending Ring", rring="Gelatinous Ring +1",
 		waist="Regal Belt"
 	})
-	
-	sets.idle.DPS = set_combine(sets.idle)
 	
 	sets.idle.Favor = set_combine(sets.idle)
 
@@ -554,7 +547,7 @@ function init_gear_sets()
 			feet="Baayami Sabots"
 		}
 
-		sets.perp.CaitSith =
+		sets.perp['Cait Sith'] =
 		{
 			hands="Lamassu Mitts +1",
 			feet="Baayami Sabots"
@@ -732,27 +725,7 @@ end
 -------------------------------------------------------------------------------------------------------------------
 -- User code that supplements standard library decisions.
 -------------------------------------------------------------------------------------------------------------------
---[[
-function pet_midcast(spell)
-	if (spell.type == 'BloodPactRage' or spell.type == 'BloodPactWard') then
-		if bp_Heals:contains(spell.name) then
-			equip(sets.midcast.Pet.Heals)
-		elseif bp_Buffs:contains(spell.name) then
-			equip(sets.midcast.Pet.Buffs)
-		elseif bp_Debuffs:contains(spell.name) then
-			equip(sets.midcast.Pet.Debuffs)
-		elseif bp_Physical:contains(spell.name) then
-			equip(sets.midcast.Pet.Physical)
-		elseif bp_Magical:contains(spell.name) then
-			equip(sets.midcast.Pet.Magical)
-		elseif bp_Merit:contains(spell.name) then
-			equip(sets.midcast.Pet.Merit)
-		elseif bp_Hybrid:contains(spell.name) then
-			equip(sets.midcast.Pet.Hybrid)
-		end
-	end
-end
-]]
+
 -- Modify the default idle set after it was constructed.
 function customize_idle_set(idleSet)
     if pet.isvalid then
@@ -795,5 +768,5 @@ function select_default_macro_book(reset)
 end
 
 function set_lockstyle()
-    send_command('wait 3; input /lockstyleset ' .. lockstyleset)
+    send_command('input /lockstyleset ' .. lockstyleset)
 end

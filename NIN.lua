@@ -171,7 +171,7 @@ function init_gear_sets()
 	sets.defense.MDT = set_combine(sets.defense.PDT,
 	{
 		lear="Etiolation Earring", rear="Odnowa Earring +1",
-		waist="Lieutenant's Sash"
+		waist="Carrier's Sash"
 	})
 	
 		sets.buff.Doom = 

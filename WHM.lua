@@ -27,7 +27,7 @@ end
 function user_setup()
 	state.OffenseMode:options('None', 'Normal')
 	state.CastingMode:options('Normal', 'Resistant')
-	state.IdleMode:options('Normal', 'DT')
+	state.IdleMode:options('Normal', 'DT', 'MEVA')
 
 	select_default_macro_book()
 	
@@ -386,6 +386,14 @@ function init_gear_sets()
 			lring="Defending Ring", rring="Gelatinous Ring +1",
 			legs="Inyanga Shalwar +2",
 		})
+		
+		sets.idle.MEVA = set_combine(sets.idle,
+		{
+			ammo="Staunch Tathlum +1",
+			head="Inyanga Tiara +2", neck="Warder's Charm +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
+			body="Inyanga Jubbah +2", hands="Inyan. Dastanas +2",
+			legs="Inyanga Shalwar +2", feet="Inyan. Crackows +2"
+		})
 
 		sets.idle.Town = set_combine(sets.idle,
 		{
@@ -579,5 +587,5 @@ function select_default_macro_book()
 end
 
 function set_lockstyle()
-    send_command('wait 3; input /lockstyleset ' .. lockstyleset)
+    send_command('input /lockstyleset ' .. lockstyleset)
 end

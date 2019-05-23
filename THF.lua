@@ -225,7 +225,7 @@ function init_gear_sets()
 		sets.defense.MDT = set_combine(sets.PDT,
 		{
 			hands="Leyline Gloves",
-			waist="Lieutenant's Sash"
+			waist="Carrier's Sash"
 		})
 	
 	
@@ -971,5 +971,5 @@ function select_default_macro_book()
 end
 
 function set_lockstyle()
-    send_command('wait 3; input /lockstyleset ' .. lockstyleset)
+    send_command('input /lockstyleset ' .. lockstyleset)
 end
