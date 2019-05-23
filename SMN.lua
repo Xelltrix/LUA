@@ -16,13 +16,6 @@ function job_setup()
     state.Buff["Astral Conduit"] = buffactive["Astral Conduit"] or false
 
 	blood_pacts = {}
-
-	blood_pacts.bp_Heals =
-	S{
-		'Healing Ruby','Healing Ruby II',
-		'Whispering Wind',
-		'Spring Water'
-	}
 	
 	blood_pacts.bp_Buffs =
 	S{
@@ -35,7 +28,15 @@ function job_setup()
 		'Crimson Howl','Inferno Howl',
 		'Ecliptic Growl','Ecliptic Howl','Heavenward Howl',
 		'Noctoshield','Dream Shroud',
+		'Perfect Defense',
 		"Altana's Favor",'Raise II','Mewing Lullaby','Reraise II'
+	}
+
+	blood_pacts.bp_Heals =
+	S{
+		'Healing Ruby','Healing Ruby II',
+		'Whispering Wind',
+		'Spring Water'
 	}
 
 	blood_pacts.bp_Debuffs =
@@ -50,16 +51,26 @@ function job_setup()
 
 	blood_pacts.bp_Physical =
 	S{
-		'Poison Nails',
-		'Axe Kick','Double Slap','Rush',
-		'Claw','Predator Claws',
-		'Rock Throw','Rock Buster','Megalith Throw','Mountain Buster','Crag Throw',
-		'Shock Strike','Chaotic Strike','Volt Strike',
-		'Barracude Dive','Tail Whip','Spinning Dive',
-		'Punch','Double Punch',
+		'Double Slap','Rush',
+		'Predator Claws',
+		'Chaotic Strike','Volt Strike',
+		'Double Punch',
 		'Regal Scratch','Regal Gash',
-		'Moonlit Charge','Crescent Fang','Eclipse Bite',
-		'Camisado','Blindside'
+		'Eclipse Bite',
+		'Blindside'
+	}
+	
+	blood_pacts.bp_PhysicalTP =
+	S{
+		'Poison Nails',
+		'Axe Kick',
+		'Claw',
+		'Rock Throw','Rock Buster','Megalith Throw','Mountain Buster','Crag Throw',
+		'Shock Strike',
+		'Barracude Dive','Tail Whip','Spinning Dive',
+		'Punch',
+		'Moonlit Charge','Crescent Fang',
+		'Camisado'
 	}
 
 	blood_pacts.bp_Magical =
@@ -70,16 +81,22 @@ function job_setup()
 		'Earthen Fury','Stone II','Stone IV',
 		'Judgment Bolt','Thunder II','Thunderspark','Thunder IV',
 		'Tidal Wave','Water II','Water IV',
-		'Inferno','Fire II','Fire IV','Conflag Strike',
-		'Level ? Holy',
-		'Howling Moon','Lunar Bay',
+		'Inferno','Fire II','Fire IV',
+		'Howling Moon',
 		'Ruinous Omen','Somnolence','Nightmare','Nether Blast','Night Terror'
 	}
 
-	blood_pacts.bp_Merit =
+	blood_pacts.bp_MagicalTP =
 	S{
-		'Meteor Strike','Heavenly Strike','Wind Blade','Geocrush','Thunderstorm','Grand Fall',
-		'Impact'
+		'Heavenly Strike',
+		'Wind Blade',
+		'Geocrush',
+		'Thunderstorm',
+		'Grand Fall',
+		'Meteor Strike','Conflag Strike',
+		'Level ? Holy',
+		'Lunar Bay', 'Impact',
+		'Zantetsuken'
 	}
 
 	blood_pacts.bp_Hybrid =
@@ -98,7 +115,7 @@ end
 function user_setup()
     state.OffenseMode:options('Normal', 'Avatar')
     state.IdleMode:options('Normal', 'DT', 'Favor')
-
+	
     select_default_macro_book()
 	
 	set_lockstyle()
@@ -208,14 +225,6 @@ function init_gear_sets()
     -------------------
 	--  Blood Pacts  --
 	------------------- 
-
-		sets.midcast.Pet.bp_Heals =
-		{
-			main="Espiritus", sub="Vox Grip", ammo="Sancus Sachet +1",
-			head="Apogee Crown +1", neck="Smn. Collar +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
-			body="Apo. Dalmatica +1", hands="Asteria Mitts +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Evoker's Ring",
-			back=gear.SMNCape_Mag, waist="Regal Belt", legs=gear.ASlacks_MAB, feet="Apogee Pumps +1"
-		}
 	
 		sets.midcast.Pet.bp_Buffs =
 		{
@@ -225,21 +234,36 @@ function init_gear_sets()
 			back="Conveyance Cape", waist="Lucidity Sash", legs="Baayami Slops", feet="Baayami Sabots"
 		}
 
-		sets.midcast.Pet.bp_Debuffs =
+		sets.midcast.Pet.bp_Heals = set_combine(sets.midcast.bp_Buffs,
 		{
-			main="Espiritus", sub="Vox Grip", ammo="Sancus Sachet +1",
+			ammo="Sancus Sachet +1",
+			head="Apogee Crown +1", neck="Smn. Collar +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
+			body="Apo. Dalmatica +1", hands="Asteria Mitts +1",
+			back=gear.SMNCape_Mag, waist="Regal Belt", legs=gear.ASlacks_MAB, feet="Apogee Pumps +1"
+		})
+
+		sets.midcast.Pet.bp_Debuffs = set_combine(sets.midcast.bp_Buffs,
+		{
+			ammo="Sancus Sachet +1",
 			head="Tali'ah Turban +2", neck="Smn. Collar +1", lear="Enmerkar Earring", rear="Lugalbanda Earring",
-			body="Con. Doublet +3", hands="Lamassu Mitts +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Evoker's Ring",
+			body="Con. Doublet +3", hands="Lamassu Mitts +1",
 			back=gear.SMNCape_Mag, waist="Regal Belt", legs="Tali'ah Sera. +2",feet="Tali'ah Crackows +2"
-		}
+		})
 
 		sets.midcast.Pet.bp_Physical =
 		{
 			main="Gridarvor", sub="Elan Strap +1", ammo="Sancus Sachet +1",
 			head="Helios Band", neck="Smn. Collar +1", lear="Kyrene's Earring", rear="Lugalbanda Earring",
-			body="Glyphic Doublet +3", hands=gear.PetAtkHands, lring="Varar Ring +1", rring="Varar Ring +1",
+			body="Con. Doublet +3", hands=gear.PetAtkHands, lring="Varar Ring +1", rring="Varar Ring +1",
 			back=gear.SMNCape_Phys, waist="Incarnation Sash", legs=gear.ASlacks_DA, feet="Helios Boots"
 		}
+	
+		sets.midcast.Pet.bp_PhysicalTP = set_combine(sets.midcast.bp_Physical,
+		{
+			lear="Gelos Earring",
+			body="Con. Doublet +3",
+			waist="Regal Belt", legs="Enticer's Pants"
+		})
 
 		sets.midcast.Pet.bp_Magical =
 		{
@@ -249,21 +273,15 @@ function init_gear_sets()
 			back=gear.SMNCape_Mag, waist="Regal Belt", legs=gear.ASlacks_MAB, feet="Apogee Pumps +1"
 		}
 
-		sets.midcast.Pet.bp_Merit =
+		sets.midcast.Pet.bp_MagicalTP = set_combine(sets.midcast.Pet.bp_Magical,
 		{
-			main=gear.Grioavolr_Pet, sub="Elan Strap +1", ammo="Sancus Sachet +1",
-			head="Apogee Crown +1", neck="Smn. Collar +1", lear="Gelos Earring", rear="Lugalbanda Earring",
-			body="Apo. Dalmatica +1", hands=gear.PetNukeHands, lring="Varar Ring +1", rring="Varar Ring +1",
-			back=gear.SMNCape_Mag, waist="Regal Belt", legs="Enticer's Pants", feet="Apogee Pumps +1"
-		}
+			legs="Enticer's Pants"
+		})
 
-		sets.midcast.Pet.bp_Hybrid =
+		sets.midcast.Pet.bp_Hybrid = set_combine(sets.midcast.Pet.bp_Magical,
 		{
-			main=gear.Grioavolr_Pet, sub="Elan Strap +1", ammo="Sancus Sachet +1",
-			head="Apogee Crown +1", neck="Smn. Collar +1", lear="Gelos Earring", rear="Lugalbanda Earring",
-			body="Con. Doublet +3", hands=gear.PetNukeHands, lring="Varar Ring +1", rring="Varar Ring +1",
-			back=gear.SMNCape_Mag, waist="Regal Belt", legs=gear.ASlacks_MAB, feet="Apogee Pumps +1"
-		}
+			body="Con. Doublet +3"
+		})
 
 
 	--------------------------------------
@@ -535,8 +553,6 @@ function init_gear_sets()
 			feet="Crier's Gaiters"
 		}
 
-		sets.perp = {}
-
 		sets.perp.Alexander = sets.midcast.Pet.Buffs
 
 		sets.perp.Odin = sets.midcast.Pet.Debuffs
@@ -640,6 +656,10 @@ function job_precast(spell, action, spellMap, eventArgs)
 end
 
 function job_midcast(spell, action, spellMap, eventArgs)
+	if state.LagMode == true and pet_midaction() then
+		send_commad('wait 0.5)
+		function job_get_spell_map(spell, default_spell_map)
+	end
     if state.Buff['Astral Conduit'] and pet_midaction() then
         eventArgs.handled = true
     end
