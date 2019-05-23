@@ -26,9 +26,7 @@ function job_setup()
 	include('Mote-TreasureHunter')
 
 	determine_haste_group()
-	--check_rings()
 	update_combat_form()
-	update_combat_weapon()
 	customize_idle_set()
 	
 	lockstyleset = 1
@@ -61,8 +59,6 @@ function user_setup()
 	send_command('bind ^= gs c cycle treasuremode')
 	send_command('bind pageup gs c cycle WeaponSet')
 	send_command('bind pagedown gs c cycleback WeaponSet')
-	
-	set_lockstyle()
 
 	select_default_macro_book()
 end
@@ -273,14 +269,6 @@ function init_gear_sets()
 			body="Luhlaza Jubbah +3", hands="Luh. Bazubands +3", lring="Ilabrat Ring", rring="Shukuyu Ring",
 			back=gear.BLUCape_WSD, waist="Prosilio Belt +1", legs="Jhakri Slops +2", feet="Luhlaza Charuqs +3"
 		}
-
---[[		sets.midcast.AddEffect =
-		{
-			ammo="Pemphredo Tathlum",
-			head="Jhakri Coronal +2", neck="Mirage Stole +2", lear="Digni. Earring", rear="Gwati Earring",
-			body="Jhakri Robe +2", hands="Jhakri Cuffs +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Cornflower Cape", waist="Eschan Stone", legs="Jhakri Slops +2", feet="Jhakri Pigaches +2"
-		}]]
 
 		sets.midcast.AddEffect =
 		{
@@ -2007,6 +1995,7 @@ end
 
 function job_aftercast(spell,action, spellMap, eventArgs)
 	equip(sets[state.WeaponSet.current])
+	handle_equipping_gear(player.status)
 end
 
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
@@ -2046,7 +2035,7 @@ function job_buff_change(buff,gain)
 		handle_equipping_gear(player.status)
 	end
 	
-	if buffactive['Aftermath: Lv.3'] and player.equipment.main == "Tizona" and player.equipment.sub ~="Thibron" then
+	if buffactive['Aftermath: Lv.3'] and player.equipment.main == "Tizona" then
 		classes.CustomMeleeGroups:append('AM3')
 		handle_equipping_gear(player.status)
 	end
@@ -2059,7 +2048,6 @@ function job_status_change(new_status, old_status)
 	if new_status == 'Engaged' then
 		determine_haste_group()
 		update_combat_form()
-		update_combat_weapon()
 	end
 end
 
@@ -2098,7 +2086,7 @@ end
 -- Function to display the current relevant user state when doing an update.
 -- Return true if display was handled, and you don't want the default info shown.
 function display_current_job_state(eventArgs)
-	local msg = state.CombatWeapon.value
+	local msg = '[' .. state.WeaponSet.value .. ']'
 
 	if state.CombatForm.has_value then
 		msg = msg .. ' (' .. state.CombatForm.value .. ')'
@@ -2189,59 +2177,6 @@ function update_combat_form()
     end
 end
 
-function update_combat_weapon()
-	if 	player.equipment.main=="Tizona" and player.equipment.sub=="Thibron" 	then
-			state.CombatWeapon:set('TizonaT')
-		--add_to_chat(8, '------------- Tizona / Thibron --------------')
-	elseif 	player.equipment.main=="Tizona" and player.equipment.sub~="Thibron"	then
-			state.CombatWeapon:set('TizonaA')
-		--add_to_chat(8, '------------- Tizona --------------')
-	elseif 	player.equipment.main=="Almace" 	then
-			state.CombatWeapon:set('Almace')
-		--add_to_chat(8, '------------- Almace --------------')
-	elseif 	player.equipment.main=="Sequence" and player.equipment.sub=="Thibron"	then
-			state.CombatWeapon:set('SequenceT')
-		--add_to_chat(8, '------------- Sequence / Thibron --------------')
-	elseif 	player.equipment.main=="Sequence" and player.equipment.sub~="Thibron"	then
-			state.CombatWeapon:set('SequenceA')
-		--add_to_chat(8, '------------- Sequence --------------')
-	elseif 	player.equipment.main=="Maxentius" and player.equipment.sub~="Thibron"	then
-			state.CombatWeapon:set('MaxentiusT')
-		--add_to_chat(8, '------------- Maxentius / Thibron --------------')
-	elseif 	player.equipment.main=="Maxentius" and player.equipment.sub~="Thibron"	then
-			state.CombatWeapon:set('MaxentiusN')
-		--add_to_chat(8, '------------- Maxentius --------------')
-	end
-end
-
-	
---[[
-function check_rings()
-    rings = S{"Warp Ring", "Trizek Ring", "Capacity Ring", "Echad Ring", "Dim. Ring (Holla)", "Facility Ring", "Caliber Ring"}
- 
-    if rings:contains(player.equipment.left_ring) then
-        disable("left_ring")
-		add_to_chat(40, '			Useable Ring has been equipped. ')
-    else
-        enable("left_ring")
-		--handle_equipping_gear(player.status)
-    end
- 
-    if rings:contains(player.equipment.right_ring) then
-        disable("right_ring")
-		add_to_chat(40, '			Useable Ring has been equipped. ')
-    else
-        enable("right_ring")
-		--handle_equipping_gear(player.status)
-    end
-end
-windower.register_event('zone change', function()
-    enable("left_ring")
-	enable("right_ring")
-	handle_equipping_gear(player.status)
-end)
-]]
-
 function update_active_abilities()
 	state.Buff['Chain Affinity']	= buffactive['Chain Affinity'] or false
 	state.Buff['Diffusion'] 		= buffactive['Diffusion'] or false
@@ -2266,9 +2201,5 @@ function select_default_macro_book()
 	-- Default macro set/book
 	set_macro_page(1, 5)
 	send_command('lua l azuresets')
-end
-
-
-function set_lockstyle()
 	send_command('input /lockstyleset ' .. lockstyleset)
 end
