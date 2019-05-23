@@ -54,10 +54,8 @@ function job_setup()
 		'Double Slap','Rush',
 		'Predator Claws',
 		'Chaotic Strike','Volt Strike',
-		'Double Punch',
 		'Regal Scratch','Regal Gash',
 		'Eclipse Bite',
-		'Blindside'
 	}
 	
 	blood_pacts.bp_PhysicalTP =
@@ -68,32 +66,33 @@ function job_setup()
 		'Rock Throw','Rock Buster','Megalith Throw','Mountain Buster','Crag Throw',
 		'Shock Strike',
 		'Barracude Dive','Tail Whip','Spinning Dive',
-		'Punch',
+		'Double Punch','Punch',
 		'Moonlit Charge','Crescent Fang',
-		'Camisado'
+		'Camisado','Blindside'
 	}
 
 	blood_pacts.bp_Magical =
 	S{
-		'Searing Light','Meteorite','Holy Mist',
-		'Diamond Dust','Blizard II','Blizzard IV',
-		'Aerial Blast','Aero II','Aero IV',
-		'Earthen Fury','Stone II','Stone IV',
-		'Judgment Bolt','Thunder II','Thunderspark','Thunder IV',
-		'Tidal Wave','Water II','Water IV',
-		'Inferno','Fire II','Fire IV',
+		'Searing Light','Holy Mist',
+		'Diamond Dust',
+		'Aerial Blast',
+		'Earthen Fury',
+		'Judgment Bolt',
+		'Tidal Wave',
+		'Inferno',
 		'Howling Moon',
 		'Ruinous Omen','Somnolence','Nightmare','Nether Blast','Night Terror'
 	}
 
 	blood_pacts.bp_MagicalTP =
 	S{
-		'Heavenly Strike',
-		'Wind Blade',
-		'Geocrush',
-		'Thunderstorm',
-		'Grand Fall',
-		'Meteor Strike','Conflag Strike',
+		'Meteorite',
+		'Blizard II','Blizzard IV','Heavenly Strike',
+		'Aero II','Aero IV','Wind Blade',
+		'Stone II','Stone IV','Geocrush',
+		'Thunder II','Thunderspark','Thunder IV','Thunderstorm',
+		'Water II','Water IV','Grand Fall',
+		'Fire II','Fire IV','Meteor Strike','Conflag Strike',
 		'Level ? Holy',
 		'Lunar Bay', 'Impact',
 		'Zantetsuken'
@@ -726,8 +725,6 @@ function job_get_spell_map(spell, default_spell_map)
         end
     end
 end
-
-
 -- Called when a player gains or loses a pet.
 -- pet == pet structure
 -- gain == true if the pet was gained, false if it was lost.
