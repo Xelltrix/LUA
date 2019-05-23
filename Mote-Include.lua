@@ -54,6 +54,7 @@ function init_include()
 	
     state.WeaponLock		= M(false)
     state.Kiting		= M(false)
+	state.LagMode		= M(false)
     state.MagicBurst		= M(false)
     state.SaveMP        	= M(false)
 
