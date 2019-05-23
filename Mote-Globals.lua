@@ -125,6 +125,7 @@ function global_on_load()
 	send_command('bind ^f12 gs c cycle IdleMode')
 	send_command('bind !f12 gs c reset DefenseMode')
 	
+	send_command('bind ^delete gs c toggle LagMode')
 	send_command('bind ^home gs c toggle WeaponLock')
 	send_command('bind ^end gs c toggle Kiting')
 	
@@ -151,6 +152,7 @@ function global_on_unload()
 	send_command('unbind ^f12')
 	send_command('unbind !f12')
 	
+	send_command('unbind ^delete')
 	send_command('unbind ^home')
 	send_command('unbind ^end')
 	
