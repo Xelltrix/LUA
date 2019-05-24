@@ -505,13 +505,11 @@ function init_gear_sets()
 			back="Moonlight Cape", waist="Flume Belt +1", legs="Carmine Cuisses +1", feet=gear.HBoots_Refresh
 		}
 
-		sets.idle.DT =
+		sets.idle.DT = set_combine(sets.idle,
 		{
-			ammo="Staunch Tathlum +1",
-			head="Rawhide Mask", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
-			body="Assim. Jubbah +3", hands="Assim. Bazu. +3", lring="Defending Ring", rring="Gelatinous Ring +1",
-			back="Moonlight Cape", waist="Flume Belt +1", legs="Carmine Cuisses +1", feet=gear.HBoots_Refresh
-		}
+			neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
+			lring="Defending Ring", rring="Gelatinous Ring +1"
+		})
 		
 		sets.idle.Refresh = set_combine(sets.idle,
 		{
@@ -639,7 +637,7 @@ function init_gear_sets()
 
 		sets.precast.WS['Chant du Cygne'].Low = set_combine(sets.precast.WS['Chant du Cygne'],
 		{
-			lring="Ilabrat Ring", rring="Begrudging Ring",
+			rring="Ilabrat Ring",
 			legs="Adhemar Kecks +1"
 		})
 		
@@ -664,7 +662,7 @@ function init_gear_sets()
 
 		sets.precast.WS['Vorpal Blade'].Low = set_combine(sets.precast.WS['Vorpal Blade'],
 		{
-			lring="Ilabrat Ring", rring="Begrudging Ring",
+			rring="Ilabrat Ring",
 			legs="Adhemar Kecks +1", feet="Aya. Gambieras +2"
 		})
 		
@@ -709,7 +707,7 @@ function init_gear_sets()
 	---Savage Blade
 		sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS,
 		{
-			neck="Mirage Stole +2", lear="Regal Earring",
+			neck="Mirage Stole +2", lear="Ishvara Earring", rear="Regal Earring",
 			lring="Rufescent Ring",
 			legs="Luhlaza Shalwar +3", feet=gear.HBoots_WSD
 		})
@@ -766,12 +764,14 @@ function init_gear_sets()
 	
 	--	***Clubs***
 	
-	sets.precast.WS['True Strike']= set_combine(sets.precast.WS['Savage Blade'],
+	sets.precast.WS['True Strike'] =
 	{
-		lear="Ishvara Earring",
-		lring="Shukuyu Ring",
-		waist="Prosilio Belt +1"
-	})
+		ammo="Floestone",
+		head=gear.HHead_WSD, neck="Mirage Stole +2", lear="Telos Earring", rear="Ishvara Earring",
+		body="Assim. Jubbah +3", hands="Jhakri Cuffs +2", lring="Shukuyu Ring", rring="Karieyh Ring +1",
+		back=gear.BLUCape_WSD, waist="Prosilio Belt +1" legs="Luhlaza Shalwar +3", feet=gear.HBoots_WSD
+
+	}
 
 	sets.precast.WS['True Strike'].Low = sets.precast.WS['True Strike']
 	
