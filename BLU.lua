@@ -2078,7 +2078,6 @@ function job_update(cmdParams, eventArgs)
 	determine_haste_group()
 	update_active_abilities()
 	update_combat_form()
-	update_combat_weapon()
 	th_update(cmdParams, eventArgs)
 	
 end
@@ -2201,5 +2200,5 @@ function select_default_macro_book()
 	-- Default macro set/book
 	set_macro_page(1, 5)
 	send_command('lua l azuresets')
-	send_command('input /lockstyleset ' .. lockstyleset)
+	send_command('wait 3; input /lockstyleset ' .. lockstyleset)
 end

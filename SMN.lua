@@ -604,7 +604,7 @@ function init_gear_sets()
 		{
 			ammo="Floestone",
 			head="Tali'ah Turban +2", neck="Fotia Gorget", lear="Ishvara Earring", rear="Moonshade Earring",
-			body="Tali'ah Manteel +1", hands="Tali'ah Gages +1", lring="Rufescent Ring", rring="Shukuyu Ring",
+			body="Tali'ah Manteel +2", hands="Tali'ah Gages +1", lring="Rufescent Ring", rring="Shukuyu Ring",
 			back=gear.SMNCape_Phys, waist="Fotia Belt", legs="Tali'ah Sera. +2", feet="Tali'ah Crackows +2"
 		}
 		
@@ -640,7 +640,7 @@ function init_gear_sets()
 		{
 			main="Gridarvor",sub="Kaja Grip", ammo="Sancus Sachet +1",
 			head="Beckoner's Horn +1", neck="Combatant's Torque", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-			body="Tali'ah Manteel +1", hands="Tali'ah Gages +1", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			body="Tali'ah Manteel +2", hands="Tali'ah Gages +1", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.SMNCape_Phys, waist="Klouskap Sash", legs="Tali'ah Sera. +2", feet="Apogee Pumps +1"
 		}
 		
@@ -806,5 +806,5 @@ function select_default_macro_book(reset)
 end
 
 function set_lockstyle()
-    send_command('input /lockstyleset ' .. lockstyleset)
+    send_command('wait 3; input /lockstyleset ' .. lockstyleset)
 end
