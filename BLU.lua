@@ -39,10 +39,10 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-	state.OffenseMode:options('None', 'Normal', 'Low', 'Mid', 'High')
+	state.OffenseMode:options('Normal', 'Low', 'Mid', 'High')
 	state.HybridMode:options('Normal', 'DT', 'DTMAX')
-	state.WeaponskillMode:options('None', 'Normal', 'Low', 'Mid', 'High')
-	state.IdleMode:options('Normal', 'DT', 'Refresh')
+	state.WeaponskillMode:options('Normal', 'Low', 'Mid', 'High')
+	state.IdleMode:options('Normal', 'DT', 'MEVA', 'Refresh')
 	state.MagicalDefenseMode:options('MEVA', 'MDT')
 	state.CastingMode:options('Normal','Alternate')
 
@@ -60,7 +60,7 @@ function user_setup()
 	send_command('bind pageup gs c cycle WeaponSet')
 	send_command('bind pagedown gs c cycleback WeaponSet')
 
-	select_default_macro_book()
+	apply_job_change()
 end
 
 -- Called when this job file is unloaded (eg: job change)
@@ -501,14 +501,21 @@ function init_gear_sets()
 		{
 			ammo="Staunch Tathlum +1",
 			head="Rawhide Mask", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
-			body="Assim. Jubbah +3", hands="Assim. Bazu. +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			body="Assim. Jubbah +3", hands=gear.HHands_Refresh, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Moonlight Cape", waist="Flume Belt +1", legs="Carmine Cuisses +1", feet=gear.HBoots_Refresh
 		}
 
 		sets.idle.DT = set_combine(sets.idle,
 		{
 			neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
-			lring="Defending Ring", rring="Gelatinous Ring +1"
+			hands="Assim. Bazu. +3", lring="Defending Ring", rring="Gelatinous Ring +1"
+		})
+		
+		sets.idle.MEVA = set_combine(sets.idle,
+		{
+			head="Amalric Coif +1", neck="Warder's Charm +1",
+			body="Amalric Doublet +1", hands="Assim. Bazu. +3",
+			waist="Carrier's Sash", feet="Amalric Nails +1"
 		})
 		
 		sets.idle.Refresh = set_combine(sets.idle,
@@ -555,7 +562,7 @@ function init_gear_sets()
 		
 		sets.defense.MEVA = set_combine(sets.defense.MDT,
 		{
-			lear="Eabani Earring",
+			neck="Warder's Charm +1", lear="Eabani Earring",
 			body="Pinga Tunic",
 			legs="Pinga Pants",
 		})
@@ -571,7 +578,6 @@ function init_gear_sets()
 		
 		sets.TreasureHunter =
 		{
-			hands=gear.HHands_TH,
 			waist="Chaac Belt"
 		}
 
@@ -764,64 +770,64 @@ function init_gear_sets()
 	
 	--	***Clubs***
 	
-	sets.precast.WS['True Strike'] =
-	{
-		ammo="Floestone",
-		head=gear.HHead_WSD, neck="Mirage Stole +2", lear="Telos Earring", rear="Ishvara Earring",
-		body="Assim. Jubbah +3", hands="Jhakri Cuffs +2", lring="Shukuyu Ring", rring="Karieyh Ring +1",
-		back=gear.BLUCape_WSD, waist="Prosilio Belt +1" legs="Luhlaza Shalwar +3", feet=gear.HBoots_WSD
+		sets.precast.WS['True Strike'] =
+		{
+			ammo="Floestone",
+			head=gear.HHead_WSD, neck="Mirage Stole +2", lear="Telos Earring", rear="Ishvara Earring",
+			body="Assim. Jubbah +3", hands="Jhakri Cuffs +2", lring="Shukuyu Ring", rring="Karieyh Ring +1",
+			back=gear.BLUCape_WSD, waist="Prosilio Belt +1", legs="Luhlaza Shalwar +3", feet=gear.HBoots_WSD
 
-	}
+		}
 
-	sets.precast.WS['True Strike'].Low = sets.precast.WS['True Strike']
-	
-	sets.precast.WS['True Strike'].Mid = sets.precast.WS['True Strike'].Low
-	
-	sets.precast.WS['True Strike'].High = set_combine(sets.precast.WS['True Strike'].Mid,
-	{
-		ammo="Falcon Eye",
-		head="Jhakri Coronal +2", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-		lring="Rufescent Ring",
-		feet="Assim. Charuqs +3"
-	})
-	
-	sets.precast.WS['Judgment'] = sets.precast.WS['Savage Blade']
+		sets.precast.WS['True Strike'].Low = sets.precast.WS['True Strike']
+		
+		sets.precast.WS['True Strike'].Mid = sets.precast.WS['True Strike'].Low
+		
+		sets.precast.WS['True Strike'].High = set_combine(sets.precast.WS['True Strike'].Mid,
+		{
+			ammo="Falcon Eye",
+			head="Jhakri Coronal +2", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
+			lring="Rufescent Ring",
+			feet="Assim. Charuqs +3"
+		})
+		
+		sets.precast.WS['Judgment'] = sets.precast.WS['Savage Blade']
 
-	sets.precast.WS['Judgment'].Low = sets.precast.WS['Savage Blade'].Low
-	
-	sets.precast.WS['Judgment'].Mid = sets.precast.WS['Savage Blade'].Mid
-	
-	sets.precast.WS['Judgment'].High = sets.precast.WS['Savage Blade'].High
+		sets.precast.WS['Judgment'].Low = sets.precast.WS['Savage Blade'].Low
+		
+		sets.precast.WS['Judgment'].Mid = sets.precast.WS['Savage Blade'].Mid
+		
+		sets.precast.WS['Judgment'].High = sets.precast.WS['Savage Blade'].High
 
-	sets.precast.WS['Black Halo'] = set_combine(sets.precast.WS['Savage Blade'],
-	{
-		feet="Carmine Greaves +1"
-	})
+		sets.precast.WS['Black Halo'] = set_combine(sets.precast.WS['Savage Blade'],
+		{
+			feet="Carmine Greaves +1"
+		})
 
-	sets.precast.WS['Black Halo'].Low = sets.precast.WS['Black Halo']
-	
-	sets.precast.WS['Black Halo'].Mid = sets.precast.WS['Black Halo'].Low
-	
-	sets.precast.WS['Black Halo'].High = set_combine(sets.precast.WS['Black Halo'].Mid,
-	{
-		ammo="Falcon Eye",
-		head="Jhakri Coronal +2", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-		feet="Assim. Charuqs +3"
-	})
+		sets.precast.WS['Black Halo'].Low = sets.precast.WS['Black Halo']
+		
+		sets.precast.WS['Black Halo'].Mid = sets.precast.WS['Black Halo'].Low
+		
+		sets.precast.WS['Black Halo'].High = set_combine(sets.precast.WS['Black Halo'].Mid,
+		{
+			ammo="Falcon Eye",
+			head="Jhakri Coronal +2", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
+			feet="Assim. Charuqs +3"
+		})
 
-	sets.precast.WS['Realmrazer'] = sets.precast.WS['Requiescat']
-	
-	sets.precast.WS['Realmrazer'].Low = sets.precast.WS['Requiescat'].Low
-	
-	sets.precast.WS['Realmrazer'].Mid = sets.precast.WS['Requiescat'].Mid
-	
-	sets.precast.WS['Realmrazer'].High = sets.precast.WS['Requiescat'].High
+		sets.precast.WS['Realmrazer'] = sets.precast.WS['Requiescat']
+		
+		sets.precast.WS['Realmrazer'].Low = sets.precast.WS['Requiescat'].Low
+		
+		sets.precast.WS['Realmrazer'].Mid = sets.precast.WS['Requiescat'].Mid
+		
+		sets.precast.WS['Realmrazer'].High = sets.precast.WS['Requiescat'].High
 
-	sets.precast.WS['Flash Nova'] = set_combine(sets.precast.WS['Sanguine Blade'],
-	{
-		head="Assim. Keffiyeh +3",
-		rring={name="Shiva Ring +1", bag="wardrobe3"},
-	})
+		sets.precast.WS['Flash Nova'] = set_combine(sets.precast.WS['Sanguine Blade'],
+		{
+			head="Assim. Keffiyeh +3",
+			rring={name="Shiva Ring +1", bag="wardrobe3"},
+		})
 
 	
 	
@@ -2043,8 +2049,6 @@ function job_buff_change(buff,gain)
 end
 
 function job_status_change(new_status, old_status)
-	--check_rings()
-	
 	if new_status == 'Engaged' then
 		determine_haste_group()
 		update_combat_form()
@@ -2196,9 +2200,10 @@ end
 
 
 -- Select default macro book on initial load or subjob change.
-function select_default_macro_book()
-	-- Default macro set/book
+function apply_job_change()
 	set_macro_page(1, 5)
+	
 	send_command('lua l azuresets')
+	
 	send_command('wait 3; input /lockstyleset ' .. lockstyleset)
 end

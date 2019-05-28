@@ -22,7 +22,7 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('Normal', 'LowAcc', 'MidAcc', 'HighAcc')
+    state.OffenseMode:options('Normal', 'Low', 'Mid', 'High')
     state.HybridMode:options('Normal', 'DT')
     state.WeaponskillMode:options('Normal', 'Low', 'Mid', 'High')
     state.CastingMode:options('Normal', 'Resistant')
@@ -34,7 +34,7 @@ function user_setup()
     gear.NightFeet = "Hachiya Kyahan"
 
     select_movement_feet()
-    select_default_macro_book()
+    apply_job_change()
 end
 
 
@@ -511,7 +511,6 @@ end
 
 
 -- Select default macro book on initial load or subjob change.
-function select_default_macro_book()
-    -- Default macro set/book
+function apply_job_change()
     set_macro_page(1, 19)
 end

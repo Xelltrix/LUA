@@ -24,15 +24,15 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-	state.OffenseMode:options('None', 'Normal', 'Low', 'Mid', 'High')
+	state.OffenseMode:options('Normal', 'Low', 'Mid', 'High')
 	state.RangedMode:options('Normal', 'Acc')
-	state.WeaponskillMode:options('Normal', 'Acc')
+	state.WeaponskillMode:options('Normal', 'Low', 'Mid', 'High')
 
 
 	DefaultAmmo = {['Steinthor'] = "Achiyal. Arrow", ['Holliday'] = "Achiyal. Bullet"}
 	U_Shot_Ammo = {['Steinthor'] = "Achiyal. Arrow", ['Holliday'] = "Achiyal. Bullet"}
 
-	select_default_macro_book()
+	apply_job_change()
 
 	send_command('bind f9 gs c cycle RangedMode')
 	send_command('bind ^f9 gs c cycle OffenseMode')
@@ -600,6 +600,6 @@ end
 
 
 -- Select default macro book on initial load or subjob change.
-function select_default_macro_book()
+function apply_job_change()
 	set_macro_page(1, 10)
 end

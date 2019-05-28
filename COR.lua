@@ -7,14 +7,8 @@ function get_sets()
 end
 
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
-function job_setup()
-    -- QuickDraw Selector
-    state.Mainqd = M{['description']='Primary Shot', 'Fire Shot', 'Ice Shot', 'Wind Shot', 'Earth Shot', 'Thunder Shot', 'Water Shot'}
-    state.Altqd = M{['description']='Secondary Shot', 'Fire Shot', 'Ice Shot', 'Wind Shot', 'Earth Shot', 'Thunder Shot', 'Water Shot'}
-    state.UseAltqd = M(false, 'Use Secondary Shot')
-	
+function job_setup()	
 	state.QDMode = M{['description']='Quick Draw Mode', 'STP', 'Magic Attack'}
-
     state.Currentqd = M{['description']='Current Quick Draw', 'Main', 'Alt'}
 	
 	-- Whether to use Luzaf's Ring
@@ -34,57 +28,39 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('None', 'Normal', 'Low', 'Mid', 'High')
+    state.OffenseMode:options('Normal', 'Low', 'Mid', 'High')
     state.HybridMode:options('Normal', 'DT')
-    state.RangedMode:options('Normal', 'Acc')
-    state.WeaponskillMode:options('Normal', 'Acc')
+    state.RangedMode:options('Normal', 'Low', 'Mid', 'High')
+    state.WeaponskillMode:options('Normal', 'Low', 'Mid', 'High')
     state.IdleMode:options('Normal', 'DT')
 
     options.ammo_warning_limit = 15
 	
 	
 	-- Additional local binds
-    send_command('bind ^` input /ja "Double-up" <me>')
-    send_command('bind ^c input /ja "Crooked Cards" <me>')
-    send_command('bind ^s input /ja "Snake Eye" <me>')
-    send_command('bind ^f input /ja "Fold" <me>')
-    send_command('bind !` input /ja "Bolter\'s Roll" <me>')
-    send_command ('bind @` gs c toggle LuzafRing')
-
-    send_command('bind ^- gs c cycleback mainqd')
-    send_command('bind ^= gs c cycle mainqd')
-    send_command('bind !- gs c cycle altqd')
-    send_command('bind != gs c cycleback altqd')
-    send_command('bind ^[ gs c toggle selectqdtarget')
-    send_command('bind ^] gs c toggle usealtqd')
+	send_command('bind numpad/ input /ja "Snake Eye" <me>')
+    send_command('bind numpad* input /ja "Fold" <me>')
+	send_command('bind numpad. input /ja "Double-up" <me>')
 	
-	send_command('bind @q gs c cycle QDMode')
+	send_command('bind ^insert gs c toggle LuzafRing')
+
+	send_command('bind pageup gs c cycle QDMode')
 	
 	determine_haste_group()
 	
-    select_default_macro_book()
-	
-	set_lockstyle()
+    apply_job_change()
 end
 
 
 -- Called when this job file is unloaded (eg: job change)
 function user_unload()
-    send_command('unbind ^`')
-    send_command('unbind ^c')
-    send_command('unbind ^s')
-    send_command('unbind ^f')
-    send_command('unbind !`')
-    send_command('unbind @`')
+    send_command('unbind numpad/')
+    send_command('unbind numpad*')
+    send_command('unbind numpad.')
 	
-	send_command('unbind ^-')
-    send_command('unbind ^=')
-    send_command('unbind !-')
-    send_command('unbind !=')
-    send_command('unbind ^[')
-    send_command('unbind ^]')
+	send_command('unbind ^insert')
 	
-	send_command('unbind @q')
+	send_command('unbind pageup')
 end
 
 -- Define sets and vars used by this job file.
@@ -1225,10 +1201,8 @@ end
 
 
 -- Select default macro book on initial load or subjob change.
-function select_default_macro_book()
+function apply_job_change()
     set_macro_page(6, 10)
-end
-
-function set_lockstyle()
-    send_command('wait 3; input /lockstyleset ' .. lockstyleset)
+	
+	send_command('wait 3; input /lockstyleset ' .. lockstyleset)
 end

@@ -23,8 +23,8 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('None', 'Normal', 'Low', 'Mid', 'High')
-	state.WeaponskillMode:options('None', 'Normal', 'Low', 'Mid', 'High')
+    state.OffenseMode:options('Normal', 'Low', 'Mid', 'High')
+	state.WeaponskillMode:options('Normal', 'Low', 'Mid', 'High')
     state.HybridMode:options('Normal', 'DT')
     state.CastingMode:options('Normal', 'Resistant', 'Potency')
     state.IdleMode:options('Normal', 'DT', 'Refresh')
@@ -39,8 +39,7 @@ function user_setup()
 	send_command('bind pageup gs c cycle WeaponSet')
 	send_command('bind pagedown gs c cycleback WeaponSet')
 
-	select_default_macro_book()
-
+	apply_job_change()
 end
 
 function user_unload()
@@ -1495,6 +1494,6 @@ function apply_abilities(spell, action, spellMap)
 end
 
 -- Select default macro book on initial load or subjob change.
-function select_default_macro_book()
+function apply_job_change()
     set_macro_page(1, 1)
 end

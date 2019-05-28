@@ -23,13 +23,11 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-	state.OffenseMode:options('Normal', 'Refresh')
+	state.OffenseMode:options('Refresh', 'Normal')
 	state.CastingMode:options('Normal', 'Resistant','Potency')
 	state.IdleMode:options('Normal', 'DT')
 
-	select_default_macro_book()
-	
-	set_lockstyle()
+	apply_job_change()
 end
 
 -- Define sets and vars used by this job file.
@@ -726,10 +724,8 @@ end
 
 
 -- Select default macro book on initial load or subjob change.
-function select_default_macro_book()
+function apply_job_change()
 	set_macro_page(1, 4)
-end
-
-function set_lockstyle()
-    send_command('wait 3; input /lockstyleset ' .. lockstyleset)
+	
+	send_command('wait 3; input /lockstyleset ' .. lockstyleset)
 end

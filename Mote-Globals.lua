@@ -69,7 +69,7 @@ function define_global_sets()
 	gear.HHead_MAB = {name="Herculean Helm", augments={'Mag. Acc.+14 "Mag.Atk.Bns."+14','Magic burst dmg.+5%','MND+10','Mag. Acc.+14','"Mag.Atk.Bns."+15',}}
 	gear.HHead_WSD = { name="Herculean Helm", augments={'Accuracy+29','Weapon skill damage +4%','STR+9','Attack+15'}}
 	
-	gear.HHands_TH = { name="Herculean Gloves", augments={'STR+4','"Waltz" potency +4%','"Treasure Hunter"+1','Accuracy+5 Attack+5',}}
+	gear.HHands_Refresh = { name="Herculean Gloves", augments={'Pet: CHR+1','Attack+25','"Refresh"+1',}}
 	
 	gear.HBoots_TP = { name="Herculean Boots", augments={'Accuracy+20 Attack+20','"Triple Atk."+4','Accuracy+6','Attack+15',}}
 	gear.HBoots_Crit = { name="Herculean Boots", augments={'Accuracy+26','Crit. hit damage +5%','DEX+8',}}

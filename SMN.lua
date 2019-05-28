@@ -15,104 +15,6 @@ function job_setup()
     state.Buff["Avatar's Favor"] = buffactive["Avatar's Favor"] or false
     state.Buff["Astral Conduit"] = buffactive["Astral Conduit"] or false
 
-	blood_pacts = {}
-	
-	blood_pacts.bp_Buffs =
-	S{
-		'Shining Ruby','Glittering Ruby','Soothing Ruby','Pacifying Ruby',
-		'Frost Armor','Crystal Blessing',
-		'Hastega','Fleet Wind','Hastega II','Aerial Armor',
-		'Earthen Armor','Earthen Ward',
-		'Rolling Thunder','Lightning Armor',
-		'Soothing Current',
-		'Crimson Howl','Inferno Howl',
-		'Ecliptic Growl','Ecliptic Howl','Heavenward Howl',
-		'Noctoshield','Dream Shroud',
-		'Perfect Defense',
-		"Altana's Favor",'Raise II','Mewing Lullaby','Reraise II'
-	}
-
-	blood_pacts.bp_Heals =
-	S{
-		'Healing Ruby','Healing Ruby II',
-		'Whispering Wind',
-		'Spring Water'
-	}
-
-	blood_pacts.bp_Debuffs =
-	S{
-		'Sleepga','Diamond Storm',
-		'Shock Squall',
-		'Slowga','Tidal Roar',
-		'Eerie Eye',
-		'Lunar Cry','Lunar Roar',
-		'Ultimate Terror','Pavor Nocturnus'
-	}
-
-	blood_pacts.bp_Physical =
-	S{
-		'Double Slap','Rush',
-		'Predator Claws',
-		'Chaotic Strike','Volt Strike',
-		'Regal Scratch','Regal Gash',
-		'Eclipse Bite',
-	}
-	
-	blood_pacts.bp_PhysicalTP =
-	S{
-		'Poison Nails',
-		'Axe Kick',
-		'Claw',
-		'Rock Throw','Rock Buster','Megalith Throw','Mountain Buster','Crag Throw',
-		'Shock Strike',
-		'Barracude Dive','Tail Whip','Spinning Dive',
-		'Double Punch','Punch',
-		'Moonlit Charge','Crescent Fang',
-		'Camisado','Blindside'
-	}
-
-	blood_pacts.bp_Magical =
-	S{
-		'Searing Light','Holy Mist',
-		'Diamond Dust',
-		'Aerial Blast',
-		'Earthen Fury',
-		'Judgment Bolt',
-		'Tidal Wave',
-		'Inferno',
-		'Howling Moon',
-		'Ruinous Omen','Somnolence','Nightmare','Nether Blast','Night Terror'
-	}
-
-	blood_pacts.bp_MagicalTP =
-	S{
-		'Meteorite',
-		'Blizard II','Blizzard IV',
-		'Aero II','Aero IV',
-		'Stone II','Stone IV',
-		'Thunder II','Thunderspark','Thunder IV',
-		'Water II','Water IV',
-		'Fire II','Fire IV','Conflag Strike',
-		'Level ? Holy',
-		'Lunar Bay', 'Impact',
-		'Zantetsuken'
-	}
-	
-	blood_pacts.bp_Merit =
-	S{
-		'Heavenly Strike',
-		'Wind Blade',
-		'Geocrush',
-		'Thunderstorm',
-		'Grand Fall',
-		'Meteor Strike',
-	}
-
-	blood_pacts.bp_Hybrid =
-	S{
-		'Burning Strike','Flaming Crush'
-	}
-
 	lockstyleset = 7
 end
 
@@ -122,12 +24,10 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('Normal', 'Avatar')
+    state.OffenseMode:options('Avatar','Normal')
     state.IdleMode:options('Normal', 'DT', 'Favor')
 	
-    select_default_macro_book()
-	
-	set_lockstyle()
+    apply_job_change()
 end
 
 
@@ -151,7 +51,7 @@ function init_gear_sets()
 			main="Espiritus", sub="Vox Grip", ammo="Esper Stone +1",
 			head="Telchine Cap", neck="Incanter's Torque", lear="Andoaa Earring", rear="Smn. Earring",
 			body="Telchine Chas.", hands=gear.SiphonHands, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Evoker's Ring",
-			back="Conveyance Cape", waist="Kobo Obi", legs="Telchine Braconi",feet="Beck. Pigaches +1"
+			back="Conveyance Cape", waist="Luminary Sash", legs="Telchine Braconi",feet="Beck. Pigaches +1"
 		}
 
 		sets.precast.JA['Mana Cede'] =
@@ -525,7 +425,7 @@ function init_gear_sets()
 			main="Espiritus",sub="Vox Grip", ammo="Sancus Sachet +1",
 			head="Beckoner's Horn +1", neck="Incanter's Torque", lear="Andoaa Earring", rear="Evans Earring",
 			body="Apo. Dalmatica +1", hands="Baayami Cuffs", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back=gear.SMNCape_Phys, waist="Kobo Obi", legs="Assid. Pants +1", feet="Baayami Sabots"
+			back=gear.SMNCape_Phys, waist="Luminary Sash", legs="Assid. Pants +1", feet="Baayami Sabots"
 		}
 
 	
@@ -800,11 +700,8 @@ end
 -------------------------------------------------------------------------------------------------------------------
 
 -- Select default macro book on initial load or subjob change.
-function select_default_macro_book(reset)
-    -- Default macro set/book
+function apply_job_change()
     set_macro_page(1, 7)
-end
-
-function set_lockstyle()
-    send_command('wait 3; input /lockstyleset ' .. lockstyleset)
+	
+	send_command('wait 3; input /lockstyleset ' .. lockstyleset)
 end

@@ -46,7 +46,7 @@ function user_setup()
     send_command('bind ^` input /ja "Chocobo Jig" <me>')
     send_command('bind !` input /ja "Chocobo Jig II" <me>')
 
-    select_default_macro_book()
+    apply_job_change()
 end
 
 -- Called when this job file is unloaded (eg: job change)
@@ -801,7 +801,6 @@ function determine_haste_group()
 end
 
 -- Select default macro book on initial load or subjob change.
-function select_default_macro_book()
-    -- Default macro set/book
+function apply_job_change()
     set_macro_page(1, 16)
 end

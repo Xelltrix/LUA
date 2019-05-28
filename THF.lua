@@ -55,9 +55,7 @@ function user_setup()
 	send_command('bind ^= gs c cycle treasuremode')
 	send_command('bind !- gs c cycle targetmode')
 
-	select_default_macro_book()
-	
-	set_lockstyle()
+	apply_job_change()
 end
 
 -- Called when this job file is unloaded (eg: job change)
@@ -865,14 +863,6 @@ function display_current_job_state(eventArgs)
 		msg = msg .. ', Kiting'
 	end
 
-	if state.PCTargetMode.value ~= 'default' then
-		msg = msg .. ', Target PC: '..state.PCTargetMode.value
-	end
-
-	if state.SelectNPCTargets.value == true then
-		msg = msg .. ', Target NPCs'
-	end
-
 	msg = msg .. ', TH: ' .. state.TreasureMode.value
 
 	add_to_chat(122, msg)
@@ -957,19 +947,8 @@ end
 
 
 -- Select default macro book on initial load or subjob change.
-function select_default_macro_book()
-	-- Default macro set/book
-	if player.sub_job == 'DNC' then
-		set_macro_page(1, 15)
-	elseif player.sub_job == 'WAR' then
-		set_macro_page(1, 15)
-	elseif player.sub_job == 'NIN' then
-		set_macro_page(1, 15)
-	else
-		set_macro_page(1, 15)
-	end
-end
-
-function set_lockstyle()
-    send_command('wait 3; input /lockstyleset ' .. lockstyleset)
+function apply_job_change()
+	set_macro_page(1, 15)
+	
+	send_command('wait 3; input /lockstyleset ' .. lockstyleset)
 end

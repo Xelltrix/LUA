@@ -12,6 +12,9 @@ end
 
 function job_setup()
 	lockstyleset = 9
+	
+	state.Buff['Embolden'] = buffactive['Embolden'] or false
+	state.Buff['Battuta'] = buffactive['Battuta'] or false
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -20,8 +23,8 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('None','Normal', 'Low', 'Mid', 'High')
-	state.WeaponskillMode:options('None', 'Normal', 'Low', 'Mid', 'High')
+    state.OffenseMode:options('Normal', 'Low', 'Mid', 'High')
+	state.WeaponskillMode:options('Normal', 'Low', 'Mid', 'High')
     state.HybridMode:options('Normal', 'DT', 'DTMAX')
 	
 	state.PhysicalDefenseMode:options('PDT')
@@ -41,9 +44,7 @@ function user_setup()
 	send_command('bind ^pageup gs c cycle GripSet')
 	send_command('bind ^pagedown gs c cycleback GripSet')
 
-	select_default_macro_book()
-	
-	set_lockstyle()
+	apply_job_change()
 	
 	function user_unload()
 		send_command('unbind pageup')
@@ -69,7 +70,7 @@ function init_gear_sets()
 		{--Enmity + 74
 			ammo="Sapience Orb",
 			head="Rabid Visor", neck="Moonbeam Necklace", lear="Cryptic Earring", rear="Friomisi Earring",
-			body="Emet Harness +1", hands="Nilas Gloves", lring="Eihwaz Ring", rring="Petrov Ring",
+			body="Emet Harness +1", hands="Kurys Gloves", lring="Eihwaz Ring", rring="Supershear Ring",
 			back="Reiki Cloak", waist="Trance Belt", legs="Eri. Leg Guards +1", feet="Erilaz Greaves +1"
 		}
 		
@@ -96,7 +97,7 @@ function init_gear_sets()
 
 		sets.precast.JA['Gambit'] =
 		{
-			hands="Runeist Mitons +1"
+			hands="Runeist Mitons +2"
 		}
 
 		sets.precast.JA['Rayke'] = 
@@ -133,7 +134,7 @@ function init_gear_sets()
 
 		sets.precast.JA['Liement'] = 
 		{
-			body="Futhark Coat +1"
+			body="Futhark Coat +2"
 		}
 
 		sets.precast.JA['Vivacious Pulse'] = 
@@ -146,7 +147,7 @@ function init_gear_sets()
 
 		sets.precast.JA['Elemental Sforzo'] =
 		{
-			body="Futhark Coat +1"
+			body="Futhark Coat +2"
 		}
 		
 		sets.precast.JA['One for All'] = set_combine(sets.Enmity.HP,
@@ -225,8 +226,8 @@ function init_gear_sets()
 		
 		sets.midcast.Regen =
 		{
-			head="Rune. Bandeau +1",
-			body="Futhark Coat +1", legs ="Futhark Trousers +1"
+			head="Rune. Bandeau +2",
+			body="Futhark Coat +2", legs ="Futhark Trousers +1"
 		}
 
 		sets.midcast.Refresh =
@@ -247,7 +248,7 @@ function init_gear_sets()
 		{ 
 			ammo="Staunch Tathlum +1",
 			head="Carmine Mask +1", neck="Incanter's Torque", lear="Andoaa Earring", rear="Odnowa Earring +1",
-			body="Futhark Coat +1", hands="Runeist Mitons +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			body="Futhark Coat +2", hands="Runeist Mitons +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Merciful Cape", waist="Olympus Sash", legs="Carmine Cuisses +1", feet="Turms Leggings"
 		}
 
@@ -255,8 +256,8 @@ function init_gear_sets()
 		{
 			ammo="Staunch Tathlum +1",
 			head="Carmine Mask +1", neck="Incanter's Torque", lear="Andoaa Earring", rear="Augment. Earring",
-			body="Futhark Coat +1", hands="Runeist Mitons +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Moonlight Cape", waist="Olympus Sash", legs="Carmine Cuisses +1", feet="Runeist Bottes +1"
+			body="Futhark Coat +2", hands="Runeist Mitons +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			back="Moonlight Cape", waist="Olympus Sash", legs="Carmine Cuisses +1", feet="Turms Leggings"
 		}
 
 		sets.midcast.BarStatus = sets.midcast.Duration
@@ -305,7 +306,7 @@ function init_gear_sets()
 		sets.midcast.Cures = set_combine(sets.midcast.FC.SIRD,
 		{
 			head="Erilaz Galea +1", lear="Mendi. Earring", rear="Odnowa Earring +1",
-			hands="Runeist Mitons +1", lring="Eihwaz Ring", rring="Moonbeam Ring",
+			hands="Runeist Mitons +2", lring="Eihwaz Ring", rring="Moonbeam Ring",
 			back="Moonlight Cape", waist="Gishdubar Sash", legs="Futhark Trousers +1", feet="Erilaz Greaves +1"
 		})
 		
@@ -364,7 +365,7 @@ function init_gear_sets()
 		{-- DT: 6%	PDT: 12%	MDT: 6%		Refresh: 7	Regen: 
 			ammo="Homiliary",
 			head="Rawhide Mask", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
-			body="Runeist's Coat +2", hands="Turms Mittens +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			body="Runeist's Coat +2", hands=gear.HHands_Refresh, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Moonlight Cape", waist="Flume Belt +1", legs="Rawhide Trousers", feet=gear.HBoots_Refresh
 		}
 
@@ -387,17 +388,17 @@ function init_gear_sets()
 	-- Defensive Sets
 	--------------------------------------
 		sets.defense.PDT =
-		{--DT: -29%	PDT: -49%	MDT: -34%
+		{--DT: -37%	PDT: -52%	MDT: -42%
 			ammo="Staunch Tathlum +1",
 			head="Fu. Bandeau +1", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
-			body="Runeist's Coat +2", hands="Turms Mittens +1", lring="Defending Ring", rring="Moonbeam Ring",
-			back="Moonlight Cape", waist="Flume Belt +1", legs="Eri. Leg Guards +1", feet="Erilaz Greaves +1"
+			body="Futhark Coat +2", hands="Turms Mittens +1", lring="Defending Ring", rring="Moonbeam Ring",
+			back="Moonlight Cape", waist="Flume Belt +1", legs="Eri. Leg Guards +1", feet="Turms Leggings"
 		}
 		
 		sets.defense.MDT = 
-		{--DT: -29%	PDT: -41%	MDT: -34%
+		{--DT: -29%	PDT: -41%	MDT: -35%
 			ammo="Staunch Tathlum +1",
-			head="Erilaz Galea +1", neck="Futhark Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
+			head="Rune. Bandeau +2", neck="Futhark Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
 			body="Runeist's Coat +2",hands="Turms Mittens +1", lring="Defending Ring", rring="Moonbeam Ring",
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Eri. Leg Guards +1", feet="Turms Leggings"
 		}
@@ -464,15 +465,14 @@ function init_gear_sets()
 			ammo="Knobkierrie",
 			head=gear.HHead_WSD, neck="Fotia Gorget", lear="Ishvara Earring", rear="Moonshade Earring",
 			body="Adhemar Jacket +1", hands="Meg. Gloves +2", lring="Regal Ring", rring="Karieyh Ring +1",
-			back=gear.RUNCape_STP, waist="Fotia Belt", legs="Herculean Trousers", feet=gear.HBoots_WSD
+			back=gear.RUNCape_STP, waist="Fotia Belt", legs="Samnuha Tights", feet=gear.HBoots_WSD
 		}
 
     ---Dimidation
 		sets.precast.WS['Dimidiation'] = set_combine(sets.precast.WS,
 		{
-			lear={name="Mache Earring +1", bag="wardrobe2"},
-			body="Herculean Vest",
-			legs="Samnuha Tights"
+			lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
+			body="Herculean Vest"
 		})
 		
 		sets.precast.WS['Dimidiation'].Low = sets.precast.WS['Dimidiation']
@@ -480,7 +480,6 @@ function init_gear_sets()
 		sets.precast.WS['Dimidiation'].Mid = set_combine(sets.precast.WS['Dimidiation'].Low,
 		{
 			ammo="Falcon Eye",
-			rear={name="Mache Earring +1", bag="wardrobe3"},
 			legs="Adhemar Kecks +1"
 		})
 		
@@ -513,25 +512,13 @@ function init_gear_sets()
 		})
 
 	---Spinning Slash
-		sets.precast.WS['Spinning Slash'] = set_combine(sets.precast.WS,
-		{
-			lear="Sherida Earring", rear="Ishvara Earring"
-		})
+		sets.precast.WS['Spinning Slash'] = sets.precast.WS['Ground Strike']
 		
 		sets.precast.WS['Spinning Slash'].Low = sets.precast.WS['Spinning Slash']
 		
-		sets.precast.WS['Spinning Slash'].Mid = set_combine(sets.precast.WS['Spinning Slash'].Low,
-		{
-			rear={name="Mache Earring +1", bag="wardrobe3"},
-			legs="Adhemar Kecks +1"
-		})
+		sets.precast.WS['Spinning Slash'].Mid = sets.precast.WS['Ground Strike'].Mid
 		
-		sets.precast.WS['Spinning Slash'].High = set_combine(sets.precast.WS['Spinning Slash'].Mid,
-		{
-			ammo="Seeth. Bomblet +1",
-			head="Carmine Mask +1", lear={name="Mache Earring +1", bag="wardrobe2"}, 
-			legs="Carmine Cuisses +1", feet="Aya. Gambieras +2"
-		})
+		sets.precast.WS['Spinning Slash'].High = sets.precast.WS['Ground Strike'].High
 		
 	---Resolution
 		sets.precast.WS['Resolution'] = set_combine(sets.precast.WS,
@@ -564,6 +551,10 @@ function init_gear_sets()
 	--Shockwave	
 		sets.precast.WS['Shockwave'] = sets.midcast.Macc
 		
+		sets.precast.WS['Shockwave'].Low = set_combine(sets.precast.WS['Ground Strike'],
+		{
+			neck="Futhark Torque +1"
+		})
 	--Frostbite
 		sets.precast.WS['Frostbite'] = set_combine(sets.precast.JA['Swipe'],
 		{
@@ -573,7 +564,9 @@ function init_gear_sets()
 	--Freezebite
 		sets.precast.WS['Freezebite'] =  sets.precast.WS['Frostbite']
 		
-		
+	
+	--- *** GREAT AXE ***
+	
 	--Upheavel
 		sets.precast.WS['Upheavel'] = sets.precast.WS['Resolution']
 	
@@ -582,6 +575,9 @@ function init_gear_sets()
 		sets.precast.WS['Upheavel'].Mid = sets.precast.WS['Resolution'].Mid
 	
 		sets.precast.WS['Upheavel'].High = sets.precast.WS['Resolution'].High
+	
+	---Fell Cleave
+		sets.precast.WS['Fell Cleave'] = sets.precast.WS['Ground Strike']
 	
 	--------------------------------------
 	-- Melee sets
@@ -692,8 +688,6 @@ end
 function job_midcast(spell, action, spellMap, eventArgs)
     currentSpell = spell.english
 	
-	apply_abilities(spell, action, spellMap, eventArgs)
-	
 	if spell.action_type == 'Magic' then
 		if state.CastingMode.value == 'HP' then
 			if spell.English == 'Flash' or spell.English == 'Foil' or spell.English == 'Stun' or spellMap == 'Debuffs' then
@@ -718,6 +712,14 @@ function job_midcast(spell, action, spellMap, eventArgs)
 	end
 end
 
+function job_post_midcast(spell, action, spellMap, eventArgs)
+	if spell.action_type == 'Magic' then
+		if buffactive['Embolden'] and spell.skill == 'Enhancing Magic' then
+			equip(sets.buff['Embolden'])
+		end
+	end
+end
+
 function job_aftercast(spell,action, spellMap, eventArgs)
 	equip(sets[state.WeaponSet.current])
 	equip(sets[state.GripSet.current])
@@ -726,7 +728,18 @@ end
 -------------------------------------------------------------------------------------------------------------------
 -- Job-specific hooks for non-casting events.
 -------------------------------------------------------------------------------------------------------------------
+
+--[[ Called when a player gains or loses a buff.
+		buff == buff gained or lost
+		gain == true if the buff was gained, false if it was lost. ]]
 function job_buff_change(buff,gain)
+	if state.Buff[buff] ~= nil then
+			if not midaction() then
+        		handle_equipping_gear(player.status)
+        	end
+	end
+	
+	---Gearswap for Doom Status
 	if buff == "doom" then
         if gain then
             equip(sets.buff.Doom)
@@ -736,51 +749,77 @@ function job_buff_change(buff,gain)
             handle_equipping_gear(player.status)
         end
     end
-	if buffactive['Embolden'] and player.in_combat ~= true then
-		equip(sets.buff['Embolden'])
-	end
-		
-	if buffactive['Battuta'] and player.in_combat == true then
-		meleeSet = set_combine(meleeSet, sets.buff['Battuta'])
-		defenseSet = set_combine(defenseSet, sets.buff['Battuta'])
-	end
 	
-	if buffactive['Aftermath: Lv.3'] and player.equipment.main == "Epeolatry" then
-		classes.CustomMeleeGroups:append('AM3')
-		handle_equipping_gear(player.status)
+	if buff == "Aftermath: Lv.3" and player.equipment.main == "Epeolatry" then
+		if gain then
+			classes.CustomMeleeGroups:append('AM3')
+			handle_equipping_gear(player.status)
+		else
+			classes.CustomMeleeGroups:clear()
+		end
 	end
 end
+
 -- Handle notifications of general user state change.
 function job_state_change(stateField, newValue, oldValue)
 	equip(sets[state.WeaponSet.current])
 	equip(sets[state.GripSet.current])
 end
+
+
+function customize_idle_set(idleSet)
+    if player.mpp < 51 and state.IdleMode.value ~= 'DT' then
+        idleSet = set_combine(idleSet,
+		{
+			waist="Fucho-no-Obi",
+		})
+    end
+	
+	if player.in_combat ~= true and buffactive['Embolden'] then
+		idleSet = set_combine(idleSet, sets.buff['Embolden'])
+	end
+	
+	return idleSet
+end
+
+function customize_defense_set(defenseSet)
+    if buffactive['Battuta'] and player.status == 'Engaged' then
+        defenseSet = set_combine(defenseSet, sets.buff['Battuta'])
+    end
+
+    return defenseSet
+end
+
+function customize_melee_set(meleeSet)
+	if buffactive['Battuta'] and state.HybridMode.value ~= 'Normal' then
+		meleeSet = set_combine(meleeSet, sets.buff['Battuta'])
+	end
+	
+	return meleeSet
+end
+
 -------------------------------------------------------------------------------------------------------------------
 -- User code that supplements standard library decisions.
 -------------------------------------------------------------------------------------------------------------------
 -- Called by the 'update' self-command.
 function job_update(cmdParams, eventArgs)
-	update_active_abilities()
-
+	classes.CustomMeleeGroups:clear()
+	
 	equip(sets[state.WeaponSet.current])
 	equip(sets[state.GripSet.current])
 end
+
 -- Function to display the current relevant user state when doing an update.
 -- Return true if display was handled, and you don't want the default info shown.
 function display_current_job_state(eventArgs)
-	local msg = state.WeaponSet.value .. ' '
+	local msg = '| ' .. state.WeaponSet.value .. ' | '
 
 	msg = msg .. '[IDLE: ' .. state.IdleMode.value .. ']'
+
+	msg = msg .. '  --' .. state.OffenseMode.value .. '--'
 	
-	if state.CombatForm.has_value then
-		msg = msg .. ' [COMBAT FORM: ' .. state.CombatForm.value .. '|'
-	end
-
-	msg = msg .. ': '
-
-	msg = msg .. state.OffenseMode.value
 	if state.HybridMode.value ~= 'Normal' then
-		msg = msg .. ' ' .. state.HybridMode.value .. '] '
+		msg = msg .. ' [' .. state.HybridMode.value .. '] '
 	end
 	msg = msg .. ' [WS: ' .. state.WeaponskillMode.value .. '] '
 
@@ -803,29 +842,16 @@ end
 -------------------------------------------------------------------------------------------------------------------
 -- Utility functions specific to this job.
 -------------------------------------------------------------------------------------------------------------------
-function update_active_abilities()
-	state.Buff['Embolden'] = buffactive['Embolden'] or false
-	state.Buff['Battuta'] = buffactive['Battuta'] or false
-end
-
-function apply_abilities(spell, action, spellMap)
-	if buffactive['Embolden'] and spell.skill == 'Enhancing Magic' then
-		equip(sets.buff['Embolden'])
-	end
-end
-
 
 -- Select default macro book on initial load or subjob change.
-function select_default_macro_book()
-	if player.sub_job == 'DRK' then
-		set_macro_page(1, 14)
-	elseif player.sub_job == 'WAR' or player.sub_job == 'SAM' then
+function apply_job_change()
+	if player.sub_job == 'WAR' or player.sub_job == 'SAM' then
 		set_macro_page(4, 14)
 	elseif player.sub_job == 'BLU' then
 		set_macro_apage(7,15)
+	else
+		set_macro_page(1, 14)
 	end
-end
-
-function set_lockstyle()
-    send_command('wait 3; input /lockstyleset ' .. lockstyleset)
+	
+	send_command('wait 3; input /lockstyleset ' .. lockstyleset)
 end
