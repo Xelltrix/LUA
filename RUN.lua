@@ -134,7 +134,7 @@ function init_gear_sets()
 
 		sets.precast.JA['Liement'] = 
 		{
-			body="Futhark Coat +2"
+			body="Futhark Coat +3"
 		}
 
 		sets.precast.JA['Vivacious Pulse'] = 
@@ -147,7 +147,7 @@ function init_gear_sets()
 
 		sets.precast.JA['Elemental Sforzo'] =
 		{
-			body="Futhark Coat +2"
+			body="Futhark Coat +3"
 		}
 		
 		sets.precast.JA['One for All'] = set_combine(sets.Enmity.HP,
@@ -227,7 +227,7 @@ function init_gear_sets()
 		sets.midcast.Regen =
 		{
 			head="Rune. Bandeau +2",
-			body="Futhark Coat +2", legs ="Futhark Trousers +1"
+			body="Futhark Coat +3", legs ="Futhark Trousers +1"
 		}
 
 		sets.midcast.Refresh =
@@ -248,7 +248,7 @@ function init_gear_sets()
 		{ 
 			ammo="Staunch Tathlum +1",
 			head="Carmine Mask +1", neck="Incanter's Torque", lear="Andoaa Earring", rear="Odnowa Earring +1",
-			body="Futhark Coat +2", hands="Runeist Mitons +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			body="Futhark Coat +3", hands="Runeist Mitons +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Merciful Cape", waist="Olympus Sash", legs="Carmine Cuisses +1", feet="Turms Leggings"
 		}
 
@@ -256,7 +256,7 @@ function init_gear_sets()
 		{
 			ammo="Staunch Tathlum +1",
 			head="Carmine Mask +1", neck="Incanter's Torque", lear="Andoaa Earring", rear="Augment. Earring",
-			body="Futhark Coat +2", hands="Runeist Mitons +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			body="Futhark Coat +3", hands="Runeist Mitons +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Moonlight Cape", waist="Olympus Sash", legs="Carmine Cuisses +1", feet="Turms Leggings"
 		}
 
@@ -346,7 +346,7 @@ function init_gear_sets()
 	------------------------------------------------------------------------------------------------
 
 		sets.idle =
-		{-- DT: 6%	PDT: 4%		MDT: 6%		Refresh: 3	Regen: 
+		{-- DT: 6%	PDT: 4%		MDT: 6%		Refresh: 4	Regen: 
 			ammo="Homiliary",
 			head="Erilaz Galea +1", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 			body="Runeist's Coat +2", hands="Turms Mittens +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
@@ -354,15 +354,15 @@ function init_gear_sets()
 		}
 
 		sets.idle.DT = 
-		{-- DT: 29%	PDT: 49%	MDT: 34%
+		{-- DT: 38%	PDT: 49%	MDT: 43%
 			ammo="Staunch Tathlum +1",
-			head="Fu. Bandeau +1", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
-			body="Runeist's Coat +2", hands="Turms Mittens +1", lring="Defending Ring", rring="Moonbeam Ring",
-			back="Moonlight Cape", waist="Flume Belt +1", legs="Eri. Leg Guards +1", feet="Erilaz Greaves +1"
+			head="Rune. Bandeau +2", neck="Futhark Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
+			body="Futhark Coat +3", hands="Turms Mittens +1", lring="Defending Ring", rring="Moonbeam Ring",
+			back="Moonlight Cape", waist="Flume Belt +1", legs="Eri. Leg Guards +1", feet="Turms Leggings"
 		}
 		
 		sets.idle.Refresh =
-		{-- DT: 6%	PDT: 12%	MDT: 6%		Refresh: 7	Regen: 
+		{-- DT: 6%	PDT: 12%	MDT: 6%		Refresh: 8	Regen: 
 			ammo="Homiliary",
 			head="Rawhide Mask", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 			body="Runeist's Coat +2", hands=gear.HHands_Refresh, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
@@ -390,8 +390,8 @@ function init_gear_sets()
 		sets.defense.PDT =
 		{--DT: -37%	PDT: -52%	MDT: -42%
 			ammo="Staunch Tathlum +1",
-			head="Fu. Bandeau +1", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
-			body="Futhark Coat +2", hands="Turms Mittens +1", lring="Defending Ring", rring="Moonbeam Ring",
+			head="Fu. Bandeau +1", neck="Futhark Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
+			body="Futhark Coat +3", hands="Turms Mittens +1", lring="Defending Ring", rring="Moonbeam Ring",
 			back="Moonlight Cape", waist="Flume Belt +1", legs="Eri. Leg Guards +1", feet="Turms Leggings"
 		}
 		
@@ -623,18 +623,18 @@ function init_gear_sets()
 	
 	---Base Hybrid Set
 		sets.engaged.Hybrid =
-		{
+		{-- DT: 29%	PDT: 43%	MDT: 29%
 			ammo="Staunch Tathlum +1",
-			head="Dampening Tam", neck="Futhark Torque +1",
+			neck="Futhark Torque +1",
 			body="Ayanmo Corazza +2", lring="Defending Ring", rring="Moonbeam Ring",
 			back=gear.RUNCape_STP, waist="Flume Belt +1"
 		}
 		
 		sets.engaged.Hybrid2 =
-		{
+		{-- DT: 38%	PDT: 42%	MDT: 38%
 			ammo="Staunch Tathlum +1",
 			neck="Futhark Torque +1",
-			body="Runeist's Coat +2", lring="Defending Ring", rring="Moonbeam Ring",
+			body="Futhark Coat +3", lring="Defending Ring", rring="Moonbeam Ring",
 			back="Moonlight Cape", waist="Flume Belt +1"
 		}
 		
