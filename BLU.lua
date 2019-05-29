@@ -845,7 +845,7 @@ function init_gear_sets()
 		sets.engaged =
 		{
 			sub="Genmei Shield", ammo="Ginsen",
-			head="Adhemar Bonnet +1", neck="Mirage Stole +2", lear="Telos Earring", rear="Dedition Earring",
+			head="Adhemar Bonnet +1", neck="Mirage Stole +2", lear="Telos Earring", rear="Cessance Earring",
 			body="Ayanmo Corazza +2", hands="Adhemar Wrist. +1", lring="Petrov Ring", rring="Epona's Ring",
 			back=gear.BLUCape_STP, waist="Windbuffet Belt +1", legs="Samnuha Tights", feet="Carmine Greaves +1"
 		}
@@ -853,7 +853,7 @@ function init_gear_sets()
 		{
 			sub="Genmei Shield", ammo="Ginsen",
 			head="Adhemar Bonnet +1", neck="Mirage Stole +2", lear="Telos Earring", rear="Dedition Earring",
-			body="Ayanmo Corazza +2", hands="Adhemar Wrist. +1", lring="Petrov Ring", rring="Epona's Ring",
+			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Hetairoi Ring", rring="Epona's Ring",
 			back=gear.BLUCape_STP, waist="Windbuffet Belt +1", legs="Samnuha Tights", feet="Carmine Greaves +1"
 		}
 		
@@ -1520,12 +1520,12 @@ function init_gear_sets()
 		}
 		
 		-----------------------------------------------------------------------------------
-		---		(DW:11	STP:50		QA:2%	TA:20%	DA:12%)
+		---		(DW:13	STP:70		QA:4%	TA:14%	DA:8%)
 		-----------------------------------------------------------
 		sets.engaged.DW3.Max.AM3 =
 		{
 			ammo="Ginsen",
-			head="Adhemar Bonnet +1", neck="Mirage Stole +2", lear="Telos Earring", rear="Cessance Earring",
+			head="Dampening Tam", neck="Mirage Stole +2", lear="Telos Earring", rear="Dedition Earring",
 			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring="Epona's Ring",
 			back=gear.BLUCape_STP, waist="Reiki Yotai", legs="Samnuha Tights", feet="Carmine Greaves +1"
 		}
@@ -1581,12 +1581,12 @@ function init_gear_sets()
 		}
 		
 		-----------------------------------------------------------------------------------
-		---		(DW:6	STP:60		QA:2%	TA:20%	DA:12%)
+		---		(DW:6	STP:61		QA:6%	TA:16%	DA:11%)
 		-----------------------------------------------------------
 		sets.engaged.DW4.Max.AM3 =
 		{
 			ammo="Ginsen",
-			head="Adhemar Bonnet +1", neck="Mirage Stole +2", lear="Telos Earring", rear="Dedition Earring",
+			head="Dampening Tam", neck="Mirage Stole +2", lear="Telos Earring", rear="Dedition Earring",
 			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring="Epona's Ring",
 			back=gear.BLUCape_STP, waist="Windbuffet Belt +1", legs="Samnuha Tights", feet="Carmine Greaves +1"
 		}
@@ -1629,17 +1629,16 @@ function init_gear_sets()
 	-- Hybrid Sets
 	--------------------------------------
 		sets.engaged.Hybrid = 
-		{
+		{-- DT: 19%	PDT: 27%	MDT: 18%
 			ammo="Staunch Tathlum +1",
 			hands="Assim. Bazu. +3", lring="Defending Ring", rring="Gelatinous Ring +1",
 		}
 		
 		sets.engaged.Hybrid2 = 
-		{
+		{-- DT: 31%	PDT: 45%	MDT: 33%
 			ammo="Staunch Tathlum +1",
-			head="Dampening Tam", neck="Loricate Torque +1",
+			head="Aya Zucchetto +2", neck="Loricate Torque +1",
 			body="Ayanmo Corazza +2", hands="Assim. Bazu. +3", lring="Defending Ring", rring="Gelatinous Ring +1",
-			waist="Flume Belt +1"
 		}
 		
 		
@@ -1647,6 +1646,7 @@ function init_gear_sets()
 		-- Sword & Board
 		----------------------------------------------------------	
 	    	sets.engaged.DT 				= set_combine(sets.engaged, 		sets.engaged.Hybrid)
+		sets.engaged.AM3.DT 				= set_combine(sets.engaged.AM3,		sets.engaged.Hybrid)
 		sets.engaged.Low.DT 				= set_combine(sets.engaged.Low, 	sets.engaged.Hybrid)
 		sets.engaged.Mid.DT 				= set_combine(sets.engaged.Mid, 	sets.engaged.Hybrid)
 		sets.engaged.High.DT				= set_combine(sets.engaged.High, 	sets.engaged.Hybrid)
@@ -1654,23 +1654,23 @@ function init_gear_sets()
 	
 		sets.engaged.DTMAX 					= set_combine(sets.engaged, 		sets.engaged.Hybrid2,
 		{
-			neck="Mirage Stole +2",
-			waist="Windbuffet Belt +1"
+			neck="Mirage Stole +2"
+		})
+		sets.engaged.DTMAX.AM3 					= set_combine(sets.engaged.AM3,		sets.engaged.Hybrid2,
+		{
+			neck="Mirage Stole +2"
 		})
 		sets.engaged.Low.DTMAX 				= set_combine(sets.engaged.Low, 	sets.engaged.Hybrid2,
 		{
-			neck="Mirage Stole +2",
-			waist="Windbuffet Belt +1"
+			neck="Mirage Stole +2"
 		})
 		sets.engaged.Mid.DTMAX				= set_combine(sets.engaged.Mid, 	sets.engaged.Hybrid2,
 		{
-			neck="Mirage Stole +2",
-			waist="Windbuffet Belt +1"
+			neck="Mirage Stole +2"
 		})
 		sets.engaged.High.DTMAX				= set_combine(sets.engaged.High, 	sets.engaged.Hybrid2,
 		{
-			neck="Mirage Stole +2",
-			waist="Kentarch Belt +1"
+			neck="Mirage Stole +2"
 		})
 
 		
@@ -1679,18 +1679,21 @@ function init_gear_sets()
 		-- No Haste
 		----------------------------------------------------------
 		sets.engaged.DW2.DT 				= set_combine(sets.engaged.DW2, 	sets.engaged.Hybrid)
+		sets.engaged.DW2.DT.AM3 			= set_combine(sets.engaged.DW2.AM3, 	sets.engaged.Hybrid)
 		sets.engaged.DW2.Low.DT 			= set_combine(sets.engaged.DW2.Low, 	sets.engaged.Hybrid)
 		sets.engaged.DW2.Mid.DT 			= set_combine(sets.engaged.DW2.Mid, 	sets.engaged.Hybrid)
 		sets.engaged.DW2.High.DT 			= set_combine(sets.engaged.DW2.High, 	sets.engaged.Hybrid)
 
 	
 		sets.engaged.DW3.DT 				= set_combine(sets.engaged.DW3, 	sets.engaged.Hybrid)
+		sets.engaged.DW3.DT.AM3 			= set_combine(sets.engaged.DW3.AM3, 	sets.engaged.Hybrid)
 		sets.engaged.DW3.Low.DT 			= set_combine(sets.engaged.DW3.Low, 	sets.engaged.Hybrid)
 		sets.engaged.DW3.Mid.DT 			= set_combine(sets.engaged.DW3.Mid, 	sets.engaged.Hybrid)
 		sets.engaged.DW3.High.DT 			= set_combine(sets.engaged.DW3.High, 	sets.engaged.Hybrid)
 		
 	
 		sets.engaged.DW4.DT 				= set_combine(sets.engaged.DW4, 	sets.engaged.Hybrid)
+		sets.engaged.DW4.DT.AM3 			= set_combine(sets.engaged.DW4.AM3, 	sets.engaged.Hybrid)
 		sets.engaged.DW4.Low.DT 			= set_combine(sets.engaged.DW4.Low, 	sets.engaged.Hybrid)
 		sets.engaged.DW4.Mid.DT 			= set_combine(sets.engaged.DW4.Mid, 	sets.engaged.Hybrid)
 		sets.engaged.DW4.High.DT 			= set_combine(sets.engaged.DW4.High, 	sets.engaged.Hybrid)
@@ -1698,18 +1701,21 @@ function init_gear_sets()
 		
 		
 		sets.engaged.DW2.DTMAX 				= set_combine(sets.engaged.DW2, 	sets.engaged.Hybrid2)
+		sets.engaged.DW2.DTMAX.AM3 			= set_combine(sets.engaged.DW2.AM3, 	sets.engaged.Hybrid2)
 		sets.engaged.DW2.Low.DTMAX 			= set_combine(sets.engaged.DW2.Low, 	sets.engaged.Hybrid2)
 		sets.engaged.DW2.Mid.DTMAX 			= set_combine(sets.engaged.DW2.Mid, 	sets.engaged.Hybrid2)
 		sets.engaged.DW2.High.DTMAX			= set_combine(sets.engaged.DW2.High, 	sets.engaged.Hybrid2)
 
 	
 		sets.engaged.DW3.DTMAX 				= set_combine(sets.engaged.DW3, 	sets.engaged.Hybrid2)
+		sets.engaged.DW3.DTMAX.AM3 			= set_combine(sets.engaged.DW3.AM3, 	sets.engaged.Hybrid2)
 		sets.engaged.DW3.Low.DTMAX 			= set_combine(sets.engaged.DW3.Low, 	sets.engaged.Hybrid2)
 		sets.engaged.DW3.Mid.DTMAX 			= set_combine(sets.engaged.DW3.Mid, 	sets.engaged.Hybrid2)
 		sets.engaged.DW3.High.DTMAX			= set_combine(sets.engaged.DW3.High, 	sets.engaged.Hybrid2)
 		
 	
 		sets.engaged.DW4.DTMAX 				= set_combine(sets.engaged.DW4, 	sets.engaged.Hybrid2)
+		sets.engaged.DW4.DTMAX.AM3 			= set_combine(sets.engaged.DW4.AM3, 	sets.engaged.Hybrid2)
 		sets.engaged.DW4.Low.DTMAX 			= set_combine(sets.engaged.DW4.Low, 	sets.engaged.Hybrid2)
 		sets.engaged.DW4.Mid.DTMAX 			= set_combine(sets.engaged.DW4.Mid, 	sets.engaged.Hybrid2)
 		sets.engaged.DW4.High.DTMAX			= set_combine(sets.engaged.DW4.High, 	sets.engaged.Hybrid2)
@@ -1720,18 +1726,21 @@ function init_gear_sets()
 		-- Minimum Haste
 		----------------------------------------------------------
 		sets.engaged.DW2.DT.Min 			= set_combine(sets.engaged.DW2.Min,		sets.engaged.Hybrid)
+		sets.engaged.DW2.DT.Min.AM3  		= set_combine(sets.engaged.DW2.Min.AM3, 	sets.engaged.Hybrid)
 		sets.engaged.DW2.Low.DT.Min  		= set_combine(sets.engaged.DW2.Low.Min, 	sets.engaged.Hybrid)
 		sets.engaged.DW2.Mid.DT.Min  		= set_combine(sets.engaged.DW2.Mid.Min, 	sets.engaged.Hybrid)
 		sets.engaged.DW2.High.DT.Min 		= set_combine(sets.engaged.DW2.High.Min, 	sets.engaged.Hybrid)
 		
 	
 		sets.engaged.DW3.DT.Min 	 		= set_combine(sets.engaged.DW3.Min, 		sets.engaged.Hybrid)
+		sets.engaged.DW3.DT.Min.AM3  		= set_combine(sets.engaged.DW3.Min.AM3, 	sets.engaged.Hybrid)
 		sets.engaged.DW3.Low.DT.Min  		= set_combine(sets.engaged.DW3.Low.Min, 	sets.engaged.Hybrid)
 		sets.engaged.DW3.Mid.DT.Min  		= set_combine(sets.engaged.DW3.Mid.Min, 	sets.engaged.Hybrid)
 		sets.engaged.DW3.High.DT.Min 		= set_combine(sets.engaged.DW3.High.Min, 	sets.engaged.Hybrid)
 		
 	
 		sets.engaged.DW4.DT.Min				= set_combine(sets.engaged.DW4.Min, 		sets.engaged.Hybrid)
+		sets.engaged.DW4.DT.Min.AM3  		= set_combine(sets.engaged.DW4.AM3.Min.AM3, 	sets.engaged.Hybrid)
 		sets.engaged.DW4.Low.DT.Min  		= set_combine(sets.engaged.DW4.Low.Min, 	sets.engaged.Hybrid)
 		sets.engaged.DW4.Mid.DT.Min  		= set_combine(sets.engaged.DW4.Mid.Min, 	sets.engaged.Hybrid)
 		sets.engaged.DW4.High.DT.Min 		= set_combine(sets.engaged.DW4.High.Min, 	sets.engaged.Hybrid)
@@ -1739,18 +1748,24 @@ function init_gear_sets()
 		
 		
 		sets.engaged.DW2.DTMAX.Min 	 		= set_combine(sets.engaged.DW2.Min, 		sets.engaged.Hybrid2)
+		sets.engaged.DW2.DTMAX.Min.AM3  	= set_combine(sets.engaged.DW2.Min.AM3, 	sets.engaged.Hybrid2)
 		sets.engaged.DW2.Low.DTMAX.Min  	= set_combine(sets.engaged.DW2.Low.Min, 	sets.engaged.Hybrid2)
 		sets.engaged.DW2.Mid.DTMAX.Min  	= set_combine(sets.engaged.DW2.Mid.Min, 	sets.engaged.Hybrid2)
 		sets.engaged.DW2.High.DTMAX.Min		= set_combine(sets.engaged.DW2.High.Min, 	sets.engaged.Hybrid2)
 		
 	
 		sets.engaged.DW3.DTMAX.Min 	 		= set_combine(sets.engaged.DW3.Min, 		sets.engaged.Hybrid2)
+		sets.engaged.DW3.DTMAX.Min.AM3  	= set_combine(sets.engaged.DW3.Min.AM3, 	sets.engaged.Hybrid2)
 		sets.engaged.DW3.Low.DTMAX.Min  	= set_combine(sets.engaged.DW3.Low.Min, 	sets.engaged.Hybrid2)
 		sets.engaged.DW3.Mid.DTMAX.Min  	= set_combine(sets.engaged.DW3.Mid.Min, 	sets.engaged.Hybrid2)
 		sets.engaged.DW3.High.DTMAX.Min 	= set_combine(sets.engaged.DW3.High.Min, 	sets.engaged.Hybrid2)
 		
 	
 		sets.engaged.DW4.DTMAX.Min 	 		= set_combine(sets.engaged.DW4.Min, 		sets.engaged.Hybrid2,
+		{
+			feet=gear.TFeet_TP
+		})
+		sets.engaged.DW4.DTMAX.Min.AM3  	= set_combine(sets.engaged.DW4.Min.AM3, 	sets.engaged.Hybrid2,
 		{
 			feet=gear.TFeet_TP
 		})
@@ -1767,18 +1782,21 @@ function init_gear_sets()
 		-- Medium Haste
 		----------------------------------------------------------
 		sets.engaged.DW2.DT.Med 	 		= set_combine(sets.engaged.DW2.Med, 		sets.engaged.Hybrid)
+		sets.engaged.DW2.DT.Med.AM3  		= set_combine(sets.engaged.DW2.Med.AM3, 	sets.engaged.Hybrid)
 		sets.engaged.DW2.Low.DT.Med  		= set_combine(sets.engaged.DW2.Low.Med, 	sets.engaged.Hybrid)
 		sets.engaged.DW2.Mid.DT.Med  		= set_combine(sets.engaged.DW2.Mid.Med, 	sets.engaged.Hybrid)
 		sets.engaged.DW2.High.DT.Med 		= set_combine(sets.engaged.DW2.High.Med, 	sets.engaged.Hybrid)
 
 	
 		sets.engaged.DW3.DT.Med 	 		= set_combine(sets.engaged.DW3.Med, 		sets.engaged.Hybrid)
+		sets.engaged.DW3.DT.Med.AM3  		= set_combine(sets.engaged.DW3.Med.AM3, 	sets.engaged.Hybrid)
 		sets.engaged.DW3.Low.DT.Med  		= set_combine(sets.engaged.DW3.Low.Med, 	sets.engaged.Hybrid)
 		sets.engaged.DW3.Mid.DT.Med  		= set_combine(sets.engaged.DW3.Mid.Med, 	sets.engaged.Hybrid)
 		sets.engaged.DW3.High.DT.Min 		= set_combine(sets.engaged.DW3.High.Min, 	sets.engaged.Hybrid)
 
 	
 		sets.engaged.DW4.DT.Med 	 		= set_combine(sets.engaged.DW4.Med, 		sets.engaged.Hybrid)
+		sets.engaged.DW4.DT.Med.AM3  		= set_combine(sets.engaged.DW4.Med.AM3, 	sets.engaged.Hybrid)
 		sets.engaged.DW4.Low.DT.Med  		= set_combine(sets.engaged.DW4.Low.Med, 	sets.engaged.Hybrid)
 		sets.engaged.DW4.Mid.DT.Med  		= set_combine(sets.engaged.DW4.Mid.Med, 	sets.engaged.Hybrid)
 		sets.engaged.DW4.High.DT.Med 		= set_combine(sets.engaged.DW4.High.Med, 	sets.engaged.Hybrid)
@@ -1786,32 +1804,36 @@ function init_gear_sets()
 		
 		
 		sets.engaged.DW2.DTMAX.Med 	 		= set_combine(sets.engaged.DW2.Med, 		sets.engaged.Hybrid2)
+		sets.engaged.DW2.DTMAX.Med.AM3  	= set_combine(sets.engaged.DW2.Med.AM3, 	sets.engaged.Hybrid2)
 		sets.engaged.DW2.Low.DTMAX.Med  	= set_combine(sets.engaged.DW2.Low.Med, 	sets.engaged.Hybrid2)
 		sets.engaged.DW2.Mid.DTMAX.Med  	= set_combine(sets.engaged.DW2.Mid.Med, 	sets.engaged.Hybrid2)
 		sets.engaged.DW2.High.DTMAX.Med 	= set_combine(sets.engaged.DW2.High.Med, 	sets.engaged.Hybrid2)
 
 	
-		sets.engaged.DW3.DTMAX.Med 	 		= set_combine(sets.engaged.DW3.Med, 		sets.engaged.Hybrid2,
+		sets.engaged.DW3.DTMAX.Med 	 		= set_combine(sets.engaged.DW3.Med, 		sets.engaged.Hybrid2)
+		sets.engaged.DW3.DTMAX.Med.AM3  	= set_combine(sets.engaged.DW3.Med.AM3, 	sets.engaged.Hybrid2,
 		{
-			waist="Reiki Yotai", legs="Carmine Cuisses +1"
+			rear="Suppanomimi",
+			feet=gear.HBoots_TP
 		})
-		sets.engaged.DW3.Low.DTMAX.Med  	= set_combine(sets.engaged.DW3.Low.Med, 	sets.engaged.Hybrid2,
-		{
-			waist="Reiki Yotai", legs="Carmine Cuisses +1"
-		})
+		sets.engaged.DW3.Low.DTMAX.Med  	= set_combine(sets.engaged.DW3.Low.Med, 	sets.engaged.Hybrid2)
 		sets.engaged.DW3.Mid.DTMAX.Med  	= set_combine(sets.engaged.DW3.Mid.Med, 	sets.engaged.Hybrid2,
 		{
 			head="Carmine Mask +1", lear="Eabani Earring",
-			waist="Reiki Yotai", legs="Carmine Cuisses +1", feet="Aya. Gambieras +2"
+			feet="Aya. Gambieras +2"
 		})
 		sets.engaged.DW3.High.DTMAX.Med 	= set_combine(sets.engaged.DW3.High.Min, 	sets.engaged.Hybrid2,
 		{
-			head="Carmine Mask +1", lear="Eabani Earring", rear="Suppanomimi",
-			waist="Reiki Yotai", feet="Aya. Gambieras +2"
+			head="Carmine Mask +1", lear="Eabani Earring",
+			feet="Aya. Gambieras +2"
 		})
 
 	
 		sets.engaged.DW4.DTMAX.Med 	 		= set_combine(sets.engaged.DW4.Med, 		sets.engaged.Hybrid2,
+		{
+			legs="Carmine Cuisses +1"
+		})
+		sets.engaged.DW4.DTMAX.Med.AM3  	= set_combine(sets.engaged.DW4.Med.AM3, 	sets.engaged.Hybrid2,
 		{
 			legs="Carmine Cuisses +1"
 		})
@@ -1821,13 +1843,13 @@ function init_gear_sets()
 		})
 		sets.engaged.DW4.Mid.DTMAX.Med  	= set_combine(sets.engaged.DW4.Mid.Med, 	sets.engaged.Hybrid2,
 		{
-			lear="Eabani Earring", rear="Suppanomimi",
-			waist="Kentarch Belt +1", legs="Carmine Cuisses +1"
+			rear="Suppanomimi",
+			legs="Carmine Cuisses +1"
 		})
 		sets.engaged.DW4.High.DTMAX.Med 	= set_combine(sets.engaged.DW4.High.Med, 	sets.engaged.Hybrid2,
 		{
 			head="Carmine Mask +1", lear="Eabani Earring", rear="Suppanomimi",
-			waist="Kentarch Belt +1", feet="Aya. Gambieras +2"
+			waist="Reiki Yotai", legs="Adhemar Kecks +1", feet="Aya. Gambieras +2"
 		})
 		
 	
@@ -1836,18 +1858,21 @@ function init_gear_sets()
 		-- Maximum Haste
 		----------------------------------------------------------		
 		sets.engaged.DW2.DT.Max 	 		= set_combine(sets.engaged.DW2.Max, 		sets.engaged.Hybrid)
+		sets.engaged.DW2.DT.Max.AM3  		= set_combine(sets.engaged.DW2.Max.AM3, 	sets.engaged.Hybrid)
 		sets.engaged.DW2.Low.DT.Max  		= set_combine(sets.engaged.DW2.Low.Max, 	sets.engaged.Hybrid)
 		sets.engaged.DW2.Mid.DT.Max  		= set_combine(sets.engaged.DW2.Mid.Max, 	sets.engaged.Hybrid)
 		sets.engaged.DW2.High.DT.Max 		= set_combine(sets.engaged.DW2.High.Max, 	sets.engaged.Hybrid)
 		
 	
 		sets.engaged.DW3.DT.Max 	 		= set_combine(sets.engaged.DW3.Max, 		sets.engaged.Hybrid)
+		sets.engaged.DW3.DT.Max.AM3  		= set_combine(sets.engaged.DW3.Max.AM3, 	sets.engaged.Hybrid)
 		sets.engaged.DW3.Low.DT.Max  		= set_combine(sets.engaged.DW3.Low.Max, 	sets.engaged.Hybrid)
 		sets.engaged.DW3.Mid.DT.Max  		= set_combine(sets.engaged.DW3.Mid.Max, 	sets.engaged.Hybrid)
 		sets.engaged.DW3.High.DT.Max 		= set_combine(sets.engaged.DW3.High.Max, 	sets.engaged.Hybrid)
 
 	
 		sets.engaged.DW4.DT.Max 	 		= set_combine(sets.engaged.DW4.Max, 		sets.engaged.Hybrid)
+		sets.engaged.DW4.DT.Max.AM3  		= set_combine(sets.engaged.DW4.Max.AM3, 	sets.engaged.Hybrid)
 		sets.engaged.DW4.Low.DT.Max  		= set_combine(sets.engaged.DW4.Low.Max, 	sets.engaged.Hybrid)
 		sets.engaged.DW4.Mid.DT.Max  		= set_combine(sets.engaged.DW4.Mid.Max, 	sets.engaged.Hybrid)
 		sets.engaged.DW4.High.DT.Max 		= set_combine(sets.engaged.DW4.High.Max, 	sets.engaged.Hybrid)
@@ -1858,17 +1883,21 @@ function init_gear_sets()
 		{
 			legs="Carmine Cuisses +1"
 		})
+		sets.engaged.DW2.DTMAX.Max.AM3  	= set_combine(sets.engaged.DW2.Max.AM3, 	sets.engaged.Hybrid2,
+		{
+			legs="Carmine Cuisses +1"
+		})
 		sets.engaged.DW2.Low.DTMAX.Max  	= set_combine(sets.engaged.DW2.Low.Max, 	sets.engaged.Hybrid2,
 		{
 			legs="Carmine Cuisses +1"
 		})
 		sets.engaged.DW2.Mid.DTMAX.Max  	= set_combine(sets.engaged.DW2.Mid.Max, 	sets.engaged.Hybrid2,
 		{
-			rear="Suppanomimi"
+			lear="Eabani Earring"
 		})
 		sets.engaged.DW2.High.DTMAX.Max 	= set_combine(sets.engaged.DW2.High.Max, 	sets.engaged.Hybrid2,
 		{
-			rear="Suppanomimi"
+			lear="Eabani Earring"
 		})
 		
 	
@@ -1876,6 +1905,10 @@ function init_gear_sets()
 		{
 			rear="Cessance Earring",
 			back=gear.BLUCape_DW
+		})
+		sets.engaged.DW3.DTMAX.Max.AM3  	= set_combine(sets.engaged.DW3.Max.AM3, 	sets.engaged.Hybrid2,
+		{
+			rear="Eabani Earring"
 		})
 		sets.engaged.DW3.Low.DTMAX.Max  	= set_combine(sets.engaged.DW3.Low.Max, 	sets.engaged.Hybrid2,
 		{
@@ -1891,15 +1924,19 @@ function init_gear_sets()
 	
 		sets.engaged.DW4.DTMAX.Max 	 		= set_combine(sets.engaged.DW4.Max, 		sets.engaged.Hybrid2,
 		{
-			rear="Suppanomimi"
+			legs="Carmine Cuisses +1"
+		})
+		sets.engaged.DW4.DTMAX.Max.AM3  	= set_combine(sets.engaged.DW4.Max.AM3, 	sets.engaged.Hybrid2,
+		{
+			waist="Reiki Yotai"
 		})
 		sets.engaged.DW4.Low.DTMAX.Max  	= set_combine(sets.engaged.DW4.Low.Max, 	sets.engaged.Hybrid2,
 		{
-			rear="Suppanomimi"
+			legs="Carmine Cuisses +1"
 		})
 		sets.engaged.DW4.Mid.DTMAX.Max  	= set_combine(sets.engaged.DW4.Mid.Max, 	sets.engaged.Hybrid2,
 		{
-			rear="Suppanomimi"
+			legs="Carmine Cuisses +1"
 		})
 		sets.engaged.DW4.High.DTMAX.Max 	= set_combine(sets.engaged.DW4.High.Max, 	sets.engaged.Hybrid2)
 end
