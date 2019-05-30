@@ -1740,7 +1740,7 @@ function init_gear_sets()
 		
 	
 		sets.engaged.DW4.DT.Min				= set_combine(sets.engaged.DW4.Min, 		sets.engaged.Hybrid)
-		sets.engaged.DW4.DT.Min.AM3  		= set_combine(sets.engaged.DW4.AM3.Min.AM3, 	sets.engaged.Hybrid)
+		sets.engaged.DW4.DT.Min.AM3  		= set_combine(sets.engaged.DW4.Min.AM3, 	sets.engaged.Hybrid)
 		sets.engaged.DW4.Low.DT.Min  		= set_combine(sets.engaged.DW4.Low.Min, 	sets.engaged.Hybrid)
 		sets.engaged.DW4.Mid.DT.Min  		= set_combine(sets.engaged.DW4.Mid.Min, 	sets.engaged.Hybrid)
 		sets.engaged.DW4.High.DT.Min 		= set_combine(sets.engaged.DW4.High.Min, 	sets.engaged.Hybrid)
