@@ -52,6 +52,5 @@ Baayami Cuffs +1          Price: 30,000,000G
 Baayami Slops +1          Price: 40,000,000G
 Baayami Sabots +1         Price: 30,000,000G
 
-
 Pinga Tunic +1            Price: 40,000,000G (30,000,000G)
 Pinga Slops +1            Price: 40,000,000G (30,000,000G)
