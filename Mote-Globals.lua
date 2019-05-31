@@ -165,11 +165,6 @@ end
 -- Global event-handling functions.
 -------------------------------------------------------------------------------------------------------------------
 
--- Global intercept on precast.
-function user_precast(spell, action, spellMap, eventArgs)
-    cancel_conflicting_buffs(spell, action, spellMap, eventArgs)
-end
-
 -- Global intercept on midcast.
 function user_midcast(spell, action, spellMap, eventArgs)
 	-- Default base equipment layer of fast recast.
