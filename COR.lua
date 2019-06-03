@@ -84,20 +84,11 @@ function init_gear_sets()
 			feet="Lanun Bottes +1"
 		}
 		
-		sets.precast.JA['Snake Eye'] = 
-		{
-			legs="Lanun Trews +1"
-		}
+		sets.precast.JA['Snake Eye'] = { legs="Lanun Trews +1" }
 		
-		sets.precast.JA['Fold'] =
-		{
-			hands="Lanun Gants +1"
-		}
+		sets.precast.JA['Fold'] = { hands="Lanun Gants +1 }
 		
-		sets.precast.JA['Random Deal'] = 
-		{
-			body="Lanun Frac"
-		}
+		sets.precast.JA['Random Deal'] =  { body="Lanun Frac" }
 		
 		sets.precast.CorsairRoll =
 		{
@@ -147,10 +138,7 @@ function init_gear_sets()
 		sets.midcast.CorsairShot['Light Shot'] = sets.midcast.CorsairShot.Resistant
 		sets.midcast.CorsairShot['Dark Shot'] = sets.midcast.CorsairShot.Resistant
 		
-		sets.precast.LuzafRing = 
-		{
-			rring="Luzaf's Ring"
-		}
+		sets.precast.LuzafRing =  { rring="Luzaf's Ring" }
 		
 		
 	-------------------
@@ -241,10 +229,7 @@ function init_gear_sets()
 
 		sets.defense.MDT = sets.idle.DT
 
-		sets.Kiting = 
-		{
-			legs="Carmine Cuisses +1"
-		}
+		sets.Kiting =  { legs="Carmine Cuisses +1" }
 
 
     ------------------------------------------------------------------------------------------------
@@ -286,11 +271,11 @@ function init_gear_sets()
 			back="Camulus's Mantle", waist="Yemaya Belt", legs="Adhemar Kecks +1", feet="Adhemar Gamashes"
 		}
 		
-		sets.midcast.RA.Flurry = set_combine(sets.midcast.RA,
+		sets.precast.RA.Flurry = set_combine(sets.midcast.RA,
 		{
 			hands="Carmine Fin. Ga. +1"
 		})
-	    sets.midcast.RA.Flurry2 = sets.midcast.RA
+	    sets.precast.RA.Flurry2 = sets.midcast.RA
 		
 		sets.buff.TripleShot =
 		{
