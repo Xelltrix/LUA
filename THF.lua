@@ -97,7 +97,7 @@ function init_gear_sets()
 	}
 	sets.precast.JA['Steal'] =
 	{
-		head="Adhemar Bonnet +1", neck="Pentalagus Charm", lear="Dawn Earring", rear="Infused Earring",
+		head=gear.AHead_TP, neck="Pentalagus Charm", lear="Dawn Earring", rear="Infused Earring",
 		body="Adhemar Jacket +1", hands="Pill. Armlets +1", lring="Ilabrat Ring", rring="Regal Ring",
 		waist="Chaac Belt", feet="Pill. Poulaines +1"
 	}
@@ -168,7 +168,7 @@ function init_gear_sets()
 		sets.midcast['Elemental Magic'] =
 		{
 			ammo="Pemphredo Tathlum",
-			head=gear.HHead_MAB, neck="Sanctity Necklace", lear="Friomisi Earring", rear="Novio Earring",
+			head=gear.HHead_MAB, neck="Sanctity Necklace", lear="Friomisi Earring", rear="Crematio Earring",
 			body="Samnuha Coat", hands="Leyline Gloves", lring="Dingir Ring", rring={name="Shiva Ring +1", bag="wardrobe3"},
 			back=gear.THFCape_STP, waist="Eschan Stone", legs="Herculean Trousers", feet=gear.HBoots_WSD
 		}
@@ -246,7 +246,7 @@ function init_gear_sets()
 		sets.buff['Sneak Attack'] =
 		{
 			ammo="Yetshila",
-			head="Adhemar Bonnet +1", neck="Caro Necklace", lear="Sherida Earring", rear="Suppanomimi",
+			head=gear.AHead_TP, neck="Caro Necklace", lear="Sherida Earring", rear="Suppanomimi",
 			body="Adhemar Jacket +1", hands="Meg. Gloves +2", lring="Ilabrat Ring", rring="Regal Ring",
 			back=gear.THFCape_STP, waist="Chaac Belt", legs="Samnuha Tights", feet="Meg. Jam. +2"
 		}
@@ -254,7 +254,7 @@ function init_gear_sets()
 		sets.buff['Trick Attack'] =
 		{
 			ammo="Yetshila",
-			head="Adhemar Bonnet +1", neck="Pentalagus Charm", lear="Dawn Earring", rear="Suppanomimi",
+			head=gear.AHead_TP, neck="Pentalagus Charm", lear="Dawn Earring", rear="Suppanomimi",
 			body="Adhemar Jacket +1", hands="Meg. Gloves +2", lring="Ilabrat Ring", rring="Regal Ring",
 			back=gear.THFCape_STP, waist="Chaac Belt", legs="Meg. Chausses +2", feet="Meg. Jam. +2"
 		}
@@ -315,7 +315,7 @@ function init_gear_sets()
 		sets.precast.WS.SA = set_combine(sets.precast.WS,
 		{
 			ammo="Yetshila",
-			head="Adhemar Bonnet +1", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
+			head=gear.AHead_TP, lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Abnoba Kaftan", rring="Regal Ring",
 			feet=gear.HBoots_Crit
 		})
@@ -326,7 +326,7 @@ function init_gear_sets()
 	---Exenterator
 		sets.precast.WS['Exenterator'] = set_combine(sets.precast.WS,
 		{
-			head="Adhemar Bonnet +1", rear={name="Mache Earring +1", bag="wardrobe3"},
+			head=gear.AHead_TP, rear={name="Mache Earring +1", bag="wardrobe3"},
 			hands="Floral Gauntlets",
 			legs="Meg. Chausses +2"
 		})
@@ -349,7 +349,7 @@ function init_gear_sets()
 		sets.precast.WS['Exenterator'].SA = set_combine(sets.precast.WS['Exenterator'],
 		{
 			ammo="Yetshila",
-			head="Adhemar Bonnet +1", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
+			head=gear.AHead_TP, lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
 			bbody="Abnoba Kaftan", rring="Regal Ring",
 			feet=gear.HBoots_Crit
 		})
@@ -360,7 +360,7 @@ function init_gear_sets()
 		sets.precast.WS['Evisceration'] = set_combine(sets.precast.WS,
 		{
 			ammo="Yetshila",
-			head="Adhemar Bonnet +1", rear={name="Mache Earring +1", bag="wardrobe3"},
+			head=gear.AHead_TP, rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Abnoba Kaftan", hands="Mummu Wrists +2", lring="Begrudging Ring",
 			back=gear.THFCape_Crit, feet=gear.HBoots_Crit
 		})
@@ -382,7 +382,7 @@ function init_gear_sets()
 		sets.precast.WS['Evisceration'].SA = set_combine(sets.precast.WS['Evisceration'],
 		{
 			ammo="Yetshila",
-			head="Adhemar Bonnet +1", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
+			head=gear.AHead_TP, lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Abnoba Kaftan", rring="Regal Ring",
 			feet=gear.HBoots_Crit
 		})
@@ -393,7 +393,7 @@ function init_gear_sets()
 		sets.precast.WS['Dancing Edge'] = set_combine(sets.precast.WS,
 		{
 			ammo="Falcon Eye",
-			head="Adhemar Bonnet +1",
+			head=gear.AHead_TP,
 			hands="Adhemar Wrist. +1", lring="Regal Ring",
 		})
 
@@ -417,7 +417,7 @@ function init_gear_sets()
 		sets.precast.WS['Dancing Edge'].SA = set_combine(sets.precast.WS['Dancing Edge'],
 		{
 			ammo="Yetshila",
-			head="Adhemar Bonnet +1",
+			head=gear.AHead_TP,
 			body="Abnoba Kaftan", rring="Regal Ring",
 			feet=gear.HBoots_Crit
 		})
@@ -441,7 +441,7 @@ function init_gear_sets()
 		sets.precast.WS['Rudra\'s Storm'].SA = set_combine(sets.precast.WS["Rudra's Storm"],
 		{
 			ammo="Yetshila",
-			head="Adhemar Bonnet +1", lear={name="Mache Earring +1", bag="wardrobe2"}, rear="Mache Earring +1"
+			head=gear.AHead_TP, lear={name="Mache Earring +1", bag="wardrobe2"}, rear="Mache Earring +1"
 		})
 
 		sets.precast.WS['Rudra\'s Storm'].TA = sets.precast.WS["Rudra's Storm"].SA
@@ -493,7 +493,7 @@ function init_gear_sets()
 		sets.engaged =
 		{
 			ammo="Yamarang",
-			head="Adhemar Bonnet +1", neck="Anu Torque", lear="Eabani Earring", rear="Suppanomimi",
+			head=gear.AHead_TP, neck="Anu Torque", lear="Eabani Earring", rear="Suppanomimi",
 			body="Adhemar Jacket +1", hands="Floral Gauntlets", lring="Hetairoi Ring", rring="Epona's Ring",
 			back=gear.THFCape_STP, waist="Reiki Yotai", legs="Samnuha Tights", feet=gear.TFeet_TP
 		}
@@ -529,7 +529,7 @@ function init_gear_sets()
 		sets.engaged.Min =
 		{
 			ammo="Yamarang",
-			head="Adhemar Bonnet +1", neck="Anu Torque", lear="Eabani Earring", rear="Suppanomimi",
+			head=gear.AHead_TP, neck="Anu Torque", lear="Eabani Earring", rear="Suppanomimi",
 			body="Adhemar Jacket +1", hands="Floral Gauntlets", lring="Hetairoi Ring", rring="Epona's Ring",
 			back=gear.THFCape_STP, waist="Reiki Yotai", legs="Samnuha Tights", feet=gear.TFeet_TP
 		}
@@ -564,7 +564,7 @@ function init_gear_sets()
 		sets.engaged.Med =
 		{
 			ammo="Yamarang",
-			head="Adhemar Bonnet +1", neck="Anu Torque", lear="Eabani Earring", rear="Suppanomimi",
+			head=gear.AHead_TP, neck="Anu Torque", lear="Eabani Earring", rear="Suppanomimi",
 			body="Adhemar Jacket +1", hands="Floral Gauntlets", lring="Hetairoi Ring", rring="Epona's Ring",
 			back=gear.THFCape_STP, waist="Reiki Yotai", legs="Samnuha Tights", feet=gear.TFeet_TP
 		}
@@ -600,7 +600,7 @@ function init_gear_sets()
 		sets.engaged.Max =
 		{
 			ammo="Yamarang",
-			head="Adhemar Bonnet +1", neck="Anu Torque", lear="Sherida Earring", rear="Suppanomimi",
+			head=gear.AHead_TP, neck="Anu Torque", lear="Sherida Earring", rear="Suppanomimi",
 			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Hetairoi Ring", rring="Epona's Ring",
 			back=gear.THFCape_STP, waist="Windbuffet Belt +1", legs="Samnuha Tights", feet=gear.HBoots_TP
 		}
@@ -630,13 +630,14 @@ function init_gear_sets()
 		sets.engaged.Hybrid = 
 		{
 			ammo="Staunch Tathlum +1",
+			head=gear.AHead_PDT, neck="Loricate Torque +1",
 			lring="Defending Ring", rring="Gelatinous Ring +1",
 		}
 		
 		sets.engaged.Hybrid2 = 
 		{
 			ammo="Staunch Tathlum +1",
-			neck="Loricate Torque +1",
+			head=gear.AHead_PDT, neck="Loricate Torque +1",
 			lring="Defending Ring", rring="Gelatinous Ring +1",
 			waist="Flume Belt +1", legs="Meg. Chausses +2"
 		}

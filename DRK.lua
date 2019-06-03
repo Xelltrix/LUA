@@ -158,7 +158,7 @@ function init_gear_sets()
     sets.midcast['Elemental Magic'] = 
 	{
 		ammo="Pemphredo Tathlum", 
-		head="Befouled Crown", neck="Sanctity Necklace", lear="Friomisi Earring", rear="Novio Earring",
+		head="Befouled Crown", neck="Sanctity Necklace", lear="Friomisi Earring", rear="Crematio Earring",
 		body="Flamma Korazin +2", hands="Carmine Fin. Ga. +1", lring={name="Shiva Ring +1", bag="wardrobe2"}, rring={name="Shiva Ring +1", bag="wardrobe3"},
 		back="Ankou's Mantle", waist="Eschan Stone", legs="Flamma Dirs +2", feet="Flam. Gambieras +2"
 	}

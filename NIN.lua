@@ -101,7 +101,7 @@ function init_gear_sets()
     sets.midcast.ElementalNinjutsu =
 	{
 		ammo="Pemphredo Tathlum",
-		head=gear.HHead_MAB, neck="Sanctity Necklace", lear="Friomisi Earring", rear="Novio Earring",
+		head=gear.HHead_MAB, neck="Sanctity Necklace", lear="Friomisi Earring", rear="Crematio Earring",
 		body="Gyve Doublet", hands="Hattori Tekko +1", lring="Dingir Ring", rring={name="Shiva Ring +1", bag="wardrobe3"},
 		back="Andartia's Mantle", waist="Orpheus's Sash", legs="Gyve Trousers", feet="Herculean Boots"
 	}
@@ -198,7 +198,7 @@ function init_gear_sets()
 		sets.precast.WS =
 		{
 			ammo="Seeth. Bomblet +1",
-			head="Adhemar Bonnet +1", neck="Fotia Gorget", lear="Brutal Earring", rear="Moonshade Earring",
+			head=gear.AHead_TP, neck="Fotia Gorget", lear="Brutal Earring", rear="Moonshade Earring",
 			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Regal Ring", rring="Epona's Ring",
 			back="Andartia's Mantle", waist="Fotia Belt", legs="Samnuha Tights", feet=gear.HBoots_TP
 		}
@@ -284,7 +284,7 @@ function init_gear_sets()
 	sets.precast.WS['Blade: Yu'] = set_combine(sets.precast.WS,
 	{
 		ammo="Pemphredo Tathlum",
-		head=gear.HHead_MAB, lear="Friomisi Earring", rear="Novio Earring",
+		head=gear.HHead_MAB, lear="Friomisi Earring", rear="Crematio Earring",
 		body="Gyve Doublet", hands="Leyline Gloves", lring="Dingir Ring", rring={name="Shiva Ring +1", bag="wardrobe3"},
 		back="Andartia's Mantle", legs="Gyve Trousers", feet="Herculean Boots"
 	})
@@ -342,7 +342,7 @@ function init_gear_sets()
 	sets.engaged.HighHaste =
 	{
 		ammo="Happo Shuriken",
-		head="Adhemar Bonnet +1", neck="Combatant's Torque", lear="Eabani Earring", rear="Suppanomimi",
+		head=gear.AHead_TP, neck="Combatant's Torque", lear="Eabani Earring", rear="Suppanomimi",
 		body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring="Epona's Ring",
 		back="Andartia's Mantle", waist="Reiki Yotai", legs="Samnuha Tights", feet="Herculean Boots"
 	}
@@ -368,7 +368,7 @@ function init_gear_sets()
 	sets.engaged.MaxHaste =
 	{
 		ammo="Happo Shuriken",
-		head="Adhemar Bonnet +1", neck="Combatant's Torque", lear="Telos Earring", rear="Cessance Earring",
+		head=gear.AHead_TP, neck="Combatant's Torque", lear="Telos Earring", rear="Cessance Earring",
 		body="Herculean Vest", hands="Adhemar Wrist. +1", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring="Epona's Ring",
 		back="Andartia's Mantle", waist="Windbuffet Belt +1", legs="Samnuha Tights", feet="Herculean Boots"
 	}

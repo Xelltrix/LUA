@@ -53,7 +53,10 @@ function init_gear_sets()
 			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Amalric Slops +1", feet="Amalric Nails +1"
 		}
 
-		sets.precast.JA['Enlightenment'] = { body="Peda. Gown +3" }
+		sets.precast.JA['Enlightenment'] =
+		{
+			body="Peda. Gown +3"
+		}
 
 	
 	-------------------
@@ -304,7 +307,6 @@ function init_gear_sets()
 		{
 			head=empty, 
 			body="Twilight Cloak",
-			lring="Archon Ring",
 			legs="Peda. Pants +3"
 		})
 		
@@ -400,7 +402,10 @@ function init_gear_sets()
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Peda. Pants +3", feet="Amalric Nails +1"
 		}
 
-		sets.Kiting = { feet="Crier's Gaiters" }
+		sets.Kiting =
+		{
+			feet="Crier's Gaiters"
+		}
 	
 	
 	------------------------------------------------------------------------------------------------
@@ -427,13 +432,24 @@ function init_gear_sets()
 		}
 	
 	---Stratagem Buffs
-		sets.buff['Rapture'] = { head="Arbatel Bonnet +1" }
+		sets.buff['Rapture'] = 
+		{
+			head="Arbatel Bonnet +1"
+		}
 	
-		sets.buff['Perpetuance'] = { hands="Arbatel Bracers +1" }
+		sets.buff['Perpetuance'] = 
+		{
+			hands="Arbatel Bracers +1"
+		}
 	
-		sets.buff['Celerity'] = { feet="Peda. Loafers +3" }
-	
-		sets.buff['Alacrity'] = { feet="Peda. Loafers +3" }
+		sets.buff['Celerity'] = 
+		{
+			feet="Peda. Loafers +3"
+		}
+		sets.buff['Alacrity'] = 
+		{
+			feet="Peda. Loafers +3"
+		}
 
 
 ----------------------------------------------------------------------------
@@ -451,7 +467,7 @@ function init_gear_sets()
 		{
 			ammo="Floestone",
 			head="Jhakri Coronal +2", neck="Fotia Gorget", lear="Telos Earring", rear="Moonshade Earring",
-			body="Jhakri Robe +2", hands="Jhakri Cuffs +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			body="Jhakri Robe +2", hands="Jhakri Cuffs +2", lring="Chirich Ring +1", rring="Chirich Ring +1",
 			waist="Fotia Belt", legs="Jhakri Slops +2", feet="Jhakri Pigaches +2"
 		}
 
@@ -525,8 +541,7 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 	if spellMap == 'Refresh' and spell.target.type == 'SELF' then
 		equip
 		{
-			back="Grapevine Cape", 
-			waist="Gishdubar Sash", feet="Inspirited Boots"
+			back="Grapevine Cape", waist="Gishdubar Sash", feet="Inspirited Boots"
 		}
 	end
 
@@ -580,13 +595,15 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 			equip
 			{
 				main="Akademos", sub="Niobid Strap",
-				waist="Hachirin-no-Obi", feet="Amalric Nails +1"
+				waist="Hachirin-no-Obi",
+				feet="Amalric Nails +1"
 			}
 		elseif spell.target.distance < (15 - spell.target.model_size) then
 			equip
 			{
 				main="Akademos", sub="Niobid Strap",
-				waist="Orpheus's Sash", feet="Amalric Nails +1"
+				waist="Orpheus's Sash",
+				feet="Amalric Nails +1"
 			}
 		end
 	elseif spell.skill == 'Elemental Magic' and (spell.element == world.day_element or (spell.element == world.weather_element and get_weather_intensity() == 1)
@@ -595,13 +612,15 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 			equip
 			{
 				main="Akademos", sub="Niobid Strap",
-				waist="Orpheus's Sash", feet="Amalric Nails +1"
+				waist="Orpheus's Sash",
+				feet="Amalric Nails +1"
 			}
 		elseif spellMap ~= 'Helix' then
 			equip
 			{
 				main="Akademos", sub="Niobid Strap",
-				waist="Hachirin-no-Obi", feet="Amalric Nails +1"
+				waist="Hachirin-no-Obi",
+				feet="Amalric Nails +1"
 			}
 		end
 	end

@@ -15,7 +15,7 @@ function job_setup()
     state.Buff["Avatar's Favor"] = buffactive["Avatar's Favor"] or false
     state.Buff["Astral Conduit"] = buffactive["Astral Conduit"] or false
 
-	lockstyleset = 7
+	lockstyleset = 6
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -329,7 +329,7 @@ function init_gear_sets()
 		sets.midcast['Elemental Magic'] =
 		{
 			main=gear.Grioavolr_Enf, sub="Niobid Strap", ammo="Pemphredo Tathlum",
-			head=gear.NukeHood, neck="Mizu. Kubikazari", lear="Friomisi Earring", rear="Novio Earring",
+			head=gear.NukeHood, neck="Mizu. Kubikazari", lear="Friomisi Earring", rear="Crematio Earring",
 			body="Amalric Doublet +1", hands="Amalric Gages +1", lring="Locus Ring", rring="Mujin Band",
 			back="Grapevine Cape", waist="Eschan Stone", legs="Amalric Slops +1", feet="Amalric Nails +1"
 		}
@@ -373,7 +373,7 @@ function init_gear_sets()
 
 	sets.idle.DT = set_combine(sets.idle,
 	{
-		sub="Kaja Grip",
+		main="Mafic Cudgel", sub="Genmei Shield",
 		neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
         lring="Defending Ring", rring="Gelatinous Ring +1",
 		waist="Regal Belt"
@@ -440,6 +440,7 @@ function init_gear_sets()
 		-- PDT: -44% 	MDT: -42%
 		sets.defense.PDT = set_combine(sets.idle.DT,
 		{
+			main="Gridarvor", sub="Kaja Grip",
 			head="Inyanga Tiara +2",
 			body="Vrikodara Jupon", hands="Inyan. Dastanas +2",
 			legs="Artsieq Hose",
@@ -623,7 +624,7 @@ function job_pet_status_change(newStatus, oldStatus, eventArgs)
     end
 end
 
---Determine Pet TP total for Blood Pacts.
+--[[Determine Pet TP total for Blood Pacts.
 function determine_petTP()
 	local rank = 0
 	local totalTP = 0
@@ -633,7 +634,7 @@ function determine_petTP()
 	totalTP = pet.tp + (rank * 400)
 			
 	return totalTP
-end
+end]]
 
 --Equips the appropriate gear for Blood Pacts
 function job_get_spell_map(spell, default_spell_map)
@@ -654,9 +655,13 @@ function job_pet_change(petparam, gain)
     if gain then
         if avatars:contains(pet.name)  then
             classes.CustomIdleGroups:append('Avatar')
+			send_command('input /lockstyleset 7')
         elseif spirits:contains(pet.name) then
             classes.CustomIdleGroups:append('Spirit')
+			send_command('input /lockstyleset 7')
         end
+	else
+		send_command('input /lockstyleset 6')
     end
 end
 

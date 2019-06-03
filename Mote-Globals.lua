@@ -76,6 +76,10 @@ function define_global_sets()
 	gear.HBoots_WSD = { name="Herculean Boots", augments={'Weapon skill damage +4%','STR+10','Attack+26',}}
 	gear.HBoots_Refresh = { name="Herculean Boots", augments={'CHR+2','"Avatar perpetuation cost" -4','"Refresh"+1',}}
 	
+	--- Adhemar
+	gear.AHead_TP = { name="Adhemar Bonnet +1", augments={'STR+12','DEX+12','Attack+20',}}
+	gear.AHead_PDT = { name="Adhemar Bonnet +1", augments={'HP+105','Attack+13','Phys. dmg. taken -4',}}
+	
 	--- Taeon
 	gear.THead_Phalanx = { name="Taeon Chapeau", augments={'Mag. Evasion+5','Spell interruption rate down -10%','Phalanx +3',}}
     gear.TBody_Phalanx = { name="Taeon Tabard", augments={'Mag. Evasion+8','"Fast Cast"+5','Phalanx +3',}}
@@ -164,6 +168,11 @@ end
 -------------------------------------------------------------------------------------------------------------------
 -- Global event-handling functions.
 -------------------------------------------------------------------------------------------------------------------
+
+-- Global intercept on precast.
+function user_precast(spell, action, spellMap, eventArgs)
+    cancel_conflicting_buffs(spell, action, spellMap, eventArgs)
+end
 
 -- Global intercept on midcast.
 function user_midcast(spell, action, spellMap, eventArgs)
