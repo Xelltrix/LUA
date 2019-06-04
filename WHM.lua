@@ -415,7 +415,7 @@ function init_gear_sets()
 		
 		sets.defense.PDT = 
 		{
-			main="Mafic Cudgel", sub="Genmei Shield", ammo="Staunch Tathlum +1",
+			main="Piety Wand", sub="Genmei Shield", ammo="Staunch Tathlum +1",
 			head="Inyanga Tiara +2", neck="Loricate Torque +1", lear="Eabani Earring", rear="Static Earring",
 			body="Inyanga Jubbah +2", hands="Inyan. Dastanas +2", lring="Defending Ring", rring="Gelatinous Ring +1",
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Inyanga Shalwar +2", feet="Inyan. Crackows +2"
