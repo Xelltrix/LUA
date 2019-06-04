@@ -22,9 +22,9 @@ end
 
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
 function job_setup()
-	state.Buff['Sneak Attack'] = buffactive['sneak attack'] or false
-	state.Buff['Trick Attack'] = buffactive['trick attack'] or false
-	state.Buff['Feint'] = buffactive['feint'] or false
+	state.Buff['Sneak Attack'] = buffactive['Sneak Attack'] or false
+	state.Buff['Trick Attack'] = buffactive['Trick Attack'] or false
+	state.Buff['Feint'] = buffactive['Feint'] or false
 
 	include('Mote-TreasureHunter')
 
@@ -48,23 +48,17 @@ function user_setup()
 	state.OffenseMode:options('Normal', 'Low', 'Mid', 'High')
 	state.WeaponskillMode:options('Normal', 'Low', 'Mid', 'High')	
 	state.HybridMode:options('Normal','DT','DTMAX')
-	state.PhysicalDefenseMode:options('PDT')
 	state.IdleMode:options('Normal', 'DT')
 
 	-- Additional local binds
 	send_command('bind ^= gs c cycle treasuremode')
-	send_command('bind !- gs c cycle targetmode')
 
 	apply_job_change()
 end
 
 -- Called when this job file is unloaded (eg: job change)
 function user_unload()
-	send_command('unbind ^`')
-	send_command('unbind !`')
 	send_command('unbind ^=')
-	send_command('unbind !-')
-	send_command('unbind ^,')
 end
 
 -- Define sets and vars used by this job file.
@@ -81,7 +75,7 @@ function init_gear_sets()
 	-------------------
 	-- Job Abilities --
 	------------------- 
---[[
+
 	sets.precast.JA['Collaborator'] =
 	{
 		head="Skulker's Bonnet +1"
@@ -90,7 +84,7 @@ function init_gear_sets()
 	{
 		head="Skulker's Bonnet +1"
 	}
-]]
+
 	sets.precast.JA['Flee'] =
 	{
 		feet="Pill. Poulaines +1"
@@ -119,8 +113,6 @@ function init_gear_sets()
 		feet="Rawhide Boots"
 	}
 
-	sets.precast.Waltz['Healing Waltz'] = {}
-
 	
 	-------------------
 	-- Precast Magic --
@@ -130,8 +122,8 @@ function init_gear_sets()
 	{
 		ammo="Sapience Orb",
 		head=gear.HHead_WSD, neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
-		body="Samnuha Coat", hands="Leyline Gloves", lring="Rahab Ring", rring="Prolix Ring",
-		back=gear.THFCape_STP, waist="Flume Belt +1", legs="Rawhide Trousers", gear.TFeet_Phalanx
+		body=gear.TBody_Phalanx, hands="Leyline Gloves", lring="Prolix Ring", rring="Rahab Ring",
+		back="Moonlight Cape", waist="Flume Belt +1", legs="Rawhide Trousers", gear.TFeet_Phalanx
 	}
 	
 	sets.precast.Utsusemi = set_combine(sets.precast.FC, 
@@ -189,18 +181,18 @@ function init_gear_sets()
 	------------------------------------------------------------------------------------------------
 
 		sets.idle =
-		{
+		{--	DT: 35%		PDT: 51%	MDT: 35%
 			ammo="Staunch Tathlum +1",
-			head="Meghanada Visor +2", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
-			body="Meg. Cuirie +2", hands="Meg. Gloves +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
-			back="Moonlight Cape", waist="Flume Belt +1", legs="Mummu Kecks +2", feet="Jute Boots +1"
+			head=gear.AHead_PDT, neck="Loricate Torque +1", lear="Dawn Earring", rear="Infused Earring",
+			body="Meg. Cuirie +2", hands="Meg. Gloves +2", lring="Defending Ring", rring="Moonbeam Ring",
+			back="Moonlight Cape", waist="Carrier's Sash", legs="Mummu Kecks +2", feet="Jute Boots +1"
 		}
 
 		sets.idle.DT = set_combine (sets.idle,
-		{
-			ammo="Staunch Tathlum +1",
-			neck="Loricate Torque +1",
+		{--	DT: 35%		PDT: 51%	MDT: 35%
+			head=gear.AHead_PDT, neck="Loricate Torque +1",
 			lring="Defending Ring", rring="Moonbeam Ring",
+			waist="Carrier's Sash", legs="Mummu Kecks +2",
 		})
 
 		sets.idle.Town = set_combine(sets.idle,
@@ -220,10 +212,10 @@ function init_gear_sets()
 
 		sets.defense.PDT = sets.idle.DT
 
-		sets.defense.MDT = set_combine(sets.PDT,
-		{
-			hands="Leyline Gloves",
-			waist="Carrier's Sash"
+		sets.defense.MDT = set_combine(sets.idle.DT,
+		{--	DT: 29%		PDT: 45%	MDT: 29%
+			neck="Warder's Charm",
+			hands="Leyline Gloves"
 		})
 	
 	
@@ -233,15 +225,11 @@ function init_gear_sets()
 
 		sets.TreasureHunter =
 		{
-			
 			hands="Plun. Armlets +1",
 			feet="Skulk. Poulaines +1"
 		}
 
-		sets.Kiting =
-		{
-			feet="Jute Boots +1",
-		}
+		sets.Kiting = { feet="Jute Boots +1" }
 
 		sets.buff['Sneak Attack'] =
 		{
@@ -259,7 +247,7 @@ function init_gear_sets()
 			back=gear.THFCape_STP, waist="Chaac Belt", legs="Meg. Chausses +2", feet="Meg. Jam. +2"
 		}
 		
-			sets.buff.Doom = 
+		sets.buff.Doom = 
 		{
 			neck="Nicander's Necklace",
 			lring={name="Eshmun's Ring", bag="wardrobe2"}, rring={name="Eshmun's Ring", bag="wardrobe3"},
@@ -628,18 +616,18 @@ function init_gear_sets()
 	-- Hybrid Sets
 	--------------------------------------
 		sets.engaged.Hybrid = 
-		{
+		{--	DT: 23%		PDT: 27%	MDT: 23%
 			ammo="Staunch Tathlum +1",
 			head=gear.AHead_PDT, neck="Loricate Torque +1",
-			lring="Defending Ring", rring="Gelatinous Ring +1",
+			lring="Defending Ring", rring="Moonbeam Ring",
 		}
 		
 		sets.engaged.Hybrid2 = 
-		{
+		{--	DT: 29%		PDT: 43%	MDT: 29%
 			ammo="Staunch Tathlum +1",
 			head=gear.AHead_PDT, neck="Loricate Torque +1",
-			lring="Defending Ring", rring="Gelatinous Ring +1",
-			waist="Flume Belt +1", legs="Meg. Chausses +2"
+			lring="Defending Ring", rring="Moonbeam Ring",
+			back="Moonlight Cape", waist="Flume Belt +1", legs="Meg. Chausses +2"
 		}
 	
 
@@ -806,9 +794,6 @@ end
 
 -- Called any time we attempt to handle automatic gear equips (ie: engaged or idle gear).
 function job_handle_equipping_gear(playerStatus, eventArgs)
-	-- Check that ranged slot is locked, if necessary
-	check_range_lock()
-
 	-- Check for SATA when equipping gear.  If either is active, equip
 	-- that gear specifically, and block equipping default gear.
 	check_buff('Sneak Attack', eventArgs)
@@ -818,7 +803,14 @@ end
 
 function customize_idle_set(idleSet)
 	if player.hpp < 80 then
-		idleSet = set_combine(idleSet, sets.ExtraRegen)
+		if state.IdleMode.value == 'Normal' then
+			idleSet = set_combine(idleSet, 
+			{
+				head="Meghanada Visor +2", neck="Sanctity Necklace",
+				lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+				waist="Flume Belt +1", waist="Meg. Chuasses +2"
+			})
+		end
 	end
 
 	return idleSet
@@ -933,16 +925,6 @@ function th_action_check(category, param)
 		(category == 6 and info.default_ja_ids:contains(param)) or -- Provoke, Animated Flourish
 		(category == 14 and info.default_u_ja_ids:contains(param)) -- Quick/Box/Stutter Step, Desperate/Violent Flourish
 		then return true
-	end
-end
-
-
---Function to lock the ranged slot if we have a ranged weapon equipped.
-function check_range_lock()
-	if player.equipment.range ~= 'empty' then
-		disable('range', 'ammo')
-	else
-		enable('range', 'ammo')
 	end
 end
 
