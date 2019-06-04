@@ -50,7 +50,7 @@ function init_gear_sets()
 	
 		sets.precast.JA['Benediction'] =
 		{
-			main="Queller Rod", sub="Ammurapi Shield", ammo="Psilomene",
+			main="Piety Wand", sub="Ammurapi Shield", ammo="Psilomene",
 			head="Vanya Hood", neck="Sanctity Necklace", lear="Etiolation Earring", rear="Loquac. Earring",
 			body="Piety Briault +3", hands="Kaykaus Cuffs +1", lring="Lebeche Ring", rring="Mephitas's Ring +1",
 			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Th. Pant. +3", feet="Theo. Duckbills +3"
@@ -126,13 +126,13 @@ function init_gear_sets()
 			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Lengo Pants", feet="Medium's Sabots"
 		})
 
-		sets.midcast.Duration =
+		sets.midcast.Duration = (sets.midcast.FC,
 		{
-			main="Gada", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
-			head="Telchine Cap", neck="Cleric's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
-			body="Telchine Chas.", hands=gear.ENH_Gloves, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Alaunus's Cape", waist="Olympus Sash", legs="Telchine Braconi", feet="Theo. Duckbills +3"
-		}
+			main="Gada", sub="Ammurapi Shield",
+			head="Telchine Cap",
+			body="Telchine Chas.", hands=gear.ENH_Gloves,
+			legs="Telchine Braconi", feet="Theo. Duckbills +3"
+		})
 		
 		
     --------------------------------------
@@ -218,14 +218,14 @@ function init_gear_sets()
 		sets.midcast.Stoneskin = set_combine(sets.midcast.Duration,
 		{
 			neck="Stone Gorget", rear="Earthcry Earring",
-			lring="Kishar Ring", rring="Rahab Ring",
 			waist="Siegel Sash", legs="Shedir Seraweels"
 		})
 
 		sets.midcast.Aquaveil = set_combine(sets.midcast.Duration,
 		{
 			main="Vadose Rod", sub="Ammurapi Shield",
-			head="Chironic Hat", waist="Emphatikos Rope", legs="Shedir Seraweels"
+			head="Chironic Hat", 
+			waist="Emphatikos Rope", legs="Shedir Seraweels"
 		})
 
 		sets.midcast.Auspice = set_combine(sets.midcast.Duration,
@@ -249,8 +249,8 @@ function init_gear_sets()
 		sets.midcast.BarStatus = set_combine(sets.midcast.Duration,
 		{
 			neck="Incanter's Torque", lear="Andoaa Earring", rear="Augment. Earring",
-			hands="Dynasty Mitts",
-			back="Fi Follet Cape +1",
+			hands="Dynasty Mitts",  lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			back="Fi Follet Cape +1", waist="Olympus Sash"
 		})
 
 		sets.midcast.BarStatusLA = set_combine(sets.midcast.BarStatus,
@@ -271,19 +271,15 @@ function init_gear_sets()
 			hands=gear.ENH_Gloves
 		})
 
-		sets.midcast.Regen = set_combine(sets.midcast.Duration,
+		sets.midcast.Regen =
 		{
 			main="Bolelabunga", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head="Inyanga Tiara +2", neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
 			body="Piety Briault +3", hands="Ebers Mitts +1", lring="Lebeche Ring", rring="Rahab Ring",
 			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Th. Pant. +3", feet="Theo. Duckbills +3"
-		})
+		}
 
-		sets.midcast.Refresh = set_combine(sets.midcast.Duration,
-		{
-			lear="Gwati Earring", rear="Mendi. Earring",
-			ring="Lebeche Ring", rring="Rahab Ring"
-		})
+		sets.midcast.Refresh = sets.midcast.Duration
 
 		sets.midcast.Statless = sets.midcast.Duration
 
@@ -380,6 +376,7 @@ function init_gear_sets()
 		
 		sets.idle.DT = set_combine(sets.idle,
 		{
+			main="Piety Wand",
 			head="Inyanga Tiara +2", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
 			lring="Defending Ring", rring="Gelatinous Ring +1",
 			legs="Inyanga Shalwar +2",
@@ -387,8 +384,8 @@ function init_gear_sets()
 		
 		sets.idle.MEVA = set_combine(sets.idle,
 		{
-			ammo="Staunch Tathlum +1",
-			head="Inyanga Tiara +2", neck="Warder's Charm +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
+			main="Piety Wand", ammo="Staunch Tathlum +1",
+			head="Inyanga Tiara +2", neck="Warder's Charm +1", lear="Eabani Earring", rear="Static Earring",
 			body="Inyanga Jubbah +2", hands="Inyan. Dastanas +2",
 			legs="Inyanga Shalwar +2", feet="Inyan. Crackows +2"
 		})
@@ -423,7 +420,6 @@ function init_gear_sets()
 
 		sets.defense.MDT = set_combine(sets.defense.PDT,
 		{
-			main=gear.Grioavolr_Enf, sub="Irenic Strap +1",
 			neck="Warder's Charm +1",
 			rring="Shukuyu Ring"
 		})
@@ -433,10 +429,7 @@ function init_gear_sets()
 	-- Special Sets
 	--------------------------------------
 		
-		sets.Kiting =
-		{
-			feet="Crier's Gaiters"
-		}
+		sets.Kiting = { feet="Crier's Gaiters" }
 
 		sets.buff['Divine Caress'] =
 		{
