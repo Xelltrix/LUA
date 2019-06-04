@@ -363,34 +363,19 @@ end
 -- Generic version of this for casters
 function display_current_caster_state()
     local msg = ''
-    
-    if state.OffenseMode.value ~= 'None' then
-        msg = msg .. 'Melee'
-
-        if state.CombatForm.has_value then
-            msg = msg .. ' (' .. state.CombatForm.value .. ')'
-        end
-        
-        msg = msg .. ', '
-    end
-    
-    msg = msg .. 'Casting ['..state.CastingMode.value..'], Idle ['..state.IdleMode.value..']'
-    
-	if state.SaveMP.value == true then
-		msg= msg .. ' (SaveMP On)'
-	end
 	
-    if state.MagicBurst.value == true then
-		msg= msg .. ' (Magic Burst On)'
-	end
+    msg = msg .. '[IDLE MODE: ' .. state.IdleMode.value .. ' ||   CASTING MODE: ' .. state.CastingMode.value .. ']'
 	
-	if state.DefenseMode.value ~= 'None' then
+    if state.DefenseMode.value ~= 'None' then
         msg = msg .. ', ' .. 'Defense: ' .. state.DefenseMode.value .. ' (' .. state[state.DefenseMode.value .. 'DefenseMode'].value .. ')'
     end
     
     if state.Kiting.value == true then
 		msg = msg .. ', [KITING]'
 	end
+	
+	msg .. '\n[ MAGIC BURST STATE: ' .. state.MagicBurst.value .. ' || SAVE MP STATE: ' .. state.SaveMP.value .. ']'
+	
 
     add_to_chat(122, msg)
 end
