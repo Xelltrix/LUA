@@ -53,10 +53,7 @@ function init_gear_sets()
 			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Amalric Slops +1", feet="Amalric Nails +1"
 		}
 
-		sets.precast.JA['Enlightenment'] =
-		{
-			body="Peda. Gown +3"
-		}
+		sets.precast.JA['Enlightenment'] = { body="Peda. Gown +3" }
 
 	
 	-------------------
@@ -402,10 +399,7 @@ function init_gear_sets()
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Peda. Pants +3", feet="Amalric Nails +1"
 		}
 
-		sets.Kiting =
-		{
-			feet="Crier's Gaiters"
-		}
+		sets.Kiting = { feet="Crier's Gaiters" }
 	
 	
 	------------------------------------------------------------------------------------------------
@@ -432,24 +426,13 @@ function init_gear_sets()
 		}
 	
 	---Stratagem Buffs
-		sets.buff['Rapture'] = 
-		{
-			head="Arbatel Bonnet +1"
-		}
+		sets.buff['Rapture'] =  { head="Arbatel Bonnet +1" }
 	
-		sets.buff['Perpetuance'] = 
-		{
-			hands="Arbatel Bracers +1"
-		}
+		sets.buff['Perpetuance'] =  { hands="Arbatel Bracers +1" }
 	
-		sets.buff['Celerity'] = 
-		{
-			feet="Peda. Loafers +3"
-		}
-		sets.buff['Alacrity'] = 
-		{
-			feet="Peda. Loafers +3"
-		}
+		sets.buff['Celerity'] = { feet="Peda. Loafers +3" }
+	
+		sets.buff['Alacrity'] =  { feet="Peda. Loafers +3" }
 
 
 ----------------------------------------------------------------------------
