@@ -28,23 +28,8 @@ function user_setup()
 	state.RangedMode:options('Normal', 'Acc')
 	state.WeaponskillMode:options('Normal', 'Low', 'Mid', 'High')
 
-
-	DefaultAmmo = {['Steinthor'] = "Achiyal. Arrow", ['Holliday'] = "Achiyal. Bullet"}
-	U_Shot_Ammo = {['Steinthor'] = "Achiyal. Arrow", ['Holliday'] = "Achiyal. Bullet"}
-
 	apply_job_change()
-
-	send_command('bind f9 gs c cycle RangedMode')
-	send_command('bind ^f9 gs c cycle OffenseMode')
 end
-
-
--- Called when this job file is unloaded (eg: job change)
-function user_unload()
-	send_command('unbind f9')
-	send_command('unbind ^f9')
-end
-
 
 -- Set up all gear sets.
 function init_gear_sets()
@@ -53,29 +38,25 @@ function init_gear_sets()
 	--------------------------------------
 
 	-- Precast sets to enhance JAs
-	sets.precast.JA['Bounty Shot'] =
-	{
-		hands="Amini Glove. +1"
-	}
-	sets.precast.JA['Shadowbind'] =
-	{
-		hands="Orion Bracers +1"
-	}
+	sets.precast.JA['Bounty Shot'] = { hands="Amini Glove. +1" }
+	
+	sets.precast.JA['Shadowbind'] = { hands="Orion Bracers +1" }
 
 
 	-- Fast cast sets for spells
 
-    sets.precast.FC =
-	{
-		neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
-		body="Foppish Tunica", hands="Leyline Gloves", lring="Evanescence Ring", rring="Prolix Ring",
-		back="Solemnity Cape", waist="Fotia Belt", legs="Herculean Trousers", feet=gear.HBoots_TP
-	}
-
-	sets.precast.FC.Utsusemi = set_combine(sets.precast.FC,
-	{
-		body="Passion Jacket"
-	})
+		sets.precast.FC =
+		{
+			head="Carmine Mask +1", neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
+			body=gear.TBody_Phalanx, hands="Leyline Gloves", lring="Kishar Ring", rring="Rahab Ring",
+			back="Moonlight Cape", waist="Flume Belt +1", legs="Carmine Cuisses +1", feet="Carmine Greaves +1"
+		}
+		
+		sets.precast.FC.Utsusemi = set_combine(sets.precast.FC,
+		{
+			neck="Magoraga Beads",
+			body="Passion Jacket"
+		})
 
 	-- Ranged sets (snapshot)
 
@@ -95,11 +76,6 @@ function init_gear_sets()
 		body="Herculean Vest", hands="Meg. Gloves +2", lring="Dingir Ring", rring="Ilabrat Ring",
 		back="Belenus's Cape", waist="Fotia Belt", legs="Herculean Trousers", gear.HBoots_WSD
 	}
-
-	sets.precast.WS.Acc = set_combine(sets.precast.WS,
-	{
-		lring="Cacoethic Ring +1",
-	})
 	
 	sets.precast.WS["Mistral Axe"] =
 	{
@@ -115,20 +91,11 @@ function init_gear_sets()
 		legs="Herculean Trousers", feet="Thereoid Greaves"
 	})
 
-	sets.precast.WS["Jishnu's Radiance"].Acc = set_combine(sets.precast.WS["Jishnu's Radiance"],
-	{
-		lring="Cacoethic Ring +1", rring="Cacoethic Ring"
-	})
+	sets.precast.WS["Jishnu's Radiance"].Acc = sets.precast.WS["Jishnu's Radiance"]
 
-	sets.precast.WS['Apex Arrow'] = set_combine(sets.precast.WS,
-	{
-		legs="Adhemar Kecks"
-	})
+	sets.precast.WS['Apex Arrow'] = sets.precast.WS
 
-	sets.precast.WS.Acc['Apex Arrow'] = set_combine(sets.precast.WS['Apex Arrow'],
-	{
-		rring="Cacoethic Ring +1",
-	})
+	sets.precast.WS.Acc['Apex Arrow'] = sets.precast.WS['Apex Arrow']
 
 	sets.precast.WS['Refulgent Arrow'] = set_combine(sets.precast.WS,
 	{
@@ -136,18 +103,15 @@ function init_gear_sets()
 		legs="Samnuha Tights"
 	})
 
-	sets.precast.WS.Acc['Refulgent Arrow'] = set_combine(sets.precast.WS,
-	{
-		lring="Cacoethic Ring +1", rring="Cacoethic Ring"
-	})
+	sets.precast.WS.Acc['Refulgent Arrow'] = sets.precast.WS
 	
 	sets.precast.WS['Last Stand'] = sets.precast.WS
 
 	sets.precast.WS['Trueflight'] = set_combine(sets.precast.WS,
 	{
-		head="Herculean Helm", neck="Sanctity Necklace", lear="Friomisi Earring", rear="Hecate's Earring",
-		body="Gyve Doublet", hands="Carmine Fin. Ga. +1", lring="Regal Ring", rring="Ilabrat Ring",
-		back="Belenus's Cape", waist="Eschan Stone", legs="Gyve Trousers", feet=gear.HBoots_WSD
+		head=gear.HHead_MAB, neck="Sanctity Necklace", lear="Friomisi Earring", rear="Crematio Earring",
+		body="Gyve Doublet", hands="Carmine Fin. Ga. +1", lring="Dingir Ring", rring={name="Shiva Ring +1", bag="wardrobe3"},
+		back="Belenus's Cape", waist="Orpheus's Sash", legs="Gyve Trousers", feet=gear.HBoots_WSD
 	})
 
 
@@ -158,7 +122,7 @@ function init_gear_sets()
 	-- Midcast sets
 	--------------------------------------
 
-	sets.midcast.FastRecast =
+	sets.midcast.FC =
 	{
 		head="Herculean Helm", neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
 		body="Foppish Tunica", hands="Leyline Gloves", lring="Evanescence Ring", rring="Prolix Ring",
@@ -175,27 +139,6 @@ function init_gear_sets()
 		body="Amini Caban +1", hands="Amini Glove. +1", lring="Dingir Ring", rring="Ilabrat Ring",
 		back="Belenus's Cape", waist="Yemaya Belt", legs="Amini Brague +1", feet="Adhemar Gamashes"
 	}
-
-	sets.midcast.RA.Acc = set_combine(sets.midcast.RA,
-	{
-		head="Arcadian Beret +1", neck="Iskur Gorget", lear="Telos Earring", rear="Enervating Earring",
-		body="Meg. Cuirie +1", hands="Meg. Gloves +2", lring="Dingir Ring", rring="Cacoethic Ring +1",
-		back="Belenus's Cape", waist="Yemaya Belt", legs="Meg. Chausses +1", feet="Meg. Jam. +1"
-	})
-
-	sets.midcast.RA.Steinthor = set_combine(sets.midcast.RA,
-	{
-		rear="Dedition Earring"
-	})
-
-	sets.midcast.RA.Steinthor.Acc = set_combine(sets.midcast.RA.Acc)
-
-	sets.midcast.RA.Holliday = sets.midcast.RA
-
-	sets.midcast.RA.Holliday.Acc = set_combine(sets.midcast.RA.Acc,
-	{
-		hands="Meg. Gloves +2"
-	})
 	
 	sets.buff.Barrage = 
 	{
@@ -211,23 +154,17 @@ function init_gear_sets()
 	-- Idle sets
 	sets.idle =
 	{
-		head="Dampening Tam", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
-		body="Amini Caban +1", hands="Meg. Gloves +2", lring="Sheltered Ring", rring="Paguroidea Ring",
-		back="Solemnity Cape", waist="Flume Belt", legs="Herculean Trousers", feet="Jute Boots +1"
+		ranged="Fomalhaut", ammo="Chrono Bullet",
+		head=gear.AHead_PDT, neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
+		body="Meg. Cuirie +2", hands="Meg. Gloves +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+		back="Moonlight Cape", waist="Flume Belt", legs="Mummu Kecks +2", feet="Jute Boots +1"
 	}
 
-	sets.idle.PDT = set_combine (sets.idle,
+	sets.idle.DT = set_combine (sets.idle,
 	{
 		neck="Loricate Torque +1",
-		lring="Defending Ring", rring="Vocane Ring",
-		feet=gear.HBoots_TP
-	})
-
-	sets.idle.MDT = set_combine (sets.idle,
-	{
-		neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
-		body="Samnuha Coat", hands="Leyline Gloves", lring="Defending Ring", rring="Vocane Ring",
-		waist="Carrier's Sash"
+		lring="Defending Ring", rring="Moonbeam Ring",
+		waist="Carrier's Sash",
 	})
 
 	sets.idle.Town = set_combine(sets.idle,
@@ -241,14 +178,11 @@ function init_gear_sets()
 	})
 
 	-- Defense sets
-	sets.defense.PDT = sets.idle.PDT
+	sets.defense.PDT = sets.idle.DT
 
-	sets.defense.MDT = sets.idle.MDT
+	sets.defense.MDT = sets.idle.DT
 
-	sets.Kiting =
-	{
-		feet="Jute Boots +1"
-	}
+	sets.Kiting = { feet="Jute Boots +1" }
 	
 		sets.buff.Doom = 
 		{
@@ -271,173 +205,30 @@ function init_gear_sets()
 		sets.engaged =
 		{
 			head=gear.AHead_TP, neck="Iskur Gorget", lear="Sherida Earring", rear="Brutal Earring",
-			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Ilabrat Ring", rring="Epona's Ring",
+			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring="Epona's Ring",
 			back="Belenus's Cape", waist="Windbuffet Belt +1", legs="Samnuha Tights", feet=gear.HBoots_TP
 		}
 
 		sets.engaged.Low =
 		{
-			head="Dampening Tam", neck="Iskur Gorget", lear="Sherida Earring", rear="Brutal Earring",
-			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Ilabrat Ring", rring="Cacoethic Ring +1",
-			back="Belenus's Cape", waist="Eschan Stone", legs="Samnuha Tights", feet="Meg. Jam. +1"
+			head=gear.AHead_TP, neck="Iskur Gorget", lear="Sherida Earring", rear="Brutal Earring",
+			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring="Epona's Ring",
+			back="Belenus's Cape", waist="Windbuffet Belt +1", legs="Samnuha Tights", feet=gear.HBoots_TP
 		}
 		
 		sets.engaged.Mid =
 		{
-			head="Dampening Tam", neck="Combatant's Torque", lear="Sherida Earring", rear="Brutal Earring",
-			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Ilabrat Ring", rring="Cacoethic Ring +1",
-			back="Belenus's Cape", waist="Eschan Stone", legs="Samnuha Tights", feet="Meg. Jam. +1"
+			head=gear.AHead_TP, neck="Iskur Gorget", lear="Sherida Earring", rear="Brutal Earring",
+			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring="Epona's Ring",
+			back="Belenus's Cape", waist="Windbuffet Belt +1", legs="Samnuha Tights", feet=gear.HBoots_TP
 		}
 		
 		sets.engaged.High =
 		{
-			head="Dampening Tam", neck="Combatant's Torque", lear="Sherida Earring", rear="Brutal Earring",
-			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Ilabrat Ring", rring="Cacoethic Ring +1",
-			back="Belenus's Cape", waist="Eschan Stone", legs="Samnuha Tights", feet="Meg. Jam. +1"
+			head=gear.AHead_TP, neck="Iskur Gorget", lear="Sherida Earring", rear="Brutal Earring",
+			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring="Epona's Ring",
+			back="Belenus's Cape", waist="Windbuffet Belt +1", legs="Samnuha Tights", feet=gear.HBoots_TP
 		}
-	
-	
-	--[[
-	----------------------------------------------------------
-	--					(DW2 + No Haste)
-	----------------------------------------------------------
-
-	--15 DW = 59 DW needed		(DNC Sub)
-	
-	----------------------------------------------------------	
-	
-	sets.engaged.DW2.Low =
-	{
-		head=gear.AHead_TP, neck="Combatant's Torque", lear="Sherida Earring", rear="Brutal Earring",
-		body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Ilabrat Ring", rring="Epona's Ring",
-		back="Belenus's Cape", waist="Windbuffet Belt +1", legs="Samnuha Tights", feet=gear.HBoots_TP
-	}
-	
-	sets.engaged.DW2.Mid =
-	{
-		head=gear.AHead_TP, neck="Combatant's Torque", lear="Sherida Earring", rear="Brutal Earring",
-		body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Ilabrat Ring", rring="Epona's Ring",
-		back="Belenus's Cape", waist="Windbuffet Belt +1", legs="Samnuha Tights", feet=gear.HBoots_TP
-	}
-	
-	sets.engaged.DW2.High =
-	{
-		head=gear.AHead_TP, neck="Combatant's Torque", lear="Sherida Earring", rear="Brutal Earring",
-		body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Ilabrat Ring", rring="Epona's Ring",
-		back="Belenus's Cape", waist="Windbuffet Belt +1", legs="Samnuha Tights", feet=gear.HBoots_TP
-	}
-	
-	----------------------------------------------------------
-	--					(DW3 + No Haste)
-	----------------------------------------------------------
-
-	--25 DW = 49 DW needed		(NIN Sub)
-	
-	----------------------------------------------------------	
-	
-	sets.engaged.DW3 =
-	{
-		head=gear.AHead_TP, neck="Combatant's Torque", lear="Sherida Earring", rear="Brutal Earring",
-		body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Ilabrat Ring", rring="Epona's Ring",
-		back="Belenus's Cape", waist="Windbuffet Belt +1", legs="Samnuha Tights", feet=gear.HBoots_TP
-	}
-	
-	
-	
-	----------------------------------------------------------
-	--					(DW2 + 15% Haste)
-	----------------------------------------------------------
-
-	--15 DW = 52 DW needed		(DNC Sub)
-	
-	----------------------------------------------------------	
-	
-	sets.engaged.DW2 =
-	{
-		head=gear.AHead_TP, neck="Combatant's Torque", lear="Sherida Earring", rear="Brutal Earring",
-		body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Ilabrat Ring", rring="Epona's Ring",
-		back="Belenus's Cape", waist="Windbuffet Belt +1", legs="Samnuha Tights", feet=gear.HBoots_TP
-	}
-	
-	----------------------------------------------------------
-	--					(DW3 + 15% Haste)
-	----------------------------------------------------------
-
-	--25 DW = 42 DW needed		(NIN Sub)
-	
-	----------------------------------------------------------	
-	
-	sets.engaged.DW3 =
-	{
-		head=gear.AHead_TP, neck="Combatant's Torque", lear="Sherida Earring", rear="Brutal Earring",
-		body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Ilabrat Ring", rring="Epona's Ring",
-		back="Belenus's Cape", waist="Windbuffet Belt +1", legs="Samnuha Tights", feet=gear.HBoots_TP
-	}
-	
-	
-	
-	----------------------------------------------------------
-	--					(DW2 + 30% Haste)
-	----------------------------------------------------------
-
-	--25 DW = 41 DW needed		(DNC Sub)
-	
-	----------------------------------------------------------
-	
-	sets.engaged.DW2 =
-	{
-		head=gear.AHead_TP, neck="Combatant's Torque", lear="Sherida Earring", rear="Brutal Earring",
-		body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Ilabrat Ring", rring="Epona's Ring",
-		back="Belenus's Cape", waist="Windbuffet Belt +1", legs="Samnuha Tights", feet=gear.HBoots_TP
-	}
-	
-	----------------------------------------------------------
-	--					(DW3 + 30% Haste)
-	----------------------------------------------------------
-
-	--25 DW = 31 DW needed		(NIN Sub)
-	
-	----------------------------------------------------------
-	
-	sets.engaged.DW3 =
-	{
-		head=gear.AHead_TP, neck="Combatant's Torque", lear="Sherida Earring", rear="Brutal Earring",
-		body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Ilabrat Ring", rring="Epona's Ring",
-		back="Belenus's Cape", waist="Windbuffet Belt +1", legs="Samnuha Tights", feet=gear.HBoots_TP
-	}
-	
-	
-	
-	----------------------------------------------------------
-	--					(DW2 + Max Haste)
-	----------------------------------------------------------
-
-	--25 DW = 21 DW needed		(DNC Sub)
-	
-	----------------------------------------------------------	
-	
-	sets.engaged.DW2 =
-	{
-		head=gear.AHead_TP, neck="Combatant's Torque", lear="Sherida Earring", rear="Brutal Earring",
-		body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Ilabrat Ring", rring="Epona's Ring",
-		back="Belenus's Cape", waist="Windbuffet Belt +1", legs="Samnuha Tights", feet=gear.HBoots_TP
-	}
-	
-	----------------------------------------------------------
-	--					(DW3 + Max Haste)
-	----------------------------------------------------------
-
-	--25 DW = 11 DW needed		(NIN Sub)
-	
-	----------------------------------------------------------
-	
-	sets.engaged.DW3 =
-	{
-		head=gear.AHead_TP, neck="Combatant's Torque", lear="Sherida Earring", rear="Brutal Earring",
-		body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Ilabrat Ring", rring="Epona's Ring",
-		back="Belenus's Cape", waist="Windbuffet Belt +1", legs="Samnuha Tights", feet=gear.HBoots_TP
-	}
-	]]
 
 end
 
