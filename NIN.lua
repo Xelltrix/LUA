@@ -26,7 +26,6 @@ function user_setup()
     state.HybridMode:options('Normal', 'DT')
     state.WeaponskillMode:options('Normal', 'Low', 'Mid', 'High')
     state.CastingMode:options('Normal', 'Resistant')
-    state.PhysicalDefenseMode:options('PDT')
     state.IdleMode:options('Normal', 'DT')
 
     gear.MovementFeet = {name="Danzo Sune-ate"}
@@ -51,10 +50,7 @@ function init_gear_sets()
 	-------------------
 	-- Job Abilities --
 	------------------- 
-    sets.precast.JA['Futae'] =
-	{
-		feet="Hattori Tekko +1"
-	}
+    sets.precast.JA['Futae'] = { feet="Hattori Tekko +1" }
 
     -- Waltz set (chr and vit)
 	sets.precast.Waltz =
@@ -71,14 +67,13 @@ function init_gear_sets()
 	{
 		ammo="Sapience Orb",
 		head=gear.HHead_MAB, neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
-		body="Samnuha Coat", hands="Leyline Gloves", lring="Kishar Ring", rring="Rahab Ring",
-		back="Moonlight Cape", waist="Witful Belt", legs="Rawhide Trousers", feet="Hattori Kyahan +1"
+		body=gear.TBody_Phalanx, hands="Leyline Gloves", lring="Kishar Ring", rring="Rahab Ring",
+		back="Moonlight Cape", waist="Witful Belt", legs="Rawhide Trousers", feet=gear.TFeet_Phalanx
 	}
 
 	sets.precast.Utsusemi = set_combine(sets.precast.FC,
 	{
-		body="Passion Jacket",
-		waist="Flume Belt +1"
+		body="Passion Jacket"
 	})
 	
 	
@@ -119,7 +114,7 @@ function init_gear_sets()
 		ammo="Sapience Orb",
 		head=gear.HHead_MAB, neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
 		body="Samnuha Coat", hands="Mochizuki Tekko +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-		back="Andartia's Mantle", waist="Flume Belt +1", legs="Gyve Trousers", feet="Hattori Kyahan +1"
+		back="Andartia's Mantle", waist="Flume Belt +1", legs="Rawhide Trousers", feet="Hattori Kyahan +1"
 	}
 
 	
@@ -145,7 +140,7 @@ function init_gear_sets()
 
 	sets.idle.DT = set_combine (sets.idle,
 	{
-		head="Dampening Tam", neck="Loricate Torque +1",
+		head=gear.AHead_PDT, neck="Loricate Torque +1",
 		body="Emet Harness +1", lring="Defending Ring", rring="Gelatinous Ring +1",
 	})
 
