@@ -67,7 +67,7 @@ function init_gear_sets()
 ----------------------------------------------------------------------------
 
 		sets.Enmity =
-		{--Enmity + 74
+		{--Enmity + 84
 			ammo="Sapience Orb",
 			head="Halitus Helm", neck="Moonbeam Necklace", lear="Trux Earring", rear="Cryptic Earring",
 			body="Emet Harness +1", hands="Kurys Gloves", lring="Eihwaz Ring", rring="Supershear Ring",
@@ -75,7 +75,7 @@ function init_gear_sets()
 		}
 		
 		sets.Enmity.HP = set_combine(sets.Enmity,
-		{--Enmity + 61
+		{--Enmity + 69
 			rear="Odnowa Earring +1",
 			rring="Moonbeam Ring",
 			back="Moonlight Cape"
@@ -119,7 +119,7 @@ function init_gear_sets()
 		{
 			ammo="Staunch Tathlum +1",	
 			head="Erilaz Galea +1", neck="Incanter's Torque", lear="Beatific Earring", rear="Odnowa Earring +1",
-			body="Runeist's Coat +2", hands="Turms Mittens +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			body="Futhark Coat +3", hands="Runeist's Mitons +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Moonlight Cape", waist="Bishop's Sash", legs="Rune. Trousers +1", feet="Erilaz Greaves +1"
 		}
 
@@ -202,7 +202,8 @@ function init_gear_sets()
 		sets.midcast.Regen =
 		{
 			head="Rune. Bandeau +2",
-			body="Futhark Coat +3", legs ="Futhark Trousers +1"
+			body="Futhark Coat +3", 
+			legs ="Futhark Trousers +1"
 		}
 
 		sets.midcast.Refresh =
