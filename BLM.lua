@@ -383,15 +383,11 @@ function init_gear_sets()
 	-- Special Sets
 	--------------------------------------
 
-		sets.Kiting =
-		{
-			feet="Crier's Gaiters"
-		}
+		sets.Kiting = { feet="Crier's Gaiters" }
 
 		sets.buff['Mana Wall'] =
 		{
-			back="Taranus's Cape",
-			feet="Wicce Sabots +1"
+			back="Taranus's Cape", feet="Wicce Sabots +1"
 		}
 
 		sets.buff.Doom = 
