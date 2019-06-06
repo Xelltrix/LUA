@@ -13,13 +13,9 @@ function job_setup()
 	
 	-- Whether to use Luzaf's Ring
     state.LuzafRing = M(false, "Luzaf's Ring")
-    -- Whether a warning has been given for low ammo
-    state.warned = M(false)
 
 	update_combat_form()
 	define_roll_values()
-	
-	lockstyleset = 14
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -33,9 +29,6 @@ function user_setup()
     state.RangedMode:options('Normal', 'Low', 'Mid', 'High')
     state.WeaponskillMode:options('Normal', 'Low', 'Mid', 'High')
     state.IdleMode:options('Normal', 'DT')
-
-    options.ammo_warning_limit = 15
-	
 	
 	-- Additional local binds
 	send_command('bind numpad/ input /ja "Snake Eye" <me>')
@@ -79,10 +72,7 @@ function init_gear_sets()
 	-- Job Abilities --
 	------------------- 
 
-		sets.precast.JA['Wild Card'] = 
-		{
-			feet="Lanun Bottes +1"
-		}
+		sets.precast.JA['Wild Card'] =  { feet="Lanun Bottes +1" }
 		
 		sets.precast.JA['Snake Eye'] = { legs="Lanun Trews +1" }
 		
@@ -148,7 +138,7 @@ function init_gear_sets()
 		sets.precast.FC =
 		{
 			head="Carmine Mask +1", neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
-			body="Samnuha Coat", hands="Leyline Gloves", lring="Kishar Ring", rring="Prolix Ring",
+			body=gear.TBody_Phalanx, hands="Leyline Gloves", lring="Kishar Ring", rring="Rahab Ring",
 			back="Moonlight Cape", waist="Flume Belt +1", legs="Carmine Cuisses +1", feet="Carmine Greaves +1"
 		}
 		
@@ -275,12 +265,8 @@ function init_gear_sets()
 		{
 			hands="Carmine Fin. Ga. +1"
 		})
-	    sets.precast.RA.Flurry2 = sets.midcast.RA
 		
-		sets.buff.TripleShot =
-		{
-			 body="Chasseur's Frac +1"
-		}
+		sets.buff.TripleShot = { body="Chasseur's Frac +1" }
 	   
 
 
@@ -504,7 +490,7 @@ function init_gear_sets()
 		-----------------------------------------------------------	
 		sets.engaged.DW3.Low = set_combine(sets.engaged.DW3,
 		{
-			head="Dampening Tam",
+			head="Dampening Tam"
 		})
 
 		-----------------------------------------------------------------------------------
@@ -1188,5 +1174,5 @@ end
 function apply_job_change()
     set_macro_page(6, 10)
 	
-	send_command('wait 3; input /lockstyleset ' .. lockstyleset)
+	send_command('wait 3; input /lockstyleset 14')
 end
