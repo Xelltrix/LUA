@@ -208,9 +208,10 @@ function init_gear_sets()
 		})
 
 		sets.midcast.Aquaveil = set_combine(sets.midcast.Duration,
-		{
+		{-- Aquaveil +7
 			main="Vadose Rod", ammo="Staunch Tathlum +1",
 			head="Amalric Coif +1", 
+			hands="Regal Cuffs",
 			waist="Emphatikos Rope", legs="Shedir Seraweels"
 		})
 
@@ -354,7 +355,7 @@ function init_gear_sets()
 	------------------------------------------------------------------------------------------------
 
 		sets.idle =
-		{
+		{--	DT: -11%	PDT: -11%	MDT:-11%	Refresh: 14~15
 			main="Akademos", sub="Kaja Grip", ammo="Homiliary",
 			head="Befouled Crown", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 			body="Jhakri Robe +2", hands="Chironic Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
@@ -362,7 +363,7 @@ function init_gear_sets()
 		}
 
 		sets.idle.DT = set_combine(sets.idle,
-		{
+		{--	DT: -30%	PDT: -37%	MDT:-32%	Refresh: 11~12
 			ammo="Staunch Tathlum +1",
 			neck="Loricate Torque +1", lear="Etiolation Earring",
 			lring="Defending Ring", rring="Gelatinous Ring +1"
@@ -384,7 +385,7 @@ function init_gear_sets()
 	------------------------------------------------------------------------------------------------
 
 		sets.defense.PDT =
-		{
+		{{--	DT: -38%	PDT: -50%	MDT:-42%
 			main="Akademos", sub="Kaja Grip", ammo="Staunch Tathlum +1",
 			head="Befouled Crown", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
 			body="Mallquis Saio +2", hands="Chironic Gloves", lring="Defending Ring", rring="Gelatinous Ring +1",
@@ -392,7 +393,7 @@ function init_gear_sets()
 		}
 
 		sets.defense.MDT =
-		{
+		{--	DT: -33%	PDT: -50%	MDT:-36%
 			main="Akademos", sub="Irenic Strap +1", ammo="Staunch Tathlum +1",
 			head="Chironic Hat", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Static Earring",
 			body="Peda. Gown +3", hands="Peda. Bracers +3", lring="Defending Ring", rring="Shukuyu Ring",
@@ -481,7 +482,7 @@ function init_gear_sets()
 		{
 			ammo="Floestone",
 			head="Peda. M.Board +3", neck="Combatant's Torque", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-			body="Jhakri Robe +2", hands="Peda. Bracers +3", lring="Chirich Ring +1", rring="Chirich Ring +1",
+			body="Jhakri Robe +2", hands="Peda. Bracers +3", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.SCHCape_Nuke, waist="Windbuffet Belt +1", legs="Telchine Braconi", feet="Peda. Loafers +3"
 		}
 
