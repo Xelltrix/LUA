@@ -450,7 +450,7 @@ function init_gear_sets()
 		sets.defense.MDT = set_combine(sets.defense.PDT,
 		{
 			sub="Irenic Strap +1",
-			neck="Warder's Charm +1", lear="Eabani Earring", rear="Static Earring",
+			neck="Warder's Charm +1", lear="Eabani Earring", rear="Sanare Earring",
 			body="Inyanga Jubbah +2", rring="Shukuyu Ring",
 			waist="Carrier's Sash", legs="Inyanga Shalwar +2", feet="Inyan. Crackows +2"
 		})

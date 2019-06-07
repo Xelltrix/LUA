@@ -513,7 +513,7 @@ function init_gear_sets()
 		
 		sets.idle.MEVA = set_combine(sets.idle,
 		{
-			head="Amalric Coif +1", neck="Warder's Charm +1",
+			head="Amalric Coif +1", neck="Warder's Charm +1", lear="Eabani Earring", rear="Sanare Earring",
 			body="Amalric Doublet +1", hands="Assim. Bazu. +3",
 			waist="Carrier's Sash", feet="Amalric Nails +1"
 		})
@@ -555,7 +555,7 @@ function init_gear_sets()
 
 		sets.defense.MDT = set_combine(sets.defense.PDT,
 		{
-			head="Amalric Coif +1", rear="Static Earring",
+			head="Amalric Coif +1", rear="Sanare Earring",
 			hands="Assim. Bazu. +3", rring="Shukuyu Ring",
 			back="Reiki Cloak", waist="Carrier's Sash", legs="Aya. Cosciales +2", feet="Amalric Nails +1"
 		})

@@ -126,7 +126,7 @@ function init_gear_sets()
 			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Lengo Pants", feet="Medium's Sabots"
 		})
 
-		sets.midcast.Duration = (sets.midcast.FC,
+		sets.midcast.Duration = set_combine(sets.midcast.FC,
 		{
 			main="Gada", sub="Ammurapi Shield",
 			head="Telchine Cap",
@@ -385,7 +385,7 @@ function init_gear_sets()
 		sets.idle.MEVA = set_combine(sets.idle,
 		{
 			main="Piety Wand", ammo="Staunch Tathlum +1",
-			head="Inyanga Tiara +2", neck="Warder's Charm +1", lear="Eabani Earring", rear="Static Earring",
+			head="Inyanga Tiara +2", neck="Warder's Charm +1", lear="Eabani Earring", rear="Sanare Earring",
 			body="Inyanga Jubbah +2", hands="Inyan. Dastanas +2",
 			legs="Inyanga Shalwar +2", feet="Inyan. Crackows +2"
 		})
@@ -413,7 +413,7 @@ function init_gear_sets()
 		sets.defense.PDT = 
 		{
 			main="Piety Wand", sub="Genmei Shield", ammo="Staunch Tathlum +1",
-			head="Inyanga Tiara +2", neck="Loricate Torque +1", lear="Eabani Earring", rear="Static Earring",
+			head="Inyanga Tiara +2", neck="Loricate Torque +1", lear="Eabani Earring", rear="Sanare Earring",
 			body="Inyanga Jubbah +2", hands="Inyan. Dastanas +2", lring="Defending Ring", rring="Gelatinous Ring +1",
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Inyanga Shalwar +2", feet="Inyan. Crackows +2"
 		}

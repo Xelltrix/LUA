@@ -416,7 +416,7 @@ function init_gear_sets()
 		sets.idle.DT = set_combine(sets.idle,
 		{
 			main="Mafic Cudgel", sub="Genmei Shield", ammo="Staunch Tathlum +1",
-			neck="Loricate Torque +1", lear="Etiolation Earring", rear="Static Earring",
+			neck="Loricate Torque +1", lear="Etiolation Earring", rear="Sanare Earring",
 			lring="Defending Ring", rring="Gelatinous Ring +1"
 		})
 		
@@ -458,7 +458,7 @@ function init_gear_sets()
 		sets.defense.MDT = 
 		{
 			main="Mafic Cudgel", sub="Genmei Shield", ammo="Staunch Tathlum +1",
-			head="Viti. Chapeau +3", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Static Earring",
+			head="Viti. Chapeau +3", neck="Loricate Torque +1", lear="Static Earring", rear="Sanare Earring",
 			body="Viti. Tabard +3", hands="Aya. Manopolas +2", lring="Defending Ring", rring="Shukuyu Ring",
 			back="Reiki Cloak", waist="Carrier's Sash", legs="Viti. Tights +3", feet="Vitiation Boots +3"
 		}

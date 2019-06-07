@@ -374,8 +374,16 @@ function display_current_caster_state()
 		msg = msg .. ', [KITING]'
 	end
 	
-	msg .. '\n[ MAGIC BURST STATE: ' .. state.MagicBurst.value .. ' || SAVE MP STATE: ' .. state.SaveMP.value .. ']'
+	if state.WeaponLock.value == true then
+		msg = msg .. ', Weapon is Locked'
+	end
 	
+	if state.MagicBurst.value == true then
+		msg = msg .. '\n[ Magic Burst State: ON' 
+	end
+	if state.SaveMP.value == true then
+		msg = msg .. ' || Save MP State: ON ]'
+	end
 
     add_to_chat(122, msg)
 end
@@ -440,4 +448,3 @@ selfCommandMaps = {
     ['naked']    = handle_naked,
     ['help']     = handle_help,
     ['test']     = handle_test}
-

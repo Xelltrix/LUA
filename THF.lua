@@ -76,11 +76,19 @@ function init_gear_sets()
 	-- Job Abilities --
 	------------------- 
 
-	sets.precast.JA['Collaborator'] = { head="Skulker's Bonnet +1" }
-	
-	sets.precast.JA['Accomplice'] = { head="Skulker's Bonnet +1" }
+	sets.precast.JA['Collaborator'] =
+	{
+		head="Skulker's Bonnet +1"
+	}
+	sets.precast.JA['Accomplice'] =
+	{
+		head="Skulker's Bonnet +1"
+	}
 
-	sets.precast.JA['Flee'] = { feet="Pill. Poulaines +1" }
+	sets.precast.JA['Flee'] =
+	{
+		feet="Pill. Poulaines +1"
+	}
 	sets.precast.JA['Steal'] =
 	{
 		head=gear.AHead_TP, neck="Pentalagus Charm", lear="Dawn Earring", rear="Infused Earring",
@@ -88,9 +96,15 @@ function init_gear_sets()
 		waist="Chaac Belt", feet="Pill. Poulaines +1"
 	}
 
-	sets.precast.JA['Despoil'] = { feet="Skulk. Poulaines +1" }
+	sets.precast.JA['Despoil'] =
+	{
+		feet="Skulk. Poulaines +1"
+	}
 
-	sets.precast.JA['Perfect Dodge'] = { hands="Plun. Armlets +1" }
+	sets.precast.JA['Perfect Dodge'] =
+	{
+		hands="Plun. Armlets +1"
+	}
 
 	sets.precast.Waltz =
 	{
@@ -109,7 +123,7 @@ function init_gear_sets()
 		ammo="Sapience Orb",
 		head=gear.HHead_WSD, neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
 		body=gear.TBody_Phalanx, hands="Leyline Gloves", lring="Prolix Ring", rring="Rahab Ring",
-		back="Moonlight Cape", waist="Flume Belt +1", legs="Rawhide Trousers", feet=gear.TFeet_Phalanx
+		back="Moonlight Cape", waist="Flume Belt +1", legs="Rawhide Trousers", gear.TFeet_Phalanx
 	}
 	
 	sets.precast.Utsusemi = set_combine(sets.precast.FC, 
@@ -148,7 +162,7 @@ function init_gear_sets()
 			ammo="Pemphredo Tathlum",
 			head=gear.HHead_MAB, neck="Sanctity Necklace", lear="Friomisi Earring", rear="Crematio Earring",
 			body="Samnuha Coat", hands="Leyline Gloves", lring="Dingir Ring", rring={name="Shiva Ring +1", bag="wardrobe3"},
-			back=gear.THFCape_STP, waist="Orpheus's Sash", legs="Herculean Trousers", feet=gear.HBoots_WSD
+			back=gear.THFCape_STP, waist="Eschan Stone", legs="Herculean Trousers", feet=gear.HBoots_WSD
 		}
 		
 	
@@ -481,7 +495,7 @@ function init_gear_sets()
 		sets.engaged.Mid = set_combine(sets.engaged.Low,
 		{
 			rring={name="Chirich Ring +1", bag="wardrobe3"},
-			legs="Adhemar Kecks +1"
+			legs="Meg. Chausses +2"
 		})
 
 		sets.engaged.High = set_combine(sets.engaged.Mid,
@@ -517,7 +531,7 @@ function init_gear_sets()
 		sets.engaged.Mid.Min = set_combine(sets.engaged.Low.Min,
 		{
 			rring={name="Chirich Ring +1", bag="wardrobe3"},
-			legs="Adhemar Kecks +1"
+			legs="Meg. Chausses +2"
 		})
 
 		sets.engaged.High.Min = set_combine(sets.engaged.Mid.Min,
@@ -552,7 +566,7 @@ function init_gear_sets()
 		sets.engaged.Mid.Med = set_combine(sets.engaged.Low.Med,
 		{
 			rring={name="Chirich Ring +1", bag="wardrobe3"},
-			legs="Adhemar Kecks +1"
+			legs="Meg. Chausses +2"
 		})
 
 		sets.engaged.High.Med = set_combine(sets.engaged.Mid.Med,
@@ -588,7 +602,7 @@ function init_gear_sets()
 		sets.engaged.Mid.Max = set_combine(sets.engaged.Low.Max,
 		{
 			hands="Meg. Gloves +2", rring={name="Chirich Ring +1", bag="wardrobe3"},
-			legs="Adhemar Kecks +1"
+			legs="Meg. Chausses +2"
 		})
 
 		sets.engaged.High.Max = set_combine(sets.engaged.Mid.Max,

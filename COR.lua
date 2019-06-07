@@ -76,7 +76,7 @@ function init_gear_sets()
 		
 		sets.precast.JA['Snake Eye'] = { legs="Lanun Trews +1" }
 		
-		sets.precast.JA['Fold'] = { hands="Lanun Gants +1 }
+		sets.precast.JA['Fold'] = { hands="Lanun Gants +1" }
 		
 		sets.precast.JA['Random Deal'] =  { body="Lanun Frac" }
 		
@@ -147,8 +147,6 @@ function init_gear_sets()
 			neck="Magoraga Beads",
 			body="Passion Jacket"
 		})
-
-
 ----------------------------------------------------------------------------
 --------------------									--------------------
 ------------							 						------------
@@ -156,8 +154,6 @@ function init_gear_sets()
 ------------							 						------------
 --------------------									--------------------
 ----------------------------------------------------------------------------
-
-
 	--------------------------------------
 	-- Midcast Magic
 	--------------------------------------
@@ -165,8 +161,6 @@ function init_gear_sets()
 	sets.midcast.FC = sets.precast.FC
 	
 	sets.midcast.FC.Utsusemi = sets.midcast.FC
-
-
 	
 ----------------------------------------------------------------------------
 --------------------									--------------------
@@ -175,12 +169,9 @@ function init_gear_sets()
 ------------							 						------------
 --------------------									--------------------
 ----------------------------------------------------------------------------	
-
 	------------------------------------------------------------------------------------------------
 	------------------------------------------ Idle Sets -------------------------------------------
 	------------------------------------------------------------------------------------------------
-
-
 		sets.idle =
 		{
 			ranged="Fomalhaut", ammo="Chrono Bullet",
@@ -188,14 +179,12 @@ function init_gear_sets()
 			body="Meg. Cuirie +2", hands="Meg. Gloves +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back="Moonlight Cape", waist="Flume Belt +1", legs="Carmine Cuisses +1", feet="Lanun Bottes +1"
 		}
-
 		sets.idle.DT = set_combine (sets.idle,
 		{
 			head="Meghanada Visor +2", neck="Loricate Torque +1",
 			body="Meg. Cuirie +2", lring="Defending Ring", rring="Moonbeam Ring",
 			legs="Mummu Kecks +2"
 		})
-
 		sets.idle.Town = set_combine(sets.idle,
 		{
 			legs="Carmine Cuisses +1"
@@ -205,35 +194,25 @@ function init_gear_sets()
 		{
 			body="Councilor's Garb"
 		})
-
 		sets.idle.Weak = sets.idle.DT
-
     ------------------------------------------------------------------------------------------------
     ---------------------------------------- Defense Sets ------------------------------------------
     ------------------------------------------------------------------------------------------------
-
 		sets.defense.PDT = set_combine(sets.idle.DT,
 		{
 			lear="Etiolation Earring", rear="Odnowa Earring +1",
 		})
-
 		sets.defense.MDT = sets.idle.DT
-
 		sets.Kiting =  { legs="Carmine Cuisses +1" }
-
-
     ------------------------------------------------------------------------------------------------
     ---------------------------------------- Special Sets ------------------------------------------
     ------------------------------------------------------------------------------------------------
-
 		sets.buff.Doom = 
 		{
 			neck="Nicander's Necklace",
 			lring={name="Eshmun's Ring", bag="wardrobe2"}, rring={name="Eshmun's Ring", bag="wardrobe3"},
 			waist="Gishdubar Sash"
 		}
-
-
 ----------------------------------------------------------------------------
 --------------------									--------------------
 ------------							 						------------
@@ -241,12 +220,10 @@ function init_gear_sets()
 ------------							 						------------
 --------------------									--------------------
 ----------------------------------------------------------------------------
-
 	
 	-------------------------
 	-- Ranged Sets
 	-------------------------
-
 		sets.precast.RA =
 		{
 			head="Chass. Tricorne +1",
@@ -268,19 +245,15 @@ function init_gear_sets()
 		
 		sets.buff.TripleShot = { body="Chasseur's Frac +1" }
 	   
-
-
 	-------------------------
 	-- Weaponskill Sets
 	-------------------------
-
 		sets.precast.WS = 
 		{
 			head="Lilitu Headpiece", neck="Fotia Gorget", lear="Ishvara Earring", rear="Moonshade Earring",
 			body="Herculean Vest", hands="Meg. Gloves +2", lring="Dingir Ring", rring="Regal Ring",
 			back="Camulus's Mantle", waist="Fotia Belt", legs="Herculean Trousers", feet=gear.HBoots_WSD
 		}
-
 		
 		--	***Guns***
 		sets.precast.WS['Leaden Salute'] = set_combine(sets.precast.WS, 
@@ -295,9 +268,7 @@ function init_gear_sets()
 			head=gear.HHead_MAB, rear="Crematio Earring",
 			rring={name="Shiva Ring +1", bag="wardrobe3"},
 		})
-
 		sets.precast.WS['Hot Shot'] = sets.precast.WS['Wildfire']
-
 		
 		
 		--	***Swords***
@@ -307,7 +278,6 @@ function init_gear_sets()
 		
 		sets.precast.WS['Red Lotus Blade'] = sets.precast.WS['Wildfire']
 		
-
 		sets.precast.WS['Vorpal Blade'] = set_combine(sets.precast.WS,
 		{
 			head=gear.AHead_TP, lear="Brutal Earring",
@@ -320,9 +290,7 @@ function init_gear_sets()
 			lring="Shukuyu Ring",
 			waist="Prosilio Belt +1", feet="Carmine Greaves +1"
 		})
-
 		sets.precast.WS['Swift Blade'] = sets.precast.WS['Savage Blade']
-
 		sets.precast.WS['Requiescat'] = set_combine(sets.precast.WS, 
 		{
 			lear="Brutal Earring",
@@ -346,10 +314,7 @@ function init_gear_sets()
 			body="Adhemar Jacket +1", hands="Floral Gauntlets", lring="Dingir Ring", rring="Epona's Ring",
 			legs="Samnuha Tights", feet=gear.HBoots_TP
 		})
-
 		sets.precast.WS['Aeolian Edge'] = sets.precast.WS['Wildfire']
-
-
 	
 	--------------------------------------
 	-- Melee sets
@@ -372,7 +337,6 @@ function init_gear_sets()
 			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring="Epona's Ring",
 			back="Camulus's Mantle", waist="Windbuffet Belt +1", legs="Samnuha Tights", feet="Carmine Greaves +1"
 		}
-
 		-----------------------------------------------------------------------------------
 		---	TP/h:104	(STP:39		QA:2%	TA:8%	DA:24%)
 		---	Primary Accuracy: 1093~		/ Primary Attack: 971~
@@ -383,7 +347,6 @@ function init_gear_sets()
 			head="Dampening Tam",
 			lring={name="Chirich Ring +1", bag="wardrobe2"},
 		})
-
 		-----------------------------------------------------------------------------------
 		---	TP/h:104	(STP:39		QA:2%	TA:2%	DA:24%)
 		---	Primary Accuracy: 1124~		/ Primary Attack: 1004~
@@ -394,7 +357,6 @@ function init_gear_sets()
 			head="Carmine Mask +1",
 			legs="Carmine Cuisses +1"
 		})
-
 		-----------------------------------------------------------------------------------
 		---	TP/h:101~	(STP:31~35	QA:0%	TA:0%	DA:14%)
 		---	Primary Accuracy: 1170~		/ Primary Attack: 1001~
@@ -406,13 +368,11 @@ function init_gear_sets()
 			hands="Meg. Gloves +2", rring={name="Chirich Ring +1", bag="wardrobe3"},
 			waist="Kentarch Belt +1", feet="Meg. Jam. +2"
 		})
-
 		
 	
 	----------------------------------------------------------
 	--					(DW2 + No Haste)
 	----------------------------------------------------------
-
 	--15 DW = 59 DW needed		(DNC Sub)
 	
 	----------------------------------------------------------	
@@ -428,7 +388,6 @@ function init_gear_sets()
 			body="Adhemar Jacket +1", hands="Floral Gauntlets", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring="Epona's Ring",
 			back="Camulus's Mantle", waist="Reiki Yotai", legs="Carmine Cuisses +1", feet=gear.TFeet_TP
 		}
-
 		-----------------------------------------------------------------------------------
 		---	TP/h:63		(DW:36	STP:29		QA:0%	TA:4%	DA:7%)
 		---	Primary Accuracy: 1130 		/ Primary Attack: 1017
@@ -439,7 +398,6 @@ function init_gear_sets()
 			head="Dampening Tam",
 			lring={name="Chirich Ring +1", bag="wardrobe2"}
 		})
-
 		-----------------------------------------------------------------------------------
 		---	TP/h:63		(DW:36	STP:29		QA:0%	TA:2%	DA:7%)
 		---	Primary Accuracy: 1175 		/ Primary Attack: 1011
@@ -450,7 +408,6 @@ function init_gear_sets()
 			head="Carmine Mask +1",
 			rring={name="Chirich Ring +1", bag="wardrobe3"},
 		})
-
 		-----------------------------------------------------------------------------------
 		---	TP/h:80~	(DW:16	STP:34~8	QA:0%	TA:0%	DA:14%)
 		---	Primary Accuracy: 1209		/ Primary Attack: 996
@@ -466,7 +423,6 @@ function init_gear_sets()
 	----------------------------------------------------------
 	--					(DW3 + No Haste)
 	----------------------------------------------------------
-
 	--25 DW = 49 DW needed		(NIN Sub)
 	
 	----------------------------------------------------------	
@@ -482,7 +438,6 @@ function init_gear_sets()
 			body="Adhemar Jacket +1", hands="Floral Gauntlets", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring="Epona's Ring",
 			back="Camulus's Mantle", waist="Reiki Yotai", legs="Carmine Cuisses +1", feet=gear.TFeet_TP
 		}
-
 		-----------------------------------------------------------------------------------
 		---	TP/h:58		(DW:36	STP:29		QA:0%	TA:4%	DA:7%)
 		---	Primary Accuracy: 1153		/ Primary Attack: 1024
@@ -492,7 +447,6 @@ function init_gear_sets()
 		{
 			head="Dampening Tam"
 		})
-
 		-----------------------------------------------------------------------------------
 		---	TP/h:58		(DW:36	STP:29		QA:0%	TA:2%	DA:7%)
 		---	Primary Accuracy: 1165 		/ Primary Attack: 1012
@@ -503,7 +457,6 @@ function init_gear_sets()
 			head="Carmine Mask +1",
 			rring={name="Chirich Ring +1", bag="wardrobe3"},
 		})
-
 		-----------------------------------------------------------------------------------
 		---	TP/h:74~	(DW:16	STP:34~8	QA:0%	TA:0%	DA:14%)
 		---	Primary Accuracy: 1200		/ Primary Attack: 997
@@ -520,33 +473,27 @@ function init_gear_sets()
 	----------------------------------------------------------
 	--					(DW2 + 15% Haste)
 	----------------------------------------------------------
-
 	--15 DW = 52 DW needed		(DNC Sub)
 	
 	----------------------------------------------------------		
-
-
 		-----------------------------------------------------------------------------------
 		---	TP/h:65		(DW:36	STP:33		QA:0%	TA:4%	DA:10%)
 		---	Primary Accuracy: 1140 		/ Primary Attack: 1018
 		--- Auxiliary Accuracy: 1115 	/ Auxiliary Attack: 936
 		-----------------------------------------------------------
 		sets.engaged.DW2.Min = sets.engaged.DW2
-
 		-----------------------------------------------------------------------------------
 		---	TP/h:63		(DW:36	STP:29		QA:0%	TA:4%	DA:7%)
 		---	Primary Accuracy: 1130 		/ Primary Attack: 1017
 		--- Auxiliary Accuracy: 1106 	/ Auxiliary Attack: 937
 		-----------------------------------------------------------		
 		sets.engaged.DW2.Low.Min = sets.engaged.DW2.Low
-
 		-----------------------------------------------------------------------------------
 		---	TP/h:63		(DW:36	STP:29		QA:0%	TA:2%	DA:7%)
 		---	Primary Accuracy: 1175 		/ Primary Attack: 1011
 		--- Auxiliary Accuracy: 1151 	/ Auxiliary Attack: 927
 		-----------------------------------------------------------		
 		sets.engaged.DW2.Mid.Min = sets.engaged.DW2.Mid
-
 		-----------------------------------------------------------------------------------
 		---	TP/h:80~	(DW:16	STP:34~8	QA:0%	TA:0%	DA:14%)
 		---	Primary Accuracy: 1209		/ Primary Attack: 996
@@ -557,7 +504,6 @@ function init_gear_sets()
 	----------------------------------------------------------
 	--					(DW3 + 15% Haste)
 	----------------------------------------------------------
-
 	--25 DW = 42 DW needed		(NIN Sub)
 	
 	----------------------------------------------------------	
@@ -568,35 +514,28 @@ function init_gear_sets()
 		--- Auxiliary Accuracy: 1106 	/ Auxiliary Attack: 937
 		-----------------------------------------------------------	
 		sets.engaged.DW3.Min = sets.engaged.DW3
-
 		-----------------------------------------------------------------------------------
 		---	TP/h:58		(DW:36	STP:29		QA:0%	TA:4%	DA:7%)
 		---	Primary Accuracy: 1153		/ Primary Attack: 1024
 		--- Auxiliary Accuracy: 1129 	/ Auxiliary Attack: 942
 		-----------------------------------------------------------	
 		sets.engaged.DW3.Low.Min = sets.engaged.DW3.Low
-
 		-----------------------------------------------------------------------------------
 		---	TP/h:58		(DW:36	STP:29		QA:0%	TA:2%	DA:7%)
 		---	Primary Accuracy: 1165 		/ Primary Attack: 1012
 		--- Auxiliary Accuracy: 1141 	/ Auxiliary Attack: 928
 		-----------------------------------------------------------	
 		sets.engaged.DW3.Mid.Min = sets.engaged.DW3.Mid
-
 		-----------------------------------------------------------------------------------
 		---	TP/h:74~	(DW:16	STP:34~8	QA:0%	TA:0%	DA:14%)
 		---	Primary Accuracy: 1200		/ Primary Attack: 997
 		--- Auxiliary Accuracy: 1175 	/ Auxiliary Attack: 913
 		-----------------------------------------------------------	
 		sets.engaged.DW3.High.Min = sets.engaged.DW3.High
-
 	
-
-
 	----------------------------------------------------------
 	--					(DW2 + 30% Haste)
 	----------------------------------------------------------
-
 	--25 DW = 41 DW needed		(DNC Sub)
 	
 	----------------------------------------------------------
@@ -607,7 +546,6 @@ function init_gear_sets()
 		--- Auxiliary Accuracy: 1115 	/ Auxiliary Attack: 936
 		-----------------------------------------------------------
 		sets.engaged.DW2.Med = sets.engaged.DW2.Min
-
 		-----------------------------------------------------------------------------------
 		---	TP/h:63		(DW:36	STP:29		QA:0%	TA:4%	DA:7%)
 		---	Primary Accuracy: 1130 		/ Primary Attack: 1017
@@ -628,11 +566,9 @@ function init_gear_sets()
 		--- Auxiliary Accuracy: 1184 	/ Auxiliary Attack: 912
 		-----------------------------------------------------------	
 		sets.engaged.DW2.High.Med = sets.engaged.DW2.High.Min
-
 	----------------------------------------------------------
 	--					(DW3 + 30% Haste)
 	----------------------------------------------------------
-
 	--25 DW = 31 DW needed		(NIN Sub)
 	
 	----------------------------------------------------------
@@ -680,13 +616,11 @@ function init_gear_sets()
 			rring={name="Chirich Ring +1", bag="wardrobe3"},
 			feet="Meg. Jam. +2"
 		})
-
 	
 	
 	----------------------------------------------------------
 	--					(DW2 + Max Haste)
 	----------------------------------------------------------
-
 	--25 DW = 21 DW needed		(DNC Sub)
 	
 	----------------------------------------------------------	
@@ -741,7 +675,6 @@ function init_gear_sets()
 	----------------------------------------------------------
 	--					(DW3 + Max Haste)
 	----------------------------------------------------------
-
 	--25 DW = 11 DW needed		(NIN Sub)
 	
 	----------------------------------------------------------
@@ -796,13 +729,11 @@ function init_gear_sets()
 	------------------------------------------------------------------------------------------------
     ---------------------------------------- Hybrid Sets -------------------------------------------
     ------------------------------------------------------------------------------------------------
-
 		sets.engaged.Hybrid = 
 		{
 			head=gear.AHead_PDT, neck="Loricate Torque +1",
 			lring="Defending Ring", rring="Gelatinous Ring +1"
 		}
-
 		----------------------------------------------------------
 		-- Sword & Board
 		----------------------------------------------------------	
@@ -810,7 +741,6 @@ function init_gear_sets()
 		sets.engaged.Low.DT 		= set_combine(sets.engaged.Low, 	sets.engaged.Hybrid)
 		sets.engaged.Mid.DT 		= set_combine(sets.engaged.Mid, 	sets.engaged.Hybrid)
 		sets.engaged.High.DT		= set_combine(sets.engaged.High, 	sets.engaged.Hybrid)
-
 		
 		----------------------------------------------------------
 		-- No Haste
@@ -819,7 +749,6 @@ function init_gear_sets()
 		sets.engaged.DW2.Low.DT 	= set_combine(sets.engaged.DW2.Low, 	sets.engaged.Hybrid)
 		sets.engaged.DW2.Mid.DT 	= set_combine(sets.engaged.DW2.Mid, 	sets.engaged.Hybrid)
 		sets.engaged.DW2.High.DT 	= set_combine(sets.engaged.DW2.High, 	sets.engaged.Hybrid)
-
 		sets.engaged.DW3.DT 		= set_combine(sets.engaged.DW3, 		sets.engaged.Hybrid)
 		sets.engaged.DW3.Low.DT 	= set_combine(sets.engaged.DW3.Low, 	sets.engaged.Hybrid)
 		sets.engaged.DW3.Mid.DT 	= set_combine(sets.engaged.DW3.Mid, 	sets.engaged.Hybrid)
@@ -847,7 +776,6 @@ function init_gear_sets()
 		sets.engaged.DW2.Low.DT.Med  = set_combine(sets.engaged.DW2.Low.Med, 	sets.engaged.Hybrid)
 		sets.engaged.DW2.Mid.DT.Med  = set_combine(sets.engaged.DW2.Mid.Med, 	sets.engaged.Hybrid)
 		sets.engaged.DW2.High.DT.Med = set_combine(sets.engaged.DW2.High.Med, 	sets.engaged.Hybrid)
-
 		sets.engaged.DW3.DT.Med 	 = set_combine(sets.engaged.DW3.Med, 		sets.engaged.Hybrid)
 		sets.engaged.DW3.Low.DT.Med  = set_combine(sets.engaged.DW3.Low.Med, 	sets.engaged.Hybrid)
 		sets.engaged.DW3.Mid.DT.Med  = set_combine(sets.engaged.DW3.Mid.Med, 	sets.engaged.Hybrid)
@@ -866,17 +794,11 @@ function init_gear_sets()
 		sets.engaged.DW3.Mid.DT.Max  = set_combine(sets.engaged.DW3.Mid.Max, 	sets.engaged.Hybrid)
 		sets.engaged.DW3.High.DT.Max = set_combine(sets.engaged.DW3.High.Max, 	sets.engaged.Hybrid)
 	
-
 end
-
-
 -------------------------------------------------------------------------------------------------------------------
 -- Job-specific hooks for standard casting events.
 -------------------------------------------------------------------------------------------------------------------
-
-
 function determine_DW()
-
 	local sub_job_dw = 0
 	local player_has_sj = false
 	
@@ -887,11 +809,8 @@ function determine_DW()
 			sub_job_dw = 25
 		end
 	end
-
 	return sub_job_dw
 end
-
-
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
 -- Set eventArgs.useMidcastGear to true if we want midcast gear equipped on precast.
 function job_precast(spell, action, spellMap, eventArgs)

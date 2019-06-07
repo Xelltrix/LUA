@@ -365,7 +365,7 @@ function init_gear_sets()
 		sets.idle.DT = set_combine(sets.idle,
 		{--	DT: -30%	PDT: -37%	MDT:-32%	Refresh: 11~12
 			ammo="Staunch Tathlum +1",
-			neck="Loricate Torque +1", lear="Etiolation Earring",
+			neck="Loricate Torque +1", lear="Etiolation Earring", rear="Sanare Earring",
 			lring="Defending Ring", rring="Gelatinous Ring +1"
 		})
 
@@ -385,7 +385,7 @@ function init_gear_sets()
 	------------------------------------------------------------------------------------------------
 
 		sets.defense.PDT =
-		{{--	DT: -38%	PDT: -50%	MDT:-42%
+		{--	DT: -38%	PDT: -50%	MDT:-42%
 			main="Akademos", sub="Kaja Grip", ammo="Staunch Tathlum +1",
 			head="Befouled Crown", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
 			body="Mallquis Saio +2", hands="Chironic Gloves", lring="Defending Ring", rring="Gelatinous Ring +1",
@@ -395,7 +395,7 @@ function init_gear_sets()
 		sets.defense.MDT =
 		{--	DT: -33%	PDT: -50%	MDT:-36%
 			main="Akademos", sub="Irenic Strap +1", ammo="Staunch Tathlum +1",
-			head="Chironic Hat", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Static Earring",
+			head="Chironic Hat", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Sanare Earring",
 			body="Peda. Gown +3", hands="Peda. Bracers +3", lring="Defending Ring", rring="Shukuyu Ring",
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Peda. Pants +3", feet="Amalric Nails +1"
 		}

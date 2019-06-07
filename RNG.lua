@@ -91,19 +91,13 @@ function init_gear_sets()
 		legs="Herculean Trousers", feet="Thereoid Greaves"
 	})
 
-	sets.precast.WS["Jishnu's Radiance"].Acc = sets.precast.WS["Jishnu's Radiance"]
-
 	sets.precast.WS['Apex Arrow'] = sets.precast.WS
-
-	sets.precast.WS.Acc['Apex Arrow'] = sets.precast.WS['Apex Arrow']
 
 	sets.precast.WS['Refulgent Arrow'] = set_combine(sets.precast.WS,
 	{
 		body="Amini Caban +1", lring="Regal Ring", rring="Ilabrat Ring",
 		legs="Samnuha Tights"
 	})
-
-	sets.precast.WS.Acc['Refulgent Arrow'] = sets.precast.WS
 	
 	sets.precast.WS['Last Stand'] = sets.precast.WS
 
@@ -129,7 +123,7 @@ function init_gear_sets()
 	}
 
 	-- Specific spells
-	sets.midcast.Utsusemi = sets.midcast.FastRecast
+	sets.midcast.Utsusemi = sets.midcast.FC
 
 	-- Ranged sets
 
@@ -140,7 +134,7 @@ function init_gear_sets()
 		back="Belenus's Cape", waist="Yemaya Belt", legs="Amini Brague +1", feet="Adhemar Gamashes"
 	}
 	
-	sets.buff.Barrage = 
+	sets.buff['Barrage'] = 
 	{
 		hands="Orion Bracers +1"
 	}

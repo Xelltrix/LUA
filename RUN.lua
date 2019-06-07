@@ -67,7 +67,7 @@ function init_gear_sets()
 ----------------------------------------------------------------------------
 
 		sets.Enmity =
-		{--Enmity + 84
+		{--Enmity + 74
 			ammo="Sapience Orb",
 			head="Halitus Helm", neck="Moonbeam Necklace", lear="Trux Earring", rear="Cryptic Earring",
 			body="Emet Harness +1", hands="Kurys Gloves", lring="Eihwaz Ring", rring="Supershear Ring",
@@ -75,7 +75,7 @@ function init_gear_sets()
 		}
 		
 		sets.Enmity.HP = set_combine(sets.Enmity,
-		{--Enmity + 69
+		{--Enmity + 61
 			rear="Odnowa Earring +1",
 			rring="Moonbeam Ring",
 			back="Moonlight Cape"
@@ -119,7 +119,7 @@ function init_gear_sets()
 		{
 			ammo="Staunch Tathlum +1",	
 			head="Erilaz Galea +1", neck="Incanter's Torque", lear="Beatific Earring", rear="Odnowa Earring +1",
-			body="Futhark Coat +3", hands="Runeist's Mitons +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			body="Runeist's Coat +2", hands="Turms Mittens +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Moonlight Cape", waist="Bishop's Sash", legs="Rune. Trousers +1", feet="Erilaz Greaves +1"
 		}
 
@@ -202,8 +202,7 @@ function init_gear_sets()
 		sets.midcast.Regen =
 		{
 			head="Rune. Bandeau +2",
-			body="Futhark Coat +3", 
-			legs ="Futhark Trousers +1"
+			body="Futhark Coat +3", legs ="Futhark Trousers +1"
 		}
 
 		sets.midcast.Refresh =
@@ -324,7 +323,7 @@ function init_gear_sets()
 		sets.idle =
 		{-- DT: 6%	PDT: 4%		MDT: 6%		Refresh: 4	Regen: 
 			ammo="Homiliary",
-			head="Rune. Bandeau +2", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
+			head="Turms Cap", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 			body="Runeist's Coat +2", hands="Turms Mittens +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Moonlight Cape", waist="Flume Belt +1", legs="Carmine Cuisses +1", feet="Turms Leggings"
 		}
@@ -332,7 +331,7 @@ function init_gear_sets()
 		sets.idle.DT = 
 		{-- DT: 38%	PDT: 49%	MDT: 43%
 			ammo="Staunch Tathlum +1",
-			head="Rune. Bandeau +2", neck="Futhark Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
+			head="Turms Cap", neck="Futhark Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
 			body="Futhark Coat +3", hands="Turms Mittens +1", lring="Defending Ring", rring="Moonbeam Ring",
 			back="Moonlight Cape", waist="Flume Belt +1", legs="Eri. Leg Guards +1", feet="Turms Leggings"
 		}
@@ -366,15 +365,15 @@ function init_gear_sets()
 		sets.defense.PDT =
 		{--DT: -38%	PDT: -53%	MDT: -43%
 			ammo="Staunch Tathlum +1",
-			head=gear.AHead_PDT, neck="Futhark Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
+			head=gear.AHead_PDT, neck="Futhark Torque +1", lear="Sanare Earring", rear="Odnowa Earring +1",
 			body="Futhark Coat +3", hands="Turms Mittens +1", lring="Defending Ring", rring="Moonbeam Ring",
-			back="Moonlight Cape", waist="Flume Belt +1", legs="Eri. Leg Guards +1", feet="Turms Leggings"
+			back="Moonlight Cape", waist="Carrier's Sash", legs="Eri. Leg Guards +1", feet="Turms Leggings"
 		}
 		
 		sets.defense.MDT = 
-		{--DT: -29%	PDT: -36%	MDT: -34%
+		{--DT: -29%	PDT: -36%	MDT: -25%
 			ammo="Staunch Tathlum +1",
-			head="Rune. Bandeau +2", neck="Futhark Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
+			head="Turms Cap", neck="Futhark Torque +1", lear="Sanare Earring", rear="Odnowa Earring +1",
 			body="Runeist's Coat +2",hands="Turms Mittens +1", lring="Defending Ring", rring="Moonbeam Ring",
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Eri. Leg Guards +1", feet="Turms Leggings"
 		}
