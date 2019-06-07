@@ -11,8 +11,6 @@ function get_sets()
 end
 
 function job_setup()
-	lockstyleset = 9
-	
 	state.Buff['Embolden'] = buffactive['Embolden'] or false
 	state.Buff['Battuta'] = buffactive['Battuta'] or false
 end
@@ -826,5 +824,5 @@ function apply_job_change()
 		set_macro_page(8,14)
 	end
 	
-	send_command('wait 3; input /lockstyleset ' .. lockstyleset)
+	send_command('wait 3; input /lockstyleset 9')
 end
