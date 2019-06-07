@@ -34,7 +34,7 @@ function user_setup()
 	
 	state.WeaponSet = M{['description']='Weapon Set', 'Epeolatry', 'Montante', 'Aettir', 'Hepatizon'}
 	
-	state.GripSet = M{['description']='Grip Set','Utu','Kaja','Irenic',}
+	state.GripSet = M{['description']='Grip Set','Utu','Kaja','Irenic'}
 	
 	send_command('bind pageup gs c cycle WeaponSet')
 	send_command('bind pagedown gs c cycleback WeaponSet')
