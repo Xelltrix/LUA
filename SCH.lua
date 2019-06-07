@@ -14,7 +14,6 @@ end
 function job_setup()
 	state.Buff['Sublimation: Activated'] = buffactive['Sublimation: Activated'] or false
 	update_active_strategems()
-	lockstyleset = 4
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -216,11 +215,6 @@ function init_gear_sets()
 		})
 
 		sets.midcast.Statless = sets.midcast.Duration
-
-		sets.midcast.Storm = set_combine(sets.midcast.Duration,
-		{
-			feet="Peda. Loafers +3"
-		})
 
 		sets.midcast.Klimaform = sets.midcast.FC
 
@@ -516,10 +510,11 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 	end
 	
 	if spellMap == 'Cures' and spell.target.type == 'SELF' then
-        	equip
-		{
-			waist="Gishdubar Sash"
-		}
+        	equip { waist="Gishdubar Sash" }
+	end
+	
+	if spellMap = 'Storm' and (buffactive["Light Arts"] or buffactive["Addendum: White"]) then
+		equip { feet="Peda. Loafers +3" }
 	end
 	
 	if spellMap == 'Refresh' and spell.target.type == 'SELF' then
@@ -643,11 +638,14 @@ end
 
 function customize_idle_set(idleSet)
 	if state.Buff['Sublimation: Activated'] then
-		if state.IdleMode.value == 'Normal' then
-			idleSet = set_combine(sets.idle, sets.buff['Sublimation: Activated'])
-		elseif state.IdleMode.value == 'DT' then
-			idleSet = set_combine(sets.idle.DT, sets.buff['Sublimation: Activated'])
-		end
+		idleSet = set_cobmine(idleSet, sets.buff['Sublimation: Activated'])
+	end
+	
+	if player.mpp < 51 and state.IdleMode.value ~= 'DT' then
+		idleSet = set_combine(idleSet, 
+			{
+				waist="Fucho-no-Obi"
+			})
 	end
 
 	return idleSet
@@ -711,5 +709,5 @@ end
 function apply_job_change()
 	set_macro_page(1, 4)
 	
-	send_command('wait 3; input /lockstyleset ' .. lockstyleset)
+	send_command('wait 3; input /lockstyleset 4')
 end
