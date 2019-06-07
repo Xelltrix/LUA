@@ -16,7 +16,7 @@ function job_setup()
 	state.Buff['Afflatus Misery'] 	= buffactive['Afflatus Misery'] or false
 	state.Buff['Light Arts'] 		= buffactive['Light Arts'] or false
 	
-	lockstyleset = 3
+	 state.SaveMP        	= M(true)
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -59,33 +59,32 @@ function init_gear_sets()
 	-------------------
 	-- Precast Magic --
 	------------------- 
+	-- Healing Cast Time: 	-8%
+	-- Divine Benison: 	50% Fast Cast
 	
 		sets.precast.FC =
-		{
+		{--		Fast Cast: 82%
 			main="Sucellus", sub="Chanter's Shield", ammo="Sapience Orb",
 			head="Vanya Hood", neck="Cleric's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
 			body="Pinga Tunic", hands="Fanatic Gloves", lring="Kishar Ring", rring="Rahab Ring",
 			back="Alaunus's Cape", waist="Witful Belt", legs="Pinga Pants", feet="Telchine Pigaches"
 		}
 
-		sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC,
-		{
-			waist="Siegel Sash"
-		})
-
 		sets.precast.FC['Healing Magic'] = set_combine(sets.precast.FC,
-		{
-			main="Queller Rod",
+		{--		Fast Cast: 71%		Healing Casting Time: -21%
 			legs="Ebers Pant. +1"
 		})
 
-		sets.precast.FC.StatusRemoval = set_combine(sets.precast.FC['Healing Magic'],
-		{
-			main="Yagrush"
-		})
+		sets.precast.FC.StatusRemoval = 
+		{--		Fast Cast: 99%		Healing Cast Time: 21%
+			main="Yagrush", sub="Genmei Shield", ammo="Staunch Tathlum +1",
+			neck="Cleric's Torque",
+			hands="Chironic Gloves",
+			waist="Witful Belt", legs="Ebers Pant. +1", feet="Theo. Duckbills +3"
+		}
 
 		sets.precast.FC.Cures = set_combine(sets.precast.FC['Healing Magic'],
-		{
+		{--		Fast Cast: 66%		Healing Castime: 40%
 			main="Queller Rod",
 			rear="Mendi. Earring",
 			feet="Vanya Clogs"
@@ -94,7 +93,7 @@ function init_gear_sets()
 		sets.precast.FC.Curagas = sets.precast.FC.Cures
 
 		sets.precast.FC.Impact = set_combine(sets.precast.FC,
-		{
+		{--		Fast Cast: 67%
 			head=empty,
 			body="Twilight Cloak"
 		})
@@ -114,12 +113,12 @@ function init_gear_sets()
 	--------------------------------------
 
 		sets.midcast.FC = set_combine(sets.precast.FC,
-		{
+		{--		Fast Cast: 77%		Haste: 24%
 			legs="Aya. Cosciales +2"
 		})
 
 		sets.midcast.ConserveMP = set_combine(sets.midcast.FC,
-		{
+		{--		Fast Cast: 38%		Haste: 20%	Conserve MP: 
 			ammo="Pemphredo Tathlum",
 			neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
 			body="Chironic Doublet",
@@ -127,7 +126,7 @@ function init_gear_sets()
 		})
 
 		sets.midcast.Duration = set_combine(sets.midcast.FC,
-		{
+		{--		Fast Cast: 33%		Haste: 23%	Duration: (1.46) x (1.2)
 			main="Gada", sub="Ammurapi Shield",
 			head="Telchine Cap",
 			body="Telchine Chas.", hands=gear.ENH_Gloves,
@@ -139,18 +138,16 @@ function init_gear_sets()
 	-- Healing Midcast sets
 	--------------------------------------	
 
-		-- Cure Potency/II: 51%/9%			Enmity: -64		Healing Magic Skill: +110(573)	MND+193
 		sets.midcast.Cures =
-		{
+		{-- Cure Potency/II: 51%/9%			Enmity: -64		Healing Magic Skill: +110(573)	MND+193
 			main="Queller Rod", sub="Sors Shield", ammo="Pemphredo Tathlum",
 			head="Kaykaus Mitra", neck="Cleric's Torque", lear="Glorious Earring", rear="Mendi. Earring",
 			body="Theo. Briault +2", hands="Theophany Mitts +2", lring="Lebeche Ring", rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Alaunus's Cape", waist="Luminary Sash", legs="Sifahir Slacks", feet="Vanya Clogs"
 		}
-		
-		-- Cure Potency/II: 51%/6%			Enmity: -54		Healing Magic Skill: +114(580)	MND+221		Solace+24	
+			
 		sets.midcast.CureSolace =
-		{
+		{-- Cure Potency/II: 51%/6%			Enmity: -54		Healing Magic Skill: +114(580)	MND+221		Solace+24
 			main="Queller Rod", sub="Sors Shield", ammo="Pemphredo Tathlum",
 			head="Kaykaus Mitra", neck="Cleric's Torque", lear="Glorious Earring", rear="Mendi. Earring",
 			body="Ebers Bliaud +1", hands="Theophany Mitts +2", lring="Lebeche Ring", rring={name="Stikini Ring +1", bag="wardrobe3"},
@@ -159,18 +156,16 @@ function init_gear_sets()
 		
 		sets.midcast.Curagas = sets.midcast.Cures
 		
-		-- Cure Potency/II: 50%/7%			Enmity: -54		Healing Magic Skill: +78(541)	MND+181
 		sets.midcast.CuresWeather =
-		{
+		{-- Cure Potency/II: 50%/7%			Enmity: -54		Healing Magic Skill: +78(541)	MND+181
 			main="Chatoyant Staff", sub="Enki Strap", ammo="Pemphredo Tathlum",
 			head="Kaykaus Mitra", neck="Cleric's Torque", lear="Glorious Earring", rear="Mendi. Earring",
 			body="Theo. Briault +2", hands="Theophany Mitts +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Twilight Cape", waist="Hachirin-no-Obi", legs="Sifahir Slacks", feet="Kaykaus Boots"
 		}
-		
-		-- Cure Potency/II: 50%/4%			Enmity: -54		Healing Magic Skill: +87(550)	MND+193		Solace+24	
+			
 		sets.midcast.CureSolaceWeather =
-		{
+		{-- Cure Potency/II: 50%/4%			Enmity: -54		Healing Magic Skill: +87(550)	MND+193		Solace+24
 			main="Chatoyant Staff", sub="Enki Strap", ammo="Pemphredo Tathlum",
 			head="Kaykaus Mitra", neck="Cleric's Torque", lear="Glorious Earring", rear="Mendi. Earring",
 			body="Ebers Bliaud +1", hands="Theophany Mitts +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
@@ -179,35 +174,28 @@ function init_gear_sets()
 		
 		sets.midcast.CuragaWeather = sets.midcast.CuresWeather
 
-		--[[	Cursna Formula: (10 + Healing Magic Skill/30)*(1 + Cursna Success/100)*(1 + Cursna Received/100)
-			(10 + 588/30)*(1 + 116/100)	=
-		60% Success Rate																								]]
+		--Cursna Formula: (10 + Healing Magic Skill/30)*(1 + Cursna Success/100)*(1 + Cursna Received/100)
+		
 		sets.midcast.Cursna = set_combine(sets.precast.FC['Healing Magic'],
-		{
+		{--	(10 + ?/30)*(1 + ?/100)*(1+ ?/100) =		60% Success Rate
 			main="Yagrush",
 			head="Kaykaus Mitra", neck="Debilis Medallion", lear="Beatific Earring", rear="Healing Earring",
 			body="Ebers Bliaud +1", lring="Haoma's Ring", rring="Menelaus's Ring",
 			waist="Bishop's Sash", legs="Th. Pant. +3", feet="Vanya Clogs"
 		})
 
-		sets.midcast.StatusRemoval = set_combine(sets.precast.FC['Healing Magic'],
-		{
-			main="Yagrush",
-			legs="Ebers Pant. +1"
-		})
+		sets.midcast.StatusRemoval = sets.precast.FC.StatusRemoval
 		
 		sets.midcast.Esuna = set_combine(sets.midcast.FC,
-		{
+		{--		Fast Cast: 72%		Haste: 24%
 			main="Piety Wand"
 		})
 
 		sets.midcast['Healing Magic'] = sets.precast.FC
 		
-		sets.midcast.Reraise = sets.midcast.ConserveMP
+		sets.midcast.Reraise = sets.midcast.FC
 
-		sets.midcast.Raise = sets.midcast.ConserveMP
-		
-		sets.midcast.Arise = sets.midcast.FC
+		sets.midcast.Raise = sets.midcast.FC
 
 	--------------------------------------
 	-- Buffing Midcast sets
@@ -223,8 +211,9 @@ function init_gear_sets()
 
 		sets.midcast.Aquaveil = set_combine(sets.midcast.Duration,
 		{
-			main="Vadose Rod", sub="Ammurapi Shield",
+			main="Vadose Rod", sub="Ammurapi Shield", ammo="Staunch Tathlum +1",
 			head="Chironic Hat", 
+			hands="Chironic Gloves",
 			waist="Emphatikos Rope", legs="Shedir Seraweels"
 		})
 
@@ -500,6 +489,10 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 			back="Grapevine Cape", waist="Gishdubar Sash", feet="Inspirited Boots"
 		}
 	end
+	
+	if (spellMap == 'Raise' or spellMap == 'Reraise') and state.SaveMP.value then
+		equip(sets.midcast.ConserveMP)
+	end
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -575,5 +568,5 @@ end
 function apply_job_change()
 	set_macro_page(1, 2)
 	
-	send_command('wait 3; input /lockstyleset ' .. lockstyleset)
+	send_command('wait 3; input /lockstyleset 3')
 end
