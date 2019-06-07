@@ -67,7 +67,7 @@ function init_gear_sets()
 ----------------------------------------------------------------------------
 
 		sets.Enmity =
-		{--Enmity + 74
+		{--Enmity + 86
 			ammo="Sapience Orb",
 			head="Halitus Helm", neck="Moonbeam Necklace", lear="Trux Earring", rear="Cryptic Earring",
 			body="Emet Harness +1", hands="Kurys Gloves", lring="Eihwaz Ring", rring="Supershear Ring",
@@ -75,7 +75,7 @@ function init_gear_sets()
 		}
 		
 		sets.Enmity.HP = set_combine(sets.Enmity,
-		{--Enmity + 61
+		{--Enmity + 71
 			rear="Odnowa Earring +1",
 			rring="Moonbeam Ring",
 			back="Moonlight Cape"
@@ -321,7 +321,7 @@ function init_gear_sets()
 	------------------------------------------------------------------------------------------------
 
 		sets.idle =
-		{-- DT: 6%	PDT: 4%		MDT: 6%		Refresh: 4	Regen: 
+		{-- DT: 6%	PDT: 10%	MDT: 6%		Refresh: 5	Regen: 
 			ammo="Homiliary",
 			head="Turms Cap", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 			body="Runeist's Coat +2", hands="Turms Mittens +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
@@ -329,9 +329,9 @@ function init_gear_sets()
 		}
 
 		sets.idle.DT = 
-		{-- DT: 38%	PDT: 49%	MDT: 43%
+		{-- DT: 38%	PDT: 49%	MDT: 40%
 			ammo="Staunch Tathlum +1",
-			head="Turms Cap", neck="Futhark Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
+			head="Turms Cap", neck="Futhark Torque +1", lear="Sanare Earring", rear="Odnowa Earring +1",
 			body="Futhark Coat +3", hands="Turms Mittens +1", lring="Defending Ring", rring="Moonbeam Ring",
 			back="Moonlight Cape", waist="Flume Belt +1", legs="Eri. Leg Guards +1", feet="Turms Leggings"
 		}
@@ -595,11 +595,11 @@ function init_gear_sets()
 	
 	---Base Hybrid Set
 		sets.engaged.Hybrid =
-		{-- DT: 29%		PDT: 43%	MDT: 29%
+		{-- DT: 29%		PDT: 39%	MDT: 29%
 			ammo="Staunch Tathlum +1",
 			head=gear.AHead_PDT, neck="Futhark Torque +1",
 			body="Ayanmo Corazza +2", lring="Defending Ring", rring="Moonbeam Ring",
-			back=gear.RUNCape_STP, waist="Flume Belt +1"
+			back=gear.RUNCape_STP
 		}
 		
 		sets.engaged.Hybrid2 =
@@ -653,7 +653,7 @@ function job_precast(spell, action, spellMap, eventArgs)
 end
 
 function job_post_precast(spell, action, spellMap, eventArgs)
-    if buffactive['Fast Cast'] then
+    if buffactive['Fast Cast'] and spellMap ~= 'Rune' then
         equip{legs="Futhark Trousers +1"}
 	end
 end
