@@ -47,13 +47,14 @@ function user_setup()
 	state.CastingMode:options('Normal','Alternate')
 
 	state.WeaponSet = M{['description']='Weapon Set',
+		'TizonaN',
 		'TizonaA',
-		'TizonaT',
-		'SequenceT',
-		'SequenceA',
+		'SequenceN',
+		'NaeglingM',
+		'NaeglingT',
+		'AlmaceN',
 		'MaxentiusT',
-		'Almace',
-		'MaxentiusN'
+		'TizonaT',
 	}
 	
 	send_command('bind ^= gs c cycle treasuremode')
@@ -280,7 +281,7 @@ function init_gear_sets()
 
 		sets.midcast.Magical =
 		{
-			main="Maxentius", sub="Nibiru Cudgel", ammo="Pemphredo Tathlum",
+			main="Naegling", sub="Maxentius", ammo="Pemphredo Tathlum",
 			head="Jhakri Coronal +2", neck="Sanctity Necklace", lear="Friomisi Earring", rear="Regal Earring",
 			body="Amalric Doublet +1", hands="Amalric Gages +1", lring={name="Shiva Ring +1", bag="wardrobe2"}, rring={name="Shiva Ring +1", bag="wardrobe3"},
 			back=gear.BLUCape_Nuke, waist="Orpheus's Sash", legs="Amalric Slops +1", feet="Amalric Nails +1"
@@ -478,20 +479,22 @@ function init_gear_sets()
 	----------------------------------------- Weapon Sets ------------------------------------------
 	------------------------------------------------------------------------------------------------
 	
+		sets.TizonaN = { main="Tizona", sub="Naegling" }
+		
 		sets.TizonaT = { main="Tizona", sub="Thibron" }
 		
 		sets.TizonaA = { main="Tizona", sub="Almace" }
 			
-		sets.Almace = { main="Almace", sub="Sequence" }
+		sets.AlmaceN = { main="Almace", sub="Naegling" }
 		
-		sets.SequenceT = { main="Sequence", sub="Thibron" }
-			
-		sets.SequenceA = { main="Sequence", sub="Almace" }
+		sets.SequenceN = { main="Sequence", sub="Naegling" }
 		
 		sets.MaxentiusT = { main="Maxentius", sub="Thibron" }
 		
-		sets.MaxentiusN = { main="Maxentius", sub="Nibiru Cudgel" }
-	
+		sets.NaeglingM = { main="Naegling", sub="Maxentius" }
+		
+		sets.NaeglingT = { main="Naegling", sub="Thibron" }
+		
 	
 	------------------------------------------------------------------------------------------------
 	------------------------------------------ Idle Sets -------------------------------------------

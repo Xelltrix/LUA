@@ -11,6 +11,8 @@ function get_sets()
 end
 
 function job_setup()
+	lockstyleset = 9
+	
 	state.Buff['Embolden'] = buffactive['Embolden'] or false
 	state.Buff['Battuta'] = buffactive['Battuta'] or false
 end
@@ -34,7 +36,7 @@ function user_setup()
 	
 	state.WeaponSet = M{['description']='Weapon Set', 'Epeolatry', 'Montante', 'Aettir', 'Hepatizon'}
 	
-	state.GripSet = M{['description']='Grip Set','Utu','Kaja','Irenic'}
+	state.GripSet = M{['description']='Grip Set','Utu','Kaja','Irenic',}
 	
 	send_command('bind pageup gs c cycle WeaponSet')
 	send_command('bind pagedown gs c cycleback WeaponSet')
@@ -65,7 +67,7 @@ function init_gear_sets()
 ----------------------------------------------------------------------------
 
 		sets.Enmity =
-		{--Enmity + 86
+		{--Enmity + 74
 			ammo="Sapience Orb",
 			head="Halitus Helm", neck="Moonbeam Necklace", lear="Trux Earring", rear="Cryptic Earring",
 			body="Emet Harness +1", hands="Kurys Gloves", lring="Eihwaz Ring", rring="Supershear Ring",
@@ -73,7 +75,7 @@ function init_gear_sets()
 		}
 		
 		sets.Enmity.HP = set_combine(sets.Enmity,
-		{--Enmity + 71
+		{--Enmity + 61
 			rear="Odnowa Earring +1",
 			rring="Moonbeam Ring",
 			back="Moonlight Cape"
@@ -183,7 +185,7 @@ function init_gear_sets()
 		{
 			head=gear.THead_Phalanx, neck="Moonbeam Necklace",
 			hands="Rawhide Gloves", lring="Defending Ring", rring="Moonbeam Ring",
-			waist="Flume Belt +1", legs="Carmine Cuisses +1", feet=gear.TFeet_Phalanx
+			waist="Rumination Sash", legs="Carmine Cuisses +1", feet=gear.TFeet_Phalanx
 		})
 
 	
@@ -319,7 +321,7 @@ function init_gear_sets()
 	------------------------------------------------------------------------------------------------
 
 		sets.idle =
-		{-- DT: 6%	PDT: 10%	MDT: 6%		Refresh: 5	Regen: 
+		{-- DT: 6%	PDT: 4%		MDT: 6%		Refresh: 4	Regen: 
 			ammo="Homiliary",
 			head="Turms Cap", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 			body="Runeist's Coat +2", hands="Turms Mittens +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
@@ -327,9 +329,9 @@ function init_gear_sets()
 		}
 
 		sets.idle.DT = 
-		{-- DT: 38%	PDT: 49%	MDT: 40%
+		{-- DT: 38%	PDT: 49%	MDT: 43%
 			ammo="Staunch Tathlum +1",
-			head="Turms Cap", neck="Futhark Torque +1", lear="Sanare Earring", rear="Odnowa Earring +1",
+			head="Turms Cap", neck="Futhark Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
 			body="Futhark Coat +3", hands="Turms Mittens +1", lring="Defending Ring", rring="Moonbeam Ring",
 			back="Moonlight Cape", waist="Flume Belt +1", legs="Eri. Leg Guards +1", feet="Turms Leggings"
 		}
@@ -364,8 +366,8 @@ function init_gear_sets()
 		{--DT: -38%	PDT: -53%	MDT: -43%
 			ammo="Staunch Tathlum +1",
 			head=gear.AHead_PDT, neck="Futhark Torque +1", lear="Sanare Earring", rear="Odnowa Earring +1",
-			body="Futhark Coat +3", hands="Turms Mittens +1", lring="Defending Ring", rring="Moonbeam Ring",
-			back="Moonlight Cape", waist="Carrier's Sash", legs="Eri. Leg Guards +1", feet="Turms Leggings"
+			body="Erilaz Surcoat +1", hands="Turms Mittens +1", lring="Defending Ring", rring="Moonbeam Ring",
+			back="Moonlight Cape", waist="Flume Belt +1", legs="Eri. Leg Guards +1", feet="Erilaz Greaves +1"
 		}
 		
 		sets.defense.MDT = 
@@ -593,21 +595,28 @@ function init_gear_sets()
 	
 	---Base Hybrid Set
 		sets.engaged.Hybrid =
-		{-- DT: 29%		PDT: 39%	MDT: 29%
+		{-- DT: 29%		PDT: 43%	MDT: 29%
 			ammo="Staunch Tathlum +1",
 			head=gear.AHead_PDT, neck="Futhark Torque +1",
 			body="Ayanmo Corazza +2", lring="Defending Ring", rring="Moonbeam Ring",
-			back=gear.RUNCape_STP
+			back=gear.RUNCape_STP, waist="Flume Belt +1"
 		}
 		
 		sets.engaged.Hybrid2 =
-		{-- DT: 38%		PDT: 46%	MDT: 38%
+		{-- DT: 38%	PDT: 49%	MDT: 43%
+			ammo="Staunch Tathlum +1",
+			head="Turms Cap", neck="Futhark Torque +1", lear="Sanare Earring", rear="Odnowa Earring +1",
+			body="Futhark Coat +3", hands="Turms Mittens +1", lring="Defending Ring", rring="Moonbeam Ring",
+			back="Moonlight Cape", waist="Flume Belt +1", legs="Eri. Leg Guards +1", feet="Turms Leggings"
+		}
+		
+--[[		{-- DT: 38%		PDT: 46%	MDT: 38%
 			ammo="Staunch Tathlum +1",
 			head=gear.AHead_PDT, neck="Futhark Torque +1",
 			body="Futhark Coat +3", hands="Turms Mittens +1", lring="Defending Ring", rring="Moonbeam Ring",
 			back="Moonlight Cape", waist="Flume Belt +1", feet="Turms Leggings"
 		}
-		
+]]		
 		
 	---Hybrid Combat
 		sets.engaged.DT 			= set_combine(sets.engaged, 		sets.engaged.Hybrid)
@@ -651,7 +660,7 @@ function job_precast(spell, action, spellMap, eventArgs)
 end
 
 function job_post_precast(spell, action, spellMap, eventArgs)
-    if buffactive['Fast Cast'] and spellMap ~= 'Rune' then
+    if buffactive['Fast Cast'] then
         equip{legs="Futhark Trousers +1"}
 	end
 end
@@ -824,5 +833,5 @@ function apply_job_change()
 		set_macro_page(8,14)
 	end
 	
-	send_command('wait 3; input /lockstyleset 9')
+	send_command('wait 3; input /lockstyleset ' .. lockstyleset)
 end

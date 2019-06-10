@@ -75,13 +75,10 @@ function init_gear_sets()
 			legs="Ebers Pant. +1"
 		})
 
-		sets.precast.FC.StatusRemoval = 
-		{--		Fast Cast: 99%		Healing Cast Time: 21%
-			main="Yagrush", sub="Genmei Shield", ammo="Staunch Tathlum +1",
-			neck="Cleric's Torque",
-			hands="Chironic Gloves",
-			waist="Witful Belt", legs="Ebers Pant. +1", feet="Theo. Duckbills +3"
-		}
+		sets.precast.FC.StatusRemoval = set_combine(sets.precast.FC['Healing Magic'],
+		{--		Fast Cast: 66%		Healing Cast Time: 21%
+			main="Yagrush"
+		})
 
 		sets.precast.FC.Cures = set_combine(sets.precast.FC['Healing Magic'],
 		{--		Fast Cast: 66%		Healing Castime: 40%

@@ -279,7 +279,7 @@ function init_gear_sets()
 			main=gear.Grioavolr_Enf, sub="Enki Strap",
 			neck="Incanter's Torque", rear="Enfeebling Earring",
 			body="Atrophy Tabard +3", hands="Leth. Gantherots +1",
-			waist="Casso Sash"
+			waist="Rumination Sash"
 		})
 		
 		sets.midcast.Dispel = sets.midcast['Enfeebling Magic'].Resistant

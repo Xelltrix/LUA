@@ -13,7 +13,14 @@ end
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
 function job_setup()
 	state.Buff['Sublimation: Activated'] = buffactive['Sublimation: Activated'] or false
-	update_active_strategems()
+	
+	state.Buff['Rapture'] 		= buffactive['Rapture'] 		or false
+	state.Buff['Perpetuance'] 	= buffactive['Perpetuance'] 	or false
+	state.Buff['Celerity'] 		= buffactive['Celerity'] 		or false
+	state.Buff['Alacrity'] 		= buffactive['Alacrity'] 		or false
+	state.Buff['Focalizatoin'] 	= buffactive['Focalization'] 	or false
+
+	state.Buff['Klimaform'] 	= buffactive['Klimaform'] 		or false
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -60,7 +67,7 @@ function init_gear_sets()
 	------------------- 
 	
 		sets.precast.FC =
-		{
+		{--		Fast Cast: 87%
 			main="Sucellus", sub="Chanter's Shield", ammo="Sapience Orb",
 			head="Amalric Coif +1", neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
 			body="Pinga Tunic", hands="Acad. Bracers +2", lring="Kishar Ring", rring="Rahab Ring",
@@ -70,7 +77,7 @@ function init_gear_sets()
 		sets.precast.FC.Grimoire =
 		{
 			head="Peda. M.Board +3",
-			feet="Acad. Loafers +2"
+			feet="Acad. Loafers +3"
 		}
 
 		sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC,
@@ -229,15 +236,14 @@ function init_gear_sets()
 		sets.midcast.Macc =
 		{
 			main="Maxentius", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
-			head="Acad. Mortar. +2", neck="Erra Pendant", lear="Regal Earring", rear="Digni. Earring",
+			head="Acad. Mortar. +3", neck="Erra Pendant", lear="Regal Earring", rear="Digni. Earring",
 			body="Acad. Gown +2", hands="Kaykaus Cuffs +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back=gear.SCHCape_ENF, waist="Luminary Sash", legs="Chironic Hose", feet="Acad. Loafers +2"
+			back=gear.SCHCape_ENF, waist="Luminary Sash", legs="Chironic Hose", feet="Acad. Loafers +3"
 		}
 
 		sets.midcast['Enfeebling Magic'] = set_combine(sets.midcast.Macc,
 		{
-			neck="Incanter's Torque",
-			lring="Kishar Ring",
+			hands="Regal Cuffs", lring="Kishar Ring",
 			feet="Medium's Sabots"
 		})
 
@@ -245,8 +251,9 @@ function init_gear_sets()
 
 		sets.midcast['Enfeebling Magic'].Potency = set_combine(sets.midcast['Enfeebling Magic'],
 		{
-			rear="Enfeebling Earring",
-			hands="Peda. Bracers +3"
+			neck="Incanter's Torque", rear="Enfeebling Earring",
+			hands="Peda. Bracers +3", lring={name="Stikini Ring +1", bag="wardrobe2"},
+			waist="Rumination Sash", feet="Medium's Sabots"
 		})
 
 		sets.midcast.ElementalDebuffs = sets.midcast.Macc
@@ -275,9 +282,9 @@ function init_gear_sets()
 
 		sets.midcast.Stun.Resistant = set_combine(sets.midcast.Stun,
 		{
-			head="Acad. Mortar. +2", neck="Erra Pendant", lear="Regal Earring", rear="Digni. Earring",
+			head="Acad. Mortar. +3", neck="Erra Pendant", lear="Regal Earring", rear="Digni. Earring",
 			body="Acad. Gown +2", lring={name="Stikini Ring +1", bag="wardrobe2"},
-			waist="Luminary Sash", feet="Acad. Loafers +2"
+			waist="Luminary Sash", feet="Acad. Loafers +3"
 		})
 
 	---Elemental Magic
@@ -291,6 +298,7 @@ function init_gear_sets()
 
 		sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'],
 		{
+			head="Acad. Mortar. +3",
 			hands="Jhakri Cuffs +2",
 			waist="Eschan Stone", legs="Peda. Pants +3", feet="Jhakri Pigaches +2"
 		})
@@ -416,18 +424,20 @@ function init_gear_sets()
 
 		sets.buff['Sublimation: Activated'] =
 		{
-			head="Acad. Mortar. +2", rear="Savant's Earring",
+			head="Acad. Mortar. +3", rear="Savant's Earring",
 			body="Peda. Gown +3"
 		}
 	
 	---Stratagem Buffs
-		sets.buff['Rapture'] =  { head="Arbatel Bonnet +1" }
+		sets.buff['Rapture'] 		= { head="Arbatel Bonnet +1" }
 	
-		sets.buff['Perpetuance'] =  { hands="Arbatel Bracers +1" }
+		sets.buff['Perpetuance'] 	= { hands="Arbatel Bracers +1" }
 	
-		sets.buff['Celerity'] = { feet="Peda. Loafers +3" }
+		sets.buff['Celerity'] 		= { feet="Peda. Loafers +3" }
 	
-		sets.buff['Alacrity'] =  { feet="Peda. Loafers +3" }
+		sets.buff['Alacrity'] 		= { feet="Peda. Loafers +3" }
+		
+		sets.buff['Focalization'] 	= { head="Peda. M.Board +3" }
 
 
 ----------------------------------------------------------------------------
@@ -513,7 +523,7 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
         	equip { waist="Gishdubar Sash" }
 	end
 	
-	if spellMap = 'Storm' and (buffactive["Light Arts"] or buffactive["Addendum: White"]) then
+	if spellMap == 'Storm' and (buffactive["Light Arts"] or buffactive["Addendum: White"]) then
 		equip { feet="Peda. Loafers +3" }
 	end
 	
@@ -638,7 +648,7 @@ end
 
 function customize_idle_set(idleSet)
 	if state.Buff['Sublimation: Activated'] then
-		idleSet = set_cobmine(idleSet, sets.buff['Sublimation: Activated'])
+		idleSet = set_combine(idleSet, sets.buff['Sublimation: Activated'])
 	end
 	
 	if player.mpp < 51 and state.IdleMode.value ~= 'DT' then
@@ -649,12 +659,6 @@ function customize_idle_set(idleSet)
 	end
 
 	return idleSet
-end
-
--- Called by the 'update' self-command.
-function job_update(cmdParams, eventArgs)
-	update_active_strategems()
-	update_sublimation()
 end
 
 -- Function to display the current relevant user state when doing an update.
@@ -669,23 +673,9 @@ end
 -- Utility functions specific to this job.
 -------------------------------------------------------------------------------------------------------------------
 
--- Reset the state vars tracking strategems.
-function update_active_strategems()
-	state.Buff['Rapture'] = buffactive['Rapture'] or false
-	state.Buff['Perpetuance'] = buffactive['Perpetuance'] or false
-	state.Buff['Celerity'] = buffactive['Celerity'] or false
-	state.Buff['Alacrity'] = buffactive['Alacrity'] or false
-
-	state.Buff['Klimaform'] = buffactive['Klimaform'] or false
-end
-
-function update_sublimation()
-	state.Buff['Sublimation: Activated'] = buffactive['Sublimation: Activated'] or false
-end
-
 -- Equip sets appropriate to the active buffs, relative to the spell being cast.
 function apply_grimoire_bonuses(spell, action, spellMap)
-	if state.Buff.Perpetuance and spell.type =='WhiteMagic' and spell.skill == 'Enhancing Magic' then
+	if state.Buff.Perpetuance and spell.type == 'WhiteMagic' and spell.skill == 'Enhancing Magic' then
 		equip(sets.buff['Perpetuance'])
 	end
 	if state.Buff.Rapture and (spellMap == 'Cures' or spellMap == 'Curaga') then
@@ -696,11 +686,17 @@ function apply_grimoire_bonuses(spell, action, spellMap)
 			equip(sets.buff['Klimaform'])
 		end
 	end
-	if state.Buff.Celerity then 
+	
+	if state.Buff.Celerity and spell.type == 'WhiteMagic' then 
 		equip(sets.buff['Celerity']) 
 	end
-	if state.Buff.Alacrity then 
+	
+	if state.Buff.Alacrity and spell.type == 'BlackMagic' then 
 		equip(sets.buff['Alacrity']) 
+	end
+	
+	if state.Buff.Focalization and spell.type == 'BlackMagic' then
+		equip(sets.buff['Focalization'])
 	end
 end
 
