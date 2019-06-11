@@ -38,17 +38,17 @@ function user_setup()
 	state.MagicalDefenseMode:options('MEVA', 'MDT')
 	state.CastingMode:options('Normal','Alternate')
 
-	state.MainWeaponSet = M{['description']='Weapon Set',
+	state.MainWeaponSet = M{['description']='Main Weapon Set',
 		'Tizona',
 		'Sequence',
 		'Almace',
 		'Maxentius'
 	}
 	
-	state.SubWeaponSet = M{['description']='Weapon Set',
+	state.SubWeaponSet = M{['description']='Sub Weapon Set',
 		'Naegling',
 		'subAlmace',
-		'Thiborion'
+		'Thibron'
 	}
 	
 	send_command('bind ^= gs c cycle treasuremode')
