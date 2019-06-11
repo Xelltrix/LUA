@@ -3,6 +3,14 @@
 -------------------------------------------------------------------------------------------------------------------
 Blu_spells = require("Blue_Mage_Spells")
 
+--[[
+	Custom commands:
+	gs c cycle treasuremode (set on ctrl-= by default): Cycles through the available treasure hunter modes.
+	Treasure hunter modes:
+		None - Will never equip TH gear
+		Tag - Will equip TH gear sufficient for initial contact with a mob
+--]]
+
 -- Initialization function for this job file.
 function get_sets()
 	mote_include_version = 2
@@ -52,10 +60,12 @@ function user_setup()
 	}
 	
 	send_command('bind ^= gs c cycle treasuremode')
+	
 	send_command('bind pageup gs c cycle MainWeaponSet')
 	send_command('bind pagedown gs c cycleback MainWeaponSet')
-	send_command('bind pageup gs ^c cycle SubWeaponSet')
-	send_command('bind pagedown gs ^c cycleback SubWeaponSet')
+	
+	send_command('bind ^pageup gs c cycle SubWeaponSet')
+	send_command('bind ^pagedown gs c cycleback SubWeaponSet')
 
 	apply_job_change()
 end
@@ -115,8 +125,6 @@ function init_gear_sets()
 			body="Pinga Tunic", hands="Leyline Gloves", lring="Kishar Ring", rring="Rahab Ring",
 			back="Moonlight Cape", waist="Witful Belt", legs="Pinga Pants", feet="Carmine Greaves +1"
 		}
-		
-	
 
 ----------------------------------------------------------------------------
 --------------------									--------------------
@@ -135,6 +143,7 @@ function init_gear_sets()
 		{--		Fast Cast: 66%(+15%)
 			legs="Aya. Cosciales +2", feet="Amalric Nails +1"
 		})
+
 		
 		sets.midcast.FC.SIRD = set_combine(sets.midcast.FC,
 		{--		Fast Cast: 31%(+15%)
@@ -193,7 +202,7 @@ function init_gear_sets()
 		})
 		
 		sets.midcast.Fantod = 
-		{--		Fast Cast: 10%(+15%)	Enmity: +64
+		{
 			ammo="Sapience Orb",
 			head="Rabid Visor", neck="Unmoving Collar +1", lear="Cryptic Earring", rear="Friomisi Earring",
 			body="Emet Harness +1", hands="Nilas Gloves", lring="Eihwaz Ring", rring="Begrudging Ring",
@@ -299,7 +308,7 @@ function init_gear_sets()
 		{
 			ammo="Mavi Tathlum",
 			head="Luh. Keffiyeh +3", neck="Sanctity Necklace", lear="Etiolation Earring", rear="Odnowa Earring +1",
-			body="Assim. Jubbah +3", hands="Regal Cuffs", lring="Ilabrat Ring", rring="Gelatinous Ring +1",
+			body="Assim. Jubbah +3", hands="Regal Cuffs", lring="Eihwaz Ring", rring="Ilabrat Ring",
 			back="Moonlight Cape", waist="Orpheus's Sash", legs="Assim. Shalwar +3", feet="Assim. Charuqs +3"
 		}
 
@@ -375,7 +384,7 @@ function init_gear_sets()
 		})
 
 		sets.midcast.Aquaveil = set_combine(sets.midcast.Duration,
-		{--		Aquaveil: +5
+		{--		Aquaveil +6
 			ammo="Staunch Tathlum +1",
 			head="Amalric Coif +1",
 			hands="Regal Cuffs",
@@ -464,7 +473,6 @@ function init_gear_sets()
 		sets.Naegling = { sub="Naegling" }
 		
 		sets.Thibron = { sub="Thibron" }
-
 	
 	------------------------------------------------------------------------------------------------
 	------------------------------------------ Idle Sets -------------------------------------------
@@ -547,10 +555,9 @@ function init_gear_sets()
 		sets.Kiting = { legs="Carmine Cuisses +1" }
 		
 		sets.TreasureHunter = { waist="Chaac Belt" }
-
 	---Buffs
 		sets.buff.Doom = 
-		{--	Cursna Received: +55%
+		{
 			neck="Nicander's Necklace",
 			lring={name="Eshmun's Ring", bag="wardrobe2"}, rring={name="Eshmun's Ring", bag="wardrobe3"},
 			waist="Gishdubar Sash"
@@ -591,10 +598,9 @@ function init_gear_sets()
 
 		sets.precast.WS.High = sets.precast.WS.Mid
 		
-	
-	
 	--	***Swords***
 	
+		--Tizona/Almace TP: 80/h		Almace/Sequence TP:86/h		(DW3 STP25 or DW4 STP30)
 		sets.precast.WS['Chant du Cygne'] = set_combine(sets.precast.WS,
 		{
 			ammo="Falcon Eye",
@@ -1591,9 +1597,8 @@ function init_gear_sets()
 	-- Hybrid Sets
 	--------------------------------------
 		sets.engaged.Hybrid = 
-		{-- DT: 19%		PDT: 30%	MDT: 18%
-			ammo="Staunch Tathlum +1",
-			head=gear.AHead_PDT, 
+		{-- DT: 19%		PDT: 40%	MDT: 18%
+			head=gear.AHead_PDT, ammo="Staunch Tathlum +1",
 			hands="Assim. Bazu. +3", lring="Defending Ring", rring="Gelatinous Ring +1",
 		}
 		
