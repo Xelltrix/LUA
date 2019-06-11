@@ -3,14 +3,6 @@
 -------------------------------------------------------------------------------------------------------------------
 Blu_spells = require("Blue_Mage_Spells")
 
---[[
-	Custom commands:
-	gs c cycle treasuremode (set on ctrl-= by default): Cycles through the available treasure hunter modes.
-	Treasure hunter modes:
-		None - Will never equip TH gear
-		Tag - Will equip TH gear sufficient for initial contact with a mob
---]]
-
 -- Initialization function for this job file.
 function get_sets()
 	mote_include_version = 2
@@ -46,20 +38,24 @@ function user_setup()
 	state.MagicalDefenseMode:options('MEVA', 'MDT')
 	state.CastingMode:options('Normal','Alternate')
 
-	state.WeaponSet = M{['description']='Weapon Set',
-		'TizonaN',
-		'TizonaA',
-		'SequenceN',
-		'NaeglingM',
-		'NaeglingT',
-		'AlmaceN',
-		'MaxentiusT',
-		'TizonaT',
+	state.MainWeaponSet = M{['description']='Weapon Set',
+		'Tizona',
+		'Sequence',
+		'Almace',
+		'Maxentius'
+	}
+	
+	state.SubWeaponSet = M{['description']='Weapon Set',
+		'Naegling',
+		'subAlmace',
+		'Thiborion'
 	}
 	
 	send_command('bind ^= gs c cycle treasuremode')
-	send_command('bind pageup gs c cycle WeaponSet')
-	send_command('bind pagedown gs c cycleback WeaponSet')
+	send_command('bind pageup gs c cycle MainWeaponSet')
+	send_command('bind pagedown gs c cycleback MainWeaponSet')
+	send_command('bind pageup gs ^c cycle SubWeaponSet')
+	send_command('bind pagedown gs ^c cycleback SubWeaponSet')
 
 	apply_job_change()
 end
@@ -69,6 +65,8 @@ function user_unload()
 	send_command('unbind ^=')
 	send_command('unbind pageup')
 	send_command('unbind pagedown')
+	send_command('unbind ^pageup')
+	send_command('unbind ^pagedown')
 end
 
 -- Define sets and vars used by this job file.
@@ -88,13 +86,10 @@ function init_gear_sets()
 	-- Job Abilities --
 	------------------- 
 
-		sets.precast.JA['Azure Lore'] =
-		{
-			hands="Luh. Bazubands +3"
-		}
+		sets.precast.JA['Azure Lore'] = { hands="Luh. Bazubands +3" }
 		
 		sets.precast.JA['Provoke'] =
-		{
+		{--		Enmity: +64
 			ammo="Sapience Orb",
 			head="Rabid Visor", neck="Unmoving Collar +1", lear="Cryptic Earring", rear="Friomisi Earring",
 			body="Emet Harness +1", hands="Nilas Gloves", lring="Petrov Ring", rring="Begrudging Ring",
@@ -111,34 +106,15 @@ function init_gear_sets()
 	-------------------
 	-- Precast Magic --
 	------------------- 
+	-- Fast Cast: 15%
 	
 		sets.precast.FC =
-		{
+		{--		Fast Cast: 73%(+15%)
 			ammo="Sapience Orb",
 			head="Carmine Mask +1", neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
 			body="Pinga Tunic", hands="Leyline Gloves", lring="Kishar Ring", rring="Rahab Ring",
 			back="Moonlight Cape", waist="Witful Belt", legs="Pinga Pants", feet="Carmine Greaves +1"
 		}
-		
-		sets.precast.FC.Buffs = sets.precast.FC
-
-		sets.precast.FC.Magical = sets.precast.FC
-		
-		sets.precast.FC.BlueSkill = sets.precast.FC. Magical
-
-		sets.precast.FC.Debuffs = sets.precast.FC.Magical
-
-		sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC,
-		{
-			waist="Siegel Sash"
-		})
-
-		sets.precast.FC.Cures = set_combine(sets.precast.FC,
-		{
-			rear="Mendi. Earring",
-		})
-		
-		sets.precast.FC['Healing Magic'] = sets.precast.FC
 		
 	
 
@@ -156,13 +132,12 @@ function init_gear_sets()
 	--------------------------------------
 
 		sets.midcast.FC = set_combine(sets.precast.FC,
-		{
-			head="Carmine Mask +1",
+		{--		Fast Cast: 66%(+15%)
 			legs="Aya. Cosciales +2", feet="Amalric Nails +1"
 		})
 		
 		sets.midcast.FC.SIRD = set_combine(sets.midcast.FC,
-		{
+		{--		Fast Cast: 31%(+15%)
 			ammo="Staunch Tathlum +1",
 			head=THead_Phalanx,
 			hands="Rawhide Gloves", rring="Evanescence Ring",
@@ -170,7 +145,7 @@ function init_gear_sets()
 		})
 		
 		sets.midcast.Duration =
-		{
+		{--		Fast Cast: 19%(+15%)	Duration: x1.5
 			ammo="Staunch Tathlum +1",
 			head="Telchine Cap", neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
 			body="Telchine Chas.", hands=gear.ENH_Gloves, lring="Kishar Ring", rring="Rahab Ring",
@@ -178,7 +153,7 @@ function init_gear_sets()
 		}
 
 		sets.midcast.ConserveMP = set_combine(sets.midcast.FC,
-		{
+		{--		Fast Cast: 33%(+15%)
 			ammo="Pemphredo Tathlum",
 			head="Carmine Mask +1", neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
 			body="Amalric Doublet +1", hands="Hashi. Bazu. +1",
@@ -199,7 +174,7 @@ function init_gear_sets()
 		})
 		
 		sets.midcast.Occultation = set_combine(sets.midcast.FC,
-		{
+		{--		Fast Cast: 34%(+15%)	Blue Magic Recast Delay: -14%
 			ammo="Pemphredo Tathlum", 
 			neck="Mirage Stole +2",
 			body="Assim. Jubbah +3", hands="Hashi. Bazu. +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
@@ -218,7 +193,7 @@ function init_gear_sets()
 		})
 		
 		sets.midcast.Fantod = 
-		{
+		{--		Fast Cast: 10%(+15%)	Enmity: +64
 			ammo="Sapience Orb",
 			head="Rabid Visor", neck="Unmoving Collar +1", lear="Cryptic Earring", rear="Friomisi Earring",
 			body="Emet Harness +1", hands="Nilas Gloves", lring="Petrov Ring", rring="Begrudging Ring",
@@ -230,7 +205,7 @@ function init_gear_sets()
 	--------------------------------------	
 	
 		sets.midcast.Cures =
-		{
+		{--		Cure Potency: 50%
 			ammo="Staunch Tathlum +1",
 			head="Carmine Mask +1", neck="Incanter's Torque", lear="Gwati Earring", rear="Beatific Earring",
 			body="Pinga Tunic", hands=gear.ENH_Gloves, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
@@ -238,7 +213,7 @@ function init_gear_sets()
 		}
 
 		sets.midcast['White Wind'] = set_combine(sets.midcast.Cures,
-		{
+		{--		Cure Potency: 47%
 			ammo="Psilomene", 
 			head="Luh. Keffiyeh +3", neck="Sanctity Necklace", lear="Odnowa Earring +1", rear="Mendi. Earring",
 			lring="Lebeche Ring", rring="Ilabrat Ring",
@@ -281,7 +256,7 @@ function init_gear_sets()
 
 		sets.midcast.Magical =
 		{
-			main="Naegling", sub="Maxentius", ammo="Pemphredo Tathlum",
+			ammo="Pemphredo Tathlum",
 			head="Jhakri Coronal +2", neck="Sanctity Necklace", lear="Friomisi Earring", rear="Regal Earring",
 			body="Amalric Doublet +1", hands="Amalric Gages +1", lring={name="Shiva Ring +1", bag="wardrobe2"}, rring={name="Shiva Ring +1", bag="wardrobe3"},
 			back=gear.BLUCape_Nuke, waist="Orpheus's Sash", legs="Amalric Slops +1", feet="Amalric Nails +1"
@@ -339,7 +314,7 @@ function init_gear_sets()
 		sets.midcast['Dream Flower'] = sets.midcast.Debuffs
 
 		sets.midcast['Dream Flower'].Alternate =
-		{
+		{--		DT: -28%	PDT: 49%
 			ammo="Staunch Tathlum +1",
 			head="Assim. Keffiyeh +3", neck="Mirage Stole +2", lear="Digni. Earring", rear="Regal Earring",
 			body="Ayanmo Corazza +2", hands="Assim. Bazu. +3", lring="Defending Ring", rring="Gelatinous Ring +1",
@@ -372,7 +347,7 @@ function init_gear_sets()
 		}
 		
 		sets.midcast.Phalanx = set_combine(sets.midcast['Enhancing Magic'],
-		{
+		{--		Phalanx: +15
 			head=gear.THead_Phalanx,
 			body=gear.TBody_Phalanx, hands=gear.THands_Phalanx,
 			legs=gear.TLegs_Phalanx, feet=gear.TFeet_Phalanx
@@ -400,7 +375,7 @@ function init_gear_sets()
 		})
 
 		sets.midcast.Aquaveil = set_combine(sets.midcast.Duration,
-		{
+		{--		Aquaveil: +5
 			ammo="Staunch Tathlum +1",
 			head="Amalric Coif +1",
 			hands="Regal Cuffs",
@@ -420,10 +395,7 @@ function init_gear_sets()
 		
 
 	---Offensive Magic
-		sets.midcast['Elemental Magic'] = set_combine(sets.midcast.Magical,
-		{
-			waist="Eschan Stone"
-		})
+		sets.midcast['Elemental Magic'] = sets.midcast.Magical
 	
 		sets.midcast['Enfeebling Magic'] =
 		{
@@ -479,22 +451,20 @@ function init_gear_sets()
 	----------------------------------------- Weapon Sets ------------------------------------------
 	------------------------------------------------------------------------------------------------
 	
-		sets.TizonaN = { main="Tizona", sub="Naegling" }
-		
-		sets.TizonaT = { main="Tizona", sub="Thibron" }
-		
-		sets.TizonaA = { main="Tizona", sub="Almace" }
+		sets.Tizona = { main="Tizona" }
 			
-		sets.AlmaceN = { main="Almace", sub="Naegling" }
+		sets.Almace = { main="Almace" }
+	
+		sets.subAlmace = { sub="Almace" }
 		
-		sets.SequenceN = { main="Sequence", sub="Naegling" }
+		sets.Sequence = { main="Sequence" }
 		
-		sets.MaxentiusT = { main="Maxentius", sub="Thibron" }
+		sets.Maxentius = { main="Maxentius" }
 		
-		sets.NaeglingM = { main="Naegling", sub="Maxentius" }
+		sets.Naegling = { sub="Naegling" }
 		
-		sets.NaeglingT = { main="Naegling", sub="Thibron" }
-		
+		sets.Thibron = { sub="Thibron" }
+
 	
 	------------------------------------------------------------------------------------------------
 	------------------------------------------ Idle Sets -------------------------------------------
@@ -574,33 +544,21 @@ function init_gear_sets()
 	-- Special Sets
 	--------------------------------------
 
-		sets.Kiting =
-		{
-			legs="Carmine Cuisses +1"
-		}
+		sets.Kiting = { legs="Carmine Cuisses +1" }
 		
-		sets.TreasureHunter =
-		{
-			waist="Chaac Belt"
-		}
+		sets.TreasureHunter = { waist="Chaac Belt" }
 
 	---Buffs
 		sets.buff.Doom = 
-		{
+		{--	Cursna Received: +55%
 			neck="Nicander's Necklace",
 			lring={name="Eshmun's Ring", bag="wardrobe2"}, rring={name="Eshmun's Ring", bag="wardrobe3"},
 			waist="Gishdubar Sash"
 		}
 		
-		sets.buff['Chain Affinity'] =
-		{
-			feet="Assim. Charuqs +3"
-		}
+		sets.buff['Chain Affinity'] = { feet="Assim. Charuqs +3" }
 		
-		sets.buff['Diffusion'] = 
-		{
-			feet="Luhlaza Charuqs +3"
-		}
+		sets.buff['Diffusion'] = { feet="Luhlaza Charuqs +3" }
 
 
 ----------------------------------------------------------------------------
@@ -633,9 +591,10 @@ function init_gear_sets()
 
 		sets.precast.WS.High = sets.precast.WS.Mid
 		
+	
+	
 	--	***Swords***
 	
-		--Tizona/Almace TP: 80/h		Almace/Sequence TP:86/h		(DW3 STP25 or DW4 STP30)
 		sets.precast.WS['Chant du Cygne'] = set_combine(sets.precast.WS,
 		{
 			ammo="Falcon Eye",
@@ -1632,8 +1591,9 @@ function init_gear_sets()
 	-- Hybrid Sets
 	--------------------------------------
 		sets.engaged.Hybrid = 
-		{-- DT: 19%		PDT: 40%	MDT: 18%
-			head=gear.AHead_PDT, ammo="Staunch Tathlum +1",
+		{-- DT: 19%		PDT: 30%	MDT: 18%
+			ammo="Staunch Tathlum +1",
+			head=gear.AHead_PDT, 
 			hands="Assim. Bazu. +3", lring="Defending Ring", rring="Gelatinous Ring +1",
 		}
 		
@@ -2008,10 +1968,7 @@ end
 -- Run after the general midcast() set is constructed.
 function job_post_midcast(spell, action, spellMap, eventArgs)
 	if spellMap == 'Cures' and spell.target.type == 'SELF' then
-        	equip
-		{
-			waist="Gishdubar Sash"
-		}
+        	equip { waist="Gishdubar Sash" }
 	end
 	
 	if spellMap == 'Refresh' and spell.target.type == 'SELF' then
@@ -2024,10 +1981,7 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 	if (spell.skill =='Elemental Magic' or spellMap == 'Magical' or spellMap == 'DarkBlue' or spellMap == 'LightBlue' or spellMap == 'Breath')
 			and ((spell.element == world.day_element and spell.element == world.weather_element) 
 				or (spell.element == world.weather_element and get_weather_intensity() == 2)) then
-		equip
-			{
-				waist="Hachirin-no-Obi"
-			}
+		equip { waist="Hachirin-no-Obi" }
 	end
 	
 	if spell.action_type == 'Magic' then
