@@ -2046,7 +2046,8 @@ end
 
 -- Handle notifications of general user state change.
 function job_state_change(stateField, newValue, oldValue)
-	equip(sets[state.WeaponSet.current])
+	equip(sets[state.MainWeaponSet.current])
+	equip(sets[state.SubWeaponSet.current])
 end
 
 function customize_idle_set(idleSet)
@@ -2066,7 +2067,8 @@ end
 -------------------------------------------------------------------------------------------------------------------
 -- Called by the 'update' self-command.
 function job_update(cmdParams, eventArgs)
-	equip(sets[state.WeaponSet.current])
+	equip(sets[state.MainWeaponSet.current])
+	equip(sets[state.SubWeaponSet.current])
 	
 	determine_haste_group()
 	update_active_abilities()
@@ -2078,7 +2080,7 @@ end
 -- Function to display the current relevant user state when doing an update.
 -- Return true if display was handled, and you don't want the default info shown.
 function display_current_job_state(eventArgs)
-	local msg = '[' .. state.WeaponSet.value .. ']'
+	local msg = '[' .. state.MainWeaponSet.value .. '/' .. state.SubWeaponSet.value .. ']'
 
 	if state.CombatForm.has_value then
 		msg = msg .. ' (' .. state.CombatForm.value .. ')'
