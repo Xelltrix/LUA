@@ -92,7 +92,7 @@ function init_gear_sets()
 		{--		Enmity: +64
 			ammo="Sapience Orb",
 			head="Rabid Visor", neck="Unmoving Collar +1", lear="Cryptic Earring", rear="Friomisi Earring",
-			body="Emet Harness +1", hands="Nilas Gloves", lring="Petrov Ring", rring="Begrudging Ring",
+			body="Emet Harness +1", hands="Nilas Gloves", lring="Eihwaz Ring", rring="Begrudging Ring",
 			back="Reiki Cloak", waist="Trance Belt", legs="Zoar Subligar +1"
 		}
 		
@@ -196,7 +196,7 @@ function init_gear_sets()
 		{--		Fast Cast: 10%(+15%)	Enmity: +64
 			ammo="Sapience Orb",
 			head="Rabid Visor", neck="Unmoving Collar +1", lear="Cryptic Earring", rear="Friomisi Earring",
-			body="Emet Harness +1", hands="Nilas Gloves", lring="Petrov Ring", rring="Begrudging Ring",
+			body="Emet Harness +1", hands="Nilas Gloves", lring="Eihwaz Ring", rring="Begrudging Ring",
 			back="Reiki Cloak", waist="Trance Belt", legs="Zoar Subligar +1", feet="Carmine Greaves +1"
 		}
 
@@ -471,7 +471,7 @@ function init_gear_sets()
 	------------------------------------------------------------------------------------------------
 
 		sets.idle =
-		{
+		{--		DT: -9%		PDT: -15%	MDT: -9%	Refresh: 8	Regen: 3
 			ammo="Staunch Tathlum +1",
 			head="Rawhide Mask", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 			body="Assim. Jubbah +3", hands=gear.HHands_Refresh, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
@@ -479,20 +479,20 @@ function init_gear_sets()
 		}
 
 		sets.idle.DT = set_combine(sets.idle,
-		{
+		{--		DT: -31%	PDT: -44%	MDT: -35%	Refresh: 5	Regen: 0
 			neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
 			hands="Assim. Bazu. +3", lring="Defending Ring", rring="Gelatinous Ring +1"
 		})
 		
 		sets.idle.MEVA = set_combine(sets.idle,
-		{
+		{--		DT: -15%	PDT: -15%	MDT: -15%	Refresh: 5	Regen: 0
 			head="Amalric Coif +1", neck="Warder's Charm +1", lear="Eabani Earring", rear="Sanare Earring",
 			body="Amalric Doublet +1", hands="Assim. Bazu. +3",
 			waist="Carrier's Sash", feet="Amalric Nails +1"
 		})
 		
 		sets.idle.Refresh = set_combine(sets.idle,
-		{
+		{--		DT: -9%		PDT: -15%	MDT: -9%	Refresh: 10	Regen: 3
 			body="Jhakri Robe +2",
 			legs="Lengo Pants"
 		})
@@ -519,22 +519,22 @@ function init_gear_sets()
 	-- Defensive Sets
 	--------------------------------------
 		sets.defense.PDT =
-		{
+		{--		DT: -40%	PDT: -51%	MDT: -44%
 			ammo="Staunch Tathlum +1",
 			head=gear.AHead_PDT, neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
 			body="Ayanmo Corazza +2", hands="Assim. Bazu. +3", lring="Defending Ring", rring="Gelatinous Ring +1",
-			back="Moonlight Cape", waist="Flume Belt +1", legs="Carmine Cuisses +1", feet="Aya. Gambieras +2"
+			back="Moonlight Cape", waist="Carrier's Sash", legs="Carmine Cuisses +1", feet="Aya. Gambieras +2"
 		}
 
 		sets.defense.MDT = set_combine(sets.defense.PDT,
-		{
+		{--		DT: -36%	PDT: -45%	MDT: -46%
 			head="Amalric Coif +1", rear="Sanare Earring",
-			hands="Assim. Bazu. +3", rring="Shukuyu Ring",
-			back="Reiki Cloak", waist="Carrier's Sash", legs="Aya. Cosciales +2", feet="Amalric Nails +1"
+			rring="Shukuyu Ring",
+			back="Reiki Cloak", legs="Aya. Cosciales +2", feet="Amalric Nails +1"
 		})
 		
 		sets.defense.MEVA = set_combine(sets.defense.MDT,
-		{
+		{--		DT: -24%	PDT: -24%	MDT: -31%
 			neck="Warder's Charm +1", lear="Eabani Earring",
 			body="Pinga Tunic",
 			legs="Pinga Pants",
@@ -808,7 +808,7 @@ function init_gear_sets()
 		{
 			sub="Genmei Shield", ammo="Ginsen",
 			head=gear.AHead_TP, neck="Mirage Stole +2", lear="Telos Earring", rear="Cessance Earring",
-			body="Ayanmo Corazza +2", hands="Adhemar Wrist. +1", lring="Petrov Ring", rring="Epona's Ring",
+			body="Ayanmo Corazza +2", hands="Adhemar Wrist. +1", lring="Hetairoi Ring", rring="Epona's Ring",
 			back=gear.BLUCape_STP, waist="Windbuffet Belt +1", legs="Samnuha Tights", feet="Carmine Greaves +1"
 		}
 		sets.engaged.AM3 =
