@@ -29,15 +29,24 @@ function user_setup()
     state.CastingMode:options('Normal', 'Resistant', 'Potency')
     state.IdleMode:options('Normal', 'DT', 'Refresh')
 	
-	state.WeaponSet = M{['description']='Weapon Set',
-		'SequenceK',
-		'SequenceA',
-		'KajaT',
-		'Almace',
+	state.MainWeaponSet = M{['description']='Weapon Set',
+		'Naegling',
+		'Kaja',
+		'Sequence',
+		'Almace'
+	}
+	
+	state.SubWeaponSet = M{['description']='Weapon Set',
+		'subKaja',
+		'subAlmace',
+		'subNaegling'
 	}
 
-	send_command('bind pageup gs c cycle WeaponSet')
-	send_command('bind pagedown gs c cycleback WeaponSet')
+
+	send_command('bind pageup gs c cycle MainWeaponSet')
+	send_command('bind pagedown gs c cycleback MainWeaponSet')
+	send_command('bind ^pageup gs c cycle SubWeaponSet')
+	send_command('bind ^pagedown gs c cycleback SubWeaponSet')
 
 	apply_job_change()
 end
@@ -45,6 +54,8 @@ end
 function user_unload()
 	send_command('unbind pageup')
 	send_command('unbind pagedown')
+	send_command('unbind ^pageup')
+	send_command('unbind ^pagedown')
 end
 
 -- Define sets and vars used by this job file.
@@ -63,10 +74,7 @@ function init_gear_sets()
 	-- Job Abilities --
 	------------------- 
 
-		sets.precast.JA['Chainspell'] = 
-		{
-			body="Viti. Tabard +3"
-		}
+		sets.precast.JA['Chainspell'] = { body="Viti. Tabard +3" }
 
 	
 	-------------------
@@ -392,13 +400,20 @@ function init_gear_sets()
 	------------------------------------------------------------------------------------------------
 
 
-		sets.SequenceK = { main="Sequence", sub="Kaja Knife" }
+		sets.Naegling = { main="Naegling" }
 
-		sets.SequenceA = { main="Sequence", sub="Almace" }
+		sets.Sequence = { main="Sequence" }
 			
-		sets.KajaT = { main="Kaja Sword", sub="Thibron" }
+		sets.Kaja = { main="Kaja Knife" }
 			
-		sets.Almace = { main="Almace", sub="Kaja Knife" }
+		sets.Almace = { main="Almace" }
+	
+	
+		sets.subNaegling = { sub="Naegling" }
+			
+		sets.subKaja = { sub="Kaja Knife" }
+			
+		sets.subAlmace = { sub="Almace" }
 		
 	
 	------------------------------------------------------------------------------------------------
@@ -410,7 +425,7 @@ function init_gear_sets()
 			main="Bolelabunga", sub="Genmei Shield", ammo="Homiliary",
 			head="Viti. Chapeau +3", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 			body="Atrophy Tabard +3", hands="Chironic Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back=gear.RDMCape_DW, waist="Flume Belt +1", legs="Carmine Cuisses +1", feet="Chironic Slippers"
+			back="Moonlight Cape", waist="Flume Belt +1", legs="Carmine Cuisses +1", feet="Chironic Slippers"
 		}
 
 		sets.idle.DT = set_combine(sets.idle,
@@ -452,7 +467,7 @@ function init_gear_sets()
 			main="Mafic Cudgel", sub="Genmei Shield", ammo="Staunch Tathlum +1",
 			head="Viti. Chapeau +3", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
 			body="Atrophy Tabard +3", hands="Chironic Gloves", lring="Defending Ring", rring="Gelatinous Ring +1",
-			back=gear.RDMCape_DW, waist="Flume Belt +1", legs="Lengo Pants", feet="Chironic Slippers"
+			back="Moonlight Cape", waist="Flume Belt +1", legs="Lengo Pants", feet="Chironic Slippers"
 		}
 		
 		sets.defense.MDT = 
@@ -460,7 +475,7 @@ function init_gear_sets()
 			main="Mafic Cudgel", sub="Genmei Shield", ammo="Staunch Tathlum +1",
 			head="Viti. Chapeau +3", neck="Loricate Torque +1", lear="Static Earring", rear="Sanare Earring",
 			body="Viti. Tabard +3", hands="Aya. Manopolas +2", lring="Defending Ring", rring="Shukuyu Ring",
-			back="Reiki Cloak", waist="Carrier's Sash", legs="Viti. Tights +3", feet="Vitiation Boots +3"
+			back="Moonlight Cape", waist="Carrier's Sash", legs="Viti. Tights +3", feet="Vitiation Boots +3"
 		}
 	
 	--------------------------------------
@@ -478,10 +493,7 @@ function init_gear_sets()
 			waist="Gishdubar Sash"
 		}
 
-		sets.buff['Saboteur'] =
-		{
-			hands="Leth. Gantherots +1"
-		}
+		sets.buff['Saboteur'] = { hands="Leth. Gantherots +1" }
 
 		sets.buff['Composure'] =
 		{
@@ -1118,7 +1130,7 @@ function init_gear_sets()
 		{
 			ammo="Staunch Tathlum +1",
 			neck="Loricate Torque +1",
-			lring="Defending Ring", rring="Gelatinous Ring +1"
+			hands="Aya. Manopolas +2", lring="Defending Ring", rring="Gelatinous Ring +1"
 		}
 		
 		
@@ -1226,10 +1238,7 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 	end
 	
 	if spell.target.type == 'SELF' and (spellMap == 'Cures' or spellMap == 'Refresh') then
-        equip
-		{
-			waist="Gishdubar Sash"
-		}
+        	equip { waist="Gishdubar Sash" }
 	end
 
 
@@ -1263,44 +1272,26 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 				lring="Archon Ring"
 			}
 		else
-			equip
-			{
-				lring="Archon Ring"
-			}
+			equip { lring="Archon Ring" }
 		end
 	end
 
 	if spell.skill == 'Elemental Magic' and (spell.element ~= world.day_element and spell.element ~= world.weather_element) then
 		if spell.target.distance < (15 - spell.target.model_size) then
-			equip
-			{
-				waist="Orpheus's Sash"
-			}
+			equip { waist="Orpheus's Sash" }
 		end
 	elseif spell.skill == 'Elemental Magic' and (spell.element == world.day_element and spell.element == world.weather_element)
 			or (spell.element == world.weather_element and get_weather_intensity() == 2) then
 		if spellMap ~= 'Helix' then
-			equip
-			{
-				waist="Hachirin-no-Obi"
-			}
+			equip { waist="Hachirin-no-Obi" }
 		elseif spell.target.distance < (15 - spell.target.model_size) then
-			equip
-			{
-				waist="Orpheus's Sash"
-			}
+			equip { waist="Orpheus's Sash" }
 		end
 	elseif spell.skill == 'Elemental Magic' and (spell.element == world.day_element or (spell.element == world.weather_element and get_weather_intensity() == 1)) then
 		if spell.target.distance < (7 - spell.target.model_size) then
-			equip
-			{
-				waist="Orpheus's Sash"
-			}
+			equip { waist="Orpheus's Sash" }
 		elseif spellMap ~= 'Helix' then
-			equip
-			{
-				waist="Hachirin-no-Obi"
-			}
+			equip { waist="Hachirin-no-Obi" }
 		end
 	end
 end
@@ -1348,6 +1339,7 @@ function customize_idle_set(idleSet)
     if player.mpp < 51 then
         idleSet = set_combine(idleSet,
 		{
+			body="Jhakri Robe +2",
 			waist="Fucho-no-Obi"
 		})
     end
