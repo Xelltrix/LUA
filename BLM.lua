@@ -49,15 +49,15 @@ function init_gear_sets()
 	-- Precast Magic --
 	------------------- 
 		sets.precast.FC =
-		{--Fast Cast 68
+		{--Fast Cast 74
 			main="Sucellus", sub="Chanter's Shield", ammo="Sapience Orb",
 			head="Amalric Coif +1", neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
 			body="Shango Robe", hands=gear.ENH_Gloves, lring="Kishar Ring", rring="Rahab Ring",
-			back="Swith Cape +1", waist="Witful Belt", legs="Psycloth Lappas", feet="Amalric Nails +1"
+			back=gear.BLMCape_FC, waist="Witful Belt", legs="Psycloth Lappas", feet="Amalric Nails +1"
 		}
 
 		sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC,
-		{--Fast Cast 65 / -8% Enhancing Magic Cast Time
+		{--Fast Cast 71 / -8% Enhancing Magic Cast Time
 			waist="Siegel Sash"
 		})
 
@@ -65,19 +65,19 @@ function init_gear_sets()
 
 
 		sets.precast.FC.Impact = set_combine(sets.precast.FC,
-		{--Fast Cast 49
+		{--Fast Cast 55
 			head=empty,
 			body="Twilight Cloak"
 		})
 
 		sets.precast.FC.Death = set_combine(sets.precast.FC,
-		{--Fast Cast 59
+		{--Fast Cast 65
 			ammo="Psilomene",
 			hands="Regal Cuffs", rring="Mephitas's Ring +1",
 		})
 
 		sets.precast.FC.Cures = set_combine(sets.precast.FC,
-		{--Fast Cast 66 / -5% Cure Cast Time
+		{--Fast Cast 72 / -5% Cure Cast Time
 			lear="Mendi. Earring"
 		})
 
@@ -131,7 +131,7 @@ function init_gear_sets()
 			ammo="Esper Stone +1",
 			head="Vanya Hood", neck="Incanter's Torque", lear="Novia Earring", rear="Mendi. Earring",
 			body="Vrikodara Jupon", hands=gear.ENH_Gloves, lring="Lebeche Ring", rring="Kuchekula Ring",
-			back="Taranus's Cape", waist="Bishop's Sash", legs="Assid. Pants +1", feet="Medium's Sabots"
+			back=gear.BLMCape_FC, waist="Bishop's Sash", legs="Assid. Pants +1", feet="Medium's Sabots"
 		}
 
 		sets.midcast.Curaga = sets.midcast.Cures
@@ -226,7 +226,7 @@ function init_gear_sets()
 		{
 			neck="Orunmila's Torque",
 			body="Shango Robe",
-			back="Taranus's Cape", waist="Witful Belt", legs="Psycloth Lappas"
+			back=gear.BLMCape_FC, waist="Witful Belt", legs="Psycloth Lappas"
 		})
 	
 		sets.midcast.Stun.Resistant = sets.midcast.Macc
@@ -237,7 +237,7 @@ function init_gear_sets()
 			main="Lathi", sub="Niobid Strap", ammo="Pemphredo Tathlum",
 			head=gear.NukeHood, neck="Sanctity Necklace", lear="Regal Earring", rear="Barkaro. Earring",
 			body="Amalric Doublet +1", hands="Amalric Gages +1", lring={name="Shiva Ring +1", bag="wardrobe2"}, rring={name="Shiva Ring +1", bag="wardrobe3"},
-			back="Taranus's Cape", waist="Refoccilation Stone", legs="Amalric Slops +1", feet="Amalric Nails +1"
+			back=gear.BLMCape_Nuke, waist="Refoccilation Stone", legs="Amalric Slops +1", feet="Amalric Nails +1"
 		}
 
 		sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'],
@@ -267,7 +267,7 @@ function init_gear_sets()
 			main="Lathi", sub="Niobid Strap", ammo="Psilomene",
 			head="Pixie Hairpin +1", neck="Sanctity Necklace", lear="Friomisi Earring", rear="Barkaro. Earring",
 			body="Amalric Doublet +1", hands="Amalric Gages +1", lring="Archon Ring", rring="Mephitas's Ring +1",
-			back="Taranus's Cape", waist="Refoccilation Stone", legs="Amalric Slops +1", feet="Amalric Nails +1"
+			back=gear.BLMCape_Nuke, waist="Refoccilation Stone", legs="Amalric Slops +1", feet="Amalric Nails +1"
 		}
 
 		sets.midcast.Death.Resistant = set_combine(sets.midcast.Death,
@@ -275,7 +275,7 @@ function init_gear_sets()
 			main=gear.Grioavolr_Enf, ammo="Pemphredo Tathlum",
 			head=gear.NukeHood,
 			body="Merlinic Jubbah",
-			back="Taranus's Cape", waist="Eschan Stone", legs="Jhakri Slops +2"
+			waist="Eschan Stone", legs="Jhakri Slops +2"
 		})
 	
 		sets.magic_burst =
@@ -283,7 +283,7 @@ function init_gear_sets()
 			main="Lathi", sub="Niobid Strap", ammo="Pemphredo Tathlum",
 			head=gear.NukeHood, neck="Mizu. Kubikazari", lear="Regal Earring", rear="Static Earring",
 			body="Merlinic Jubbah", hands="Amalric Gages +1", lring="Locus Ring", rring="Mujin Band",
-			back="Taranus's Cape", waist="Refoccilation Stone", legs="Amalric Slops +1", feet="Jhakri Pigaches +2"
+			back=gear.BLMCape_Nuke, waist="Refoccilation Stone", legs="Amalric Slops +1", feet="Jhakri Pigaches +2"
 		}
 
 		sets.magic_burst.Resistant = set_combine(sets.magic_burst,
@@ -387,7 +387,7 @@ function init_gear_sets()
 
 		sets.buff['Mana Wall'] =
 		{
-			back="Taranus's Cape", feet="Wicce Sabots +1"
+			back=gear.BLMCape_Nuke, feet="Wicce Sabots +1"
 		}
 
 		sets.buff.Doom = 
@@ -414,7 +414,7 @@ function init_gear_sets()
 			ammo="Floestone",
 			head="Jhakri Coronal +2", neck="Fotia Gorget", lear="Telos Earring", rear="Moonshade Earring",
 			body="Jhakri Robe +2", hands="Jhakri Cuffs +2", lring="Rufescent Ring", rring="Shukuyu Ring",
-			back="Taranus's Cape", legs="Jhakri Slops +2", feet="Jhakri Pigaches +2"
+			back=gear.BLMCape_Nuke, legs="Jhakri Slops +2", feet="Jhakri Pigaches +2"
 		}
 
 		sets.precast.WS['Myrkr'] =
@@ -434,7 +434,7 @@ function init_gear_sets()
 			main="Lathi", sub="Kaja Grip", ammo="Floestone",
 			head="Jhakri Coronal +2", neck="Combatant's Torque", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Jhakri Robe +2", hands="Jhakri Cuffs +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
-			back="Taranus's Cape", waist="Windbuffet Belt +1", legs="Jhakri Slops +2", feet="Jhakri Pigaches +2"
+			back=gear.BLMCape_Nuke, waist="Windbuffet Belt +1", legs="Jhakri Slops +2", feet="Jhakri Pigaches +2"
 		}
 	
 		sets.engaged.Refresh =
@@ -456,10 +456,7 @@ end
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
 function job_post_midcast(spell, action, spellMap, eventArgs)
 	if spellMap == 'Cures' and spell.target.type == 'SELF' then
-        	equip
-		{
-			waist="Gishdubar Sash"
-		}
+        	equip { waist="Gishdubar Sash" }
 	end
 	
 	if spellMap == 'Refresh' and spell.target.type == 'SELF' then
