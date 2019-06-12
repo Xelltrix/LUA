@@ -29,14 +29,14 @@ function user_setup()
     state.CastingMode:options('Normal', 'Resistant', 'Potency')
     state.IdleMode:options('Normal', 'DT', 'Refresh')
 	
-	state.MainWeaponSet = M{['description']='Weapon Set',
+	state.MainWeaponSet = M{['description']='Main Weapon Set',
 		'Naegling',
 		'Kaja',
 		'Sequence',
 		'Almace'
 	}
 	
-	state.SubWeaponSet = M{['description']='Weapon Set',
+	state.SubWeaponSet = M{['description']='Sub Weapon Set',
 		'subKaja',
 		'subAlmace',
 		'subNaegling'
@@ -45,6 +45,7 @@ function user_setup()
 
 	send_command('bind pageup gs c cycle MainWeaponSet')
 	send_command('bind pagedown gs c cycleback MainWeaponSet')
+	
 	send_command('bind ^pageup gs c cycle SubWeaponSet')
 	send_command('bind ^pagedown gs c cycleback SubWeaponSet')
 
@@ -1377,7 +1378,7 @@ end
 -- Function to display the current relevant user state when doing an update.
 -- Return true if display was handled, and you don't want the default info shown.
 function display_current_job_state(eventArgs)
-	local msg = state.WeaponSet.value .. ' '
+	local msg = '[' .. state.MainWeaponSet.value .. '/' .. state.SubWeaponSet.value .. ']'
 
 	if state.CombatForm.has_value then
 		msg = msg .. ' (' .. state.CombatForm.value .. ')'
