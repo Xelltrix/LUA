@@ -455,12 +455,13 @@ function init_gear_sets()
 		{
 			ammo="Floestone",
 			head="Jhakri Coronal +2", neck="Fotia Gorget", lear="Telos Earring", rear="Moonshade Earring",
-			body="Jhakri Robe +2", hands="Jhakri Cuffs +2", lring="Chirich Ring +1", rring="Chirich Ring +1",
-			waist="Fotia Belt", legs="Jhakri Slops +2", feet="Jhakri Pigaches +2"
+			body="Jhakri Robe +2", hands="Jhakri Cuffs +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			back=gear.SCHCape_Nuke, waist="Fotia Belt", legs="Jhakri Slops +2", feet="Jhakri Pigaches +2"
 		}
 
 		sets.precast.WS['Shattersoul'] = set_combine(sets.precast.WS,
 		{
+			lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
 			back=gear.SCHCape_Nuke
 		})
 		
@@ -470,6 +471,8 @@ function init_gear_sets()
 			body="Peda. Gown +3", hands="Peda. Bracers +3",
 			back=gear.SCHCape_ENF, waist="Orpheus's Sash"
 		})
+	
+		sets.precast.WS['Sunburst'] = sets.midcast['Elemental Magic']
 		
 		sets.precast.WS['Myrkr'] = set_combine(sets.precast.JA['Tabula Rasa'],
 		{
