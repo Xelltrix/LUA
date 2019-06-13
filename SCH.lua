@@ -488,6 +488,7 @@ end
 -------------------------------------------------------------------------------------------------------------------
 
 function job_post_precast(spell, action, spellMap, eventArgs)
+	-- Equips Grimoire Spellcasting Gear for precast if a spell of the appropriate Art is being cast.
     if (spell.type == "WhiteMagic" and (buffactive["Light Arts"] or buffactive["Addendum: White"])) or
         (spell.type == "BlackMagic" and (buffactive["Dark Arts"] or buffactive["Addendum: Black"])) then
         equip(sets.precast.FC.Grimoire)
@@ -497,7 +498,7 @@ end
 -- Run after the general midcast() is done.
 function job_post_midcast(spell, action, spellMap, eventArgs)
 	
-
+	-- Modifies Curing gear based off weather, locked weapon, and target.
 	if spellMap == 'Cures' or spellMap == 'Curagas' then
 		if state.WeaponLock.value == true then
 			equip(sets.midcast.CuresLocked)
@@ -518,10 +519,12 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 		end
 	end
 
+	-- Equips Storm enhancement boots if the spell is being cast under Light Arts.
 	if spellMap == 'Storm' and (buffactive["Light Arts"] or buffactive["Addendum: White"]) then
 		equip { feet="Peda. Loafers +3" }
 	end
 	
+	-- Equips self-target Refresh gear if casting upon self.
 	if spellMap == 'Refresh' and spell.target.type == 'SELF' then
 		equip
 		{
@@ -529,7 +532,9 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 		}
 	end
 
+	-- Equips appropriate Magic Burst gear depending on spell, element of spell, and casting mode.
 	if (spell.skill == 'Elemental Magic' or spell.english == 'Kaustra') and state.MagicBurst.value and state.CastingMode.value ~= 'Resistant' then
+		-- Equipping gear for basic magic burst set with modifications for spell and spell element.
 		if spell.element ~= 'Dark' then
 			equip(sets.magic_burst)
 		elseif spell.element == 'Dark' and spell.english ~= 'Impact' then
@@ -548,6 +553,7 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 			}))
 		end
 	elseif (spell.skill == 'Elemental Magic' or spell.english == 'Kaustra') and state.MagicBurst.value and state.CastingMode.value == 'Resistant' then
+		--Equipping gear for resistant magic burst set with modifications for spell and spell element.
 		if spell.element ~= 'Dark' then
 			equip(sets.magic_burst.Resistant)
 		elseif spell.element == 'Dark' and spell.english ~= 'Impact' then
@@ -566,12 +572,15 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 		end
 	end
 
+	-- Handles equipment modifications based of distance and spell weather/day alignment.
 	if (spell.skill == 'Elemental Magic' or spell.english == 'Kaustra') and (spell.element ~= world.day_element and spell.element ~= world.weather_element) then
+		-- If the spell element does not match either the weather or the day and there is less than 15 yalms between the caster and the target
 		if spell.target.distance < (15 - spell.target.model_size) then
 			equip { waist="Orpheus's Sash" }
 		end
 	elseif (spell.skill == 'Elemental Magic' or spell.english == 'Kaustra') and ((spell.element == world.day_element and spell.element == world.weather_element)
 			or (spell.element == world.weather_element and get_weather_intensity() == 2 and spell.element ~= elements.weak_to[world.day_element])) then
+		-- If the element of a non-helix spell matches both the day and weather with a net intensity of at least 2
 		if spellMap ~= 'Helix' then
 			equip
 			{
