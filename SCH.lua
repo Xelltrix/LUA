@@ -79,18 +79,6 @@ function init_gear_sets()
 			head="Peda. M.Board +3",
 			feet="Acad. Loafers +3"
 		}
-
-		sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC,
-		{
-			waist="Siegel Sash"
-		})
-
-		sets.precast.FC.Cures = set_combine(sets.precast.FC,
-		{
-			rear="Mendi. Earring",
-		})
-
-		sets.precast.FC.Curaga = sets.precast.FC.Cures
 	
 		sets.precast.FC.Impact = set_combine(sets.precast.FC,
 		{
@@ -340,7 +328,7 @@ function init_gear_sets()
 		
 		sets.magic_burst.Resistant = set_combine(sets.magic_burst,
 		{
-			hands="Regal Cuffs",
+			hands="Regal Cuffs", lear="Barkaro. Earring",
 			waist="Eschan Stone", legs="Peda. Pants +3"
 		})
 
