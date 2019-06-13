@@ -461,8 +461,6 @@ function init_gear_sets()
 
 		sets.precast.WS['Shattersoul'] = set_combine(sets.precast.WS,
 		{
-			lear="Regal Earring",
-			lring={name="Shiva Ring +1", bag="wardrobe2"}, rring={name="Shiva Ring +1", bag="wardrobe3"},
 			back=gear.SCHCape_Nuke
 		})
 		

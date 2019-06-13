@@ -1299,7 +1299,8 @@ end
 
 
 function job_aftercast(spell,action, spellMap, eventArgs)
-	equip(sets[state.WeaponSet.current])
+	equip(sets[state.MainWeaponSet.current])
+	equip(sets[state.SubWeaponSet.current])
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -1325,7 +1326,8 @@ end
 
 function job_status_change(new_status, old_status)
 	if new_status == 'Engaged' then
-		equip(sets[state.WeaponSet.current])
+		equip(sets[state.MainWeaponSet.current])
+		equip(sets[state.SubWeaponSet.current])
 		determine_haste_group()
 		update_combat_form()
 	end
@@ -1333,7 +1335,8 @@ end
 
 -- Handle notifications of general user state change.
 function job_state_change(stateField, newValue, oldValue)
-	equip(sets[state.WeaponSet.current])
+	equip(sets[state.MainWeaponSet.current])
+	equip(sets[state.SubWeaponSet.current])
 end
 
 function customize_idle_set(idleSet)
@@ -1369,7 +1372,8 @@ end
 
 -- Called by the 'update' self-command.
 function job_update(cmdParams, eventArgs)
-	equip(sets[state.WeaponSet.current])
+	equip(sets[state.MainWeaponSet.current])
+	equip(sets[state.SubWeaponSet.current])
 	determine_haste_group()
 	update_combat_form()
 	update_active_abilities()

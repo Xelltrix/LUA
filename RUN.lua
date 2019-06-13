@@ -603,20 +603,12 @@ function init_gear_sets()
 		}
 		
 		sets.engaged.Hybrid2 =
-		{-- DT: 38%	PDT: 49%	MDT: 43%
-			ammo="Staunch Tathlum +1",
-			head="Turms Cap", neck="Futhark Torque +1", lear="Sanare Earring", rear="Odnowa Earring +1",
-			body="Futhark Coat +3", hands="Turms Mittens +1", lring="Defending Ring", rring="Moonbeam Ring",
-			back="Moonlight Cape", waist="Flume Belt +1", legs="Eri. Leg Guards +1", feet="Turms Leggings"
-		}
-		
---[[		{-- DT: 38%		PDT: 46%	MDT: 38%
+		{-- DT: 38%		PDT: 46%	MDT: 38%
 			ammo="Staunch Tathlum +1",
 			head=gear.AHead_PDT, neck="Futhark Torque +1",
 			body="Futhark Coat +3", hands="Turms Mittens +1", lring="Defending Ring", rring="Moonbeam Ring",
 			back="Moonlight Cape", waist="Flume Belt +1", feet="Turms Leggings"
-		}
-]]		
+		}	
 		
 	---Hybrid Combat
 		sets.engaged.DT 			= set_combine(sets.engaged, 		sets.engaged.Hybrid)
