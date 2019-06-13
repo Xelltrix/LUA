@@ -383,9 +383,9 @@ function init_gear_sets()
 		}
 
 		sets.defense.MDT =
-		{--	DT: -33%	PDT: -50%	MDT:-36%
+		{--	DT: -27%	PDT: -44%	MDT:-30%
 			main="Akademos", sub="Irenic Strap +1", ammo="Staunch Tathlum +1",
-			head="Chironic Hat", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Sanare Earring",
+			head="Chironic Hat", neck="Warder's Charm +1", lear="Etiolation Earring", rear="Sanare Earring",
 			body="Peda. Gown +3", hands="Peda. Bracers +3", lring="Defending Ring", rring="Shukuyu Ring",
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Peda. Pants +3", feet="Amalric Nails +1"
 		}
@@ -498,20 +498,26 @@ end
 function job_post_midcast(spell, action, spellMap, eventArgs)
 	
 
-	if spellMap == 'Cures' or spellMap == 'Curagas' and (spell.element == world.day_element and spell.element == world.weather_element) then
-		equip
-		{
-			main="Chatoyant Staff", sub="Enki Strap",
-			neck="Incanter's Torque",
-			lring="Lebeche Ring", rring="Menelaus's Ring",
-			back="Twilight Cape", waist="Hachirin-no-Obi", feet="Kaykaus Boots"
-		}
-	end
+	if spellMap == 'Cures' or spellMap == 'Curagas' then
+		if state.WeaponLock.value == true then
+			equip(sets.midcast.CuresLocked)
+		else
+			if spell.element == world.day_element and spell.element == world.weather_element) then
+				equip
+				{
+					main="Chatoyant Staff", sub="Enki Strap",
+					neck="Incanter's Torque",
+					lring="Lebeche Ring", rring="Menelaus's Ring",
+					back="Twilight Cape", waist="Hachirin-no-Obi", feet="Kaykaus Boots"
+				}
+			end
+		end
 	
-	if spellMap == 'Cures' and spell.target.type == 'SELF' then
-        	equip { waist="Gishdubar Sash" }
+		if spell.target.type =='SELF' then 
+			equip { waist="Gishdubar Sash"}
+		end
 	end
-	
+
 	if spellMap == 'Storm' and (buffactive["Light Arts"] or buffactive["Addendum: White"]) then
 		equip { feet="Peda. Loafers +3" }
 	end
@@ -560,14 +566,11 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 		end
 	end
 
-	if spell.skill == 'Elemental Magic' and (spell.element ~= world.day_element and spell.element ~= world.weather_element) then
+	if (spell.skill == 'Elemental Magic' or spell.english == 'Kaustra') and (spell.element ~= world.day_element and spell.element ~= world.weather_element) then
 		if spell.target.distance < (15 - spell.target.model_size) then
-			equip
-			{
-				waist="Orpheus's Sash"
-			}
+			equip { waist="Orpheus's Sash" }
 		end
-	elseif spell.skill == 'Elemental Magic' and ((spell.element == world.day_element and spell.element == world.weather_element)
+	elseif (spell.skill == 'Elemental Magic' or spell.english == 'Kaustra') and ((spell.element == world.day_element and spell.element == world.weather_element)
 			or (spell.element == world.weather_element and get_weather_intensity() == 2 and spell.element ~= elements.weak_to[world.day_element])) then
 		if spellMap ~= 'Helix' then
 			equip
@@ -584,7 +587,7 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 				feet="Amalric Nails +1"
 			}
 		end
-	elseif spell.skill == 'Elemental Magic' and (spell.element == world.day_element or (spell.element == world.weather_element and get_weather_intensity() == 1)
+	elseif (spell.skill == 'Elemental Magic' or spell.english == 'Kaustra') and (spell.element == world.day_element or (spell.element == world.weather_element and get_weather_intensity() == 1)
 		or (spell.element == world.weather_element and get_weather_intensity() == 2 and spell.element == elements.weak_to[world.day_element])) then
 		if spell.target.distance < (7 - spell.target.model_size) then
 			equip
@@ -643,6 +646,7 @@ function customize_idle_set(idleSet)
 	if player.mpp < 51 and state.IdleMode.value ~= 'DT' then
 		idleSet = set_combine(idleSet, 
 			{
+				body="Jhakri Robe +2",
 				waist="Fucho-no-Obi"
 			})
 	end
