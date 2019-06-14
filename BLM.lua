@@ -15,8 +15,6 @@ end
 function job_setup()
 
 	customize_idle_set()
-	
-	lockstyleset = 2
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -519,20 +517,20 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 
 	if spell.skill == 'Elemental Magic' and (spell.element ~= world.day_element and spell.element ~= world.weather_element) then
 		if spell.target.distance < (15 - spell.target.model_size) then
-			equip{waist="Orpheus's Sash"}
+			equip { waist="Orpheus's Sash" }
 		end
 	elseif spell.skill == 'Elemental Magic' and (spell.element == world.day_element and spell.element == world.weather_element)
-			or (spell.element == world.weather_element and get_weather_intensity() == 2) then
+			or (spell.element == world.weather_element and get_weather_intensity() == 2 and world.day_element ~= elements.strong_to[spell.element])) then
 		if spellMap ~= 'Helix' then
-			equip{waist="Hachirin-no-Obi"}
+			equip { waist="Hachirin-no-Obi" }
 		elseif spell.target.distance < (15 - spell.target.model_size) then
-			equip{waist="Orpheus's Sash"}
+			equip { waist="Orpheus's Sash" }
 		end
-	elseif spell.skill == 'Elemental Magic' and (spell.element == world.day_element or (spell.element == world.weather_element and get_weather_intensity() == 1)) then
-		if spell.target.distance < (7 - spell.target.model_size) then
-			equip{waist="Orpheus's Sash"}
+	elseif spell.skill == 'Elemental Magic' and (spell.element == world.day_element or (spell.element == world.weather_element and get_weather_intensity() == 1)
+		or (spell.element == world.weather_element and get_weather_intensity() == 2 and world.day_element == elements.strong_to[spell.element])) then
+			equip { waist="Orpheus's Sash" }
 		elseif spellMap ~= 'Helix' then
-			equip{waist="Hachirin-no-Obi"}
+			equip { waist="Hachirin-no-Obi" }
 		end
 	end
 end
@@ -600,5 +598,5 @@ end
 function apply_job_change()
 	set_macro_page(1, 3)
 	
-	send_command('wait 3; input /lockstyleset ' .. lockstyleset)
+	send_command('wait 3; input /lockstyleset 2')
 end
