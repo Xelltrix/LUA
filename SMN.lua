@@ -15,7 +15,6 @@ function job_setup()
     state.Buff["Avatar's Favor"] = buffactive["Avatar's Favor"] or false
     state.Buff["Astral Conduit"] = buffactive["Astral Conduit"] or false
 
-	lockstyleset = 6
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -54,10 +53,7 @@ function init_gear_sets()
 			back="Conveyance Cape", waist="Luminary Sash", legs="Telchine Braconi",feet="Beck. Pigaches +1"
 		}
 
-		sets.precast.JA['Mana Cede'] =
-		{
-			hands="Beck. Bracers +1"
-		}
+		sets.precast.JA['Mana Cede'] = { hands="Beck. Bracers +1" }
 		
 		sets.precast.JA['Astral Conduit'] =
 		{
@@ -365,7 +361,7 @@ function init_gear_sets()
 	
 	sets.idle =
 	{
-		main="Bolelabunga", sub="Genmei Shield", ammo="Staunch Tathlum +1",
+		main="Gridarvor", sub="Kaja Grip", ammo="Staunch Tathlum +1",
 		head="Beckoner's Horn +1", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 		body="Apo. Dalmatica +1", hands="Asteria Mitts +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
         back=gear.SMNCape_Mag, waist="Regal Belt", legs="Assid. Pants +1", feet="Baayami Sabots"
@@ -373,7 +369,6 @@ function init_gear_sets()
 
 	sets.idle.DT = set_combine(sets.idle,
 	{
-		main="Mafic Cudgel", sub="Genmei Shield",
 		neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
         lring="Defending Ring", rring="Gelatinous Ring +1",
 		waist="Regal Belt"
@@ -460,10 +455,7 @@ function init_gear_sets()
 	-- Special Sets
 	--------------------------------------
     
-		sets.Kiting =
-		{
-			feet="Crier's Gaiters"
-		}
+		sets.Kiting = { feet="Crier's Gaiters" }
 
 		sets.perp.Alexander = sets.midcast.Pet.Buffs
 
@@ -624,7 +616,7 @@ function job_pet_status_change(newStatus, oldStatus, eventArgs)
     end
 end
 
---[[Determine Pet TP total for Blood Pacts.
+Determine Pet TP total for Blood Pacts.
 function determine_petTP()
 	local rank = 0
 	local totalTP = 0
@@ -634,7 +626,7 @@ function determine_petTP()
 	totalTP = pet.tp + (rank * 400)
 			
 	return totalTP
-end]]
+end
 
 --Equips the appropriate gear for Blood Pacts
 function job_get_spell_map(spell, default_spell_map)
@@ -655,13 +647,9 @@ function job_pet_change(petparam, gain)
     if gain then
         if avatars:contains(pet.name)  then
             classes.CustomIdleGroups:append('Avatar')
-			send_command('input /lockstyleset 7')
         elseif spirits:contains(pet.name) then
             classes.CustomIdleGroups:append('Spirit')
-			send_command('input /lockstyleset 7')
         end
-	else
-		send_command('input /lockstyleset 6')
     end
 end
 
@@ -708,5 +696,5 @@ end
 function apply_job_change()
     set_macro_page(1, 7)
 	
-	send_command('wait 3; input /lockstyleset ' .. lockstyleset)
+	send_command('wait 3; input /lockstyleset 7')
 end
