@@ -583,7 +583,7 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 			equip { waist="Orpheus's Sash" }
 		end
 	elseif (spell.skill == 'Elemental Magic' or spell.english == 'Kaustra') and ((spell.element == world.day_element and spell.element == world.weather_element)
-			or (spell.element == world.weather_element and get_weather_intensity() == 2 and and world.day_element ~= elements.strong_to[spell.element])) then
+			or (spell.element == world.weather_element and get_weather_intensity() == 2 and world.day_element ~= elements.strong_to[spell.element])) then
 		-- If the element of a non-helix spell matches both the day and weather with a net intensity of at least 2
 		if spellMap ~= 'Helix' then
 			equip
