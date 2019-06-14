@@ -22,6 +22,7 @@ Kaykaus Boots +1          Price: 20,000,000G
 -----------
 Priority C
 -----------
+Musa                      Price: 120,000,000G
 Argute Stole +2           Price: 90,000,000G
 
 Duelist's Torque +2       Price: 100,000,000G
