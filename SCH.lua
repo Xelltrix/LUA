@@ -143,6 +143,14 @@ function init_gear_sets()
 			body="Kaykaus Bliaut", hands="Peda. Bracers +3", lring="Lebeche Ring", rring="Menelaus's Ring",
 			back="Oretan. Cape +1",waist="Luminary Sash", legs="Pinga Pants", feet="Kaykaus Boots"
 		}
+	
+		sets.midcast.CuresWeather =
+		{
+			main="Chatoyant Staff", sub="Enki Strap",
+			neck="Incanter's Torque",
+			lring="Lebeche Ring", rring="Menelaus's Ring",
+			back="Twilight Cape", waist="Hachirin-no-Obi", feet="Kaykaus Boots"
+		}
 
 		sets.midcast.Curagas = sets.midcast.Cures
 
@@ -503,14 +511,8 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 		if state.WeaponLock.value == true then
 			equip(sets.midcast.CuresLocked)
 		else
-			if spell.element == world.day_element and spell.element == world.weather_element) then
-				equip
-				{
-					main="Chatoyant Staff", sub="Enki Strap",
-					neck="Incanter's Torque",
-					lring="Lebeche Ring", rring="Menelaus's Ring",
-					back="Twilight Cape", waist="Hachirin-no-Obi", feet="Kaykaus Boots"
-				}
+			if spell.element == world.day_element or spell.element == world.weather_element then
+				equip(sets.midcast.CuresWeather)
 			end
 		end
 	
@@ -599,7 +601,7 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 	elseif (spell.skill == 'Elemental Magic' or spell.english == 'Kaustra') and (spell.element == world.day_element or (spell.element == world.weather_element and get_weather_intensity() == 1)
 		or (spell.element == world.weather_element and get_weather_intensity() == 2 and world.day_element == elements.strong_to[spell.element])) then
 		-- If the element of a non-helix spell matches either day or weather with a net intensity of 1.
-		if spell.target.distance < (15 - spell.target.model_size) then
+		if (spell.target.distance < (7 - spell.target.model_size)) then
 			equip
 			{
 				main="Akademos", sub="Niobid Strap",
