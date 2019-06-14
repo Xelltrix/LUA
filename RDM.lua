@@ -81,21 +81,22 @@ function init_gear_sets()
 	-------------------
 	-- Precast Magic --
 	------------------- 
+	--Fast Cast: 38%
 	
 		sets.precast.FC =
-		{
+		{--		52%(+38%)
 			ammo="Staunch Tathlum +1",
 			head="Atrophy Chapeau +3", neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquacious Earring",
 			body="Viti. Tabard +3", hands="Chironic Gloves", lring="Kishar Ring", rring="Evanescence Ring", 
-			back=gear.RDMCape_DW, waist="Witful Belt", legs="Carmine Cuisses +1",feet="Amalric Nails +1"
+			back="Moonlight Cape", waist="Witful Belt", legs="Carmine Cuisses +1",feet="Amalric Nails +1"
 		}
 
 		sets.precast.FC.Impact = 
-		{
+		{--		41%(+38%)
 			ammo="Sapience Orb",
-			head=empty, neck="Orunmila's Torque", neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquacious Earring",
+			head=empty, neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquacious Earring",
 			body="Twilight Cloak", hands="Leyline Gloves", lring="Kishar Ring", rring="Rahab Ring", 
-			back=gear.RDMCape_DW, waist="Witful Belt", legs="Lengo Pants", feet="Carmine Greaves +1"
+			back="Moonlight Cape", waist="Witful Belt", legs="Aya. Cosciales +2", feet="Carmine Greaves +1"
 		}
 
 
@@ -113,15 +114,15 @@ function init_gear_sets()
 	--------------------------------------
 
 		sets.midcast.FC =
-		{
+		{--		Fast Cast: 52%(+38%)
 			ammo="Staunch Tathlum +1",
 			head="Atrophy Chapeau +3", neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquacious Earring",
 			body="Viti. Tabard +3", hands="Chironic Gloves", lring="Kishar Ring", rring="Evanescence Ring", 
-			back=gear.RDMCape_DW, waist="Witful Belt", legs="Carmine Cuisses +1",feet="Amalric Nails +1"
+			back="Moonlight Cape", waist="Witful Belt", legs="Carmine Cuisses +1",feet="Amalric Nails +1"
 		}
 
 		sets.midcast.ConserveMP = 
-		{
+		{--		Fast Cast: 39%(+38%)	Conserve MP:
 			ammo="Pemphredo Tathlum",
 			head="Vanya Hood", neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
 			body="Chironic Doublet", hands="Leyline Gloves", lring="Kishar Ring", rring="Rahab Ring",
@@ -129,7 +130,7 @@ function init_gear_sets()
 		}
 		
 		sets.midcast.Duration =
-		{
+		{--		Fast Cast: 33%(+38%)	Duration: 
 			main="Colada", sub="Ammurapi Shield", ammo="Sapience Orb",
 			head="Telchine Cap", neck="Dls. Torque +1", lear="Etiolation Earring", rear="Loquac. Earring",
 			body="Viti. Tabard +3", hands="Atrophy Gloves +3", lring="Kishar Ring", rring="Rahab Ring",
@@ -140,9 +141,8 @@ function init_gear_sets()
 	-- Healing Midcast sets
 	--------------------------------------	
 	
-		-- Cure Potency: 50%		Enmity: -55		Healing Magic Skill: +53
 		sets.midcast.Cures =
-		{
+		{-- 		Cure Potency: 50%		Enmity: -55		Healing Magic Skill: +53
 			ammo="Esper Stone +1",
 			head="Kaykaus Mitra", neck="Lasaia Pendant", lear="Novia Earring", rear="Mendi. Earring",
 			body="Kaykaus Bliaut", hands="Kaykaus Cuffs +1", lring="Lebeche Ring", rring="Kuchekula Ring",
@@ -422,7 +422,7 @@ function init_gear_sets()
 	------------------------------------------------------------------------------------------------
 
 		sets.idle =
-		{
+		{--	DT: -6%		PDT: -11%	MDT:-11%	Refresh: 14~15
 			main="Bolelabunga", sub="Genmei Shield", ammo="Homiliary",
 			head="Viti. Chapeau +3", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 			body="Atrophy Tabard +3", hands="Chironic Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
@@ -430,14 +430,14 @@ function init_gear_sets()
 		}
 
 		sets.idle.DT = set_combine(sets.idle,
-		{
+		{--	DT: -25%	PDT: -58%	MDT:-27%	Refresh: 10~11
 			main="Mafic Cudgel", sub="Genmei Shield", ammo="Staunch Tathlum +1",
 			neck="Loricate Torque +1", lear="Etiolation Earring", rear="Sanare Earring",
 			lring="Defending Ring", rring="Gelatinous Ring +1"
 		})
 		
 		sets.idle.Refresh = set_combine(sets.idle,
-		{
+		{--	DT: -11%	PDT: -11%	MDT:-11%	Refresh: 16~17
 			body="Jhakri Robe +2",
 			legs="Lengo Pants"
 		})
@@ -464,16 +464,16 @@ function init_gear_sets()
 	-- Defensive Sets
 	--------------------------------------
 		sets.defense.PDT =
-		{
-			main="Mafic Cudgel", sub="Genmei Shield", ammo="Staunch Tathlum +1",
+		{--	DT: -19%	PDT: -51%	MDT:-26%
+			ammo="Staunch Tathlum +1",
 			head="Viti. Chapeau +3", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
-			body="Atrophy Tabard +3", hands="Chironic Gloves", lring="Defending Ring", rring="Gelatinous Ring +1",
-			back="Moonlight Cape", waist="Flume Belt +1", legs="Lengo Pants", feet="Chironic Slippers"
+			body="Atrophy Tabard +3", hands="Aya. Manopolas +2", lring="Defending Ring", rring="Gelatinous Ring +1",
+			back=gear.RDMCape_DW, waist="Flume Belt +1", legs="Viti. Tights +3", feet="Chironic Slippers"
 		}
 		
 		sets.defense.MDT = 
-		{
-			main="Mafic Cudgel", sub="Genmei Shield", ammo="Staunch Tathlum +1",
+		{--	DT: -28%	PDT: -33%	MDT:-28%
+			ammo="Staunch Tathlum +1",
 			head="Viti. Chapeau +3", neck="Loricate Torque +1", lear="Static Earring", rear="Sanare Earring",
 			body="Viti. Tabard +3", hands="Aya. Manopolas +2", lring="Defending Ring", rring="Shukuyu Ring",
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Viti. Tights +3", feet="Vitiation Boots +3"
@@ -1282,14 +1282,14 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 			equip { waist="Orpheus's Sash" }
 		end
 	elseif spell.skill == 'Elemental Magic' and (spell.element == world.day_element and spell.element == world.weather_element)
-			or (spell.element == world.weather_element and get_weather_intensity() == 2) then
+			or (spell.element == world.weather_element and get_weather_intensity() == 2 and world.day_element ~= elements.strong_to[spell.element])) then
 		if spellMap ~= 'Helix' then
 			equip { waist="Hachirin-no-Obi" }
 		elseif spell.target.distance < (15 - spell.target.model_size) then
 			equip { waist="Orpheus's Sash" }
 		end
-	elseif spell.skill == 'Elemental Magic' and (spell.element == world.day_element or (spell.element == world.weather_element and get_weather_intensity() == 1)) then
-		if spell.target.distance < (7 - spell.target.model_size) then
+	elseif spell.skill == 'Elemental Magic' and (spell.element == world.day_element or (spell.element == world.weather_element and get_weather_intensity() == 1)
+		or (spell.element == world.weather_element and get_weather_intensity() == 2 and world.day_element == elements.strong_to[spell.element])) then
 			equip { waist="Orpheus's Sash" }
 		elseif spellMap ~= 'Helix' then
 			equip { waist="Hachirin-no-Obi" }
