@@ -520,7 +520,7 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 			equip { waist="Orpheus's Sash" }
 		end
 	elseif spell.skill == 'Elemental Magic' and (spell.element == world.day_element and spell.element == world.weather_element)
-			or (spell.element == world.weather_element and get_weather_intensity() == 2 and world.day_element ~= elements.strong_to[spell.element])) then
+			or (spell.element == world.weather_element and get_weather_intensity() == 2 and world.day_element ~= elements.strong_to[spell.element]) then
 		if spellMap ~= 'Helix' then
 			equip { waist="Hachirin-no-Obi" }
 		elseif spell.target.distance < (15 - spell.target.model_size) then
@@ -528,6 +528,7 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 		end
 	elseif spell.skill == 'Elemental Magic' and (spell.element == world.day_element or (spell.element == world.weather_element and get_weather_intensity() == 1)
 		or (spell.element == world.weather_element and get_weather_intensity() == 2 and world.day_element == elements.strong_to[spell.element])) then
+		if spell.target.distance < (7 - spell.target.model_size) then	
 			equip { waist="Orpheus's Sash" }
 		elseif spellMap ~= 'Helix' then
 			equip { waist="Hachirin-no-Obi" }

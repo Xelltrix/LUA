@@ -54,8 +54,8 @@ function user_setup()
 	}
 	
 	state.SubWeaponSet = M{['description']='Sub Weapon Set',
-		'Naegling',
 		'subAlmace',
+		'Naegling',
 		'Thibron'
 	}
 	
@@ -103,7 +103,7 @@ function init_gear_sets()
 			ammo="Sapience Orb",
 			head="Rabid Visor", neck="Unmoving Collar +1", lear="Cryptic Earring", rear="Friomisi Earring",
 			body="Emet Harness +1", hands="Nilas Gloves", lring="Eihwaz Ring", rring="Begrudging Ring",
-			back="Reiki Cloak", waist="Trance Belt", legs="Zoar Subligar +1"
+			back="Reiki Cloak", waist="Trance Belt", legs="Zoar Subligar +1", feet="Ahosi Leggings"
 		}
 		
 		sets.precast.JA['Warcry'] = sets.precast.JA['Provoke']
@@ -201,14 +201,9 @@ function init_gear_sets()
 			body="Telchine Chas."
 		})
 		
-		sets.midcast.Fantod = 
-		{
-			ammo="Sapience Orb",
-			head="Rabid Visor", neck="Unmoving Collar +1", lear="Cryptic Earring", rear="Friomisi Earring",
-			body="Emet Harness +1", hands="Nilas Gloves", lring="Eihwaz Ring", rring="Begrudging Ring",
-			back="Reiki Cloak", waist="Trance Belt", legs="Zoar Subligar +1", feet="Carmine Greaves +1"
-		}
-
+		sets.midcast.Fantod =  sets.precast.JA['Provoke']
+		
+		
     --------------------------------------
 	-- Healing Midcast sets
 	--------------------------------------	

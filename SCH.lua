@@ -31,7 +31,7 @@ end
 function user_setup()
 	state.OffenseMode:options('Refresh', 'Normal')
 	state.CastingMode:options('Normal', 'Resistant','Potency')
-	state.IdleMode:options('Normal', 'DT')
+	state.IdleMode:options('Normal', 'DT','Vagary')
 
 	apply_job_change()
 end
@@ -366,6 +366,12 @@ function init_gear_sets()
 			ammo="Staunch Tathlum +1",
 			neck="Loricate Torque +1", lear="Etiolation Earring", rear="Sanare Earring",
 			lring="Defending Ring", rring="Gelatinous Ring +1"
+		})
+		
+		sets.idle.Vagary = set_combine(sets.magic_burst, 
+		{
+			main="Akademos", sub="Niobid Strap",
+			feet="Arbatel Loafers +1"
 		})
 
 		sets.idle.Town = set_combine(sets.idle,

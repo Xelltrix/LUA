@@ -34,7 +34,7 @@ function user_setup()
 	
     state.IdleMode:options('Normal', 'DT', 'Refresh')
 	
-	state.WeaponSet = M{['description']='Weapon Set', 'Epeolatry', 'Montante', 'Aettir', 'Hepatizon'}
+	state.WeaponSet = M{['description']='Weapon Set', 'Epeolatry', 'Lionheart', 'Aettir', 'Hepatizon'}
 	
 	state.GripSet = M{['description']='Grip Set','Utu','Kaja','Irenic',}
 	
@@ -71,7 +71,7 @@ function init_gear_sets()
 			ammo="Sapience Orb",
 			head="Halitus Helm", neck="Moonbeam Necklace", lear="Trux Earring", rear="Cryptic Earring",
 			body="Emet Harness +1", hands="Kurys Gloves", lring="Eihwaz Ring", rring="Supershear Ring",
-			back="Reiki Cloak", waist="Trance Belt", legs="Eri. Leg Guards +1", feet="Erilaz Greaves +1"
+			back="Reiki Cloak", waist="Trance Belt", legs="Eri. Leg Guards +1", feet="Ahosi Leggings"
 		}
 		
 		sets.Enmity.HP = set_combine(sets.Enmity,
@@ -409,7 +409,7 @@ function init_gear_sets()
 		
 		sets.Aettir = { main="Aettir" }
 		
-		sets.Montante = { main="Montante" }
+		sets.Lionheart = { main="Lionheart" }
 		
 		sets.Hepatizon = { main="Hepatizon Axe +1" }
 	

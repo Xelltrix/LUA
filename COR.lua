@@ -84,7 +84,7 @@ function init_gear_sets()
 		{
 			range="Compensator",
 			head="Lanun Tricorne", neck="Regal Necklace", lear="Etiolation Earring",
-			body="Meg. Cuirie +2", hands="Chasseur's Gants +1", lring="Defending Ring", rring="Moonbeam Ring",
+			body="Meg. Cuirie +2", hands="Chasseur's Gants +1", lring="Defending Ring", rring="Gelatinous Ring +1",
 			back="Moonlight Cape", waist="Flume Belt +1", legs="Desultor Tassets", feet="Lanun Bottes +1"
 		}
 		
@@ -182,7 +182,7 @@ function init_gear_sets()
 		sets.idle.DT = set_combine (sets.idle,
 		{
 			head="Meghanada Visor +2", neck="Loricate Torque +1",
-			body="Meg. Cuirie +2", lring="Defending Ring", rring="Moonbeam Ring",
+			body="Meg. Cuirie +2", lring="Defending Ring", rring="Gelatinous Ring +1",
 			legs="Mummu Kecks +2"
 		})
 		sets.idle.Town = set_combine(sets.idle,
