@@ -184,7 +184,7 @@ function init_gear_sets()
 		{--		Spell Interrupt: -99
 			ammo="Staunch Tathlum +1",
 			head=gear.THead_Phalanx, neck="Moonbeam Necklace",
-			hands="Rawhide Gloves", lring="Defending Ring", rring="Evanescene Ring",
+			hands="Rawhide Gloves", lring="Defending Ring", rring="Evanescence Ring",
 			waist="Rumination Sash", legs="Carmine Cuisses +1", feet=gear.TFeet_Phalanx
 		}
 
@@ -252,7 +252,7 @@ function init_gear_sets()
 		sets.midcast.Utsusemi = sets.midcast.FC
 
 		sets.midcast.Protection = sets.midcast.Duration
-0
+
 
     --------------------------------------
 	-- Enmity Midcast sets
@@ -609,7 +609,7 @@ function init_gear_sets()
 			ammo="Yamarang",
 			head="Turms Cap", neck="Futhark Torque +1",
 			body="Futhark Coat +3", hands="Turms Mittens +1", lring="Defending Ring", rring="Moonbeam Ring",
-			back=gear.RUNCape_STP, waist="Flume Belt", legs="Eri. Leg Guards +1", feet="Turms Leggings"
+			back=gear.RUNCape_STP, waist="Flume Belt +1", legs="Eri. Leg Guards +1", feet="Turms Leggings"
 		}	
 		
 	---Hybrid Combat
