@@ -280,8 +280,8 @@ function init_gear_sets()
 		{--MBD/II: 42/11
 			main="Lathi", sub="Niobid Strap", ammo="Pemphredo Tathlum",
 			head=gear.NukeHood, neck="Mizu. Kubikazari", lear="Regal Earring", rear="Static Earring",
-			body="Merlinic Jubbah", hands="Amalric Gages +1", lring="Locus Ring", rring="Mujin Band",
-			back=gear.BLMCape_Nuke, waist="Refoccilation Stone", legs="Amalric Slops +1", feet="Jhakri Pigaches +2"
+			body="Amalric Doublet +1", hands="Amalric Gages +1", lring="Locus Ring", rring="Mujin Band",
+			back=gear.BLMCape_Nuke, waist="Refoccilation Stone", legs="Merlinic Shalwar", feet="Jhakri Pigaches +2"
 		}
 
 		sets.magic_burst.Resistant = set_combine(sets.magic_burst,
@@ -289,7 +289,7 @@ function init_gear_sets()
 			main="Maxentius", sub="Ammurapi Shield",
 			rear="Barkaro. Earring",
 			hands="Regal Cuffs", 
-			waist="Eschan Stone", legs="Jhakri Slops +2", feet="Jhakri Pigaches +2"
+			waist="Eschan Stone", feet="Jhakri Pigaches +2"
 		})
 	
 	
@@ -325,8 +325,8 @@ function init_gear_sets()
 		}
 
 		sets.idle.DT = set_combine(sets.idle,
-		{--Regen+0 | Refresh+6~7 | PDT/MDT: (36/43)
-			neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
+		{--Regen+0 | Refresh+6~7 | PDT/MDT: (38/40)
+			neck="Loricate Torque +1",  lear="Genmei Earring", rear="Odnowa Earring +1",
 			lring="Defending Ring", rring="Gelatinous Ring +1"
 		})
 
@@ -362,9 +362,9 @@ function init_gear_sets()
 	--------------------------------------
 	
 		sets.defense.PDT =
-		{--PDT: 49 / MDT: 45
+		{--PDT: 51 / MDT: 42
 			sub="Kaja Grip", ammo="Staunch Tathlum +1",
-			head="Vanya Hood", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
+			head="Vanya Hood", neck="Loricate Torque +1",  lear="Genmei Earring", rear="Odnowa Earring +1",
 			body="Mallquis Saio +2", hands="Amalric Gages +1", lring="Defending Ring", rring="Gelatinous Ring +1",
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Artsieq Hose", feet="Wicce Sabots +1"
 		}

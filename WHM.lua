@@ -123,7 +123,7 @@ function init_gear_sets()
 		})
 
 		sets.midcast.Duration = set_combine(sets.midcast.FC,
-		{--		Fast Cast: 33%		Haste: 23%	Duration: (1.46) x (1.2)
+		{--		Fast Cast: 33%		Haste: 23%	Duration: (1.46) * (1.2)
 			main="Gada", sub="Ammurapi Shield",
 			head="Telchine Cap",
 			body="Telchine Chas.", hands=gear.ENH_Gloves,
@@ -171,7 +171,13 @@ function init_gear_sets()
 		
 		sets.midcast.CuragaWeather = sets.midcast.CuresWeather
 
-		--Cursna Formula: (10 + Healing Magic Skill/30)*(1 + Cursna Success/100)*(1 + Cursna Received/100)
+--[[		CURSNA FORMULA
+		R = (10 + s/30)*(1 + c/100)*(1 + r/100)
+
+		s - Healing magic skill
+		c - Cursna success rate+
+		r - Cursna received success rate+
+]]
 		
 		sets.midcast.Cursna = set_combine(sets.precast.FC['Healing Magic'],
 		{--	(10 + ?/30)*(1 + ?/100)*(1+ ?/100) =		60% Success Rate
@@ -363,7 +369,7 @@ function init_gear_sets()
 		sets.idle.DT = set_combine(sets.idle,
 		{
 			main="Piety Wand",
-			head="Inyanga Tiara +2", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
+			head="Inyanga Tiara +2", neck="Loricate Torque +1", lear="Genmei Earring", rear="Odnowa Earring +1",
 			lring="Defending Ring", rring="Gelatinous Ring +1",
 			legs="Inyanga Shalwar +2",
 		})
@@ -406,8 +412,9 @@ function init_gear_sets()
 
 		sets.defense.MDT = set_combine(sets.defense.PDT,
 		{
-			neck="Warder's Charm +1",
-			rring="Shukuyu Ring"
+			neck="Warder's Charm +1", lear="Genmei Earring",
+			rring="Inyanga Ring",
+			back="Alaunus's Cape"
 		})
 	
 	

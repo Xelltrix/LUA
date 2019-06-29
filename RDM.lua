@@ -123,7 +123,7 @@ function init_gear_sets()
 		}
 
 		sets.midcast.ConserveMP = 
-		{--		Fast Cast: 39%(+38%)	Conserve MP:
+		{--		Fast Cast: 39%(+38%)	Conserve MP: 40
 			ammo="Pemphredo Tathlum",
 			head="Vanya Hood", neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
 			body="Chironic Doublet", hands="Leyline Gloves", lring="Kishar Ring", rring="Rahab Ring",
@@ -131,7 +131,7 @@ function init_gear_sets()
 		}
 		
 		sets.midcast.Duration =
-		{--		Fast Cast: 33%(+38%)	Duration: 
+		{--		Fast Cast: 33%(+38%)	Duration: (1.75 * 1.64)
 			main="Colada", sub="Ammurapi Shield", ammo="Sapience Orb",
 			head="Telchine Cap", neck="Dls. Torque +1", lear="Etiolation Earring", rear="Loquac. Earring",
 			body="Viti. Tabard +3", hands="Atrophy Gloves +3", lring="Kishar Ring", rring="Rahab Ring",
@@ -154,8 +154,15 @@ function init_gear_sets()
 
 		sets.midcast.StatusRemoval = sets.midcast.FC
 
+--[[		CURSNA FORMULA
+		R = (10 + s/30)*(1 + c/100)*(1 + r/100)
+
+		s - Healing magic skill
+		c - Cursna success rate+
+		r - Cursna received success rate+
+]]
 		sets.midcast.Cursna = set_combine(sets.midcast.FC,
-		{
+		{--		Healing: 515(551)	Cursna: +70		Curnsa Rate: 46%(48%)
 			head="Kaykaus Mitra", neck="Debilis Medallion", lear="Beatific Earring", rear="Healing Earring",
 			hands="Hieros Mittens", lring="Haoma's Ring", rring="Menelaus's Ring",
 			back="Oretan. Cape +1", waist="Bishop's Sash", feet="Vanya Clogs"
@@ -185,30 +192,29 @@ function init_gear_sets()
 			back="Ghostfyre Cape", waist="Witful Belt", legs="Leth. Fuseau +1", feet="Leth. Houseaux +1"
 		}
 
+		--Enspell Formula: Floor[(400/3098)(Skill+3.65)]
+		--Temper II Formula: floor[( Enhancing Magic Skill - 300 ) ÷ 10]
 		sets.midcast.Enspells =
-		{
-			main="Colada", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
+		{--		Enhancing Skill: 624	Duration: 1.55		Enspell Damage: 81		Temper II: 32%
+			main="Pukulatmuj +1", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head="Befouled Crown", neck="Incanter's Torque", lear="Andoaa Earring", rear="Augment. Earring",
 			body="Viti. Tabard +3", hands="Viti. Gloves +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Fi Follet Cape +1", waist="Olympus Sash", legs="Atrophy Tights +3", feet="Leth. Houseaux +1"
 		}
 		
 		sets.midcast.EnspellsDW = set_combine(sets.midcast.Enspells,
-		{
+		{--		Enhancing Skill: 634	Duration: 1.45		Enspell Damage: 82		Temper II: 33%
 			main="Pukulatmuj +1", sub="Pukulatmuj",
 		})
 
+
+		--Phalanx Formula: 28 + Floor( (Enhancing Magic Skill - 300.5) / 28.5)
 		sets.midcast.Phalanxs = set_combine(sets.midcast.Enspells,
-		{
+		{--		Phalanx:+15		Enhancing Skill: 500	Duration: (1.1 * 1.4)	Phalanx Total: 50
 			ammo="Staunch Tathlum +1",
 			head=gear.THead_Phalanx, neck="Dls. Torque +1",
 			body=gear.TBody_Phalanx, hands=gear.THands_Phalanx,
-			legs=gear.TLegs_Phalanx, feet=gear.TFeet_Phalanx
-		})
-		
-		sets.midcast.PhalanxDW = set_combine(sets.midcast.Phalanx,
-		{
-			main="Pukulatmuj +1", sub="Pukulatmuj"
+			back="Ghostfyre Cape", legs=gear.TLegs_Phalanx, feet=gear.TFeet_Phalanx
 		})
 
 		sets.midcast.Klimaform = sets.midcast.FastRecast
@@ -364,15 +370,15 @@ function init_gear_sets()
 		{
 			main="Maxentius", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head=gear.NukeHood, neck="Mizu. Kubikazari", lear="Regal Earring", rear="Static Earring",
-			body="Merlinic Jubbah", hands="Amalric Gages +1", lring={name="Shiva Ring +1", bag="wardrobe2"}, rring="Mujin Band",
-			back=gear.RDMCape_Nuke, waist="Refoccilation Stone", legs="Amalric Slops +1", feet=gear.NukeCrackows
+			body="Amalric Doublet +1", hands="Amalric Gages +1", lring={name="Shiva Ring +1", bag="wardrobe2"}, rring="Mujin Band",
+			back=gear.RDMCape_Nuke, waist="Refoccilation Stone", legs="Merlinic Shalwar", feet=gear.NukeCrackows
 		}
 		
 		sets.magic_burst.Resistant = set_combine(sets.magic_burst,
 		{
 			head="Atrophy Chapeau +3",
 			hands="Regal Cuffs",
-			waist="Eschan Stone", legs="Jhakri Slops +2", feet="Vitiation Boots +3"
+			waist="Eschan Stone", feet="Vitiation Boots +3"
 		})
 	
 
@@ -433,9 +439,9 @@ function init_gear_sets()
 		}
 
 		sets.idle.DT = set_combine(sets.idle,
-		{--	DT: -25%	PDT: -58%	MDT:-27%	Refresh: 10~11
+		{--	DT: -25%	PDT: -60%	MDT:-24%	Refresh: 10~11
 			main="Mafic Cudgel", sub="Genmei Shield", ammo="Staunch Tathlum +1",
-			neck="Loricate Torque +1", lear="Etiolation Earring", rear="Sanare Earring",
+			neck="Loricate Torque +1",  lear="Genmei Earring", rear="Sanare Earring",
 			lring="Defending Ring", rring="Gelatinous Ring +1"
 		})
 		
@@ -1363,12 +1369,8 @@ end
 function job_get_spell_map(spell, default_spell_map)
 	if spell.action_type == 'Magic' then
 		if determine_DW() > 0 then
-			if default_spell_map == 'Tempers' then
-				return "TempersDW"
-			elseif default_spell_map == 'Enspells' then 
+			if default_spell_map == 'Enspells' then
 				return "EnspellsDW"
-			elseif spell.english == 'Phalanx' then
-				return "PhalanxDW"
 			end
 		end
 	end

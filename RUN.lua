@@ -109,7 +109,7 @@ function init_gear_sets()
 		
 		sets.precast.JA['Pflug'] = { feet="Runeist Bottes +1" }
 
-		sets.precast.JA['Battuta'] = { head="Fu. Bandeau +1" }
+		sets.precast.JA['Battuta'] = { head="Fu. Bandeau +2" }
 
 		sets.precast.JA['Liement'] = { body="Futhark Coat +3" }
 
@@ -214,15 +214,15 @@ function init_gear_sets()
 		sets.midcast.Phalanx =
 		{-- 28 + ((Enhancing Magic Skill - 300.5)/28.5) + 17 = 50
 			ammo="Staunch Tathlum +1",
-			head="Fu. Bandeau +1", neck="Incanter's Torque", lear="Andoaa Earring", rear="Odnowa Earring +1",
+			head="Fu. Bandeau +2", neck="Incanter's Torque", lear="Andoaa Earring", rear="Odnowa Earring +1",
 			body=gear.TBody_Phalanx, hands=gear.THands_Phalanx, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Moonbeam Ring",
-			back="Moonlight Cape", waist="Olympus Sash", legs=gear.TLegs_Phalanx, feet=gear.TFeet_Phalanx
+			back="Merciful Cape", waist="Olympus Sash", legs=gear.TLegs_Phalanx, feet=gear.TFeet_Phalanx
 		}
 
 		sets.midcast.Temper = 
 		{ 
 			ammo="Staunch Tathlum +1",
-			head="Carmine Mask +1", neck="Incanter's Torque", lear="Andoaa Earring", rear="Odnowa Earring +1",
+			head="Carmine Mask +1", neck="Incanter's Torque", lear="Andoaa Earring", rear="Augment. Earring",
 			body="Futhark Coat +3", hands="Runeist's Mitons +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Merciful Cape", waist="Olympus Sash", legs="Carmine Cuisses +1", feet="Turms Leggings"
 		}
@@ -265,6 +265,8 @@ function init_gear_sets()
 		sets.midcast.Foil = sets.Enmity
 		
 		sets.midcast.Debuffs = sets.Enmity
+		
+		sets.midcast.Poisonga = sets.Enmity
 
 	
 	
@@ -331,9 +333,9 @@ function init_gear_sets()
 		}
 
 		sets.idle.DT = 
-		{-- DT: 38%	PDT: 49%	MDT: 43%
+		{-- DT: 38%	PDT: 31%	MDT: 40%
 			ammo="Staunch Tathlum +1",
-			head="Turms Cap", neck="Futhark Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
+			head="Turms Cap", neck="Futhark Torque +1", lear="Genmei Earring", rear="Odnowa Earring +1",
 			body="Futhark Coat +3", hands="Turms Mittens +1", lring="Defending Ring", rring="Moonbeam Ring",
 			back="Moonlight Cape", waist="Flume Belt +1", legs="Eri. Leg Guards +1", feet="Turms Leggings"
 		}
@@ -367,7 +369,7 @@ function init_gear_sets()
 		sets.defense.PDT =
 		{--DT: -38%	PDT: -53%	MDT: -43%
 			ammo="Staunch Tathlum +1",
-			head=gear.AHead_PDT, neck="Futhark Torque +1", lear="Sanare Earring", rear="Odnowa Earring +1",
+			head=gear.AHead_PDT, neck="Futhark Torque +1", lear="Genmei Earring", rear="Odnowa Earring +1",
 			body="Erilaz Surcoat +1", hands="Turms Mittens +1", lring="Defending Ring", rring="Moonbeam Ring",
 			back="Moonlight Cape", waist="Flume Belt +1", legs="Eri. Leg Guards +1", feet="Erilaz Greaves +1"
 		}
@@ -377,7 +379,7 @@ function init_gear_sets()
 			ammo="Staunch Tathlum +1",
 			head="Turms Cap", neck="Futhark Torque +1", lear="Sanare Earring", rear="Odnowa Earring +1",
 			body="Runeist's Coat +2",hands="Turms Mittens +1", lring="Defending Ring", rring="Moonbeam Ring",
-			back="Moonlight Cape", waist="Carrier's Sash", legs="Eri. Leg Guards +1", feet="Turms Leggings"
+			back="Moonlight Cape", waist="Engraved Belt", legs="Eri. Leg Guards +1", feet="Turms Leggings"
 		}
 
 	
@@ -438,15 +440,16 @@ function init_gear_sets()
 		{
 			ammo="Knobkierrie",
 			head=gear.HHead_WSD, neck="Fotia Gorget", lear="Ishvara Earring", rear="Moonshade Earring",
-			body="Adhemar Jacket +1", hands="Meg. Gloves +2", lring="Regal Ring", rring="Karieyh Ring +1",
-			back=gear.RUNCape_STP, waist="Fotia Belt", legs="Samnuha Tights", feet=gear.HBoots_WSD
+			body="Adhemar Jacket +1", hands="Meg. Gloves +2", lring="Niqmaddu Ring", rring="Karieyh Ring +1",
+			back=gear.RUNCape_RES, waist="Fotia Belt", legs="Samnuha Tights", feet=gear.HBoots_WSD
 		}
 
     ---Dimidation
 		sets.precast.WS['Dimidiation'] = set_combine(sets.precast.WS,
 		{
 			lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-			body="Herculean Vest"
+			body="Herculean Vest", lring="Regal Ring",
+			back=gear.RUNCape_STP,
 		})
 		
 		sets.precast.WS['Dimidiation'].Low = sets.precast.WS['Dimidiation']
@@ -499,14 +502,14 @@ function init_gear_sets()
 		{
 			ammo="Seeth. Bomblet +1",
 			head=gear.AHead_TP, lear="Sherida Earring",
-			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Niqmaddu Ring", rring="Epona's Ring",
-			legs="Samnuha Tights", feet=gear.HBoots_TP
+			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", rring="Regal Ring",
+			legs="Meg. Chausses +2", feet=gear.HBoots_TP
 		})
 		
 		sets.precast.WS['Resolution'].Low = set_combine(sets.precast.WS['Resolution'],
 		{
 			head=gear.HHead_WSD, rear={name="Mache Earring +1", bag="wardrobe3"},
-			body="Herculean Vest", rring="Regal Ring"
+			body="Herculean Vest", 
 		})
 		
 		sets.precast.WS['Resolution'].Mid = set_combine(sets.precast.WS['Resolution'].Low,
@@ -605,7 +608,7 @@ function init_gear_sets()
 		}
 		
 		sets.engaged.Hybrid2 =
-		{-- 		DT: 29%		PDT: 47%	MDT: 29%
+		{-- 		DT: 29%		PDT: 43%	MDT: 29%
 			ammo="Yamarang",
 			head="Turms Cap", neck="Futhark Torque +1",
 			body="Futhark Coat +3", hands="Turms Mittens +1", lring="Defending Ring", rring="Moonbeam Ring",
@@ -664,15 +667,13 @@ function job_midcast(spell, action, spellMap, eventArgs)
 	
 	if spell.action_type == 'Magic' then
 		if state.CastingMode.value == 'HP' then
-			if spell.English == 'Flash' or spell.English == 'Foil' or spell.English == 'Stun' or spellMap == 'Debuffs' then
+			if spell.English == 'Flash' or spell.English == 'Foil' or spell.English == 'Stun' or spell.English == 'Poisonga' or spellMap == 'Debuffs' then
 				equip(sets.Enmity.HP)
 			else
 				equip(sets.midcast.FC.HP)
 				equip(sets.midcast['currentSpell'])
 			end
 		elseif state.CastingMode.value == 'SIRD' then
-			eventArgs.handled = true
-			
 			if spellMap == 'Debuffs' then
 				equip(sets.midcast.FC.SIRD)
 			else

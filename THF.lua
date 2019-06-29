@@ -185,14 +185,14 @@ function init_gear_sets()
 			ammo="Staunch Tathlum +1",
 			head=gear.AHead_PDT, neck="Loricate Torque +1", lear="Dawn Earring", rear="Infused Earring",
 			body="Meg. Cuirie +2", hands="Meg. Gloves +2", lring="Defending Ring", rring="Moonbeam Ring",
-			back="Moonlight Cape", waist="Carrier's Sash", legs="Mummu Kecks +2", feet="Jute Boots +1"
+			back="Moonlight Cape", waist="Engraved Belt", legs="Mummu Kecks +2", feet="Jute Boots +1"
 		}
 
 		sets.idle.DT = set_combine (sets.idle,
 		{--	DT: 35%		PDT: 51%	MDT: 35%
 			head=gear.AHead_PDT, neck="Loricate Torque +1",
 			lring="Defending Ring", rring="Moonbeam Ring",
-			waist="Carrier's Sash", legs="Mummu Kecks +2",
+			waist="Engraved Belt", legs="Mummu Kecks +2",
 		})
 
 		sets.idle.Town = set_combine(sets.idle,
@@ -214,7 +214,7 @@ function init_gear_sets()
 
 		sets.defense.MDT = set_combine(sets.idle.DT,
 		{--	DT: 29%		PDT: 45%	MDT: 29%
-			neck="Warder's Charm",
+			neck="Warder's Charm +1",
 			hands="Leyline Gloves"
 		})
 	

@@ -482,8 +482,8 @@ function init_gear_sets()
 		}
 
 		sets.idle.DT = set_combine(sets.idle,
-		{--		DT: -31%	PDT: -44%	MDT: -35%	Refresh: 5	Regen: 0
-			neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
+		{--		DT: -31%	PDT: -46%	MDT: -32%	Refresh: 5	Regen: 0
+			neck="Loricate Torque +1",  lear="Genmei Earring", rear="Odnowa Earring +1",
 			hands="Assim. Bazu. +3", lring="Defending Ring", rring="Gelatinous Ring +1"
 		})
 		
@@ -1608,7 +1608,7 @@ function init_gear_sets()
 		----------------------------------------------------------
 		-- Sword & Board
 		----------------------------------------------------------	
-	    	sets.engaged.DT 				= set_combine(sets.engaged, 		sets.engaged.Hybrid)
+	    sets.engaged.DT 				= set_combine(sets.engaged, 		sets.engaged.Hybrid)
 		sets.engaged.AM3.DT 				= set_combine(sets.engaged.AM3,		sets.engaged.Hybrid)
 		sets.engaged.Low.DT 				= set_combine(sets.engaged.Low, 	sets.engaged.Hybrid)
 		sets.engaged.Mid.DT 				= set_combine(sets.engaged.Mid, 	sets.engaged.Hybrid)

@@ -31,7 +31,7 @@ end
 function user_setup()
 	state.OffenseMode:options('Refresh', 'Normal')
 	state.CastingMode:options('Normal', 'Resistant','Potency')
-	state.IdleMode:options('Normal', 'DT','Vagary')
+	state.IdleMode:options('Normal', 'DT')
 
 	apply_job_change()
 end
@@ -330,15 +330,15 @@ function init_gear_sets()
 		---Magic Burst
 		sets.magic_burst = set_combine(sets.midcast['Elemental Magic'],
 		{--		Magic Burst: +42%	Magic Burst II: +10%
-			head="Peda. M.Board +3", neck="Mizu. Kubikazari", rear="Static Earring",
-			body="Merlinic Jubbah", hands="Amalric Gages +1", lring="Locus Ring", rring="Mujin Band",
-			feet="Jhakri Pigaches +2"
+			neck="Mizu. Kubikazari", rear="Static Earring",
+			lring="Locus Ring", rring="Mujin Band",
+			legs="Merlinic Shalwar", feet="Jhakri Pigaches +2"
 		})
 		
 		sets.magic_burst.Resistant = set_combine(sets.magic_burst,
 		{--		Magic Burst: 42%	Magic Burst II: +4%
-			hands="Regal Cuffs", lear="Barkaro. Earring",
-			waist="Eschan Stone", legs="Peda. Pants +3"
+			hands="Regal Cuffs",
+			waist="Eschan Stone", feet="Acad. Loafers +3"
 		})
 
 	
@@ -362,17 +362,17 @@ function init_gear_sets()
 		}
 
 		sets.idle.DT = set_combine(sets.idle,
-		{--	DT: -30%	PDT: -37%	MDT:-32%	Refresh: 11~12
+		{--	DT: -30%	PDT: -41%	MDT:-29%	Refresh: 11~12
 			ammo="Staunch Tathlum +1",
-			neck="Loricate Torque +1", lear="Etiolation Earring", rear="Sanare Earring",
+			neck="Loricate Torque +1", lear="Genmei Earring", rear="Sanare Earring",
 			lring="Defending Ring", rring="Gelatinous Ring +1"
 		})
 		
-		sets.idle.Vagary = set_combine(sets.magic_burst, 
+--[[		sets.idle.Vagary = set_combine(sets.magic_burst, 
 		{
 			main="Akademos", sub="Niobid Strap",
 			waist="Hachirin-no-Obi", feet="Arbatel Loafers +1"
-		})
+		})]]
 
 		sets.idle.Town = set_combine(sets.idle,
 		{
@@ -390,9 +390,9 @@ function init_gear_sets()
 	------------------------------------------------------------------------------------------------
 
 		sets.defense.PDT =
-		{--	DT: -38%	PDT: -50%	MDT:-42%
+		{--	DT: -38%	PDT: -52%	MDT:-42%
 			main="Akademos", sub="Kaja Grip", ammo="Staunch Tathlum +1",
-			head="Befouled Crown", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
+			head="Befouled Crown", neck="Loricate Torque +1",  lear="Genmei Earring", rear="Odnowa Earring +1",
 			body="Mallquis Saio +2", hands="Chironic Gloves", lring="Defending Ring", rring="Gelatinous Ring +1",
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Artsieq Hose", feet="Chironic Slippers"
 		}
@@ -695,7 +695,7 @@ function apply_grimoire_bonuses(spell, action, spellMap)
 		equip(sets.buff['Rapture'])
 	end
 	if (spell.skill == 'Elemental Magic' or spell.english == 'Kaustra' or spell.english == 'Impact') and spellMap ~= 'ElementalEnfeeble' then
-		if state.Buff.Klimaform and spell.element == world.weather_element then
+		if state.Buff.Klimaform and spell.element == world.weather_element and state.CastingMode.value ~= 'Resistant' then
 			equip(sets.buff['Klimaform'])
 		end
 	end
