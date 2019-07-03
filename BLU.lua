@@ -24,6 +24,8 @@ function job_setup()
 
 
 	include('Mote-TreasureHunter')
+	
+	state.EnmityDown = M(false)
 
 	determine_haste_group()
 	update_combat_form()
@@ -61,6 +63,8 @@ function user_setup()
 	
 	send_command('bind ^= gs c cycle treasuremode')
 	
+	send_command('bind numpad. gs c toggle EnmityDown')
+	
 	send_command('bind pageup gs c cycle MainWeaponSet')
 	send_command('bind pagedown gs c cycleback MainWeaponSet')
 	
@@ -73,6 +77,7 @@ end
 -- Called when this job file is unloaded (eg: job change)
 function user_unload()
 	send_command('unbind ^=')
+	send_command('unbind numpad.')
 	send_command('unbind pageup')
 	send_command('unbind pagedown')
 	send_command('unbind ^pageup')
@@ -91,14 +96,15 @@ function init_gear_sets()
 --------------------									--------------------
 ----------------------------------------------------------------------------
 
-	
-	-------------------
-	-- Job Abilities --
-	------------------- 
+	--------------------------------------
+	-- Special Sets
+	--------------------------------------
 
-		sets.precast.JA['Azure Lore'] = { hands="Luh. Bazubands +3" }
+		sets.Kiting = { legs="Carmine Cuisses +1" }
 		
-		sets.precast.JA['Provoke'] =
+		sets.TreasureHunter = { waist="Chaac Belt" }
+		
+		sets.Enmity = 
 		{--		Enmity: +64
 			ammo="Sapience Orb",
 			head="Rabid Visor", neck="Unmoving Collar +1", lear="Cryptic Earring", rear="Friomisi Earring",
@@ -106,11 +112,39 @@ function init_gear_sets()
 			back="Reiki Cloak", waist="Trance Belt", legs="Zoar Subligar +1", feet="Ahosi Leggings"
 		}
 		
-		sets.precast.JA['Warcry'] = sets.precast.JA['Provoke']
+		sets.EnmityDown =
+		{
+			rear="Novia Earring",
+			body="Adhemar Jacket +1",
+			lring="Kuchekula Ring"
+		}
 		
-		sets.precast.JA['Pflug'] = sets.precast.JA['Provoke']
+	---Buffs
+		sets.buff.Doom = 
+		{
+			neck="Nicander's Necklace",
+			lring={name="Eshmun's Ring", bag="wardrobe2"}, rring={name="Eshmun's Ring", bag="wardrobe3"},
+			waist="Gishdubar Sash"
+		}
 		
-		sets.precast.JA['Animated Flourish'] = sets.precast.JA['Provoke']
+		sets.buff['Chain Affinity'] = { feet="Assim. Charuqs +3" }
+		
+		sets.buff['Diffusion'] = { feet="Luhlaza Charuqs +3" }
+
+	
+	-------------------
+	-- Job Abilities --
+	------------------- 
+
+		sets.precast.JA['Azure Lore'] = { hands="Luh. Bazubands +3" }
+		
+		sets.precast.JA['Provoke'] = sets.Enmity
+		
+		sets.precast.JA['Warcry'] = sets.Enmity
+		
+		sets.precast.JA['Pflug'] = sets.Enmity
+		
+		sets.precast.JA['Animated Flourish'] = sets.Enmity
 		
 
 	-------------------
@@ -201,7 +235,7 @@ function init_gear_sets()
 			body="Telchine Chas."
 		})
 		
-		sets.midcast.Fantod =  sets.precast.JA['Provoke']
+		sets.midcast.Fantod =  sets.Enmity
 		
 		
     --------------------------------------
@@ -543,24 +577,7 @@ function init_gear_sets()
 			legs="Pinga Pants",
 		})
 
-	--------------------------------------
-	-- Special Sets
-	--------------------------------------
 
-		sets.Kiting = { legs="Carmine Cuisses +1" }
-		
-		sets.TreasureHunter = { waist="Chaac Belt" }
-	---Buffs
-		sets.buff.Doom = 
-		{
-			neck="Nicander's Necklace",
-			lring={name="Eshmun's Ring", bag="wardrobe2"}, rring={name="Eshmun's Ring", bag="wardrobe3"},
-			waist="Gishdubar Sash"
-		}
-		
-		sets.buff['Chain Affinity'] = { feet="Assim. Charuqs +3" }
-		
-		sets.buff['Diffusion'] = { feet="Luhlaza Charuqs +3" }
 
 
 ----------------------------------------------------------------------------
@@ -1963,7 +1980,11 @@ end
 -------------------------------------------------------------------------------------------------------------------
 
 -- Run after the general precast() is done.
-
+function job_post_precast(spell, action, spellMap, eventArgs)
+	if state.EnmityDown.value and spell.type == 'WeaponSkill' then
+		equip(sets.EnmityDown)
+	end
+end
 
 -- Run after the general midcast() set is constructed.
 function job_post_midcast(spell, action, spellMap, eventArgs)

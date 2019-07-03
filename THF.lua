@@ -278,9 +278,9 @@ function init_gear_sets()
 		sets.precast.WS =
 		{
 			ammo="Seeth. Bomblet +1",
-			head="Lilitu Headpiece", neck="Fotia Gorget", lear="Sherida Earring", rear="Moonshade Earring",
+			head="Lustratio Cap +1", neck="Fotia Gorget", lear="Sherida Earring", rear="Moonshade Earring",
 			body="Adhemar Jacket +1", hands="Meg. Gloves +2", lring="Ilabrat Ring", rring="Epona's Ring",
-			back=gear.THFCape_STP, waist="Fotia Belt", legs="Samnuha Tights", feet=gear.HBoots_TP
+			back=gear.THFCape_STP, waist="Fotia Belt", legs="Samnuha Tights", feet="Lustra. Leggings +1"
 		} 
 
 		sets.precast.WS.Low = set_combine(sets.precast.WS,
@@ -304,8 +304,7 @@ function init_gear_sets()
 		{
 			ammo="Yetshila",
 			head=gear.AHead_TP, lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-			body="Abnoba Kaftan", rring="Regal Ring",
-			feet=gear.HBoots_Crit
+			rring="Regal Ring"
 		})
 
 		sets.precast.WS.TA = sets.precast.WS.SA
@@ -316,7 +315,7 @@ function init_gear_sets()
 		{
 			head=gear.AHead_TP, rear={name="Mache Earring +1", bag="wardrobe3"},
 			hands="Floral Gauntlets",
-			legs="Meg. Chausses +2"
+			legs="Meg. Chausses +2", feet=gear.HBoots_TP
 		})
 
 		sets.precast.WS['Exenterator'].Low = set_combine(sets.precast.WS['Exenterator'],
@@ -338,7 +337,7 @@ function init_gear_sets()
 		{
 			ammo="Yetshila",
 			head=gear.AHead_TP, lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-			bbody="Abnoba Kaftan", rring="Regal Ring",
+			rring="Regal Ring",
 			feet=gear.HBoots_Crit
 		})
 
@@ -348,9 +347,9 @@ function init_gear_sets()
 		sets.precast.WS['Evisceration'] = set_combine(sets.precast.WS,
 		{
 			ammo="Yetshila",
-			head=gear.AHead_TP, rear={name="Mache Earring +1", bag="wardrobe3"},
-			body="Abnoba Kaftan", hands="Mummu Wrists +2", lring="Begrudging Ring",
-			back=gear.THFCape_Crit, feet=gear.HBoots_Crit
+			rear={name="Mache Earring +1", bag="wardrobe3"},
+			hands="Mummu Wrists +2", lring="Begrudging Ring",
+			back=gear.THFCape_Crit, legs="Lustr. Subligar +1", feet=gear.HBoots_Crit
 		})
 
 		sets.precast.WS['Evisceration'].Low = set_combine(sets.precast.WS['Evisceration'],
@@ -371,7 +370,7 @@ function init_gear_sets()
 		{
 			ammo="Yetshila",
 			head=gear.AHead_TP, lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-			body="Abnoba Kaftan", rring="Regal Ring",
+			rring="Regal Ring",
 			feet=gear.HBoots_Crit
 		})
 
@@ -381,8 +380,8 @@ function init_gear_sets()
 		sets.precast.WS['Dancing Edge'] = set_combine(sets.precast.WS,
 		{
 			ammo="Falcon Eye",
-			head=gear.AHead_TP,
 			hands="Adhemar Wrist. +1", lring="Regal Ring",
+			legs="Lustr. Subligar +1", feet=gear.HBoots_TP
 		})
 
 		sets.precast.WS['Dancing Edge'].Low = set_combine(sets.precast.WS['Dancing Edge'],
@@ -392,7 +391,7 @@ function init_gear_sets()
 		
 		sets.precast.WS['Dancing Edge'].Mid = set_combine(sets.precast.WS['Dancing Edge'].Low,
 		{
-			rear="Mache Earring +1"
+			rear={name="Mache Earring +1", bag="wardrobe3"},
 		})
 		
 		sets.precast.WS['Dancing Edge'].High = set_combine(sets.precast.WS['Dancing Edge'].Mid,
@@ -406,7 +405,7 @@ function init_gear_sets()
 		{
 			ammo="Yetshila",
 			head=gear.AHead_TP,
-			body="Abnoba Kaftan", rring="Regal Ring",
+			rring="Regal Ring",
 			feet=gear.HBoots_Crit
 		})
 
@@ -417,7 +416,7 @@ function init_gear_sets()
 		{
 			neck="Caro Necklace", lear={name="Mache Earring +1", bag="wardrobe2"},
 			body="Herculean Vest", rring="Karieyh Ring +1",
-			legs="Herculean Trousers", waist="Grunfeld Rope", feet=gear.HBoots_WSD
+			waist="Grunfeld Rope", legs="Lustr. Subligar +1", feet="Lustra. Leggings +1"
 		})
 
 		sets.precast.WS['Rudra\'s Storm'].Low = sets.precast.WS["Rudra's Storm"]
@@ -429,7 +428,8 @@ function init_gear_sets()
 		sets.precast.WS['Rudra\'s Storm'].SA = set_combine(sets.precast.WS["Rudra's Storm"],
 		{
 			ammo="Yetshila",
-			head=gear.AHead_TP, lear={name="Mache Earring +1", bag="wardrobe2"}, rear="Mache Earring +1"
+			head=gear.AHead_TP, lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
+			feet=gear.HBoots_Crit
 		})
 
 		sets.precast.WS['Rudra\'s Storm'].TA = sets.precast.WS["Rudra's Storm"].SA
