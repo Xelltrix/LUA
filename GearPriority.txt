@@ -3,14 +3,14 @@ Priority A
 -----------
 Epaminondas's Ring        Price: 30,000,000G
 
-Lustratio Leggings +1     Price: 10,000,000G (6,000,000G) PATH D
-
 -----------
 Priority B
 -----------
 
 Turms Caps +1             Price: 35,000,000G (20,000,000)
 Turms Leggings +1         Price: 31,000,000G (20,000,000)
+
+Argute Stole +2           Price: 90,000,000G
 
 Crocea Mors               Price: 190,000,000G (150,000,000G)
 
@@ -19,8 +19,6 @@ Crocea Mors               Price: 190,000,000G (150,000,000G)
 Priority C
 -----------
 Moonlight Ring            Price: 45,000,000G (33,000,000G)
-
-Argute Stole +2           Price: 90,000,000G
 
 Kaykaus Mitra +1          Price: 30,000,000G (40,000,000G)
 Kaykaus Briault +1        Price: 10,000,000G (20,000,000G)
