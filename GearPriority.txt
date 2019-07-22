@@ -8,21 +8,20 @@ Crocea Mors               Price: 190,000,000G (150,000,000G)
 Priority B
 -----------
 Moonlight Ring            Price: 40,000,000G
-
 Moonlight Necklace        Price: 40,000,000G
 Argute Stole +2           Price: 90,000,000G
 
-Kaykaus Mitra +1          Price: 30,000,000G (40,000,000G)
-Kaykaus Briault +1        Price: 10,000,000G (20,000,000G)
-Kaykaus Boots +1          Price: 25,000,000G (25,000,000G)
-
------------
-Priority C
------------
 Futhark Torque +2         Price: 80,000,000G
 
 Baayami Slops +1          Price: 40,000,000G
 Baayami Sabots +1         Price: 30,000,000G
+
+-----------
+Priority C
+-----------
+Kaykaus Mitra +1          Price: 30,000,000G (40,000,000G)
+Kaykaus Briault +1        Price: 10,000,000G (20,000,000G)
+Kaykaus Boots +1          Price: 25,000,000G (25,000,000G)
 
 Duelist's Torque +2       Price: 100,000,000G
 Summoner's Collar +2      Price: 80,000,000G
