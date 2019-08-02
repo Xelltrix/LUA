@@ -280,7 +280,7 @@ function init_gear_sets()
 	{
 		ammo="Knobkierrie",
 		head="Odyssean Helm", neck="Fotia Gorget", lear="Ishvara Earring", rear="Moonshade Earring",
-		body="Flamma Korazin +2", hands="Odyssean Gauntlets", lring="Niqmaddu Ring", rring="Regal Ring",
+		body="Flamma Korazin +2", hands="Odyssean Gauntlets", lring="Karieyh Ring +1", rring="Epaminondas's Ring",
 		back="Ankou's Mantle", waist="Fotia Belt", legs="Sulev. Cuisses +2", feet="Sulev. Leggings +2"
 	}
 	
@@ -349,6 +349,14 @@ function job_buff_change(buff,gain)
             handle_equipping_gear(player.status)
         end
     end
+	
+	if buff == "sleep" then
+		if gain then
+			equip({head="Frenzy Sallet"})
+		else
+			handle_equipping_gear(player.status)
+		end
+	end
 
 	if S{'last resort','haste','march','embrava','haste samba', 'mighty guard', 'geo-haste', 'indi-haste', 'slow', 'indi-slow', 'elegy'}:contains(buff:lower()) then
 		determine_haste_group()

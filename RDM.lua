@@ -31,13 +31,13 @@ function user_setup()
 	
 	state.MainWeaponSet = M{['description']='Main Weapon Set',
 		'Naegling',
-		'Kaja',
+		'Tauret',
 		'Sequence',
 		'Almace'
 	}
 	
 	state.SubWeaponSet = M{['description']='Sub Weapon Set',
-		'subKaja',
+		'subTauret',
 		'subAlmace',
 		'subNaegling',
 		'Thibron'
@@ -118,7 +118,7 @@ function init_gear_sets()
 		{--		Fast Cast: 52%(+38%)
 			ammo="Staunch Tathlum +1",
 			head="Atrophy Chapeau +3", neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquacious Earring",
-			body="Viti. Tabard +3", hands="Chironic Gloves", lring="Kishar Ring", rring="Evanescence Ring", 
+			body="Viti. Tabard +3", hands="Chironic Gloves", lring="Kishar Ring", rring="Freke Ring",
 			back="Moonlight Cape", waist="Witful Belt", legs="Carmine Cuisses +1",feet="Amalric Nails +1"
 		}
 
@@ -349,7 +349,7 @@ function init_gear_sets()
 		{
 			main="Maxentius", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head=gear.NukeHood, neck="Sanctity Necklace", lear="Regal Earring", rear="Friomisi Earring", 
-			body="Amalric Doublet +1", hands="Amalric Gages +1", lring={name="Shiva Ring +1", bag="wardrobe2"}, rring={name="Shiva Ring +1", bag="wardrobe3"},
+			body="Amalric Doublet +1", hands="Amalric Gages +1", lring={name="Shiva Ring +1", bag="wardrobe2"}, rring="Freke Ring",
 			back=gear.RDMCape_Nuke, waist="Refoccilation Stone", legs="Amalric Slops +1", feet="Amalric Nails +1"
 		}
 
@@ -363,14 +363,14 @@ function init_gear_sets()
 		sets.midcast.Impact = set_combine(sets.midcast.Macc,
 		{
 			head=empty, lear="Digni. Earring",
-			body="Twilight Cloak",lring="Archon Ring",
+			body="Twilight Cloak", lring="Archon Ring",
 		})
 		
 		sets.magic_burst =
 		{
 			main="Maxentius", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head=gear.NukeHood, neck="Mizu. Kubikazari", lear="Regal Earring", rear="Static Earring",
-			body="Amalric Doublet +1", hands="Amalric Gages +1", lring={name="Shiva Ring +1", bag="wardrobe2"}, rring="Mujin Band",
+			body="Amalric Doublet +1", hands="Amalric Gages +1", lring="Mujin Band", rring="Freke Ring",
 			back=gear.RDMCape_Nuke, waist="Refoccilation Stone", legs="Merlinic Shalwar", feet=gear.NukeCrackows
 		}
 		
@@ -412,14 +412,14 @@ function init_gear_sets()
 
 		sets.Sequence = { main="Sequence" }
 			
-		sets.Kaja = { main="Kaja Knife" }
+		sets.Tauret = { main="Tauret" }
 			
 		sets.Almace = { main="Almace" }
 	
 	
 		sets.subNaegling = { sub="Naegling" }
 			
-		sets.subKaja = { sub="Kaja Knife" }
+		sets.subTauret = { sub="Tauret" }
 			
 		sets.subAlmace = { sub="Almace" }
 		
@@ -529,7 +529,7 @@ function init_gear_sets()
 		{
 			ammo="Floestone",
 			head="Viti. Chapeau +3", neck="Fotia Gorget", lear="Sherida Earring", rear="Moonshade Earring",
-			body="Viti. Tabard +3", hands="Atrophy Gloves +3", lring="Rufescent Ring", rring="Karieyh Ring +1",
+			body="Viti. Tabard +3", hands="Atrophy Gloves +3", lring="Karieyh Ring +1", rring="Epaminondas's Ring",
 			back=gear.RDMCape_WSD, waist="Fotia Belt", legs=gear.TLegs_TP, feet="Carmine Greaves +1"
 		}
 
@@ -612,7 +612,6 @@ function init_gear_sets()
 		{
 			ammo="Regal Gem",
 			head="Viti. Chapeau +3", neck="Dls. Torque +1", lear="Regal Earring",
-			lring="Shukuyu Ring",
 			waist="Prosilio Belt +1", legs="Jhakri Slops +2", feet="Carmine Greaves +1"
 		})
 		
@@ -642,7 +641,7 @@ function init_gear_sets()
 		{
 			ammo="Pemphredo Tathlum",
 			head="Pixie Hairpin +1", neck="Sanctity Necklace", lear="Regal Earring", rear="Friomisi Earring",
-			body="Amalric Doublet +1", hands="Jhakri Cuffs +2", lring="Archon Ring", rring="Karieyh Ring +1",
+			body="Amalric Doublet +1", hands="Jhakri Cuffs +2", lring="Archon Ring", rring="Epaminondas's Ring",
 			back=gear.RDMCape_ENF, waist="Orpheus's Sash", legs="Amalric Slops +1", feet="Vitiation Boots +3"
 		}
 	
@@ -685,7 +684,7 @@ function init_gear_sets()
 		sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS['Sanguine Blade'] ,
 		{
 			head=gear.NukeHood, 
-			lring={name="Shiva Ring +1", bag="wardrobe2"},
+			lring="Karieyh Ring +1",
 			back=gear.RDMCape_Nuke
 		})
 
@@ -1259,7 +1258,7 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 			equip(set_combine(sets.magic_burst,
 			{
 				head=empty,
-				body="Twilight Cloak", lring="Archon Ring"
+				body="Twilight Cloak", rring="Archon Ring"
 			}))
 		end
 	elseif spell.skill == 'Elemental Magic' and state.MagicBurst.value and state.CastingMode.value == 'Resistant' then
@@ -1269,7 +1268,7 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 			equip(set_combine(sets.magic_burst.Resistant,
 			{
 				head=empty,
-				body="Twilight Cloak", lring="Archon Ring",
+				body="Twilight Cloak", rring="Archon Ring",
 			}))
 		end
 	end

@@ -194,7 +194,7 @@ function init_gear_sets()
 		{
 			ammo="Seeth. Bomblet +1",
 			head=gear.AHead_TP, neck="Fotia Gorget", lear="Brutal Earring", rear="Moonshade Earring",
-			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Regal Ring", rring="Epona's Ring",
+			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Gere Ring", rring="Epona's Ring",
 			back="Andartia's Mantle", waist="Fotia Belt", legs="Samnuha Tights", feet=gear.HBoots_TP
 		}
 
@@ -214,89 +214,90 @@ function init_gear_sets()
 			lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"}
 		})
 
-	sets.precast.WS['Blade: Hi'] = set_combine(sets.precast.WS,
-	{
-		ammo="Yetshila",
-		head=gear.HHead_WSD, lear="Ishvara Earring",
-		body="Abnoba Kaftan", hands="Herculean Gloves", rring="Begrudging Ring",
-		legs="Adhemar Kecks +1", feet=gear.HBoots_WSD
-	})
+		sets.precast.WS['Blade: Hi'] = set_combine(sets.precast.WS,
+		{
+			ammo="Yetshila",
+			head=gear.HHead_WSD, lear="Ishvara Earring",
+			body="Abnoba Kaftan", hands="Herculean Gloves", rring="Begrudging Ring",
+			legs="Adhemar Kecks +1", feet=gear.HBoots_WSD
+		})
 
-	sets.precast.WS['Blade: Hi'].Low = set_combine(sets.precast.WS['Blade: Hi'],
-	{
-		lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"}
-	})
-	
-	sets.precast.WS['Blade: Hi'].Mid = set_combine(sets.precast.WS['Blade: Hi'].Low,
-	{
-		head="Dampening Tam",
-		hands="Adhemar Wrist. +1"
-	})
-	
-	sets.precast.WS['Blade: Hi'].High = set_combine(sets.precast.WS['Blade: Hi'].Mid,
-	{
-		ammo="Seeth. Bomblet +1",
-		feet=gear.HBoots_TP
-	})
+		sets.precast.WS['Blade: Hi'].Low = set_combine(sets.precast.WS['Blade: Hi'],
+		{
+			lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"}
+		})
+		
+		sets.precast.WS['Blade: Hi'].Mid = set_combine(sets.precast.WS['Blade: Hi'].Low,
+		{
+			head="Dampening Tam",
+			hands="Adhemar Wrist. +1"
+		})
+		
+		sets.precast.WS['Blade: Hi'].High = set_combine(sets.precast.WS['Blade: Hi'].Mid,
+		{
+			ammo="Seeth. Bomblet +1",
+			feet=gear.HBoots_TP
+		})
 
-	sets.precast.WS['Blade: Jin'] = set_combine(sets.precast.WS,
-	{
-		ammo="Yetshila",
-		lring="Begrudging Ring",
-		feet=gear.HBoots_Crit
-	})
+		sets.precast.WS['Blade: Jin'] = set_combine(sets.precast.WS,
+		{
+			ammo="Yetshila",
+			lring="Begrudging Ring",
+			feet=gear.HBoots_Crit
+		})
 
-	sets.precast.WS['Blade: Jin'].Low = set_combine(sets.precast.WS['Blade: Jin'],
-	{
-		head="Dampening Tam", lear="Telos Earring"
-	})
-	
-	sets.precast.WS['Blade: Jin'].Mid = set_combine(sets.precast.WS['Blade: Jin'].Low,
-	{
-		feet=gear.HBoots_TP
-	})
-	
-	sets.precast.WS['Blade: Jin'].High = set_combine(sets.precast.WS['Blade: Jin'].Mid,
-	{
-		lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-		lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
-		legs="Adhemar Kecks +1"
-	})
+		sets.precast.WS['Blade: Jin'].Low = set_combine(sets.precast.WS['Blade: Jin'],
+		{
+			head="Dampening Tam", lear="Telos Earring"
+		})
+		
+		sets.precast.WS['Blade: Jin'].Mid = set_combine(sets.precast.WS['Blade: Jin'].Low,
+		{
+			feet=gear.HBoots_TP
+		})
+		
+		sets.precast.WS['Blade: Jin'].High = set_combine(sets.precast.WS['Blade: Jin'].Mid,
+		{
+			lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
+			lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			legs="Adhemar Kecks +1"
+		})
 
-	sets.precast.WS['Blade: Kamu'] = set_combine(sets.precast.WS,
-	{
-		body="Hiza. Haramaki +1",
-		feet="Hiza. Sune-Ate +1"
-	})
+		sets.precast.WS['Blade: Kamu'] = set_combine(sets.precast.WS,
+		{
+			body="Hiza. Haramaki +1",
+			lring="Karieyh Ring +1", rring="Epaminondas's Ring",
+			feet="Hiza. Sune-Ate +1"
+		})
 
-	sets.precast.WS['Blade: Kamu'].Acc = set_combine(sets.precast.WS['Blade: Kamu'],
-	{
-		head="Dampening Tam",
-		lring={name="Chirich Ring +1", bag="wardrobe2"},
-		legs="Adhemar Kecks +1"
-	})
+		sets.precast.WS['Blade: Kamu'].Acc = set_combine(sets.precast.WS['Blade: Kamu'],
+		{
+			head="Dampening Tam",
+			lring={name="Chirich Ring +1", bag="wardrobe2"},
+			legs="Adhemar Kecks +1"
+		})
 
-	sets.precast.WS['Blade: Yu'] = set_combine(sets.precast.WS,
-	{
-		ammo="Pemphredo Tathlum",
-		head=gear.HHead_MAB, lear="Friomisi Earring", rear="Crematio Earring",
-		body="Gyve Doublet", hands="Leyline Gloves", lring="Dingir Ring", rring={name="Shiva Ring +1", bag="wardrobe3"},
-		back="Andartia's Mantle", legs="Gyve Trousers", feet="Herculean Boots"
-	})
+		sets.precast.WS['Blade: Yu'] = set_combine(sets.precast.WS,
+		{
+			ammo="Pemphredo Tathlum",
+			head=gear.HHead_MAB, lear="Friomisi Earring", rear="Crematio Earring",
+			body="Gyve Doublet", hands="Leyline Gloves", lring="Dingir Ring", rring={name="Shiva Ring +1", bag="wardrobe3"},
+			back="Andartia's Mantle", legs="Gyve Trousers", feet="Herculean Boots"
+		})
 
-	sets.precast.WS['Blade: Ei'] = sets.precast.WS['Blade: Yu']
+		sets.precast.WS['Blade: Ei'] = sets.precast.WS['Blade: Yu']
 
-	sets.precast.WS['Blade: Teki'] = sets.precast.WS['Blade: Yu']
+		sets.precast.WS['Blade: Teki'] = sets.precast.WS['Blade: Yu']
 
-	sets.precast.WS['Evisceration'] = sets.precast.WS['Blade: Hi']
+		sets.precast.WS['Evisceration'] = sets.precast.WS['Blade: Hi']
 
-	sets.precast.WS['Evisceration'].Acc = sets.precast.WS['Blade: Hi'].Acc
+		sets.precast.WS['Evisceration'].Acc = sets.precast.WS['Blade: Hi'].Acc
 
-	sets.precast.WS['Gust Slash'] = sets.precast.WS['Blade: Yu']
+		sets.precast.WS['Gust Slash'] = sets.precast.WS['Blade: Yu']
 
-	sets.precast.WS['Cyclone'] = sets.precast.WS['Blade: Yu']
+		sets.precast.WS['Cyclone'] = sets.precast.WS['Blade: Yu']
 
-	sets.precast.WS['Aeolian Edge'] = sets.precast.WS['Blade: Yu']
+		sets.precast.WS['Aeolian Edge'] = sets.precast.WS['Blade: Yu']
 
     --------------------------------------
     -- Engaged sets

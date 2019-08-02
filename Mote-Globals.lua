@@ -46,6 +46,7 @@ function define_global_sets()
 	gear.RUNCape_FC = { name="Ogma's cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10','Mag. Evasion+10','Phys. dmg. taken-10%'}}
 	gear.RUNCape_RES = { name="Ogma's cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','"Dbl.Atk."+10','Phys. dmg. taken-10%'}}
 	gear.RUNCape_DIM = { name="Ogma's cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Phys. dmg. taken-10%'}}
+	gear.RUNCape_ENM = { name="Ogma's cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Phys. dmg. taken-10%',}}
 	
 	gear.THFCape_STP = { name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Store TP"+10','Phys. dmg. taken-10%',}}
 	gear.THFCape_Crit = { name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Crit.hit rate+10',}}
@@ -71,8 +72,9 @@ function define_global_sets()
 	gear.PetCrackows = { name="Merlinic Crackows", augments={'Pet: "Mag.Atk.Bns."+26','Blood Pact Dmg.+9','Pet: VIT+10','Pet: Mag. Acc.+10'}}
 
 	--- Herculean
-	gear.HHead_MAB = {name="Herculean Helm", augments={'Mag. Acc.+14 "Mag.Atk.Bns."+14','Magic burst dmg.+5%','MND+10','Mag. Acc.+14','"Mag.Atk.Bns."+15',}}
+	gear.HHead_MAB = { name="Herculean Helm", augments={'"Mag.Atk.Bns."+25','Pet: Accuracy+28 Pet: Rng. Acc.+28','Phalanx +1','Accuracy+12 Attack+12','Mag. Acc.+19 "Mag.Atk.Bns."+19',}}
 	gear.HHead_WSD = { name="Herculean Helm", augments={'Accuracy+29','Weapon skill damage +4%','STR+9','Attack+15'}}
+	gear.HHead_TH = { name="Herculean Helm", augments={'Pet: Accuracy+9 Pet: Rng. Acc.+9','Pet: "Mag.Atk.Bns."+8','"Treasure Hunter"+2',}}
 	
 	gear.HHands_Refresh = { name="Herculean Gloves", augments={'Pet: CHR+1','Attack+25','"Refresh"+1',}}
 	

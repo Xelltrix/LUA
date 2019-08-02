@@ -93,7 +93,7 @@ function init_gear_sets()
 	{
 		head=gear.AHead_TP, neck="Pentalagus Charm", lear="Dawn Earring", rear="Infused Earring",
 		body="Adhemar Jacket +1", hands="Pill. Armlets +1", lring="Ilabrat Ring", rring="Regal Ring",
-		waist="Chaac Belt", feet="Pill. Poulaines +1"
+		feet="Pill. Poulaines +1"
 	}
 
 	sets.precast.JA['Despoil'] =
@@ -162,7 +162,7 @@ function init_gear_sets()
 			ammo="Pemphredo Tathlum",
 			head=gear.HHead_MAB, neck="Sanctity Necklace", lear="Friomisi Earring", rear="Crematio Earring",
 			body="Samnuha Coat", hands="Leyline Gloves", lring="Dingir Ring", rring={name="Shiva Ring +1", bag="wardrobe3"},
-			back=gear.THFCape_STP, waist="Eschan Stone", legs="Herculean Trousers", feet=gear.HBoots_WSD
+			back=gear.THFCape_STP, waist="Eschan Stone", legs="Shned. Tights +1", feet=gear.HBoots_WSD
 		}
 		
 	
@@ -236,7 +236,7 @@ function init_gear_sets()
 			ammo="Yetshila",
 			head=gear.AHead_TP, neck="Caro Necklace", lear="Sherida Earring", rear="Suppanomimi",
 			body="Adhemar Jacket +1", hands="Meg. Gloves +2", lring="Ilabrat Ring", rring="Regal Ring",
-			back=gear.THFCape_STP, waist="Chaac Belt", legs="Samnuha Tights", feet="Meg. Jam. +2"
+			back=gear.THFCape_STP, legs="Samnuha Tights", feet="Meg. Jam. +2"
 		}
 
 		sets.buff['Trick Attack'] =
@@ -244,7 +244,7 @@ function init_gear_sets()
 			ammo="Yetshila",
 			head=gear.AHead_TP, neck="Pentalagus Charm", lear="Dawn Earring", rear="Suppanomimi",
 			body="Adhemar Jacket +1", hands="Meg. Gloves +2", lring="Ilabrat Ring", rring="Regal Ring",
-			back=gear.THFCape_STP, waist="Chaac Belt", legs="Meg. Chausses +2", feet="Meg. Jam. +2"
+			back=gear.THFCape_STP, legs="Meg. Chausses +2", feet="Meg. Jam. +2"
 		}
 		
 		sets.buff.Doom = 
@@ -279,7 +279,7 @@ function init_gear_sets()
 		{
 			ammo="Seeth. Bomblet +1",
 			head="Lustratio Cap +1", neck="Fotia Gorget", lear="Sherida Earring", rear="Moonshade Earring",
-			body="Adhemar Jacket +1", hands="Meg. Gloves +2", lring="Ilabrat Ring", rring="Epona's Ring",
+			body="Adhemar Jacket +1", hands="Meg. Gloves +2", lring="Ilabrat Ring", rring="Gere Ring",
 			back=gear.THFCape_STP, waist="Fotia Belt", legs="Samnuha Tights", feet="Lustra. Leggings +1"
 		} 
 
@@ -415,7 +415,7 @@ function init_gear_sets()
 		sets.precast.WS['Rudra\'s Storm'] = set_combine(sets.precast.WS,
 		{
 			neck="Caro Necklace", lear={name="Mache Earring +1", bag="wardrobe2"},
-			body="Herculean Vest", rring="Karieyh Ring +1",
+			body="Herculean Vest", lring="Karieyh Ring +1", rring="Epaminondas's Ring",
 			waist="Grunfeld Rope", legs="Lustr. Subligar +1", feet="Lustra. Leggings +1"
 		})
 
@@ -452,8 +452,8 @@ function init_gear_sets()
 		{
 			ammo="Pemphredo Tathlum",
 			head=gear.HHead_MAB, lear="Friomisi Earring",
-			body="Samnuha Coat", hands="Leyline Gloves", lring="Dingir Ring", rring="Karieyh Ring +1",
-			back="Toutatis's Cape", waist="Orpheus's Sash", legs="Herculean Trousers", feet=gear.HBoots_WSD
+			body="Samnuha Coat", hands="Leyline Gloves", lring="Dingir Ring", rring="Epaminondas's Ring",
+			back="Toutatis's Cape", waist="Orpheus's Sash", legs="Shned. Tights +1", feet=gear.HBoots_WSD
 		})
 
 		sets.precast.WS['Aeolian Edge'].TH = set_combine(sets.precast.WS['Aeolian Edge'], sets.TreasureHunter)
@@ -482,7 +482,7 @@ function init_gear_sets()
 		{
 			ammo="Yamarang",
 			head=gear.AHead_TP, neck="Anu Torque", lear="Eabani Earring", rear="Suppanomimi",
-			body="Adhemar Jacket +1", hands="Floral Gauntlets", lring="Hetairoi Ring", rring="Epona's Ring",
+			body="Adhemar Jacket +1", hands="Floral Gauntlets", lring="Epona's Ring", rring="Gere Ring",
 			back=gear.THFCape_STP, waist="Reiki Yotai", legs="Samnuha Tights", feet=gear.TFeet_TP
 		}
 
@@ -518,7 +518,7 @@ function init_gear_sets()
 		{
 			ammo="Yamarang",
 			head=gear.AHead_TP, neck="Anu Torque", lear="Eabani Earring", rear="Suppanomimi",
-			body="Adhemar Jacket +1", hands="Floral Gauntlets", lring="Hetairoi Ring", rring="Epona's Ring",
+			body="Adhemar Jacket +1", hands="Floral Gauntlets", lring="Epona's Ring", rring="Gere Ring",
 			back=gear.THFCape_STP, waist="Reiki Yotai", legs="Samnuha Tights", feet=gear.TFeet_TP
 		}
 
@@ -553,7 +553,7 @@ function init_gear_sets()
 		{
 			ammo="Yamarang",
 			head=gear.AHead_TP, neck="Anu Torque", lear="Eabani Earring", rear="Suppanomimi",
-			body="Adhemar Jacket +1", hands="Floral Gauntlets", lring="Hetairoi Ring", rring="Epona's Ring",
+			body="Adhemar Jacket +1", hands="Floral Gauntlets", lring="Epona's Ring", rring="Gere Ring",
 			back=gear.THFCape_STP, waist="Reiki Yotai", legs="Samnuha Tights", feet=gear.TFeet_TP
 		}
 
@@ -589,7 +589,7 @@ function init_gear_sets()
 		{
 			ammo="Yamarang",
 			head=gear.AHead_TP, neck="Anu Torque", lear="Sherida Earring", rear="Suppanomimi",
-			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Hetairoi Ring", rring="Epona's Ring",
+			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Epona's Ring", rring="Gere Ring",
 			back=gear.THFCape_STP, waist="Windbuffet Belt +1", legs="Samnuha Tights", feet=gear.HBoots_TP
 		}
 
@@ -753,6 +753,15 @@ function job_buff_change(buff,gain)
             handle_equipping_gear(player.status)
         end
     end
+	
+	if buff == "sleep" then
+		if gain then
+			equip({head="Frenzy Sallet"})
+		else
+			handle_equipping_gear(player.status)
+		end
+	end
+	
 
 	-- If we gain or lose any haste buffs, adjust which gear set we target.
 	if S{'haste','march','embrava','haste samba', 'mighty guard'}:contains(buff:lower()) then

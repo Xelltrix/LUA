@@ -253,7 +253,7 @@ function init_gear_sets()
 		sets.precast.WS = 
 		{
 			head="Lilitu Headpiece", neck="Fotia Gorget", lear="Ishvara Earring", rear="Moonshade Earring",
-			body="Herculean Vest", hands="Meg. Gloves +2", lring="Karieyh Ring +1", rring="Regal Ring",
+			body="Herculean Vest", hands="Meg. Gloves +2", lring="Karieyh Ring +1", rring="Epaminondas's Ring",
 			back="Camulus's Mantle", waist="Fotia Belt", legs="Herculean Trousers", feet=gear.HBoots_WSD
 		}
 		
@@ -261,14 +261,14 @@ function init_gear_sets()
 		sets.precast.WS['Leaden Salute'] = set_combine(sets.precast.WS, 
 		{
 			head="Pixie Hairpin +1", neck="Sanctity Necklace", lear="Friomisi Earring", rear="Crematio Earring",
-			body="Samnuha Coat", hands="Herculean Gloves", lring="Dingir Ring", rring="Archon Ring",
+			body="Samnuha Coat", hands="Herculean Gloves", lring="Archon Ring", rring="Epaminondas's Ring",
 			back="Camulus's Mantle", waist="Orpheus's Sash", legs="Lak. Trews +1", feet="Adhemar Gamashes"
 		})
 		
 		sets.precast.WS['Wildfire'] = set_combine(sets.precast.WS['Leaden Salute'],
 		{
 			head=gear.HHead_MAB,
-			rring="Karieyh Ring +1"
+			lring="Karieyh Ring +1"
 		})
 		sets.precast.WS['Hot Shot'] = sets.precast.WS['Wildfire']
 		
@@ -292,7 +292,9 @@ function init_gear_sets()
 			head=gear.HHead_WSD,
 			waist="Prosilio Belt +1", feet=gear.HBoots_WSD
 		})
+		
 		sets.precast.WS['Swift Blade'] = sets.precast.WS['Savage Blade']
+		
 		sets.precast.WS['Requiescat'] = set_combine(sets.precast.WS, 
 		{
 			lear="Brutal Earring",

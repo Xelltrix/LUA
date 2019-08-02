@@ -399,7 +399,7 @@ function init_gear_sets()
 		sets.precast.WS['Rudra\'s Storm'] = set_combine(sets.precast.WS,
 		{
 			head="Lilitu Headpiece", neck="Caro Necklace", lear="Ishvara Earring",
-			body="Herculean Vest", rring={name="Chirich Ring +1", bag="wardrobe3"},
+			body="Herculean Vest", lring="Karieyh Ring +1", rring="Epaminondas's Ring",
 			waist="Grunfeld Rope", legs="Herculean Trousers", feet=gear.HBoots_WSD
 		})
 
@@ -451,7 +451,7 @@ function init_gear_sets()
 		{
 			ammo="Pemphredo Tathlum",
 			head=gear.HHead_MAB, lear="Friomisi Earring",
-			body="Samnuha Coat", hands="Leyline Gloves", lring="Regal Ring", rring={name="Shiva Ring +1", bag="wardrobe3"},
+			body="Samnuha Coat", hands="Leyline Gloves", lring="Karieyh Ring +1", rring="Epaminondas's Ring",
 			back="Senuna's Mantle", legs="Herculean Trousers", feet=gear.HBoots_WSD
 		})
 
@@ -632,6 +632,14 @@ function job_buff_change(buff,gain)
     elseif buff == 'Climactic Flourish' then
         handle_equipping_gear(player.status)
     end
+	
+	if buff == "sleep" then
+		if gain then
+			equip({head="Frenzy Sallet"})
+		else
+			handle_equipping_gear(player.status)
+		end
+	end
 	
 	if buff == "doom" then
         if gain then

@@ -73,7 +73,7 @@ function init_gear_sets()
 	sets.precast.WS =
 	{
 		head="Lilitu Headpiece", neck="Fotia Gorget", lear="Neritic Earring", rear="Moonshade Earring",
-		body="Herculean Vest", hands="Meg. Gloves +2", lring="Dingir Ring", rring="Ilabrat Ring",
+		body="Herculean Vest", hands="Meg. Gloves +2", lring="Karieyh Ring +1", rring="Epaminondas's Ring",
 		back="Belenus's Cape", waist="Fotia Belt", legs="Herculean Trousers", gear.HBoots_WSD
 	}
 	

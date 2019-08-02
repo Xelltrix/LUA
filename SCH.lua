@@ -127,29 +127,29 @@ function init_gear_sets()
 	-- Healing Midcast sets
 	--------------------------------------	
 
-		-- Cure Potency/II: 51%/3%		Enmity: -52		Healing Magic Skill: +108
+		-- Cure Potency/II: 54%/6%		Enmity: -53		Healing Magic Skill: +108
 		sets.midcast.Cures =
 		{
 			main="Gada", sub="Sors Shield", ammo="Esper Stone +1",
-			head="Kaykaus Mitra", neck="Lasaia Pendant", lear="Novia Earring", rear="Mendi. Earring",
-			body="Kaykaus Bliaut", hands="Peda. Bracers +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Oretan. Cape +1", waist="Luminary Sash", legs="Pinga Pants", feet="Vanya Clogs"
+			head="Kaykaus Mitra", neck="Lasaia Pendant", lear="Novia Earring", rear="Beatific Earring",
+			body="Kaykaus Bliaut", hands="Peda. Bracers +3", lring="Lebeche Ring", rring={name="Stikini Ring +1", bag="wardrobe3"},
+			back=gear.SCHCape_ENF, waist="Bishop's Sash", legs="Acad. Pants +3", feet="Vanya Clogs"
 		}
 
-		-- Cure Potency/II: 50%/6%		Enmity: -51		Healing Magic Skill: +59
+		-- Cure Potency/II: 51%/6%		Enmity: -33		Healing Magic Skill: +59
 		sets.midcast.CuresLocked =
 		{
 			ammo="Staunch Tathlum +1",
 			head="Kaykaus Mitra", neck="Loricate Torque +1", lear="Genmei Earring", rear="Mendi. Earring",
 			body="Kaykaus Bliaut", hands="Peda. Bracers +3", lring="Defending Ring", rring="Menelaus's Ring",
-			back="Oretan. Cape +1",waist="Luminary Sash", legs="Pinga Pants", feet="Kaykaus Boots"
+			back="Oretan. Cape +1",waist="Carrier's Sash", legs="Acad. Pants +3",  feet="Kaykaus Boots"
 		}
 	
 		sets.midcast.CuresWeather =
 		{
 			main="Chatoyant Staff", sub="Enki Strap",
 			neck="Incanter's Torque",
-			lring="Lebeche Ring", rring="Menelaus's Ring",
+			lring="Lebeche Ring",
 			back="Twilight Cape", waist="Hachirin-no-Obi", feet="Kaykaus Boots"
 		}
 
@@ -162,7 +162,7 @@ function init_gear_sets()
 			main="Gada", sub="Chanter's Shield",
 			head="Kaykaus Mitra", neck="Debilis Medallion", lear="Beatific Earring", rear="Healing Earring",
 			body="Peda. Gown +3", hands="Hieros Mittens", lring="Haoma's Ring", rring="Menelaus's Ring",
-			back="Oretan. Cape +1", waist="Bishop's Sash", legs="Acad. Pants +2", feet="Vanya Clogs"
+			back="Oretan. Cape +1", waist="Bishop's Sash", legs="Acad. Pants +3", feet="Vanya Clogs"
 		})
 
 		sets.midcast.Raise = sets.midcast.ConserveMP

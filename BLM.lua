@@ -234,7 +234,7 @@ function init_gear_sets()
 		{
 			main="Lathi", sub="Niobid Strap", ammo="Pemphredo Tathlum",
 			head=gear.NukeHood, neck="Sanctity Necklace", lear="Regal Earring", rear="Barkaro. Earring",
-			body="Amalric Doublet +1", hands="Amalric Gages +1", lring={name="Shiva Ring +1", bag="wardrobe2"}, rring={name="Shiva Ring +1", bag="wardrobe3"},
+			body="Amalric Doublet +1", hands="Amalric Gages +1", lring="Freke Ring", rring={name="Shiva Ring +1", bag="wardrobe3"},
 			back=gear.BLMCape_Nuke, waist="Refoccilation Stone", legs="Amalric Slops +1", feet="Amalric Nails +1"
 		}
 
@@ -250,14 +250,14 @@ function init_gear_sets()
 		sets.midcast.Comet = set_combine(sets.midcast['Elemental Magic'],
 		{
 			head="Pixie Hairpin +1",
-			lring="Archon Ring",
+			rring="Archon Ring",
 		})
 
 		sets.midcast.Impact = set_combine(sets.midcast['Elemental Magic'],
 		{
 			head=empty,
 			body="Twilight Cloak",
-			lring="Archon Ring",
+			rring="Archon Ring",
 		})
 
 		sets.midcast.Death =
@@ -411,7 +411,7 @@ function init_gear_sets()
 		{
 			ammo="Floestone",
 			head="Jhakri Coronal +2", neck="Fotia Gorget", lear="Telos Earring", rear="Moonshade Earring",
-			body="Jhakri Robe +2", hands="Jhakri Cuffs +2", lring="Rufescent Ring", rring="Shukuyu Ring",
+			body="Jhakri Robe +2", hands="Jhakri Cuffs +2", lring="Karieyh Ring +1", rring="Epaminondas's Ring",
 			back=gear.BLMCape_Nuke, legs="Jhakri Slops +2", feet="Jhakri Pigaches +2"
 		}
 

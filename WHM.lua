@@ -333,7 +333,7 @@ function init_gear_sets()
 		{
 			main="Maxentius", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head="Chironic Hat", neck="Sanctity Necklace", lear="Friomisi Earring", rear="Regal Earring",
-			body="Chironic Doublet", hands="Fanatic Gloves", lring={name="Shiva Ring +1", bag="wardrobe2"}, rring={name="Shiva Ring +1", bag="wardrobe3"},
+			body="Chironic Doublet", hands="Fanatic Gloves", lring="Freke Ring", rring={name="Shiva Ring +1", bag="wardrobe3"},
 			back="Alaunus's Cape", waist="Orpheus's Sash", legs="Chironic Hose", feet="Chironic Slippers"
 		}
 
@@ -452,7 +452,7 @@ function init_gear_sets()
 		sets.precast.WS = 
 		{
 			head="Aya. Zucchetto +2", neck="Fotia Gorget", lear="Brutal Earring", rear="Ishvara Earring",
-			body="Ayanmo Corazza +2", hands="Aya. Manopolas +2", lring="Rufescent Ring", rring="Karieyh Ring +1",
+			body="Ayanmo Corazza +2", hands="Aya. Manopolas +2", lring="Karieyh Ring +1", rring="Epaminondas's Ring",
 			back="Alaunus's Cape", waist="Fotia Belt", legs="Telchine Braconi", feet="Aya. Gambieras +2"
 		}
 	

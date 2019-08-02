@@ -102,7 +102,11 @@ function init_gear_sets()
 
 		sets.Kiting = { legs="Carmine Cuisses +1" }
 		
-		sets.TreasureHunter = { waist="Chaac Belt" }
+		sets.TreasureHunter = 
+		{ 
+			head=gear.HHead_TH, 
+			waist="Chaac Belt"
+		}
 		
 		sets.Enmity = 
 		{--		Enmity: +64
@@ -116,7 +120,7 @@ function init_gear_sets()
 		{
 			rear="Novia Earring",
 			body="Adhemar Jacket +1",
-			lring="Kuchekula Ring"
+			lring="Lebeche Ring", rring="Kuchekula Ring"
 		}
 		
 	---Buffs
@@ -182,7 +186,7 @@ function init_gear_sets()
 		sets.midcast.FC.SIRD = set_combine(sets.midcast.FC,
 		{--		Fast Cast: 31%(+15%)
 			ammo="Staunch Tathlum +1",
-			head=THead_Phalanx,
+			head=gear.THead_Phalanx,
 			hands="Rawhide Gloves", rring="Evanescence Ring",
 			waist="Emphatikos Rope", legs="Assim. Shalwar +3", feet="Amalric Nails +1"
 		})
@@ -198,8 +202,8 @@ function init_gear_sets()
 		sets.midcast.ConserveMP = set_combine(sets.midcast.FC,
 		{--		Fast Cast: 33%(+15%)
 			ammo="Pemphredo Tathlum",
-			head="Carmine Mask +1", neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
-			body="Amalric Doublet +1", hands="Hashi. Bazu. +1",
+			head="Telchine Cap", neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
+			body="Amalric Doublet +1", hands="Assim. Bazu. +3",
 			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Lengo Pants", feet="Carmine Greaves +1"
 		})
 
@@ -218,13 +222,26 @@ function init_gear_sets()
 		
 		sets.midcast.Occultation = set_combine(sets.midcast.FC,
 		{--		Fast Cast: 34%(+15%)	Blue Magic Recast Delay: -14%
+			ammo="Mavi Tathlum",
+			neck="Mirage Stole +2", lear="Gwati Earring", rear="Mendi. Earring",
+			body="Assim. Jubbah +3", hands="Hashi. Bazu. +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			back="Cornflower Cape", legs="Hashishin Tayt +1", feet="Carmine Greaves +1"
+		})
+		
+		sets.midcast.Occultation.Alternate = set_combine(sets.midcast.FC,
+		{--		Fast Cast: 34%(+15%)	Blue Magic Recast Delay: -14%
 			ammo="Pemphredo Tathlum", 
 			neck="Mirage Stole +2",
 			body="Assim. Jubbah +3", hands="Hashi. Bazu. +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Cornflower Cape", feet="Carmine Greaves +1"
 		})
 
-		sets.midcast.Buffs = sets.midcast.ConserveMP
+		sets.midcast.Buffs = set_combine(sets.midcast.ConserveMP,
+		{
+			lear="Odnowa Earring +1",
+			body="Luhlaza Jubbah +3", hands="Hashi. Bazu. +1", lring="Defending Ring", rring="Gelatinous Ring +1",
+			legs="Aya. Cosciales +2"
+		})
 		
 		sets.midcast['Cocoon'] = sets.midcast.FC
 		
@@ -560,19 +577,19 @@ function init_gear_sets()
 			ammo="Staunch Tathlum +1",
 			head=gear.AHead_PDT, neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
 			body="Ayanmo Corazza +2", hands="Assim. Bazu. +3", lring="Defending Ring", rring="Gelatinous Ring +1",
-			back="Moonlight Cape", waist="Carrier's Sash", legs="Carmine Cuisses +1", feet="Aya. Gambieras +2"
+			back=gear.BLUCape_Nuke, waist="Carrier's Sash", legs="Carmine Cuisses +1", feet="Hippo. Socks +1"
 		}
 
 		sets.defense.MDT = set_combine(sets.defense.PDT,
 		{--		DT: -36%	PDT: -45%	MDT: -46%
-			head="Amalric Coif +1", rear="Sanare Earring",
+			head="Aya. Zucchetto +2", rear="Odnowa Earring +1",
 			rring="Shukuyu Ring",
 			back="Reiki Cloak", legs="Aya. Cosciales +2", feet="Amalric Nails +1"
 		})
 		
 		sets.defense.MEVA = set_combine(sets.defense.MDT,
 		{--		DT: -24%	PDT: -24%	MDT: -31%
-			neck="Warder's Charm +1", lear="Eabani Earring",
+			head="Amalric Coif +1",  neck="Warder's Charm +1", lear="Eabani Earring", rear="Sanare Earring",
 			body="Pinga Tunic",
 			legs="Pinga Pants",
 		})
@@ -596,7 +613,7 @@ function init_gear_sets()
 		{
 			ammo="Floestone",
 			head=gear.HHead_WSD, neck="Fotia Gorget", lear="Brutal Earring", rear="Moonshade Earring",
-			body="Assim. Jubbah +3", hands="Jhakri Cuffs +2", lring="Ilabrat Ring", rring="Karieyh Ring +1",
+			body="Assim. Jubbah +3", hands="Jhakri Cuffs +2", lring="Karieyh Ring +1", rring="Epaminondas's Ring",
 			back=gear.BLUCape_WSD, waist="Fotia Belt", legs="Samnuha Tights", feet=gear.HBoots_TP
 		}
 
@@ -694,7 +711,6 @@ function init_gear_sets()
 		sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS,
 		{
 			neck="Mirage Stole +2", lear="Ishvara Earring", rear="Regal Earring",
-			lring="Rufescent Ring",
 			legs="Luhlaza Shalwar +3", feet=gear.HBoots_WSD
 		})
 
@@ -713,7 +729,6 @@ function init_gear_sets()
 		sets.precast.WS['Expiacion'] = set_combine(sets.precast.WS['Savage Blade'],
 		{
 			lear="Ishvara Earring",
-			lring="Shukuyu Ring",
 		})
 
 		sets.precast.WS['Expiacion'].Low = sets.precast.WS['Expiacion']
@@ -724,7 +739,6 @@ function init_gear_sets()
 		{
 			ammo="Falcon Eye",
 			head="Jhakri Coronal +2", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-			lring="Ilabrat Ring",
 			feet="Assim. Charuqs +3"
 		})
 
@@ -733,7 +747,7 @@ function init_gear_sets()
 		{
 			ammo="Pemphredo Tathlum",
 			head="Pixie Hairpin +1", neck="Sanctity Necklace", lear="Regal Earring", rear="Friomisi Earring",
-			body="Amalric Doublet +1", hands="Jhakri Cuffs +2", lring="Archon Ring", rring="Karieyh Ring +1",
+			body="Amalric Doublet +1", hands="Jhakri Cuffs +2", lring="Archon Ring", rring="Epaminondas's Ring",
 			back=gear.BLUCape_WSD, waist="Orpheus's Sash", legs="Luhlaza Shalwar +3", feet="Amalric Nails +1"
 		}
 	
@@ -767,7 +781,6 @@ function init_gear_sets()
 		{
 			ammo="Falcon Eye",
 			head="Jhakri Coronal +2", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-			lring="Rufescent Ring",
 			feet="Assim. Charuqs +3"
 		})
 		

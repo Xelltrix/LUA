@@ -510,7 +510,7 @@ function init_gear_sets()
 		{
 			ammo="Floestone",
 			head="Tali'ah Turban +2", neck="Fotia Gorget", lear="Ishvara Earring", rear="Moonshade Earring",
-			body="Tali'ah Manteel +2", hands="Tali'ah Gages +2", lring="Rufescent Ring", rring="Shukuyu Ring",
+			body="Tali'ah Manteel +2", hands="Tali'ah Gages +2", lring="Karieyh Ring +1", rring="Epaminondas's Ring",
 			back=gear.SMNCape_Phys, waist="Fotia Belt", legs="Tali'ah Sera. +2", feet="Tali'ah Crackows +2"
 		}
 		
