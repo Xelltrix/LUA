@@ -162,7 +162,7 @@ function init_gear_sets()
 			ammo="Pemphredo Tathlum",
 			head=gear.HHead_MAB, neck="Sanctity Necklace", lear="Friomisi Earring", rear="Crematio Earring",
 			body="Samnuha Coat", hands="Leyline Gloves", lring="Dingir Ring", rring={name="Shiva Ring +1", bag="wardrobe3"},
-			back=gear.THFCape_STP, waist="Eschan Stone", legs="Shned. Tights +1", feet=gear.HBoots_WSD
+			back=gear.THFCape_STP, waist="Orpheus's Sash", legs="Shned. Tights +1", feet=gear.HBoots_WSD
 		}
 		
 	

@@ -126,7 +126,7 @@ function init_gear_sets()
 		{--		Fast Cast: 39%(+38%)	Conserve MP: 40
 			ammo="Pemphredo Tathlum",
 			head="Vanya Hood", neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
-			body="Chironic Doublet", hands="Leyline Gloves", lring="Kishar Ring", rring="Rahab Ring",
+			body="Amalric Doublet +1", hands="Leyline Gloves", lring="Kishar Ring", rring="Rahab Ring",
 			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Lengo Pants", feet="Carmine Greaves +1"
 		}
 		
@@ -265,7 +265,7 @@ function init_gear_sets()
 		sets.midcast.Macc =
 		{
 			main="Maxentius", sub="Ammurapi Shield", range="Kaja Bow",
-			head="Atrophy Chapeau +3", neck="Dls. Torque +1", lear="Regal Earring", rear="Digni. Earring", 
+			head="Viti. Chapeau +3", neck="Dls. Torque +1", lear="Regal Earring", rear="Digni. Earring", 
 			body="Atrophy Tabard +3", hands="Kaykaus Cuffs +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back=gear.RDMCape_ENF, waist="Luminary Sash", legs="Chironic Hose", feet="Vitiation Boots +3"
 		}
@@ -350,12 +350,12 @@ function init_gear_sets()
 			main="Maxentius", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head=gear.NukeHood, neck="Sanctity Necklace", lear="Regal Earring", rear="Friomisi Earring", 
 			body="Amalric Doublet +1", hands="Amalric Gages +1", lring={name="Shiva Ring +1", bag="wardrobe2"}, rring="Freke Ring",
-			back=gear.RDMCape_Nuke, waist="Refoccilation Stone", legs="Amalric Slops +1", feet="Amalric Nails +1"
+			back=gear.RDMCape_Nuke, waist="Sacro Cord", legs="Amalric Slops +1", feet="Amalric Nails +1"
 		}
 
 		sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'],
 		{
-			waist="Eschan Stone", legs="Jhakri Slops +2", feet="Vitiation Boots +3"
+			waist="Sacro Cord", legs="Jhakri Slops +2", feet="Vitiation Boots +3"
 		})
 
 		sets.midcast['Elemental Magic'].Potency = sets.midcast['Elemental Magic']
@@ -371,14 +371,14 @@ function init_gear_sets()
 			main="Maxentius", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head=gear.NukeHood, neck="Mizu. Kubikazari", lear="Regal Earring", rear="Static Earring",
 			body="Amalric Doublet +1", hands="Amalric Gages +1", lring="Mujin Band", rring="Freke Ring",
-			back=gear.RDMCape_Nuke, waist="Refoccilation Stone", legs="Merlinic Shalwar", feet=gear.NukeCrackows
+			back=gear.RDMCape_Nuke, waist="Sacro Cord", legs="Merlinic Shalwar", feet=gear.NukeCrackows
 		}
 		
 		sets.magic_burst.Resistant = set_combine(sets.magic_burst,
 		{
 			head="Atrophy Chapeau +3",
 			hands="Regal Cuffs",
-			waist="Eschan Stone", feet="Vitiation Boots +3"
+			waist="Sacro Cord", feet="Vitiation Boots +3"
 		})
 	
 
@@ -440,7 +440,7 @@ function init_gear_sets()
 
 		sets.idle.DT = set_combine(sets.idle,
 		{--	DT: -25%	PDT: -60%	MDT:-24%	Refresh: 10~11
-			main="Mafic Cudgel", sub="Genmei Shield", ammo="Staunch Tathlum +1",
+			ammo="Staunch Tathlum +1",
 			neck="Loricate Torque +1",  lear="Genmei Earring", rear="Sanare Earring",
 			lring="Defending Ring", rring="Gelatinous Ring +1"
 		})
@@ -484,7 +484,7 @@ function init_gear_sets()
 		{--	DT: -28%	PDT: -33%	MDT:-28%
 			ammo="Staunch Tathlum +1",
 			head="Viti. Chapeau +3", neck="Loricate Torque +1", lear="Static Earring", rear="Sanare Earring",
-			body="Viti. Tabard +3", hands="Aya. Manopolas +2", lring="Defending Ring", rring="Shukuyu Ring",
+			body="Viti. Tabard +3", hands="Volte Bracers", lring="Defending Ring", rring="Shukuyu Ring",
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Viti. Tights +3", feet="Vitiation Boots +3"
 		}
 	
@@ -661,7 +661,7 @@ function init_gear_sets()
 		sets.precast.WS['Exenterator'] = set_combine(sets.precast.WS['Requiescat'],
 		{
 			head=gear.THead_TP,
-			body="Ayanmo Corazza +2", hands=gear.THands_TP, lring="Shukuyu Ring", rring="Ilabrat Ring",
+			body="Ayanmo Corazza +2", hands="Volte Bracers", lring="Shukuyu Ring", rring="Ilabrat Ring",
 			legs=gear.TLegs_TP, feet=gear.TFeet_TP
 		})
 
@@ -763,7 +763,7 @@ function init_gear_sets()
 		{
 			ammo="Ginsen",
 			head=gear.THead_TP, neck="Anu Torque", lear="Eabani Earring", rear="Suppanomimi",
-			body="Ayanmo Corazza +2", hands=gear.THands_TP, lring="Hetairoi Ring", rring="Ilabrat Ring",
+			body="Ayanmo Corazza +2", hands="Carmine Fin. Ga. +1", lring="Hetairoi Ring", rring="Ilabrat Ring",
 			back=gear.RDMCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet=gear.TFeet_TP
 		}
 
@@ -818,7 +818,7 @@ function init_gear_sets()
 		{
 			ammo="Ginsen",
 			head=gear.THead_TP, neck="Anu Torque", lear="Eabani Earring", rear="Suppanomimi",
-			body="Ayanmo Corazza +2", hands=gear.THands_TP, lring="Hetairoi Ring", rring="Ilabrat Ring",
+			body="Ayanmo Corazza +2", hands="Carmine Fin. Ga. +1", lring="Hetairoi Ring", rring="Ilabrat Ring",
 			back=gear.RDMCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet=gear.TFeet_TP
 		}
 
@@ -985,7 +985,7 @@ function init_gear_sets()
 		{
 			ammo="Ginsen",
 			head=gear.THead_TP, neck="Anu Torque", lear="Sherida Earring", rear="Suppanomimi",
-			body="Ayanmo Corazza +2", hands=gear.THands_TP, lring="Hetairoi Ring", rring="Ilabrat Ring",
+			body="Ayanmo Corazza +2", hands="Carmine Fin. Ga. +1", lring="Hetairoi Ring", rring="Ilabrat Ring",
 			back=gear.RDMCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet=gear.TFeet_TP
 		}
 		
@@ -1039,7 +1039,7 @@ function init_gear_sets()
 		{
 			ammo="Ginsen",
 			head=gear.THead_TP, neck="Anu Torque", lear="Sherida Earring", rear="Suppanomimi",
-			body="Ayanmo Corazza +2", hands=gear.THands_TP, lring="Hetairoi Ring", rring="Ilabrat Ring",
+			body="Ayanmo Corazza +2", hands="Carmine Fin. Ga. +1", lring="Hetairoi Ring", rring="Ilabrat Ring",
 			back=gear.RDMCape_DW, waist="Windbuffet Belt +1", legs="Carmine Cuisses +1", feet="Carmine Greaves +1"
 		}
 		

@@ -34,7 +34,7 @@ function user_setup()
 	
 	state.WeaponSet = M{['description']='Weapon Set', 'Epeolatry', 'Lionheart', 'Aettir', 'Chopper'}
 	
-	state.GripSet = M{['description']='Grip Set','Utu','Kaja','Irenic',}
+	state.GripSet = M{['description']='Grip Set','Utu','Khonsu','Irenic',}
 	
 	send_command('bind pageup gs c cycle WeaponSet')
 	send_command('bind pagedown gs c cycleback WeaponSet')
@@ -101,7 +101,7 @@ function init_gear_sets()
 
 		sets.precast.JA['Vallation'] = 
 		{
-			body="Runeist's Coat +2",
+			body="Runeist's Coat +3",
 			back="Ogma's Cape"
 		}
 
@@ -117,7 +117,7 @@ function init_gear_sets()
 		{
 			ammo="Staunch Tathlum +1",	
 			head="Erilaz Galea +1", neck="Incanter's Torque", lear="Beatific Earring", rear="Odnowa Earring +1",
-			body="Runeist's Coat +2", hands="Turms Mittens +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			body="Runeist's Coat +3", hands="Turms Mittens +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Moonlight Cape", waist="Bishop's Sash", legs="Rune. Trousers +1", feet="Turms Leggings +1"
 		}
 
@@ -126,7 +126,7 @@ function init_gear_sets()
 		sets.precast.JA['One for All'] = set_combine(sets.Enmity.HP,
 		{
 			head="Erilaz Galea +1", lear="Etiolation Earring",
-			body="Runeist's Coat +2", hands="Turms Mittens +1",
+			body="Runeist's Coat +3", hands="Turms Mittens +1",
 			feet="Turms Leggings +1"
 		})
 	
@@ -330,7 +330,7 @@ function init_gear_sets()
 		{-- DT: 6%		PDT: 4%		MDT: 6%		Refresh: 4	Regen: 
 			ammo="Homiliary",
 			head="Turms Cap +1", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
-			body="Runeist's Coat +2", hands="Turms Mittens +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			body="Runeist's Coat +3", hands="Turms Mittens +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Moonlight Cape", waist="Flume Belt +1", legs="Carmine Cuisses +1", feet="Turms Leggings +1"
 		}
 
@@ -346,7 +346,7 @@ function init_gear_sets()
 		{-- DT: 6%		PDT: 12%	MDT: 6%		Refresh: 8	Regen: 
 			ammo="Homiliary",
 			head="Rawhide Mask", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
-			body="Runeist's Coat +2", hands=gear.HHands_Refresh, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			body="Runeist's Coat +3", hands=gear.HHands_Refresh, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Moonlight Cape", waist="Flume Belt +1", legs="Rawhide Trousers", feet=gear.HBoots_Refresh
 		}
 
@@ -372,7 +372,7 @@ function init_gear_sets()
 		{--DT: -38%	PDT: -53%	MDT: -43%
 			ammo="Staunch Tathlum +1",
 			head="Turms Cap +1", neck="Futhark Torque +1", lear="Genmei Earring", rear="Odnowa Earring +1",
-			body="Runeist's Coat +2", hands="Turms Mittens +1", lring="Defending Ring", rring="Moonbeam Ring",
+			body="Runeist's Coat +3", hands="Turms Mittens +1", lring="Defending Ring", rring="Moonbeam Ring",
 			back=gear.RUNCape_ENM, waist="Flume Belt +1", legs="Eri. Leg Guards +1", feet="Turms Leggings +1"
 		}
 		
@@ -380,7 +380,7 @@ function init_gear_sets()
 		{--DT: -23%	PDT: -40%	MDT: -25%
 			ammo="Staunch Tathlum +1",
 			head="Turms Cap +1", neck="Futhark Torque +1", lear="Sanare Earring", rear="Odnowa Earring +1",
-			body="Runeist's Coat +2",hands="Turms Mittens +1", lring="Defending Ring", rring="Moonbeam Ring",
+			body="Runeist's Coat +3",hands="Turms Mittens +1", lring="Defending Ring", rring="Moonbeam Ring",
 			back=gear.RUNCape_ENM, waist="Engraved Belt", legs="Eri. Leg Guards +1", feet="Turms Leggings +1"
 		}
 		
@@ -429,7 +429,7 @@ function init_gear_sets()
 	
 		sets.Utu = { sub="Utu Grip" }
 	
-		sets.Kaja = { sub="Kaja Grip" }
+		sets.Khonsu = { sub="Khonsu" }
 	
 		sets.Irenic = { sub="Irenic Strap +1" }
 
@@ -624,7 +624,7 @@ function init_gear_sets()
 		{-- 		DT: 25%		PDT: 60%	MDT: 25%
 			ammo="Yamarang",
 			head="Turms Cap +1", neck="Futhark Torque +1",
-			body="Runeist's Coat +2", hands="Turms Mittens +1", lring="Defending Ring", rring="Moonbeam Ring",
+			body="Runeist's Coat +3", hands="Turms Mittens +1", lring="Defending Ring", rring="Moonbeam Ring",
 			back=gear.RUNCape_STP, waist="Engraved Belt", legs="Aya. Cosciales +2", feet="Turms Leggings +1"
 		}	
 		

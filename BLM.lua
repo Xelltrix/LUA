@@ -235,14 +235,14 @@ function init_gear_sets()
 			main="Lathi", sub="Niobid Strap", ammo="Pemphredo Tathlum",
 			head=gear.NukeHood, neck="Sanctity Necklace", lear="Regal Earring", rear="Barkaro. Earring",
 			body="Amalric Doublet +1", hands="Amalric Gages +1", lring="Freke Ring", rring={name="Shiva Ring +1", bag="wardrobe3"},
-			back=gear.BLMCape_Nuke, waist="Refoccilation Stone", legs="Amalric Slops +1", feet="Amalric Nails +1"
+			back=gear.BLMCape_Nuke, waist="Sacro Cord", legs="Amalric Slops +1", feet="Amalric Nails +1"
 		}
 
 		sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'],
 		{
 			main="Maxentius", sub="Ammurapi Shield", 
 			body="Jhakri Robe +2", 
-			waist="Eschan Stone", legs="Jhakri Slops +2", feet="Jhakri Pigaches +2"
+			waist="Sacro Cord", legs="Jhakri Slops +2", feet="Jhakri Pigaches +2"
 		})
 
 		sets.midcast['Elemental Magic'].Potency = sets.midcast['Elemental Magic']
@@ -265,7 +265,7 @@ function init_gear_sets()
 			main="Lathi", sub="Niobid Strap", ammo="Psilomene",
 			head="Pixie Hairpin +1", neck="Sanctity Necklace", lear="Friomisi Earring", rear="Barkaro. Earring",
 			body="Amalric Doublet +1", hands="Amalric Gages +1", lring="Archon Ring", rring="Mephitas's Ring +1",
-			back=gear.BLMCape_Nuke, waist="Refoccilation Stone", legs="Amalric Slops +1", feet="Amalric Nails +1"
+			back=gear.BLMCape_Nuke, waist="Sacro Cord", legs="Amalric Slops +1", feet="Amalric Nails +1"
 		}
 
 		sets.midcast.Death.Resistant = set_combine(sets.midcast.Death,
@@ -273,7 +273,7 @@ function init_gear_sets()
 			main=gear.Grioavolr_Enf, ammo="Pemphredo Tathlum",
 			head=gear.NukeHood,
 			body="Merlinic Jubbah",
-			waist="Eschan Stone", legs="Jhakri Slops +2"
+			waist="Sacro Cord", legs="Jhakri Slops +2"
 		})
 	
 		sets.magic_burst =
@@ -281,7 +281,7 @@ function init_gear_sets()
 			main="Lathi", sub="Niobid Strap", ammo="Pemphredo Tathlum",
 			head=gear.NukeHood, neck="Mizu. Kubikazari", lear="Regal Earring", rear="Static Earring",
 			body="Amalric Doublet +1", hands="Amalric Gages +1", lring="Locus Ring", rring="Mujin Band",
-			back=gear.BLMCape_Nuke, waist="Refoccilation Stone", legs="Merlinic Shalwar", feet="Jhakri Pigaches +2"
+			back=gear.BLMCape_Nuke, waist="Sacro Cord", legs="Merlinic Shalwar", feet="Jhakri Pigaches +2"
 		}
 
 		sets.magic_burst.Resistant = set_combine(sets.magic_burst,
@@ -289,7 +289,7 @@ function init_gear_sets()
 			main="Maxentius", sub="Ammurapi Shield",
 			rear="Barkaro. Earring",
 			hands="Regal Cuffs", 
-			waist="Eschan Stone", feet="Jhakri Pigaches +2"
+			waist="Sacro Cord", feet="Jhakri Pigaches +2"
 		})
 	
 	
@@ -318,7 +318,7 @@ function init_gear_sets()
 	
 		sets.idle =
 		{--Regen+3 | Refresh+8~9 | PDT/MDT: (13/15)
-			main="Lathi", sub="Kaja Grip", ammo="Staunch Tathlum +1",
+			main="Lathi", sub="Khonsu", ammo="Staunch Tathlum +1",
 			head="Befouled Crown", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 			body="Amalric Doublet +1", hands="Amalric Gages +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Assid. Pants +1", feet="Amalric Nails +1"
@@ -332,7 +332,7 @@ function init_gear_sets()
 
 		sets.idle.DeathMode =
 		{--Regen+1 | Refresh+4~5 | PDT/MDT: (5/8)
-			main="Lathi", sub="Kaja Grip", ammo="Psilomene",
+			main="Lathi", sub="Khonsu", ammo="Psilomene",
 			head="Vanya Hood", neck="Sanctity Necklace", lear="Etiolation Earring", rear="Loquac. Earring",
 			body="Amalric Doublet +1", hands="Regal Cuffs", lring="Lebeche Ring", rring="Mephitas's Ring +1",
 			back="Fi Follet Cape +1", waist="Fucho-no-Obi", legs="Assid. Pants +1", feet="Amalric Nails +1"
@@ -363,7 +363,7 @@ function init_gear_sets()
 	
 		sets.defense.PDT =
 		{--PDT: 51 / MDT: 42
-			sub="Kaja Grip", ammo="Staunch Tathlum +1",
+			sub="Khonsu", ammo="Staunch Tathlum +1",
 			head="Vanya Hood", neck="Loricate Torque +1",  lear="Genmei Earring", rear="Odnowa Earring +1",
 			body="Mallquis Saio +2", hands="Amalric Gages +1", lring="Defending Ring", rring="Gelatinous Ring +1",
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Artsieq Hose", feet="Wicce Sabots +1"
@@ -429,7 +429,7 @@ function init_gear_sets()
 	
 		sets.engaged =
 		{
-			main="Lathi", sub="Kaja Grip", ammo="Floestone",
+			main="Lathi", sub="Khonsu", ammo="Floestone",
 			head="Jhakri Coronal +2", neck="Combatant's Torque", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Jhakri Robe +2", hands="Jhakri Cuffs +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.BLMCape_Nuke, waist="Windbuffet Belt +1", legs="Jhakri Slops +2", feet="Jhakri Pigaches +2"
@@ -437,7 +437,7 @@ function init_gear_sets()
 	
 		sets.engaged.Refresh =
 		{
-			main="Lathi", sub="Kaja Grip", ammo="Staunch Tathlum +1",
+			main="Lathi", sub="Khonsu", ammo="Staunch Tathlum +1",
 			head="Befouled Crown", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 			body="Jhakri Robe +2", hands="Amalric Gages +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Assid. Pants +1", feet="Amalric Nails +1"

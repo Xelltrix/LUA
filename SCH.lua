@@ -31,6 +31,8 @@ end
 function user_setup()
 	state.OffenseMode:options('Refresh', 'Normal')
 	state.CastingMode:options('Normal', 'Resistant','Potency')
+	state.PhysicalDefenseMode:options('PDT')
+	state.MagicalDefenseMode:options('EVA', 'MDT')
 	state.IdleMode:options('Normal', 'DT')
 
 	apply_job_change()
@@ -265,9 +267,26 @@ function init_gear_sets()
 		sets.midcast.Sap = set_combine(sets.midcast['Dark Magic'],
 		{
 			head="Pixie Hairpin +1", lear="Barkaro. Earring",
-			body="Chironic Doublet", lring="Archon Ring", rring="Evanescence Ring",
+			body="Chironic Doublet", hands="Acad. Bracers +3", lring="Archon Ring", rring="Evanescence Ring",
 			waist="Fucho-no-Obi", feet=gear.NukeCrackows
 		})
+		
+		sets.midcast.Sap.Resistant = set_combine(sets.midcast.Sap,
+		{
+			head="Acad. Mortar. +3", lear="Regal Earring",
+			body="Acad. Gown +3", hands="Acad. Bracers +3",
+			feet="Acad. Loafers +3"
+		})
+		
+
+		-- sets.midcast.Aspir = set_combine(sets.midcast.Sap,
+		-- {
+			-- head="Acad. Mortar. +3", lear="Regal Earring",
+			-- body="Acad. Gown +3", hands="Acad. Bracers +3",
+			-- feet="Acad. Loafers +3"
+		-- })
+		
+		-- sets.midcast['Aspir II']= sets.midcast.Aspir
 
 		sets.midcast.Stun =
 		{
@@ -290,41 +309,33 @@ function init_gear_sets()
 			main="Maxentius", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head="Peda. M.Board +3", neck="Sanctity Necklace", lear="Regal Earring", rear="Barkaro. Earring",
 			body="Amalric Doublet +1", hands="Amalric Gages +1", lring="Freke Ring", rring={name="Shiva Ring +1", bag="wardrobe3"},
-			back=gear.SCHCape_Nuke, waist="Refoccilation Stone", legs="Amalric Slops +1", feet="Amalric Nails +1"
+			back=gear.SCHCape_Nuke, waist="Sacro Cord", legs="Amalric Slops +1", feet="Amalric Nails +1"
 		}
 
 		sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'],
 		{
 			head="Acad. Mortar. +3",
-			waist="Eschan Stone", legs="Peda. Pants +3", feet="Acad. Loafers +3"
+			waist="Sacro Cord", legs="Peda. Pants +3", feet="Acad. Loafers +3"
 		})
 
+		---Darkness
+		sets.midcast.Darkness = set_combine(sets.midcast['Elemental Magic'],
+		{
+			head="Pixie Hairpin +1",
+			rring="Archon Ring"
+		})
+		
+		sets.midcast.Darkness.Resistant = set_combine(sets.midcast['Elemental Magic'].Resistant,
+		{
+			rring="Archon Ring"
+		})
+		
 		sets.midcast.Impact = set_combine(sets.midcast.Macc,
 		{
 			head=empty, 
 			body="Twilight Cloak",
 			legs="Peda. Pants +3"
 		})
-		
-		---Kaustra
-		sets.midcast.Kaustra = set_combine(sets.midcast['Elemental Magic'],
-		{
-			head="Pixie Hairpin +1",
-			rring="Archon Ring"
-		})
-		
-		sets.midcast.Kaustra.Resistant = set_combine(sets.midcast['Elemental Magic'].Resistant,
-		{
-			rring="Archon Ring"
-		})
-
-		sets.midcast['Noctohelix'] = sets.midcast.Kaustra
-		
-		sets.midcast['Noctohelix'].Resistant = sets.midcast.Kaustra.Resistant
-		
-		sets.midcast['Noctohelix II'] = sets.midcast.Kaustra
-		
-		sets.midcast['Noctohelix II'].Resistant = sets.midcast.Kaustra.Resistant
 		
 		---Magic Burst
 		sets.magic_burst = set_combine(sets.midcast['Elemental Magic'],
@@ -338,7 +349,7 @@ function init_gear_sets()
 		{--		Magic Burst: 42%	Magic Burst II: +4%
 			rrear="Barkaro. Earring",
 			body="Acad. Gown +3", hands="Regal Cuffs", lring="Freke Ring",
-			waist="Eschan Stone"
+			waist="Sacro Cord"
 		})
 
 	
@@ -355,7 +366,7 @@ function init_gear_sets()
 
 		sets.idle =
 		{--	DT: -11%	PDT: -11%	MDT:-11%	Refresh: 14~15
-			main="Akademos", sub="Kaja Grip", ammo="Homiliary",
+			main="Akademos", sub="Khonsu", ammo="Homiliary",
 			head="Befouled Crown", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 			body="Acad. Gown +3", hands="Chironic Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Assid. Pants +1", feet="Chironic Slippers"
@@ -391,17 +402,25 @@ function init_gear_sets()
 
 		sets.defense.PDT =
 		{--	DT: -38%	PDT: -52%	MDT:-42%
-			main="Akademos", sub="Kaja Grip", ammo="Staunch Tathlum +1",
+			main="Akademos", sub="Khonsu", ammo="Staunch Tathlum +1",
 			head="Befouled Crown", neck="Loricate Torque +1",  lear="Genmei Earring", rear="Odnowa Earring +1",
 			body="Mallquis Saio +2", hands="Chironic Gloves", lring="Defending Ring", rring="Gelatinous Ring +1",
 			back=gear.SCHCape_Nuke, waist="Carrier's Sash", legs="Artsieq Hose", feet="Hippo. Socks +1"
 		}
 
-		sets.defense.MDT =
+		sets.defense.EVA =
 		{--	DT: -27%	PDT: -44%	MDT:-22%
 			main="Akademos", sub="Irenic Strap +1", ammo="Staunch Tathlum +1",
 			head="Peda. M.Board +3", neck="Warder's Charm +1", lear="Etiolation Earring", rear="Sanare Earring",
 			body="Peda. Gown +3", hands="Peda. Bracers +3", lring="Defending Ring", rring="Shukuyu Ring",
+			back="Moonlight Cape", waist="Carrier's Sash", legs="Peda. Pants +3", feet="Amalric Nails +1"
+		}
+		
+		sets.defense.MDT =
+		{--	DT: -27%	PDT: -44%	MDT:-22%
+			main="Akademos", sub="Irenic Strap +1", ammo="Staunch Tathlum +1",
+			head="Chironic Hat", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
+			body="Mallquis Saio +2", hands="Peda. Bracers +3", lring="Defending Ring", rring="Shukuyu Ring",
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Peda. Pants +3", feet="Amalric Nails +1"
 		}
 
@@ -635,7 +654,7 @@ end
 -- buff == buff gained or lost
 -- gain == true if the buff was gained, false if it was lost.
 function job_buff_change(buff, gain)
-	if buff == "Sublimation: Activated" then
+	if buff == "Sublimation: Activated" and state.DefenseMode.value == 'None' then
 		handle_equipping_gear(player.status)
 	end
 	
@@ -655,11 +674,11 @@ end
 -------------------------------------------------------------------------------------------------------------------
 
 function customize_idle_set(idleSet)
-	if state.Buff['Sublimation: Activated'] then
+	if state.Buff['Sublimation: Activated'] and state.DefenseMode.value == 'None' then
 		idleSet = set_combine(idleSet, sets.buff['Sublimation: Activated'])
 	end
 	
-	if player.mpp < 51 and state.IdleMode.value ~= 'DT' then
+	if player.mpp < 51 and state.IdleMode.value ~= 'DT' and state.DefenseMode.value == 'None' then
 		idleSet = set_combine(idleSet, 
 			{
 				body="Jhakri Robe +2",
@@ -668,6 +687,14 @@ function customize_idle_set(idleSet)
 	end
 
 	return idleSet
+end
+
+function customize_melee_set(meleeSet)
+	if buffactive['Sublimation: Activated'] and state.OffenseMode.value ~= 'Normal' and state.DefenseMode.value == 'None' then
+		meleeSet = set_combine(meleeSet, sets.buff['Sublimation: Activated'])
+	end
+	
+	return meleeSet
 end
 
 -- Function to display the current relevant user state when doing an update.

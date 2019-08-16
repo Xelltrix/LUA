@@ -116,7 +116,7 @@ function init_gear_sets()
 		{
 			head="Carmine Mask +1", neck="Sanctity Necklace", lear="Digni. Earring", rring="Gwati Earring",
 			body="Samnuha Coat", hands="Mummu Wrists +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Camulus's Mantle", waist="Eschan Stone", legs="Mummu Kecks +2", feet="Lak. Bottes +1"
+			back="Camulus's Mantle", waist="Orpheus's Sash", legs="Mummu Kecks +2", feet="Lak. Bottes +1"
 			
 		}
 		

@@ -106,7 +106,7 @@ function init_gear_sets()
         ammo="Pemphredo Tathlum",
 		head=gear.HHead_MAB, neck="Sanctity Necklace", lear="Digni. Earring", rear="Gwati Earring",
         body="Samnuha Coat", hands="Leyline Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-        back="Andartia's Mantle", waist="Eschan Stone", legs="Gyve Trousers", feet="Herculean Boots"
+        back="Andartia's Mantle", waist="Orpheus's Sash", legs="Gyve Trousers", feet="Herculean Boots"
 	}
 
     sets.midcast.NinjutsuBuff =

@@ -105,6 +105,7 @@ function init_gear_sets()
 		sets.TreasureHunter = 
 		{ 
 			head=gear.HHead_TH, 
+			hands="Volte Bracers",
 			waist="Chaac Belt"
 		}
 		
@@ -306,7 +307,7 @@ function init_gear_sets()
 			ammo="Pemphredo Tathlum",
 			head="Carmine Mask +1", neck="Mirage Stole +2", lear="Digni. Earring", rear="Gwati Earring",
 			body="Luhlaza Jubbah +3", hands="Aya. Manopolas +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Cornflower Cape", waist="Eschan Stone", legs="Aya. Cosciales +2", feet="Luhlaza Charuqs +3"
+			back="Cornflower Cape", waist="Sacro Cord", legs="Aya. Cosciales +2", feet="Luhlaza Charuqs +3"
 		}
 
 		sets.midcast.Magical =
@@ -541,7 +542,7 @@ function init_gear_sets()
 		sets.idle.MEVA = set_combine(sets.idle,
 		{--		DT: -15%	PDT: -15%	MDT: -15%	Refresh: 5	Regen: 0
 			head="Amalric Coif +1", neck="Warder's Charm +1", lear="Eabani Earring", rear="Sanare Earring",
-			body="Amalric Doublet +1", hands="Assim. Bazu. +3",
+			body="Amalric Doublet +1", hands="Volte Bracers",
 			waist="Carrier's Sash", feet="Amalric Nails +1"
 		})
 		
@@ -757,7 +758,7 @@ function init_gear_sets()
 			ammo="Psilomene",
 			head="Luh. Keffiyeh +3", neck="Sanctity Necklace", lear="Odnowa Earring +1", rear="Moonshade Earring",
 			body="Assim. Jubbah +3", hands="Regal Cuffs", lring="Ilabrat Ring", rring="Gelatinous Ring +1",
-			back="Moonlight Cape", waist="Eschan Stone", legs="Assim. Shalwar +3", feet="Assim. Charuqs +3"
+			back="Moonlight Cape", waist="Sacro Cord", legs="Assim. Shalwar +3", feet="Assim. Charuqs +3"
 		}
 	
 

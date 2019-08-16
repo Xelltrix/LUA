@@ -119,14 +119,14 @@ function init_gear_sets()
 		ammo="Pemphredo Tathlum",
 		head="Meghanada Visor +2", neck="Sanctity Necklace", lear="Digni. Earring",ear2="Gwati Earring",
         body="Horos Casaque +1", hands="Leyline Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-        back="Toetapper Mantle", waist="Eschan Stone", legs="Meg. Chausses +2", feet="Herculean Boots"
+        back="Toetapper Mantle", waist="Orpheus's Sash", legs="Meg. Chausses +2", feet="Herculean Boots"
 	}
     sets.precast.Flourish1['Desperate Flourish'] =
 	{
 		ammo="Falcon Eye",
 		head="Meghanada Visor +2", neck="Combatant's Torque", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
 		body="Meg. Cuirie +2", hands="Meg. Gloves +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
-		back="Toetapper Mantle", waist="Eschan Stone", legs="Meg. Chausses +2", feet="Meg. Jam. +2"
+		back="Toetapper Mantle", waist="Orpheus's Sash", legs="Meg. Chausses +2", feet="Meg. Jam. +2"
 	}
 
     sets.precast.Flourish2 = {}

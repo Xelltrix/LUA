@@ -327,7 +327,7 @@ function init_gear_sets()
 			main=gear.Grioavolr_Enf, sub="Niobid Strap", ammo="Pemphredo Tathlum",
 			head=gear.NukeHood, neck="Sanctity Necklace", lear="Friomisi Earring", rear="Crematio Earring",
 			body="Amalric Doublet +1", hands="Amalric Gages +1", lring="Freke Ring", rring={name="Shiva Ring +1", bag="wardrobe3"},
-			back="Grapevine Cape", waist="Eschan Stone", legs="Amalric Slops +1", feet="Amalric Nails +1"
+			back="Grapevine Cape", waist="Orpheus's Sash", legs="Amalric Slops +1", feet="Amalric Nails +1"
 		}
 
 		sets.midcast.Impact = set_combine(sets.midcast.Macc,
@@ -361,7 +361,7 @@ function init_gear_sets()
 	
 		sets.idle =
 		{
-			main="Nirvana", sub="Kaja Grip", ammo="Staunch Tathlum +1",
+			main="Nirvana", sub="Khonsu", ammo="Staunch Tathlum +1",
 			head="Beckoner's Horn +1", neck="Sanctity Necklace", lear="Dawn Earring", rear="C. Palug Earring",
 			body="Apo. Dalmatica +1", hands="Asteria Mitts +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Moonlight Cape", waist="Regal Belt", legs="Assid. Pants +1", feet="Baayami Sabots"
@@ -401,7 +401,7 @@ function init_gear_sets()
 	
 		sets.idle.Avatar =
 		{
-			main="Nirvana", sub="Kaja Grip", ammo="Sancus Sachet +1",
+			main="Nirvana", sub="Khonsu", ammo="Sancus Sachet +1",
 			head="Beckoner's Horn +1", neck="Caller's Pendant", lear="Evans Earring", rear="C. Palug Earring",
 			body="Apo. Dalmatica +1", hands="Asteria Mitts +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back=gear.SMNCape_Phys, waist="Lucidity Sash", legs="Assid. Pants +1", feet="Baayami Sabots"
@@ -448,7 +448,7 @@ function init_gear_sets()
 		-- PDT: -44% 	MDT: -42%
 		sets.defense.Master = set_combine(sets.idle.DT,
 		{
-			main="Nirvana", sub="Kaja Grip",
+			main="Nirvana", sub="Khonsu",
 			head="Inyanga Tiara +2",
 			body="Vrikodara Jupon", hands="Inyan. Dastanas +2",
 			legs="Artsieq Hose"
@@ -456,7 +456,7 @@ function init_gear_sets()
 		
 		sets.defense.Pet =
 		{
-			main="Nirvana", sub="Kaja Grip", ammo="Sancus Sachet +1",
+			main="Nirvana", sub="Khonsu", ammo="Sancus Sachet +1",
 			head="Apogee Crown", neck="Caller's Pendant", lear="Enmerkar Earring", rear="Handler's Earring +1",
 			body="Apogee Dalmatica", hands="Asteria Mitts +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back=gear.SMNCape_Phys, waist="Isa Belt", legs="Enticer's Pants", feet="Baayami Sabots"
@@ -525,7 +525,7 @@ function init_gear_sets()
 			ammo="Pemphredo Tathlum",
 			head=gear.NukeHood, neck="Sanctity Necklace", lear="Friomisi Earring", rear="Crematio Earring",
 			body="Amalric Doublet +1", hands="Amalric Gages +1", lring="Freke Ring", rring={name="Shiva Ring +1", bag="wardrobe3"},
-			back="Grapevine Cape", waist="Eschan Stone", legs="Amalric Slops +1", feet="Amalric Nails +1"
+			back="Grapevine Cape", waist="Orpheus's Sash", legs="Amalric Slops +1", feet="Amalric Nails +1"
 		}
 	 
 		sets.precast.WS['Shattersoul'] = set_combine(sets.precast.WS,
@@ -548,7 +548,7 @@ function init_gear_sets()
 
 		sets.engaged =
 		{
-			main="Nirvana", sub="Kaja Grip", ammo="Sancus Sachet +1",
+			main="Nirvana", sub="Khonsu", ammo="Sancus Sachet +1",
 			head="Tali'ah Turban +2", neck="Combatant's Torque", lear="Telos Earring", rear="Dedition Earring",
 			body="Tali'ah Manteel +2", hands="Tali'ah Gages +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.SMNCape_Phys, waist="Klouskap Sash", legs="Tali'ah Sera. +2", feet="Apogee Pumps +1"
@@ -556,7 +556,7 @@ function init_gear_sets()
 		
 		sets.engaged.Avatar =
 		{
-			main="Nirvana", sub="Kaja Grip", ammo="Sancus Sachet +1",
+			main="Nirvana", sub="Khonsu", ammo="Sancus Sachet +1",
 			head="Beckoner's Horn +1", neck="Caller's Pendant", lear="Enmerkar Earring", rear="C. Palug Earring",
 			body="Apo. Dalmatica +1", hands="Asteria Mitts +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back=gear.SMNCape_Phys, waist="Lucidity Sash", legs="Assid. Pants +1", feet="Baayami Sabots"
