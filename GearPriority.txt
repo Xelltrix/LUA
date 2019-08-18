@@ -3,7 +3,6 @@ Priority A
 -----------
 Crocea Mors               Price: 190,000,000G (150,000,000G)
 
-Moonlight Ring            Price: 40,000,000G
 Moonlight Necklace        Price: 40,000,000G
 
 -----------
@@ -24,6 +23,7 @@ Kaykaus Boots +1          Price: 25,000,000G (25,000,000G)
 Priority C
 -----------
 Musa                      Price: 120,000,000G
+R15 Lionheart             Price: 120,000,000G
 
 Duelist's Torque +2       Price: 100,000,000G
 Summoner's Collar +2      Price: 80,000,000G
@@ -36,7 +36,6 @@ Baayami Cuffs +1          Price: 30,000,000G
 -----------
 Priority D
 -----------
-R15 Lionheart             Price: 120,000,000G
 R15 Epeolatry             Price; 120,000,000G
 
 Ea Hat +1                 Price: 35,000,000G (24,000,000G)
