@@ -61,7 +61,7 @@
 		Dematerialize|Entrust|Swipe|Lunge|Battuta|
 		</AbilityRecastFilter>
         <!--List of spell names to display recasts for if in whitelistMode and to exclude otherwise-->
-        <SpellRecastFilter>Curaga*|*raise*|Arise|Stoneskin|Haste*|Flurry*|Refresh*|Flash|Repose|Addle*|Stone*|Water*|Aer*|Fir*|Blizz*|Thund*|Stun|
+        <SpellRecastFilter>Curaga*|*raise*|Arise|Stoneskin|Haste*|Flurry*|Refresh*|Flash|Repose|Addle*|Stone*|Water*|Aer*|Fir*|Blizz*|Thund*|Stun|Foil|
 		Freeze*|Torand*o|Quake*|Burst*|Flood*|Flare*|Aspir*|Drain*|Death|Sleep*|Break*|Bind|Gravity*|Comet|Dread Spikes|Absorb-TP|Utsusemi*|
 		Sudden Lunge|Searing Tempest|Blinding Fulgor|Spectral Floe|Scouring Spate|Anvil Lightning|Silent Storm|Entomb|Tenebral Crush|Subduction|*Wind*|
 		Occultation|Zephyr Mantle|Dream Flower|Yawn|Soporific|Magic Barrier|Sheep Song|Magic Hammer|Actinic Burst|Jettatura|Geist Wall|Kaustra|*helix*|</SpellRecastFilter>
