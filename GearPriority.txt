@@ -2,7 +2,10 @@
 Priority A
 -----------
 
-Moonlight Necklace        Price: 40,000,000G
+Kaykaus Mitra +1          Price: 30,000,000G (40,000,000G)
+Kaykaus Briault +1        Price: 10,000,000G (20,000,000G)
+Kaykaus Boots +1          Price: 25,000,000G (25,000,000G)
+
 
 -----------
 Priority B
@@ -10,12 +13,7 @@ Priority B
 
 Argute Stole +2           Price: 90,000,000G
 Duelist's Torque +2       Price: 100,000,000G
-
-Kaykaus Mitra +1          Price: 30,000,000G (40,000,000G)
-Kaykaus Briault +1        Price: 10,000,000G (20,000,000G)
-Kaykaus Boots +1          Price: 25,000,000G (25,000,000G)
-
-
+Futhark Torque +2         Price: 80,000,000G
 
 
 -----------
@@ -24,7 +22,6 @@ Priority C
 Musa                      Price: 120,000,000G
 R15 Lionheart             Price: 120,000,000G
 
-Futhark Torque +2         Price: 80,000,000G
 Summoner's Collar +2      Price: 80,000,000G
 
 Baayami Slops +1          Price: 40,000,000G
