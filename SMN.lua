@@ -140,7 +140,7 @@ function init_gear_sets()
 			back="Conveyance Cape", waist="Kobo Obi", legs="Baayami Slops", feet="Baayami Sabots"
 		}
 
-		sets.midcast.Pet.bp_Heals = set_combine(sets.midcast.bp_Buffs,
+		sets.midcast.Pet.bp_Heals = set_combine(sets.midcast.Pet.bp_Buffs,
 		{
 			main="Nirvana", ammo="Sancus Sachet +1",
 			head="Apogee Crown +1", neck="Smn. Collar +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
@@ -148,10 +148,10 @@ function init_gear_sets()
 			back=gear.SMNCape_Mag, waist="Regal Belt", legs="Enticer's Pants", feet="Apogee Pumps +1"
 		})
 
-		sets.midcast.Pet.bp_Debuffs = set_combine(sets.midcast.bp_Buffs,
+		sets.midcast.Pet.bp_Debuffs = set_combine(sets.midcast.Pet.bp_Buffs,
 		{
 			main="Nirvana", ammo="Sancus Sachet +1",
-			head="Tali'ah Turban +2", neck="Smn. Collar +1", lear="Enmerkar Earring", rear="Lugalbanda Earring",
+			head="Convoker's Horn +3", neck="Smn. Collar +1", lear="Enmerkar Earring", rear="Lugalbanda Earring",
 			body="Con. Doublet +3", hands="Tali'ah Gages +2", lring="C. Palug Ring",
 			back=gear.SMNCape_Mag, waist="Regal Belt", legs="Tali'ah Sera. +2",feet="Tali'ah Crackows +2"
 		})
@@ -164,9 +164,9 @@ function init_gear_sets()
 			back=gear.SMNCape_Phys, waist="Incarnation Sash", legs=gear.ASlacks_DA, feet="Helios Boots"
 		}
 	
-		sets.midcast.Pet.bp_PhysicalTP = set_combine(sets.midcast.bp_Physical,
+		sets.midcast.Pet.bp_PhysicalTP = set_combine(sets.midcast.Pet.bp_Physical,
 		{--		Blood Pact Damage: +163		Double Attack: +22%			Accuracy: +200	Attack: +114
-			lear="Gelos Earring",
+			head="Apogee Crown +1", lear="Gelos Earring",
 			body="Con. Doublet +3", lring="Varar Ring +1", rring="Varar Ring +1",
 			waist="Regal Belt"
 		})
@@ -174,7 +174,7 @@ function init_gear_sets()
 		sets.midcast.Pet.bp_Magical =
 		{--		Blood Pact Damage: +127		Magic Attack Bonus: +322	Magic Accuracy: +138
 			main=gear.Grioavolr_Pet, sub="Elan Strap +1", ammo="Sancus Sachet +1",
-			head="Apogee Crown +1", neck="Smn. Collar +1", lear="Gelos Earring", rear="Lugalbanda Earring",
+			head="C. Palug Crown", neck="Smn. Collar +1", lear="Gelos Earring", rear="Lugalbanda Earring",
 			body="Apo. Dalmatica +1", hands=gear.PetNukeHands, lring="Varar Ring +1", rring="Varar Ring +1",
 			back=gear.SMNCape_Mag, waist="Regal Belt", legs=gear.ASlacks_MAB, feet="Apogee Pumps +1"
 		}
@@ -362,7 +362,7 @@ function init_gear_sets()
 		sets.idle =
 		{
 			main="Nirvana", sub="Khonsu", ammo="Staunch Tathlum +1",
-			head="Beckoner's Horn +1", neck="Sanctity Necklace", lear="Dawn Earring", rear="C. Palug Earring",
+			head="Convoker's Horn +3", neck="Sanctity Necklace", lear="Dawn Earring", rear="C. Palug Earring",
 			body="Apo. Dalmatica +1", hands="Asteria Mitts +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Moonlight Cape", waist="Regal Belt", legs="Assid. Pants +1", feet="Baayami Sabots"
 		}
@@ -402,7 +402,7 @@ function init_gear_sets()
 		sets.idle.Avatar =
 		{
 			main="Nirvana", sub="Khonsu", ammo="Sancus Sachet +1",
-			head="Beckoner's Horn +1", neck="Caller's Pendant", lear="Evans Earring", rear="C. Palug Earring",
+			head="Convoker's Horn +3", neck="Caller's Pendant", lear="Evans Earring", rear="C. Palug Earring",
 			body="Apo. Dalmatica +1", hands="Asteria Mitts +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back=gear.SMNCape_Phys, waist="Lucidity Sash", legs="Assid. Pants +1", feet="Baayami Sabots"
 		}
@@ -432,7 +432,7 @@ function init_gear_sets()
 		sets.idle.Spirit =
 		{
 			main="Nirvana", sub="Vox Grip", ammo="Sancus Sachet +1",
-			head="Beckoner's Horn +1", neck="Incanter's Torque", lear="Andoaa Earring", rear="C. Palug Earring",
+			head="Convoker's Horn +3", neck="Incanter's Torque", lear="Andoaa Earring", rear="C. Palug Earring",
 			body="Apo. Dalmatica +1", hands="Asteria Mitts +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back=gear.SMNCape_Mag, waist="Regal Belt", legs="Assid. Pants +1", feet="Baayami Sabots"
 		}
@@ -549,7 +549,7 @@ function init_gear_sets()
 		sets.engaged =
 		{
 			main="Nirvana", sub="Khonsu", ammo="Sancus Sachet +1",
-			head="Tali'ah Turban +2", neck="Combatant's Torque", lear="Telos Earring", rear="Dedition Earring",
+			head="Convoker's Horn +3", neck="Combatant's Torque", lear="Telos Earring", rear="Dedition Earring",
 			body="Tali'ah Manteel +2", hands="Tali'ah Gages +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.SMNCape_Phys, waist="Klouskap Sash", legs="Tali'ah Sera. +2", feet="Apogee Pumps +1"
 		}
@@ -557,7 +557,7 @@ function init_gear_sets()
 		sets.engaged.Avatar =
 		{
 			main="Nirvana", sub="Khonsu", ammo="Sancus Sachet +1",
-			head="Beckoner's Horn +1", neck="Caller's Pendant", lear="Enmerkar Earring", rear="C. Palug Earring",
+			head="Convoker's Horn +3", neck="Caller's Pendant", lear="Enmerkar Earring", rear="C. Palug Earring",
 			body="Apo. Dalmatica +1", hands="Asteria Mitts +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back=gear.SMNCape_Phys, waist="Lucidity Sash", legs="Assid. Pants +1", feet="Baayami Sabots"
 		}
@@ -580,6 +580,10 @@ function job_midcast(spell, action, spellMap, eventArgs)
     if state.Buff['Astral Conduit'] and pet_midaction() then
         eventArgs.handled = true
     end
+	
+	if spell.action_type == 'Ability' then
+		eventArgs.handled = true
+	end
 end
 
 function job_post_pet_midcast(spell, action, spellMap, eventArgs)

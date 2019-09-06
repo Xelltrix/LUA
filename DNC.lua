@@ -204,7 +204,7 @@ function init_gear_sets()
 	sets.idle.DT = set_combine (sets.idle,
 	{
 		head="Meghanada Visor +2", neck="Loricate Torque +1",
-		body="Meg. Cuirie +2", lring="Defending Ring", rring="Moonbeam Ring",
+		body="Meg. Cuirie +2", lring="Defending Ring", rring="Moonlight Ring",
 	})
 
 	sets.idle.Town = set_combine(sets.idle,

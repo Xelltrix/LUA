@@ -50,7 +50,7 @@ function init_gear_sets()
 	
 		sets.precast.JA['Benediction'] =
 		{
-			main="Piety Wand", sub="Ammurapi Shield", ammo="Psilomene",
+			main="Piety Wand", sub="Ammurapi Shield", ammo="Esper Stone +1",
 			head="Vanya Hood", neck="Sanctity Necklace", lear="Etiolation Earring", rear="Loquac. Earring",
 			body="Piety Briault +3", hands="Kaykaus Cuffs +1", lring="Lebeche Ring", rring="Mephitas's Ring +1",
 			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Th. Pant. +3", feet="Theo. Duckbills +3"
@@ -139,7 +139,7 @@ function init_gear_sets()
 		{-- Cure Potency/II: 51%/9%			Enmity: -64		Healing Magic Skill: +110(573)	MND+193
 			main="Queller Rod", sub="Sors Shield", ammo="Pemphredo Tathlum",
 			head="Kaykaus Mitra", neck="Cleric's Torque", lear="Glorious Earring", rear="Mendi. Earring",
-			body="Theo. Briault +2", hands="Theophany Mitts +2", lring="Lebeche Ring", rring={name="Stikini Ring +1", bag="wardrobe3"},
+			body="Theo. Briault +3", hands="Theophany Mitts +2", lring="Lebeche Ring", rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Alaunus's Cape", waist="Luminary Sash", legs="Sifahir Slacks", feet="Vanya Clogs"
 		}
 			
@@ -157,7 +157,7 @@ function init_gear_sets()
 		{-- Cure Potency/II: 50%/7%			Enmity: -54		Healing Magic Skill: +78(541)	MND+181
 			main="Chatoyant Staff", sub="Enki Strap", ammo="Pemphredo Tathlum",
 			head="Kaykaus Mitra", neck="Cleric's Torque", lear="Glorious Earring", rear="Mendi. Earring",
-			body="Theo. Briault +2", hands="Theophany Mitts +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			body="Theo. Briault +3", hands="Theophany Mitts +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Twilight Cape", waist="Hachirin-no-Obi", legs="Sifahir Slacks", feet="Kaykaus Boots"
 		}
 			
@@ -293,8 +293,8 @@ function init_gear_sets()
 		sets.midcast.Macc =
 		{
 			main="Maxentius", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
-			head="Inyanga Tiara +2", neck="Incanter's Torque", lear="Regal Earring", rear="Digni. Earring", 
-			body="Theo. Briault +2", hands="Inyan. Dastanas +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			head="Theophany Cap +2", neck="Incanter's Torque", lear="Regal Earring", rear="Digni. Earring", 
+			body="Theo. Briault +3", hands="Inyan. Dastanas +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Alaunus's Cape", waist="Luminary Sash", legs="Chironic Hose", feet="Theo. Duckbills +3"
 		}
 		
@@ -302,10 +302,15 @@ function init_gear_sets()
 		{
 			hands="Kaykaus Cuffs +1", lring="Kishar Ring",
 		})
-	
+
 		sets.midcast.Static = set_combine(sets.midcast['Enfeebling Magic'],
 		{
 			hands="Regal Cuffs", lring="Kishar Ring"
+		})
+		
+		sets.midcast.Repose = set_combine(sets.midcast.Macc,
+		{
+			legs="Th. Pant. +3"
 		})
 
 		sets.midcast['Dia'] = sets.midcast.FastRecast

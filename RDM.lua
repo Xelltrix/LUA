@@ -23,16 +23,16 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('Normal', 'Low', 'Mid', 'High')
+    state.OffenseMode:options('None','Normal', 'Low', 'Mid', 'High')
 	state.WeaponskillMode:options('Normal', 'Low', 'Mid', 'High')
     state.HybridMode:options('Normal', 'DT')
     state.CastingMode:options('Normal', 'Resistant', 'Potency')
     state.IdleMode:options('Normal', 'DT', 'Refresh')
 	
 	state.MainWeaponSet = M{['description']='Main Weapon Set',
+		'Crocea',
 		'Naegling',
 		'Tauret',
-		'Sequence',
 		'Almace'
 	}
 	
@@ -194,28 +194,27 @@ function init_gear_sets()
 
 		--Enspell Formula: Floor[(400/3098)(Skill+3.65)]
 		--Temper II Formula: floor[( Enhancing Magic Skill - 300 ) ÷ 10]
-		sets.midcast.Enspells =
+		sets.midcast.Enhancement =
 		{--		Enhancing Skill: 624	Duration: 1.55		Enspell Damage: 81		Temper II: 32%
 			main="Pukulatmuj +1", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head="Befouled Crown", neck="Incanter's Torque", lear="Andoaa Earring", rear="Augment. Earring",
 			body="Viti. Tabard +3", hands="Viti. Gloves +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Fi Follet Cape +1", waist="Olympus Sash", legs="Atrophy Tights +3", feet="Leth. Houseaux +1"
+			back="Ghostfyre Cape", waist="Olympus Sash", legs="Atrophy Tights +3", feet="Leth. Houseaux +1"
 		}
 		
-		sets.midcast.EnspellsDW = set_combine(sets.midcast.Enspells,
+		sets.midcast.EnhancementDW = set_combine(sets.midcast.Enhancement,
 		{--		Enhancing Skill: 634	Duration: 1.45		Enspell Damage: 82		Temper II: 33%
 			main="Pukulatmuj +1", sub="Pukulatmuj",
 		})
 
 
 		--Phalanx Formula: 28 + Floor( (Enhancing Magic Skill - 300.5) / 28.5)
-		sets.midcast.Phalanxs = set_combine(sets.midcast.Enspells,
+		sets.midcast.Enhancement.Self = 
 		{--		Phalanx:+15		Enhancing Skill: 500	Duration: (1.1 * 1.4)	Phalanx Total: 50
-			ammo="Staunch Tathlum +1",
 			head=gear.THead_Phalanx, neck="Dls. Torque +1",
 			body=gear.TBody_Phalanx, hands=gear.THands_Phalanx,
 			back="Ghostfyre Cape", legs=gear.TLegs_Phalanx, feet=gear.TFeet_Phalanx
-		})
+		}
 
 		sets.midcast.Klimaform = sets.midcast.FastRecast
 
@@ -264,7 +263,7 @@ function init_gear_sets()
 	---Enfeebling Magic
 		sets.midcast.Macc =
 		{
-			main="Maxentius", sub="Ammurapi Shield", range="Kaja Bow",
+			main="Crocea Mors", sub="Ammurapi Shield", range="Kaja Bow",
 			head="Viti. Chapeau +3", neck="Dls. Torque +1", lear="Regal Earring", rear="Digni. Earring", 
 			body="Atrophy Tabard +3", hands="Kaykaus Cuffs +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back=gear.RDMCape_ENF, waist="Luminary Sash", legs="Chironic Hose", feet="Vitiation Boots +3"
@@ -318,9 +317,8 @@ function init_gear_sets()
 	---Dark Magic
 		sets.midcast['Dark Magic'] = set_combine(sets.midcast.Macc,
 		{
-			main="Maxentius", sub="Ammurapi Shield",
 			neck="Erra Pendant", 
-			body="Shango Robe",
+			body="Shango Robe", rring="Evanescence Ring", 
 			feet="Vitiation Boots +3"
 		})
 
@@ -333,14 +331,14 @@ function init_gear_sets()
 
 		sets.midcast.Stun = set_combine(sets.midcast.Macc,
 		{
-			main="Maxentius", sub="Chanter's Shield", 
 			neck="Erra Pendant",
-			body="Shango Robe", hands="Leyline Gloves", lring="Kishar Ring",
-			back=gear.RDMCape_Nuke, legs="Aya. Cosciales +2", feet=gear.NukeCrackows
+			body="Viti. Tabard +3",
+			waist="Witful Belt", legs="Aya. Cosciales +2"
 		})
 		
 		sets.midcast.Stun.Resistant = set_combine(sets.midcast.Macc,
 		{
+			neck="Erra Pendant",
 			legs="Aya. Cosciales +2"
 		})
 
@@ -362,7 +360,7 @@ function init_gear_sets()
 
 		sets.midcast.Impact = set_combine(sets.midcast.Macc,
 		{
-			head=empty, lear="Digni. Earring",
+			head=empty, lear="Gwati Earring",
 			body="Twilight Cloak", lring="Archon Ring",
 		})
 		
@@ -408,9 +406,9 @@ function init_gear_sets()
 	------------------------------------------------------------------------------------------------
 
 
+		sets.Crocea = { main="Crocea Mors" }
+		
 		sets.Naegling = { main="Naegling" }
-
-		sets.Sequence = { main="Sequence" }
 			
 		sets.Tauret = { main="Tauret" }
 			
@@ -642,7 +640,7 @@ function init_gear_sets()
 			ammo="Pemphredo Tathlum",
 			head="Pixie Hairpin +1", neck="Sanctity Necklace", lear="Regal Earring", rear="Friomisi Earring",
 			body="Amalric Doublet +1", hands="Jhakri Cuffs +2", lring="Archon Ring", rring="Epaminondas's Ring",
-			back=gear.RDMCape_ENF, waist="Orpheus's Sash", legs="Amalric Slops +1", feet="Vitiation Boots +3"
+			back=gear.RDMCape_ENF, waist="Sacro Cord", legs="Amalric Slops +1", feet="Vitiation Boots +3"
 		}
 	
 	
@@ -711,6 +709,14 @@ function init_gear_sets()
 			body="Ayanmo Corazza +2", hands="Carmine Fin. Ga. +1", lring="Hetairoi Ring", rring="Ilabrat Ring",
 			back=gear.RDMCape_STP, waist="Windbuffet Belt +1", legs=gear.TLegs_TP, feet="Carmine Greaves +1"
 		}
+		
+		sets.engaged.ENSPELLS =
+		{
+			sub="Genmei Shield", ammo="Ginsen",
+			head=gear.THead_TP, neck="Anu Torque", lear="Sherida Earring", rear="Digni. Earring",
+			body="Ayanmo Corazza +2", hands="Aya. Manopolas +2", lring="Hetairoi Ring", rring="Ilabrat Ring",
+			back=gear.RDMCape_STP, waist="Orpheus's Sash", legs=gear.TLegs_TP, feet="Carmine Greaves +1"
+		}
 
 		-----------------------------------------------------------------------------------
 		---	TP/h:104	(STP:39		QA:2%	TA:8%	DA:24%)
@@ -764,6 +770,14 @@ function init_gear_sets()
 			ammo="Ginsen",
 			head=gear.THead_TP, neck="Anu Torque", lear="Eabani Earring", rear="Suppanomimi",
 			body="Ayanmo Corazza +2", hands="Carmine Fin. Ga. +1", lring="Hetairoi Ring", rring="Ilabrat Ring",
+			back=gear.RDMCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet=gear.TFeet_TP
+		}
+		
+		sets.engaged.DW2.ENSPELLS =
+		{
+			ammo="Ginsen",
+			head=gear.THead_TP, neck="Anu Torque", lear="Eabani Earring", rear="Suppanomimi",
+			body="Ayanmo Corazza +2", hands="Aya. Manopolas +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.RDMCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet=gear.TFeet_TP
 		}
 
@@ -821,6 +835,14 @@ function init_gear_sets()
 			body="Ayanmo Corazza +2", hands="Carmine Fin. Ga. +1", lring="Hetairoi Ring", rring="Ilabrat Ring",
 			back=gear.RDMCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet=gear.TFeet_TP
 		}
+		
+		sets.engaged.DW3.ENSPELLS = 
+		{
+			ammo="Ginsen",
+			head=gear.THead_TP, neck="Anu Torque", lear="Eabani Earring", rear="Suppanomimi",
+			body="Ayanmo Corazza +2", hands="Aya. Manopolas +2", lring="Hetairoi Ring", rring={name="Chirich Ring +1", bag="wardrobe3"},
+			back=gear.RDMCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet=gear.TFeet_TP
+		}
 
 		-----------------------------------------------------------------------------------
 		---	TP/h:58		(DW:36	STP:29		QA:0%	TA:4%	DA:7%)
@@ -871,6 +893,8 @@ function init_gear_sets()
 		--- Auxiliary Accuracy: 1115 	/ Auxiliary Attack: 936
 		-----------------------------------------------------------
 		sets.engaged.DW2.Min = sets.engaged.DW2
+		
+		sets.engaged.DW2.Min.ENSPELLS = sets.engaged.DW2.ENSPELLS
 
 		-----------------------------------------------------------------------------------
 		---	TP/h:63		(DW:36	STP:29		QA:0%	TA:4%	DA:7%)
@@ -907,6 +931,8 @@ function init_gear_sets()
 		--- Auxiliary Accuracy: 1106 	/ Auxiliary Attack: 937
 		-----------------------------------------------------------	
 		sets.engaged.DW3.Min = sets.engaged.DW3
+		
+		sets.engaged.DW3.Min.ENSPELLS = sets.engaged.DW3.ENSPELLS
 
 		-----------------------------------------------------------------------------------
 		---	TP/h:58		(DW:36	STP:29		QA:0%	TA:4%	DA:7%)
@@ -946,6 +972,8 @@ function init_gear_sets()
 		--- Auxiliary Accuracy: 1115 	/ Auxiliary Attack: 936
 		-----------------------------------------------------------
 		sets.engaged.DW2.Med = sets.engaged.DW2.Min
+		
+		sets.engaged.DW2.Med.ENSPELLS = sets.engaged.DW2.Min.ENSPELLS
 
 		-----------------------------------------------------------------------------------
 		---	TP/h:63		(DW:36	STP:29		QA:0%	TA:4%	DA:7%)
@@ -989,6 +1017,14 @@ function init_gear_sets()
 			back=gear.RDMCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet=gear.TFeet_TP
 		}
 		
+		sets.engaged.DW3.Med.ENSPELLS =
+		{
+			ammo="Ginsen",
+			head=gear.THead_TP, neck="Anu Torque", lear="Eabani Earring", rear="Suppanomimi",
+			body="Ayanmo Corazza +2", hands="Carmine Fin. Ga. +1", lring="Hetairoi Ring", rring={name="Chirich Ring +1", bag="wardrobe3"},
+			back=gear.RDMCape_DW, waist="Orpheus's Sash", legs="Carmine Cuisses +1", feet=gear.TFeet_TP
+		}
+		
 		-----------------------------------------------------------------------------------
 		---	TP/h:65		(DW:32	STP:39		QA:0%	TA:2%	DA:13%)
 		---	Primary Accuracy: 1160 		/ Primary Attack: 1018
@@ -1026,7 +1062,7 @@ function init_gear_sets()
 	--					(DW2 + Max Haste)
 	----------------------------------------------------------
 
-	--25 DW = 21 DW needed		(DNC Sub)
+	--15 DW = 21 DW needed		(DNC Sub)
 	
 	----------------------------------------------------------	
 		
@@ -1041,6 +1077,14 @@ function init_gear_sets()
 			head=gear.THead_TP, neck="Anu Torque", lear="Sherida Earring", rear="Suppanomimi",
 			body="Ayanmo Corazza +2", hands="Carmine Fin. Ga. +1", lring="Hetairoi Ring", rring="Ilabrat Ring",
 			back=gear.RDMCape_DW, waist="Windbuffet Belt +1", legs="Carmine Cuisses +1", feet="Carmine Greaves +1"
+		}
+		
+		sets.engaged.DW2.Max.ENSPELLS =
+		{
+			ammo="Ginsen",
+			head=gear.THead_TP, neck="Anu Torque", lear="Sherida Earring", rear="Suppanomimi",
+			body="Ayanmo Corazza +2", hands="Aya. Manopolas +2", lring="Hetairoi Ring", rring={name="Chirich Ring +1", bag="wardrobe3"},
+			back=gear.RDMCape_DW, waist="Orpheus's Sash", legs="Carmine Cuisses +1", feet="Carmine Greaves +1"
 		}
 		
 		-----------------------------------------------------------------------------------
@@ -1095,6 +1139,14 @@ function init_gear_sets()
 			head=gear.THead_TP, neck="Anu Torque", lear="Sherida Earring", rear="Dedition Earring",
 			body="Ayanmo Corazza +2", hands="Carmine Fin. Ga. +1", lring="Hetairoi Ring", rring="Ilabrat Ring",
 			back=gear.RDMCape_DW, waist="Windbuffet Belt +1", legs=gear.TLegs_TP, feet="Carmine Greaves +1"
+		}
+		
+		sets.engaged.DW3.Max.ENSPELLS =
+		{
+			ammo="Ginsen",
+			head=gear.THead_TP, neck="Anu Torque", lear="Sherida Earring", rear="Digni. Earring",
+			body="Ayanmo Corazza +2", hands="Aya. Manopolas +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			back=gear.RDMCape_DW, waist="Orpheus's Sash", legs=gear.TLegs_TP, feet="Carmine Greaves +1"
 		}
 		
 		-----------------------------------------------------------------------------------
@@ -1229,7 +1281,25 @@ end
 -------------------------------------------------------------------------------------------------------------------
 -- Job-specific hooks for standard casting events.
 -------------------------------------------------------------------------------------------------------------------
-
+function job_post_precast(spell, action, spellMap, eventArgs)
+	
+	
+	if spell.type == 'WeaponSkill' and magical_ws:contains(spell.name) then
+		if spell.element ~= world.day_element and spell.element ~= world.weather_element then
+			if spell.target.distance < (15 - spell.target.model_size) then
+				equip { waist="Orpheus's Sash" }
+			end
+		elseif (spell.element == world.day_element and spell.element == world.weather_element)
+				or (spell.element == world.weather_element and get_weather_intensity() == 2 and world.day_element ~= elements.strong_to[spell.element]) then
+			equip { waist="Hachirin-no-Obi" }
+		elseif (spell.element == world.day_element or (spell.element == world.weather_element and get_weather_intensity() == 1)
+				or (spell.element == world.weather_element and get_weather_intensity() == 2 and world.day_element == elements.strong_to[spell.element])) then
+			equip { waist="Hachirin-no-Obi" }
+		end	
+	end
+	
+	
+end
 
 -- Run after the default midcast() is done.
 -- eventArgs is the same one used in job_midcast, in case information needs to be persisted.
@@ -1246,8 +1316,14 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 		}
 	end
 	
-	if spell.target.type == 'SELF' and (spellMap == 'Cures' or spellMap == 'Refresh') then
+	if spell.target.type == 'SELF' then
+		if (spellMap == 'Cures' or spellMap == 'Refresh') then
         	equip { waist="Gishdubar Sash" }
+		end
+		
+		if spell.english == 'Phalanx' or spell.english == 'Phalanx II' then
+			equip(sets.midcast.Enhancement.Self)
+		end
 	end
 
 
@@ -1309,7 +1385,10 @@ end
 
 function job_aftercast(spell,action, spellMap, eventArgs)
 	equip(sets[state.MainWeaponSet.current])
-	equip(sets[state.SubWeaponSet.current])
+	
+	if determine_DW() > 0 then
+		equip(sets[state.SubWeaponSet.current])
+	end
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -1331,12 +1410,22 @@ function job_buff_change(buff,gain)
             handle_equipping_gear(player.status)
         end
     end
+	
+	if (buffactive[94] or buffactive[95] or buffactive[96] or buffactive[97] or buffactive[98] or buffactive[99]) 
+			and player.equipment.main == "Crocea Mors" then
+		classes.CustomMeleeGroups:append('ENSPELLS')
+		handle_equipping_gear(player.status)
+	end
 end
 
 function job_status_change(new_status, old_status)
 	if new_status == 'Engaged' then
 		equip(sets[state.MainWeaponSet.current])
-		equip(sets[state.SubWeaponSet.current])
+		
+		if determine_DW() > 0 then
+			equip(sets[state.SubWeaponSet.current])
+		end
+		
 		determine_haste_group()
 		update_combat_form()
 	end
@@ -1345,7 +1434,10 @@ end
 -- Handle notifications of general user state change.
 function job_state_change(stateField, newValue, oldValue)
 	equip(sets[state.MainWeaponSet.current])
-	equip(sets[state.SubWeaponSet.current])
+	
+	if determine_DW() > 0 then
+		equip(sets[state.SubWeaponSet.current])
+	end
 end
 
 function customize_idle_set(idleSet)
@@ -1357,8 +1449,13 @@ function customize_idle_set(idleSet)
 		})
     end
 	
+	if determine_DW() > 0 then
+		idleSet = set_combine(idleSet, sets[state.MainWeaponSet.current], sets[state.SubWeaponSet.current])
+	end
+	
 	return idleSet
 end
+
 
 -------------------------------------------------------------------------------------------------------------------
 -- User code that supplements standard library decisions.
@@ -1368,8 +1465,8 @@ end
 function job_get_spell_map(spell, default_spell_map)
 	if spell.action_type == 'Magic' then
 		if determine_DW() > 0 then
-			if default_spell_map == 'Enspells' then
-				return "EnspellsDW"
+			if default_spell_map == 'Enhancement' then
+				return "EnhancementDW"
 			end
 		end
 	end
@@ -1378,7 +1475,11 @@ end
 -- Called by the 'update' self-command.
 function job_update(cmdParams, eventArgs)
 	equip(sets[state.MainWeaponSet.current])
-	equip(sets[state.SubWeaponSet.current])
+	
+	if determine_DW() > 0 then
+		equip(sets[state.SubWeaponSet.current])
+	end
+	
 	determine_haste_group()
 	update_combat_form()
 	update_active_abilities()
@@ -1387,8 +1488,12 @@ end
 -- Function to display the current relevant user state when doing an update.
 -- Return true if display was handled, and you don't want the default info shown.
 function display_current_job_state(eventArgs)
-	local msg = '[' .. state.MainWeaponSet.value .. '/' .. state.SubWeaponSet.value .. ']'
+	local msg = '[' .. state.MainWeaponSet.value
 
+	if player.sub_job == 'NIN' then
+		msg = msg  .. '/' .. state.SubWeaponSet.value .. ']'
+	end
+	
 	if state.CombatForm.has_value then
 		msg = msg .. ' (' .. state.CombatForm.value .. ')'
 	end

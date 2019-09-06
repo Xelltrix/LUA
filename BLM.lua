@@ -69,9 +69,9 @@ function init_gear_sets()
 		})
 
 		sets.precast.FC.Death = set_combine(sets.precast.FC,
-		{--Fast Cast 65
-			ammo="Psilomene",
-			hands="Regal Cuffs", rring="Mephitas's Ring +1",
+		{--Fast Cast 72
+			ammo="Sapience Orb",
+			hands=gear.ENH_Gloves, rring="Mephitas's Ring +1",
 		})
 
 		sets.precast.FC.Cures = set_combine(sets.precast.FC,
@@ -279,9 +279,9 @@ function init_gear_sets()
 		sets.magic_burst =
 		{--MBD/II: 42/11
 			main="Lathi", sub="Niobid Strap", ammo="Pemphredo Tathlum",
-			head=gear.NukeHood, neck="Mizu. Kubikazari", lear="Regal Earring", rear="Static Earring",
+			head="Ea Hat", neck="Mizu. Kubikazari", lear="Regal Earring", rear="Static Earring",
 			body="Amalric Doublet +1", hands="Amalric Gages +1", lring="Locus Ring", rring="Mujin Band",
-			back=gear.BLMCape_Nuke, waist="Sacro Cord", legs="Merlinic Shalwar", feet="Jhakri Pigaches +2"
+			back=gear.BLMCape_Nuke, waist="Sacro Cord", legs="Merlinic Shalwar", feet="Amalric Nails +1"
 		}
 
 		sets.magic_burst.Resistant = set_combine(sets.magic_burst,
@@ -333,8 +333,8 @@ function init_gear_sets()
 		sets.idle.DeathMode =
 		{--Regen+1 | Refresh+4~5 | PDT/MDT: (5/8)
 			main="Lathi", sub="Khonsu", ammo="Psilomene",
-			head="Vanya Hood", neck="Sanctity Necklace", lear="Etiolation Earring", rear="Loquac. Earring",
-			body="Amalric Doublet +1", hands="Regal Cuffs", lring="Lebeche Ring", rring="Mephitas's Ring +1",
+			head="Befouled Crown", neck="Sanctity Necklace", lear="Etiolation Earring", rear="Loquac. Earring",
+			body="Amalric Doublet +1", hands="Regal Cuffs", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Fi Follet Cape +1", waist="Fucho-no-Obi", legs="Assid. Pants +1", feet="Amalric Nails +1"
 		}
 
@@ -418,7 +418,7 @@ function init_gear_sets()
 		sets.precast.WS['Myrkr'] =
 		{
 			ammo="Psilomene",
-			head="Pixie Hairpin +1", neck="Sanctity Necklace", lear="Etiolation Earring", rear="Moonshade Earring",
+			head="Amalric Coif +1", neck="Sanctity Necklace", lear="Etiolation Earring", rear="Moonshade Earring",
 			body="Amalric Doublet +1", hands="Regal Cuffs", lring="Lebeche Ring", rring="Mephitas's Ring +1",
 			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Amalric Slops +1", feet="Amalric Nails +1"
 		}
@@ -431,7 +431,7 @@ function init_gear_sets()
 		{
 			main="Lathi", sub="Khonsu", ammo="Floestone",
 			head="Jhakri Coronal +2", neck="Combatant's Torque", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-			body="Jhakri Robe +2", hands="Jhakri Cuffs +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			body="Jhakri Robe +2", hands="Volte Bracers", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.BLMCape_Nuke, waist="Windbuffet Belt +1", legs="Jhakri Slops +2", feet="Jhakri Pigaches +2"
 		}
 	

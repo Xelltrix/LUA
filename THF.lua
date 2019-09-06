@@ -184,14 +184,14 @@ function init_gear_sets()
 		{--	DT: 35%		PDT: 51%	MDT: 35%
 			ammo="Staunch Tathlum +1",
 			head=gear.AHead_PDT, neck="Loricate Torque +1", lear="Dawn Earring", rear="Infused Earring",
-			body="Meg. Cuirie +2", hands="Meg. Gloves +2", lring="Defending Ring", rring="Moonbeam Ring",
+			body="Meg. Cuirie +2", hands="Meg. Gloves +2", lring="Defending Ring", rring="Moonlight Ring",
 			back="Moonlight Cape", waist="Engraved Belt", legs="Mummu Kecks +2", feet="Jute Boots +1"
 		}
 
 		sets.idle.DT = set_combine (sets.idle,
 		{--	DT: 35%		PDT: 51%	MDT: 35%
 			head=gear.AHead_PDT, neck="Loricate Torque +1",
-			lring="Defending Ring", rring="Moonbeam Ring",
+			lring="Defending Ring", rring="Moonlight Ring",
 			waist="Engraved Belt", legs="Mummu Kecks +2",
 		})
 
@@ -619,14 +619,14 @@ function init_gear_sets()
 		{--	DT: 23%		PDT: 27%	MDT: 23%
 			ammo="Staunch Tathlum +1",
 			head=gear.AHead_PDT, neck="Loricate Torque +1",
-			lring="Defending Ring", rring="Moonbeam Ring",
+			lring="Defending Ring", rring="Moonlight Ring",
 		}
 		
 		sets.engaged.Hybrid2 = 
 		{--	DT: 29%		PDT: 43%	MDT: 29%
 			ammo="Staunch Tathlum +1",
 			head=gear.AHead_PDT, neck="Loricate Torque +1",
-			lring="Defending Ring", rring="Moonbeam Ring",
+			lring="Defending Ring", rring="Moonlight Ring",
 			back="Moonlight Cape", waist="Flume Belt +1", legs="Meg. Chausses +2"
 		}
 	
@@ -818,6 +818,15 @@ function customize_idle_set(idleSet)
 				head="Meghanada Visor +2", neck="Sanctity Necklace",
 				lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 				waist="Flume Belt +1", waist="Meg. Chuasses +2"
+			})
+		end
+	elseif player.mpp < 80 and (player.sub_job == "BLM" or player.sub_job == "WHM" or player.sub_job == "RDM") then
+		if state.IdleMode.value == 'Normal' then
+			idleSet = set_combine(idleSet, 
+			{
+				head="Rawhide Mask",
+				hands=gear.HHands_Refresh, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+				legs="Rawhide Trousers"
 			})
 		end
 	end

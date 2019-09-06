@@ -195,7 +195,7 @@ function init_gear_sets()
 		{
 			ammo="Staunch Tathlum +1",
 			neck="Loricate Torque +1", lear="Dawn Earring", rear="Infused Earring",
-			body="Lugra Cloak +1", hands="Sulev. Gauntlets +2", lring="Defending Ring", rring="Moonbeam Ring",
+			body="Lugra Cloak +1", hands="Sulev. Gauntlets +2", lring="Defending Ring", rring="Moonlight Ring",
 			back="Reiki Cloak", waist="Flume Belt", legs="Carmine Cuisses +1", feet="Sulev. Leggings +2"
 		}
 
@@ -225,7 +225,7 @@ function init_gear_sets()
 		{
 			ammo="Staunch Tathlum +1",
 			head="Sulevia's Mask +2", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
-			body="Sulevia's Plate. +1", hands="Sulev. Gauntlets +2", lring="Defending Ring", rring="Moonbeam Ring",
+			body="Sulevia's Plate. +1", hands="Sulev. Gauntlets +2", lring="Defending Ring", rring="Moonlight Ring",
 			back="Moonlight Cape", waist="Flume Belt +1", legs="Sulev. Cuisses +2", feet="Sulev. Leggings +2"
 		}
 
@@ -233,7 +233,7 @@ function init_gear_sets()
 		{
 			ammo="Staunch Tathlum +1",
 			head="Sulevia's Mask +2", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
-			body="Sulevia's Plate. +1", hands="Sulev. Gauntlets +2", lring="Defending Ring", rring="Moonbeam Ring",
+			body="Sulevia's Plate. +1", hands="Sulev. Gauntlets +2", lring="Defending Ring", rring="Moonlight Ring",
 			back="Moonlight Cape", waist="Flume Belt +1", legs="Sulev. Cuisses +2", feet="Sulev. Leggings +2"
 		}
 

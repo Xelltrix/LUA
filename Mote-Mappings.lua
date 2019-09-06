@@ -6,67 +6,84 @@
 -- Elemental mappings for element relationships and certain types of spells and gear.
 -------------------------------------------------------------------------------------------------------------------
 
--- Basic elements
-elements = {}
+	-- Basic elements
+	elements = {}
 
-elements.list = 
-S{
-	'Light','Dark','Fire','Ice','Wind','Earth','Lightning','Water'
-}
+	elements.list = 
+	S{
+		'Light','Dark','Fire','Ice','Wind','Earth','Lightning','Water'
+	}
 
-elements.weak_to = 
-{
-	['Light']='Dark', ['Dark']='Light', ['Fire']='Ice', ['Ice']='Wind', ['Wind']='Earth', ['Earth']='Lightning',
-    ['Lightning']='Water', ['Water']='Fire'
-}
+	elements.weak_to = 
+	{
+		['Light']='Dark', ['Dark']='Light', ['Fire']='Ice', ['Ice']='Wind', ['Wind']='Earth', ['Earth']='Lightning',
+		['Lightning']='Water', ['Water']='Fire'
+	}
 
-elements.strong_to = 
-{	
-	['Light']='Dark', ['Dark']='Light', ['Fire']='Water', ['Ice']='Fire', ['Wind']='Ice', ['Earth']='Wind',
-    ['Lightning']='Earth', ['Water']='Lightning'
-}
+	elements.strong_to = 
+	{	
+		['Light']='Dark', ['Dark']='Light', ['Fire']='Water', ['Ice']='Fire', ['Wind']='Ice', ['Earth']='Wind',
+		['Lightning']='Earth', ['Water']='Lightning'
+	}
 
-storms = 
-S{
-	"Aurorastorm", "Voidstorm", "Firestorm", "Sandstorm", "Rainstorm", "Windstorm", "Hailstorm", "Thunderstorm",
-	"Aurorastorm II", "Voidstorm II", "Firestorm II", "Sandstorm II", "Rainstorm II", "Windstorm II", "Hailstorm II", "Thunderstorm II"
-}
+	storms = 
+	S{
+		"Aurorastorm", "Voidstorm", "Firestorm", "Sandstorm", "Rainstorm", "Windstorm", "Hailstorm", "Thunderstorm",
+		"Aurorastorm II", "Voidstorm II", "Firestorm II", "Sandstorm II", "Rainstorm II", "Windstorm II", "Hailstorm II", "Thunderstorm II"
+	}
 
-elements.storm_of = 
-{
-	['Light']="Aurorastorm", ['Dark']="Voidstorm", ['Fire']="Firestorm", ['Earth']="Sandstorm",
-    ['Water']="Rainstorm", ['Wind']="Windstorm", ['Ice']="Hailstorm", ['Lightning']="Thunderstorm",['Light']="Aurorastorm II",
-	['Dark']="Voidstorm II", ['Fire']="Firestorm II", ['Earth']="Sandstorm II", ['Water']="Rainstorm II", ['Wind']="Windstorm II",
-	['Ice']="Hailstorm II", ['Lightning']="Thunderstorm II"
-}
+	elements.storm_of = 
+	{
+		['Light']="Aurorastorm", ['Dark']="Voidstorm", ['Fire']="Firestorm", ['Earth']="Sandstorm",
+		['Water']="Rainstorm", ['Wind']="Windstorm", ['Ice']="Hailstorm", ['Lightning']="Thunderstorm",['Light']="Aurorastorm II",
+		['Dark']="Voidstorm II", ['Fire']="Firestorm II", ['Earth']="Sandstorm II", ['Water']="Rainstorm II", ['Wind']="Windstorm II",
+		['Ice']="Hailstorm II", ['Lightning']="Thunderstorm II"
+	}
 
-spirits = 
-S{
-	"LightSpirit", "DarkSpirit", "FireSpirit", "EarthSpirit", "WaterSpirit", "AirSpirit", "IceSpirit", "ThunderSpirit"
-}
+	spirits = 
+	S{
+		"LightSpirit", "DarkSpirit", "FireSpirit", "EarthSpirit", "WaterSpirit", "AirSpirit", "IceSpirit", "ThunderSpirit"
+	}
 
-avatars = 
-S{
-	"Carbuncle", "Fenrir", "Diabolos", "Ifrit", "Titan", "Leviathan", "Garuda", "Shiva", "Ramuh", "Odin", "Alexander", "Cait Sith", "Atomos"
-}
+	avatars = 
+	S{
+		"Carbuncle", "Fenrir", "Diabolos", "Ifrit", "Titan", "Leviathan", "Garuda", "Shiva", "Ramuh", "Odin", "Alexander", "Cait Sith", "Atomos"
+	}
 
-elements.spirit_of = 
-{
-	['Light']="Light Spirit", ['Dark']="Dark Spirit", ['Fire']="Fire Spirit", ['Earth']="Earth Spirit",
-    ['Water']="Water Spirit", ['Wind']="Air Spirit", ['Ice']="Ice Spirit", ['Lightning']="Thunder Spirit"
-}
+	elements.spirit_of = 
+	{
+		['Light']="Light Spirit", ['Dark']="Dark Spirit", ['Fire']="Fire Spirit", ['Earth']="Earth Spirit",
+		['Water']="Water Spirit", ['Wind']="Air Spirit", ['Ice']="Ice Spirit", ['Lightning']="Thunder Spirit"
+	}
 
-runes = 
-S{
-	'Lux', 'Tenebrae', 'Ignis', 'Gelus', 'Flabra', 'Tellus', 'Sulpor', 'Unda'
-}
+	runes = 
+	S{
+		'Lux', 'Tenebrae', 'Ignis', 'Gelus', 'Flabra', 'Tellus', 'Sulpor', 'Unda'
+	}
 
-elements.rune_of = 
-{
-	['Light']='Lux', ['Dark']='Tenebrae', ['Fire']='Ignis', ['Ice']='Gelus', ['Wind']='Flabra',
-    ['Earth']='Tellus', ['Lightning']='Sulpor', ['Water']='Unda'
-}
-
+	elements.rune_of = 
+	{
+		['Light']='Lux', ['Dark']='Tenebrae', ['Fire']='Ignis', ['Ice']='Gelus', ['Wind']='Flabra',
+		['Earth']='Tellus', ['Lightning']='Sulpor', ['Water']='Unda'
+	}
+	
+	
+	magical_ws = 
+	S{
+		"Gust Slash", "Cyclone", "Energy Steal", "Energy Drain", "Aeolian Edge",
+		"Burning Blade", "Red Lotus Blade", "Shining Blade", "Seraph Blade", "Sanguine Blade",
+		"Frostbite", "Freezebite", "Herculean Slash",
+		"Cloudsplitter", "Primal Rend",
+		"Dark Harevest", "Shadow of Death", "Infernal Scythe",
+		"Thunder Thrust", "Raiden Thrust",
+		"Blade: Teki", "Blade: To", "Blade: Chi", "Blade: Ei", "Blade: Yu",
+		"Tachi: Goten", "Tachi: Kagero", "Tachi: Jinpu", "Tachi: Koki",
+		"Shining Strike", "Seraph Strike", "Flash Nova",
+		"Rock Crusher", "Earth Crusher", "Starburst", "Sunburst", "Cataclysm", "Vidohunir", "Garland of Bliss", "Omniscience",
+		"Flaming Arrow",
+		"Hot Shot", "Wildfire", "Trueflight", "Leaden Salute"
+	}
+	
 
 
 
@@ -203,12 +220,12 @@ spell_maps = {
 	['Boost-INT']='BoostStat',['Boost-MND']='BoostStat',['Boost-CHR']='BoostStat',
     ['Gain-STR']='GainStat',['Gain-DEX']='GainStat',['Gain-VIT']='GainStat',['Gain-AGI']='GainStat',
 	['Gain-INT']='GainStat',['Gain-MND']='GainStat',['Gain-CHR']='GainStat',
-	---- Enspells	
-	['Enfire']='Enspells',['Enfire II']='Enspells',['Enblizzard']='Enspells',['Enblizzard II']='Enspells',
-	['Enaero']='Enspells',['Enaero II']='Enspells',
-	['Enstone']='Enspells',['Enstone II']='Enspells',['Enthunder']='Enspells',['Enthunder II']='Enspells',
-	['Enwater']='Enspells',['Enwater II']='Enspells',
-	['Temper']='Enspells',['Temper II']='Enspells',
+	---- Enhancement	
+	['Enfire']='Enhancement',['Enfire II']='Enhancement',['Enblizzard']='Enhancement',['Enblizzard II']='Enhancement',
+	['Enaero']='Enhancement',['Enaero II']='Enhancement',
+	['Enstone']='Enhancement',['Enstone II']='Enhancement',['Enthunder']='Enhancement',['Enthunder II']='Enhancement',
+	['Enwater']='Enhancement',['Enwater II']='Enhancement',
+	['Temper']='Enhancement',['Temper II']='Enhancement', ['Phalanx']='Enhancement',['Phalanx II']='Enhancement',
     ---- Protection
 	['Protect']='Protection',['Protect II']='Protection',['Protect III']='Protection',['Protect IV']='Protection',['Protect V']='Protection',
     ['Shell']='Protection',['Shell II']='Protection',['Shell III']='Protection',['Shell IV']='Protection',['Shell V']='Protection',
@@ -228,7 +245,7 @@ spell_maps = {
     ---- Teleport
 	['Teleport-Holla']='Teleport',['Teleport-Dem']='Teleport',['Teleport-Mea']='Teleport',['Teleport-Altep']='Teleport',['Teleport-Yhoat']='Teleport',
     ['Teleport-Vahzl']='Teleport',['Recall-Pashh']='Teleport',['Recall-Meriph']='Teleport',['Recall-Jugner']='Teleport',
-	['Retrace']='Teleport',['Warp']='Teleport',['Warp II']='Teleport',['Escape']='Teleport',
+	['Retrace']='Teleport',['Warp']='Teleport',['Warp II']='Teleport',['Escape']='Teleport',['Tractor']='Teleport',
     --- Divine Nukes
 	['Banish']='DivineNuke',['Banish II']='DivineNuke',['Banish III']='DivineNuke',['Banishga']='DivineNuke',['Banishga II']='DivineNuke',
 	['Holy']='DivineNuke',['Holy II']='DivineNuke',
@@ -237,6 +254,8 @@ spell_maps = {
 	['Hydrohelix II']='Helix',['Luminohelix II']='Helix',['Noctohelix II']='Helix',
 	['Pyrohelix']='Helix',['Cryohelix']='Helix',['Anemohelix']='Helix',['Geohelix']='Helix',['Ionohelix']='Helix',
 	['Hydrohelix']='Helix',['Luminohelix']='Helix',['Noctohelix']='Helix',
+	--- Dark Nukes
+	['Kaustra']='Darkness',['Noctohelix']='Darkness',['Noctohelix II']='Darkness',
 	--- Geomancer Nukes
 	['Fira']='GeoNukes',['Fira II']='GeoNukes',['Fira III']='GeoNukes', ['Blizzara']='GeoNukes',['Blizzara II']='GeoNukes',['Blizzara III']='GeoNukes',
 	['Aera']='GeoNukes',['Aera II']='GeoNukes',['Aera III']='GeoNukes', ['Stonera']='GeoNukes',['Stonera II']='GeoNukes',['Stonera III']='GeoNukes',

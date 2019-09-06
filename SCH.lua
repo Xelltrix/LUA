@@ -55,7 +55,6 @@ function init_gear_sets()
 
 		sets.precast.JA['Tabula Rasa'] =
 		{
-			ammo="Psilomene",
 			head="Amalric Coif +1", neck="Sanctity Necklace", lear="Etiolation Earring", rear="Mendi. Earring",
 			body="Acad. Gown +3", hands="Kaykaus Cuffs +1", lring="Lebeche Ring", rring="Mephitas's Ring +1",
 			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Peda. Pants +3", feet="Amalric Nails +1"

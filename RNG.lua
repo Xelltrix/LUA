@@ -157,7 +157,7 @@ function init_gear_sets()
 	sets.idle.DT = set_combine (sets.idle,
 	{
 		neck="Loricate Torque +1",
-		lring="Defending Ring", rring="Moonbeam Ring",
+		lring="Defending Ring", rring="Moonlight Ring",
 		waist="Carrier's Sash",
 	})
 

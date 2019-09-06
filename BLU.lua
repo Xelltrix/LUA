@@ -50,7 +50,6 @@ function user_setup()
 
 	state.MainWeaponSet = M{['description']='Main Weapon Set',
 		'Tizona',
-		'Sequence',
 		'Almace',
 		'Maxentius'
 	}
@@ -270,7 +269,6 @@ function init_gear_sets()
 
 		sets.midcast['White Wind'] = set_combine(sets.midcast.Cures,
 		{--		Cure Potency: 47%
-			ammo="Psilomene", 
 			head="Luh. Keffiyeh +3", neck="Sanctity Necklace", lear="Odnowa Earring +1", rear="Mendi. Earring",
 			lring="Lebeche Ring", rring="Ilabrat Ring",
 			back="Moonlight Cape"
@@ -513,8 +511,6 @@ function init_gear_sets()
 	
 		sets.subAlmace = { sub="Almace" }
 		
-		sets.Sequence = { main="Sequence" }
-		
 		sets.Maxentius = { main="Maxentius" }
 		
 		sets.Naegling = { sub="Naegling" }
@@ -630,7 +626,7 @@ function init_gear_sets()
 		
 	--	***Swords***
 	
-		--Tizona/Almace TP: 80/h		Almace/Sequence TP:86/h		(DW3 STP25 or DW4 STP30)
+		--Tizona/Almace TP: 80/h		Almace/Naegling TP:79/h		(DW3 STP25 or DW4 STP30)
 		sets.precast.WS['Chant du Cygne'] = set_combine(sets.precast.WS,
 		{
 			ammo="Falcon Eye",
@@ -755,7 +751,6 @@ function init_gear_sets()
 	---Spirits Within
 		sets.precast.WS['Spirits Within'] =
 		{
-			ammo="Psilomene",
 			head="Luh. Keffiyeh +3", neck="Sanctity Necklace", lear="Odnowa Earring +1", rear="Moonshade Earring",
 			body="Assim. Jubbah +3", hands="Regal Cuffs", lring="Ilabrat Ring", rring="Gelatinous Ring +1",
 			back="Moonlight Cape", waist="Sacro Cord", legs="Assim. Shalwar +3", feet="Assim. Charuqs +3"
@@ -1508,7 +1503,7 @@ function init_gear_sets()
 		sets.engaged.DW3.Max =
 		{
 			ammo="Ginsen",
-			head=gear.AHead_TP, neck="Mirage Stole +2", lear="Brutal Earring", rear="Suppanomimi",
+			head=gear.AHead_TP, neck="Mirage Stole +2", lear="Telos Earring", rear="Suppanomimi",
 			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Hetairoi Ring", rring="Epona's Ring",
 			back=gear.BLUCape_STP, waist="Windbuffet Belt +1", legs="Samnuha Tights", feet=gear.HBoots_TP
 		}
@@ -1640,7 +1635,7 @@ function init_gear_sets()
 		-- Sword & Board
 		----------------------------------------------------------	
 	    sets.engaged.DT 				= set_combine(sets.engaged, 		sets.engaged.Hybrid)
-		sets.engaged.AM3.DT 				= set_combine(sets.engaged.AM3,		sets.engaged.Hybrid)
+		sets.engaged.DT.AM3 				= set_combine(sets.engaged.AM3,		sets.engaged.Hybrid)
 		sets.engaged.Low.DT 				= set_combine(sets.engaged.Low, 	sets.engaged.Hybrid)
 		sets.engaged.Mid.DT 				= set_combine(sets.engaged.Mid, 	sets.engaged.Hybrid)
 		sets.engaged.High.DT				= set_combine(sets.engaged.High, 	sets.engaged.Hybrid)
@@ -1997,6 +1992,20 @@ end
 function job_post_precast(spell, action, spellMap, eventArgs)
 	if state.EnmityDown.value and spell.type == 'WeaponSkill' then
 		equip(sets.EnmityDown)
+	end
+	
+	if spell.type == 'WeaponSkill' and magical_ws:contains(spell.name) then
+		if spell.element ~= world.day_element and spell.element ~= world.weather_element then
+			if spell.target.distance < (15 - spell.target.model_size) then
+				equip { waist="Orpheus's Sash" }
+			end
+		elseif (spell.element == world.day_element and spell.element == world.weather_element)
+				or (spell.element == world.weather_element and get_weather_intensity() == 2 and world.day_element ~= elements.strong_to[spell.element]) then
+			equip { waist="Hachirin-no-Obi" }
+		elseif (spell.element == world.day_element or (spell.element == world.weather_element and get_weather_intensity() == 1)
+				or (spell.element == world.weather_element and get_weather_intensity() == 2 and world.day_element == elements.strong_to[spell.element])) then
+			equip { waist="Hachirin-no-Obi" }
+		end	
 	end
 end
 

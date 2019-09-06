@@ -14,6 +14,8 @@ function job_setup()
 	-- Whether to use Luzaf's Ring
     state.LuzafRing = M(false, "Luzaf's Ring")
 
+	include('Mote-TreasureHunter')
+
 	update_combat_form()
 	define_roll_values()
 end
@@ -29,6 +31,8 @@ function user_setup()
     state.RangedMode:options('Normal', 'Low', 'Mid', 'High')
     state.WeaponskillMode:options('Normal', 'Low', 'Mid', 'High')
     state.IdleMode:options('Normal', 'DT')
+	
+	send_command('bind ^= gs c cycle treasuremode')
 	
 	-- Additional local binds
 	send_command('bind numpad/ input /ja "Snake Eye" <me>')
@@ -221,6 +225,13 @@ function init_gear_sets()
 			waist="Gishdubar Sash"
 		}
 		
+		sets.TreasureHunter = 
+		{ 
+			head=gear.HHead_TH, 
+			hands="Volte Bracers",
+			waist="Chaac Belt"
+		}
+		
 ----------------------------------------------------------------------------
 --------------------									--------------------
 ------------							 						------------
@@ -236,15 +247,28 @@ function init_gear_sets()
 		sets.precast.RA =
 		{
 			head="Chass. Tricorne +1",
-			body="Lak. Frac +1", hands="Lanun Gants +1", 
+			body="Lak. Frac +1", hands="Carmine Fin. Ga. +1", 
 			waist="Impulse Belt", legs="Adhemar Kecks +1", feet="Meg. Jam. +2"
 		}
 		
 		sets.midcast.RA =
 		{
 			head="Meghanada Visor +2", neck="Iskur Gorget", lear="Telos Earring", rear="Enervating Earring",
-			body="Chasseur's Frac +1",  hands="Oshosi Gloves", lring="Dingir Ring", rring="Regal Ring",
+			body="Meg. Cuirie +2",  hands="Meg. Gloves +2", lring="Dingir Ring", rring="Regal Ring",
+			back="Camulus's Mantle", waist="Yemaya Belt", legs="Adhemar Kecks +1", feet="Meg. Jam. +2"
+		}
+		
+		sets.midcast.RA.STP =
+		{
+			head="Meghanada Visor +2", neck="Iskur Gorget", lear="Telos Earring", rear="Enervating Earring",
+			body="Meg. Cuirie +2",  hands="Carmine Fin. Ga. +1", lring="Dingir Ring", rring="Regal Ring",
 			back="Camulus's Mantle", waist="Yemaya Belt", legs="Adhemar Kecks +1", feet="Adhemar Gamashes"
+		}
+		
+		sets.buff.TripleShot =
+		{
+			body="Chasseur's Frac +1", hands="Oshosi Gloves", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			feet="Adhemar Gamashes"
 		}
 		
 	-------------------------
@@ -252,7 +276,7 @@ function init_gear_sets()
 	-------------------------
 		sets.precast.WS = 
 		{
-			head="Lilitu Headpiece", neck="Fotia Gorget", lear="Ishvara Earring", rear="Moonshade Earring",
+			head=gear.HHead_WSD, neck="Fotia Gorget", lear="Ishvara Earring", rear="Moonshade Earring",
 			body="Herculean Vest", hands="Meg. Gloves +2", lring="Karieyh Ring +1", rring="Epaminondas's Ring",
 			back="Camulus's Mantle", waist="Fotia Belt", legs="Herculean Trousers", feet=gear.HBoots_WSD
 		}
@@ -272,6 +296,12 @@ function init_gear_sets()
 		})
 		sets.precast.WS['Hot Shot'] = sets.precast.WS['Wildfire']
 		
+		sets.precast.WS['Last Stand'] = set_combine(sets.precast.WS,
+		{
+			head="Meghanada Visor +2",
+			body="Meg. Cuirie +2",
+			legs="Meg. Chausses +2", feet="Meg. Jam. +2"
+		})
 		
 		--	***Swords***
 		sets.precast.WS['Sanguine Blade'] = sets.precast.WS['Leaden Salute']
@@ -690,9 +720,9 @@ function init_gear_sets()
 		-----------------------------------------------------------	
 		sets.engaged.DW3.Max =
 		{
-			head=gear.AHead_TP, neck="Iskur Gorget", lear="Brutal Earring", rear="Suppanomimi",
-			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring="Epona's Ring",
-			back="Camulus's Mantle", waist="Windbuffet Belt +1", legs="Samnuha Tights", feet=gear.HBoots_TP
+			head=gear.AHead_TP, neck="Iskur Gorget", lear="Telos Earring", rear="Dedition Earring",
+			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			back="Camulus's Mantle", waist="Reiki Yotai", legs="Samnuha Tights", feet="Carmine Greaves +1"
 		}
 		
 		-----------------------------------------------------------------------------------
@@ -703,7 +733,7 @@ function init_gear_sets()
 		sets.engaged.DW3.Low.Max = set_combine(sets.engaged.DW3.Max,
 		{
 			neck="Combatant's Torque",
-			lring={name="Chirich Ring +1", bag="wardrobe2"},
+			rring={name="Chirich Ring +1", bag="wardrobe3"},
 		})
 		
 		-----------------------------------------------------------------------------------
@@ -835,14 +865,21 @@ function job_post_precast(spell, action, spellMap, eventArgs)
         elseif flurry == 1 then
             equip(sets.precast.RA.Flurry1)
         end
-    -- Equip obi if weather/day matches for WS.
-    elseif spell.type == 'WeaponSkill' then
-        if (spell.english == 'Leaden Salute' or spell.english == 'Sanguine Blade') and world.weather_element == 'Dark' and world.day_element == 'Dark' then
-		equip{waist="Hachirin-no-Obi"}
-	elseif spell.english == 'Wildfire' and (world.weather_element == 'Fire' or world.day_element == 'Fire') then
-		equip{waist="Hachirin-no-Obi"}
-        end
-    end
+	end
+
+    if spell.type == 'WeaponSkill' and magical_ws:contains(spell.name) then
+		if spell.element ~= world.day_element and spell.element ~= world.weather_element then
+			if spell.target.distance < (15 - spell.target.model_size) then
+				equip { waist="Orpheus's Sash" }
+			end
+		elseif (spell.element == world.day_element and spell.element == world.weather_element)
+				or (spell.element == world.weather_element and get_weather_intensity() == 2 and world.day_element ~= elements.strong_to[spell.element]) then
+			equip { waist="Hachirin-no-Obi" }
+		elseif (spell.element == world.day_element or (spell.element == world.weather_element and get_weather_intensity() == 1)
+				or (spell.element == world.weather_element and get_weather_intensity() == 2 and world.day_element == elements.strong_to[spell.element])) then
+			equip { waist="Hachirin-no-Obi" }
+		end	
+	end
 end
 
 function job_post_midcast(spell, action, spellMap, eventArgs)
@@ -941,10 +978,10 @@ function determine_haste_group()
 
 	if buffactive[1] or buffactive[13] or buffactive[194] then
 		classes.CustomMeleeGroups:append('')						-- Slow Status Effect
-		add_to_chat(8, '*********Slowed Status Effect Set***********')
+		--add_to_chat(8, '*********Slowed Status Effect Set***********')
 	else
 		if (((buffactive[33] or buffactive[580] or buffactive.embrava) and (buffactive[214] or buffactive[604])) or
-			(buffactive[33] and (buffactive[580] or buffactive.embrava)) or (buffactive.march == 2 and buffactive[604])) then
+			(buffactive[33] and (buffactive[580] or buffactive.embrava)) or (buffactive.march == 2 and buffactive[604])) or buffactive.march == 2 then
 			classes.CustomMeleeGroups:append('Max')							-- 43.75% Magical Haste
 			--add_to_chat(8, '*********Maximum Haste Set***********')
 		elseif buffactive[33] or buffactive.march == 2 or buffactive[580] or buffactive[228] then
@@ -1002,6 +1039,10 @@ function display_current_job_state(eventArgs)
     if state.Kiting.value then
         msg = msg .. '[ Kiting Mode: ON ]'
     end
+	
+	if state.TreasureMode.has_value then
+		msg = msg .. ', TH: ' .. state.TreasureMode.value
+	end
 
     msg = msg .. ']'
 
