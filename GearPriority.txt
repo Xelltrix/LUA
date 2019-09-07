@@ -1,44 +1,41 @@
 -----------
 Priority A
 -----------
-
-Kaykaus Mitra +1          Price: 30,000,000G (40,000,000G)
-Kaykaus Briault +1        Price: 10,000,000G (20,000,000G)
-Kaykaus Boots +1          Price: 25,000,000G (25,000,000G)
-
-
------------
-Priority B
------------
-
-Argute Stole +2           Price: 90,000,000G
-Duelist's Torque +2       Price: 100,000,000G
-Futhark Torque +2         Price: 80,000,000G
-
-
------------
-Priority C
------------
-Musa                      Price: 120,000,000G
-R15 Lionheart             Price: 120,000,000G
-
-Summoner's Collar +2      Price: 80,000,000G
-
+Voodoo Mitts              Price: 7,000,000G
 Baayami Slops +1          Price: 40,000,000G
 Baayami Sabots +1         Price: 30,000,000G
 Baayami Cuffs +1          Price: 30,000,000G
 
-
 -----------
-Priority D
+Priority B
 -----------
-R15 Epeolatry             Price; 120,000,000G
-
 Ea Hat +1                 Price: 35,000,000G (24,000,000G)
 Ea Slops +1               Price: 40,000,000G (36,000,000G)
 
 Ea Houppleland +1         Price: 50,000,000G (35,000,000G)
 Ea Pigaches +1            Price: 30,000,000G (25,000,000G)
+
+-----------
+Priority C
+-----------
+Musa                      Price: 120,000,000G
+
+Argute Stole +2           Price: 90,000,000G
+
+Kaykaus Mitra +1          Price: 30,000,000G (40,000,000G)
+Kaykaus Briault +1        Price: 10,000,000G (20,000,000G)
+Kaykaus Boots +1          Price: 25,000,000G (25,000,000G)
+
+-----------
+Priority D
+-----------
+Duelist's Torque +2       Price: 100,000,000G
+Futhark Torque +2         Price: 80,000,000G
+Summoner's Collar +2      Price: 80,000,000G
+
+R15 Lionheart             Price: 120,000,000G
+R15 Epeolatry             Price; 120,000,000G
+
 
 Cleric's Torque +2        Price: 100,000,000G
 Raetic Staff +1           Price: 30,000,000G
