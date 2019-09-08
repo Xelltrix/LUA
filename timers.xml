@@ -54,18 +54,11 @@
         <!--If true, only items on the recast/buff lists will be displayed-->
         <WhitelistMode>true</WhitelistMode>
         <!--List of ability names to display recasts for if in whitelistMode and to exclude otherwise-->
-        <AbilityRecastFilter>Provoke|Berserk|Aggressor|Warcry|Afflatus*|Martyr|Devotion|Elemental Seal|Mana Wall|Enmity Douse|Manawell|Convert|Saboteur|
-		Flee|Sneak Attack|Trick Attack|Accomplice|Assassin's Charge|Feint|Conspirator|Bully|Last Resort|Weapon Bash|Souleater|Diabolic Eye|Nether Void|
-		Sharpshot|Barrage|Shadowbind|Double Shot|Decoy Shot|Elemental Siphon|Apogee|Blood*|Issekigan|*Jump|Meditate|*Affinity|Convergence|Diffusion|Efflux|
-		Unbridled Learning|Phantom Roll|Quick Draw|Random Deal|Snake Eye|Fold|Triple Shot|Crooked Cards|*Waltz|*Flourish|Stratagem|Blaze of Glory|
-		Dematerialize|Entrust|Swipe|Lunge|Battuta|
-		</AbilityRecastFilter>
+        <AbilityRecastFilter>Provoke|Berserk|Aggressor|Warcry|Afflatus*|Martyr|Devotion|Elemental Seal|Mana Wall|Enmity Douse|Manawell|Convert|Saboteur| Flee|Sneak Attack|Trick Attack|Accomplice|Feint|Conspirator|Bully|Last Resort|Weapon Bash|Souleater|Diabolic Eye|Nether Void|Sharpshot|Barrage|Shadowbind|Double Shot|Decoy Shot|Elemental Siphon|Apogee|Blood*|Issekigan|*Jump|Meditate|*Affinity|Convergence|Diffusion|Efflux|Unbridled Learning|Phantom Roll|Quick Draw|Random Deal|Snake Eye|Fold|Triple Shot|Crooked Cards|*Waltz|*Flourish|Penury|Blaze of Glory|Dematerialize|Entrust|Life Cycle|Ecliptic Attrition|Swipe|Lunge|Battuta|Vivacious Pulse</AbilityRecastFilter>
         <!--List of spell names to display recasts for if in whitelistMode and to exclude otherwise-->
-        <SpellRecastFilter>Curaga*|*raise*|Arise|Stoneskin|Haste*|Flurry*|Refresh*|Flash|Repose|Addle*|Stone*|Water*|Aer*|Fir*|Blizz*|Thund*|Stun|Foil|
-		Freeze*|Torand*o|Quake*|Burst*|Flood*|Flare*|Aspir*|Drain*|Death|Sleep*|Break*|Bind|Gravity*|Comet|Dread Spikes|Absorb-TP|Utsusemi*|
-		Sudden Lunge|Searing Tempest|Blinding Fulgor|Spectral Floe|Scouring Spate|Anvil Lightning|Silent Storm|Entomb|Tenebral Crush|Subduction|*Wind*|
-		Occultation|Zephyr Mantle|Dream Flower|Yawn|Soporific|Magic Barrier|Sheep Song|Magic Hammer|Actinic Burst|Jettatura|Geist Wall|Kaustra|*helix*|</SpellRecastFilter>
-        <AbilityBuffFilter></AbilityBuffFilter>
+        <SpellRecastFilter>Curaga*|*raise*|Arise|Stoneskin|Haste*|Flurry*|Refresh*|Flash|Repose|Addle*|Stone*|Water*|Aer*|Fir*|Blizz*|Thund*|Stun|Foil| Freeze*|Torand*o|Quake*|Burst*|Flood*|Flare*|Aspir*|Drain*|Death|Sleep*|Break*|Bind|Gravity*|Comet|Dread Spikes|Absorb-TP|Utsusemi*|Sudden Lunge|Searing Tempest|Blinding Fulgor|Spectral Floe|Scouring Spate|Anvil Lightning|Silent Storm|Entomb|Tenebral Crush|Subduction|*Wind*|Occultation|Zephyr Mantle|Dream Flower|Yawn|Soporific|Magic Barrier|Sheep Song|Magic Hammer|Actinic Burst|Jettatura|Geist Wall|Kaustra|*helix*|Foil</SpellRecastFilter>
+        <!--List of ability names to display buffs for if in whitelistMode and to exclude otherwise-->
+        <AbilityBuffFilter />
         <!--List of spell names to display buffs for if in whitelistMode and to exclude otherwise-->
         <!--If true will show a font outline-->
         <Stroke>true</Stroke>
