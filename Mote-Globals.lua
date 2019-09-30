@@ -54,6 +54,9 @@ function define_global_sets()
 	gear.SMNCape_Phys = { name="Campestres's Cape", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+10 /Mag. Eva.+10','Pet: "Regen"+10',}}
 	gear.SMNCape_Mag =  { name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+10 /Mag. Eva.+10','"Fast Cast"+10','Phys. dmg. taken-10%',}}
 	
+	gear.GEOCape_Luopan = { name="Nantosuelta's Cape", augments={'Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Pet: "Regen"+10','Pet: "Regen"+5',}}
+	gear.GEOCape_Nuke = { name="Nantosuelta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10',}}
+	
 	-- Colada
 	gear.Colada_ENH = { name="Colada", augments={'Enh. Mag. eff. dur. +4','Mag. Acc.+8','DMG:+14'}}
 	
@@ -100,8 +103,14 @@ function define_global_sets()
     gear.TFeet_TP = { name="Taeon Boots", augments={'Accuracy+19 Attack+19','"Triple Atk."+2','DEX+10',}}
 	
 	---Telchine
+	gear.ENH_Body = { name="Telchine Chas.", augments={'Mag. Evasion+25','"Elemental Siphon"+35','Enh. Mag. eff. dur. +10',}}
+	gear.Pet_Body =  { name="Telchine Chas.", augments={'Mag. Evasion+23','Pet: "Regen"+3','Pet: Damage taken -4%',}}
+	
 	gear.SiphonHands = { name="Telchine Gloves", augments={'"Elemental Siphon"+35',}}
 	gear.ENH_Gloves = { name="Telchine Gloves", augments={'"Mag.Atk.Bns."+15','"Fast Cast"+5','Enh. Mag. eff. dur. +10',}}
+	
+	gear.ENH_Legs = { name="Telchine Braconi", augments={'Accuracy+15 Attack+15','"Elemental Siphon"+35','Enh. Mag. eff. dur. +10',}}
+	gear.Pet_Legs = { name="Telchine Braconi", augments={'Mag. Evasion+25','Pet: "Regen"+3','Pet: Damage taken -4%',}}
 	
 end
 

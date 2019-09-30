@@ -203,9 +203,9 @@ spell_maps = {
 	['Poisona']='StatusRemoval',['Paralyna']='StatusRemoval',['Silena']='StatusRemoval',['Blindna']='StatusRemoval',
 	['Cursna']='StatusRemoval',['Stona']='StatusRemoval',['Viruna']='StatusRemoval',['Erase']='StatusRemoval',
 	--- Raise
-	['Raise']='Raise',['Raise II']='Raise',['Raise III']='Raise',['Arise']='Raise',
+	['Raise']='Raises',['Raise II']='Raises',['Raise III']='Raises',['Arise']='Raises',
     ---- Reraise
-	['Reraise']='Reraise',['Reraise II']='Reraise',['Reraise III']='Reraise',['Reraise IV']='Reraise',
+	['Reraise']='Raises',['Reraise II']='Raises',['Reraise III']='Raises',['Reraise IV']='Raises',
     ---- Barspells	
 	['Barfire']='BarElement',['Barstone']='BarElement',['Barwater']='BarElement',['Baraero']='BarElement',
 	['Barblizzard']='BarElement',['Barthunder']='BarElement',
@@ -256,6 +256,8 @@ spell_maps = {
 	['Hydrohelix']='Helix',['Luminohelix']='Helix',['Noctohelix']='Helix',
 	--- Dark Nukes
 	['Kaustra']='Darkness',['Noctohelix']='Darkness',['Noctohelix II']='Darkness',
+	--- Light Nukes
+	['Luminohelix']='Brightness',['Luminohelix II']='Brightness',
 	--- Geomancer Nukes
 	['Fira']='GeoNukes',['Fira II']='GeoNukes',['Fira III']='GeoNukes', ['Blizzara']='GeoNukes',['Blizzara II']='GeoNukes',['Blizzara III']='GeoNukes',
 	['Aera']='GeoNukes',['Aera II']='GeoNukes',['Aera III']='GeoNukes', ['Stonera']='GeoNukes',['Stonera II']='GeoNukes',['Stonera III']='GeoNukes',

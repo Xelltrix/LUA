@@ -104,7 +104,7 @@ function init_gear_sets()
 		sets.TreasureHunter = 
 		{ 
 			head=gear.HHead_TH, 
-			hands="Volte Bracers",
+			legs="Volte Hose",
 			waist="Chaac Belt"
 		}
 		
@@ -160,7 +160,7 @@ function init_gear_sets()
 		{--		Fast Cast: 73%(+15%)
 			ammo="Sapience Orb",
 			head="Carmine Mask +1", neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
-			body="Pinga Tunic", hands="Leyline Gloves", lring="Kishar Ring", rring="Rahab Ring",
+			body="Pinga Tunic", hands="Leyline Gloves", lring="Lebeche Ring", rring="Weather. Ring +1",
 			back="Moonlight Cape", waist="Witful Belt", legs="Pinga Pants", feet="Carmine Greaves +1"
 		}
 
@@ -179,6 +179,7 @@ function init_gear_sets()
 
 		sets.midcast.FC = set_combine(sets.precast.FC,
 		{--		Fast Cast: 66%(+15%)
+			lring="Kishar Ring",
 			legs="Aya. Cosciales +2", feet="Amalric Nails +1"
 		})
 
@@ -187,7 +188,7 @@ function init_gear_sets()
 		{--		Fast Cast: 31%(+15%)
 			ammo="Staunch Tathlum +1",
 			head=gear.THead_Phalanx,
-			hands="Rawhide Gloves", rring="Evanescence Ring",
+			hands="Rawhide Gloves", lring="Evanescence Ring",
 			waist="Emphatikos Rope", legs="Assim. Shalwar +3", feet="Amalric Nails +1"
 		})
 		
@@ -195,15 +196,15 @@ function init_gear_sets()
 		{--		Fast Cast: 19%(+15%)	Duration: x1.5
 			ammo="Staunch Tathlum +1",
 			head="Telchine Cap", neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
-			body="Telchine Chas.", hands=gear.ENH_Gloves, lring="Kishar Ring", rring="Rahab Ring",
-			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Telchine Braconi", feet="Telchine Pigaches"
+			body=gear.ENH_Body, hands=gear.ENH_Gloves, lring="Kishar Ring", rring="Weather. Ring +1",
+			back="Fi Follet Cape +1", waist="Luminary Sash", legs=gear.ENH_Legs, feet="Telchine Pigaches"
 		}
 
 		sets.midcast.ConserveMP = set_combine(sets.midcast.FC,
 		{--		Fast Cast: 33%(+15%)
 			ammo="Pemphredo Tathlum",
 			head="Telchine Cap", neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
-			body="Amalric Doublet +1", hands="Assim. Bazu. +3",
+			body="Amalric Doublet +1", hands="Malignance Gloves",
 			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Lengo Pants", feet="Carmine Greaves +1"
 		})
 
@@ -227,14 +228,6 @@ function init_gear_sets()
 			body="Assim. Jubbah +3", hands="Hashi. Bazu. +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Cornflower Cape", legs="Hashishin Tayt +1", feet="Carmine Greaves +1"
 		})
-		
-		sets.midcast.Occultation.Alternate = set_combine(sets.midcast.FC,
-		{--		Fast Cast: 34%(+15%)	Blue Magic Recast Delay: -14%
-			ammo="Pemphredo Tathlum", 
-			neck="Mirage Stole +2",
-			body="Assim. Jubbah +3", hands="Hashi. Bazu. +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Cornflower Cape", feet="Carmine Greaves +1"
-		})
 
 		sets.midcast.Buffs = set_combine(sets.midcast.ConserveMP,
 		{
@@ -249,7 +242,7 @@ function init_gear_sets()
 		
 		sets.midcast['Regeneration'] = set_combine(sets.midcast.ConserveMP,
 		{
-			body="Telchine Chas."
+			body=gear.ENH_Body
 		})
 		
 		sets.midcast.Fantod =  sets.Enmity
@@ -304,8 +297,8 @@ function init_gear_sets()
 		{
 			ammo="Pemphredo Tathlum",
 			head="Carmine Mask +1", neck="Mirage Stole +2", lear="Digni. Earring", rear="Gwati Earring",
-			body="Luhlaza Jubbah +3", hands="Aya. Manopolas +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Cornflower Cape", waist="Sacro Cord", legs="Aya. Cosciales +2", feet="Luhlaza Charuqs +3"
+			body="Luhlaza Jubbah +3", hands="Malignance Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			back="Cornflower Cape", waist="Sacro Cord", legs="Aya. Cosciales +2", feet="Malignance Boots"
 		}
 
 		sets.midcast.Magical =
@@ -335,11 +328,6 @@ function init_gear_sets()
 		{
 			legs="Luhlaza Shalwar +3"
 		})
-		
-		sets.midcast['Blinding Fulgor'] = set_combine(sets.midcast.Magical,
-		{
-			legs="Luhlaza Shalwar +3"
-		})
 
 		sets.midcast.DarkBlue = set_combine(sets.midcast.Magical,
 		{
@@ -347,7 +335,11 @@ function init_gear_sets()
 			rring="Archon Ring"
 		})
 
-		sets.midcast.LightBlue = sets.midcast.Magical
+		sets.midcast.LightBlue = set_combine(sets.midcast.Magical,
+		{
+			rring="Weather. Ring +1",
+			legs="Luhlaza Shalwar +3"
+		})
 
 		sets.midcast.Breath =
 		{
@@ -371,8 +363,8 @@ function init_gear_sets()
 		{--		DT: -28%	PDT: 49%
 			ammo="Staunch Tathlum +1",
 			head="Assim. Keffiyeh +3", neck="Mirage Stole +2", lear="Digni. Earring", rear="Regal Earring",
-			body="Ayanmo Corazza +2", hands="Assim. Bazu. +3", lring="Defending Ring", rring="Gelatinous Ring +1",
-			back=gear.BLUCape_Nuke, waist="Flume Belt +1", legs="Assim. Shalwar +3", feet="Aya. Gambieras +2"
+			body="Malignance Tabard", hands="Malignance Gloves", lring="Defending Ring", rring="Gelatinous Ring +1",
+			back=gear.BLUCape_Nuke, waist="Flume Belt +1", legs="Assim. Shalwar +3", feet="Malignance Boots"
 		}
 
 		sets.midcast.BlueDrain = set_combine(sets.midcast.Debuffs,
@@ -396,7 +388,7 @@ function init_gear_sets()
 		{
 			ammo="Staunch Tathlum +1",
 			head="Carmine Mask +1", neck="Incanter's Torque", lear="Andoaa Earring", rear="Augment. Earring",
-			body="Telchine Chas.", hands=gear.ENH_Gloves, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			body=gear.ENH_Body, hands=gear.ENH_Gloves, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Fi Follet Cape +1", waist="Olympus Sash", legs="Carmine Cuisses +1", feet="Telchine Pigaches"
 		}
 		
@@ -417,15 +409,15 @@ function init_gear_sets()
 		sets.midcast.Refresh = set_combine(sets.midcast.ConserveMP,
 		{
 			head="Amalric Coif +1", 
-			body="Telchine Chas.", hands=gear.ENH_Gloves,
-			legs="Telchine Braconi", feet="Telchine Pigaches"
+			body=gear.ENH_Body, hands=gear.ENH_Gloves,
+			legs=gear.ENH_Legs, feet="Telchine Pigaches"
 		})
 
 		sets.midcast.Regen = set_combine(sets.midcast.ConserveMP,
 		{
 			head="Telchine Cap", 
-			body="Telchine Chas.", hands=gear.ENH_Gloves, 
-			legs="Telchine Braconi", feet="Telchine Pigaches"
+			body=gear.ENH_Body, hands=gear.ENH_Gloves, 
+			legs=gear.ENH_Legs, feet="Telchine Pigaches"
 		})
 
 		sets.midcast.Aquaveil = set_combine(sets.midcast.Duration,
@@ -455,14 +447,14 @@ function init_gear_sets()
 		{
 			ammo="Pemphredo Tathlum",
 			head="Assim. Keffiyeh +3", neck="Mirage Stole +2", lear="Digni. Earring", rear="Regal Earring",
-			body="Jhakri Robe +2", hands="Regal Cuffs", lring="Kishar Ring", rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back=gear.BLUCape_Nuke, waist="Luminary Sash", legs="Assim. Shalwar +3", feet="Jhakri Pigaches +2"
+			body="Malignance Tabard", hands="Regal Cuffs", lring="Kishar Ring", rring={name="Stikini Ring +1", bag="wardrobe3"},
+			back=gear.BLUCape_Nuke, waist="Luminary Sash", legs="Assim. Shalwar +3", feet="Malignance Boots"
 		}
 		
 		sets.midcast['Dark Magic'] = set_combine(sets.midcast['Enfeebling Magic'],
 		{
 			neck="Erra Pendant",
-			hands="Aya. Manopolas +2", lring={name="Stikini Ring +1", bag="wardrobe2"}
+			hands="Malignance Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}
 		})
 		
 		sets.midcast.Sap = set_combine(sets.midcast['Dark Magic'],
@@ -532,14 +524,14 @@ function init_gear_sets()
 		sets.idle.DT = set_combine(sets.idle,
 		{--		DT: -31%	PDT: -46%	MDT: -32%	Refresh: 5	Regen: 0
 			neck="Loricate Torque +1",  lear="Genmei Earring", rear="Odnowa Earring +1",
-			hands="Assim. Bazu. +3", lring="Defending Ring", rring="Gelatinous Ring +1"
+			hands="Malignance Gloves", lring="Defending Ring", rring="Gelatinous Ring +1"
 		})
 		
 		sets.idle.MEVA = set_combine(sets.idle,
 		{--		DT: -15%	PDT: -15%	MDT: -15%	Refresh: 5	Regen: 0
-			head="Amalric Coif +1", neck="Warder's Charm +1", lear="Eabani Earring", rear="Sanare Earring",
-			body="Amalric Doublet +1", hands="Volte Bracers",
-			waist="Carrier's Sash", feet="Amalric Nails +1"
+			head="Malignance Chapeau", neck="Warder's Charm +1", lear="Eabani Earring", rear="Sanare Earring",
+			body="Amalric Doublet +1", hands="Malignance Gloves",
+			waist="Carrier's Sash", feet="Malignance Boots"
 		})
 		
 		sets.idle.Refresh = set_combine(sets.idle,
@@ -573,22 +565,21 @@ function init_gear_sets()
 		{--		DT: -40%	PDT: -51%	MDT: -44%
 			ammo="Staunch Tathlum +1",
 			head=gear.AHead_PDT, neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
-			body="Ayanmo Corazza +2", hands="Assim. Bazu. +3", lring="Defending Ring", rring="Gelatinous Ring +1",
+			body="Malignance Tabard", hands="Malignance Gloves", lring="Defending Ring", rring="Gelatinous Ring +1",
 			back=gear.BLUCape_Nuke, waist="Carrier's Sash", legs="Carmine Cuisses +1", feet="Hippo. Socks +1"
 		}
 
 		sets.defense.MDT = set_combine(sets.defense.PDT,
 		{--		DT: -36%	PDT: -45%	MDT: -46%
-			head="Aya. Zucchetto +2", rear="Odnowa Earring +1",
+			head="Malignance Chapeau", rear="Odnowa Earring +1",
 			rring="Shukuyu Ring",
-			back="Reiki Cloak", legs="Aya. Cosciales +2", feet="Amalric Nails +1"
+			back="Reiki Cloak", legs="Malignance Tights", feet="Malignance Boots"
 		})
 		
 		sets.defense.MEVA = set_combine(sets.defense.MDT,
 		{--		DT: -24%	PDT: -24%	MDT: -31%
-			head="Amalric Coif +1",  neck="Warder's Charm +1", lear="Eabani Earring", rear="Sanare Earring",
-			body="Pinga Tunic",
-			legs="Pinga Pants",
+			neck="Warder's Charm +1", lear="Eabani Earring", rear="Sanare Earring",
+			hands="Malignance Gloves"
 		})
 
 
@@ -610,7 +601,7 @@ function init_gear_sets()
 		{
 			ammo="Floestone",
 			head=gear.HHead_WSD, neck="Fotia Gorget", lear="Brutal Earring", rear="Moonshade Earring",
-			body="Assim. Jubbah +3", hands="Jhakri Cuffs +2", lring="Karieyh Ring +1", rring="Epaminondas's Ring",
+			body="Assim. Jubbah +3", hands="Jhakri Cuffs +2", lring="Shukuyu Ring", rring="Epaminondas's Ring",
 			back=gear.BLUCape_WSD, waist="Fotia Belt", legs="Samnuha Tights", feet=gear.HBoots_TP
 		}
 
@@ -638,13 +629,12 @@ function init_gear_sets()
 		sets.precast.WS['Chant du Cygne'].Low = set_combine(sets.precast.WS['Chant du Cygne'],
 		{
 			rring="Ilabrat Ring",
-			legs="Adhemar Kecks +1"
+			legs="Malignance Tights"
 		})
 		
 		sets.precast.WS['Chant du Cygne'].Mid = set_combine(sets.precast.WS['Chant du Cygne'].Low,
 		{
-			hands="Luh. Bazubands +3",
-			feet="Aya. Gambieras +2"
+			hands="Malignance Gloves"
 		})
 		
 		sets.precast.WS['Chant du Cygne'].High = set_combine(sets.precast.WS['Chant du Cygne'].Mid,
@@ -663,13 +653,13 @@ function init_gear_sets()
 		sets.precast.WS['Vorpal Blade'].Low = set_combine(sets.precast.WS['Vorpal Blade'],
 		{
 			rring="Ilabrat Ring",
-			legs="Adhemar Kecks +1", feet="Aya. Gambieras +2"
+			legs="Malignance Tights"
 		})
 		
 		sets.precast.WS['Vorpal Blade'].Mid = set_combine(sets.precast.WS['Vorpal Blade'].Low,
 		{
 			ammo="Falcon Eye",
-			hands="Luh. Bazubands +3"
+			hands="Malignance Gloves"
 		})
 		
 		sets.precast.WS['Vorpal Blade'].High = set_combine(sets.precast.WS['Vorpal Blade'].Mid,
@@ -682,7 +672,7 @@ function init_gear_sets()
 		sets.precast.WS['Requiescat'] = set_combine(sets.precast.WS,
 		{
 			head="Jhakri Coronal +2", lear="Regal Earring",
-			body="Luhlaza Jubbah +3", hands="Luh. Bazubands +3", lring="Rufescent Ring", rring="Epona's Ring", 
+			body="Luhlaza Jubbah +3", hands="Luh. Bazubands +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Epona's Ring", 
 			legs="Jhakri Slops +2", feet="Luhlaza Charuqs +3"
 		})
 
@@ -701,7 +691,7 @@ function init_gear_sets()
 		sets.precast.WS['Requiescat'].High = set_combine(sets.precast.WS['Requiescat'].Mid,
 		{
 			neck="Mirage Stole +2",
-			legs="Adhemar Kecks +1"
+			legs="Malignance Tights"
 		})
 
 	---Savage Blade
@@ -725,7 +715,7 @@ function init_gear_sets()
 	---Expiacion
 		sets.precast.WS['Expiacion'] = set_combine(sets.precast.WS['Savage Blade'],
 		{
-			lear="Ishvara Earring",
+			lear="Ishvara Earring"
 		})
 
 		sets.precast.WS['Expiacion'].Low = sets.precast.WS['Expiacion']
@@ -748,6 +738,23 @@ function init_gear_sets()
 			back=gear.BLUCape_WSD, waist="Orpheus's Sash", legs="Luhlaza Shalwar +3", feet="Amalric Nails +1"
 		}
 	
+	---Seraph Blade
+		sets.precast.WS['Seraph Blade'] = set_combine(sets.precast.WS['Sanguine Blade'],
+		{
+			head="Assim. Keffiyeh +3",
+			lring="Weather. Ring +1"
+		})
+		
+		sets.precast.WS['Shining Blade'] = sets.precast.WS['Seraph Blade']
+		
+	---Red Lotus Blade	
+		sets.precast.WS['Red Lotus Blade'] = set_combine(sets.precast.WS['Seraph Blade'],
+		{
+			lring="Freke Ring"
+		})
+		
+		sets.precast.WS['Burning Blade'] = sets.precast.WS['Red Lotus Blade']
+	
 	---Spirits Within
 		sets.precast.WS['Spirits Within'] =
 		{
@@ -764,7 +771,7 @@ function init_gear_sets()
 		{
 			ammo="Floestone",
 			head=gear.HHead_WSD, neck="Mirage Stole +2", lear="Telos Earring", rear="Ishvara Earring",
-			body="Assim. Jubbah +3", hands="Jhakri Cuffs +2", lring="Shukuyu Ring", rring="Karieyh Ring +1",
+			body="Assim. Jubbah +3", hands="Jhakri Cuffs +2", lring="Shukuyu Ring", rring="Epaminondas's Ring",
 			back=gear.BLUCape_WSD, waist="Prosilio Belt +1", legs="Luhlaza Shalwar +3", feet=gear.HBoots_WSD
 
 		}
@@ -790,7 +797,7 @@ function init_gear_sets()
 
 		sets.precast.WS['Black Halo'] = set_combine(sets.precast.WS['Savage Blade'],
 		{
-			feet="Carmine Greaves +1"
+			feet="Malignance Boots"
 		})
 
 		sets.precast.WS['Black Halo'].Low = sets.precast.WS['Black Halo']
@@ -812,12 +819,7 @@ function init_gear_sets()
 		
 		sets.precast.WS['Realmrazer'].High = sets.precast.WS['Requiescat'].High
 
-		sets.precast.WS['Flash Nova'] = set_combine(sets.precast.WS['Sanguine Blade'],
-		{
-			head="Assim. Keffiyeh +3",
-			rring={name="Shiva Ring +1", bag="wardrobe3"},
-		})
-
+		sets.precast.WS['Flash Nova'] = sets.precast.WS['Seraph Blade']
 	
 	
 	
@@ -835,15 +837,15 @@ function init_gear_sets()
 		{
 			sub="Genmei Shield", ammo="Ginsen",
 			head=gear.AHead_TP, neck="Mirage Stole +2", lear="Telos Earring", rear="Cessance Earring",
-			body="Ayanmo Corazza +2", hands="Adhemar Wrist. +1", lring="Hetairoi Ring", rring="Epona's Ring",
-			back=gear.BLUCape_STP, waist="Windbuffet Belt +1", legs="Samnuha Tights", feet="Carmine Greaves +1"
+			body="Malignance Tabard", hands="Adhemar Wrist. +1", lring="Hetairoi Ring", rring="Epona's Ring",
+			back=gear.BLUCape_STP, waist="Windbuffet Belt +1", legs="Samnuha Tights", feet=gear.HBoots_TP
 		}
 		sets.engaged.AM3 =
 		{
 			sub="Genmei Shield", ammo="Ginsen",
-			head=gear.AHead_TP, neck="Mirage Stole +2", lear="Telos Earring", rear="Dedition Earring",
-			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Hetairoi Ring", rring="Epona's Ring",
-			back=gear.BLUCape_STP, waist="Windbuffet Belt +1", legs="Samnuha Tights", feet="Carmine Greaves +1"
+			head="Malignance Chapeau", neck="Mirage Stole +2", lear="Telos Earring", rear="Dedition Earring",
+			body="Malignance Tabard", hands="Malignance Gloves", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			back=gear.BLUCape_STP, waist="Windbuffet Belt +1", legs="Malignance Tights", feet="Malignance Boots"
 		}
 		
 		sets.engaged.Low = set_combine(sets.engaged,
@@ -857,7 +859,7 @@ function init_gear_sets()
 			ammo="Falcon Eye",
 			rear={name="Mache Earring +1", bag="wardrobe3"},
 			rring={name="Chirich Ring +1", bag="wardrobe3"},
-			legs="Adhemar Kecks +1"
+			legs="Malignance Tights"
 		})
 
 		sets.engaged.High = set_combine(sets.engaged.Mid,
@@ -877,6 +879,8 @@ function init_gear_sets()
 	--25 DW = 49 DW needed		(NIN Sub or BLU Trait)
 
 	--30 DW = 44 DW needed		(Tier 2 BLU Trait)
+	
+	--35 DW = 39 DW needed		(Tier 3 BLU Trait)
 	
 	----------------------------------------------------------
 
@@ -902,7 +906,7 @@ function init_gear_sets()
 		{
 			ammo="Ginsen",
 			head=gear.AHead_TP, neck="Mirage Stole +2", lear="Eabani Earring", rear="Suppanomimi",
-			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Hetairoi Ring", rring="Epona's Ring",
+			body="Adhemar Jacket +1", hands="Malignance Gloves", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.BLUCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet=gear.TFeet_TP
 		}
 		
@@ -958,7 +962,7 @@ function init_gear_sets()
 		{
 			ammo="Ginsen",
 			head=gear.AHead_TP, neck="Mirage Stole +2", lear="Eabani Earring", rear="Suppanomimi",
-			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Hetairoi Ring", rring="Epona's Ring",
+			body="Adhemar Jacket +1", hands="Malignance Gloves", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.BLUCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet=gear.TFeet_TP
 		}
 		
@@ -1013,7 +1017,7 @@ function init_gear_sets()
 		{
 			ammo="Ginsen",
 			head=gear.AHead_TP, neck="Mirage Stole +2", lear="Eabani Earring", rear="Suppanomimi",
-			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Hetairoi Ring", rring="Epona's Ring",
+			body="Adhemar Jacket +1", hands="Malignance Gloves", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.BLUCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet=gear.TFeet_TP
 		}
 		
@@ -1043,6 +1047,60 @@ function init_gear_sets()
 			rring={name="Chirich Ring +1", bag="wardrobe3"}
 		})
 		
+		
+
+		----------------------------------------------------------
+		--					(DW5 + No Haste)
+		----------------------------------------------------------
+
+		--35 DW = 39 DW needed		(Tier 3 Blu Trait)
+		
+		----------------------------------------------------------
+		
+		-----------------------------------------------------------------------------------
+		---	TP/h:79	(DW:38	STP:39		QA:0%	TA:16%	DA:5%)
+		-----------------------------------------------------------
+		sets.engaged.DW5 =
+		{
+			ammo="Ginsen",
+			head=gear.AHead_TP, neck="Mirage Stole +2", lear="Eabani Earring", rear="Suppanomimi",
+			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Hetairoi Ring", rring="Epona's Ring",
+			back=gear.BLUCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet="Malignance Boots"
+		}
+		
+		sets.engaged.DW5.AM3 =
+		{
+			ammo="Ginsen",
+			head=gear.AHead_TP, neck="Mirage Stole +2", lear="Eabani Earring", rear="Suppanomimi",
+			body="Adhemar Jacket +1", hands="Malignance Gloves", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			back=gear.BLUCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet="Malignance Boots"
+		}
+		
+		-----------------------------------------------------------------------------------
+		---	TP/h:79	(DW:38	STP:39		QA:0%	TA:16%	DA:5%)
+		-----------------------------------------------------------
+		sets.engaged.DW5.Low = set_combine(sets.engaged.DW5,
+		{	
+			ammo="Falcon Eye"
+		})
+
+		-----------------------------------------------------------------------------------
+		---	TP/h:79	(DW:38	STP:39		QA:0%	TA:16%	DA:5%)
+		-----------------------------------------------------------
+		sets.engaged.DW5.Mid = set_combine(sets.engaged.DW5.Low,
+		{
+			hands="Luh. Bazubands +3", lring={name="Chirich Ring +1", bag="wardrobe2"}
+		})
+
+		-----------------------------------------------------------------------------------
+		---	TP/h:79	(DW:38	STP:39		QA:0%	TA:16%	DA:5%)
+		-----------------------------------------------------------
+		sets.engaged.DW5.High = set_combine(sets.engaged.DW5.Mid,
+		{
+			head="Carmine Mask +1",
+			rring={name="Chirich Ring +1", bag="wardrobe3"}
+		})	
+		
 
 	----------------------------------------------------------
 	-- Minimum Haste
@@ -1053,6 +1111,8 @@ function init_gear_sets()
 	--25 DW = 42 DW needed		(NIN Sub or BLU Trait)
 
 	--30 DW = 37  DW needed		(Tier 2 BLU Trait)
+	
+	--35 DW = 32 DW needed		(Tier 3 BLU Trait)
 	
 	----------------------------------------------------------			
 
@@ -1080,7 +1140,7 @@ function init_gear_sets()
 		{
 			ammo="Ginsen",
 			head=gear.AHead_TP, neck="Mirage Stole +2", lear="Eabani Earring", rear="Suppanomimi",
-			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Hetairoi Ring", rring="Epona's Ring",
+			body="Adhemar Jacket +1", hands="Malignance Gloves", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.BLUCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet=gear.TFeet_TP
 		}
 		-----------------------------------------------------------------------------------
@@ -1133,7 +1193,7 @@ function init_gear_sets()
 		{
 			ammo="Ginsen",
 			head=gear.AHead_TP, neck="Mirage Stole +2", lear="Eabani Earring", rear="Suppanomimi",
-			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring="Epona's Ring",
+			body="Adhemar Jacket +1", hands="Malignance Gloves", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.BLUCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet=gear.TFeet_TP
 		}
 		
@@ -1187,8 +1247,8 @@ function init_gear_sets()
 		{
 			ammo="Ginsen",
 			head=gear.AHead_TP, neck="Mirage Stole +2", lear="Eabani Earring", rear="Suppanomimi",
-			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring="Epona's Ring",
-			back=gear.BLUCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet=gear.HBoots_TP
+			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			back=gear.BLUCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet="Malignance Boots"
 		}
 		
 		-----------------------------------------------------------------------------------
@@ -1197,7 +1257,7 @@ function init_gear_sets()
 		sets.engaged.DW4.Low.Min = set_combine(sets.engaged.DW4.Min,
 		{
 			ammo="Falcon Eye",
-			head="Dampening Tam",
+			head="Dampening Tam"
 		})
 
 		-----------------------------------------------------------------------------------
@@ -1205,9 +1265,8 @@ function init_gear_sets()
 		-----------------------------------------------------------
 		sets.engaged.DW4.Mid.Min = set_combine(sets.engaged.DW4.Low.Min,
 		{
-			lear={name="Mache Earring +1", bag="wardrobe2"},
-			hands="Luh. Bazubands +3", lring={name="Chirich Ring +1", bag="wardrobe2"},
-			feet=gear.TFeet_TP
+			head="Carmine Mask +1",
+			hands="Luh. Bazubands +3", lring={name="Chirich Ring +1", bag="wardrobe2"}
 		})
 
 		-----------------------------------------------------------------------------------
@@ -1215,8 +1274,65 @@ function init_gear_sets()
 		-----------------------------------------------------------
 		sets.engaged.DW4.High.Min = set_combine(sets.engaged.DW4.Mid.Min,
 		{
+			rring={name="Chirich Ring +1", bag="wardrobe3"},
+			feet="Malignance Boots"
+		})
+	
+	
+		----------------------------------------------------------
+		--					(DW5 + 15% Haste)
+		----------------------------------------------------------
+
+		--30 DW = 32 DW needed		(Tier 3 Blu Trait)
+		
+		----------------------------------------------------------
+
+		-----------------------------------------------------------------------------------
+		---	TP/h:79	(DW:32	STP:39		QA:0%	TA:16%	DA:5%)
+		-----------------------------------------------------------	
+		sets.engaged.DW5.Min =
+		{
+			ammo="Ginsen",
+			head=gear.AHead_TP, neck="Mirage Stole +2", lear="Eabani Earring", rear="Suppanomimi",
+			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Hetairoi Ring", rring="Epona's Ring",
+			back=gear.BLUCape_DW, waist="Reiki Yotai", legs="Samnuha Tights", feet=gear.HBoots_TP
+		}
+		
+		sets.engaged.DW5.Min.AM3 =
+		{
+			ammo="Ginsen",
+			head=gear.AHead_TP, neck="Mirage Stole +2", lear="Eabani Earring", rear="Suppanomimi",
+			body="Malignance Tabard", hands="Adhemar Wrist. +1", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			back=gear.BLUCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet="Malignance Boots"
+		}
+		
+		-----------------------------------------------------------------------------------
+		---	TP/h:79	(DW:32	STP:39		QA:0%	TA:16%	DA:5%)
+		-----------------------------------------------------------
+		sets.engaged.DW5.Low.Min = set_combine(sets.engaged.DW5.Min,
+		{
+			ammo="Falcon Eye",
+			head="Dampening Tam"
+		})
+
+		-----------------------------------------------------------------------------------
+		---	TP/h:79	(DW:32	STP:39		QA:0%	TA:16%	DA:5%)
+		-----------------------------------------------------------
+		sets.engaged.DW5.Mid.Min = set_combine(sets.engaged.DW5.Low.Min,
+		{
+			head="Malignance Chapeau",
+			hands="Malignance Gloves", lring={name="Chirich Ring +1", bag="wardrobe2"},
+			legs="Malignance Tights"
+		})
+
+		-----------------------------------------------------------------------------------
+		---	TP/h:79	(DW:32	STP:39		QA:0%	TA:16%	DA:5%)
+		-----------------------------------------------------------
+		sets.engaged.DW5.High.Min = set_combine(sets.engaged.DW5.Mid.Min,
+		{
 			head="Carmine Mask +1",
-			rring={name="Chirich Ring +1", bag="wardrobe3"}
+			body="Malignance Tabard", hands="Luh. Bazubands +3",  rring={name="Chirich Ring +1", bag="wardrobe3"},
+			legs="Carmine Cuisses +1", feet="Malignance Boots"
 		})
 	
 	
@@ -1230,6 +1346,8 @@ function init_gear_sets()
 	--25 DW = 31 DW needed		(NIN Sub or BLU Trait)
 
 	--30 DW = 26  DW needed		(Tier 2 BLU Trait)
+	
+	--35 DW = 21  DW needed		(Tier 3 BLU Trait)
 	
 	----------------------------------------------------------	
 	
@@ -1260,14 +1378,14 @@ function init_gear_sets()
 		{
 			ammo="Ginsen",
 			head=gear.AHead_TP, neck="Mirage Stole +2", lear="Eabani Earring", rear="Suppanomimi",
-			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring="Epona's Ring",
+			body="Adhemar Jacket +1", hands="Malignance Gloves", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.BLUCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet=gear.TFeet_TP
 		}
 
 		-----------------------------------------------------------------------------------
 		---	TP/h:79	(DW:42	STP:39		QA:0%	TA:16%	DA:5%)
 		-----------------------------------------------------------
-		sets.engaged.DW2.Low.Min = set_combine(sets.engaged.DW2.Min,
+		sets.engaged.DW2.Low.Med = set_combine(sets.engaged.DW2.Med,
 		{
 			ammo="Falcon Eye",
 			head="Dampening Tam"
@@ -1276,7 +1394,7 @@ function init_gear_sets()
 		-----------------------------------------------------------------------------------
 		---	TP/h:79	(DW:42	STP:39		QA:0%	TA:16%	DA:5%)
 		-----------------------------------------------------------
-		sets.engaged.DW2.Mid.Min = set_combine(sets.engaged.DW2.Low.Min,
+		sets.engaged.DW2.Mid.Med = set_combine(sets.engaged.DW2.Low.Med,
 		{
 			hands="Luh. Bazubands +3", lring={name="Chirich Ring +1", bag="wardrobe2"}
 		})
@@ -1284,7 +1402,7 @@ function init_gear_sets()
 		-----------------------------------------------------------------------------------
 		---	TP/h:79	(DW:42	STP:39		QA:0%	TA:16%	DA:5%)
 		-----------------------------------------------------------
-		sets.engaged.DW2.High.Min = set_combine(sets.engaged.DW2.Mid.Min,
+		sets.engaged.DW2.High.Med = set_combine(sets.engaged.DW2.Mid.Med,
 		{
 			head="Carmine Mask +1",
 			rring={name="Chirich Ring +1", bag="wardrobe3"}
@@ -1311,14 +1429,14 @@ function init_gear_sets()
 		}
 		
 		-----------------------------------------------------------------------------------
-		---	TP/h:100	(DW:31	STP:50		QA:2%	TA:20%	DA:11%)
+		---	TP/h:100	(DW:32	STP:50		QA:2%	TA:20%	DA:11%)
 		-----------------------------------------------------------
 		sets.engaged.DW3.Med.AM3 =
 		{
 			ammo="Ginsen",
-			head=gear.AHead_TP, neck="Mirage Stole +2", lear="Eabani Earring", rear="Dedition Earring",
-			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring="Epona's Ring",
-			back=gear.BLUCape_DW, waist="Reiki Yotai", legs="Samnuha Tights", feet=gear.TFeet_TP
+			head="Malignance Chapeau", neck="Mirage Stole +2", lear="Eabani Earring", rear="Suppanomimi",
+			body="Adhemar Jacket +1", hands="Malignance GLoves", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			back=gear.BLUCape_DW, waist="Reiki Yotai", legs="Malignance Tights", feet="Malignance Boots"
 		}
 
 		-----------------------------------------------------------------------------------
@@ -1328,7 +1446,7 @@ function init_gear_sets()
 		{
 			head="Dampening Tam",
 			lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
-			legs="Adhemar Kecks +1"
+			legs="Malignance Tights"
 		})
 
 		-----------------------------------------------------------------------------------
@@ -1337,9 +1455,8 @@ function init_gear_sets()
 		sets.engaged.DW3.Mid.Med = set_combine(sets.engaged.DW3.Low.Med,
 		{
 			ammo="Falcon Eye",
-			lear={name="Mache Earring +1", bag="wardrobe2"},
-			hands="Luh. Bazubands +3",
-			feet=gear.TFeet_TP
+			head="Malignance Chapeau", lear="Eabani Earring",
+			hands="Malignance Gloves"
 		})
 
 		-----------------------------------------------------------------------------------
@@ -1347,8 +1464,9 @@ function init_gear_sets()
 		-----------------------------------------------------------
 		sets.engaged.DW3.High.Med = set_combine(sets.engaged.DW3.Mid.Med,
 		{
-			head="Carmine Mask +1", rear={name="Mache Earring +1", bag="wardrobe3"},
-			legs="Carmine Cuisses +1"
+			head="Carmine Mask +1",
+			body="Malignance Tabard", 
+			legs="Carmine Cuisses +1", feet="Malignance Boots"
 		})
 
 		
@@ -1377,9 +1495,9 @@ function init_gear_sets()
 		sets.engaged.DW4.Med.AM3 =
 		{
 			ammo="Ginsen",
-			head=gear.AHead_TP, neck="Mirage Stole +2", lear="Eabani Earring", rear="Dedition Earring",
-			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring="Epona's Ring",
-			back=gear.BLUCape_DW, waist="Reiki Yotai", legs="Samnuha Tights", feet=gear.HBoots_TP
+			head="Malignance Chapeau", neck="Mirage Stole +2", lear="Eabani Earring", rear="Dedition Earring",
+			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			back=gear.BLUCape_DW, waist="Reiki Yotai", legs="Malignance Tights", feet="Malignance Boots"
 		}
 
 		-----------------------------------------------------------------------------------
@@ -1393,13 +1511,13 @@ function init_gear_sets()
 		})
 
 		-----------------------------------------------------------------------------------
-		---	TP/h:85	(DW:26	STP:48		QA:2%	TA:8%	DA:4%)I 
+		---	TP/h:85	(DW:27	STP:48		QA:2%	TA:8%	DA:4%)I 
 		-----------------------------------------------------------
 		sets.engaged.DW4.Mid.Med = set_combine(sets.engaged.DW4.Low.Med,
 		{
-			lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
+			lear="Eabani Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
 			rring={name="Chirich Ring +1", bag="wardrobe3"},
-			waist="Reiki Yotai", legs="Adhemar Kecks +1", feet=gear.TFeet_TP
+			waist="Reiki Yotai", legs="Malignance Tights"
 		})
 
 		-----------------------------------------------------------------------------------
@@ -1407,9 +1525,70 @@ function init_gear_sets()
 		-----------------------------------------------------------
 		sets.engaged.DW4.High.Med = set_combine(sets.engaged.DW4.Mid.Med,
 		{
-			head="Carmine Mask +1",
+			head="Carmine Mask +1", rear="Suppanomimi",
 			body="Luhlaza Jubbah +3", hands="Luh. Bazubands +3",
-			legs="Carmine Cuisses +1"
+			waist="Kentarch Belt +1", legs="Carmine Cuisses +1", feet="Malignance Boots"
+		})
+
+		
+		----------------------------------------------------------
+		--					(DW5 + 30% Haste)
+		----------------------------------------------------------
+
+		--35 DW = 21 DW needed		(Tier 3 Blu Trait)
+		
+		----------------------------------------------------------
+	
+		-----------------------------------------------------------------------------------
+		---	TP/h:84	(DW:21	STP:46		QA:0%	TA:19%	DA:8%)
+		-----------------------------------------------------------
+		sets.engaged.DW5.Med =
+		{
+			ammo="Ginsen",
+			head=gear.AHead_TP, neck="Mirage Stole +2", lear="Brutal Earring", rear="Suppanomimi",
+			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Hetairoi Ring", rring="Epona's Ring",
+			back=gear.BLUCape_DW, waist="Windbuffet Belt +1", legs="Samnuha Tights", feet=gear.HBoots_TP
+		}
+		
+		-----------------------------------------------------------------------------------
+		---	TP/h:100	(DW:21	STP:50		QA:2%	TA:20%	DA:11%)
+		-----------------------------------------------------------
+		sets.engaged.DW5.Med.AM3 =
+		{
+			ammo="Ginsen",
+			head="Malignance Chapeau", neck="Mirage Stole +2", lear="Eabani Earring", rear="Dedition Earring",
+			body="Malignance Tabard", hands="Malignance Gloves", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			back=gear.BLUCape_DW, waist="Reiki Yotai", legs="Malignance Tights", feet="Malignance Boots"
+		}
+
+		-----------------------------------------------------------------------------------
+		---	TP/h:84	(DW:21	STP:47		QA:2%	TA:16%	DA:6%)
+		-----------------------------------------------------------
+		sets.engaged.DW5.Low.Med = set_combine(sets.engaged.DW5.Med,
+		{
+			ammo="Falcon Eye",
+			head="Dampening Tam", lear={name="Mache Earring +1", bag="wardrobe2"},
+			lring={name="Chirich Ring +1", bag="wardrobe2"}
+		})
+
+		-----------------------------------------------------------------------------------
+		---	TP/h:85	(DW:23	STP:48		QA:2%	TA:8%	DA:4%)I 
+		-----------------------------------------------------------
+		sets.engaged.DW5.Mid.Med = set_combine(sets.engaged.DW5.Low.Med,
+		{
+			rear={name="Mache Earring +1", bag="wardrobe3"},
+			rring={name="Chirich Ring +1", bag="wardrobe3"},
+			waist="Reiki Yotai", legs="Malignance Tights"
+		})
+
+		-----------------------------------------------------------------------------------
+		---	TP/h:78	(DW:21	STP:36		QA:0%	TA:3%	DA:0%)
+		-----------------------------------------------------------
+		sets.engaged.DW5.High.Med = set_combine(sets.engaged.DW5.Mid.Med,
+		{
+			head="Carmine Mask +1", rear="Suppanomimi",
+			body="Luhlaza Jubbah +3", hands="Luh. Bazubands +3",
+			waist="Kentarch Belt +1", legs="Carmine Cuisses +1", feet="Assim. Charuqs +3"
 		})
 	
 	
@@ -1452,9 +1631,9 @@ function init_gear_sets()
 		sets.engaged.DW2.Max.AM3 =
 		{
 			ammo="Ginsen",
-			head=gear.AHead_TP, neck="Mirage Stole +2", lear="Telos Earring", rear="Suppanomimi",
-			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring="Epona's Ring",
-			back=gear.BLUCape_DW, waist="Windbuffet Belt +1", legs="Samnuha Tights", feet=gear.HBoots_TP
+			head="Malignance Chapeau", neck="Mirage Stole +2", lear="Eabani Earring", rear="Dedition Earring",
+			body="Malignance Tabard", hands="Malignance Gloves", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			back=gear.BLUCape_DW, waist="Reiki Yotai", legs="Malignance Tights", feet="Malignance Boots"
 		}
 
 		-----------------------------------------------------------------------------------
@@ -1462,9 +1641,9 @@ function init_gear_sets()
 		-----------------------------------------------------------
 		sets.engaged.DW2.Low.Max = set_combine(sets.engaged.DW2.Max,
 		{
+			ammo="Falcon Eye",
 			head="Dampening Tam", lear={name="Mache Earring +1", bag="wardrobe2"},
-			lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe2"}, 
-			legs="Adhemar Kecks +1"
+			lring={name="Chirich Ring +1", bag="wardrobe2"}
 		})
 
 		-----------------------------------------------------------------------------------
@@ -1472,10 +1651,9 @@ function init_gear_sets()
 		-----------------------------------------------------------
 		sets.engaged.DW2.Mid.Max = set_combine(sets.engaged.DW2.Low.Max,
 		{
-			ammo="Falcon Eye",
 			rear={name="Mache Earring +1", bag="wardrobe3"},
-			hands="Luh. Bazubands +3",
-			legs="Carmine Cuisses +1"
+			rring={name="Chirich Ring +1", bag="wardrobe3"},
+			waist="Reiki Yotai", legs="Malignance Tights"
 		})
 
 		-----------------------------------------------------------------------------------
@@ -1483,9 +1661,9 @@ function init_gear_sets()
 		-----------------------------------------------------------
 		sets.engaged.DW2.High.Max = set_combine(sets.engaged.DW2.Mid.Max,
 		{
-			head="Carmine Mask +1",
-			body="Luhlaza Jubbah +3", lring={name="Chirich Ring +1", bag="wardrobe3"},
-			waist="Reiki Yotai", feet="Assim. Charuqs +3"
+			head="Carmine Mask +1", rear="Suppanomimi",
+			body="Luhlaza Jubbah +3", hands="Luh. Bazubands +3",
+			waist="Kentarch Belt +1", legs="Carmine Cuisses +1", feet="Assim. Charuqs +3"
 		})
 	
 	
@@ -1503,7 +1681,7 @@ function init_gear_sets()
 		sets.engaged.DW3.Max =
 		{
 			ammo="Ginsen",
-			head=gear.AHead_TP, neck="Mirage Stole +2", lear="Telos Earring", rear="Suppanomimi",
+			head=gear.AHead_TP, neck="Mirage Stole +2", lear="Brutal Earring", rear="Suppanomimi",
 			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Hetairoi Ring", rring="Epona's Ring",
 			back=gear.BLUCape_STP, waist="Windbuffet Belt +1", legs="Samnuha Tights", feet=gear.HBoots_TP
 		}
@@ -1514,9 +1692,9 @@ function init_gear_sets()
 		sets.engaged.DW3.Max.AM3 =
 		{
 			ammo="Ginsen",
-			head="Dampening Tam", neck="Mirage Stole +2", lear="Telos Earring", rear="Dedition Earring",
-			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring="Epona's Ring",
-			back=gear.BLUCape_STP, waist="Reiki Yotai", legs="Samnuha Tights", feet="Carmine Greaves +1"
+			head="Dampening Tam", neck="Mirage Stole +2", lear="Eabani Earring", rear="Dedition Earring",
+			body="Malignance Tabard", hands="Malignance Gloves",  lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			back=gear.BLUCape_STP, waist="Reiki Yotai", legs="Malignance Tights", feet="Malignance Boots"
 		}
 
 		-----------------------------------------------------------------------------------
@@ -1534,9 +1712,9 @@ function init_gear_sets()
 		-----------------------------------------------------------
 		sets.engaged.DW3.Mid.Max = set_combine(sets.engaged.DW3.Low.Max,
 		{
-			rear={name="Mache Earring +1", bag="wardrobe3"},
+			rear="Suppanomimi",
 			hands="Luh. Bazubands +3",
-			waist="Kentarch Belt +1", legs="Carmine Cuisses +1",
+			waist="Kentarch Belt +1", legs="Malignance Tights"
 		})
 
 		-----------------------------------------------------------------------------------
@@ -1546,7 +1724,7 @@ function init_gear_sets()
 		{
 			head="Carmine Mask +1", lear={name="Mache Earring +1", bag="wardrobe2"},
 			body="Luhlaza Jubbah +3",
-			back=gear.BLUCape_DW, legs="Adhemar Kecks +1", feet="Assim. Charuqs +3"
+			back=gear.BLUCape_DW, legs="Malignance Tights", feet="Assim. Charuqs +3"
 		})
 
 		
@@ -1575,9 +1753,9 @@ function init_gear_sets()
 		sets.engaged.DW4.Max.AM3 =
 		{
 			ammo="Ginsen",
-			head="Dampening Tam", neck="Mirage Stole +2", lear="Telos Earring", rear="Dedition Earring",
-			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring="Epona's Ring",
-			back=gear.BLUCape_STP, waist="Windbuffet Belt +1", legs="Samnuha Tights", feet="Carmine Greaves +1"
+			head="Malignance Chapeau", neck="Mirage Stole +2", lear="Telos Earring", rear="Dedition Earring",
+			body="Malignance Tabard", hands="Malignance Gloves", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			back=gear.BLUCape_STP, waist="Reiki Yotai", legs="Malignance Tights", feet="Malignance Boots"
 		}
 
 		-----------------------------------------------------------------------------------
@@ -1587,7 +1765,8 @@ function init_gear_sets()
 		{
 			ammo="Falcon Eye",
 			head="Dampening Tam", lear="Telos Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
-			lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			lring={name="Chirich Ring +1", bag="wardrobe2"},
+			legs="Malignance Tights"
 		})
 
 		-----------------------------------------------------------------------------------
@@ -1597,7 +1776,7 @@ function init_gear_sets()
 		{
 			lear={name="Mache Earring +1", bag="wardrobe2"}, 
 			hands="Luh. Bazubands +3",
-			waist="Kentarch Belt +1", legs="Adhemar Kecks +1",
+			waist="Kentarch Belt +1", feet="Malignance Boots",
 		})
 
 		-----------------------------------------------------------------------------------
@@ -1606,8 +1785,69 @@ function init_gear_sets()
 		sets.engaged.DW4.High.Max = set_combine(sets.engaged.DW4.Mid.Max,
 		{
 			head="Carmine Mask +1",
-			body="Luhlaza Jubbah +3",
+			body="Luhlaza Jubbah +3", hands="Malignance Gloves", rring={name="Chirich Ring +1", bag="wardrobe3"},
 			legs="Carmine Cuisses +1", feet="Assim. Charuqs +3"
+		})
+
+		
+		----------------------------------------------------------
+		--					(DW5 + Max Haste)
+		----------------------------------------------------------
+
+		--35 DW = 1 DW needed		(Tier 3 Blu Trait)
+		
+		----------------------------------------------------------
+	
+		-----------------------------------------------------------------------------------
+		---		(DW:6	STP:38		QA:2%	TA:28%	DA:14%)
+		-----------------------------------------------------------
+		sets.engaged.DW5.Max =
+		{
+			ammo="Ginsen",
+			head=gear.AHead_TP, neck="Mirage Stole +2", lear="Brutal Earring", rear="Cessance Earring",
+			body="Malignance Tabard", hands="Adhemar Wrist. +1", lring="Hetairoi Ring", rring="Epona's Ring",
+			back=gear.BLUCape_STP, waist="Windbuffet Belt +1", legs="Samnuha Tights", feet=gear.HBoots_TP
+		}
+		
+		-----------------------------------------------------------------------------------
+		---		(DW:6	STP:61		QA:6%	TA:16%	DA:11%)
+		-----------------------------------------------------------
+		sets.engaged.DW5.Max.AM3 =
+		{
+			ammo="Ginsen",
+			head="Malignance Chapeau", neck="Mirage Stole +2", lear="Telos Earring", rear="Dedition Earring",
+			body="Malignance Tabard", hands="Malignance Gloves", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			back=gear.BLUCape_STP, waist="Kentarch Belt +1", legs="Malignance Tights", feet="Malignance Boots"
+		}
+
+		-----------------------------------------------------------------------------------
+		---		(DW:6	STP:34		QA:5%	TA:24%	DA:10%)
+		-----------------------------------------------------------
+		sets.engaged.DW5.Low.Max = set_combine(sets.engaged.DW5.Max,
+		{
+			ammo="Falcon Eye",
+			head="Dampening Tam", lear="Telos Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
+			lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"}
+		})
+
+		-----------------------------------------------------------------------------------
+		---		(DW:6	STP:37~41	QA:3%	TA:17%	DA:10%)
+		-----------------------------------------------------------
+		sets.engaged.DW5.Mid.Max = set_combine(sets.engaged.DW5.Low.Max,
+		{
+			lear={name="Mache Earring +1", bag="wardrobe2"}, 
+			hands="Malignance Gloves",
+			legs="Malignance Tights", feet="Malignance Boots"
+		})
+
+		-----------------------------------------------------------------------------------
+		---		(DW:6	STP:23~27	QA:0%	TA:0%	DA:15%)
+		-----------------------------------------------------------
+		sets.engaged.DW5.High.Max = set_combine(sets.engaged.DW5.Mid.Max,
+		{
+			head="Malignance Chapeau",
+			body="Luhlaza Jubbah +3", hands="Luh. Bazubands +3",
+			waist="Kentarch Belt +1", feet="Assim. Charuqs +3"
 		})
 
 		
@@ -1619,102 +1859,103 @@ function init_gear_sets()
 	--------------------------------------
 		sets.engaged.Hybrid = 
 		{-- DT: 19%		PDT: 40%	MDT: 18%
-			head=gear.AHead_PDT, ammo="Staunch Tathlum +1",
-			hands="Assim. Bazu. +3", lring="Defending Ring", rring="Gelatinous Ring +1",
+			ammo="Staunch Tathlum +1",
+			head=gear.AHead_PDT,
+			hands="Malignance Gloves", lring="Defending Ring", rring="Gelatinous Ring +1",
 		}
 		
 		sets.engaged.Hybrid2 = 
 		{-- DT: 31%		PDT: 42%	MDT: 30%
 			ammo="Staunch Tathlum +1",
-			head=gear.AHead_PDT, neck="Loricate Torque +1",
-			body="Ayanmo Corazza +2", hands="Assim. Bazu. +3", lring="Defending Ring", rring="Gelatinous Ring +1",
+			head="Malignance Chapeau",
+			body="Malignance Tabard", hands="Malignance Gloves", lring="Defending Ring", rring="Gelatinous Ring +1",
+			legs="Malignance Tights", feet="Malignance Boots"
 		}
 		
 		
 		----------------------------------------------------------
 		-- Sword & Board
 		----------------------------------------------------------	
-	    sets.engaged.DT 				= set_combine(sets.engaged, 		sets.engaged.Hybrid)
+	    sets.engaged.DT 					= set_combine(sets.engaged, 		sets.engaged.Hybrid)
 		sets.engaged.DT.AM3 				= set_combine(sets.engaged.AM3,		sets.engaged.Hybrid)
 		sets.engaged.Low.DT 				= set_combine(sets.engaged.Low, 	sets.engaged.Hybrid)
 		sets.engaged.Mid.DT 				= set_combine(sets.engaged.Mid, 	sets.engaged.Hybrid)
 		sets.engaged.High.DT				= set_combine(sets.engaged.High, 	sets.engaged.Hybrid)
 		
 	
-		sets.engaged.DTMAX 					= set_combine(sets.engaged, 		sets.engaged.Hybrid2,
-		{
-			neck="Mirage Stole +2"
-		})
-		sets.engaged.DTMAX.AM3 					= set_combine(sets.engaged.AM3,		sets.engaged.Hybrid2,
-		{
-			neck="Mirage Stole +2"
-		})
-		sets.engaged.Low.DTMAX 				= set_combine(sets.engaged.Low, 	sets.engaged.Hybrid2,
-		{
-			neck="Mirage Stole +2"
-		})
-		sets.engaged.Mid.DTMAX				= set_combine(sets.engaged.Mid, 	sets.engaged.Hybrid2,
-		{
-			neck="Mirage Stole +2"
-		})
-		sets.engaged.High.DTMAX				= set_combine(sets.engaged.High, 	sets.engaged.Hybrid2,
-		{
-			neck="Mirage Stole +2"
-		})
+		sets.engaged.DTMAX 					= set_combine(sets.engaged, 		sets.engaged.Hybrid2)
+		sets.engaged.DTMAX.AM3 				= set_combine(sets.engaged.AM3,		sets.engaged.Hybrid2)
+		sets.engaged.Low.DTMAX 				= set_combine(sets.engaged.Low, 	sets.engaged.Hybrid2)
+		sets.engaged.Mid.DTMAX				= set_combine(sets.engaged.Mid, 	sets.engaged.Hybrid2)
+		sets.engaged.High.DTMAX				= set_combine(sets.engaged.High, 	sets.engaged.Hybrid2)
 
 		
 	
 		----------------------------------------------------------
 		-- No Haste
 		----------------------------------------------------------
-		sets.engaged.DW2.DT 				= set_combine(sets.engaged.DW2, 	sets.engaged.Hybrid)
+		sets.engaged.DW2.DT 				= set_combine(sets.engaged.DW2, 		sets.engaged.Hybrid)
 		sets.engaged.DW2.DT.AM3 			= set_combine(sets.engaged.DW2.AM3, 	sets.engaged.Hybrid)
 		sets.engaged.DW2.Low.DT 			= set_combine(sets.engaged.DW2.Low, 	sets.engaged.Hybrid)
 		sets.engaged.DW2.Mid.DT 			= set_combine(sets.engaged.DW2.Mid, 	sets.engaged.Hybrid)
 		sets.engaged.DW2.High.DT 			= set_combine(sets.engaged.DW2.High, 	sets.engaged.Hybrid)
 
 	
-		sets.engaged.DW3.DT 				= set_combine(sets.engaged.DW3, 	sets.engaged.Hybrid)
+		sets.engaged.DW3.DT 				= set_combine(sets.engaged.DW3, 		sets.engaged.Hybrid)
 		sets.engaged.DW3.DT.AM3 			= set_combine(sets.engaged.DW3.AM3, 	sets.engaged.Hybrid)
 		sets.engaged.DW3.Low.DT 			= set_combine(sets.engaged.DW3.Low, 	sets.engaged.Hybrid)
 		sets.engaged.DW3.Mid.DT 			= set_combine(sets.engaged.DW3.Mid, 	sets.engaged.Hybrid)
 		sets.engaged.DW3.High.DT 			= set_combine(sets.engaged.DW3.High, 	sets.engaged.Hybrid)
 		
 	
-		sets.engaged.DW4.DT 				= set_combine(sets.engaged.DW4, 	sets.engaged.Hybrid)
+		sets.engaged.DW4.DT 				= set_combine(sets.engaged.DW4, 		sets.engaged.Hybrid)
 		sets.engaged.DW4.DT.AM3 			= set_combine(sets.engaged.DW4.AM3, 	sets.engaged.Hybrid)
 		sets.engaged.DW4.Low.DT 			= set_combine(sets.engaged.DW4.Low, 	sets.engaged.Hybrid)
 		sets.engaged.DW4.Mid.DT 			= set_combine(sets.engaged.DW4.Mid, 	sets.engaged.Hybrid)
 		sets.engaged.DW4.High.DT 			= set_combine(sets.engaged.DW4.High, 	sets.engaged.Hybrid)
 		
+	
+		sets.engaged.DW5.DT 				= set_combine(sets.engaged.DW5, 		sets.engaged.Hybrid)
+		sets.engaged.DW5.DT.AM3 			= set_combine(sets.engaged.DW5.AM3, 	sets.engaged.Hybrid)
+		sets.engaged.DW5.Low.DT 			= set_combine(sets.engaged.DW5.Low, 	sets.engaged.Hybrid)
+		sets.engaged.DW5.Mid.DT 			= set_combine(sets.engaged.DW5.Mid, 	sets.engaged.Hybrid)
+		sets.engaged.DW5.High.DT 			= set_combine(sets.engaged.DW5.High, 	sets.engaged.Hybrid)
 		
 		
-		sets.engaged.DW2.DTMAX 				= set_combine(sets.engaged.DW2, 	sets.engaged.Hybrid2)
-		sets.engaged.DW2.DTMAX.AM3 			= set_combine(sets.engaged.DW2.AM3, 	sets.engaged.Hybrid2)
-		sets.engaged.DW2.Low.DTMAX 			= set_combine(sets.engaged.DW2.Low, 	sets.engaged.Hybrid2)
-		sets.engaged.DW2.Mid.DTMAX 			= set_combine(sets.engaged.DW2.Mid, 	sets.engaged.Hybrid2)
-		sets.engaged.DW2.High.DTMAX			= set_combine(sets.engaged.DW2.High, 	sets.engaged.Hybrid2)
+		
+		sets.engaged.DW2.DTMAX 				= set_combine(sets.engaged.DW2, 		sets.engaged.Hybrid)
+		sets.engaged.DW2.DTMAX.AM3 			= set_combine(sets.engaged.DW2.AM3, 	sets.engaged.Hybrid)
+		sets.engaged.DW2.Low.DTMAX 			= set_combine(sets.engaged.DW2.Low, 	sets.engaged.Hybrid)
+		sets.engaged.DW2.Mid.DTMAX 			= set_combine(sets.engaged.DW2.Mid, 	sets.engaged.Hybrid)
+		sets.engaged.DW2.High.DTMAX			= set_combine(sets.engaged.DW2.High, 	sets.engaged.Hybrid)
 
 	
-		sets.engaged.DW3.DTMAX 				= set_combine(sets.engaged.DW3, 	sets.engaged.Hybrid2)
-		sets.engaged.DW3.DTMAX.AM3 			= set_combine(sets.engaged.DW3.AM3, 	sets.engaged.Hybrid2)
-		sets.engaged.DW3.Low.DTMAX 			= set_combine(sets.engaged.DW3.Low, 	sets.engaged.Hybrid2)
-		sets.engaged.DW3.Mid.DTMAX 			= set_combine(sets.engaged.DW3.Mid, 	sets.engaged.Hybrid2)
-		sets.engaged.DW3.High.DTMAX			= set_combine(sets.engaged.DW3.High, 	sets.engaged.Hybrid2)
+		sets.engaged.DW3.DTMAX 				= set_combine(sets.engaged.DW3, 		sets.engaged.Hybrid)
+		sets.engaged.DW3.DTMAX.AM3 			= set_combine(sets.engaged.DW3.AM3, 	sets.engaged.Hybrid)
+		sets.engaged.DW3.Low.DTMAX 			= set_combine(sets.engaged.DW3.Low, 	sets.engaged.Hybrid)
+		sets.engaged.DW3.Mid.DTMAX 			= set_combine(sets.engaged.DW3.Mid, 	sets.engaged.Hybrid)
+		sets.engaged.DW3.High.DTMAX			= set_combine(sets.engaged.DW3.High, 	sets.engaged.Hybrid)
 		
 	
-		sets.engaged.DW4.DTMAX 				= set_combine(sets.engaged.DW4, 	sets.engaged.Hybrid2)
-		sets.engaged.DW4.DTMAX.AM3 			= set_combine(sets.engaged.DW4.AM3, 	sets.engaged.Hybrid2)
-		sets.engaged.DW4.Low.DTMAX 			= set_combine(sets.engaged.DW4.Low, 	sets.engaged.Hybrid2)
-		sets.engaged.DW4.Mid.DTMAX 			= set_combine(sets.engaged.DW4.Mid, 	sets.engaged.Hybrid2)
-		sets.engaged.DW4.High.DTMAX			= set_combine(sets.engaged.DW4.High, 	sets.engaged.Hybrid2)
+		sets.engaged.DW4.DTMAX 				= set_combine(sets.engaged.DW4, 		sets.engaged.Hybrid)
+		sets.engaged.DW4.DTMAX.AM3 			= set_combine(sets.engaged.DW4.AM3, 	sets.engaged.Hybrid)
+		sets.engaged.DW4.Low.DTMAX 			= set_combine(sets.engaged.DW4.Low, 	sets.engaged.Hybrid)
+		sets.engaged.DW4.Mid.DTMAX 			= set_combine(sets.engaged.DW4.Mid, 	sets.engaged.Hybrid)
+		sets.engaged.DW4.High.DTMAX			= set_combine(sets.engaged.DW4.High, 	sets.engaged.Hybrid)
+		
+		
+		sets.engaged.DW5.DTMAX 				= set_combine(sets.engaged.DW5, 		sets.engaged.Hybrid)
+		sets.engaged.DW5.DTMAX.AM3 			= set_combine(sets.engaged.DW5.AM3, 	sets.engaged.Hybrid)
+		sets.engaged.DW5.Low.DTMAX 			= set_combine(sets.engaged.DW5.Low, 	sets.engaged.Hybrid)
+		sets.engaged.DW5.Mid.DTMAX 			= set_combine(sets.engaged.DW5.Mid, 	sets.engaged.Hybrid)
+		sets.engaged.DW5.High.DTMAX			= set_combine(sets.engaged.DW5.High, 	sets.engaged.Hybrid)
 		
 		
 	
 		----------------------------------------------------------
 		-- Minimum Haste
 		----------------------------------------------------------
-		sets.engaged.DW2.DT.Min 			= set_combine(sets.engaged.DW2.Min,		sets.engaged.Hybrid)
+		sets.engaged.DW2.DT.Min 			= set_combine(sets.engaged.DW2.Min,			sets.engaged.Hybrid)
 		sets.engaged.DW2.DT.Min.AM3  		= set_combine(sets.engaged.DW2.Min.AM3, 	sets.engaged.Hybrid)
 		sets.engaged.DW2.Low.DT.Min  		= set_combine(sets.engaged.DW2.Low.Min, 	sets.engaged.Hybrid)
 		sets.engaged.DW2.Mid.DT.Min  		= set_combine(sets.engaged.DW2.Mid.Min, 	sets.engaged.Hybrid)
@@ -1734,36 +1975,41 @@ function init_gear_sets()
 		sets.engaged.DW4.Mid.DT.Min  		= set_combine(sets.engaged.DW4.Mid.Min, 	sets.engaged.Hybrid)
 		sets.engaged.DW4.High.DT.Min 		= set_combine(sets.engaged.DW4.High.Min, 	sets.engaged.Hybrid)
 		
+	
+		sets.engaged.DW5.DT.Min				= set_combine(sets.engaged.DW5.Min, 		sets.engaged.Hybrid)
+		sets.engaged.DW5.DT.Min.AM3  		= set_combine(sets.engaged.DW5.Min.AM3, 	sets.engaged.Hybrid)
+		sets.engaged.DW5.Low.DT.Min  		= set_combine(sets.engaged.DW5.Low.Min, 	sets.engaged.Hybrid)
+		sets.engaged.DW5.Mid.DT.Min  		= set_combine(sets.engaged.DW5.Mid.Min, 	sets.engaged.Hybrid)
+		sets.engaged.DW5.High.DT.Min 		= set_combine(sets.engaged.DW5.High.Min, 	sets.engaged.Hybrid)
 		
 		
-		sets.engaged.DW2.DTMAX.Min 	 		= set_combine(sets.engaged.DW2.Min, 		sets.engaged.Hybrid2)
-		sets.engaged.DW2.DTMAX.Min.AM3  	= set_combine(sets.engaged.DW2.Min.AM3, 	sets.engaged.Hybrid2)
-		sets.engaged.DW2.Low.DTMAX.Min  	= set_combine(sets.engaged.DW2.Low.Min, 	sets.engaged.Hybrid2)
-		sets.engaged.DW2.Mid.DTMAX.Min  	= set_combine(sets.engaged.DW2.Mid.Min, 	sets.engaged.Hybrid2)
-		sets.engaged.DW2.High.DTMAX.Min		= set_combine(sets.engaged.DW2.High.Min, 	sets.engaged.Hybrid2)
+		
+		sets.engaged.DW2.DTMAX.Min 	 		= set_combine(sets.engaged.DW2.Min, 		sets.engaged.Hybrid)
+		sets.engaged.DW2.DTMAX.Min.AM3  	= set_combine(sets.engaged.DW2.Min.AM3, 	sets.engaged.Hybrid)
+		sets.engaged.DW2.Low.DTMAX.Min  	= set_combine(sets.engaged.DW2.Low.Min, 	sets.engaged.Hybrid)
+		sets.engaged.DW2.Mid.DTMAX.Min  	= set_combine(sets.engaged.DW2.Mid.Min, 	sets.engaged.Hybrid)
+		sets.engaged.DW2.High.DTMAX.Min		= set_combine(sets.engaged.DW2.High.Min, 	sets.engaged.Hybrid)
 		
 	
-		sets.engaged.DW3.DTMAX.Min 	 		= set_combine(sets.engaged.DW3.Min, 		sets.engaged.Hybrid2)
-		sets.engaged.DW3.DTMAX.Min.AM3  	= set_combine(sets.engaged.DW3.Min.AM3, 	sets.engaged.Hybrid2)
-		sets.engaged.DW3.Low.DTMAX.Min  	= set_combine(sets.engaged.DW3.Low.Min, 	sets.engaged.Hybrid2)
-		sets.engaged.DW3.Mid.DTMAX.Min  	= set_combine(sets.engaged.DW3.Mid.Min, 	sets.engaged.Hybrid2)
-		sets.engaged.DW3.High.DTMAX.Min 	= set_combine(sets.engaged.DW3.High.Min, 	sets.engaged.Hybrid2)
+		sets.engaged.DW3.DTMAX.Min 	 		= set_combine(sets.engaged.DW3.Min, 		sets.engaged.Hybrid)
+		sets.engaged.DW3.DTMAX.Min.AM3  	= set_combine(sets.engaged.DW3.Min.AM3, 	sets.engaged.Hybrid)
+		sets.engaged.DW3.Low.DTMAX.Min  	= set_combine(sets.engaged.DW3.Low.Min, 	sets.engaged.Hybrid)
+		sets.engaged.DW3.Mid.DTMAX.Min  	= set_combine(sets.engaged.DW3.Mid.Min, 	sets.engaged.Hybrid)
+		sets.engaged.DW3.High.DTMAX.Min 	= set_combine(sets.engaged.DW3.High.Min, 	sets.engaged.Hybrid)
 		
 	
-		sets.engaged.DW4.DTMAX.Min 	 		= set_combine(sets.engaged.DW4.Min, 		sets.engaged.Hybrid2,
-		{
-			feet=gear.TFeet_TP
-		})
-		sets.engaged.DW4.DTMAX.Min.AM3  	= set_combine(sets.engaged.DW4.Min.AM3, 	sets.engaged.Hybrid2,
-		{
-			feet=gear.TFeet_TP
-		})
-		sets.engaged.DW4.Low.DTMAX.Min  	= set_combine(sets.engaged.DW4.Low.Min, 	sets.engaged.Hybrid2,
-		{
-			feet=gear.TFeet_TP
-		})
-		sets.engaged.DW4.Mid.DTMAX.Min  	= set_combine(sets.engaged.DW4.Mid.Min, 	sets.engaged.Hybrid2)
-		sets.engaged.DW4.High.DTMAX.Min 	= set_combine(sets.engaged.DW4.High.Min, 	sets.engaged.Hybrid2)
+		sets.engaged.DW4.DTMAX.Min 	 		= set_combine(sets.engaged.DW4.Min, 		sets.engaged.Hybrid)
+		sets.engaged.DW4.DTMAX.Min.AM3  	= set_combine(sets.engaged.DW4.Min.AM3, 	sets.engaged.Hybrid)
+		sets.engaged.DW4.Low.DTMAX.Min  	= set_combine(sets.engaged.DW4.Low.Min, 	sets.engaged.Hybrid)
+		sets.engaged.DW4.Mid.DTMAX.Min  	= set_combine(sets.engaged.DW4.Mid.Min, 	sets.engaged.Hybrid)
+		sets.engaged.DW4.High.DTMAX.Min 	= set_combine(sets.engaged.DW4.High.Min, 	sets.engaged.Hybrid)
+		
+	
+		sets.engaged.DW5.DTMAX.Min			= set_combine(sets.engaged.DW5.Min, 		sets.engaged.Hybrid)
+		sets.engaged.DW5.DTMAX.Min.AM3  	= set_combine(sets.engaged.DW5.Min.AM3, 	sets.engaged.Hybrid)
+		sets.engaged.DW5.Low.DTMAX.Min  	= set_combine(sets.engaged.DW5.Low.Min, 	sets.engaged.Hybrid)
+		sets.engaged.DW5.Mid.DTMAX.Min  	= set_combine(sets.engaged.DW5.Mid.Min, 	sets.engaged.Hybrid)
+		sets.engaged.DW5.High.DTMAX.Min 	= set_combine(sets.engaged.DW5.High.Min, 	sets.engaged.Hybrid)
 		
 		
 	
@@ -1799,47 +2045,59 @@ function init_gear_sets()
 		sets.engaged.DW2.High.DTMAX.Med 	= set_combine(sets.engaged.DW2.High.Med, 	sets.engaged.Hybrid2)
 
 	
-		sets.engaged.DW3.DTMAX.Med 	 		= set_combine(sets.engaged.DW3.Med, 		sets.engaged.Hybrid2)
+		sets.engaged.DW3.DTMAX.Med 	 		= set_combine(sets.engaged.DW3.Med, 		sets.engaged.Hybrid2,
+		{
+			body="Adhemar Jacket +1"
+		})
 		sets.engaged.DW3.DTMAX.Med.AM3  	= set_combine(sets.engaged.DW3.Med.AM3, 	sets.engaged.Hybrid2,
 		{
-			rear="Suppanomimi",
-			feet=gear.HBoots_TP
+			body="Adhemar Jacket +1"
 		})
-		sets.engaged.DW3.Low.DTMAX.Med  	= set_combine(sets.engaged.DW3.Low.Med, 	sets.engaged.Hybrid2)
-		sets.engaged.DW3.Mid.DTMAX.Med  	= set_combine(sets.engaged.DW3.Mid.Med, 	sets.engaged.Hybrid2,
+		sets.engaged.DW3.Low.DTMAX.Med  	= set_combine(sets.engaged.DW3.DTMAX.Med,
 		{
-			head="Carmine Mask +1", lear="Eabani Earring",
-			feet="Aya. Gambieras +2"
+			feet="Malignance Chapeau"
 		})
-		sets.engaged.DW3.High.DTMAX.Med 	= set_combine(sets.engaged.DW3.High.Min, 	sets.engaged.Hybrid2,
-		{
-			head="Carmine Mask +1", lear="Eabani Earring",
-			feet="Aya. Gambieras +2"
-		})
+		sets.engaged.DW3.Mid.DTMAX.Med  	= sets.engaged.DW3.Low.DTMAX.Med
+		sets.engaged.DW3.High.DTMAX.Med 	= sets.engaged.DW3.Mid.DTMAX.Med
 
 	
 		sets.engaged.DW4.DTMAX.Med 	 		= set_combine(sets.engaged.DW4.Med, 		sets.engaged.Hybrid2,
 		{
-			legs="Carmine Cuisses +1"
+			rring="Epona's Ring",
+			waist="Reiki Yotai"
 		})
-		sets.engaged.DW4.DTMAX.Med.AM3  	= set_combine(sets.engaged.DW4.Med.AM3, 	sets.engaged.Hybrid2,
-		{
-			legs="Carmine Cuisses +1"
-		})
-		sets.engaged.DW4.Low.DTMAX.Med  	= set_combine(sets.engaged.DW4.Low.Med, 	sets.engaged.Hybrid2,
-		{
-			legs="Carmine Cuisses +1"
-		})
-		sets.engaged.DW4.Mid.DTMAX.Med  	= set_combine(sets.engaged.DW4.Mid.Med, 	sets.engaged.Hybrid2,
+		sets.engaged.DW4.DTMAX.Med.AM3  	= set_combine(sets.engaged.DW4.DTMAX.Med,
 		{
 			rear="Suppanomimi",
-			legs="Carmine Cuisses +1"
+			rring="Epona's Ring"
 		})
-		sets.engaged.DW4.High.DTMAX.Med 	= set_combine(sets.engaged.DW4.High.Med, 	sets.engaged.Hybrid2,
+		sets.engaged.DW4.Low.DTMAX.Med  	= set_combine(sets.engaged.DW4.DTMAX.Med,
 		{
-			head="Carmine Mask +1", lear="Eabani Earring", rear="Suppanomimi",
-			waist="Reiki Yotai", legs="Adhemar Kecks +1", feet="Aya. Gambieras +2"
+			rring={name="Chirich Ring +1", bag="wardrobe3"}
 		})
+		sets.engaged.DW4.Mid.DTMAX.Med  	= sets.engaged.DW4.Low.DTMAX.Med
+		sets.engaged.DW4.High.DTMAX.Med 	= sets.engaged.DW4.Mid.DTMAX.Med
+
+	
+		sets.engaged.DW5.DTMAX.Med 	 		= set_combine(sets.engaged.DW5.Med, 		sets.engaged.Hybrid2,
+		{
+			body="Adhemar Jacket +1"
+		})
+		sets.engaged.DW5.DTMAX.Med.AM3  	= set_combine(sets.engaged.DW5.Med.AM3, 	sets.engaged.Hybrid2,
+		{
+			rring="Epona's Ring"
+		})
+		sets.engaged.DW5.Low.DTMAX.Med  	= set_combine(sets.engaged.DW5.DTMAX.Med,
+		{
+			lear={name="Mache Earring +1", bag="wardrobe2"},
+			waist="Kentarch Belt +1"
+		})
+		sets.engaged.DW5.Mid.DTMAX.Med  	= set_combine(sets.engaged.DW5.Low.DTMAX.Med,
+		{
+			body="Malignance Tabard", rring={name="Chirich Ring +1", bag="wardrobe3"},
+			waist="Reiki Yotai"
+		})
+		sets.engaged.DW5.High.DTMAX.Med 	= sets.engaged.DW5.Mid.DTMAX.Med
 		
 	
 	
@@ -1865,69 +2123,107 @@ function init_gear_sets()
 		sets.engaged.DW4.Low.DT.Max  		= set_combine(sets.engaged.DW4.Low.Max, 	sets.engaged.Hybrid)
 		sets.engaged.DW4.Mid.DT.Max  		= set_combine(sets.engaged.DW4.Mid.Max, 	sets.engaged.Hybrid)
 		sets.engaged.DW4.High.DT.Max 		= set_combine(sets.engaged.DW4.High.Max, 	sets.engaged.Hybrid)
+
+	
+		sets.engaged.DW5.DT.Max 	 		= set_combine(sets.engaged.DW5.Max, 		sets.engaged.Hybrid)
+		sets.engaged.DW5.DT.Max.AM3  		= set_combine(sets.engaged.DW5.Max.AM3, 	sets.engaged.Hybrid)
+		sets.engaged.DW5.Low.DT.Max  		= set_combine(sets.engaged.DW5.Low.Max, 	sets.engaged.Hybrid)
+		sets.engaged.DW5.Mid.DT.Max  		= set_combine(sets.engaged.DW5.Mid.Max, 	sets.engaged.Hybrid)
+		sets.engaged.DW5.High.DT.Max 		= set_combine(sets.engaged.DW5.High.Max, 	sets.engaged.Hybrid)
 		
 		
 		
 		sets.engaged.DW2.DTMAX.Max 	 		= set_combine(sets.engaged.DW2.Max, 		sets.engaged.Hybrid2,
 		{
-			legs="Carmine Cuisses +1"
+			body="Adhemar Jacket +1"
 		})
 		sets.engaged.DW2.DTMAX.Max.AM3  	= set_combine(sets.engaged.DW2.Max.AM3, 	sets.engaged.Hybrid2,
 		{
-			legs="Carmine Cuisses +1"
+			rring="Epona's Ring"
 		})
-		sets.engaged.DW2.Low.DTMAX.Max  	= set_combine(sets.engaged.DW2.Low.Max, 	sets.engaged.Hybrid2,
+		sets.engaged.DW2.Low.DTMAX.Max  	= set_combine(sets.engaged.DW2.DTMAX.Max,
 		{
-			legs="Carmine Cuisses +1"
+			lear={name="Mache Earring +1", bag="wardrobe2"},
+			waist="Kentarch Belt +1"
 		})
-		sets.engaged.DW2.Mid.DTMAX.Max  	= set_combine(sets.engaged.DW2.Mid.Max, 	sets.engaged.Hybrid2,
+		sets.engaged.DW2.Mid.DTMAX.Max  	= set_combine(sets.engaged.DW2.Low.DTMAX.Max,
 		{
-			lear="Eabani Earring"
+			body="Malignance Tabard", rring={name="Chirich Ring +1", bag="wardrobe3"},
+			waist="Reiki Yotai"
 		})
-		sets.engaged.DW2.High.DTMAX.Max 	= set_combine(sets.engaged.DW2.High.Max, 	sets.engaged.Hybrid2,
-		{
-			lear="Eabani Earring"
-		})
+		sets.engaged.DW2.High.DTMAX.Max 	= sets.engaged.DW2.Mid.DTMAX.Max
 		
 	
 		sets.engaged.DW3.DTMAX.Max 	 		= set_combine(sets.engaged.DW3.Max, 		sets.engaged.Hybrid2,
 		{
 			rear="Cessance Earring",
+			rring="Epona's Ring",
 			back=gear.BLUCape_DW
 		})
 		sets.engaged.DW3.DTMAX.Max.AM3  	= set_combine(sets.engaged.DW3.Max.AM3, 	sets.engaged.Hybrid2,
 		{
-			rear="Eabani Earring"
+			rring={name="Chirich Ring +1", bag="wardrobe3"}
 		})
-		sets.engaged.DW3.Low.DTMAX.Max  	= set_combine(sets.engaged.DW3.Low.Max, 	sets.engaged.Hybrid2,
+		sets.engaged.DW3.Low.DTMAX.Max  	= set_combine(sets.engaged.DW3.DTMAX.Max,
 		{
-			rear="Cessance Earring",
-			back=gear.BLUCape_DW
+			lear="Telos Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
+			rring={name="Chirich Ring +1", bag="wardrobe3"}
 		})
-		sets.engaged.DW3.Mid.DTMAX.Max  	= set_combine(sets.engaged.DW3.Mid.Max, 	sets.engaged.Hybrid2,
+		sets.engaged.DW3.Mid.DTMAX.Max  	= set_combine(sets.engaged.DW3.Low.DTMAX.Max,
 		{
-			back=gear.BLUCape_DW, legs="Adhemar Kecks +1"
+			lear={name="Mache Earring +1", bag="wardrobe2"},
+			rring={name="Chirich Ring +1", bag="wardrobe3"}
 		})
-		sets.engaged.DW3.High.DTMAX.Max 	= set_combine(sets.engaged.DW3.High.Max, 	sets.engaged.Hybrid2)
+		sets.engaged.DW3.High.DTMAX.Max 	= set_combine(sets.engaged.DW3.Mid.DTMAX.Max,
+		{
+			waist="Kentarch Belt +1"
+		})
 
 	
 		sets.engaged.DW4.DTMAX.Max 	 		= set_combine(sets.engaged.DW4.Max, 		sets.engaged.Hybrid2,
 		{
-			legs="Carmine Cuisses +1"
+			rear="Suppanomimi",
+			rring="Epona's Ring"
 		})
 		sets.engaged.DW4.DTMAX.Max.AM3  	= set_combine(sets.engaged.DW4.Max.AM3, 	sets.engaged.Hybrid2,
 		{
-			waist="Reiki Yotai"
+			rring="Epona's Ring"
 		})
-		sets.engaged.DW4.Low.DTMAX.Max  	= set_combine(sets.engaged.DW4.Low.Max, 	sets.engaged.Hybrid2,
+		sets.engaged.DW4.Low.DTMAX.Max  	= set_combine(sets.engaged.DW4.DTMAX.Max,
 		{
-			legs="Carmine Cuisses +1"
+			lear="Telos Earring"
 		})
-		sets.engaged.DW4.Mid.DTMAX.Max  	= set_combine(sets.engaged.DW4.Mid.Max, 	sets.engaged.Hybrid2,
+		sets.engaged.DW4.Mid.DTMAX.Max  	= set_combine(sets.engaged.DW4.Low.DTMAX.Max,
 		{
-			legs="Carmine Cuisses +1"
+			rring={name="Chirich Ring +1", bag="wardrobe3"}
 		})
-		sets.engaged.DW4.High.DTMAX.Max 	= set_combine(sets.engaged.DW4.High.Max, 	sets.engaged.Hybrid2)
+		sets.engaged.DW4.High.DTMAX.Max 	= set_combine(sets.engaged.DW4.Mid.DTMAX.Max,
+		{
+			lear={name="Mache Earring +1", bag="wardrobe2"},
+			waist="Kentarch Belt +1"
+		})
+		
+		
+
+	
+		sets.engaged.DW5.DTMAX.Max 	 		= set_combine(sets.engaged.DW5.Max, 		sets.engaged.Hybrid2,
+		{
+			rring="Epona's Ring"
+		})
+		sets.engaged.DW5.DTMAX.Max.AM3  	= set_combine(sets.engaged.DW5.Max.AM3, 	sets.engaged.Hybrid2,
+		{
+			rring={name="Chirich Ring +1", bag="wardrobe3"}
+		})
+		sets.engaged.DW5.Low.DTMAX.Max  	= sets.engaged.DW5.DTMAX.Max
+		sets.engaged.DW5.Mid.DTMAX.Max  	= set_combine(sets.engaged.DW5.Low.DTMAX.Max,
+		{
+			lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"}
+		})
+		sets.engaged.DW5.High.DTMAX.Max 	= set_combine(sets.engaged.DW5.Mid.Max, 	
+		{
+			rring={name="Chirich Ring +1", bag="wardrobe3"},
+			waist="Kentarch Belt +1"
+		})
 end
 
 
@@ -2032,7 +2328,8 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 		apply_ability_bonuses(spell, action, spellMap, eventArgs)
 	end
 	
-	if state.TreasureMode.value ~= 'None' and spell.action_type == 'Magic' and spell.target.type == 'MONSTER' then
+	if state.TreasureMode.value ~= 'None' and spell.action_type == 'Magic' and spell.target.type == 'MONSTER' 
+				and spellMap ~= 'Magical' and spellMap ~= 'LightBlue' and spellMap ~='DarkBlue' then
 		equip(sets.TreasureHunter)
 	end
 end
@@ -2086,12 +2383,22 @@ function job_status_change(new_status, old_status)
 		determine_haste_group()
 		update_combat_form()
 	end
+	
+	if buffactive['Aftermath: Lv.3'] and player.equipment.main == "Tizona" then
+		classes.CustomMeleeGroups:append('AM3')
+		handle_equipping_gear(player.status)
+	end
 end
 
 -- Handle notifications of general user state change.
 function job_state_change(stateField, newValue, oldValue)
 	equip(sets[state.MainWeaponSet.current])
 	equip(sets[state.SubWeaponSet.current])
+	
+	if buffactive['Aftermath: Lv.3'] and player.equipment.main == "Tizona" then
+		classes.CustomMeleeGroups:append('AM3')
+		handle_equipping_gear(player.status)
+	end
 end
 
 function customize_idle_set(idleSet)
@@ -2113,6 +2420,11 @@ end
 function job_update(cmdParams, eventArgs)
 	equip(sets[state.MainWeaponSet.current])
 	equip(sets[state.SubWeaponSet.current])
+	
+	if buffactive['Aftermath: Lv.3'] and player.equipment.main == "Tizona" then
+		classes.CustomMeleeGroups:append('AM3')
+		handle_equipping_gear(player.status)
+	end
 	
 	determine_haste_group()
 	update_active_abilities()
@@ -2193,13 +2505,18 @@ function determine_haste_group()
 			--add_to_chat(8, '*********No Haste Set***********')
 		end
 	end
+	
+	if buffactive['Aftermath: Lv.3'] and player.equipment.main == "Tizona" then
+		classes.CustomMeleeGroups:append('AM3')
+		handle_equipping_gear(player.status)
+	end
 end
 
 -- Determines Dual Wield level for Combat Form
 function update_combat_form()
     if determine_DW() == 35  then
 		state.CombatForm:set('DW5')
-		--add_to_chat(8, '-------------Dual Wield Level 4 Detected--------------')
+		--add_to_chat(8, '-------------Dual Wield Level 5 Detected--------------')
 	elseif determine_DW() == 30  then
 		state.CombatForm:set('DW4')
 		--add_to_chat(8, '-------------Dual Wield Level 4 Detected--------------')

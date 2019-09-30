@@ -13,6 +13,8 @@ end
 
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
 function job_setup()
+	include('Mote-TreasureHunter')
+
     determine_haste_group()
 	update_combat_form()
 end
@@ -27,7 +29,7 @@ function user_setup()
 	state.WeaponskillMode:options('Normal', 'Low', 'Mid', 'High')
     state.HybridMode:options('Normal', 'DT')
     state.CastingMode:options('Normal', 'Resistant', 'Potency')
-    state.IdleMode:options('Normal', 'DT', 'Refresh')
+    state.IdleMode:options('Normal', 'DT', 'MEVA', 'Refresh')
 	
 	state.MainWeaponSet = M{['description']='Main Weapon Set',
 		'Crocea',
@@ -38,6 +40,7 @@ function user_setup()
 	
 	state.SubWeaponSet = M{['description']='Sub Weapon Set',
 		'subTauret',
+		'Daybreak',
 		'subAlmace',
 		'subNaegling',
 		'Thibron'
@@ -49,11 +52,14 @@ function user_setup()
 	
 	send_command('bind ^pageup gs c cycle SubWeaponSet')
 	send_command('bind ^pagedown gs c cycleback SubWeaponSet')
+	
+	send_command('bind ^= gs c cycle treasuremode')
 
 	apply_job_change()
 end
 
 function user_unload()
+	send_command('unbind ^=')
 	send_command('unbind pageup')
 	send_command('unbind pagedown')
 	send_command('unbind ^pageup')
@@ -85,20 +91,25 @@ function init_gear_sets()
 	--Fast Cast: 38%
 	
 		sets.precast.FC =
-		{--		52%(+38%)
+		{--		51%(+38%)
 			ammo="Staunch Tathlum +1",
-			head="Atrophy Chapeau +3", neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquacious Earring",
-			body="Viti. Tabard +3", hands="Chironic Gloves", lring="Kishar Ring", rring="Evanescence Ring", 
+			head="Atrophy Chapeau +3", neck="Orunmila's Torque", lear="Loquac. Earring", rear="Malignance Earring",
+			body="Viti. Tabard +3", hands="Chironic Gloves", lring="Lebeche Ring", rring="Weather. Ring +1", 
 			back="Moonlight Cape", waist="Witful Belt", legs="Carmine Cuisses +1",feet="Amalric Nails +1"
 		}
 
 		sets.precast.FC.Impact = 
-		{--		41%(+38%)
+		{--		42%(+38%)
 			ammo="Sapience Orb",
-			head=empty, neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquacious Earring",
-			body="Twilight Cloak", hands="Leyline Gloves", lring="Kishar Ring", rring="Rahab Ring", 
+			head=empty, neck="Orunmila's Torque", lear="Loquac. Earring", rear="Malignance Earring",
+			body="Twilight Cloak", hands="Leyline Gloves", lring="Lebeche Ring", rring="Weather. Ring +1", 
 			back="Moonlight Cape", waist="Witful Belt", legs="Aya. Cosciales +2", feet="Carmine Greaves +1"
 		}
+		
+		sets.precast.FC.Dispelga = set_combine(sets.precast.FC,
+		{
+			main="Daybreak", sub="Ammurapi Shield"
+		})
 
 
 ----------------------------------------------------------------------------
@@ -117,7 +128,7 @@ function init_gear_sets()
 		sets.midcast.FC =
 		{--		Fast Cast: 52%(+38%)
 			ammo="Staunch Tathlum +1",
-			head="Atrophy Chapeau +3", neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquacious Earring",
+			head="Atrophy Chapeau +3", neck="Orunmila's Torque", lear="Loquac. Earring", rear="Malignance Earring",
 			body="Viti. Tabard +3", hands="Chironic Gloves", lring="Kishar Ring", rring="Freke Ring",
 			back="Moonlight Cape", waist="Witful Belt", legs="Carmine Cuisses +1",feet="Amalric Nails +1"
 		}
@@ -126,16 +137,16 @@ function init_gear_sets()
 		{--		Fast Cast: 39%(+38%)	Conserve MP: 40
 			ammo="Pemphredo Tathlum",
 			head="Vanya Hood", neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
-			body="Amalric Doublet +1", hands="Leyline Gloves", lring="Kishar Ring", rring="Rahab Ring",
+			body="Amalric Doublet +1", hands="Leyline Gloves", lring="Kishar Ring", rring="Weather. Ring +1",
 			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Lengo Pants", feet="Carmine Greaves +1"
 		}
 		
 		sets.midcast.Duration =
 		{--		Fast Cast: 33%(+38%)	Duration: (1.75 * 1.64)
 			main="Colada", sub="Ammurapi Shield", ammo="Sapience Orb",
-			head="Telchine Cap", neck="Dls. Torque +1", lear="Etiolation Earring", rear="Loquac. Earring",
-			body="Viti. Tabard +3", hands="Atrophy Gloves +3", lring="Kishar Ring", rring="Rahab Ring",
-			back="Ghostfyre Cape", waist="Witful Belt", legs="Telchine Braconi", feet="Leth. Houseaux +1"
+			head="Telchine Cap", neck="Dls. Torque +1", lear="Loquac. Earring", rear="Malignance Earring",
+			body="Viti. Tabard +3", hands="Atrophy Gloves +3", lring="Kishar Ring", rring="Weather. Ring +1",
+			back="Ghostfyre Cape", waist="Witful Belt", legs=gear.ENH_Legs, feet="Leth. Houseaux +1"
 		}
 
     --------------------------------------
@@ -163,7 +174,7 @@ function init_gear_sets()
 ]]
 		sets.midcast.Cursna = set_combine(sets.midcast.FC,
 		{--		Healing: 515(551)	Cursna: +70		Curnsa Rate: 46%(48%)
-			head="Kaykaus Mitra", neck="Debilis Medallion", lear="Beatific Earring", rear="Healing Earring",
+			head="Vanya Hood", neck="Debilis Medallion", lear="Beatific Earring", rear="Healing Earring",
 			hands="Hieros Mittens", lring="Haoma's Ring", rring="Menelaus's Ring",
 			back="Oretan. Cape +1", waist="Bishop's Sash", feet="Vanya Clogs"
 		})
@@ -180,15 +191,15 @@ function init_gear_sets()
 		{
 			main="Bolelabunga", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head="Telchine Cap", neck="Dls. Torque +1", lear="Gwati Earring", rear="Mendi. Earring",
-			body="Telchine Chas.", hands="Atrophy Gloves +3", lring="Kishar Ring", rring="Evanescence Ring",
-			back="Ghostfyre Cape", waist="Luminary Sash", legs="Telchine Braconi", feet="Leth. Houseaux +1"
+			body=gear.ENH_Body, hands="Atrophy Gloves +3", lring="Kishar Ring", rring="Freke Ring",
+			back="Ghostfyre Cape", waist="Luminary Sash", legs=gear.ENH_Legs, feet="Leth. Houseaux +1"
 		}
 
 		sets.midcast.Refresh =
 		{
 			main="Colada", sub="Ammurapi Shield", ammo="Sapience Orb",
-			head="Amalric Coif +1", neck="Dls. Torque +1", lear="Etiolation Earring", rear="Loquac. Earring",
-			body="Atrophy Tabard +3", hands="Atrophy Gloves +3", lring="Kishar Ring", rring="Rahab Ring",
+			head="Amalric Coif +1", neck="Dls. Torque +1", lear="Loquac. Earring", rear="Malignance Earring",
+			body="Atrophy Tabard +3", hands="Atrophy Gloves +3", lring="Kishar Ring", rring="Weather. Ring +1",
 			back="Ghostfyre Cape", waist="Witful Belt", legs="Leth. Fuseau +1", feet="Leth. Houseaux +1"
 		}
 
@@ -223,7 +234,7 @@ function init_gear_sets()
 			main="Colada", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head="Telchine Cap", neck="Dls. Torque +1", lear="Andoaa Earring", rear="Mendi. Earring",
 			body="Viti. Tabard +3", hands="Viti. Gloves +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Ghostfyre Cape", waist="Luminary Sash", legs="Telchine Braconi", feet="Leth. Houseaux +1"
+			back="Ghostfyre Cape", waist="Luminary Sash", legs=gear.ENH_Legs, feet="Leth. Houseaux +1"
 		}
 
 		sets.midcast.BarElement = set_combine(sets.midcast.GainStat,
@@ -236,7 +247,7 @@ function init_gear_sets()
 		sets.midcast.Stoneskin = set_combine(sets.midcast.Duration,
 		{
 			ammo="Staunch Tathlum +1",
-			neck="Stone Gorget", rear="Earthcry Earring",
+			neck="Stone Gorget", lear="Earthcry Earring",
 			hands="Stone Mufflers",
 			waist="Siegel Sash", legs="Shedir Seraweels"
 		})
@@ -264,15 +275,15 @@ function init_gear_sets()
 		sets.midcast.Macc =
 		{
 			main="Crocea Mors", sub="Ammurapi Shield", range="Kaja Bow",
-			head="Viti. Chapeau +3", neck="Dls. Torque +1", lear="Regal Earring", rear="Digni. Earring", 
+			head="Viti. Chapeau +3", neck="Dls. Torque +1", lear="Regal Earring", rear="Malignance Earring", 
 			body="Atrophy Tabard +3", hands="Kaykaus Cuffs +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back=gear.RDMCape_ENF, waist="Luminary Sash", legs="Chironic Hose", feet="Vitiation Boots +3"
 		}
 
 		sets.midcast['Enfeebling Magic'] = 
 		{
-			main="Maxentius", sub="Ammurapi Shield", ammo="Regal Gem",
-			head="Viti. Chapeau +3", neck="Dls. Torque +1", lear="Regal Earring", rear="Digni. Earring", 
+			main="Daybreak", sub="Ammurapi Shield", ammo="Regal Gem",
+			head="Viti. Chapeau +3", neck="Dls. Torque +1", lear="Regal Earring", rear="Malignance Earring", 
 			body="Atrophy Tabard +3", hands="Regal Cuffs", lring="Kishar Ring", rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back=gear.RDMCape_ENF, waist="Luminary Sash", legs="Chironic Hose", feet="Vitiation Boots +3"
 		}
@@ -291,13 +302,17 @@ function init_gear_sets()
 		
 		sets.midcast.ESkill = set_combine(sets.midcast['Enfeebling Magic'].Potency,
 		{
-			main=gear.Grioavolr_Enf, sub="Enki Strap",
-			neck="Incanter's Torque", rear="Enfeebling Earring",
+			neck="Incanter's Torque",
 			body="Atrophy Tabard +3", hands="Leth. Gantherots +1",
 			waist="Rumination Sash"
 		})
 		
 		sets.midcast.Dispel = sets.midcast['Enfeebling Magic'].Resistant
+		
+		sets.midcast.Dispelga = set_combine(sets.midcast.Dispel,
+		{
+			main="Daybreak", sub="Ammurapi Shield"
+		})
 		
 		sets.midcast.Frazzle = sets.midcast['Enfeebling Magic'].Resistant
 		
@@ -345,8 +360,8 @@ function init_gear_sets()
 	-- Elemental Magic
 		sets.midcast['Elemental Magic'] =
 		{
-			main="Maxentius", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
-			head=gear.NukeHood, neck="Sanctity Necklace", lear="Regal Earring", rear="Friomisi Earring", 
+			main="Daybreak", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
+			head=gear.NukeHood, neck="Sanctity Necklace", lear="Regal Earring", rear="Malignance Earring", 
 			body="Amalric Doublet +1", hands="Amalric Gages +1", lring={name="Shiva Ring +1", bag="wardrobe2"}, rring="Freke Ring",
 			back=gear.RDMCape_Nuke, waist="Sacro Cord", legs="Amalric Slops +1", feet="Amalric Nails +1"
 		}
@@ -418,6 +433,8 @@ function init_gear_sets()
 		sets.subNaegling = { sub="Naegling" }
 			
 		sets.subTauret = { sub="Tauret" }
+		
+		sets.Daybreak = { sub="Daybreak"}
 			
 		sets.subAlmace = { sub="Almace" }
 		
@@ -430,7 +447,7 @@ function init_gear_sets()
 
 		sets.idle =
 		{--	DT: -6%		PDT: -11%	MDT:-11%	Refresh: 14~15
-			main="Bolelabunga", sub="Genmei Shield", ammo="Homiliary",
+			main="Daybreak", sub="Genmei Shield", ammo="Homiliary",
 			head="Viti. Chapeau +3", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 			body="Atrophy Tabard +3", hands="Chironic Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Moonlight Cape", waist="Flume Belt +1", legs="Carmine Cuisses +1", feet="Chironic Slippers"
@@ -441,6 +458,13 @@ function init_gear_sets()
 			ammo="Staunch Tathlum +1",
 			neck="Loricate Torque +1",  lear="Genmei Earring", rear="Sanare Earring",
 			lring="Defending Ring", rring="Gelatinous Ring +1"
+		})
+		
+		sets.idle.MEVA = set_combine(sets.idle,
+		{--	DT: -6%		PDT: -11%	MDT:-11%	Refresh: 14~15
+			head="Viti. Chapeau +3", neck="Warder's Charm +1", lear="Static Earring", rear="Sanare Earring",
+			body="Malignance Tabard", hands="Malignance Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			back="Moonlight Cape", waist="Carrier's Sash", legs="Carmine Cuisses +1", feet="Malignance Boots"
 		})
 		
 		sets.idle.Refresh = set_combine(sets.idle,
@@ -473,17 +497,17 @@ function init_gear_sets()
 		sets.defense.PDT =
 		{--	DT: -19%	PDT: -51%	MDT:-26%
 			ammo="Staunch Tathlum +1",
-			head="Viti. Chapeau +3", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
-			body="Atrophy Tabard +3", hands="Aya. Manopolas +2", lring="Defending Ring", rring="Gelatinous Ring +1",
-			back=gear.RDMCape_DW, waist="Flume Belt +1", legs="Viti. Tights +3", feet="Chironic Slippers"
+			head="Malignance Chapeau", neck="Warder's Charm +1", lear="Etiolation Earring", rear="Sanare Earring",
+			body="Malignance Tabard", hands="Malignance Gloves", lring="Defending Ring", rring="Gelatinous Ring +1",
+			back="Moonlight Cape", waist="Flume Belt +1", legs="Malignance Tights", feet="Malignance Boots"
 		}
 		
 		sets.defense.MDT = 
 		{--	DT: -28%	PDT: -33%	MDT:-28%
 			ammo="Staunch Tathlum +1",
-			head="Viti. Chapeau +3", neck="Loricate Torque +1", lear="Static Earring", rear="Sanare Earring",
-			body="Viti. Tabard +3", hands="Volte Bracers", lring="Defending Ring", rring="Shukuyu Ring",
-			back="Moonlight Cape", waist="Carrier's Sash", legs="Viti. Tights +3", feet="Vitiation Boots +3"
+			head="Malignance Chapeau", neck="Warder's Charm +1", lear="Static Earring", rear="Sanare Earring",
+			body="Malignance Tabard", hands="Malignance Gloves", lring="Defending Ring", rring="Shukuyu Ring",
+			back="Moonlight Cape", waist="Carrier's Sash", legs="Malignance Tights", feet="Malignance Boots"
 		}
 	
 	--------------------------------------
@@ -509,6 +533,12 @@ function init_gear_sets()
 			body="Lethargy Sayon +1", 
 			legs="Leth. Fuseau +1", feet="Leth. Houseaux +1"
 		}
+		
+		sets.TreasureHunter =
+		{
+			hands="Volte Bracers",
+			waist="Chaac Belt", legs="Volte Hose"
+		}
 
 
 ----------------------------------------------------------------------------
@@ -527,8 +557,8 @@ function init_gear_sets()
 		{
 			ammo="Floestone",
 			head="Viti. Chapeau +3", neck="Fotia Gorget", lear="Sherida Earring", rear="Moonshade Earring",
-			body="Viti. Tabard +3", hands="Atrophy Gloves +3", lring="Karieyh Ring +1", rring="Epaminondas's Ring",
-			back=gear.RDMCape_WSD, waist="Fotia Belt", legs=gear.TLegs_TP, feet="Carmine Greaves +1"
+			body="Viti. Tabard +3", hands="Atrophy Gloves +3", lring="Shukuyu Ring", rring="Epaminondas's Ring",
+			back=gear.RDMCape_WSD, waist="Fotia Belt", legs="Malignance Tights", feet="Malignance Boots"
 		}
 
 		sets.precast.WS.Mid = sets.precast.WS.Low
@@ -541,39 +571,34 @@ function init_gear_sets()
 		sets.precast.WS['Chant du Cygne'] = set_combine(sets.precast.WS,
 		{
 			ammo="Yetshila",
-			head=gear.THead_TP, rear={name="Mache Earring +1", bag="wardrobe3"},
-			body="Ayanmo Corazza +2", hands="Aya. Manopolas +2", lring="Begrudging Ring", rring="Ilabrat Ring",
-			back=gear.RDMCape_Crit, legs="Viti. Tights +3", feet="Thereoid Greaves"
+			head="Malignance Chapeau", rear={name="Mache Earring +1", bag="wardrobe3"},
+			body="Malignance Tabard", hands="Malignance Gloves", lring="Begrudging Ring", rring="Ilabrat Ring",
+			back=gear.RDMCape_Crit, legs="Viti. Tights +3", feet="Malignance Boots"
 		})
 	
 		sets.precast.WS['Chant du Cygne'].Low = set_combine(sets.precast.WS['Chant du Cygne'],
 		{
-			legs="Aya. Cosciales +2"
+			legs="Malignance Tights"
 		})
 		
-		sets.precast.WS['Chant du Cygne'].Mid = set_combine(sets.precast.WS['Chant du Cygne'].Low,
-		{
-			feet="Aya. Gambieras +2"
-		})
+		sets.precast.WS['Chant du Cygne'].Mid = sets.precast.WS['Chant du Cygne'].Low
 		
 		sets.precast.WS['Chant du Cygne'].High = set_combine(sets.precast.WS['Chant du Cygne'].Mid,
 		{
-			head="Aya. Zucchetto +2", lear={name="Mache Earring +1", bag="wardrobe2"},
-			hands="Aya. Manopolas +2",
+			lear={name="Mache Earring +1", bag="wardrobe2"},
 		})
 
 	---Vorpal Blade
 		sets.precast.WS['Vorpal Blade'] = set_combine(sets.precast.WS['Chant du Cygne'],
 		{
 			rear="Moonshade Earring",
-			rring="Shukuyu Ring",
+			lring="Begrudging Ring",
 			back=gear.RDMCape_WSD
 		})
 
 		sets.precast.WS['Vorpal Blade'].Low = set_combine(sets.precast.WS['Chant du Cygne'].Low,
 		{
 			rear="Moonshade Earring",
-			rring="Rufescent Ring",
 			back=gear.RDMCape_WSD
 		})
 		
@@ -586,18 +611,18 @@ function init_gear_sets()
 		{
 			ammo="Regal Gem",
 			head="Viti. Chapeau +3", lear="Regal Earring",
-			rring={name="Stikini Ring +1", bag="wardrobe3"},
+			hands="Malignance Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back=gear.RDMCape_ENF, legs="Jhakri Slops +2", feet="Jhakri Pigaches +2"
 		})
 
 		sets.precast.WS['Requiescat'].Low = set_combine(sets.precast.WS['Requiescat'],
 		{
-			head="Carmine Mask +1"
+			head="Malignance Chapeau"
 		})
 		
 		sets.precast.WS['Requiescat'].Mid = set_combine(sets.precast.WS['Requiescat'].Low,
 		{
-			legs="Carmine Cuisses +1"
+			legs="Malignance Tights"
 		})
 		
 		sets.precast.WS['Requiescat'].High = set_combine(sets.precast.WS['Requiescat'].Mid,
@@ -638,11 +663,28 @@ function init_gear_sets()
 		sets.precast.WS['Sanguine Blade'] =
 		{
 			ammo="Pemphredo Tathlum",
-			head="Pixie Hairpin +1", neck="Sanctity Necklace", lear="Regal Earring", rear="Friomisi Earring",
+			head="Pixie Hairpin +1", neck="Sanctity Necklace", lear="Regal Earring", rear="Malignance Earring",
 			body="Amalric Doublet +1", hands="Jhakri Cuffs +2", lring="Archon Ring", rring="Epaminondas's Ring",
 			back=gear.RDMCape_ENF, waist="Sacro Cord", legs="Amalric Slops +1", feet="Vitiation Boots +3"
 		}
 	
+	---Seraph Blade
+		sets.precast.WS['Seraph Blade'] = set_combine(sets.precast.WS['Sanguine Blade'],
+		{
+			head=gear.NukeHood,
+			lring="Weather. Ring +1"
+		})
+		
+		sets.precast.WS['Shining Blade'] = sets.precast.WS['Seraph Blade']
+		
+	---Red Lotus Blade	
+		sets.precast.WS['Red Lotus Blade'] = set_combine(sets.precast.WS['Seraph Blade'],
+		{
+			lring="Freke Ring"
+		})
+		
+		sets.precast.WS['Burning Blade'] = sets.precast.WS['Red Lotus Blade']
+		
 	
 	--	***Daggers***
 	
@@ -658,9 +700,9 @@ function init_gear_sets()
 	---Exenterator
 		sets.precast.WS['Exenterator'] = set_combine(sets.precast.WS['Requiescat'],
 		{
-			head=gear.THead_TP,
-			body="Ayanmo Corazza +2", hands="Volte Bracers", lring="Shukuyu Ring", rring="Ilabrat Ring",
-			legs=gear.TLegs_TP, feet=gear.TFeet_TP
+			head="Malignance Chapeau",
+			body="Malignance Tabard", hands="Malignance Gloves", lring="Shukuyu Ring", rring="Ilabrat Ring",
+			legs="Malignance Tights", feet="Malignance Boots"
 		})
 
 		sets.precast.WS['Requiescat'].Low = set_combine(sets.precast.WS['Requiescat'],
@@ -668,10 +710,7 @@ function init_gear_sets()
 			rring={name="Chirich Ring +1", bag="wardrobe3"}
 		})
 		
-		sets.precast.WS['Requiescat'].Mid = set_combine(sets.precast.WS['Requiescat'].Low,
-		{
-			legs="Carmine Cuisses +1"
-		})
+		sets.precast.WS['Requiescat'].Mid = sets.precast.WS['Requiescat'].Low
 		
 		sets.precast.WS['Requiescat'].High = set_combine(sets.precast.WS['Requiescat'].Mid,
 		{
@@ -679,12 +718,16 @@ function init_gear_sets()
 		})
 
 	---Aeolian Edge
-		sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS['Sanguine Blade'] ,
+		sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS['Sanguine Blade'],
 		{
 			head=gear.NukeHood, 
-			lring="Karieyh Ring +1",
+			lring="Freke Ring",
 			back=gear.RDMCape_Nuke
 		})
+		
+	
+	--	***Clubs***
+	
 
 
 	--------------------------------------
@@ -705,17 +748,17 @@ function init_gear_sets()
 		sets.engaged =
 		{
 			sub="Genmei Shield", ammo="Ginsen",
-			head=gear.THead_TP, neck="Anu Torque", lear="Sherida Earring", rear="Brutal Earring",
-			body="Ayanmo Corazza +2", hands="Carmine Fin. Ga. +1", lring="Hetairoi Ring", rring="Ilabrat Ring",
-			back=gear.RDMCape_STP, waist="Windbuffet Belt +1", legs=gear.TLegs_TP, feet="Carmine Greaves +1"
+			head="Malignance Chapeau", neck="Anu Torque", lear="Sherida Earring", rear="Brutal Earring",
+			body="Malignance Tabard", hands="Malignance Gloves", lring="Hetairoi Ring", rring="Ilabrat Ring",
+			back=gear.RDMCape_STP, waist="Windbuffet Belt +1", legs="Malignance Tights", feet="Malignance Boots"
 		}
 		
 		sets.engaged.ENSPELLS =
 		{
 			sub="Genmei Shield", ammo="Ginsen",
-			head=gear.THead_TP, neck="Anu Torque", lear="Sherida Earring", rear="Digni. Earring",
-			body="Ayanmo Corazza +2", hands="Aya. Manopolas +2", lring="Hetairoi Ring", rring="Ilabrat Ring",
-			back=gear.RDMCape_STP, waist="Orpheus's Sash", legs=gear.TLegs_TP, feet="Carmine Greaves +1"
+			head="Malignance Chapeau", neck="Anu Torque", lear="Sherida Earring", rear="Cessance Earring",
+			body="Malignance Tabard", hands="Aya. Manopolas +2", lring="Hetairoi Ring", rring="Ilabrat Ring",
+			back=gear.RDMCape_STP, waist="Orpheus's Sash", legs="Malignance Tights", feet="Malignance Boots"
 		}
 
 		-----------------------------------------------------------------------------------
@@ -736,7 +779,7 @@ function init_gear_sets()
 		-----------------------------------------------------------
 		sets.engaged.Mid = set_combine(sets.engaged.Low,
 		{
-			head="Carmine Mask +1", neck="Combatant's Torque", rear={name="Mache Earring +1", bag="wardrobe3"},
+			neck="Combatant's Torque", rear={name="Mache Earring +1", bag="wardrobe3"},
 		})
 
 		-----------------------------------------------------------------------------------
@@ -747,7 +790,7 @@ function init_gear_sets()
 		sets.engaged.High = set_combine(sets.engaged.Mid,
 		{
 			lear={name="Mache Earring +1", bag="wardrobe2"}, 
-			waist="Kentarch Belt +1", legs="Viti. Tights +3", feet="Aya. Gambieras +2"
+			waist="Kentarch Belt +1", legs="Viti. Tights +3", feet="Malignance Boots"
 		})
 
 		
@@ -768,16 +811,16 @@ function init_gear_sets()
 		sets.engaged.DW2 =
 		{
 			ammo="Ginsen",
-			head=gear.THead_TP, neck="Anu Torque", lear="Eabani Earring", rear="Suppanomimi",
-			body="Ayanmo Corazza +2", hands="Carmine Fin. Ga. +1", lring="Hetairoi Ring", rring="Ilabrat Ring",
+			head="Carmine Mask +1", neck="Anu Torque", lear="Eabani Earring", rear="Suppanomimi",
+			body="Malignance Tabard", hands="Malignance Gloves", lring="Hetairoi Ring", rring="Ilabrat Ring",
 			back=gear.RDMCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet=gear.TFeet_TP
 		}
 		
 		sets.engaged.DW2.ENSPELLS =
 		{
 			ammo="Ginsen",
-			head=gear.THead_TP, neck="Anu Torque", lear="Eabani Earring", rear="Suppanomimi",
-			body="Ayanmo Corazza +2", hands="Aya. Manopolas +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			head="Carmine Mask +1", neck="Anu Torque", lear="Eabani Earring", rear="Suppanomimi",
+			body="Malignance Tabard", hands="Aya. Manopolas +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.RDMCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet=gear.TFeet_TP
 		}
 
@@ -810,8 +853,7 @@ function init_gear_sets()
 		sets.engaged.DW2.High = set_combine(sets.engaged.DW2.Mid,
 		{
 			lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-			waist="Kentarch Belt +1",
-			feet="Aya. Gambieras +2"
+			waist="Kentarch Belt +1"
 		})
 	
 	
@@ -831,16 +873,16 @@ function init_gear_sets()
 		sets.engaged.DW3 = 
 		{
 			ammo="Ginsen",
-			head=gear.THead_TP, neck="Anu Torque", lear="Eabani Earring", rear="Suppanomimi",
-			body="Ayanmo Corazza +2", hands="Carmine Fin. Ga. +1", lring="Hetairoi Ring", rring="Ilabrat Ring",
+			head="Carmine Mask +1", neck="Anu Torque", lear="Eabani Earring", rear="Suppanomimi",
+			body="Malignance Tabard", hands="Malignance Gloves", lring="Hetairoi Ring", rring="Ilabrat Ring",
 			back=gear.RDMCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet=gear.TFeet_TP
 		}
 		
 		sets.engaged.DW3.ENSPELLS = 
 		{
 			ammo="Ginsen",
-			head=gear.THead_TP, neck="Anu Torque", lear="Eabani Earring", rear="Suppanomimi",
-			body="Ayanmo Corazza +2", hands="Aya. Manopolas +2", lring="Hetairoi Ring", rring={name="Chirich Ring +1", bag="wardrobe3"},
+			head="Carmine Mask +1", neck="Anu Torque", lear="Eabani Earring", rear="Suppanomimi",
+			body="Malignance Tabard", hands="Aya. Manopolas +2", lring="Hetairoi Ring", rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.RDMCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet=gear.TFeet_TP
 		}
 
@@ -872,8 +914,7 @@ function init_gear_sets()
 		sets.engaged.DW3.High = set_combine(sets.engaged.DW3.Mid,
 		{
 			lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-			waist="Kentarch Belt +1",
-			feet="Aya. Gambieras +2"
+			waist="Kentarch Belt +1"
 		})
 	
 	
@@ -1012,16 +1053,16 @@ function init_gear_sets()
 		sets.engaged.DW3.Med =
 		{
 			ammo="Ginsen",
-			head=gear.THead_TP, neck="Anu Torque", lear="Sherida Earring", rear="Suppanomimi",
-			body="Ayanmo Corazza +2", hands="Carmine Fin. Ga. +1", lring="Hetairoi Ring", rring="Ilabrat Ring",
+			head="Carmine Mask +1", neck="Anu Torque", lear="Sherida Earring", rear="Suppanomimi",
+			body="Malignance Tabard", hands="Malignance Gloves", lring="Hetairoi Ring", rring="Ilabrat Ring",
 			back=gear.RDMCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet=gear.TFeet_TP
 		}
 		
 		sets.engaged.DW3.Med.ENSPELLS =
 		{
 			ammo="Ginsen",
-			head=gear.THead_TP, neck="Anu Torque", lear="Eabani Earring", rear="Suppanomimi",
-			body="Ayanmo Corazza +2", hands="Carmine Fin. Ga. +1", lring="Hetairoi Ring", rring={name="Chirich Ring +1", bag="wardrobe3"},
+			head="Carmine Mask +1", neck="Anu Torque", lear="Eabani Earring", rear="Suppanomimi",
+			body="Malignance Tabard", hands="Aya. Manopolas +2", lring="Hetairoi Ring", rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.RDMCape_DW, waist="Orpheus's Sash", legs="Carmine Cuisses +1", feet=gear.TFeet_TP
 		}
 		
@@ -1052,8 +1093,7 @@ function init_gear_sets()
 		sets.engaged.DW3.High.Med = set_combine(sets.engaged.DW3.Mid.Med,
 		{
 			lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-			waist="Kentarch Belt +1",
-			feet="Aya. Gambieras +2"
+			waist="Kentarch Belt +1"
 		})
 
 	
@@ -1074,17 +1114,17 @@ function init_gear_sets()
 		sets.engaged.DW2.Max =
 		{
 			ammo="Ginsen",
-			head=gear.THead_TP, neck="Anu Torque", lear="Sherida Earring", rear="Suppanomimi",
-			body="Ayanmo Corazza +2", hands="Carmine Fin. Ga. +1", lring="Hetairoi Ring", rring="Ilabrat Ring",
-			back=gear.RDMCape_DW, waist="Windbuffet Belt +1", legs="Carmine Cuisses +1", feet="Carmine Greaves +1"
+			head="Malignance Chapeau", neck="Anu Torque", lear="Sherida Earring", rear="Suppanomimi",
+			body="Malignance Tabard", hands="Malignance Gloves", lring="Hetairoi Ring", rring="Ilabrat Ring",
+			back=gear.RDMCape_DW, waist="Reiki Yotai", legs="Malignance Tights", feet="Malignance Boots"
 		}
 		
 		sets.engaged.DW2.Max.ENSPELLS =
 		{
 			ammo="Ginsen",
-			head=gear.THead_TP, neck="Anu Torque", lear="Sherida Earring", rear="Suppanomimi",
-			body="Ayanmo Corazza +2", hands="Aya. Manopolas +2", lring="Hetairoi Ring", rring={name="Chirich Ring +1", bag="wardrobe3"},
-			back=gear.RDMCape_DW, waist="Orpheus's Sash", legs="Carmine Cuisses +1", feet="Carmine Greaves +1"
+			head="Carmine Mask +1", neck="Anu Torque", lear="Sherida Earring", rear="Suppanomimi",
+			body="Malignance Tabard", hands="Aya. Manopolas +2", lring="Hetairoi Ring", rring={name="Chirich Ring +1", bag="wardrobe3"},
+			back=gear.RDMCape_DW, waist="Orpheus's Sash", legs="Carmine Cuisses +1", feet="Malignance Boots"
 		}
 		
 		-----------------------------------------------------------------------------------
@@ -1094,7 +1134,7 @@ function init_gear_sets()
 		-----------------------------------------------------------	
 		sets.engaged.DW2.Low.Max = set_combine(sets.engaged.DW2.Max,
 		{
-			head="Carmine Mask +1", neck="Combatant's Torque",
+			 neck="Combatant's Torque",
 			hands="Aya. Manopolas +2"
 		})
 		
@@ -1105,8 +1145,7 @@ function init_gear_sets()
 		-----------------------------------------------------------	
 		sets.engaged.DW2.Mid.Max = set_combine(sets.engaged.DW2.Low.Max,
 		{
-			lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
-			feet="Carmine Greaves +1"
+			lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"}
 		})
 		
 		-----------------------------------------------------------------------------------
@@ -1136,17 +1175,17 @@ function init_gear_sets()
 		sets.engaged.DW3.Max =
 		{
 			ammo="Ginsen",
-			head=gear.THead_TP, neck="Anu Torque", lear="Sherida Earring", rear="Dedition Earring",
-			body="Ayanmo Corazza +2", hands="Carmine Fin. Ga. +1", lring="Hetairoi Ring", rring="Ilabrat Ring",
-			back=gear.RDMCape_DW, waist="Windbuffet Belt +1", legs=gear.TLegs_TP, feet="Carmine Greaves +1"
+			head="Malignance Chapeau", neck="Anu Torque", lear="Sherida Earring", rear="Dedition Earring",
+			body="Malignance Tabard", hands="Malignance Gloves", lring="Hetairoi Ring", rring="Ilabrat Ring",
+			back=gear.RDMCape_DW, waist="Windbuffet Belt +1", legs="Malignance Tights", feet="Malignance Boots"
 		}
 		
 		sets.engaged.DW3.Max.ENSPELLS =
 		{
 			ammo="Ginsen",
-			head=gear.THead_TP, neck="Anu Torque", lear="Sherida Earring", rear="Digni. Earring",
-			body="Ayanmo Corazza +2", hands="Aya. Manopolas +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
-			back=gear.RDMCape_DW, waist="Orpheus's Sash", legs=gear.TLegs_TP, feet="Carmine Greaves +1"
+			head="Malignance Chapeau", neck="Anu Torque", lear="Sherida Earring", rear="Dedition Earring",
+			body="Malignance Tabard", hands="Aya. Manopolas +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			back=gear.RDMCape_DW, waist="Orpheus's Sash", legs="Malignance Tights", feet="Malignance Boots"
 		}
 		
 		-----------------------------------------------------------------------------------
@@ -1167,7 +1206,7 @@ function init_gear_sets()
 		-----------------------------------------------------------	
 		sets.engaged.DW3.Mid.Max = set_combine(sets.engaged.DW3.Low.Max,
 		{
-			head="Carmine Mask +1", neck="Combatant's Torque"
+			neck="Combatant's Torque"
 		})
 		-----------------------------------------------------------------------------------
 		---	TP/h:78~	(DW:10	STP:34~38	QA:0%	TA:4%	DA:14%)
@@ -1177,7 +1216,7 @@ function init_gear_sets()
 		sets.engaged.DW3.High.Max = set_combine(sets.engaged.DW3.Mid.Max,
 		{
 			lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-			waist="Kentarch Belt +1", legs="Viti. Tights +3", feet="Aya. Gambieras +2"
+			waist="Kentarch Belt +1"
 		})
 
 
@@ -1190,73 +1229,108 @@ function init_gear_sets()
 		sets.engaged.Hybrid = 
 		{
 			ammo="Staunch Tathlum +1",
-			neck="Loricate Torque +1",
-			hands="Aya. Manopolas +2", lring="Defending Ring", rring="Gelatinous Ring +1"
+			hands="Malignance Gloves", lring="Defending Ring"
 		}
 		
 		
 		----------------------------------------------------------
 		-- Sword & Board
 		----------------------------------------------------------	
-	    sets.engaged.DT 				= set_combine(sets.engaged, 				sets.engaged.Hybrid)
-		sets.engaged.Low.DT 			= set_combine(sets.engaged.Low, 			sets.engaged.Hybrid)
-		sets.engaged.Mid.DT 			= set_combine(sets.engaged.Mid, 			sets.engaged.Hybrid)
-		sets.engaged.High.DT			= set_combine(sets.engaged.High, 			sets.engaged.Hybrid)
+	    sets.engaged.DT 					= set_combine(sets.engaged, 					sets.engaged.Hybrid)
+		sets.engaged.DT.ENSPELLS			= set_combine(sets.engaged.ENSPELLS,			sets.engaged.Hybrid,
+		{
+			hands="Aya. Manopolas +2"
+		})
+		sets.engaged.Low.DT 				= set_combine(sets.engaged.Low, 				sets.engaged.Hybrid)
+		sets.engaged.Mid.DT 				= set_combine(sets.engaged.Mid, 				sets.engaged.Hybrid)
+		sets.engaged.High.DT				= set_combine(sets.engaged.High, 				sets.engaged.Hybrid)
 
 		
 		----------------------------------------------------------
 		-- No Haste
 		----------------------------------------------------------
-		sets.engaged.DW2.DT 			= set_combine(sets.engaged.DW2, 			sets.engaged.Hybrid)
-		sets.engaged.DW2.Low.DT 		= set_combine(sets.engaged.DW2.Low, 		sets.engaged.Hybrid)
-		sets.engaged.DW2.Mid.DT 		= set_combine(sets.engaged.DW2.Mid, 		sets.engaged.Hybrid)
-		sets.engaged.DW2.High.DT 		= set_combine(sets.engaged.DW2.High, 		sets.engaged.Hybrid)
+		sets.engaged.DW2.DT 				= set_combine(sets.engaged.DW2, 				sets.engaged.Hybrid)
+		sets.engaged.DW2.DT.ENSPELLS		= set_combine(sets.engaged.DW2.ENSPELLS,		sets.engaged.Hybrid,
+		{
+			hands="Aya. Manopolas +2"
+		})
+		sets.engaged.DW2.Low.DT 			= set_combine(sets.engaged.DW2.Low, 			sets.engaged.Hybrid)
+		sets.engaged.DW2.Mid.DT 			= set_combine(sets.engaged.DW2.Mid, 			sets.engaged.Hybrid)
+		sets.engaged.DW2.High.DT 			= set_combine(sets.engaged.DW2.High, 			sets.engaged.Hybrid)
 
-		sets.engaged.DW3.DT 			= set_combine(sets.engaged.DW3, 			sets.engaged.Hybrid)
-		sets.engaged.DW3.Low.DT 		= set_combine(sets.engaged.DW3.Low, 		sets.engaged.Hybrid)
-		sets.engaged.DW3.Mid.DT 		= set_combine(sets.engaged.DW3.Mid, 		sets.engaged.Hybrid)
-		sets.engaged.DW3.High.DT 		= set_combine(sets.engaged.DW3.High, 		sets.engaged.Hybrid)
+		sets.engaged.DW3.DT 				= set_combine(sets.engaged.DW3, 				sets.engaged.Hybrid)
+		sets.engaged.DW3.DT.ENSPELLS		= set_combine(sets.engaged.DW3.ENSPELLS,		sets.engaged.Hybrid,
+		{
+			hands="Aya. Manopolas +2"
+		})
+		sets.engaged.DW3.Low.DT 			= set_combine(sets.engaged.DW3.Low, 			sets.engaged.Hybrid)
+		sets.engaged.DW3.Mid.DT 			= set_combine(sets.engaged.DW3.Mid, 			sets.engaged.Hybrid)
+		sets.engaged.DW3.High.DT 			= set_combine(sets.engaged.DW3.High, 			sets.engaged.Hybrid)
 		
 		
 		----------------------------------------------------------
 		-- Minimum Haste
 		----------------------------------------------------------
-		sets.engaged.DW2.DT.Min 	 	= set_combine(sets.engaged.DW2.Min, 		sets.engaged.Hybrid)
-		sets.engaged.DW2.Low.DT.Min  	= set_combine(sets.engaged.DW2.Low.Min, 	sets.engaged.Hybrid)
-		sets.engaged.DW2.Mid.DT.Min  	= set_combine(sets.engaged.DW2.Mid.Min, 	sets.engaged.Hybrid)
-		sets.engaged.DW2.High.DT.Min 	= set_combine(sets.engaged.DW2.High.Min, 	sets.engaged.Hybrid)
+		sets.engaged.DW2.DT.Min 	 		= set_combine(sets.engaged.DW2.Min, 			sets.engaged.Hybrid)
+		sets.engaged.DW2.DT.Min.ENSPELLS	= set_combine(sets.engaged.DW2.Min.ENSPELLS,	sets.engaged.Hybrid,
+		{
+			hands="Aya. Manopolas +2"
+		})
+		sets.engaged.DW2.Low.DT.Min  		= set_combine(sets.engaged.DW2.Low.Min, 		sets.engaged.Hybrid)
+		sets.engaged.DW2.Mid.DT.Min  		= set_combine(sets.engaged.DW2.Mid.Min, 		sets.engaged.Hybrid)
+		sets.engaged.DW2.High.DT.Min 		= set_combine(sets.engaged.DW2.High.Min, 		sets.engaged.Hybrid)
 		
-		sets.engaged.DW3.DT.Min 	 	= set_combine(sets.engaged.DW3.Min, 		sets.engaged.Hybrid)
-		sets.engaged.DW3.Low.DT.Min  	= set_combine(sets.engaged.DW3.Low.Min, 	sets.engaged.Hybrid)
-		sets.engaged.DW3.Mid.DT.Min  	= set_combine(sets.engaged.DW3.Mid.Min, 	sets.engaged.Hybrid)
-		sets.engaged.DW3.High.DT.Min 	= set_combine(sets.engaged.DW3.High.Min, 	sets.engaged.Hybrid)
+		sets.engaged.DW3.DT.Min 	 		= set_combine(sets.engaged.DW3.Min, 			sets.engaged.Hybrid)
+		sets.engaged.DW3.DT.Min.ENSPELLS	= set_combine(sets.engaged.DW3.Min.ENSPELLS,	sets.engaged.Hybrid,
+		{
+			hands="Aya. Manopolas +2"
+		})
+		sets.engaged.DW3.Low.DT.Min  		= set_combine(sets.engaged.DW3.Low.Min, 		sets.engaged.Hybrid)
+		sets.engaged.DW3.Mid.DT.Min  		= set_combine(sets.engaged.DW3.Mid.Min, 		sets.engaged.Hybrid)
+		sets.engaged.DW3.High.DT.Min 		= set_combine(sets.engaged.DW3.High.Min, 		sets.engaged.Hybrid)
 		
 		
 		----------------------------------------------------------
 		-- Medium Haste
 		----------------------------------------------------------
-		sets.engaged.DW2.DT.Med 	 	= set_combine(sets.engaged.DW2.Med, 		sets.engaged.Hybrid)
-		sets.engaged.DW2.Low.DT.Med  	= set_combine(sets.engaged.DW2.Low.Med, 	sets.engaged.Hybrid)
-		sets.engaged.DW2.Mid.DT.Med  	= set_combine(sets.engaged.DW2.Mid.Med, 	sets.engaged.Hybrid)
-		sets.engaged.DW2.High.DT.Med 	= set_combine(sets.engaged.DW2.High.Med, 	sets.engaged.Hybrid)
+		sets.engaged.DW2.DT.Med 	 		= set_combine(sets.engaged.DW2.Med, 			sets.engaged.Hybrid)
+		sets.engaged.DW2.DT.Med.ENSPELLS	= set_combine(sets.engaged.DW2.Med.ENSPELLS,	sets.engaged.Hybrid,
+		{
+			hands="Aya. Manopolas +2"
+		})
+		sets.engaged.DW2.Low.DT.Med  		= set_combine(sets.engaged.DW2.Low.Med, 		sets.engaged.Hybrid)
+		sets.engaged.DW2.Mid.DT.Med  		= set_combine(sets.engaged.DW2.Mid.Med, 		sets.engaged.Hybrid)
+		sets.engaged.DW2.High.DT.Med 		= set_combine(sets.engaged.DW2.High.Med, 		sets.engaged.Hybrid)
 
-		sets.engaged.DW3.DT.Med 	 	= set_combine(sets.engaged.DW3.Med, 		sets.engaged.Hybrid)
-		sets.engaged.DW3.Low.DT.Med  	= set_combine(sets.engaged.DW3.Low.Med, 	sets.engaged.Hybrid)
-		sets.engaged.DW3.Mid.DT.Med  	= set_combine(sets.engaged.DW3.Mid.Med, 	sets.engaged.Hybrid)
-		sets.engaged.DW3.High.DT.Min 	= set_combine(sets.engaged.DW3.High.Min, 	sets.engaged.Hybrid)
+		sets.engaged.DW3.DT.Med 	 		= set_combine(sets.engaged.DW3.Med, 			sets.engaged.Hybrid)
+		sets.engaged.DW3.DT.Med.ENSPELLS	= set_combine(sets.engaged.DW3.Med.ENSPELLS,	sets.engaged.Hybrid,
+		{
+			hands="Aya. Manopolas +2"
+		})
+		sets.engaged.DW3.Low.DT.Med  		= set_combine(sets.engaged.DW3.Low.Med, 		sets.engaged.Hybrid)
+		sets.engaged.DW3.Mid.DT.Med  		= set_combine(sets.engaged.DW3.Mid.Med, 		sets.engaged.Hybrid)
+		sets.engaged.DW3.High.DT.Min 		= set_combine(sets.engaged.DW3.High.Min, 		sets.engaged.Hybrid)
 		
 		----------------------------------------------------------
 		-- Maximum Haste
 		----------------------------------------------------------		
-		sets.engaged.DW2.DT.Max 	 	= set_combine(sets.engaged.DW2.Max, 		sets.engaged.Hybrid)
-		sets.engaged.DW2.Low.DT.Max  	= set_combine(sets.engaged.DW2.Low.Max, 	sets.engaged.Hybrid)
-		sets.engaged.DW2.Mid.DT.Max  	= set_combine(sets.engaged.DW2.Mid.Max, 	sets.engaged.Hybrid)
-		sets.engaged.DW2.High.DT.Max 	= set_combine(sets.engaged.DW2.High.Max, 	sets.engaged.Hybrid)
+		sets.engaged.DW2.DT.Max 	 		= set_combine(sets.engaged.DW2.Max, 			sets.engaged.Hybrid)
+		sets.engaged.DW2.DT.Max.ENSPELLS	= set_combine(sets.engaged.DW2.Max.ENSPELLS,	sets.engaged.Hybrid,
+		{
+			hands="Aya. Manopolas +2"
+		})
+		sets.engaged.DW2.Low.DT.Max  		= set_combine(sets.engaged.DW2.Low.Max, 		sets.engaged.Hybrid)
+		sets.engaged.DW2.Mid.DT.Max  		= set_combine(sets.engaged.DW2.Mid.Max, 		sets.engaged.Hybrid)
+		sets.engaged.DW2.High.DT.Max 		= set_combine(sets.engaged.DW2.High.Max, 		sets.engaged.Hybrid)
 		
-		sets.engaged.DW3.DT.Max 	 	= set_combine(sets.engaged.DW3.Max, 		sets.engaged.Hybrid)
-		sets.engaged.DW3.Low.DT.Max  	= set_combine(sets.engaged.DW3.Low.Max, 	sets.engaged.Hybrid)
-		sets.engaged.DW3.Mid.DT.Max  	= set_combine(sets.engaged.DW3.Mid.Max, 	sets.engaged.Hybrid)
-		sets.engaged.DW3.High.DT.Max 	= set_combine(sets.engaged.DW3.High.Max, 	sets.engaged.Hybrid)
+		sets.engaged.DW3.DT.Max 	 		= set_combine(sets.engaged.DW3.Max, 			sets.engaged.Hybrid)
+		sets.engaged.DW3.DT.Max.ENSPELLS	= set_combine(sets.engaged.DW3.Max.ENSPELLS,	sets.engaged.Hybrid,
+		{
+			hands="Aya. Manopolas +2"
+		})
+		sets.engaged.DW3.Low.DT.Max  		= set_combine(sets.engaged.DW3.Low.Max, 		sets.engaged.Hybrid)
+		sets.engaged.DW3.Mid.DT.Max  		= set_combine(sets.engaged.DW3.Mid.Max, 		sets.engaged.Hybrid)
+		sets.engaged.DW3.High.DT.Max 		= set_combine(sets.engaged.DW3.High.Max, 		sets.engaged.Hybrid)
 		
 end
 
@@ -1360,6 +1434,10 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 			equip { lring="Archon Ring" }
 		end
 	end
+	
+	if spell.skill == 'Elemental Magic' and state.SaveMP.value and spell.english ~= 'Impact' then
+		equip{body="Seidr Cotehardie"}
+	end
 
 	if spell.skill == 'Elemental Magic' and (spell.element ~= world.day_element and spell.element ~= world.weather_element) then
 		if spell.target.distance < (15 - spell.target.model_size) then
@@ -1380,6 +1458,12 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 			equip { waist="Hachirin-no-Obi" }
 		end
 	end
+	
+	
+	
+	if state.TreasureMode.value ~= 'None' and spellMap == 'Static' and spell.target.type == 'MONSTER' then
+		equip(sets.TreasureHunter)
+	end
 end
 
 
@@ -1388,6 +1472,12 @@ function job_aftercast(spell,action, spellMap, eventArgs)
 	
 	if determine_DW() > 0 then
 		equip(sets[state.SubWeaponSet.current])
+	end
+	
+	if (buffactive[94] or buffactive[95] or buffactive[96] or buffactive[97] or buffactive[98] or buffactive[99]) 
+			and player.equipment.main == "Crocea Mors" then
+		classes.CustomMeleeGroups:append('ENSPELLS')
+		handle_equipping_gear(player.status)
 	end
 end
 
@@ -1429,6 +1519,12 @@ function job_status_change(new_status, old_status)
 		determine_haste_group()
 		update_combat_form()
 	end
+	
+	if (buffactive[94] or buffactive[95] or buffactive[96] or buffactive[97] or buffactive[98] or buffactive[99]) 
+			and player.equipment.main == "Crocea Mors" then
+		classes.CustomMeleeGroups:append('ENSPELLS')
+		handle_equipping_gear(player.status)
+	end
 end
 
 -- Handle notifications of general user state change.
@@ -1437,6 +1533,12 @@ function job_state_change(stateField, newValue, oldValue)
 	
 	if determine_DW() > 0 then
 		equip(sets[state.SubWeaponSet.current])
+	end
+	
+	if (buffactive[94] or buffactive[95] or buffactive[96] or buffactive[97] or buffactive[98] or buffactive[99]) 
+			and player.equipment.main == "Crocea Mors" then
+		classes.CustomMeleeGroups:append('ENSPELLS')
+		handle_equipping_gear(player.status)
 	end
 end
 
@@ -1480,6 +1582,12 @@ function job_update(cmdParams, eventArgs)
 		equip(sets[state.SubWeaponSet.current])
 	end
 	
+	if (buffactive[94] or buffactive[95] or buffactive[96] or buffactive[97] or buffactive[98] or buffactive[99]) 
+			and player.equipment.main == "Crocea Mors" then
+		classes.CustomMeleeGroups:append('ENSPELLS')
+		handle_equipping_gear(player.status)
+	end
+	
 	determine_haste_group()
 	update_combat_form()
 	update_active_abilities()
@@ -1511,6 +1619,10 @@ function display_current_job_state(eventArgs)
 	end
 	
 	msg = msg .. ' ' .. 'Casting Mode: ' .. state.CastingMode.value
+	
+	if state.TreasureMode.has_value then
+		msg = msg .. ', TH: ' .. state.TreasureMode.value
+	end
 	
 	if state.MagicBurst.value == true then
 		msg= msg .. ' (Magic Burst On)'

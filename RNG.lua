@@ -48,7 +48,7 @@ function init_gear_sets()
 		sets.precast.FC =
 		{
 			head="Carmine Mask +1", neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
-			body=gear.TBody_Phalanx, hands="Leyline Gloves", lring="Kishar Ring", rring="Rahab Ring",
+			body=gear.TBody_Phalanx, hands="Leyline Gloves", lring="Kishar Ring", rring="Weather. Ring +1",
 			back="Moonlight Cape", waist="Flume Belt +1", legs="Carmine Cuisses +1", feet="Carmine Greaves +1"
 		}
 		
@@ -73,7 +73,7 @@ function init_gear_sets()
 	sets.precast.WS =
 	{
 		head="Lilitu Headpiece", neck="Fotia Gorget", lear="Neritic Earring", rear="Moonshade Earring",
-		body="Herculean Vest", hands="Meg. Gloves +2", lring="Karieyh Ring +1", rring="Epaminondas's Ring",
+		body="Herculean Vest", hands="Meg. Gloves +2", lring="Regal Ring", rring="Epaminondas's Ring",
 		back="Belenus's Cape", waist="Fotia Belt", legs="Herculean Trousers", gear.HBoots_WSD
 	}
 	
@@ -119,7 +119,7 @@ function init_gear_sets()
 	sets.midcast.FC =
 	{
 		head="Herculean Helm", neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
-		body="Foppish Tunica", hands="Leyline Gloves", lring="Evanescence Ring", rring="Prolix Ring",
+		body="Foppish Tunica", hands="Leyline Gloves", lring="Evanescence Ring", rring="Weather. Ring +1",
 	}
 
 	-- Specific spells

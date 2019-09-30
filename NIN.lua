@@ -67,7 +67,7 @@ function init_gear_sets()
 	{
 		ammo="Sapience Orb",
 		head=gear.HHead_MAB, neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
-		body=gear.TBody_Phalanx, hands="Leyline Gloves", lring="Kishar Ring", rring="Rahab Ring",
+		body=gear.TBody_Phalanx, hands="Leyline Gloves", lring="Kishar Ring", rring="Weather. Ring +1",
 		back="Moonlight Cape", waist="Witful Belt", legs="Rawhide Trousers", feet=gear.TFeet_Phalanx
 	}
 
@@ -266,7 +266,7 @@ function init_gear_sets()
 		sets.precast.WS['Blade: Kamu'] = set_combine(sets.precast.WS,
 		{
 			body="Hiza. Haramaki +1",
-			lring="Karieyh Ring +1", rring="Epaminondas's Ring",
+			lring="Regal Ring", rring="Epaminondas's Ring",
 			feet="Hiza. Sune-Ate +1"
 		})
 

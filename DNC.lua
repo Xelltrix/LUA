@@ -151,7 +151,7 @@ function init_gear_sets()
 	{
 		ammo="Sapience Orb",
 		head=gear.HHead_MAB, neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
-		body="Samnuha Coat", hands="Leyline Gloves", lring="Prolix Ring", rring="Rahab Ring",
+		body="Samnuha Coat", hands="Leyline Gloves", lring="Rahab Ring", rring="Weather. Ring +1",
 		back="Moonlight Cape", waist="Flume Belt +1", legs="Rawhide Trousers", feet=gear.HBoots_TP
 	}
 
@@ -399,7 +399,7 @@ function init_gear_sets()
 		sets.precast.WS['Rudra\'s Storm'] = set_combine(sets.precast.WS,
 		{
 			head="Lilitu Headpiece", neck="Caro Necklace", lear="Ishvara Earring",
-			body="Herculean Vest", lring="Karieyh Ring +1", rring="Epaminondas's Ring",
+			body="Herculean Vest", lring="Regal Ring", rring="Epaminondas's Ring",
 			waist="Grunfeld Rope", legs="Herculean Trousers", feet=gear.HBoots_WSD
 		})
 
@@ -451,7 +451,7 @@ function init_gear_sets()
 		{
 			ammo="Pemphredo Tathlum",
 			head=gear.HHead_MAB, lear="Friomisi Earring",
-			body="Samnuha Coat", hands="Leyline Gloves", lring="Karieyh Ring +1", rring="Epaminondas's Ring",
+			body="Samnuha Coat", hands="Leyline Gloves", lring={name="Shiva Ring +1", bag="wardrobe2"}, rring="Epaminondas's Ring",
 			back="Senuna's Mantle", legs="Herculean Trousers", feet=gear.HBoots_WSD
 		})
 

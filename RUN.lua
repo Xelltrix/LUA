@@ -84,9 +84,9 @@ function init_gear_sets()
 		}
 		
 		sets.Enmity.HP = set_combine(sets.Enmity,
-		{--Enmity + 67
-			neck="Futhark Torque +1", rear="Odnowa Earring +1",
-			rring="Moonlight Ring",
+		{--Enmity + 62
+			neck="Futhark Torque +1", lear="Odnowa Earring", rear="Odnowa Earring +1",
+			lring="Defending Ring", rring="Moonlight Ring",
 			back="Moonlight Cape"
 		})
 		
@@ -150,7 +150,7 @@ function init_gear_sets()
 
 		sets.precast.JA['Gambit'] = { hands="Runeist's Mitons +2" }
 
-		sets.precast.JA['Swordplay'] = { hands="Futhark Mitons +2" }
+		sets.precast.JA['Swordplay'] = { hands="Futhark Mitons +3" }
 
 		sets.precast.JA['Vallation'] = 
 		{
@@ -160,7 +160,7 @@ function init_gear_sets()
 
 		sets.precast.JA['Valiance'] = sets.precast.JA['Vallation']
 		
-		sets.precast.JA['Pflug'] = { feet="Runeist Bottes +1" }
+		sets.precast.JA['Pflug'] = { feet="Runeist's Boots +2" }
 
 		sets.precast.JA['Battuta'] = { head="Fu. Bandeau +2" }
 
@@ -191,16 +191,16 @@ function init_gear_sets()
 		sets.precast.FC =
 		{--Fast Cast + 71%
 			ammo="Sapience Orb",
-			head="Carmine Mask +1", neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
-			body=gear.TBody_Phalanx, hands="Leyline Gloves", lring="Kishar Ring", rring="Rahab Ring",
+			head="Rune. Bandeau +3", neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
+			body=gear.TBody_Phalanx, hands="Leyline Gloves", lring="Kishar Ring", rring="Weather. Ring +1",
 			back=gear.RUNCape_FC, waist="Trance Belt", legs="Aya. Cosciales +2", feet="Carmine Greaves +1"
 		}
 		
 		sets.precast.FC.HP = set_combine(sets.precast.FC,
 		{--Fast Cast + 53%
-			head="Rune. Bandeau +2", lear="Odnowa Earring", rear="Odnowa Earring +1",
-			lring="Kishar Ring", rring="Moonlight Ring",
-			back="Moonlight Cape",
+			lear="Odnowa Earring", rear="Odnowa Earring +1",
+			lring="Eihwaz Ring", rring="Moonlight Ring",
+			back="Moonlight Cape"
 		})
 
 		sets.precast.FC['Utsusemi'] = 
@@ -228,16 +228,13 @@ function init_gear_sets()
 
 		sets.midcast.FC = sets.precast.FC
 		
-		sets.midcast.FC.HP = set_combine(sets.precast.FC.HP,
-		{
-			ammo="Staunch Tathlum +1"
-		})
-		
+		sets.midcast.FC.HP = sets.precast.FC.HP
+
 		sets.midcast.FC.SIRD = 
-		{--		Spell Interrupt: -99
+		{--		Spell Interrupt: -101
 			ammo="Staunch Tathlum +1",
 			head=gear.THead_Phalanx, neck="Moonlight Necklace", lear="Genmei Earring", rear="Odnowa Earring +1",
-			body="Futhark Coat +3", hands="Rawhide Gloves", lring="Defending Ring", rring="Evanescence Ring",
+			body="Futhark Coat +3", hands="Rawhide Gloves", lring="Defending Ring", rring="Moonlight Ring",
 			back=gear.RUNCape_ENM, waist="Rumination Sash", legs="Carmine Cuisses +1", feet=gear.TFeet_Phalanx
 		}
 
@@ -254,7 +251,7 @@ function init_gear_sets()
 		
 		sets.midcast.Regen =
 		{
-			head="Rune. Bandeau +2", neck="Sacro Gorget",
+			head="Rune. Bandeau +3", neck="Sacro Gorget",
 			body="Futhark Coat +3", legs ="Futhark Trousers +2"
 		}
 
@@ -283,9 +280,9 @@ function init_gear_sets()
 		sets.midcast.BarElement = 
 		{
 			ammo="Staunch Tathlum +1",
-			head="Carmine Mask +1", neck="Incanter's Torque", lear="Andoaa Earring", rear="Augment. Earring",
+			head="Erilaz Galea +1", neck="Incanter's Torque", lear="Andoaa Earring", rear="Augment. Earring",
 			body="Futhark Coat +3", hands="Runeist's Mitons +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Moonlight Cape", waist="Olympus Sash", legs="Carmine Cuisses +1", feet="Turms Leggings +1"
+			back="Merciful Cape", waist="Olympus Sash", legs ="Futhark Trousers +2", feet="Turms Leggings +1"
 		}
 
 		sets.midcast.BarStatus = sets.midcast.Duration
@@ -320,9 +317,6 @@ function init_gear_sets()
 		sets.midcast.Foil = sets.Enmity
 		
 		sets.midcast.Debuffs = sets.Enmity
-		
-		sets.midcast.Poisonga = sets.Enmity
-
 	
 	
 	--------------------------------------
@@ -332,9 +326,9 @@ function init_gear_sets()
 		sets.midcast.Macc =
 		{
 			ammo="Pemphredo Tathlum",
-			head="Aya. Zucchetto +2", neck="Erra Pendant", lear="Digni. Earring", rear="Gwati Earring",
+			head="Carmine Mask +1", neck="Erra Pendant", lear="Digni. Earring", rear="Gwati Earring",
 			body="Ayanmo Corazza +2", hands="Aya. Manopolas +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back=gear.RUNCape_FC, waist="Luminary Sash", legs="Aya. Cosciales +2", feet="Aya. Gambieras +2"
+			back=gear.RUNCape_FC, waist="Luminary Sash", legs="Aya. Cosciales +2", feet="Runeist's Boots +2"
 		}
 	
 		sets.midcast.Cures = set_combine(sets.midcast.FC.SIRD,
@@ -472,7 +466,7 @@ function init_gear_sets()
 		{
 			ammo="Knobkierrie",
 			head="Lustratio Cap +1", neck="Fotia Gorget", lear="Ishvara Earring", rear="Moonshade Earring",
-			body="Adhemar Jacket +1", hands="Meg. Gloves +2", lring="Karieyh Ring +1", rring="Epaminondas's Ring",
+			body="Adhemar Jacket +1", hands="Meg. Gloves +2", lring="Epaminondas's Ring", rring="Niqmaddu Ring",
 			back=gear.RUNCape_RES, waist="Fotia Belt", legs="Samnuha Tights", feet=gear.HBoots_WSD
 		}
 
@@ -510,14 +504,14 @@ function init_gear_sets()
 		sets.precast.WS['Ground Strike'].Mid = set_combine(sets.precast.WS['Ground Strike'].Low,
 		{
 			rear={name="Mache Earring +1", bag="wardrobe3"},
-			waist="Fotia Belt", legs="Adhemar Kecks +1"
+			waist="Fotia Belt"
 		})
 		
 		sets.precast.WS['Ground Strike'].High = set_combine(sets.precast.WS['Ground Strike'].Mid,
 		{
 			ammo="Seeth. Bomblet +1",
 			head="Carmine Mask +1", lear={name="Mache Earring +1", bag="wardrobe2"}, 
-			legs="Carmine Cuisses +1", feet="Aya. Gambieras +2"
+			legs="Carmine Cuisses +1"
 		})
 
 	---Spinning Slash
@@ -597,7 +591,9 @@ function init_gear_sets()
 	---Fell Cleave
 		sets.precast.WS['Fell Cleave'] = set_combine(sets.precast.WS['Steel Cyclone'],
 		{
-			lear="Sherida Earring", rear="Ishvara Earring"
+			head=gear.HHead_WSD, lear="Sherida Earring", rear="Ishvara Earring",
+			body="Futhark Coat +3", lring="Defending Ring",
+			legs="Meg. Chausses +2", feet=gear.HBoots_WSD
 		})
 	
 	--------------------------------------
@@ -628,7 +624,7 @@ function init_gear_sets()
 		{
 			rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Ayanmo Corazza +2", 
-			waist="Kentarch Belt +1", legs="Adhemar Kecks +1"
+			waist="Kentarch Belt +1", legs="Aya. Cosciales +2"
 		})
 
 		sets.engaged.High = set_combine(sets.engaged.Mid,
@@ -803,7 +799,7 @@ end
 
 
 function customize_idle_set(idleSet)
-    if player.mpp < 51 and state.IdleMode.value ~= 'DT' then
+    if player.mpp < 51 and state.IdleMode.value ~= 'DT' and state.DefenseMode.value == 'None' then
         idleSet = set_combine(idleSet,
 		{
 			waist="Fucho-no-Obi",

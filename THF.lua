@@ -48,7 +48,7 @@ function user_setup()
 	state.OffenseMode:options('Normal', 'Low', 'Mid', 'High')
 	state.WeaponskillMode:options('Normal', 'Low', 'Mid', 'High')	
 	state.HybridMode:options('Normal','DT','DTMAX')
-	state.IdleMode:options('Normal', 'DT')
+	state.IdleMode:options('Normal')
 
 	-- Additional local binds
 	send_command('bind ^= gs c cycle treasuremode')
@@ -122,7 +122,7 @@ function init_gear_sets()
 	{
 		ammo="Sapience Orb",
 		head=gear.HHead_WSD, neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
-		body=gear.TBody_Phalanx, hands="Leyline Gloves", lring="Prolix Ring", rring="Rahab Ring",
+		body=gear.TBody_Phalanx, hands="Leyline Gloves", lring="Rahab Ring", rring="Weather. Ring +1",
 		back="Moonlight Cape", waist="Flume Belt +1", legs="Rawhide Trousers", gear.TFeet_Phalanx
 	}
 	
@@ -183,17 +183,10 @@ function init_gear_sets()
 		sets.idle =
 		{--	DT: 35%		PDT: 51%	MDT: 35%
 			ammo="Staunch Tathlum +1",
-			head=gear.AHead_PDT, neck="Loricate Torque +1", lear="Dawn Earring", rear="Infused Earring",
-			body="Meg. Cuirie +2", hands="Meg. Gloves +2", lring="Defending Ring", rring="Moonlight Ring",
-			back="Moonlight Cape", waist="Engraved Belt", legs="Mummu Kecks +2", feet="Jute Boots +1"
+			head="Malignance Chapeau", neck="Warder's Charm +1", lear="Dawn Earring", rear="Infused Earring",
+			body="Malignance Tabard", hands="Malignance Gloves", lring="Defending Ring", rring="Moonlight Ring",
+			back="Moonlight Cape", waist="Engraved Belt", legs="Malignance Tights", feet="Jute Boots +1"
 		}
-
-		sets.idle.DT = set_combine (sets.idle,
-		{--	DT: 35%		PDT: 51%	MDT: 35%
-			head=gear.AHead_PDT, neck="Loricate Torque +1",
-			lring="Defending Ring", rring="Moonlight Ring",
-			waist="Engraved Belt", legs="Mummu Kecks +2",
-		})
 
 		sets.idle.Town = set_combine(sets.idle,
 		{
@@ -205,18 +198,17 @@ function init_gear_sets()
 			body="Councilor's Garb"
 		})
 
-		sets.idle.Weak = sets.idle.PDT
+		sets.idle.Weak = sets.idle
 
 
 		-- Defense sets
 
-		sets.defense.PDT = sets.idle.DT
-
-		sets.defense.MDT = set_combine(sets.idle.DT,
-		{--	DT: 29%		PDT: 45%	MDT: 29%
-			neck="Warder's Charm +1",
-			hands="Leyline Gloves"
+		sets.defense.PDT = set_combine(sets.idle,
+		{
+			feet="Malignance Boots"
 		})
+
+		sets.defense.MDT = sets.defense.PDT
 	
 	
 	--------------------------------------
@@ -234,17 +226,17 @@ function init_gear_sets()
 		sets.buff['Sneak Attack'] =
 		{
 			ammo="Yetshila",
-			head=gear.AHead_TP, neck="Caro Necklace", lear="Sherida Earring", rear="Suppanomimi",
-			body="Adhemar Jacket +1", hands="Meg. Gloves +2", lring="Ilabrat Ring", rring="Regal Ring",
-			back=gear.THFCape_STP, legs="Samnuha Tights", feet="Meg. Jam. +2"
+			head="Malignance Chapeau", neck="Caro Necklace", lear="Sherida Earring", rear="Suppanomimi",
+			body="Adhemar Jacket +1", hands="Malignance Gloves", lring="Ilabrat Ring", rring="Regal Ring",
+			back=gear.THFCape_STP, waist="Grunfeld Rope", legs="Malignance Tights", feet="Malignance Boots"
 		}
 
 		sets.buff['Trick Attack'] =
 		{
 			ammo="Yetshila",
-			head=gear.AHead_TP, neck="Pentalagus Charm", lear="Dawn Earring", rear="Suppanomimi",
-			body="Adhemar Jacket +1", hands="Meg. Gloves +2", lring="Ilabrat Ring", rring="Regal Ring",
-			back=gear.THFCape_STP, legs="Meg. Chausses +2", feet="Meg. Jam. +2"
+			head="Malignance Chapeau", neck="Pentalagus Charm", lear="Dawn Earring", rear="Suppanomimi",
+			body="Adhemar Jacket +1", hands="Malignance Gloves", lring="Ilabrat Ring", rring="Regal Ring",
+			back=gear.THFCape_STP, waist="Grunfeld Rope", legs="Malignance Tights", feet="Malignance Boots"
 		}
 		
 		sets.buff.Doom = 
@@ -279,8 +271,8 @@ function init_gear_sets()
 		{
 			ammo="Seeth. Bomblet +1",
 			head="Lustratio Cap +1", neck="Fotia Gorget", lear="Sherida Earring", rear="Moonshade Earring",
-			body="Adhemar Jacket +1", hands="Meg. Gloves +2", lring="Ilabrat Ring", rring="Gere Ring",
-			back=gear.THFCape_STP, waist="Fotia Belt", legs="Samnuha Tights", feet="Lustra. Leggings +1"
+			body="Adhemar Jacket +1", hands="Meg. Gloves +2", lring="Regal Ring", rring="Epaminondas's Ring",
+			back=gear.THFCape_STP, waist="Fotia Belt", legs="Malignance Tights", feet="Lustra. Leggings +1"
 		} 
 
 		sets.precast.WS.Low = set_combine(sets.precast.WS,
@@ -295,32 +287,38 @@ function init_gear_sets()
 		
 		sets.precast.WS.High = set_combine(sets.precast.WS.Mid,
 		{
-			rear={name="Mache Earring +1", bag="wardrobe3"},			
-			body="Meg. Cuirie +2", rring="Regal Ring",
+			rear={name="Mache Earring +1", bag="wardrobe3"},	
+			body="Malignance Tabard", rring="Regal Ring",
 			legs="Meg. Chausses +2"
 		})
 
 		sets.precast.WS.SA = set_combine(sets.precast.WS,
 		{
 			ammo="Yetshila",
-			head=gear.AHead_TP, lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-			rring="Regal Ring"
+			head=gear.AHead_TP, neck="Caro Necklace", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
+			body="Malignance Tabard", lring="Ilabrat Ring",
+			waist="Grunfeld Rope", legs="Lustr. Subligar +1"
 		})
 
-		sets.precast.WS.TA = sets.precast.WS.SA
+		sets.precast.WS.TA = set_combine(sets.precast.WS.SA,
+		{
+			neck="Fotia Gorget", lear="Ishvara Earring", rear="Moonshade Earring",
+			waist="Fotia Belt", legs="Malignance Tights", feet="Malignance Boots"
+		})
 
 
 	---Exenterator
 		sets.precast.WS['Exenterator'] = set_combine(sets.precast.WS,
 		{
-			head=gear.AHead_TP, rear={name="Mache Earring +1", bag="wardrobe3"},
-			hands="Floral Gauntlets",
+			ammo="C. Palug Stone",
+			head="Malignance Chapeau", rear="Brutal Earring",
+			hands="Floral Gauntlets", lring="Ilabrat Ring", rring="Regal Ring",
 			legs="Meg. Chausses +2", feet=gear.HBoots_TP
 		})
 
 		sets.precast.WS['Exenterator'].Low = set_combine(sets.precast.WS['Exenterator'],
 		{
-			head="Dampening Tam",
+			hands="Malignance Gloves"
 		})
 		
 		sets.precast.WS['Exenterator'].Mid = sets.precast.WS['Exenterator'].Low
@@ -328,8 +326,8 @@ function init_gear_sets()
 		sets.precast.WS['Exenterator'].High = set_combine(sets.precast.WS['Exenterator'].Mid,
 		{
 			lear={name="Mache Earring +1", bag="wardrobe2"},
-			body="Meg. Cuirie +2", rring="Regal Ring",
-			legs="Meg. Chausses +2"
+			body="Malignance Tabard",
+			legs="Malignance Tights", feet="Malignance Boots"
 		})
 
 		
@@ -337,24 +335,27 @@ function init_gear_sets()
 		{
 			ammo="Yetshila",
 			head=gear.AHead_TP, lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-			rring="Regal Ring",
+			body="Malignance Tabard", hands="Malignance Gloves",
 			feet=gear.HBoots_Crit
 		})
 
-		sets.precast.WS['Exenterator'].TA = sets.precast.WS['Exenterator'].SA
+		sets.precast.WS['Exenterator'].TA = set_combine(sets.precast.WS['Exenterator'].SA,
+		{
+			feet="Malignance Boots"
+		})
 
 	---Evisceration
 		sets.precast.WS['Evisceration'] = set_combine(sets.precast.WS,
 		{
 			ammo="Yetshila",
-			rear={name="Mache Earring +1", bag="wardrobe3"},
-			hands="Mummu Wrists +2", lring="Begrudging Ring",
+			head=gear.AHead_TP, rear={name="Mache Earring +1", bag="wardrobe3"},
+			body="Abnoba Kaftan", hands="Mummu Wrists +2", lring="Ilabrat Ring", rring="Begrudging Ring",
 			back=gear.THFCape_Crit, legs="Lustr. Subligar +1", feet=gear.HBoots_Crit
 		})
 
 		sets.precast.WS['Evisceration'].Low = set_combine(sets.precast.WS['Evisceration'],
 		{
-			head="Dampening Tam"
+			head="Malignance Chapeau"
 		})
 		
 		sets.precast.WS['Evisceration'].Mid = sets.precast.WS['Evisceration'].Low
@@ -362,31 +363,33 @@ function init_gear_sets()
 		sets.precast.WS['Evisceration'].High = set_combine(sets.precast.WS['Evisceration'].Mid,
 		{
 			lear={name="Mache Earring +1", bag="wardrobe2"},
-			body="Meg. Cuirie +2", rring="Regal Ring",
-			legs="Meg. Chausses +2"
+			body="Malignance Tabard",
+			legs="Malignance Tights", feet="Malignance Boots"
 		})
 
 		sets.precast.WS['Evisceration'].SA = set_combine(sets.precast.WS['Evisceration'],
 		{
-			ammo="Yetshila",
 			head=gear.AHead_TP, lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-			rring="Regal Ring",
+			body="Malignance Tabard", hands="Malignance Gloves", rring="Regal Ring",
 			feet=gear.HBoots_Crit
 		})
 
-		sets.precast.WS['Evisceration'].TA = sets.precast.WS['Evisceration'].SA
+		sets.precast.WS['Evisceration'].TA = set_combine(sets.precast.WS['Evisceration'].SA,
+		{
+			feet="Malignance Boots"
+		})
 		
 	---Dancing Edge
 		sets.precast.WS['Dancing Edge'] = set_combine(sets.precast.WS,
 		{
-			ammo="Falcon Eye",
-			hands="Adhemar Wrist. +1", lring="Regal Ring",
-			legs="Lustr. Subligar +1", feet=gear.HBoots_TP
+			head="Malignance Chapeau", rear="Brutal Earring",
+			hands="Adhemar Wrist. +1", lring="Ilabrat Ring", rring="Regal Ring",
+			legs="Meg. Chausses +2", feet="Malignance Boots"
 		})
 
 		sets.precast.WS['Dancing Edge'].Low = set_combine(sets.precast.WS['Dancing Edge'],
 		{
-			head="Dampening Tam"
+			hands="Malignance Gloves"
 		})
 		
 		sets.precast.WS['Dancing Edge'].Mid = set_combine(sets.precast.WS['Dancing Edge'].Low,
@@ -397,25 +400,29 @@ function init_gear_sets()
 		sets.precast.WS['Dancing Edge'].High = set_combine(sets.precast.WS['Dancing Edge'].Mid,
 		{
 			lear={name="Mache Earring +1", bag="wardrobe2"},			
-			body="Meg. Cuirie +2", rring="Regal Ring",
-			legs="Meg. Chausses +2"
+			body="Malignance Tabard",
+			legs="Malignance Tights"
 		})
 
 		sets.precast.WS['Dancing Edge'].SA = set_combine(sets.precast.WS['Dancing Edge'],
 		{
 			ammo="Yetshila",
-			head=gear.AHead_TP,
-			rring="Regal Ring",
+			head=gear.AHead_TP, lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
+			body="Malignance Tabard", hands="Malignance Gloves", rring="Regal Ring",
 			feet=gear.HBoots_Crit
 		})
 
-		sets.precast.WS['Dancing Edge'].TA = sets.precast.WS['Dancing Edge'].SA
+		sets.precast.WS['Dancing Edge'].TA = set_combine(sets.precast.WS['Dancing Edge'].SA,
+		{
+			feet="Malignance Boots"
+		})
 
 	---Rudra's Storm
 		sets.precast.WS['Rudra\'s Storm'] = set_combine(sets.precast.WS,
 		{
+			ammo="C. Palug Stone",
 			neck="Caro Necklace", lear={name="Mache Earring +1", bag="wardrobe2"},
-			body="Herculean Vest", lring="Karieyh Ring +1", rring="Epaminondas's Ring",
+			body="Herculean Vest", lring="Regal Ring", rring="Epaminondas's Ring",
 			waist="Grunfeld Rope", legs="Lustr. Subligar +1", feet="Lustra. Leggings +1"
 		})
 
@@ -428,11 +435,14 @@ function init_gear_sets()
 		sets.precast.WS['Rudra\'s Storm'].SA = set_combine(sets.precast.WS["Rudra's Storm"],
 		{
 			ammo="Yetshila",
-			head=gear.AHead_TP, lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-			feet=gear.HBoots_Crit
+			head=gear.AHead_TP, rear={name="Mache Earring +1", bag="wardrobe3"}
 		})
 
-		sets.precast.WS['Rudra\'s Storm'].TA = sets.precast.WS["Rudra's Storm"].SA
+		sets.precast.WS['Rudra\'s Storm'].TA = set_combine(sets.precast.WS["Rudra's Storm"].SA,
+		{
+			body="Malignance Tabard",
+			feet=gear.HBoots_Crit
+		})
 
 	---Mandalic Stab
 		sets.precast.WS['Mandalic Stab'] = sets.precast.WS["Rudra's Storm"]
@@ -501,7 +511,7 @@ function init_gear_sets()
 		sets.engaged.High = set_combine(sets.engaged.Mid,
 		{
 			lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-			waist="Kentarch Belt +1", feet="Meg. Jam. +2"
+			waist="Kentarch Belt +1",legs="Malignance Tights", feet="Malignance Boots"
 		})
 	
 	
@@ -537,7 +547,7 @@ function init_gear_sets()
 		sets.engaged.High.Min = set_combine(sets.engaged.Mid.Min,
 		{
 			lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-			waist="Kentarch Belt +1", feet="Meg. Jam. +2"
+			waist="Kentarch Belt +1", legs="Malignance Tights", feet="Malignance Boots"
 		})
 
 	
@@ -572,7 +582,7 @@ function init_gear_sets()
 		sets.engaged.High.Med = set_combine(sets.engaged.Mid.Med,
 		{
 			lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-			waist="Kentarch Belt +1", feet="Meg. Jam. +2"
+			waist="Kentarch Belt +1", legs="Malignance Tights", feet="Malignance Boots"
 		})
 
 	
@@ -608,7 +618,7 @@ function init_gear_sets()
 		sets.engaged.High.Max = set_combine(sets.engaged.Mid.Max,
 		{
 			lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-			waist="Kentarch Belt +1", feet="Meg. Jam. +2"
+			waist="Kentarch Belt +1", legs="Malignance Tights", feet="Malignance Boots"
 		})
 
 	
@@ -634,13 +644,13 @@ function init_gear_sets()
 		----------------------------------------------------------
 		-- No Haste
 		----------------------------------------------------------	
-	    	sets.engaged.DT 			= set_combine(sets.engaged, 		sets.engaged.Hybrid)
+	    sets.engaged.DT 				= set_combine(sets.engaged, 		sets.engaged.Hybrid)
 		sets.engaged.Low.DT 			= set_combine(sets.engaged.Low, 	sets.engaged.Hybrid)
 		sets.engaged.Mid.DT 			= set_combine(sets.engaged.Mid, 	sets.engaged.Hybrid)
 		sets.engaged.High.DT			= set_combine(sets.engaged.High, 	sets.engaged.Hybrid)
 	
 	
-	    	sets.engaged.DTMAX 			= set_combine(sets.engaged, 		sets.engaged.Hybrid)
+	    sets.engaged.DTMAX 				= set_combine(sets.engaged, 		sets.engaged.Hybrid)
 		sets.engaged.Low.DTMAX 			= set_combine(sets.engaged.Low, 	sets.engaged.Hybrid)
 		sets.engaged.Mid.DTMAX 			= set_combine(sets.engaged.Mid, 	sets.engaged.Hybrid)
 		sets.engaged.High.DTMAX			= set_combine(sets.engaged.High, 	sets.engaged.Hybrid)
@@ -650,13 +660,13 @@ function init_gear_sets()
 		----------------------------------------------------------
 		-- Minimum Haste
 		----------------------------------------------------------	
-	    	sets.engaged.DT.Min 			= set_combine(sets.engaged, 		sets.engaged.Hybrid)
+	    sets.engaged.DT.Min 			= set_combine(sets.engaged, 		sets.engaged.Hybrid)
 		sets.engaged.Low.DT.Min			= set_combine(sets.engaged.Low, 	sets.engaged.Hybrid)
 		sets.engaged.Mid.DT.Min			= set_combine(sets.engaged.Mid, 	sets.engaged.Hybrid)
 		sets.engaged.High.DT.Min		= set_combine(sets.engaged.High, 	sets.engaged.Hybrid)
 	
 	
-	    	sets.engaged.DTMAX.Min 			= set_combine(sets.engaged, 		sets.engaged.Hybrid)
+	    sets.engaged.DTMAX.Min 			= set_combine(sets.engaged, 		sets.engaged.Hybrid)
 		sets.engaged.Low.DTMAX.Min		= set_combine(sets.engaged.Low, 	sets.engaged.Hybrid)
 		sets.engaged.Mid.DTMAX.Min		= set_combine(sets.engaged.Mid, 	sets.engaged.Hybrid)
 		sets.engaged.High.DTMAX.Min		= set_combine(sets.engaged.High, 	sets.engaged.Hybrid)	
@@ -666,13 +676,13 @@ function init_gear_sets()
 		----------------------------------------------------------
 		-- Medium Haste
 		----------------------------------------------------------	
-	    	sets.engaged.DT.Med 			= set_combine(sets.engaged, 		sets.engaged.Hybrid)
+	    sets.engaged.DT.Med 			= set_combine(sets.engaged, 		sets.engaged.Hybrid)
 		sets.engaged.Low.DT.Med			= set_combine(sets.engaged.Low, 	sets.engaged.Hybrid)
 		sets.engaged.Mid.DT.Med			= set_combine(sets.engaged.Mid, 	sets.engaged.Hybrid)
 		sets.engaged.High.DT.Med		= set_combine(sets.engaged.High, 	sets.engaged.Hybrid)	
 	
 	
-	    	sets.engaged.DTMAX.Med 			= set_combine(sets.engaged, 		sets.engaged.Hybrid)
+	    sets.engaged.DTMAX.Med 			= set_combine(sets.engaged, 		sets.engaged.Hybrid)
 		sets.engaged.Low.DTMAX.Med		= set_combine(sets.engaged.Low, 	sets.engaged.Hybrid)
 		sets.engaged.Mid.DTMAX.Med		= set_combine(sets.engaged.Mid, 	sets.engaged.Hybrid)
 		sets.engaged.High.DTMAX.Med		= set_combine(sets.engaged.High, 	sets.engaged.Hybrid)		
@@ -682,13 +692,13 @@ function init_gear_sets()
 		----------------------------------------------------------
 		-- Maximum Haste
 		----------------------------------------------------------		
-	    	sets.engaged.DT.Max 			= set_combine(sets.engaged, 		sets.engaged.Hybrid)
+	    sets.engaged.DT.Max 			= set_combine(sets.engaged, 		sets.engaged.Hybrid)
 		sets.engaged.Low.DT.Max			= set_combine(sets.engaged.Low, 	sets.engaged.Hybrid)
 		sets.engaged.Mid.DT.Max			= set_combine(sets.engaged.Mid, 	sets.engaged.Hybrid)
 		sets.engaged.High.DT.Max		= set_combine(sets.engaged.High, 	sets.engaged.Hybrid)
 	
 	
-	    	sets.engaged.DTMAX.Max 			= set_combine(sets.engaged, 		sets.engaged.Hybrid)
+	    sets.engaged.DTMAX.Max 			= set_combine(sets.engaged, 		sets.engaged.Hybrid)
 		sets.engaged.Low.DTMAX.Max		= set_combine(sets.engaged.Low, 	sets.engaged.Hybrid)
 		sets.engaged.Mid.DTMAX.Max		= set_combine(sets.engaged.Mid, 	sets.engaged.Hybrid)
 		sets.engaged.High.DTMAX.Max		= set_combine(sets.engaged.High, 	sets.engaged.Hybrid)		
@@ -815,9 +825,8 @@ function customize_idle_set(idleSet)
 		if state.IdleMode.value == 'Normal' then
 			idleSet = set_combine(idleSet, 
 			{
-				head="Meghanada Visor +2", neck="Sanctity Necklace",
-				lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
-				waist="Flume Belt +1", waist="Meg. Chuasses +2"
+				neck="Sanctity Necklace",
+				lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"}
 			})
 		end
 	elseif player.mpp < 80 and (player.sub_job == "BLM" or player.sub_job == "WHM" or player.sub_job == "RDM") then

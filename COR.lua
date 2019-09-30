@@ -30,7 +30,7 @@ function user_setup()
     state.HybridMode:options('Normal', 'DT')
     state.RangedMode:options('Normal', 'Low', 'Mid', 'High')
     state.WeaponskillMode:options('Normal', 'Low', 'Mid', 'High')
-    state.IdleMode:options('Normal', 'DT')
+    state.IdleMode:options('Normal')
 	
 	send_command('bind ^= gs c cycle treasuremode')
 	
@@ -90,7 +90,7 @@ function init_gear_sets()
 		{
 			range="Compensator",
 			head="Lanun Tricorne", neck="Regal Necklace", lear="Etiolation Earring",
-			body="Meg. Cuirie +2", hands="Chasseur's Gants +1", lring="Defending Ring", rring="Gelatinous Ring +1",
+			body="Malignance Tabard", hands="Chasseur's Gants +1", lring="Defending Ring", rring="Gelatinous Ring +1",
 			back="Moonlight Cape", waist="Flume Belt +1", legs="Desultor Tassets", feet="Lanun Bottes +1"
 		}
 		
@@ -118,17 +118,17 @@ function init_gear_sets()
 		
 		sets.midcast.CorsairShot.Resistant =
 		{
-			head="Carmine Mask +1", neck="Sanctity Necklace", lear="Digni. Earring", rring="Gwati Earring",
-			body="Samnuha Coat", hands="Mummu Wrists +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Camulus's Mantle", waist="Orpheus's Sash", legs="Mummu Kecks +2", feet="Lak. Bottes +1"
+			head="Malignance Chapeau", neck="Sanctity Necklace", lear="Digni. Earring", rring="Gwati Earring",
+			body="Malignance Tabard", hands="Malignance Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			back="Camulus's Mantle", waist="Orpheus's Sash", legs="Malignance Tights", feet="Malignance Boots"
 			
 		}
 		
 		sets.midcast.CorsairShot.STP =
 		{
-			head="Lak. Hat +1", neck="Iskur Gorget", lear="Telos Earring", rear="Dedition Earring",
-			body="Herculean Vest", hands="Adhemar Wrist. +1", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
-			back="Camulus's Mantle", waist="Kentarch Belt +1", legs="Adhemar Kecks +1", feet="Carmine Greaves +1"
+			head="Malignance Chapeau", neck="Iskur Gorget", lear="Telos Earring", rear="Dedition Earring",
+			body="Malignance Tabard", hands="Malignance Gloves", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			back="Camulus's Mantle", waist="Kentarch Belt +1", legs="Malignance Tights", feet="Malignance Boots"
 		}
 		
 		sets.midcast.CorsairShot['Light Shot'] = sets.midcast.CorsairShot.Resistant
@@ -144,7 +144,7 @@ function init_gear_sets()
 		sets.precast.FC =
 		{
 			head="Carmine Mask +1", neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
-			body=gear.TBody_Phalanx, hands="Leyline Gloves", lring="Kishar Ring", rring="Rahab Ring",
+			body=gear.TBody_Phalanx, hands="Leyline Gloves", lring="Kishar Ring", rring="Weather. Ring +1",
 			back="Moonlight Cape", waist="Flume Belt +1", legs="Rawhide Trousers", feet="Carmine Greaves +1"
 		}
 		
@@ -183,16 +183,11 @@ function init_gear_sets()
 		sets.idle =
 		{
 			ranged="Fomalhaut", ammo="Chrono Bullet",
-			head="Meghanada Visor +2", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
-			body="Meg. Cuirie +2", hands="Meg. Gloves +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
-			back="Moonlight Cape", waist="Flume Belt +1", legs="Carmine Cuisses +1", feet="Ahosi Leggings"
+			head="Malignance Chapeau", neck="Warder's Charm +1", lear="Etiolation Earring", "Sanare Earring",
+			body="Malignance Tabard", hands="Malignance Gloves", lring="Defending Ring", rring="Gelatinous Ring +1",
+			back="Moonlight Cape", waist="Engraved Belt", legs="Carmine Cuisses +1", feet="Malignance Boots"
 		}
-		sets.idle.DT = set_combine (sets.idle,
-		{
-			head=gear.AHead_PDT, neck="Loricate Torque +1",  lear="Genmei Earring", rear="Odnowa Earring +1",
-			body="Meg. Cuirie +2", hands="Floral Gauntlets", lring="Defending Ring", rring="Gelatinous Ring +1",
-			legs="Mummu Kecks +2"
-		})
+
 		sets.idle.Town = set_combine(sets.idle,
 		{
 			legs="Carmine Cuisses +1"
@@ -208,9 +203,9 @@ function init_gear_sets()
     ---------------------------------------- Defense Sets ------------------------------------------
     ------------------------------------------------------------------------------------------------
 		
-		sets.defense.PDT = sets.idle.DT
+		sets.defense.PDT = sets.idle
 		
-		sets.defense.MDT = sets.idle.DT
+		sets.defense.MDT = sets.idle
 		
 		sets.Kiting =  { legs="Carmine Cuisses +1" }
 		
@@ -228,7 +223,7 @@ function init_gear_sets()
 		sets.TreasureHunter = 
 		{ 
 			head=gear.HHead_TH, 
-			hands="Volte Bracers",
+			legs="Volte Hose",
 			waist="Chaac Belt"
 		}
 		
@@ -253,21 +248,14 @@ function init_gear_sets()
 		
 		sets.midcast.RA =
 		{
-			head="Meghanada Visor +2", neck="Iskur Gorget", lear="Telos Earring", rear="Enervating Earring",
-			body="Meg. Cuirie +2",  hands="Meg. Gloves +2", lring="Dingir Ring", rring="Regal Ring",
-			back="Camulus's Mantle", waist="Yemaya Belt", legs="Adhemar Kecks +1", feet="Meg. Jam. +2"
-		}
-		
-		sets.midcast.RA.STP =
-		{
-			head="Meghanada Visor +2", neck="Iskur Gorget", lear="Telos Earring", rear="Enervating Earring",
-			body="Meg. Cuirie +2",  hands="Carmine Fin. Ga. +1", lring="Dingir Ring", rring="Regal Ring",
-			back="Camulus's Mantle", waist="Yemaya Belt", legs="Adhemar Kecks +1", feet="Adhemar Gamashes"
+			head="Malignance Chapeau", neck="Iskur Gorget", lear="Telos Earring", rear="Dedition Earring",
+			body="Malignance Tabard",  hands="Malignance Gloves", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			back="Camulus's Mantle", waist="Yemaya Belt", legs="Malignance Tights", feet="Malignance Boots"
 		}
 		
 		sets.buff.TripleShot =
 		{
-			body="Chasseur's Frac +1", hands="Oshosi Gloves", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			body="Chasseur's Frac +1", hands="Oshosi Gloves",
 			feet="Adhemar Gamashes"
 		}
 		
@@ -277,7 +265,7 @@ function init_gear_sets()
 		sets.precast.WS = 
 		{
 			head=gear.HHead_WSD, neck="Fotia Gorget", lear="Ishvara Earring", rear="Moonshade Earring",
-			body="Herculean Vest", hands="Meg. Gloves +2", lring="Karieyh Ring +1", rring="Epaminondas's Ring",
+			body="Herculean Vest", hands="Meg. Gloves +2", lring="Regal Ring", rring="Epaminondas's Ring",
 			back="Camulus's Mantle", waist="Fotia Belt", legs="Herculean Trousers", feet=gear.HBoots_WSD
 		}
 		
@@ -286,21 +274,21 @@ function init_gear_sets()
 		{
 			head="Pixie Hairpin +1", neck="Sanctity Necklace", lear="Friomisi Earring", rear="Crematio Earring",
 			body="Samnuha Coat", hands="Herculean Gloves", lring="Archon Ring", rring="Epaminondas's Ring",
-			back="Camulus's Mantle", waist="Orpheus's Sash", legs="Lak. Trews +1", feet="Adhemar Gamashes"
+			back="Camulus's Mantle", waist="Orpheus's Sash", legs="Shned. Tights +1", feet="Adhemar Gamashes"
 		})
 		
 		sets.precast.WS['Wildfire'] = set_combine(sets.precast.WS['Leaden Salute'],
 		{
 			head=gear.HHead_MAB,
-			lring="Karieyh Ring +1"
+			lring={name="Shiva Ring +1", bag="wardrobe2"}
 		})
 		sets.precast.WS['Hot Shot'] = sets.precast.WS['Wildfire']
 		
 		sets.precast.WS['Last Stand'] = set_combine(sets.precast.WS,
 		{
-			head="Meghanada Visor +2",
-			body="Meg. Cuirie +2",
-			legs="Meg. Chausses +2", feet="Meg. Jam. +2"
+			head="Malignance Chapeau",
+			body="Malignance Tabard",
+			legs="Meg. Chausses +2", feet="Malignance Boots"
 		})
 		
 		--	***Swords***
@@ -328,7 +316,7 @@ function init_gear_sets()
 		sets.precast.WS['Requiescat'] = set_combine(sets.precast.WS, 
 		{
 			lear="Brutal Earring",
-			lring="Rufescent Ring", rring="Epona's Ring", 
+			lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Epona's Ring", 
 			legs="Samnuha Tights", feet=gear.HBoots_TP
 		})
 			
@@ -400,7 +388,7 @@ function init_gear_sets()
 		{
 			lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
 			hands="Meg. Gloves +2", rring={name="Chirich Ring +1", bag="wardrobe3"},
-			waist="Kentarch Belt +1", feet="Meg. Jam. +2"
+			waist="Kentarch Belt +1", feet="Malignance Boots"
 		})
 		
 	
@@ -450,7 +438,7 @@ function init_gear_sets()
 		sets.engaged.DW2.High = set_combine(sets.engaged.DW2.Mid,
 		{
 			neck="Combatant's Torque", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-			waist="Kentarch Belt +1", feet="Meg. Jam. +2"
+			waist="Kentarch Belt +1", feet="Malignance Boots"
 		})
 	
 	
@@ -499,7 +487,7 @@ function init_gear_sets()
 		sets.engaged.DW3.High = set_combine(sets.engaged.DW3.Mid,
 		{
 			lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-			waist="Kentarch Belt +1", feet="Meg. Jam. +2"
+			waist="Kentarch Belt +1", feet="Malignance Boots"
 		})
 	
 	
@@ -648,7 +636,7 @@ function init_gear_sets()
 		sets.engaged.DW3.High.Med = set_combine(sets.engaged.DW3.Mid.Med,
 		{
 			rring={name="Chirich Ring +1", bag="wardrobe3"},
-			feet="Meg. Jam. +2"
+			feet="Malignance Boots"
 		})
 	
 	
@@ -703,7 +691,7 @@ function init_gear_sets()
 		{
 			lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
 			rring={name="Chirich Ring +1", bag="wardrobe3"},
-			feet="Meg. Jam. +2"
+			feet="Malignance Boots"
 		})
 	
 	----------------------------------------------------------
@@ -961,6 +949,29 @@ function job_update(cmdParams, eventArgs)
 	handle_equipping_gear(player.status)
 end
 
+function customize_idle_set(idleSet)
+	if player.hpp < 80 then
+		if state.IdleMode.value == 'Normal' then
+			idleSet = set_combine(idleSet, 
+			{
+				neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
+				lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"}
+			})
+		end
+	elseif player.mpp < 80 and (player.sub_job == "BLM" or player.sub_job == "WHM" or player.sub_job == "RDM") then
+		if state.IdleMode.value == 'Normal' then
+			idleSet = set_combine(idleSet, 
+			{
+				head="Rawhide Mask",
+				hands=gear.HHands_Refresh, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+				legs="Rawhide Trousers"
+			})
+		end
+	end
+
+	return idleSet
+end
+
 --Adjusts gear based on the level of magical haste received.
 function determine_haste_group()
 --[[
@@ -1055,36 +1066,6 @@ end
 -- Utility functions specific to this job.
 -------------------------------------------------------------------------------------------------------------------
 
-function gearinfo(cmdParams, eventArgs)
-    if cmdParams[1] == 'gearinfo' then
-        if type(tonumber(cmdParams[2])) == 'number' then
-            if tonumber(cmdParams[2]) ~= DW_needed then
-            DW_needed = tonumber(cmdParams[2])
-            DW = true
-            end
-        elseif type(cmdParams[2]) == 'string' then
-            if cmdParams[2] == 'false' then
-        	    DW_needed = 0
-                DW = false
-      	    end
-        end
-        if type(tonumber(cmdParams[3])) == 'number' then
-          	if tonumber(cmdParams[3]) ~= Haste then
-              	Haste = tonumber(cmdParams[3])
-            end
-        end
-        if type(cmdParams[4]) == 'string' then
-            if cmdParams[4] == 'true' then
-                moving = true
-            elseif cmdParams[4] == 'false' then
-                moving = false
-            end
-        end
-        if not midaction() then
-            job_update()
-        end
-    end
-end
 
 function define_roll_values()
     rolls = 

@@ -85,8 +85,8 @@ function init_gear_sets()
     sets.precast.FC = 
 	{
 		ammo="Sapience Orb",
-		head="Carmine Mask +1", neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
-		body="Odyss. Chestplate", hands="Leyline Gloves", lring="Kishar Ring", rring="Rahab Ring",
+		head="Carmine Mask +1", neck="Orunmila's Torque", lear="Loquac. Earring", rear="Malignance Earring",
+		body="Odyss. Chestplate", hands="Leyline Gloves", lring="Kishar Ring", rring="Weather. Ring +1",
 		back="Solemnity Cape", waist="Flume Belt", legs="Carmine Cuisses +1", feet="Carmine Greaves +1"
 	}
 
@@ -124,7 +124,7 @@ function init_gear_sets()
 		sets.midcast.Macc =	
 		{
 			ammo="Pemphredo Tathlum",
-			head="Carmine Mask +1", neck="Erra Pendant", lear="Gwati Earring", rear="Digni. Earring",
+			head="Carmine Mask +1", neck="Erra Pendant", lear="Digni. Earring", rear="Malignance Earring",
 			body="Flamma Korazin +2", hands="Leyline Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Ankou's Mantle", waist="Orpheus's Sash", legs="Flamma Dirs +2", feet="Flam. Gambieras +2"
 		}
@@ -138,7 +138,7 @@ function init_gear_sets()
 	---Dark Magic
 		sets.midcast.Stun = set_combine(sets.midcast.Macc,
 		{
-			lring="Kishar Ring", rring="Rahab Ring",
+			lring="Kishar Ring", rring="Weather. Ring +1",
 			feet="Carmine Greaves +1"
 		})
 		
@@ -158,7 +158,7 @@ function init_gear_sets()
     sets.midcast['Elemental Magic'] = 
 	{
 		ammo="Pemphredo Tathlum", 
-		head="Befouled Crown", neck="Sanctity Necklace", lear="Friomisi Earring", rear="Crematio Earring",
+		head="Befouled Crown", neck="Sanctity Necklace", lear="Friomisi Earring", rear="Malignance Earring",
 		body="Flamma Korazin +2", hands="Carmine Fin. Ga. +1", lring={name="Shiva Ring +1", bag="wardrobe2"}, rring={name="Shiva Ring +1", bag="wardrobe3"},
 		back="Ankou's Mantle", waist="Orpheus's Sash", legs="Flamma Dirs +2", feet="Flam. Gambieras +2"
 	}
@@ -280,7 +280,7 @@ function init_gear_sets()
 	{
 		ammo="Knobkierrie",
 		head="Odyssean Helm", neck="Fotia Gorget", lear="Ishvara Earring", rear="Moonshade Earring",
-		body="Flamma Korazin +2", hands="Odyssean Gauntlets", lring="Karieyh Ring +1", rring="Epaminondas's Ring",
+		body="Flamma Korazin +2", hands="Odyssean Gauntlets", lring="Regal Ring", rring="Epaminondas's Ring",
 		back="Ankou's Mantle", waist="Fotia Belt", legs="Sulev. Cuisses +2", feet="Sulev. Leggings +2"
 	}
 	
