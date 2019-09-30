@@ -3,7 +3,6 @@ Priority A
 -----------
 Voodoo Mitts              Price: 7,000,000G
 Baayami Slops +1          Price: 40,000,000G
-Baayami Sabots +1         Price: 30,000,000G
 Baayami Cuffs +1          Price: 30,000,000G
 
 -----------
