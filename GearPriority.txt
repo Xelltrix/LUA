@@ -7,9 +7,6 @@ Baayami Slops +1          Price: 40,000,000G
 -----------
 Priority B
 -----------
-Ea Hat +1                 Price: 35,000,000G (24,000,000G)
-Ea Slops +1               Price: 40,000,000G (36,000,000G)
-
 Ea Houppleland +1         Price: 50,000,000G (35,000,000G)
 Ea Pigaches +1            Price: 30,000,000G (25,000,000G)
 
