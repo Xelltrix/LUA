@@ -27,6 +27,7 @@ Priority D
 R15 Lionheart             Price: 120,000,000G
 R15 Epeolatry             Price; 120,000,000G
 
+Kaykaus Tights +1         Price: 15,000,000G
 Apogee Mitts +1           Price: 7,000,000G
 
 Cleric's Torque +2        Price: 100,000,000G
