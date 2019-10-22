@@ -27,15 +27,12 @@ Priority D
 R15 Lionheart             Price: 120,000,000G
 R15 Epeolatry             Price; 120,000,000G
 
-Baayami Robe +1           Price: 40,000,000G
-
 Cleric's Torque +2        Price: 100,000,000G
 Raetic Rod +1             Price; 30,000,000G
 
 -----------
 Priority F
 -----------
-Baayami Hat +1            Price: 30,000,000G
 Ea Cuffs +1               Price: 30,000,000G
 
 Raetic Staff +1           Price: 30,000,000G
