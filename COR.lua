@@ -112,8 +112,8 @@ function init_gear_sets()
 		sets.midcast.CorsairShot =
 		{
 			head=gear.HHead_MAB, neck="Sanctity Necklace", lear="Friomisi Earring", rear="Crematio Earring",
-			body="Samnuha Coat", hands="Carmine Fin. Ga. +1", lring="Dingir Ring", rring={name="Shiva Ring +1", bag="wardrobe3"},
-			back="Camulus's Mantle", waist="Orpheus's Sash", legs="Lak. Trews +1", feet="Adhemar Gamashes"
+			body="Carm. Sc. Mail +1", hands="Carmine Fin. Ga. +1", lring="Dingir Ring", rring={name="Shiva Ring +1", bag="wardrobe3"},
+			back="Camulus's Mantle", waist="Orpheus's Sash", legs="Lak. Trews +1", feet="Adhemar Gamashes +1"
 		}
 		
 		sets.midcast.CorsairShot.Resistant =
@@ -243,7 +243,7 @@ function init_gear_sets()
 		{
 			head="Chass. Tricorne +1",
 			body="Lak. Frac +1", hands="Carmine Fin. Ga. +1", 
-			waist="Impulse Belt", legs="Adhemar Kecks +1", feet="Meg. Jam. +2"
+			waist="Impulse Belt", legs="Adhemar Kecks +1", feet="Adhemar Gamashes +1"
 		}
 		
 		sets.midcast.RA =
@@ -273,8 +273,8 @@ function init_gear_sets()
 		sets.precast.WS['Leaden Salute'] = set_combine(sets.precast.WS, 
 		{
 			head="Pixie Hairpin +1", neck="Sanctity Necklace", lear="Friomisi Earring", rear="Crematio Earring",
-			body="Samnuha Coat", hands="Herculean Gloves", lring="Archon Ring", rring="Epaminondas's Ring",
-			back="Camulus's Mantle", waist="Orpheus's Sash", legs="Shned. Tights +1", feet="Adhemar Gamashes"
+			body="Carm. Sc. Mail +1", hands="Herculean Gloves", lring="Archon Ring", rring="Epaminondas's Ring",
+			back="Camulus's Mantle", waist="Orpheus's Sash", legs="Shned. Tights +1", feet="Adhemar Gamashes +1"
 		})
 		
 		sets.precast.WS['Wildfire'] = set_combine(sets.precast.WS['Leaden Salute'],
@@ -855,17 +855,25 @@ function job_post_precast(spell, action, spellMap, eventArgs)
         end
 	end
 
+	-- Handles equipment modifications based of distance and spell weather/day alignment.
     if spell.type == 'WeaponSkill' and magical_ws:contains(spell.name) then
+		-- If the spell element does not match either the weather or the day and there is less than 15 yalms between the caster and the target
 		if spell.element ~= world.day_element and spell.element ~= world.weather_element then
 			if spell.target.distance < (15 - spell.target.model_size) then
 				equip { waist="Orpheus's Sash" }
 			end
+		-- If the element of a spell matches both the day and weather with a net intensity of at least 2
 		elseif (spell.element == world.day_element and spell.element == world.weather_element)
 				or (spell.element == world.weather_element and get_weather_intensity() == 2 and world.day_element ~= elements.strong_to[spell.element]) then
 			equip { waist="Hachirin-no-Obi" }
+		-- If the element of a non-helix spell matches either day or weather with a net intensity of 1.	
 		elseif (spell.element == world.day_element or (spell.element == world.weather_element and get_weather_intensity() == 1)
 				or (spell.element == world.weather_element and get_weather_intensity() == 2 and world.day_element == elements.strong_to[spell.element])) then
-			equip { waist="Hachirin-no-Obi" }
+			if (spell.target.distance < (7 - spell.target.model_size)) then
+				equip { waist="Orpheus's Sash" }
+			else
+				equip { waist="Hachirin-no-Obi" }
+			end
 		end	
 	end
 end

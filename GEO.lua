@@ -23,7 +23,7 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-	state.OffenseMode:options('Refresh','Normal')
+	state.OffenseMode:options('Normal')
 	state.CastingMode:options('Normal','Resistant','Potency')
 	state.IdleMode:options('Normal','DT')
 	state.PhysicalDefenseMode:options('Master','Pet')
@@ -48,7 +48,7 @@ function init_gear_sets()
 	-- Job Abilities --
 	------------------- 
 
-		sets.precast.JA['Bolster'] = { body="Bagua Tunic +1" }
+		sets.precast.JA['Bolster'] = { body="Bagua Tunic +2" }
 
 		sets.precast.JA['Full Circle'] =
 		{
@@ -210,7 +210,7 @@ function init_gear_sets()
 		{
 			main="Idris", sub="Chanter's Shield", range="Dunna", ammo="",
 			head="Azimuth Hood +1", neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
-			body="Bagua Tunic +1", hands="Geo. Mitaines +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			body="Bagua Tunic +2", hands="Geo. Mitaines +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Lifestream Cape", waist="Luminary Sash", legs="Lengo Pants", feet="Medium's Sabots"
 		}
 	
@@ -223,16 +223,16 @@ function init_gear_sets()
 		sets.midcast.Macc =
 		{
 			main="Daybreak", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
-			head="Amalric Coif +1", neck="Bagua Charm +1", lear="Digni. Earring", rear="Malignance Earring",
-			body="Jhakri Robe +2", hands="Regal Cuffs", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back=gear.GEOCape_Nuke, waist="Luminary Sash", legs="Merlinic Shalwar", feet="Jhakri Pigaches +2"
+			head="C. Palug Crown", neck="Bagua Charm +1", lear="Digni. Earring", rear="Malignance Earring",
+			body="Ea Houppe. +1", hands="Regal Cuffs", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			back=gear.GEOCape_Nuke, waist="Luminary Sash", legs="Ea Slops +1", feet="Ea Pigaches +1"
 		}
 	
 		sets.midcast['Enfeebling Magic'] = set_combine(sets.midcast.Macc,
 		{
 			head="Befouled Crown", neck="Incanter's Torque",
 			lring="Kishar Ring",
-			back="Lifestream Cape", feet="Bagua Sandals +3"
+			feet="Bagua Sandals +3"
 		})
 	
 		sets.midcast['Enfeebling Magic'].Resistant = sets.midcast.Macc
@@ -250,14 +250,19 @@ function init_gear_sets()
 		{
 			neck="Erra Pendant",
 			body="Shango Robe",
-			waist="Fucho-no-Obi", feet="Jhakri Pigaches +2"
+			waist="Fucho-no-Obi", legs="Azimuth Tights +1",
 		})
 
 		sets.midcast.Sap = set_combine(sets.midcast['Dark Magic'],
 		{
-			head="Pixie Hairpin +1", neck="Erra Pendant",
+			head="Pixie Hairpin +1", lear="Hirudinea Earring",
 			lring="Archon Ring", rring="Evanescence Ring", 
 			feet=gear.NukeCrackows
+		})
+		
+		sets.midcast.Sap.Resistant = set_combine(sets.midcast.Sap,
+		{
+			head="Bagua Galero +2"
 		})
 
 		sets.midcast.Stun = set_combine(sets.midcast['Dark Magic'],
@@ -273,15 +278,16 @@ function init_gear_sets()
 		sets.midcast['Elemental Magic'] =
 		{
 			main="Daybreak", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
-			head=gear.NukeHood, neck="Sanctity Necklace", lear="Regal Earring", rear="Malignance Earring",
+			head="C. Palug Crown", neck="Sanctity Necklace", lear="Regal Earring", rear="Malignance Earring",
 			body="Amalric Doublet +1", hands="Amalric Gages +1", lring="Freke Ring", rring={name="Shiva Ring +1", bag="wardrobe3"},
 			back=gear.GEOCape_Nuke, waist="Sacro Cord", legs="Amalric Slops +1", feet="Amalric Nails +1"
 		}
 
 		sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'],
 		{
-			body="Jhakri Robe +2", 
-			waist="Sacro Cord", legs="Jhakri Slops +2", feet="Jhakri Pigaches +2"
+			head="Ea Hat +1", rear="Barkaro. Earring",
+			body="Ea Houppe. +1", 
+			waist="Sacro Cord", legs="Ea Slops +1", feet="Jhakri Pigaches +2"
 		})
 
 		sets.midcast['Elemental Magic'].Potency = sets.midcast['Elemental Magic']
@@ -295,17 +301,15 @@ function init_gear_sets()
 	
 		sets.magic_burst =
 		{--MBD/II: 42/11
-			main="Maxentius", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
-			head=gear.NukeHood, neck="Mizu. Kubikazari", lear="Regal Earring", rear="Static Earring",
-			body="Amalric Doublet +1", hands="Amalric Gages +1", lring="Locus Ring", rring="Mujin Band",
-			back=gear.GEOCape_Nuke, waist="Sacro Cord", legs="Merlinic Shalwar", feet="Jhakri Pigaches +2"
+			main="Daybreak", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
+			head="Ea Hat +1", neck="Mizu. Kubikazari", lear="Malignance Earring", rear="Regal Earring",
+			body="Ea Houppe. +1", hands="Amalric Gages +1", lring="Freke Ring", rring="Mujin Band",
+			back=gear.GEOCape_Nuke, waist="Sacro Cord", legs="Ea Slops +1", feet="Ea Pigaches +1"
 		}
 
 		sets.magic_burst.Resistant = set_combine(sets.magic_burst,
 		{--MBD/II: 42/11
-			lear="Static Earring",
-			hands="Regal Cuffs", 
-			waist="Sacro Cord", feet="Jhakri Pigaches +2"
+			hands="Regal Cuffs"
 		})
 	
 	
@@ -335,14 +339,14 @@ function init_gear_sets()
 		sets.idle =
 		{--Regen+3 | Refresh+8~9 | PDT/MDT: (13/15)
 			main="Daybreak", sub="Genmei Shield", ammo="Staunch Tathlum +1",
-			head="Befouled Crown", neck="Bagua Charm +1", lear="Dawn Earring", rear="Infused Earring",
+			head="Befouled Crown", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 			body="Amalric Doublet +1", hands="Bagua Mitaines +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Moonlight Cape", waist="Carrier's Sash", legs="Assid. Pants +1", feet="Geo. Sandals +1"
+			back="Moonlight Cape", waist="Carrier's Sash", legs="Volte Brais", feet="Geo. Sandals +1"
 		}
 
 		sets.idle.DT = set_combine(sets.idle,
 		{--Regen+0 | Refresh+6~7 | PDT/MDT: (38/40)
-			neck="Bagua Charm +1",  lear="Genmei Earring", rear="Odnowa Earring +1",
+			neck="Loricate Torque +1",  lear="Genmei Earring", rear="Odnowa Earring +1",
 			lring="Defending Ring", rring="Gelatinous Ring +1"
 		})
 		
@@ -351,7 +355,7 @@ function init_gear_sets()
 			main="Idris", sub="Genmei Shield", ammo="Staunch Tathlum +1",
 			head="Azimuth Hood +1", neck="Bagua Charm +1", lear="Dawn Earring", rear="Infused Earring",
 			body="Amalric Doublet +1", hands="Geo. Mitaines +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back=gear.GEOCape_Luopan, waist="Isa Belt", legs="Assid. Pants +1", feet="Bagua Sandals +3"
+			back=gear.GEOCape_Luopan, waist="Isa Belt", legs="Volte Brais", feet="Bagua Sandals +3"
 		}	
 
 		sets.idle.DT.Luopan =
@@ -455,17 +459,10 @@ function init_gear_sets()
 	
 		sets.engaged =
 		{
-			head="Jhakri Coronal +2", neck="Combatant's Torque", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-			body="Jhakri Robe +2", hands="Volte Bracers", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
-			waist="Windbuffet Belt +1", legs="Jhakri Slops +2", feet="Jhakri Pigaches +2"
-		}
-	
-		sets.engaged.Refresh =
-		{
-			main="Daybreak", sub="Genmei Shield",
-			head="Befouled Crown", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
-			body="Amalric Doublet +1", hands="Bagua Mitaines +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Moonlight Cape", waist="Carrier's Sash", legs="Assid. Pants +1", feet="Geo. Sandals +1"
+			main="Idris", sub="Genmei Shield", ammo="Staunch Tathlum +1",
+			head="Azimuth Hood +1", neck="Bagua Charm +1", lear="Dawn Earring", rear="Infused Earring",
+			body="Amalric Doublet +1", hands="Geo. Mitaines +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			back=gear.GEOCape_Luopan, waist="Isa Belt", legs="Volte Brais", feet="Bagua Sandals +3"
 		}
 
 end
@@ -493,62 +490,42 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 		if spell.target.type == 'SELF' then
 			equip(
 			{
-				neck="Incanter's Torque",
-				back="Lifestream Cape", legs="Bagua Pants +1", feet="Azimuth Gaiters +1"
+				legs="Bagua Pants +1", feet="Azimuth Gaiters +1"
 			})
 		elseif spell.target.type == 'PLAYER' or spell.target.type == 'NPC' then
 			equip(
 			{
 				main="Solstice",
-				neck="Incanter's Torque",
-				back="Lifestream Cape", legs="Bagua Pants +1", feet="Azimuth Gaiters +1"
+				legs="Bagua Pants +1", feet="Azimuth Gaiters +1"
 			})
 		end
 	end
+	
+	if spell.english:startswith('Geo') then
+		equip(
+		{
+			neck="Bagua Charm +1"
+		})
+	end
 
-	if (spell.skill == 'Elemental Magic' or spell.english == 'Death') and state.MagicBurst.value and (state.CastingMode.value == 'Normal' or state.CastingMode.value == 'Potency') then
+	if (spell.skill == 'Elemental Magic') and state.MagicBurst.value and (state.CastingMode.value == 'Normal' or state.CastingMode.value == 'Potency') then
 		if spell.element ~= 'Dark' then
 			equip(sets.magic_burst)
-		elseif spell.english == 'Comet' or spell.english == 'Noctohelix' then
-			equip(set_combine(sets.magic_burst,
-			{
-				head="Pixie Hairpin +1",
-				lring="Archon Ring"
-			}))
 		elseif spell.english =='Impact' then
 			equip(set_combine(sets.magic_burst,
 			{
 				head=empty,
 				body="Twilight Cloak", lring="Archon Ring"
-			}))
-		elseif spell.english =='Death' then
-			equip(set_combine(sets.midcast.Death,
-			{
-				neck="Mizu. Kubikazari", lear="Static Earring",
-				body="Merlinic Jubbah", rring="Mujin Band",
-				feet=gear.NukeCrackows
 			}))
 		end
-	elseif (spell.skill == 'Elemental Magic' or spell.english == 'Death') and state.MagicBurst.value and state.CastingMode.value == 'Resistant' then
+	elseif (spell.skill == 'Elemental Magic') and state.MagicBurst.value and state.CastingMode.value == 'Resistant' then
 		if spell.element ~= 'Dark' then
 			equip(sets.magic_burst.Resistant)
-		elseif spell.english == 'Comet' or spell.english == 'Noctohelix' then
-			equip(set_combine(sets.magic_burst.Resistant,
-			{
-				lring="Archon Ring"
-			}))
 		elseif spell.english =='Impact' then
 			equip(set_combine(sets.magic_burst.Resistant,
 			{
 				head=empty,
 				body="Twilight Cloak", lring="Archon Ring"
-			}))
-		elseif spell.english =='Death' then
-			equip(set_combine(sets.midcast.Death.Resistant,
-			{
-				neck="Mizu. Kubikazari", lear="Static Earring",
-				body="Merlinic Jubbah", rring="Mujin Band",
-				feet=gear.NukeCrackows
 			}))
 		end
 	end

@@ -64,7 +64,7 @@ function init_gear_sets()
 	{
 		head="Amini Gapette +1",
 		body="Amini Caban +1", hands="Carmine Fin. Ga. +1",
-		back="Belenus's Cape", waist="Impulse Belt", legs="Adhemar Kecks",feet="Adhemar Gamashes"
+		back="Belenus's Cape", waist="Impulse Belt", legs="Adhemar Kecks +1", feet="Adhemar Gamashes +1"
 	}
 
 
@@ -104,8 +104,8 @@ function init_gear_sets()
 	sets.precast.WS['Trueflight'] = set_combine(sets.precast.WS,
 	{
 		head=gear.HHead_MAB, neck="Sanctity Necklace", lear="Friomisi Earring", rear="Crematio Earring",
-		body="Gyve Doublet", hands="Carmine Fin. Ga. +1", lring="Dingir Ring", rring={name="Shiva Ring +1", bag="wardrobe3"},
-		back="Belenus's Cape", waist="Orpheus's Sash", legs="Gyve Trousers", feet=gear.HBoots_WSD
+		body="Carm. Sc. Mail +1", hands="Carmine Fin. Ga. +1", lring="Dingir Ring", rring={name="Shiva Ring +1", bag="wardrobe3"},
+		back="Belenus's Cape", waist="Orpheus's Sash", legs="Gyve Trousers", feet="Adhemar Gamashes +1"
 	})
 
 
@@ -119,7 +119,7 @@ function init_gear_sets()
 	sets.midcast.FC =
 	{
 		head="Herculean Helm", neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
-		body="Foppish Tunica", hands="Leyline Gloves", lring="Evanescence Ring", rring="Weather. Ring +1",
+		body=gear.TBody_Phalanx, hands="Leyline Gloves", lring="Evanescence Ring", rring="Weather. Ring +1",
 	}
 
 	-- Specific spells
@@ -131,7 +131,7 @@ function init_gear_sets()
 	{
 		head="Arcadian Beret +1", neck="Iskur Gorget", lear="Telos Earring", rear="Enervating Earring",
 		body="Amini Caban +1", hands="Amini Glove. +1", lring="Dingir Ring", rring="Ilabrat Ring",
-		back="Belenus's Cape", waist="Yemaya Belt", legs="Amini Brague +1", feet="Adhemar Gamashes"
+		back="Belenus's Cape", waist="Yemaya Belt", legs="Malignance Tights", feet="Malignance Boots"
 	}
 	
 	sets.buff['Barrage'] = 
@@ -143,40 +143,34 @@ function init_gear_sets()
 	-- Idle/resting/defense/etc sets
 	--------------------------------------
 
-	-- Sets to return to when not performing an action.
+		-- Sets to return to when not performing an action.
 
-	-- Idle sets
-	sets.idle =
-	{
-		ranged="Fomalhaut", ammo="Chrono Bullet",
-		head=gear.AHead_PDT, neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
-		body="Meg. Cuirie +2", hands="Meg. Gloves +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
-		back="Moonlight Cape", waist="Flume Belt", legs="Mummu Kecks +2", feet="Jute Boots +1"
-	}
+		-- Idle sets
+		sets.idle =
+		{
+			ranged="Fomalhaut", ammo="Chrono Bullet",
+			head="Malignance Chapeau", neck="Warder's Charm +1", lear="Etiolation Earring", "Sanare Earring",
+			body="Malignance Tabard", hands="Malignance Gloves", lring="Defending Ring", rring="Gelatinous Ring +1",
+			back="Moonlight Cape", waist="Engraved Belt", legs="Malignance Tights",  feet="Jute Boots +1"
+			
+		}
 
-	sets.idle.DT = set_combine (sets.idle,
-	{
-		neck="Loricate Torque +1",
-		lring="Defending Ring", rring="Moonlight Ring",
-		waist="Carrier's Sash",
-	})
+		sets.idle.Town = set_combine(sets.idle,
+		{
+			feet="Jute Boots +1"
+		})
+		
+		sets.idle.Adoulin = set_combine(sets.idle,
+		{
+			body="Councilor's Garb"
+		})
 
-	sets.idle.Town = set_combine(sets.idle,
-	{
-		feet="Jute Boots +1"
-	})
-	
-	sets.idle.Adoulin = set_combine(sets.idle,
-	{
-		body="Councilor's Garb"
-	})
+		-- Defense sets
+		sets.defense.PDT = sets.idle
 
-	-- Defense sets
-	sets.defense.PDT = sets.idle.DT
+		sets.defense.MDT = sets.idle
 
-	sets.defense.MDT = sets.idle.DT
-
-	sets.Kiting = { feet="Jute Boots +1" }
+		sets.Kiting = { feet="Jute Boots +1" }
 	
 		sets.buff.Doom = 
 		{

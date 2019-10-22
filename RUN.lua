@@ -142,8 +142,8 @@ function init_gear_sets()
 		{
 			ammo="Seeth. Bomblet +1",
 			head=gear.HHead_MAB, neck="Sanctity Necklace", lear="Crematio Earring", rear="Friomisi Earring",
-			body="Samnuha Coat", hands="Carmine Fin. Ga. +1", lring={name="Shiva Ring +1", bag="wardrobe2"}, rring={name="Shiva Ring +1", bag="wardrobe3"},
-			back="Evasionist's Cape", waist="Orpheus's Sash", legs="Shneddick Tights +1", feet=gear.HBoots_TP
+			body="Carm. Sc. Mail +1", hands="Carmine Fin. Ga. +1", lring={name="Shiva Ring +1", bag="wardrobe2"}, rring={name="Shiva Ring +1", bag="wardrobe3"},
+			back="Evasionist's Cape", waist="Orpheus's Sash", legs="Shneddick Tights +1", feet="Adhemar Gamashes +1"
 		}
 
 		sets.precast.JA['Lunge'] = sets.precast.JA['Swipe']
@@ -162,7 +162,7 @@ function init_gear_sets()
 		
 		sets.precast.JA['Pflug'] = { feet="Runeist's Boots +2" }
 
-		sets.precast.JA['Battuta'] = { head="Fu. Bandeau +2" }
+		sets.precast.JA['Battuta'] = { head="Fu. Bandeau +3" }
 
 		sets.precast.JA['Liement'] = { body="Futhark Coat +3" }
 
@@ -264,7 +264,7 @@ function init_gear_sets()
 		sets.midcast.Phalanx =
 		{-- 28 + ((Enhancing Magic Skill - 300.5)/28.5) + 17 = 50
 			ammo="Staunch Tathlum +1",
-			head="Fu. Bandeau +2", neck="Incanter's Torque", lear="Andoaa Earring", rear="Odnowa Earring +1",
+			head="Fu. Bandeau +3", neck="Incanter's Torque", lear="Andoaa Earring", rear="Odnowa Earring +1",
 			body=gear.TBody_Phalanx, hands=gear.THands_Phalanx, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Moonlight Ring",
 			back="Merciful Cape", waist="Olympus Sash", legs=gear.TLegs_Phalanx, feet=gear.TFeet_Phalanx
 		}

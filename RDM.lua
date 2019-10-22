@@ -35,6 +35,7 @@ function user_setup()
 		'Crocea',
 		'Naegling',
 		'Tauret',
+		'Maxentius',
 		'Almace'
 	}
 	
@@ -274,7 +275,7 @@ function init_gear_sets()
 	---Enfeebling Magic
 		sets.midcast.Macc =
 		{
-			main="Crocea Mors", sub="Ammurapi Shield", range="Kaja Bow",
+			main="Crocea Mors", sub="Ammurapi Shield", range="Ullr",
 			head="Viti. Chapeau +3", neck="Dls. Torque +1", lear="Regal Earring", rear="Malignance Earring", 
 			body="Atrophy Tabard +3", hands="Kaykaus Cuffs +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back=gear.RDMCape_ENF, waist="Luminary Sash", legs="Chironic Hose", feet="Vitiation Boots +3"
@@ -361,14 +362,16 @@ function init_gear_sets()
 		sets.midcast['Elemental Magic'] =
 		{
 			main="Daybreak", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
-			head=gear.NukeHood, neck="Sanctity Necklace", lear="Regal Earring", rear="Malignance Earring", 
+			head="C. Palug Crown", neck="Sanctity Necklace", lear="Regal Earring", rear="Malignance Earring", 
 			body="Amalric Doublet +1", hands="Amalric Gages +1", lring={name="Shiva Ring +1", bag="wardrobe2"}, rring="Freke Ring",
 			back=gear.RDMCape_Nuke, waist="Sacro Cord", legs="Amalric Slops +1", feet="Amalric Nails +1"
 		}
 
 		sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'],
 		{
-			waist="Sacro Cord", legs="Jhakri Slops +2", feet="Vitiation Boots +3"
+			head="Ea Hat +1",
+			body="Ea Houppe. +1",
+			waist="Sacro Cord", legs="Ea Slops +1", feet="Vitiation Boots +3"
 		})
 
 		sets.midcast['Elemental Magic'].Potency = sets.midcast['Elemental Magic']
@@ -381,17 +384,17 @@ function init_gear_sets()
 		
 		sets.magic_burst =
 		{
-			main="Maxentius", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
-			head=gear.NukeHood, neck="Mizu. Kubikazari", lear="Regal Earring", rear="Static Earring",
-			body="Amalric Doublet +1", hands="Amalric Gages +1", lring="Mujin Band", rring="Freke Ring",
-			back=gear.RDMCape_Nuke, waist="Sacro Cord", legs="Merlinic Shalwar", feet=gear.NukeCrackows
+			main="Daybreak", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
+			head="Ea Hat +1", neck="Mizu. Kubikazari", lear="Regal Earring", rear="Malignance Earring",
+			body="Ea Houppe. +1", hands="Amalric Gages +1", lring="Mujin Band", rring="Freke Ring",
+			back=gear.RDMCape_Nuke, waist="Sacro Cord", legs="Ea Slops +1", feet="Ea Pigaches +1"
 		}
 		
 		sets.magic_burst.Resistant = set_combine(sets.magic_burst,
 		{
 			head="Atrophy Chapeau +3",
-			hands="Regal Cuffs",
-			waist="Sacro Cord", feet="Vitiation Boots +3"
+			hands="Regal Cuffs", rring="Locus Ring",
+			waist="Sacro Cord"
 		})
 	
 
@@ -470,7 +473,7 @@ function init_gear_sets()
 		sets.idle.Refresh = set_combine(sets.idle,
 		{--	DT: -11%	PDT: -11%	MDT:-11%	Refresh: 16~17
 			body="Jhakri Robe +2",
-			legs="Lengo Pants"
+			legs="Volte Brais"
 		})
 
 		sets.idle.Town = set_combine(sets.idle,
@@ -497,9 +500,9 @@ function init_gear_sets()
 		sets.defense.PDT =
 		{--	DT: -19%	PDT: -51%	MDT:-26%
 			ammo="Staunch Tathlum +1",
-			head="Malignance Chapeau", neck="Warder's Charm +1", lear="Etiolation Earring", rear="Sanare Earring",
+			head="Malignance Chapeau", neck="Warder's Charm +1", lear="Genmei Earring", rear="Sanare Earring",
 			body="Malignance Tabard", hands="Malignance Gloves", lring="Defending Ring", rring="Gelatinous Ring +1",
-			back="Moonlight Cape", waist="Flume Belt +1", legs="Malignance Tights", feet="Malignance Boots"
+			back="Moonlight Cape", waist="Flume Belt +1", legs="Carmine Cuisses +1", feet="Hippo. Socks +1"
 		}
 		
 		sets.defense.MDT = 
@@ -671,7 +674,7 @@ function init_gear_sets()
 	---Seraph Blade
 		sets.precast.WS['Seraph Blade'] = set_combine(sets.precast.WS['Sanguine Blade'],
 		{
-			head=gear.NukeHood,
+			head="C. Palug Crown",
 			lring="Weather. Ring +1"
 		})
 		
@@ -720,14 +723,28 @@ function init_gear_sets()
 	---Aeolian Edge
 		sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS['Sanguine Blade'],
 		{
-			head=gear.NukeHood, 
+			head="C. Palug Crown",
 			lring="Freke Ring",
 			back=gear.RDMCape_Nuke
 		})
 		
 	
 	--	***Clubs***
-	
+		sets.precast.WS['Shining Strike'] = sets.precast.WS['Seraph Blade']
+		
+		sets.precast.WS['Seraph Strike'] = sets.precast.WS['Seraph Blade']
+		
+		sets.precast.WS['Judgment'] = sets.precast.WS['Savage Blade']
+		
+		sets.precast.WS['Black Halo'] = sets.precast.WS['Savage Blade']
+
+
+	--	***Bow**
+		sets.precast.WS['Empyreal Arrow'] = set_combine(sets.precast.WS,
+		{
+			head="Malignance Chapeau", lear="Ishvara Earring",
+			body="Malignance Tabard", hands="Malignance Gloves", lring="Ilabrat Ring"
+		})
 
 
 	--------------------------------------
@@ -1183,8 +1200,8 @@ function init_gear_sets()
 		sets.engaged.DW3.Max.ENSPELLS =
 		{
 			ammo="Ginsen",
-			head="Malignance Chapeau", neck="Anu Torque", lear="Sherida Earring", rear="Dedition Earring",
-			body="Malignance Tabard", hands="Aya. Manopolas +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			head="Malignance Chapeau", neck="Anu Torque", lear="Sherida Earring", rear="Brutal Earring",
+			body="Malignance Tabard", hands="Aya. Manopolas +2", lring="Hetairoi Ring", rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.RDMCape_DW, waist="Orpheus's Sash", legs="Malignance Tights", feet="Malignance Boots"
 		}
 		
@@ -1407,8 +1424,9 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 		else
 			equip(set_combine(sets.magic_burst,
 			{
-				head=empty,
-				body="Twilight Cloak", rring="Archon Ring"
+				main="Maxentius",
+				head=empty, lear="Static Earring",
+				body="Twilight Cloak", rring="Locus Ring"
 			}))
 		end
 	elseif spell.skill == 'Elemental Magic' and state.MagicBurst.value and state.CastingMode.value == 'Resistant' then
@@ -1417,8 +1435,9 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 		else
 			equip(set_combine(sets.magic_burst.Resistant,
 			{
-				head=empty,
-				body="Twilight Cloak", rring="Archon Ring",
+				main="Maxentius",
+				head=empty, lear="Static Earring",
+				body="Twilight Cloak", rring="Locus Ring"
 			}))
 		end
 	end
@@ -1428,10 +1447,10 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 			equip
 			{
 				head="Pixie Hairpin +1",
-				lring="Archon Ring"
+				rring="Archon Ring"
 			}
 		else
-			equip { lring="Archon Ring" }
+			equip { rring="Archon Ring" }
 		end
 	end
 	

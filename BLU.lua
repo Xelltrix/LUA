@@ -45,7 +45,6 @@ function user_setup()
 	state.HybridMode:options('Normal', 'DT', 'DTMAX')
 	state.WeaponskillMode:options('Normal', 'Low', 'Mid', 'High')
 	state.IdleMode:options('Normal', 'DT', 'MEVA', 'Refresh')
-	state.MagicalDefenseMode:options('MEVA', 'MDT')
 	state.CastingMode:options('Normal','Alternate')
 
 	state.MainWeaponSet = M{['description']='Main Weapon Set',
@@ -180,7 +179,7 @@ function init_gear_sets()
 		sets.midcast.FC = set_combine(sets.precast.FC,
 		{--		Fast Cast: 66%(+15%)
 			lring="Kishar Ring",
-			legs="Aya. Cosciales +2", feet="Amalric Nails +1"
+			legs="Aya. Cosciales +2"
 		})
 
 		
@@ -222,11 +221,18 @@ function init_gear_sets()
 		})
 		
 		sets.midcast.Occultation = set_combine(sets.midcast.FC,
-		{--		Fast Cast: 34%(+15%)	Blue Magic Recast Delay: -14%
+		{--		Fast Cast: 31%(+15%)	Blue Magic Recast Delay: -14%
 			ammo="Mavi Tathlum",
-			neck="Mirage Stole +2", lear="Gwati Earring", rear="Mendi. Earring",
-			body="Assim. Jubbah +3", hands="Hashi. Bazu. +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Cornflower Cape", legs="Hashishin Tayt +1", feet="Carmine Greaves +1"
+			head="Luh. Keffiyeh +3", neck="Mirage Stole +2",
+			body="Assim. Jubbah +3", hands="Hashi. Bazu. +1", lring={name="Stikini Ring +1", bag="wardrobe2"},
+			back="Cornflower Cape", legs="Hashishin Tayt +1", feet="Luhlaza Charuqs +3"
+		})
+		
+		sets.midcast.Occultation.Alternate = set_combine(sets.midcast.FC,
+		{--		Fast Cast: 31%(+15%)	Blue Magic Recast Delay: -14%
+			neck="Mirage Stole +2",
+			body="Assim. Jubbah +3", hands="Hashi. Bazu. +1",
+			back="Cornflower Cape", legs="Hashishin Tayt +1"
 		})
 
 		sets.midcast.Buffs = set_combine(sets.midcast.ConserveMP,
@@ -255,16 +261,25 @@ function init_gear_sets()
 		sets.midcast.Cures =
 		{--		Cure Potency: 50%
 			ammo="Staunch Tathlum +1",
-			head="Carmine Mask +1", neck="Incanter's Torque", lear="Gwati Earring", rear="Beatific Earring",
+			head="Carmine Mask +1", neck="Incanter's Torque", lear="Healing Earring", rear="Beatific Earring",
 			body="Pinga Tunic", hands=gear.ENH_Gloves, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Oretan. Cape +1", waist="Bishop's Sash", legs="Pinga Pants", feet="Medium's Sabots"
 		}
+		
+		sets.midcast.Cures.Alternate = set_combine(sets.midcast.Cures,
+		{
+			head="Malignance Chapeau", neck="Loricate Torque +1", lear="Genmei Earring", rear="Mendi. Earring",
+			hands="Malignance Gloves", lring="Defending Ring", rring="Menelaus's Ring",
+			waist="Flume Belt +1"
+			
+		})
 
 		sets.midcast['White Wind'] = set_combine(sets.midcast.Cures,
-		{--		Cure Potency: 47%
-			head="Luh. Keffiyeh +3", neck="Sanctity Necklace", lear="Odnowa Earring +1", rear="Mendi. Earring",
-			lring="Lebeche Ring", rring="Ilabrat Ring",
-			back="Moonlight Cape"
+		{--		Cure Potency: 49%
+			ammo="Pemphredo Tathlum",
+			head="Luh. Keffiyeh +3", neck="Sanctity Necklace", lear="Etiolation Earring", ar="Odnowa Earring +1",
+			lring="Eihwaz Ring", rring="Menelaus's Ring",
+			back="Moonlight Cape", waist="Gishdubar Sash"
 		})
 		
 		sets.midcast.StatusRemoval = sets.midcast.FC
@@ -288,7 +303,7 @@ function init_gear_sets()
 		sets.midcast.Physical =
 		{
 			ammo="Floestone",
-			head="Luh. Keffiyeh +3", neck="Mirage Stole +2", lear="Telos Earring", rear="Tati Earring",
+			head="Luh. Keffiyeh +3", neck="Mirage Stole +2", lear="Telos Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Luhlaza Jubbah +3", hands="Luh. Bazubands +3", lring="Ilabrat Ring", rring="Shukuyu Ring",
 			back=gear.BLUCape_WSD, waist="Prosilio Belt +1", legs="Jhakri Slops +2", feet="Luhlaza Charuqs +3"
 		}
@@ -320,8 +335,6 @@ function init_gear_sets()
 			head="Assim. Keffiyeh +3",
 			legs="Luhlaza Shalwar +3"
 		})
-	
-		sets.midcast['Silent Storm'].Alternate = sets.midcast.Debuffs
 		
 	
 		sets.midcast['Searing Tempest'] = set_combine(sets.midcast.Magical,
@@ -564,24 +577,17 @@ function init_gear_sets()
 		sets.defense.PDT =
 		{--		DT: -40%	PDT: -51%	MDT: -44%
 			ammo="Staunch Tathlum +1",
-			head=gear.AHead_PDT, neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
+			head="Malignance Chapeau", neck="Loricate Torque +1", lear="Genmei Earring", rear="Odnowa Earring +1",
 			body="Malignance Tabard", hands="Malignance Gloves", lring="Defending Ring", rring="Gelatinous Ring +1",
-			back=gear.BLUCape_Nuke, waist="Carrier's Sash", legs="Carmine Cuisses +1", feet="Hippo. Socks +1"
+			back="Moonlight Cape", waist="Carrier's Sash", legs="Carmine Cuisses +1", feet="Hippo. Socks +1"
 		}
 
 		sets.defense.MDT = set_combine(sets.defense.PDT,
 		{--		DT: -36%	PDT: -45%	MDT: -46%
-			head="Malignance Chapeau", rear="Odnowa Earring +1",
+			head="Malignance Chapeau", neck="Warder's Charm +1", lear="Eabani Earring", rear="Sanare Earring",
 			rring="Shukuyu Ring",
-			back="Reiki Cloak", legs="Malignance Tights", feet="Malignance Boots"
+			legs="Malignance Tights", feet="Malignance Boots"
 		})
-		
-		sets.defense.MEVA = set_combine(sets.defense.MDT,
-		{--		DT: -24%	PDT: -24%	MDT: -31%
-			neck="Warder's Charm +1", lear="Eabani Earring", rear="Sanare Earring",
-			hands="Malignance Gloves"
-		})
-
 
 
 
@@ -1631,9 +1637,9 @@ function init_gear_sets()
 		sets.engaged.DW2.Max.AM3 =
 		{
 			ammo="Ginsen",
-			head="Malignance Chapeau", neck="Mirage Stole +2", lear="Eabani Earring", rear="Dedition Earring",
-			body="Malignance Tabard", hands="Malignance Gloves", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
-			back=gear.BLUCape_DW, waist="Reiki Yotai", legs="Malignance Tights", feet="Malignance Boots"
+			head=gear.AHead_TP, neck="Mirage Stole +2", lear="Telos Earring", rear="Suppanomimi",
+			body="Adhemar Jacket +1", hands="Malignance Gloves", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			back=gear.BLUCape_DW, waist="Windbuffet Belt +1", legs="Malignance Tights", feet="Malignance Boots"
 		}
 
 		-----------------------------------------------------------------------------------
@@ -1692,9 +1698,9 @@ function init_gear_sets()
 		sets.engaged.DW3.Max.AM3 =
 		{
 			ammo="Ginsen",
-			head="Dampening Tam", neck="Mirage Stole +2", lear="Eabani Earring", rear="Dedition Earring",
-			body="Malignance Tabard", hands="Malignance Gloves",  lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
-			back=gear.BLUCape_STP, waist="Reiki Yotai", legs="Malignance Tights", feet="Malignance Boots"
+			head="Dampening Tam", neck="Mirage Stole +2", lear="Brutal Earring", rear="Suppanomimi",
+			body="Adhemar Jacket +1", hands="Malignance Gloves",  lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			back=gear.BLUCape_STP, waist="Windbuffet Belt +1", legs="Malignance Tights", feet="Malignance Boots"
 		}
 
 		-----------------------------------------------------------------------------------
@@ -1754,8 +1760,8 @@ function init_gear_sets()
 		{
 			ammo="Ginsen",
 			head="Malignance Chapeau", neck="Mirage Stole +2", lear="Telos Earring", rear="Dedition Earring",
-			body="Malignance Tabard", hands="Malignance Gloves", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
-			back=gear.BLUCape_STP, waist="Reiki Yotai", legs="Malignance Tights", feet="Malignance Boots"
+			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1",  lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			back=gear.BLUCape_STP, waist="Windbuffet Belt +1", legs="Malignance Tights", feet="Malignance Boots"
 		}
 
 		-----------------------------------------------------------------------------------
@@ -2402,7 +2408,7 @@ function job_state_change(stateField, newValue, oldValue)
 end
 
 function customize_idle_set(idleSet)
-    if player.mpp < 51 then
+    if player.mpp < 51 and state.IdleMode.value ~= 'DT' and state.DefenseMode.value == 'None' then
         idleSet = set_combine(idleSet,
 		{
 			body="Jhakri Robe +2",

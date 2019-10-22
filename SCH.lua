@@ -119,7 +119,7 @@ function init_gear_sets()
 			ammo="Pemphredo Tathlum",
 			head="Vanya Hood", neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
 			body="Kaykaus Bliaut", lring="Kishar Ring",
-			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Lengo Pants", feet=gear.NukeCrackows
+			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Lengo Pants", feet="Medium's Sabots"
 		})
 
 		sets.midcast.Duration =
@@ -240,8 +240,8 @@ function init_gear_sets()
 	---Enfeebling Magic
 		sets.midcast.Macc =
 		{
-			main="Maxentius", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
-			head="Acad. Mortar. +3", neck="Erra Pendant", lear="Regal Earring", rear="Digni. Earring",
+			main="Daybreak", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
+			head="Acad. Mortar. +3", neck="Erra Pendant", lear="Regal Earring", rear="Malignance Earring",
 			body="Acad. Gown +3", hands="Kaykaus Cuffs +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back=gear.SCHCape_ENF, waist="Luminary Sash", legs="Chironic Hose", feet="Acad. Loafers +3"
 		}
@@ -277,7 +277,7 @@ function init_gear_sets()
 
 		sets.midcast.Sap = set_combine(sets.midcast['Dark Magic'],
 		{
-			head="Pixie Hairpin +1", lear="Barkaro. Earring",
+			head="Pixie Hairpin +1", lear="Hirudinea Earring",
 			body="Chironic Doublet", hands="Acad. Bracers +3", lring="Archon Ring", rring="Evanescence Ring",
 			waist="Fucho-no-Obi", feet=gear.NukeCrackows
 		})
@@ -301,7 +301,7 @@ function init_gear_sets()
 
 		sets.midcast.Stun =
 		{
-			main="Maxentius", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
+			main="Daybreak", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head="Amalric Coif +1", neck="Orunmila's Torque", lear="Digni. Earring", rear="Barkaro. Earring",
 			body="Shango Robe", hands="Acad. Bracers +3", lring="Kishar Ring", rring="Weather. Ring +1",
 			back=gear.SCHCape_ENF, waist="Witful Belt", legs="Peda. Pants +3", feet="Peda. Loafers +3"
@@ -317,7 +317,7 @@ function init_gear_sets()
 	---Elemental Magic
 		sets.midcast['Elemental Magic'] =
 		{
-			main="Maxentius", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
+			main="Daybreak", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head="Peda. M.Board +3", neck="Sanctity Necklace", lear="Regal Earring", rear="Barkaro. Earring",
 			body="Amalric Doublet +1", hands="Amalric Gages +1", lring="Freke Ring", rring={name="Shiva Ring +1", bag="wardrobe3"},
 			back=gear.SCHCape_Nuke, waist="Sacro Cord", legs="Amalric Slops +1", feet="Amalric Nails +1"
@@ -356,14 +356,14 @@ function init_gear_sets()
 		
 		---Magic Burst
 		sets.magic_burst = set_combine(sets.midcast['Elemental Magic'],
-		{--		Magic Burst: +42%	Magic Burst II: +10%
+		{--		Magic Burst: +41%	Magic Burst II: +10%
 			neck="Mizu. Kubikazari", rear="Static Earring",
 			lring="Locus Ring", rring="Mujin Band",
-			legs="Merlinic Shalwar", feet="Jhakri Pigaches +2"
+			legs="Merlinic Shalwar", feet=gear.NukeCrackows
 		})
 		
 		sets.magic_burst.Resistant = set_combine(sets.magic_burst,
-		{--		Magic Burst: 42%	Magic Burst II: +4%
+		{--		Magic Burst: 41%	Magic Burst II: +4%
 			rrear="Barkaro. Earring",
 			body="Acad. Gown +3", hands="Regal Cuffs", lring="Freke Ring",
 			waist="Sacro Cord"
@@ -386,7 +386,7 @@ function init_gear_sets()
 			main="Akademos", sub="Khonsu", ammo="Homiliary",
 			head="Befouled Crown", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 			body="Acad. Gown +3", hands="Chironic Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Moonlight Cape", waist="Carrier's Sash", legs="Assid. Pants +1", feet="Chironic Slippers"
+			back="Moonlight Cape", waist="Carrier's Sash", legs="Volte Brais", feet="Chironic Slippers"
 		}
 
 		sets.idle.DT = set_combine(sets.idle,
@@ -429,8 +429,8 @@ function init_gear_sets()
 		{--	DT: -27%	PDT: -44%	MDT:-22%
 			main="Akademos", sub="Irenic Strap +1", ammo="Staunch Tathlum +1",
 			head="Peda. M.Board +3", neck="Warder's Charm +1", lear="Etiolation Earring", rear="Sanare Earring",
-			body="Peda. Gown +3", hands="Peda. Bracers +3", lring="Defending Ring", rring="Shukuyu Ring",
-			back="Moonlight Cape", waist="Carrier's Sash", legs="Peda. Pants +3", feet="Amalric Nails +1"
+			body="Pinga Tunic", hands="Volte Bracers, lring="Defending Ring", rring="Shukuyu Ring",
+			back="Moonlight Cape", waist="Carrier's Sash", legs="Volte Brais", feet="Amalric Nails +1"
 		}
 		
 		sets.defense.MDT =
@@ -587,39 +587,45 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 	-- Equips appropriate Magic Burst gear depending on spell, element of spell, and casting mode.
 	if (spell.skill == 'Elemental Magic' or spell.english == 'Kaustra') and state.MagicBurst.value and state.CastingMode.value ~= 'Resistant' then
 		-- Equipping gear for basic magic burst set with modifications for spell and spell element.
-		if spell.element ~= 'Dark' then
+		if spell.element ~= 'Dark' and spell.element ~= 'Light' then
 			equip(sets.magic_burst)
 		elseif spell.element == 'Dark' and spell.english ~= 'Impact' then
 			equip(set_combine(sets.magic_burst,
 			{
 				head="Pixie Hairpin +1",
-				lring="Archon Ring",
-				feet=gear.NukeCrackows
+				lring="Archon Ring"
+			}))
+		elseif spell.element == 'Light' then
+			equip(set_combine(sets.magic_burst,
+			{
+				lring="Mujin Band", rring="Weather. Ring +1"
 			}))
 		else
 			equip(set_combine(sets.magic_burst,
 			{
 				head=empty,
-				body="Twilight Cloak", lring="Archon Ring",
-				feet=gear.NukeCrackows
+				body="Twilight Cloak", lring="Archon Ring"
 			}))
 		end
 	elseif (spell.skill == 'Elemental Magic' or spell.english == 'Kaustra') and state.MagicBurst.value and state.CastingMode.value == 'Resistant' then
 		--Equipping gear for resistant magic burst set with modifications for spell and spell element.
-		if spell.element ~= 'Dark' then
+		if spell.element ~= 'Dark' and spell.element ~= 'Light' then
 			equip(sets.magic_burst.Resistant)
 		elseif spell.element == 'Dark' and spell.english ~= 'Impact' then
 			equip(set_combine(sets.magic_burst.Resistant,
 			{
-				lring="Archon Ring",
-				feet=gear.NukeCrackows
+				lring="Archon Ring"
+			}))
+		elseif spell.element == 'Light' then
+			equip(set_combine(sets.magic_burst,
+			{
+				lring="Mujin Band", rring="Weather. Ring +1"
 			}))
 		else
 			equip(set_combine(sets.magic_burst.Resistant,
 			{
 				head=empty,
-				body="Twilight Cloak", lring="Archon Ring",
-				feet=gear.NukeCrackows
+				body="Twilight Cloak", lring="Archon Ring"
 			}))
 		end
 	end
