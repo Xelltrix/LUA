@@ -505,7 +505,7 @@ function init_gear_sets()
 			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Piety Pantaln. +2", feet="Kaykaus Boots +1"
 		}
 		
-		sets.precastWS['Mystic Boon'] = set_combine(sets.precast.WS,
+		sets.precast.WS['Mystic Boon'] = set_combine(sets.precast.WS,
 		{
 			lear="Regal Earring", rear="Moonshade Earring",
 			body="Piety Briault +3", hands="Theophany Mitts +3", lring={name="Stikini Ring +1", bag="wardrobe2"},
