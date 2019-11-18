@@ -639,6 +639,8 @@ function init_gear_sets()
 	--	***Swords***
 	
 		--Tizona/Almace TP: 80/h		Almace/Naegling TP:79/h		(DW3 STP25 or DW4 STP30)
+		
+	--Chant du Cygne
 		sets.precast.WS['Chant du Cygne'] = set_combine(sets.precast.WS,
 		{
 			ammo="Falcon Eye",
@@ -1715,7 +1717,7 @@ function init_gear_sets()
 		sets.engaged.DW3.Max.AM3 =
 		{
 			ammo="Ginsen",
-			head="Dampening Tam", neck="Mirage Stole +2", lear="Brutal Earring", rear="Suppanomimi",
+			head="Dampening Tam", neck="Mirage Stole +2", lear="Telos Earring", rear="Suppanomimi",
 			body="Adhemar Jacket +1", hands="Malignance Gloves",  lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.BLUCape_STP, waist="Windbuffet Belt +1", legs="Malignance Tights", feet="Malignance Boots"
 		}

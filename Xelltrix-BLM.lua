@@ -49,7 +49,7 @@ function init_gear_sets()
 	------------------- 
 		sets.precast.FC =
 		{--Fast Cast 74
-			main="Sucellus", sub="Chanter's Shield", ammo="Sapience Orb",
+			ammo="Sapience Orb",
 			head="Amalric Coif +1", neck="Orunmila's Torque", lear="Malignance Earring", rear="Loquac. Earring",
 			body="Shango Robe", hands=gear.ENH_Gloves, lring="Kishar Ring", rring="Weather. Ring +1",
 			back=gear.BLMCape_FC, waist="Witful Belt", legs="Volte Brais", feet="Amalric Nails +1"
@@ -84,7 +84,7 @@ function init_gear_sets()
 		
 		sets.precast.FC.Dispelga = set_combine(sets.precast.FC,
 		{
-			main="Daybreak"
+			main="Daybreak", sub="Chanter's Shield"
 		})
 		
 
@@ -130,25 +130,16 @@ function init_gear_sets()
 	-- Healing Midcast sets
 	--------------------------------------	
 	
-		--Cure Potency: 50%
 		sets.midcast.Cures =
-		{
-			main="Daybreak", sub="Sors Shield", ammo="Esper Stone +1",
-			head="Vanya Hood", neck="Lasaia Pendant", lear="Beatific Earring", rear="Novia Earring",
-			body="Vanya Robe", hands="Vanya Cuffs", lring="Lebeche Ring", rring="Kuchekula Ring",
-			back=gear.BLMCape_FC, waist="Bishop's Sash", legs="Vanya Slops", feet="Vanya Clogs"
+		{--Cure Potency: 49%
+			mmo="Esper Stone +1",
+			head="Vanya Hood", neck="Incanter's Torque", lear="Beatific Earring", rear="Mendi. Earring",
+			body="Vanya Robe", hands=gear.ENH_Gloves, lring="Lebeche Ring", rring="Menelaus's Ring",
+			back="Oretan. Cape +1", waist="Bishop's Sash", legs="Vanya Slops", feet="Medium's Sabots"
 		}
 		
 		sets.midcast.Curaga = sets.midcast.Cures
 
-
-		sets.midcast.CuresLocked =
-		{
-			ammo="Esper Stone +1",
-			head="Vanya Hood", neck="Lasaia Pendant", lear="Novia Earring", rear="Mendi. Earring",
-			body="Vanya Robe", hands=gear.ENH_Gloves, lring="Lebeche Ring", rring="Menelaus's Ring",
-			back="Oretan. Cape +1",  waist="Bishop's Sash", legs="Vanya Slops", feet="Vanya Clogs"
-		}
 
 		sets.midcast.Cursna =
 		{
@@ -203,7 +194,7 @@ function init_gear_sets()
 	---Enfeebling
 		sets.midcast.Macc =
 		{
-			main="Maxentius", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
+			main="Daybreak", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head="C. Palug Crown", neck="Erra Pendant", lear="Malignance Earring", rear="Barkaro. Earring",
 			body="Ea Houppe. +1", hands="Regal Cuffs", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Taranus's Cape", waist="Luminary Sash", legs="Ea Slops +1", feet="Ea Pigaches +1"
@@ -375,7 +366,7 @@ function init_gear_sets()
 
 		sets.idle.DT = set_combine(sets.idle,
 		{--Regen+0 | Refresh+6~7 | PDT/MDT: (38/40)
-			neck="Loricate Torque +1",  lear="Genmei Earring", rear="Odnowa Earring +1",
+			neck="Loricate Torque +1",  lear="Genmei Earring", rrear="Lugalbanda Earring",
 			lring="Defending Ring", rring="Gelatinous Ring +1"
 		})
 
@@ -413,7 +404,7 @@ function init_gear_sets()
 		sets.defense.PDT =
 		{--PDT: 51 / MDT: 42
 			sub="Khonsu", ammo="Staunch Tathlum +1",
-			head="Ea Hat +1", neck="Loricate Torque +1",  lear="Genmei Earring", rear="Sanare Earring",
+			head="Ea Hat +1", neck="Loricate Torque +1",  lear="Genmei Earring", rear="Lugalbanda Earring",
 			body="Mallquis Saio +2", hands="Volte Bracers", lring="Defending Ring", rring="Gelatinous Ring +1",
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Artsieq Hose", feet="Hippo. Socks +1"
 		}
@@ -429,7 +420,7 @@ function init_gear_sets()
 		sets.defense.MEVA =
 		{--MDT: 46 / PDT: 31
 			main="Lathi", sub="Khonsu", ammo="Staunch Tathlum +1",
-			head="Ea Hat +1", neck="Warder's Charm +1", lear="Eabani Earring", rear="Sanare Earring",
+			head="Ea Hat +1", neck="Warder's Charm +1", lear="Eabani Earring", rear="Lugalbanda Earring",
 			body="Ea Houppe. +1", hands="Volte Bracers", lring="Defending Ring", rring="Shukuyu Ring",
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Ea Slops +1", feet="Ea Pigaches +1"
 		}
@@ -518,10 +509,6 @@ end
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
 function job_post_midcast(spell, action, spellMap, eventArgs)
 	if spellMap == 'Cures' or spellMap == 'Curagas' then
-		if state.WeaponLock.value == true then
-			equip(sets.midcast.CuresLocked)
-		end
-	
 		if spell.target.type =='SELF' then 
 			equip { waist="Gishdubar Sash"}
 		end

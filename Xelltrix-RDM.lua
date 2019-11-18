@@ -36,7 +36,8 @@ function user_setup()
 		'Naegling',
 		'Tauret',
 		'Maxentius',
-		'Almace'
+		'Almace',
+		'Norgish'
 	}
 	
 	state.SubWeaponSet = M{['description']='Sub Weapon Set',
@@ -44,7 +45,8 @@ function user_setup()
 		'Daybreak',
 		'subAlmace',
 		'subNaegling',
-		'Thibron'
+		'Thibron',
+		'Qutrub'
 	}
 
 
@@ -155,11 +157,11 @@ function init_gear_sets()
 	--------------------------------------	
 	
 		sets.midcast.Cures =
-		{-- 		Cure Potency: 52%		Enmity: -55		Healing Magic Skill: +36
+		{-- 		Cure Potency: 55%		Enmity: -49		Healing Magic Skill: +50
 			ammo="Esper Stone +1",
-			head="Kaykaus Mitra +1", neck="Lasaia Pendant", lear="Novia Earring", rear="Mendi. Earring",
-			body="Kaykaus Bliaut", hands="Kaykaus Cuffs +1", lring="Lebeche Ring", rring="Kuchekula Ring",
-			back="Ghostfyre Cape", waist="Bishop's Sash", legs="Kaykaus Tights +1", feet="Vanya Clogs"
+			head="Kaykaus Mitra +1", neck="Incanter's Torque", lear="Beatific Earring", rear="Novia Earring",
+			body="Kaykaus Bliaut +1", hands="Kaykaus Cuffs +1", lring="Kuchekula Ring", rring="Menelaus's Ring",
+			back=gear.RDMCape_ENF, waist="Bishop's Sash", legs="Kaykaus Tights +1", feet="Kaykaus Boots +1"
 		}
 
 		sets.midcast.Curagas = sets.midcast.Cures
@@ -431,6 +433,8 @@ function init_gear_sets()
 		sets.Tauret = { main="Tauret" }
 			
 		sets.Almace = { main="Almace" }
+		
+		sets.Norgish = { main="Norgish Dagger" }
 	
 	
 		sets.subNaegling = { sub="Naegling" }
@@ -442,6 +446,8 @@ function init_gear_sets()
 		sets.subAlmace = { sub="Almace" }
 		
 		sets.Thibron = { sub="Thibron" }
+		
+		sets.Qutrub = { sub="Qutrub Knife" }
 		
 	
 	------------------------------------------------------------------------------------------------
@@ -778,6 +784,14 @@ function init_gear_sets()
 			body="Malignance Tabard", hands="Aya. Manopolas +2", lring="Hetairoi Ring", rring="Ilabrat Ring",
 			back=gear.RDMCape_STP, waist="Orpheus's Sash", legs="Malignance Tights", feet="Malignance Boots"
 		}
+		
+		sets.engaged.NOTP =
+		{
+			sub="Genmei Shield", ammo="Ginsen",
+			head="Malignance Chapeau", neck="Dls. Torque +1", lear="Digni. Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
+			body="Malignance Tabard", hands="Aya. Manopolas +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			back=gear.RDMCape_STP, waist="Orpheus's Sash", legs="Malignance Tights", feet="Malignance Boots"
+		}
 
 		-----------------------------------------------------------------------------------
 		---	TP/h:104	(STP:39		QA:2%	TA:8%	DA:24%)
@@ -841,6 +855,14 @@ function init_gear_sets()
 			body="Malignance Tabard", hands="Aya. Manopolas +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.RDMCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet=gear.TFeet_TP
 		}
+		
+		sets.engaged.DW2.NOTP =
+		{
+			ammo="Ginsen",
+			head="Malignance Chapeau", neck="Dls. Torque +1", lear="Eabani Earring", rear="Suppanomimi",
+			body="Malignance Tabard", hands="Aya. Manopolas +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			back=gear.RDMCape_DW, waist="Reiki Yotai", legs="Malignance Tights", feet="Malignance Boots"
+		}
 
 		-----------------------------------------------------------------------------------
 		---	TP/h:63		(DW:36	STP:29		QA:0%	TA:4%	DA:7%)
@@ -903,6 +925,14 @@ function init_gear_sets()
 			body="Malignance Tabard", hands="Aya. Manopolas +2", lring="Hetairoi Ring", rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.RDMCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet=gear.TFeet_TP
 		}
+		
+		sets.engaged.DW3.NOTP =
+		{
+			ammo="Ginsen",
+			head="Malignance Chapeau", neck="Dls. Torque +1", lear="Eabani Earring", rear="Suppanomimi",
+			body="Malignance Tabard", hands="Aya. Manopolas +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			back=gear.RDMCape_DW, waist="Reiki Yotai", legs="Malignance Tights", feet="Malignance Boots"
+		}
 
 		-----------------------------------------------------------------------------------
 		---	TP/h:58		(DW:36	STP:29		QA:0%	TA:4%	DA:7%)
@@ -954,6 +984,14 @@ function init_gear_sets()
 		sets.engaged.DW2.Min = sets.engaged.DW2
 		
 		sets.engaged.DW2.Min.ENSPELLS = sets.engaged.DW2.ENSPELLS
+		
+		sets.engaged.DW2.Min.NOTP =
+		{
+			ammo="Ginsen",
+			head="Malignance Chapeau", neck="Dls. Torque +1", lear="Eabani Earring", rear="Suppanomimi",
+			body="Malignance Tabard", hands="Aya. Manopolas +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			back=gear.RDMCape_DW, waist="Reiki Yotai", legs="Malignance Tights", feet="Malignance Boots"
+		}
 
 		-----------------------------------------------------------------------------------
 		---	TP/h:63		(DW:36	STP:29		QA:0%	TA:4%	DA:7%)
@@ -992,6 +1030,14 @@ function init_gear_sets()
 		sets.engaged.DW3.Min = sets.engaged.DW3
 		
 		sets.engaged.DW3.Min.ENSPELLS = sets.engaged.DW3.ENSPELLS
+		
+		sets.engaged.DW3.Min.NOTP =
+		{
+			ammo="Ginsen",
+			head="Malignance Chapeau", neck="Dls. Torque +1", lear="Eabani Earring", rear="Suppanomimi",
+			body="Malignance Tabard", hands="Aya. Manopolas +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			back=gear.RDMCape_DW, waist="Reiki Yotai", legs="Malignance Tights", feet="Malignance Boots"
+		}
 
 		-----------------------------------------------------------------------------------
 		---	TP/h:58		(DW:36	STP:29		QA:0%	TA:4%	DA:7%)
@@ -1033,6 +1079,14 @@ function init_gear_sets()
 		sets.engaged.DW2.Med = sets.engaged.DW2.Min
 		
 		sets.engaged.DW2.Med.ENSPELLS = sets.engaged.DW2.Min.ENSPELLS
+		
+		sets.engaged.DW2.Med.NOTP =
+		{
+			ammo="Ginsen",
+			head="Malignance Chapeau", neck="Dls. Torque +1", lear="Eabani Earring", rear="Suppanomimi",
+			body="Malignance Tabard", hands="Aya. Manopolas +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			back=gear.RDMCape_DW, waist="Reiki Yotai", legs="Malignance Tights", feet="Malignance Boots"
+		}
 
 		-----------------------------------------------------------------------------------
 		---	TP/h:63		(DW:36	STP:29		QA:0%	TA:4%	DA:7%)
@@ -1084,6 +1138,14 @@ function init_gear_sets()
 			back=gear.RDMCape_DW, waist="Orpheus's Sash", legs="Carmine Cuisses +1", feet=gear.TFeet_TP
 		}
 		
+		sets.engaged.DW3.Med.NOTP =
+		{
+			ammo="Ginsen",
+			head="Malignance Chapeau", neck="Dls. Torque +1", lear="Eabani Earring", rear="Suppanomimi",
+			body="Malignance Tabard", hands="Aya. Manopolas +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			back=gear.RDMCape_DW, waist="Reiki Yotai", legs="Malignance Tights", feet="Malignance Boots"
+		}
+		
 		-----------------------------------------------------------------------------------
 		---	TP/h:65		(DW:32	STP:39		QA:0%	TA:2%	DA:13%)
 		---	Primary Accuracy: 1160 		/ Primary Attack: 1018
@@ -1113,7 +1175,7 @@ function init_gear_sets()
 			lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
 			waist="Kentarch Belt +1"
 		})
-
+		
 	
 	
 	----------------------------------------------------------
@@ -1143,6 +1205,14 @@ function init_gear_sets()
 			head="Carmine Mask +1", neck="Anu Torque", lear="Sherida Earring", rear="Suppanomimi",
 			body="Malignance Tabard", hands="Aya. Manopolas +2", lring="Hetairoi Ring", rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.RDMCape_DW, waist="Orpheus's Sash", legs="Carmine Cuisses +1", feet="Malignance Boots"
+		}
+		
+		sets.engaged.DW2.Max.NOTP =
+		{
+			ammo="Ginsen",
+			head="Malignance Chapeau", neck="Dls. Torque +1", lear="Eabani Earring", rear="Suppanomimi",
+			body="Malignance Tabard", hands="Aya. Manopolas +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			back=gear.RDMCape_DW, waist="Orpheus's Sash", legs="Malignance Tights", feet="Malignance Boots"
 		}
 		
 		-----------------------------------------------------------------------------------
@@ -1206,6 +1276,14 @@ function init_gear_sets()
 			back=gear.RDMCape_DW, waist="Orpheus's Sash", legs="Malignance Tights", feet="Malignance Boots"
 		}
 		
+		sets.engaged.DW3.Max.NOTP =
+		{
+			ammo="Ginsen",
+			head="Malignance Chapeau", neck="Dls. Torque +1", lear="Digni. Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
+			body="Malignance Tabard", hands="Aya. Manopolas +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			back=gear.RDMCape_DW, waist="Orpheus's Sash", legs="Malignance Tights", feet="Malignance Boots"
+		}
+		
 		-----------------------------------------------------------------------------------
 		---	TP/h:78		(DW:10	STP:40		QA:2%	TA:8%	DA:18%)
 		---	Primary Accuracy: 1121 		/ Primary Attack: 945
@@ -1236,7 +1314,6 @@ function init_gear_sets()
 			lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
 			waist="Kentarch Belt +1"
 		})
-
 
 
 
@@ -1481,7 +1558,8 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 	
 	
 	
-	if state.TreasureMode.value ~= 'None' and spellMap == 'Static' and spell.target.type == 'MONSTER' then
+	if state.TreasureMode.value ~= 'None' and (spell.English == 'Poisonga' or spell.English == 'Diaga' or spell.English == 'Poison' or spell.English == 'Dia') 
+			and spell.target.type == 'MONSTER' then
 		equip(sets.TreasureHunter)
 	end
 end
@@ -1494,9 +1572,13 @@ function job_aftercast(spell,action, spellMap, eventArgs)
 		equip(sets[state.SubWeaponSet.current])
 	end
 	
-	if (buffactive[94] or buffactive[95] or buffactive[96] or buffactive[97] or buffactive[98] or buffactive[99]) 
-			and player.equipment.main == "Crocea Mors" then
-		classes.CustomMeleeGroups:append('ENSPELLS')
+	if (buffactive[94] or buffactive[95] or buffactive[96] or buffactive[97] or buffactive[98] or buffactive[99]) then
+		if player.equipment.main == "Crocea Mors" then
+			classes.CustomMeleeGroups:append('ENSPELLS')
+		elseif player.equipment.main == "Norgish Dagger" then
+			classes.CustomMeleeGroups:append('NOTP')
+		end
+		
 		handle_equipping_gear(player.status)
 	end
 end
@@ -1521,9 +1603,13 @@ function job_buff_change(buff,gain)
         end
     end
 	
-	if (buffactive[94] or buffactive[95] or buffactive[96] or buffactive[97] or buffactive[98] or buffactive[99]) 
-			and player.equipment.main == "Crocea Mors" then
-		classes.CustomMeleeGroups:append('ENSPELLS')
+	if (buffactive[94] or buffactive[95] or buffactive[96] or buffactive[97] or buffactive[98] or buffactive[99]) then
+		if player.equipment.main == "Crocea Mors" then
+			classes.CustomMeleeGroups:append('ENSPELLS')
+		elseif player.equipment.main == "Norgish Dagger" then
+			classes.CustomMeleeGroups:append('NOTP')
+		end
+		
 		handle_equipping_gear(player.status)
 	end
 end
@@ -1540,9 +1626,13 @@ function job_status_change(new_status, old_status)
 		update_combat_form()
 	end
 	
-	if (buffactive[94] or buffactive[95] or buffactive[96] or buffactive[97] or buffactive[98] or buffactive[99]) 
-			and player.equipment.main == "Crocea Mors" then
-		classes.CustomMeleeGroups:append('ENSPELLS')
+	if (buffactive[94] or buffactive[95] or buffactive[96] or buffactive[97] or buffactive[98] or buffactive[99]) then
+		if player.equipment.main == "Crocea Mors" then
+			classes.CustomMeleeGroups:append('ENSPELLS')
+		elseif player.equipment.main == "Norgish Dagger" then
+			classes.CustomMeleeGroups:append('NOTP')
+		end
+		
 		handle_equipping_gear(player.status)
 	end
 end
@@ -1555,9 +1645,13 @@ function job_state_change(stateField, newValue, oldValue)
 		equip(sets[state.SubWeaponSet.current])
 	end
 	
-	if (buffactive[94] or buffactive[95] or buffactive[96] or buffactive[97] or buffactive[98] or buffactive[99]) 
-			and player.equipment.main == "Crocea Mors" then
-		classes.CustomMeleeGroups:append('ENSPELLS')
+	if (buffactive[94] or buffactive[95] or buffactive[96] or buffactive[97] or buffactive[98] or buffactive[99]) then
+		if player.equipment.main == "Crocea Mors" then
+			classes.CustomMeleeGroups:append('ENSPELLS')
+		elseif player.equipment.main == "Norgish Dagger" then
+			classes.CustomMeleeGroups:append('NOTP')
+		end
+		
 		handle_equipping_gear(player.status)
 	end
 end
@@ -1602,9 +1696,13 @@ function job_update(cmdParams, eventArgs)
 		equip(sets[state.SubWeaponSet.current])
 	end
 	
-	if (buffactive[94] or buffactive[95] or buffactive[96] or buffactive[97] or buffactive[98] or buffactive[99]) 
-			and player.equipment.main == "Crocea Mors" then
-		classes.CustomMeleeGroups:append('ENSPELLS')
+	if (buffactive[94] or buffactive[95] or buffactive[96] or buffactive[97] or buffactive[98] or buffactive[99]) then
+		if player.equipment.main == "Crocea Mors" then
+			classes.CustomMeleeGroups:append('ENSPELLS')
+		elseif player.equipment.main == "Norgish Dagger" then
+			classes.CustomMeleeGroups:append('NOTP')
+		end
+		
 		handle_equipping_gear(player.status)
 	end
 	

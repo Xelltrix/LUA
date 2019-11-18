@@ -51,9 +51,9 @@ function init_gear_sets()
 		sets.precast.JA['Benediction'] =
 		{
 			main="Piety Wand", sub="Ammurapi Shield", ammo="Esper Stone +1",
-			head="Kaykaus Mitra +1", neck="Sanctity Necklace", lear="Loquac. Earring", rear="Malignance Earring",
+			head="Kaykaus Mitra +1", neck="Sanctity Necklace", lear="Loquac. Earring", rear="Etiolation Earring",
 			body="Piety Briault +3", hands="Kaykaus Cuffs +1", lring="Lebeche Ring", rring="Mephitas's Ring +1",
-			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Th. Pant. +3", feet="Theo. Duckbills +3"
+			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Piety Pantaln. +2", feet="Kaykaus Boots +1"
 		}
 
 	-------------------
@@ -123,7 +123,7 @@ function init_gear_sets()
 		{--		Fast Cast: 38%		Haste: 20%	Conserve MP: 
 			ammo="Pemphredo Tathlum",
 			head="Vanya Hood", neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
-			body="Chironic Doublet",
+			body="Kaykaus Bliaut +1",
 			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Lengo Pants", feet="Medium's Sabots"
 		})
 
@@ -141,36 +141,58 @@ function init_gear_sets()
 	--------------------------------------	
 
 		sets.midcast.Cures =
-		{-- Cure Potency/II: 54%/12%			Enmity: -51		Healing Magic Skill: +93(569)	MND+244
-			main="Daybreak", sub="Sors Shield", ammo="Pemphredo Tathlum",
-			head="Kaykaus Mitra +1", neck="Cleric's Torque", lear="Glorious Earring", rear="Novia Earring",
-			body="Theo. Briault +3", hands="Theophany Mitts +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Alaunus's Cape", waist="Luminary Sash", legs="Ebers Pant. +1", feet="Vanya Clogs"
+		{-- Cure Potency/II: 50%/16%			Enmity: -51		Healing Magic Skill: +87(563)	MND+215
+			main="Gada", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
+			head="Kaykaus Mitra +1", neck="Cleric's Torque", lear="Glorious Earring", rear="Beatific Earring",
+			body="Theo. Briault +3", hands="Theophany Mitts +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Menelaus's Ring",
+			back="Alaunus's Cape", waist="Bishop's Sash", legs="Ebers Pant. +1", feet="Kaykaus Boots +1"
 		}
 			
 		sets.midcast.CureSolace = set_combine(sets.midcast.Cures,
-		{-- Cure Potency/II: 54%/12%			Enmity: -50		Healing Magic Skill: +116(593)	MND+244
+		{-- Cure Potency/II: 50%/10%			Enmity: -50		Healing Magic Skill: +110(587)	MND+209
 			ammo="Esper Stone +1",
 			body="Ebers Bliaud +1"
 		})
 		
-		sets.midcast.Curagas = sets.midcast.Cures
+		sets.midcast.Curagas = set_combine(sets.midcast.Cures,
+		{-- Cure Potency/II: 57%/16%			Enmity: -51		Healing Magic Skill: +34(529)	MND+267
+			main="Daybreak",
+			rear="Regal Earring",
+			rring={name="Stikini Ring +1", bag="wardrobe3"},
+			waist="Luminary Sash"
+		})
+		
+		sets.midcast.Curas =
+		{-- Cure Potency/II: 52%/14%			Enmity: -50		Healing Magic Skill: +24(500)	MND+197
+			main="Piety Wand", sub="Chanter's Shield", ammo="Sapience Orb",
+			head="Kaykaus Mitra +1", neck="Cleric's Torque", lear="Glorious Earring", rear="Mendi. Earring",
+			body="Kaykaus Bliaut +1", hands="Kaykaus Cuffs +1", lring="Lebeche Ring", rring={name="Stikini Ring +1", bag="wardrobe3"},
+			back="Alaunus's Cape", waist="Sacro Cord", legs="Ebers Pant. +1", feet="Kaykaus Boots +1"
+		}
 		
 		sets.midcast.CuresWeather =
-		{-- Cure Potency/II: 52%/12%			Enmity: -50		Healing Magic Skill: +32(508)	MND+198
+		{-- Cure Potency/II: 50%/16%			Enmity: -56		Healing Magic Skill: +52(528)	MND+183
 			main="Chatoyant Staff", sub="Enki Strap", ammo="Pemphredo Tathlum",
-			head="Kaykaus Mitra +1", neck="Cleric's Torque", lear="Glorious Earring", rear="Novia Earring",
-			body="Theo. Briault +3", hands="Kaykaus Cuffs +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Twilight Cape", waist="Hachirin-no-Obi", legs="Ebers Pant. +1", feet="Kaykaus Boots"
+			head="Kaykaus Mitra +1", neck="Cleric's Torque", lear="Glorious Earring", rear="Mendi. Earring",
+			body="Theo. Briault +3", hands="Theophany Mitts +3", lring="Lebeche Ring", rring="Menelaus's Ring",
+			back="Twilight Cape", waist="Hachirin-no-Obi", legs="Ebers Pant. +1", feet="Kaykaus Boots +1"
 		}
 			
 		sets.midcast.CureSolaceWeather = set_combine(sets.midcast.CuresWeather,
-		{-- Cure Potency/II: 51%/6%				Enmity: -50		Healing Magic Skill: +76(552)	MND+177
-			ammo="Esper Stone +1",
-			rear="Mendi. Earring",
-			body="Ebers Bliaud +1", hands="Theophany Mitts +3", lring="Kuchekula Ring", rring="Menelaus's Ring",
+		{-- Cure Potency/II: 50%/10%			Enmity: -50		Healing Magic Skill: +76(552)	MND+177
+			body="Ebers Bliaud +1",
+			back="Alaunus's Cape"
 		})
-		sets.midcast.CuragaWeather = sets.midcast.CuresWeather
+		sets.midcast.CuragaWeather = set_combine(sets.midcast.CuresWeather,
+		{-- Cure Potency/II: 51%/16%			Enmity: -50		Healing Magic Skill: +45(521)	MND+185
+			body="Kaykaus Bliaut +1", rring={name="Stikini Ring +1", bag="wardrobe3"},
+		})
+		
+		sets.midcast.CurasWeather = set_combine(sets.midcast.Curas,
+		{-- Cure Potency/II: 52%/14%			Enmity: -54		Healing Magic Skill: +24(500)	MND+169
+			ammo="Esper Stone +1",
+			back="Twilight Cape", waist="Hachirin-no-Obi"
+		})
 
 --[[		CURSNA FORMULA
 		R = (10 + s/30)*(1 + c/100)*(1 + r/100)
@@ -183,7 +205,7 @@ function init_gear_sets()
 		sets.midcast.Cursna = set_combine(sets.precast.FC['Healing Magic'],
 		{--	(10 + 605/30)*(1 + 116/100) =		65.16% Success Rate
 			main="Yagrush",
-			head="Vanya Hood", neck="Debilis Medallion", lear="Beatific Earring", rear="Healing Earring",
+			head="Vanya Hood", neck="Debilis Medallion", lear="Healing Earring", rear="Beatific Earring",
 			body="Ebers Bliaud +1", lring="Haoma's Ring", rring="Menelaus's Ring",
 			waist="Bishop's Sash", legs="Th. Pant. +3", feet="Vanya Clogs"
 		})
@@ -311,23 +333,23 @@ function init_gear_sets()
 			hands="Regal Cuffs", lring="Kishar Ring"
 		})
 		
-		sets.midcast.Dispelga = set_combine(sets.midcast.Static,
-		{
-			main="Daybreak", sub="Ammurapi Shield"
-		})
+		sets.midcast.Dispelga = sets.midcast['Enfeebling Magic']
 		
 		sets.midcast.Repose = sets.midcast.Macc
 
 		sets.midcast['Dia'] = sets.midcast.FastRecast
 		
-		sets.midcast['Dia II'] = sets.midcast.FastRecast
+		sets.midcast['Dia II'] = set_combine(sets.midcast.FastRecast,
+		{
+			hands="Regal Cuffs", lring="Kishar Ring"
+		})
 
 		sets.midcast['Divine Magic'] = sets.midcast.Macc
 	
 	---Dark Magic	
 		sets.midcast['Dark Magic'] = set_combine(sets.midcast.Macc,
 		{
-			body="Shango Robe",
+			body="Shango Robe"
 		})
 
 		sets.midcast.Sap = set_combine(sets.midcast['Dark Magic'],
@@ -389,7 +411,7 @@ function init_gear_sets()
 		
 		sets.idle.MEVA = set_combine(sets.idle,
 		{
-			main="Daybreak", ammo="Staunch Tathlum +1",
+			main="Piety Wand", ammo="Staunch Tathlum +1",
 			head="Inyanga Tiara +2", neck="Warder's Charm +1", lear="Eabani Earring", rear="Sanare Earring",
 			body="Inyanga Jubbah +2", hands="Inyan. Dastanas +2",
 			legs="Inyanga Shalwar +2", feet="Inyan. Crackows +2"
@@ -425,7 +447,7 @@ function init_gear_sets()
 
 		sets.defense.MDT = set_combine(sets.defense.PDT,
 		{
-			main="Daybreak",
+			main="Piety Wand",
 			neck="Warder's Charm +1", lear="Genmei Earring",
 			rring="Inyanga Ring",
 			back="Alaunus's Cape"
@@ -453,7 +475,7 @@ function init_gear_sets()
 		
 		sets.TreasureHunter =
 		{
-			hands="Volte Bracers",
+			head="Chironic Hat", hands="Volte Bracers",
 			waist="Chaac Belt", legs="Volte Hose"
 		}
 	
@@ -471,10 +493,25 @@ function init_gear_sets()
 		
 		sets.precast.WS = 
 		{
-			head="Aya. Zucchetto +2", neck="Fotia Gorget", lear="Brutal Earring", rear="Ishvara Earring",
+			head="Chironic Hat", neck="Fotia Gorget", lear="Brutal Earring", rear="Ishvara Earring",
 			body="Ayanmo Corazza +2", hands="Aya. Manopolas +2", lring="Shukuyu Ring", rring="Epaminondas's Ring",
-			back="Alaunus's Cape", waist="Fotia Belt", legs=gear.ENH_Legs, feet="Aya. Gambieras +2"
+			back="Alaunus's Cape", waist="Fotia Belt", legs=gear.ENH_Legs, feet="Chironic Slippers"
 		}
+		
+		sets.precast.WS['Moonlight'] =
+		{
+			head="Kaykaus Mitra +1", neck="Combatant's Torque", lear="Loquac. Earring", rear="Moonshade Earring",
+			body="Piety Briault +3", hands="Kaykaus Cuffs +1", lring="Lebeche Ring", rring="Mephitas's Ring +1",
+			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Piety Pantaln. +2", feet="Kaykaus Boots +1"
+		}
+		
+		sets.precastWS['Mystic Boon'] = set_combine(sets.precast.WS,
+		{
+			lear="Regal Earring", rear="Moonshade Earring",
+			body="Piety Briault +3", hands="Theophany Mitts +3", lring={name="Stikini Ring +1", bag="wardrobe2"},
+			legs="Piety Pantaln. +2"
+		})	
+		
 	
 	--------------------------------------
 	-- Melee sets
@@ -483,9 +520,9 @@ function init_gear_sets()
 		sets.engaged =
 		{
 			main="Maxentius", sub="Genmei Shield", ammo="Floestone",
-			head="Aya. Zucchetto +2", neck="Combatant's Torque", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
+			head="Chironic Hat", neck="Combatant's Torque", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Ayanmo Corazza +2", hands="Aya. Manopolas +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
-			back="Alaunus's Cape", waist="Windbuffet Belt +1", legs="Aya. Cosciales +2", feet="Aya. Gambieras +2"
+			back="Alaunus's Cape", waist="Windbuffet Belt +1", legs="Aya. Cosciales +2", feet="Chironic Slippers"
 		}
 	
 end
@@ -562,6 +599,20 @@ function job_get_spell_map(spell, default_spell_map)
             else
                 return "Curagas"
             end
+		elseif default_spell_map == 'Curas' then
+			if buffactive['Afflatus Misery'] then
+				if (world.weather_element == 'Light' or world.day_element == 'Light') then
+					return "CurasWeather"
+				else
+					return "Curas"
+				end
+			else
+				if (world.weather_element == 'Light' or world.day_element == 'Light') then
+					return "CuragasWeather"
+				else
+					return "Curagas"
+				end
+			end
 		elseif default_spell_map == 'BarElement'then
 			if buffactive['Light Arts'] then
 				return "BarElementLA"

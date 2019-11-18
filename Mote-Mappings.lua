@@ -35,9 +35,9 @@
 	elements.storm_of = 
 	{
 		['Light']="Aurorastorm", ['Dark']="Voidstorm", ['Fire']="Firestorm", ['Earth']="Sandstorm",
-		['Water']="Rainstorm", ['Wind']="Windstorm", ['Ice']="Hailstorm", ['Lightning']="Thunderstorm",['Light']="Aurorastorm II",
-		['Dark']="Voidstorm II", ['Fire']="Firestorm II", ['Earth']="Sandstorm II", ['Water']="Rainstorm II", ['Wind']="Windstorm II",
-		['Ice']="Hailstorm II", ['Lightning']="Thunderstorm II"
+		['Water']="Rainstorm", ['Wind']="Windstorm", ['Ice']="Hailstorm", ['Lightning']="Thunderstorm",
+		['Light']="Aurorastorm II", ['Dark']="Voidstorm II", ['Fire']="Firestorm II", ['Earth']="Sandstorm II",
+		['Water']="Rainstorm II", ['Wind']="Windstorm II", ['Ice']="Hailstorm II", ['Lightning']="Thunderstorm II"
 	}
 
 	spirits = 
@@ -197,7 +197,7 @@ spell_maps = {
     ---- Healing Spells
 	['Cure']='Cures',['Cure II']='Cures',['Cure III']='Cures',['Cure IV']='Cures',['Cure V']='Cures',['Cure VI']='Cures',
 	['Full Cure']='Cures',
-	['Cura']='Curagas',['Cura II']='Curagas',['Cura III']='Curagas',
+	['Cura']='Curas',['Cura II']='Curas',['Cura III']='Curas',
     ['Curaga']='Curagas',['Curaga II']='Curagas',['Curaga III']='Curagas',['Curaga IV']='Curagas',['Curaga V']='Curagas',
     ---- Status Effect Removal	
 	['Poisona']='StatusRemoval',['Paralyna']='StatusRemoval',['Silena']='StatusRemoval',['Blindna']='StatusRemoval',
@@ -330,7 +330,7 @@ spell_maps = {
 	['Metallic Body']='BlueSkill',['Diamondhide']='BlueSkill',['Magic Barrier']='BlueSkill',['Occultation']='BlueSkill',
 	--- Additional Effects
 	['Sprout Smack']='AddEffect',['Head Butt']='AddEffect',['Pinecone Bomb']='AddEffect',['Terror Touch']='AddEffect',['Spiral Spin']='AddEffect',
-	['Seedspray']='AddEffect',['Frypan']='AddEffect',['Tail Slap']='AddEffect',['Sub-zero Smash']='AddEffect',['Whirl of Rage']='AddEffect',
+	['Seedspray']='AddEffect',['Frypan']='Physical',['Tail Slap']='AddEffect',['Sub-zero Smash']='AddEffect',['Whirl of Rage']='Physical',
 	['Benthic Typhoon']='AddEffect',['Sudden Lunge']='AddEffect',['Barbed Crescent']='AddEffect',['Sweeping Gouge']='AddEffect',
 	['Saurian Slide']='AddEffect',['Tourbillion']='AddEffect',['Bilgestorm']='AddEffect',
 	--- Physical Damage
@@ -378,48 +378,21 @@ areas = {}
 -- City areas for town gear and behavior.
 areas.Cities = 
 S{
-    "Ru'Lude Gardens",
-    "Upper Jeuno",
-    "Lower Jeuno",
-    "Port Jeuno",
-    "Port Windurst",
-    "Windurst Waters",
-    "Windurst Woods",
-    "Windurst Walls",
-    "Heavens Tower",
-    "Port San d'Oria",
-    "Northern San d'Oria",
-    "Southern San d'Oria",
-    "Port Bastok",
-    "Bastok Markets",
-    "Bastok Mines",
-    "Metalworks",
-    "Aht Urhgan Whitegate",
-    "Tavnazian Safehold",
-    "Nashmau",
+    "Ru'Lude Gardens", "Upper Jeuno", "Lower Jeuno", "Port Jeuno",
+    "Port Windurst",  "Windurst Waters", "Windurst Woods", "Windurst Walls", "Heavens Tower",
+    "Port San d'Oria", "Northern San d'Oria", "Southern San d'Oria",
+    "Port Bastok", "Bastok Markets", "Bastok Mines", "Metalworks",
     "Selbina",
     "Mhaura",
     "Norg",
     "Kazham",
-	"Sealion's Den"
+	"Tavnazian Safehold", "Sealion's Den",
+    "Aht Urhgan Whitegate",
+	"Nashmau"
 }
 
 areas.Adoulin =
 S{
-    "Eastern Adoulin",
-    "Western Adoulin",
+    "Eastern Adoulin", "Western Adoulin",
 }
-
--------------------------------------------------------------------------------------------------------------------
--- Lists of certain NPCs. (Not up to date)
--------------------------------------------------------------------------------------------------------------------
-
-npcs = {}
-npcs.Trust = S{'Ajido-Marujido','Aldo','Ayame','Cherukiki','Curilla','D.Shantotto','Elivira','Excenmille',
-        'Fablinix','FerreousCoffin','Gadalar','Gessho','Ingrid','IronEater','Joachim','Klara','Kupipi',
-        'LehkoHabhoka','LhuMhakaracca','Lion','Luzaf','Maat','MihliAliapoh','Mnejing','Moogle','Mumor',
-        'NajaSalaheem','Najelith','Naji','NanaaMihgo','Nashmeira','Noillurie','Ovjang','Prishe','Rainemard',
-        'RomaaMihgo','Sakura','Shantotto','StarSibyl','Tenzen','Trion','UkaTotlihn','Ulmia','Valaineral',
-        'Volker','Zazarg','Zeid'}
-
 

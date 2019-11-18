@@ -158,7 +158,7 @@ function init_gear_sets()
 			main="Nirvana", sub="Vox Grip", ammo="Sancus Sachet +1",
 			head="Convoker's Horn +3", neck="Smn. Collar +1", lear="Enmerkar Earring", rear="Lugalbanda Earring",
 			body="Con. Doublet +3", hands="Apogee Mitts +1", lring="C. Palug Ring",
-			back=gear.SMNCape_Mag, waist="Regal Belt", legs="Tali'ah Sera. +2",feet="Tali'ah Crackows +2"
+			back=gear.SMNCape_Mag, waist="Regal Belt", legs="Tali'ah Sera. +2", feet="Convo. Pigaches +2"
 		})
 
 		sets.midcast.Pet.bp_Physical =
@@ -221,22 +221,13 @@ function init_gear_sets()
 
 		sets.midcast.Cures =
 		{
-			main="Daybreak", sub="Sors Shield", ammo="Esper Stone +1",
-			head="Vanya Hood", neck="Lasaia Pendant", lear="Beatific Earring", rear="Novia Earring",
-			body="Vanya Robe", hands="Vanya Cuffs", lring="Lebeche Ring", rring="Kuchekula Ring",
-			back="Moonlight Cape", waist="Bishop's Sash", legs="Vanya Slops", feet="Vanya Clogs"
+			ammo="Esper Stone +1",
+			head="Vanya Hood", neck="Incanter's Torque", lear="Novia Earring", rear="Mendi. Earring",
+			body="Vanya Robe", hands=gear.ENH_Gloves, lring="Lebeche Ring", rring="Menelaus's Ring",
+			back="Oretan. Cape +1",  waist="Bishop's Sash", legs="Vanya Slops", feet="Medium's Sabots"
 		}
 		
 		sets.midcast.Curaga = sets.midcast.Cures
-
-
-		sets.midcast.CuresLocked =
-		{
-			ammo="Esper Stone +1",
-			head="Vanya Hood", neck="Lasaia Pendant", lear="Novia Earring", rear="Mendi. Earring",
-			body="Vanya Robe", hands=gear.ENH_Gloves, lring="Lebeche Ring", rring="Menelaus's Ring",
-			back="Oretan. Cape +1",  waist="Bishop's Sash", legs="Vanya Slops", feet="Vanya Clogs"
-		}
 
 		sets.midcast.Cursna =
 		{
@@ -544,7 +535,7 @@ function init_gear_sets()
 			ammo="Floestone",
 			head="Convoker's Horn +3", neck="Fotia Gorget", lear="Ishvara Earring", rear="Moonshade Earring",
 			body="Glyphic Doublet +3", hands="Glyphic Bracers +3", lring="Shukuyu Ring", rring="Epaminondas's Ring",
-			back=gear.SMNCape_Phys, waist="Fotia Belt", legs="Tali'ah Sera. +2", feet="Tali'ah Crackows +2"
+			back=gear.SMNCape_Phys, waist="Fotia Belt", legs="Tali'ah Sera. +2", feet="Convo. Pigaches +2"
 		}
 		
 		sets.precast.WS['Retribution'] = set_combine(sets.precast.WS,
@@ -583,7 +574,7 @@ function init_gear_sets()
 			main="Nirvana", sub="Khonsu", ammo="Sancus Sachet +1",
 			head="Convoker's Horn +3", neck="Combatant's Torque", lear="Telos Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Glyphic Doublet +3", hands="Glyphic Bracers +3", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
-			back=gear.SMNCape_Phys, waist="Klouskap Sash +1", legs="Tali'ah Sera. +2", feet="Tali'ah Crackows +2"
+			back=gear.SMNCape_Phys, waist="Klouskap Sash +1", legs="Tali'ah Sera. +2", feet="Convo. Pigaches +2"
 		}
 		
 		sets.engaged.Avatar =
@@ -621,10 +612,6 @@ end
 -- Run after the general midcast() is done.
 function job_post_midcast(spell, action, spellMap, eventArgs)
 	 if spellMap == 'Cures' or spellMap == 'Curagas' then
-		if state.WeaponLock.value == true then
-			equip(sets.midcast.CuresLocked)
-		end
-	
 		if spell.target.type =='SELF' then 
 			equip { waist="Gishdubar Sash"}
 		end

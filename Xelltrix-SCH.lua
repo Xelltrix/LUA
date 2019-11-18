@@ -69,15 +69,15 @@ function init_gear_sets()
 	--/RDM Fast Cast: 15%
 	
 		sets.precast.FC =
-		{--		Fast Cast: 93%
-			main="Sucellus", sub="Chanter's Shield", ammo="Sapience Orb",
+		{--		Fast Cast: 84%
+			ammo="Sapience Orb",
 			head="Amalric Coif +1", neck="Orunmila's Torque", lear="Loquac. Earring", rear="Malignance Earring",
 			body="Pinga Tunic", hands="Acad. Bracers +3", lring="Lebeche Ring", rring="Weather. Ring +1",
 			back=gear.SCHCape_ENF, waist="Witful Belt", legs="Pinga Pants", feet="Peda. Loafers +3"
 		}
 
 		sets.precast.FC.Grimoire =
-		{
+		{--		Fast Cast: 65%
 			head="Peda. M.Board +3",
 			feet="Acad. Loafers +3"
 		}
@@ -90,7 +90,7 @@ function init_gear_sets()
 		
 		sets.precast.FC.Dispelga = set_combine(sets.precast.FC,
 		{
-			main="Daybreak"
+			main="Daybreak", sub="Chanter's Shield"
 		})
 		
 
@@ -111,54 +111,54 @@ function init_gear_sets()
 		{
 			head="Amalric Coif +1",
 			lring="Kishar Ring",
-			legs="Lengo Pants", feet="Amalric Nails +1"
+			legs="Lengo Pants"
 		})
 
 		sets.midcast.ConserveMP = set_combine(sets.precast.FC,
 		{
 			ammo="Pemphredo Tathlum",
 			head="Vanya Hood", neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
-			body="Kaykaus Bliaut", lring="Kishar Ring",
-			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Lengo Pants", feet="Medium's Sabots"
+			body="Amalric Doublet +1", lring="Kishar Ring",
+			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Lengo Pants", feet="Kaykaus Boots +1"
 		})
 
-		sets.midcast.Duration =
+		sets.midcast.Duration = set_combine(sets.midcast.FC,
 		{
-			main="Gada", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
-			head="Telchine Cap",  neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
+			main="Gada", sub="Ammurapi Shield",
+			head="Telchine Cap",  neck="Incanter's Torque",
 			body="Peda. Gown +3", hands=gear.ENH_Gloves, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back=gear.SCHCape_ENF, waist="Luminary Sash", legs=gear.ENH_Legs, feet="Telchine Pigaches"
-		}
+			back=gear.SCHCape_ENF, legs=gear.ENH_Legs, feet="Telchine Pigaches"
+		})
 
 	
 	--------------------------------------
 	-- Healing Midcast sets
 	--------------------------------------	
 
-		-- Cure Potency/II: 54%/6%		Enmity: -53		Healing Magic Skill: +108
+		
 		sets.midcast.Cures =
-		{
-			main="Daybreak", sub="Sors Shield", ammo="Esper Stone +1",
-			head="Kaykaus Mitra +1", neck="Lasaia Pendant", lear="Beatific Earring", rear="Novia Earring",
-			body="Kaykaus Bliaut", hands="Peda. Bracers +3", lring="Lebeche Ring", rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back=gear.SCHCape_ENF, waist="Bishop's Sash", legs="Kaykaus Tights +1", feet="Vanya Clogs"
+		{-- 	Cure Potency/II: 50%/11%		Enmity: -50		Healing Magic Skill: +69
+			ammo="Esper Stone +1",
+			head="Kaykaus Mitra +1", neck="Incanter's Torque", lear="Novia Earring", rear="Beatific Earring",
+			body="Kaykaus Bliaut +1", hands="Peda. Bracers +3", lring="Kuchekula Ring", rring="Menelaus's Ring",
+			back="Oretan. Cape +1", waist="Bishop's Sash", legs="Kaykaus Tights +1",  feet="Kaykaus Boots +1"
 		}
 
-		-- Cure Potency/II: 51%/6%		Enmity: -33		Healing Magic Skill: +59
+		
 		sets.midcast.CuresLocked =
-		{
+		{-- 	Cure Potency/II: 50%/11%		Enmity: -50		Healing Magic Skill: +69
 			ammo="Staunch Tathlum +1",
-			head="Kaykaus Mitra +1", neck="Loricate Torque +1", lear="Genmei Earring", rear="Mendi. Earring",
-			body="Kaykaus Bliaut", hands="Kaykaus Cuffs +1", lring="Defending Ring", rring="Menelaus's Ring",
-			back=gear.SCHCape_ENF, waist="Carrier's Sash", legs="Kaykaus Tights +1",  feet="Kaykaus Boots"
+			head="Kaykaus Mitra +1", neck="Loricate Torque +1", lear="Genmei Earring", rear="Sanare Earring",
+			body="Kaykaus Bliaut +1", hands="Kaykaus Cuffs +1", lring="Defending Ring", rring="Gelatinous Ring +1",
+			back=gear.SCHCape_ENF, waist="Carrier's Sash", legs="Kaykaus Tights +1",  feet="Kaykaus Boots +1"
 		}
 	
 		sets.midcast.CuresWeather =
 		{
 			main="Chatoyant Staff", sub="Enki Strap",
-			neck="Incanter's Torque",
+			neck="Incanter's Torque", lear="Mendi. Earring",
 			lring="Lebeche Ring",
-			back="Twilight Cape", waist="Hachirin-no-Obi", feet="Kaykaus Boots"
+			back="Twilight Cape", waist="Hachirin-no-Obi"
 		}
 
 		sets.midcast.Curagas = sets.midcast.Cures
@@ -168,7 +168,7 @@ function init_gear_sets()
 		sets.midcast.Cursna =
 		{
 			main="Gada", sub="Chanter's Shield", ammo="Sapience Orb",
-			head="Vanya Hood", neck="Debilis Medallion", lear="Beatific Earring", rear="Healing Earring",
+			head="Vanya Hood", neck="Debilis Medallion", lear="Healing Earring", rear="Beatific Earring",
 			body="Peda. Gown +3", hands="Hieros Mittens", lring="Haoma's Ring", rring="Menelaus's Ring",
 			back="Oretan. Cape +1", waist="Bishop's Sash", legs="Acad. Pants +3", feet="Vanya Clogs"
 		}
@@ -392,7 +392,7 @@ function init_gear_sets()
 		sets.idle.DT = set_combine(sets.idle,
 		{--	DT: -30%	PDT: -41%	MDT:-29%	Refresh: 11~12
 			ammo="Staunch Tathlum +1",
-			neck="Loricate Torque +1", lear="Genmei Earring", rear="Sanare Earring",
+			neck="Loricate Torque +1", lear="Genmei Earring", rear="Lugalbanda Earring",
 			lring="Defending Ring", rring="Gelatinous Ring +1"
 		})
 		
@@ -420,7 +420,7 @@ function init_gear_sets()
 		sets.defense.PDT =
 		{--	DT: -38%	PDT: -52%	MDT:-42%
 			main="Akademos", sub="Khonsu", ammo="Staunch Tathlum +1",
-			head="Befouled Crown", neck="Loricate Torque +1",  lear="Genmei Earring", rear="Odnowa Earring +1",
+			head="Befouled Crown", neck="Loricate Torque +1",  lear="Genmei Earring", rear="Lugalbanda Earring",
 			body="Mallquis Saio +2", hands="Chironic Gloves", lring="Defending Ring", rring="Gelatinous Ring +1",
 			back=gear.SCHCape_Nuke, waist="Carrier's Sash", legs="Artsieq Hose", feet="Hippo. Socks +1"
 		}
@@ -428,7 +428,7 @@ function init_gear_sets()
 		sets.defense.EVA =
 		{--	DT: -27%	PDT: -44%	MDT:-22%
 			main="Akademos", sub="Khonsu", ammo="Staunch Tathlum +1",
-			head="Peda. M.Board +3", neck="Warder's Charm +1", lear="Etiolation Earring", rear="Sanare Earring",
+			head="Peda. M.Board +3", neck="Warder's Charm +1", lear="Etiolation Earring", rear="Lugalbanda Earring",
 			body="Pinga Tunic", hands="Volte Bracers", lring="Defending Ring", rring="Shukuyu Ring",
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Volte Brais", feet="Amalric Nails +1"
 		}

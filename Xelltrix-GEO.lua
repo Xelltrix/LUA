@@ -158,7 +158,7 @@ function init_gear_sets()
 		sets.midcast.Cures =
 		{
 			main="Daybreak", sub="Sors Shield", ammo="Esper Stone +1",
-			head="Vanya Hood", neck="Lasaia Pendant", lear="Beatific Earring", rear="Novia Earring",
+			head="Vanya Hood", neck="Incanter's Torque", lear="Beatific Earring", rear="Novia Earring",
 			body="Vanya Robe", hands="Vanya Cuffs", lring="Lebeche Ring", rring="Kuchekula Ring",
 			back="Lifestream Cape", waist="Bishop's Sash", legs="Vanya Slops", feet="Vanya Clogs"
 		}
@@ -399,7 +399,7 @@ function init_gear_sets()
 			main="Daybreak", sub="Genmei Shield", ammo="Staunch Tathlum +1",
 			head="Ea Hat +1", neck="Loricate Torque +1",  lear="Genmei Earring", rear="Lugalbanda Earring",
 			body="Bagua Tunic +3", hands="Volte Bracers", lring="Defending Ring", rring="Gelatinous Ring +1",
-			back=gear.GEOCape_Nuke, waist="Carrier's Sash", legs="Volte Brais", feet="Azimuth Gaiters +1"
+			back=gear.GEOCape_Nuke, waist="Carrier's Sash", legs="Artsieq Hose", feet="Hippo. Socks +1"
 		}
 		
 		sets.defense.Pet =

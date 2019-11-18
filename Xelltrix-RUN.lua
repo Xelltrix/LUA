@@ -657,7 +657,7 @@ function init_gear_sets()
 		{-- 		DT: 27%		PDT: 74%	MDT: 27%
 			head=gear.AHead_PDT, neck="Futhark Torque +1",
 			body="Ayanmo Corazza +2", lring="Defending Ring", rring="Moonlight Ring",
-			legs="Meg. Chausses +2"
+			waist="Ioskeha Belt +1", legs="Meg. Chausses +2"
 		}
 		
 		
