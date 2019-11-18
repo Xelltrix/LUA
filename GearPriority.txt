@@ -1,8 +1,6 @@
 -----------
 Priority A
 -----------
-Kaykaus Briault +1        Price: 15,000,000G (20,000,000G)
-Kaykaus Boots +1          Price: 35,000,000G (25,000,000G)
 Musa                      Price: 140,000,000G
 Argute Stole +2           Price: 70,000,000G
 
@@ -12,8 +10,6 @@ Priority B
 -----------
 Raetic Rod +1             Price; 30,000,000G
 Raetic Bangles +1         Price: 30,000,000G
-
-R15 Epeolatry             Price; 120,000,000G
 
 
 -----------
@@ -29,12 +25,11 @@ Priority D
 Duelist's Torque +2       Price: 100,000,000G
 Futhark Torque +2         Price: 80,000,000G
 Summoner's Collar +2      Price: 80,000,000G
-Cleric's Torque +2        Price: 100,000,000G
-
 
 -----------
 Priority F
 -----------
+Cleric's Torque +2        Price: 100,000,000G
 Raetic Staff +1           Price: 30,000,000G
 
 Pinga Tunic +1            Price: 40,000,000G (30,000,000G)
