@@ -1,0 +1,337 @@
+<?xml version="1.1" ?>
+<settings>
+    <global>
+        <a1>Aero</a1>
+        <a2>Aero II</a2>
+        <a3>Aero III</a3>
+        <a4>Aero IV</a4>
+        <a5>Aero V</a5>
+        <a6>Aero VI</a6>
+        <acc>Accession</acc>
+        <adb>Addendum: Black</adb>
+        <adlo>Adloquium</adlo>
+        <adw>Addendum: White</adw>
+        <aflo>Animated Flourish</aflo>
+        <aga1>Aeroga</aga1>
+        <aga2>Aeroga II</aga2>
+        <aga3>Aeroga III</aga3>
+        <agi>Gain-AGI</agi>
+        <aja>Aeroja</aja>
+        <ala>Alacrity</ala>
+        <altep>Teleport-Altep</altep>
+        <ara1>Aera</ara1>
+        <ara2>Aera II</ara2>
+        <ara3>Aera III</ara3>
+        <asp>Air Spirit</asp>
+        <aspirit>Air Spirit</aspirit>
+        <ast>Aurorastorm</ast>
+        <ast2>Aurorastorm II</ast2>
+        <astii>Aurorastorm II</astii>
+        <augeo>Animus Augeo</augeo>
+        <av>Aquaveil</av>
+        <b1>Blizzard</b1>
+        <b2>Blizzard II</b2>
+        <b3>Blizzard III</b3>
+        <b4>Blizzard IV</b4>
+        <b5>Blizzard V</b5>
+        <b6>Blizzard VI</b6>
+        <ba>Burst Affinity</ba>
+        <bara>baraera</bara>
+        <barb>barblizzara</barb>
+        <barf>barfire</barf>
+        <bars>barstonra</bars>
+        <bart>barthundra</bart>
+        <barw>barwatera</barw>
+        <bc>Battery Charge</bc>
+        <bga1>Blizzaga</bga1>
+        <bga2>Blizzaga II</bga2>
+        <bga3>Blizzaga III</bga3>
+        <bja>Blizzaja</bja>
+        <bl>Blink</bl>
+        <bless>Crystal Blessing</bless>
+        <bog>Blaze of Glory</bog>
+        <br>Bolter&apos;s Roll</br>
+        <bra1>Blizzara</bra1>
+        <bra2>Blizzara II</bra2>
+        <bra3>Blizzara III</bra3>
+        <c1>Cure</c1>
+        <c2>Cure II</c2>
+        <c3>Cure III</c3>
+        <c4>Cure IV</c4>
+        <c5>Cure V</c5>
+        <c6>Cure VI</c6>
+        <ca>Chain Affinity</ca>
+        <cait>Cait Sith</cait>
+        <car>Carbuncle</car>
+        <cas>Cascade</cas>
+        <cc>Crooked Cards</cc>
+        <cede>Mana Cede</cede>
+        <cel>Celerity</cel>
+        <cf>Collimated Fervor</cf>
+        <chr>Boost-CHR</chr>
+        <cor>Corsair&apos;s Roll</cor>
+        <cr>Cura</cr>
+        <cr2>Cura II</cr2>
+        <cr3>Cura III</cr3>
+        <crush>Flaming Crush</crush>
+        <cryo>Cryohelix II</cryo>
+        <cu>Curaga</cu>
+        <cu2>Curaga II</cu2>
+        <cu3>Curaga III</cu3>
+        <cu4>Curaga IV</cu4>
+        <cu5>Curaga V</cu5>
+        <cv>Carcharian Verve</cv>
+        <cw1>Curing Waltz</cw1>
+        <cw2>Curing Waltz II</cw2>
+        <cw3>Curing Waltz III</cw3>
+        <cw4>Curing Waltz IV</cw4>
+        <cw5>Curing Waltz V</cw5>
+        <d1>Warp</d1>
+        <d2>Warp II</d2>
+        <d3>Retrace</d3>
+        <da>Dark Arts</da>
+        <dart>Glutionus Dart</dart>
+        <dc>Divine Caress</dc>
+        <dem>Teleport-Dem</dem>
+        <dex>Gain-DEX</dex>
+        <dflo>Desperate Flourish</dflo>
+        <dh>Diamondhide</dh>
+        <diab>Diabolos</diab>
+        <drk>Chaos Roll</drk>
+        <ds>Dark Shot</ds>
+        <dsp>Dark Spirit</dsp>
+        <dspirit>Dark Spirit</dspirit>
+        <du>Double-Up</du>
+        <dw>Divine Waltz</dw>
+        <dw1>Divine Waltz</dw1>
+        <ebu>Ebullience</ebu>
+        <ec>Ecliptic Attrition</ec>
+        <ef>Erratic Flutter</ef>
+        <es>Earth Shot</es>
+        <esp>Earth Spirit</esp>
+        <espirit>Earth Spirit</espirit>
+        <f1>Fire</f1>
+        <f2>Fire II</f2>
+        <f3>Fire III</f3>
+        <f4>Fire IV</f4>
+        <f5>Fire V</f5>
+        <f6>Fire VI</f6>
+        <favor>Avatar&apos;s Favor</favor>
+        <fen>Fenrir</fen>
+        <fga1>Firaga</fga1>
+        <fga2>Firaga II</fga2>
+        <fga3>Firaga III</fga3>
+        <fja>Firaja</fja>
+        <floe>Spectral Floe</floe>
+        <foc>Focalizatoin</foc>
+        <fra1>Fira</fra1>
+        <fra2>Fira II</fra2>
+        <fra3>Fira III</fra3>
+        <fs>Fire Shot</fs>
+        <fsp>Fire Spirit</fsp>
+        <fspirit>Fire Spirit</fspirit>
+        <fst>Firestorm</fst>
+        <fst2>Firestorm II</fst2>
+        <fstii>Firestorm II</fstii>
+        <gac>Geo-Acumen</gac>
+        <gar>Garuda</gar>
+        <gbar>Geo-Barrier</gbar>
+        <gee>Apogee</gee>
+        <geo>Geohelix II</geo>
+        <gfr>Geo-Frailty</gfr>
+        <gfu>Geo-Fury</gfu>
+        <gha>Geo-Haste</gha>
+        <gma>Geo-Malaise</gma>
+        <grf>Geo-Refresh</grf>
+        <gto>Geo-Torpor</gto>
+        <hj>High Jump</hj>
+        <holla>Teleport-Holla</holla>
+        <hst>Hailstorm</hst>
+        <hst2>Hailstorm II</hst2>
+        <hstii>Hailstorm II</hstii>
+        <hw>Healing Waltz</hw>
+        <hydro>Hydrohelix II</hydro>
+        <iac>Indi-Acumen</iac>
+        <ibar>Indi-Barrier</ibar>
+        <ichi>Utsusemi: Ichi</ichi>
+        <if>Ifrit</if>
+        <ifr>Indi-Frailty</ifr>
+        <ifu>Indi-Fury</ifu>
+        <iha>Indi-Haste</iha>
+        <ima>Indi-Malaise</ima>
+        <imm>Immanence</imm>
+        <int>Gain-INT</int>
+        <iono>Ionohelix II</iono>
+        <irf>Indi-Refresh</irf>
+        <is>Ice Shot</is>
+        <isp>Ice Spirit</isp>
+        <ispirit>Ice Spirit</ispirit>
+        <ito>Indi-Torpor</ito>
+        <j>Jump</j>
+        <jugner>Recall-Jugner</jugner>
+        <kf>Klimaform</kf>
+        <la>Light Arts</la>
+        <le>Lasting Emanation</le>
+        <lev>Leviathan</lev>
+        <ls>Light Shot</ls>
+        <lsp>Light Spirit</lsp>
+        <lspirit>Light Spirit</lspirit>
+        <lum>Luminohelix II</lum>
+        <magb>Magic Barrier</magb>
+        <magf>Magic Fruit</magf>
+        <mani>Manifestation</mani>
+        <me>Meteor</me>
+        <mea>Teleport-Mea</mea>
+        <meri>Recall-Meriph</meri>
+        <meriph>Recall-Meriph</meriph>
+        <mg>Mighty Guard</mg>
+        <minuo>Animus Minuo</minuo>
+        <misery>Afflatus Misery</misery>
+        <mnd>Gain-MND</mnd>
+        <mono>Monomi: Ichi</mono>
+        <ni>Utsusemi: Ni</ni>
+        <nin>Ninja&apos;s Roll</nin>
+        <noct>Noctohelix II</noct>
+        <occ>Occultation</occ>
+        <odyllic>Odyllic Subterfuge</odyllic>
+        <p1>Protect</p1>
+        <p2>Protect II</p2>
+        <p3>Protect III</p3>
+        <p4>Protect IV</p4>
+        <p5>Protect V</p5>
+        <pars>Parsimony</pars>
+        <pash>Recall-Pashh</pash>
+        <pashh>Recall-Pashh</pashh>
+        <pen>Penury</pen>
+        <perp>Perpetuance</perp>
+        <plen>Plenilune Embrace</plen>
+        <pro1>Protectra</pro1>
+        <pro2>Protectra II</pro2>
+        <pro3>Protectra III</pro3>
+        <pro4>Protectra IV</pro4>
+        <pro5>Protectra V</pro5>
+        <puppet>Puppet Roll</puppet>
+        <pyro>Pyrohelix</pyro>
+        <r1>Raise</r1>
+        <r2>Raise II</r2>
+        <r3>Raise III</r3>
+        <ra>Radial Arcana</ra>
+        <ram>Ramuh</ram>
+        <rap>Rapture</rap>
+        <rd>Random Deal</rd>
+        <re1>Regen</re1>
+        <re2>Regen II</re2>
+        <re3>Regen III</re3>
+        <re4>Regen IV</re4>
+        <re5>Regen V</re5>
+        <rf>Reverse Flourish</rf>
+        <rr>Reraise</rr>
+        <rr2>Reraise II</rr2>
+        <rr3>Reraise III</rr3>
+        <rr4>Reraise IV</rr4>
+        <rst>Rainstorm</rst>
+        <rst2>Rainstorm II</rst2>
+        <rstii>Rainstorm II</rstii>
+        <s1>Stone</s1>
+        <s2>Stone II</s2>
+        <s3>Stone III</s3>
+        <s4>Stone IV</s4>
+        <s5>Stone V</s5>
+        <s6>Stone VI</s6>
+        <sa>Sneak Attack</sa>
+        <se>Snake Eye</se>
+        <sforzo>Elemental Sforzo</sforzo>
+        <sga1>Stonega</sga1>
+        <sga2>Stonega II</sga2>
+        <sga3>Stonega III</sga3>
+        <sh1>Shell</sh1>
+        <sh2>Shell II</sh2>
+        <sh3>Shell III</sh3>
+        <sh4>Shell IV</sh4>
+        <sh5>Shell V</sh5>
+        <she1>Shellra</she1>
+        <she2>Shellra II</she2>
+        <she3>Shellra III</she3>
+        <she4>Shellra IV</she4>
+        <she5>Shellra V</she5>
+        <shi>Shiva</shi>
+        <sink>Sinker Drill</sink>
+        <siphon>Elemental Siphon</siphon>
+        <sja>Stoneja</sja>
+        <sjig>Spectral Jig</sjig>
+        <sl>Sudden Lunge</sl>
+        <solace>Afflatus Solace</solace>
+        <spate>Scouring Spate</spate>
+        <squall>Shocking Squall</squall>
+        <sra1>Stonera</sra1>
+        <sra2>Stonera II</sra2>
+        <sra3>Stonera III</sra3>
+        <ss>Stoneskin</ss>
+        <sst>Sandstorm</sst>
+        <sst2>Sandstorm II</sst2>
+        <sstii>Sandstorm II</sstii>
+        <str>Gain-STR</str>
+        <sub>Sublimation</sub>
+        <subterfuge>Odyllic Subterfuge</subterfuge>
+        <sw>Spring Water</sw>
+        <t1>Thunder</t1>
+        <t2>Thunder II</t2>
+        <t3>Thunder III</t3>
+        <t4>Thunder IV</t4>
+        <t5>Thunder V</t5>
+        <t6>Thunder VI</t6>
+        <tenebral>Tenebral Crush</tenebral>
+        <tga1>Thundaga</tga1>
+        <tga2>Thundaga II</tga2>
+        <tga3>Thundaga III</tga3>
+        <ti>Titan</ti>
+        <tja>Thundaja</tja>
+        <ton1>Tonko: Ichi</ton1>
+        <ton2>Tonko: Ni</ton2>
+        <tra>Trick Attack</tra>
+        <tra1>Thundara</tra1>
+        <tra2>Thundara II</tra2>
+        <tra3>Thundara III</tra3>
+        <ts>Thunder Shot</ts>
+        <tsp>Thunder Spirit</tsp>
+        <tspirit>Thunder Spirit</tspirit>
+        <tst>Thunderstorm</tst>
+        <tst2>Thunderstorm II</tst2>
+        <tstii>Thunderstorm II</tstii>
+        <ul>Unbridled Learning</ul>
+        <utsu1>Utsusemi: Ichi</utsu1>
+        <utsu2>Utsusemi: Ni</utsu2>
+        <utsu3>Utsusemi: San</utsu3>
+        <vahzl>Teleport-Vahzl</vahzl>
+        <vit>Gain-VIT</vit>
+        <voke>Provoke</voke>
+        <vp>Vivacious Pulse</vp>
+        <vst>Voidstorm</vst>
+        <vst2>Voidstorm II</vst2>
+        <vstii>Voidstorm II</vstii>
+        <w1>Water</w1>
+        <w2>Water II</w2>
+        <w3>Water III</w3>
+        <w4>Water IV</w4>
+        <w5>Water V</w5>
+        <w6>Water VI</w6>
+        <wall>Mana Wall</wall>
+        <was>Water Shot</was>
+        <well>Manawell</well>
+        <wga1>Waterga</wga1>
+        <wga2>Waterga II</wga2>
+        <wga3>Waterga III</wga3>
+        <wis>Wind Shot</wis>
+        <wja>Waterja</wja>
+        <wra1>Watera</wra1>
+        <wra2>Watera II</wra2>
+        <wra3>Watera III</wra3>
+        <wsp>Water Spirit</wsp>
+        <wspirit>Water Spirit</wspirit>
+        <wst>Windstorm</wst>
+        <wst2>Windstorm II</wst2>
+        <wstii>Windstorm II</wstii>
+        <ww>White Wind</ww>
+        <yhoat>Teleport-Yhoat</yhoat>
+    </global>
+</settings>
