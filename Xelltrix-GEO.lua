@@ -14,6 +14,8 @@ end
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
 function job_setup()
 
+	include('Mote-TreasureHunter')
+
 	customize_idle_set()
 end
 
@@ -26,7 +28,10 @@ function user_setup()
 	state.OffenseMode:options('Normal','Refresh')
 	state.CastingMode:options('Normal','Resistant','Potency')
 	state.IdleMode:options('Normal','DT')
-	state.PhysicalDefenseMode:options('Master','Pet')
+	state.PhysicalDefenseMode:options('PDMaster','PDPet')
+	state.MagicalDefenseMode:options('MDMaster','MDPet')
+	
+	send_command('bind ^= gs c cycle treasuremode')
 
 	apply_job_change()
 end
@@ -58,7 +63,7 @@ function init_gear_sets()
 		
 		sets.precast.JA['Life Cycle'] = 
 		{ 
-			body="Geomancy Tunic +2",
+			body="Geomancy Tunic +3",
 			back=gear.GEOCape_Luopan
 		}
 		
@@ -215,8 +220,8 @@ function init_gear_sets()
 		sets.midcast.Geomancy = 
 		{
 			main="Idris", sub="Chanter's Shield", range="Dunna", ammo="",
-			head="Azimuth Hood +1", neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
-			body="Bagua Tunic +3", hands="Geo. Mitaines +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			head="Vanya Hood", neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
+			body="Amalric Doublet +1", hands="Geo. Mitaines +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Lifestream Cape", waist="Luminary Sash", legs="Lengo Pants", feet="Medium's Sabots"
 		}
 	
@@ -230,7 +235,7 @@ function init_gear_sets()
 		{
 			main="Daybreak", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head="C. Palug Crown", neck="Bagua Charm +1", lear="Regal Earring", rear="Malignance Earring",
-			body="Geomancy Tunic +2", hands="Geo. Mitaines +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			body="Geomancy Tunic +3", hands="Geo. Mitaines +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back=gear.GEOCape_Nuke, waist="Luminary Sash", legs="Ea Slops +1", feet="Ea Pigaches +1"
 		}
 	
@@ -305,7 +310,7 @@ function init_gear_sets()
 		})
 	
 		sets.magic_burst =
-		{--MBD/II: 42/11
+		{--MB/II: 39/40
 			main="Daybreak", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head="Ea Hat +1", neck="Mizu. Kubikazari", lear="Malignance Earring", rear="Regal Earring",
 			body="Ea Houppe. +1", hands="Amalric Gages +1", lring="Freke Ring", rring="Mujin Band",
@@ -313,7 +318,7 @@ function init_gear_sets()
 		}
 
 		sets.magic_burst.Resistant = set_combine(sets.magic_burst,
-		{--MBD/II: 42/11
+		{--MBD/II: 42/34
 			hands="Regal Cuffs"
 		})
 	
@@ -345,8 +350,8 @@ function init_gear_sets()
 		{--Regen+3 | Refresh+9 | PDT/MDT: (21/9)
 			main="Daybreak", sub="Genmei Shield", ammo="Staunch Tathlum +1",
 			head="Befouled Crown", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
-			body="Amalric Doublet +1", hands="Bagua Mitaines +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Moonlight Cape", waist="Carrier's Sash", legs="Volte Brais", feet="Geo. Sandals +1"
+			body="Geomancy Tunic +3", hands="Bagua Mitaines +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			back="Moonlight Cape", waist="Carrier's Sash", legs="Volte Brais", feet="Geo. Sandals +3"
 		}
 
 		sets.idle.DT = set_combine(sets.idle,
@@ -359,7 +364,7 @@ function init_gear_sets()
 		{--Refresh+6 | PDT/MDT: (15/3)	[Luopan: Regen+24 | DT: -40% | Abs. Dmg. Tkn. +8%]
 			main="Idris", sub="Genmei Shield", ammo="Staunch Tathlum +1",
 			head="Azimuth Hood +1", neck="Bagua Charm +1", lear="Sanare Earring", rear="Lugalbanda Earring",
-			body="Amalric Doublet +1", hands="Geo. Mitaines +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			body="Geomancy Tunic +3", hands="Geo. Mitaines +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back=gear.GEOCape_Luopan, waist="Isa Belt", legs="Volte Brais", feet="Bagua Sandals +3"
 		}	
 
@@ -375,7 +380,7 @@ function init_gear_sets()
 	
 		sets.idle.Town = set_combine(sets.idle, 
 		{
-			feet="Geo. Sandals +1"
+			feet="Geo. Sandals +3"
 		})
 
 		sets.idle.Adoulin = set_combine(sets.idle,
@@ -394,15 +399,15 @@ function init_gear_sets()
 	-- Defensive Sets
 	--------------------------------------
 	
-		sets.defense.Master =
+		sets.defense.PDMaster =
 		{--PDT: 51 / MDT: 42
 			main="Daybreak", sub="Genmei Shield", ammo="Staunch Tathlum +1",
 			head="Ea Hat +1", neck="Loricate Torque +1",  lear="Genmei Earring", rear="Lugalbanda Earring",
-			body="Bagua Tunic +3", hands="Volte Bracers", lring="Defending Ring", rring="Gelatinous Ring +1",
+			body="Geomancy Tunic +3", hands="Volte Bracers", lring="Defending Ring", rring="Gelatinous Ring +1",
 			back=gear.GEOCape_Nuke, waist="Carrier's Sash", legs="Artsieq Hose", feet="Hippo. Socks +1"
 		}
 		
-		sets.defense.Pet =
+		sets.defense.PDPet =
 		{--PDT: 51 / MDT: 42
 			main="Idris", sub="Genmei Shield", ammo="Staunch Tathlum +1",
 			head="Azimuth Hood +1", neck="Bagua Charm +1",  lear="Genmei Earring", rear="Lugalbanda Earring",
@@ -410,19 +415,27 @@ function init_gear_sets()
 			back=gear.GEOCape_Luopan, waist="Isa Belt", legs="Artsieq Hose", feet="Bagua Sandals +3"
 		}
 
-		sets.defense.MDT = 
+		sets.defense.MDMaster = 
 		{--MDT: 46 / PDT: 31
-			ammo="Staunch Tathlum +1",
+			main="Daybreak", sub="Genmei Shield", ammo="Staunch Tathlum +1",
 			head="Ea Hat +1", neck="Warder's Charm +1", lear="Sanare Earring", rear="Lugalbanda Earring",
 			body="Mallquis Saio +2", hands="Volte Bracers", lring="Defending Ring", rring="Shukuyu Ring",
-			back=gear.GEOCape_Luopan, waist="Carrier's Sash", legs="Volte Brais", feet="Bagua Sandals +3"
+			back=gear.GEOCape_Nuke, waist="Carrier's Sash", legs="Volte Brais", feet="Geo. Sandals +3"
+		}
+		
+		sets.defense.MDPet =
+		{--PDT: 51 / MDT: 42
+			main="Idris", sub="Genmei Shield", ammo="Staunch Tathlum +1",
+			head="Azimuth Hood +1", neck="Bagua Charm +1",  lear="Odnowa Earring +1", rear="Lugalbanda Earring",
+			body="Mallquis Saio +2", hands="Geo. Mitaines +2", lring="Defending Ring", rring="Gelatinous Ring +1",
+			back=gear.GEOCape_Luopan, waist="Carrier's Sash", legs=gear.Pet_Legs, feet="Bagua Sandals +3"
 		}
 
 	--------------------------------------
 	-- Special Sets
 	--------------------------------------
 
-		sets.Kiting = { feet="Geo. Sandals +1" }
+		sets.Kiting = { feet="Geo. Sandals +3" }
 
 		sets.buff.Doom = 
 		{
@@ -452,10 +465,65 @@ function init_gear_sets()
 		sets.precast.WS =
 		{
 			ammo="Floestone",
-			head="Jhakri Coronal +2", neck="Fotia Gorget", lear="Telos Earring", rear="Moonshade Earring",
+			head="Jhakri Coronal +2", neck="Fotia Gorget", lear="Ishvara Earring", rear="Moonshade Earring",
 			body="Jhakri Robe +2", hands="Jhakri Cuffs +2", lring="Shukuyu Ring", rring="Epaminondas's Ring",
-			back="Lifestream Cape", legs="Jhakri Slops +2", feet="Jhakri Pigaches +2"
+			back=gear.GEOCape_Nuke, waist="Fotia Belt", legs="Jhakri Slops +2", feet="Jhakri Pigaches +2"
 		}
+		
+		--Physical Club
+		sets.precast.WS['Exudation'] = set_combine(sets.precast.WS,
+		{
+			lear="Regal Earring", rear="Malignance Earring",
+			lring="Freke Ring"
+		})
+		
+		sets.precast.WS['Realmralzer'] = set_combine(sets.precast.WS,
+		{
+			lear="Regal Earring", rear="Malignance Earring",
+			lring={name="Stikini Ring +1", bag="wardrobe2"}
+		})
+		
+		sets.precast.WS['Hexa Strike'] = set_combine(sets.precast.WS,
+		{
+			lear="Telos Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
+			rring="Begrudging Ring",
+		})
+		
+		sets.precast.WS['True Strike'] = set_combine(sets.precast.WS,
+		{
+			waist="Prosilio Belt +1"
+		})
+		
+		sets.precast.WS['Brainshaker'] = sets.precast.WS['True Strike']
+		
+		sets.precast.WS['Skullbreaker'] = sets.precast.WS['True Strike']
+		
+		sets.precast.WS['Judgment'] = set_combine(sets.precast.WS,
+		{
+			lear="Regal Earring",
+			waist="Prosilio Belt +1"
+		})
+		
+		sets.precast.WS['Black Halo'] = set_combine(sets.precast.WS,
+		{
+			lear="Regal Earring"
+		})
+		
+		
+		--Magical Club
+		sets.precast.WS['Flash Nova'] = 
+		{
+			ammo="Pemphredo Tathlum",
+			head="C. Palug Crown", neck="Sanctity Necklace", lear="Regal Earring", rear="Malignance Earring",
+			body="Amalric Doublet +1", hands="Jhakri Cuffs +2", lring="Freke Ring", rring="Weather. Ring +1",
+			back=gear.GEOCape_Nuke, waist="Orpheus's Sash", legs="Amalric Slops +1", feet="Amalric Nails +1"
+		}
+		
+		sets.precast.WS['Shining Strike'] = sets.precast.WS['Flash Nova']
+		
+		sets.precast.WS['Seraph Strike'] = sets.precast.WS['Flash Nova']
+		
+		sets.precast.WS['Moonlight'] = { neck="Incanter's Torque" }
 
 	
 	--------------------------------------
@@ -464,17 +532,17 @@ function init_gear_sets()
 	
 		sets.engaged =
 		{
-			main="Idris", sub="Genmei Shield", ammo="Floestone",
-			head="Bagua Galero +3", neck="Bagua Charm +1", lear={name="Mache Earring +1", bag="wardrobe2"},  rear={name="Mache Earring +1", bag="wardrobe3"},
+			sub="Genmei Shield", ammo="Hasty Pinion +1",
+			head="Bagua Galero +3", neck="Combatant's Torque", lear={name="Mache Earring +1", bag="wardrobe2"},  rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Bagua Tunic +3", hands="Bagua Mitaines +3", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
-			back=gear.GEOCape_Luopan, waist="Witful Belt",  legs=gear.Pet_Legs, feet="Bagua Sandals +3"
+			back=gear.GEOCape_Luopan, waist="Windbuffet Belt +1",  legs="Volte Brais", feet="Bagua Sandals +3"
 		}
 		
 		sets.engaged.Refresh =
 		{
 			main="Idris", sub="Genmei Shield", ammo="Staunch Tathlum +1",
 			head="Bagua Galero +3", neck="Bagua Charm +1", lear="Dawn Earring", rear="Infused Earring",
-			body="Geomancy Tunic +2", hands="Geo. Mitaines +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			body="Geomancy Tunic +3", hands="Geo. Mitaines +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back=gear.GEOCape_Luopan, waist="Isa Belt", legs="Volte Brais", feet="Bagua Sandals +3"
 		}
 
@@ -503,31 +571,19 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 		if spell.target.type == 'SELF' then
 			equip(
 			{
-				body="Amalric Doublet +1",
 				legs="Bagua Pants +1", feet="Azimuth Gaiters +1"
 			})
 		elseif spell.target.type == 'PLAYER' or spell.target.type == 'NPC' then
 			equip(
 			{
 				main="Solstice",
-				body="Amalric Doublet +1",
 				legs="Bagua Pants +1", feet="Azimuth Gaiters +1"
 			})
 		end
 	end
 	
 	if spell.english:startswith('Geo') then
-		if buffactive['Blaze of Glory'] then
-			equip(
-			{
-				neck="Bagua Charm +1"
-			})
-		else
-			equip(
-			{
-				neck="Bagua Charm +1"
-			})
-		end
+		equip({ neck="Bagua Charm +1" })
 	end
 
 	if (spell.skill == 'Elemental Magic') and state.MagicBurst.value and (state.CastingMode.value == 'Normal' or state.CastingMode.value == 'Potency') then
@@ -574,6 +630,11 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 		elseif spellMap ~= 'Helix' then
 			equip { waist="Hachirin-no-Obi" }
 		end
+	end
+	
+	if state.TreasureMode.value ~= 'None' and (spell.english == 'Poisonga' or spell.english == 'Diaga' or spell.english == 'Poison' or spell.english == 'Dia' or spell.english == 'Dispelga') 
+			and spell.target.type == 'MONSTER' then
+		equip(sets.TreasureHunter)
 	end
 end
 

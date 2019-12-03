@@ -357,16 +357,18 @@ function init_gear_sets()
 		---Magic Burst
 		sets.magic_burst = set_combine(sets.midcast['Elemental Magic'],
 		{--		Magic Burst: +41%	Magic Burst II: +10%
+			main="Akademos", sub="Niobid Strap",
 			neck="Mizu. Kubikazari", rear="Static Earring",
 			lring="Locus Ring", rring="Mujin Band",
-			legs="Merlinic Shalwar", feet=gear.NukeCrackows
+			legs="Merlinic Shalwar"
 		})
 		
 		sets.magic_burst.Resistant = set_combine(sets.magic_burst,
 		{--		Magic Burst: 41%	Magic Burst II: +4%
-			rrear="Barkaro. Earring",
+			main="Daybreak", sub="Ammurapi Shield",
+			rear="Barkaro. Earring",
 			body="Acad. Gown +3", hands="Regal Cuffs", lring="Freke Ring",
-			waist="Sacro Cord"
+			feet=gear.NukeCrackows
 		})
 
 	
@@ -469,6 +471,7 @@ function init_gear_sets()
 		
 		sets.TreasureHunter =
 		{
+			head="Chironic Hat",
 			hands="Volte Bracers",
 			waist="Chaac Belt", legs="Volte Hose"
 		}
@@ -596,10 +599,19 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 				lring="Archon Ring"
 			}))
 		elseif spell.element == 'Light' then
-			equip(set_combine(sets.magic_burst,
-			{
-				lring="Mujin Band", rring="Weather. Ring +1"
-			}))
+			if state.WeaponLock.value == true then
+				equip(set_combine(sets.magic_burst,
+				{
+					lring="Mujin Band", rring="Weather. Ring +1"
+				}))
+			else
+				equip(set_combine(sets.magic_burst,
+				{
+					main="Daybreak", sub="Ammurapi Shield",
+					lring="Mujin Band", rring="Weather. Ring +1",
+					feet=gear.NukeCrackows
+				}))
+			end
 		else
 			equip(set_combine(sets.magic_burst,
 			{
@@ -617,14 +629,14 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 				lring="Archon Ring"
 			}))
 		elseif spell.element == 'Light' then
-			equip(set_combine(sets.magic_burst,
+			equip(set_combine(sets.magic_burst.Resistant,
 			{
 				lring="Mujin Band", rring="Weather. Ring +1"
 			}))
 		else
 			equip(set_combine(sets.magic_burst.Resistant,
 			{
-				head=empty,
+				head=empty, rear="Static Earring",
 				body="Twilight Cloak", lring="Archon Ring"
 			}))
 		end
@@ -647,13 +659,13 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 			equip
 			{
 				main="Akademos", sub="Niobid Strap",
-				waist="Hachirin-no-Obi", feet="Amalric Nails +1"
+				waist="Hachirin-no-Obi"
 			}
 		elseif spell.target.distance < (15 - spell.target.model_size) then
 			equip
 			{
 				main="Akademos", sub="Niobid Strap",
-				waist="Orpheus's Sash", feet="Amalric Nails +1"
+				waist="Orpheus's Sash"
 			}
 		end
 	elseif (spell.skill == 'Elemental Magic' or spell.english == 'Kaustra') and (spell.element == world.day_element or (spell.element == world.weather_element and get_weather_intensity() == 1)
@@ -663,13 +675,13 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 			equip
 			{
 				main="Akademos", sub="Niobid Strap",
-				waist="Orpheus's Sash", feet="Amalric Nails +1"
+				waist="Orpheus's Sash"
 			}
 		elseif spellMap ~= 'Helix' then
 			equip
 			{
 				main="Akademos", sub="Niobid Strap",
-				waist="Hachirin-no-Obi", feet="Amalric Nails +1"
+				waist="Hachirin-no-Obi"
 			}
 		end
 	end

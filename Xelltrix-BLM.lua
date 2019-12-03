@@ -319,7 +319,7 @@ function init_gear_sets()
 		})
 	
 		sets.magic_burst =
-		{--MBD/II: 44/39
+		{--MBD/II: 44/40
 			main="Lathi", sub="Niobid Strap", ammo="Pemphredo Tathlum",
 			head="Ea Hat +1", neck="Mizu. Kubikazari", lear="Malignance Earring", rear="Regal Earring",
 			body="Ea Houppe. +1", hands="Amalric Gages +1", lring="Freke Ring", rring="Mujin Band",
@@ -327,9 +327,8 @@ function init_gear_sets()
 		}
 
 		sets.magic_burst.Resistant = set_combine(sets.magic_burst,
-		{--MBD/II: 46/29
-			hands="Regal Cuffs", lring="Freke Ring",
-			feet="Ea Pigaches +1"
+		{--MBD/II: 44/34
+			hands="Regal Cuffs"
 		})
 	
 	

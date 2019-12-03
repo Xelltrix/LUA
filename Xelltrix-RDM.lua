@@ -385,7 +385,7 @@ function init_gear_sets()
 		})
 		
 		sets.magic_burst =
-		{
+		{--MBD/II: 39/40
 			main="Daybreak", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head="Ea Hat +1", neck="Mizu. Kubikazari", lear="Regal Earring", rear="Malignance Earring",
 			body="Ea Houppe. +1", hands="Amalric Gages +1", lring="Mujin Band", rring="Freke Ring",
@@ -393,10 +393,9 @@ function init_gear_sets()
 		}
 		
 		sets.magic_burst.Resistant = set_combine(sets.magic_burst,
-		{
+		{--MBD/II: 42/33
 			head="Atrophy Chapeau +3",
-			hands="Regal Cuffs", rring="Locus Ring",
-			waist="Sacro Cord"
+			hands="Regal Cuffs",
 		})
 	
 
@@ -425,7 +424,8 @@ function init_gear_sets()
 	----------------------------------------- Weapon Sets ------------------------------------------
 	------------------------------------------------------------------------------------------------
 
-
+	
+	-- Mainhand Weapons
 		sets.Crocea = { main="Crocea Mors" }
 		
 		sets.Naegling = { main="Naegling" }
@@ -434,9 +434,12 @@ function init_gear_sets()
 			
 		sets.Almace = { main="Almace" }
 		
+		sets.Maxentius = { main="Maxentius" }
+		
 		sets.Norgish = { main="Norgish Dagger" }
 	
 	
+	-- Offhand Weapons
 		sets.subNaegling = { sub="Naegling" }
 			
 		sets.subTauret = { sub="Tauret" }
@@ -545,6 +548,7 @@ function init_gear_sets()
 		
 		sets.TreasureHunter =
 		{
+			head="Chironic Hat",
 			hands="Volte Bracers",
 			waist="Chaac Belt", legs="Volte Hose"
 		}
@@ -588,7 +592,7 @@ function init_gear_sets()
 		sets.precast.WS['Chant du Cygne'].Low = set_combine(sets.precast.WS['Chant du Cygne'],
 		{
 			head="Malignance Chapeau",
-			legs="Malignance Tights", feet="Malignance Boots"
+			feet="Malignance Boots"
 		})
 		
 		sets.precast.WS['Chant du Cygne'].Mid = sets.precast.WS['Chant du Cygne'].Low
@@ -596,6 +600,7 @@ function init_gear_sets()
 		sets.precast.WS['Chant du Cygne'].High = set_combine(sets.precast.WS['Chant du Cygne'].Mid,
 		{
 			lear={name="Mache Earring +1", bag="wardrobe2"},
+			legs="Malignance Tights"
 		})
 
 	---Vorpal Blade
@@ -1558,7 +1563,7 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 	
 	
 	
-	if state.TreasureMode.value ~= 'None' and (spell.English == 'Poisonga' or spell.English == 'Diaga' or spell.English == 'Poison' or spell.English == 'Dia') 
+	if state.TreasureMode.value ~= 'None' and (spell.english == 'Poisonga' or spell.english == 'Diaga' or spell.english == 'Poison' or spell.english == 'Dia') 
 			and spell.target.type == 'MONSTER' then
 		equip(sets.TreasureHunter)
 	end
