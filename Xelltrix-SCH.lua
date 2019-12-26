@@ -111,7 +111,7 @@ function init_gear_sets()
 		{
 			head="Amalric Coif +1",
 			lring="Kishar Ring",
-			legs="Lengo Pants"
+			waist="Embla Sash", legs="Lengo Pants"
 		})
 
 		sets.midcast.ConserveMP = set_combine(sets.precast.FC,
@@ -125,9 +125,9 @@ function init_gear_sets()
 		sets.midcast.Duration = set_combine(sets.midcast.FC,
 		{
 			main="Gada", sub="Ammurapi Shield",
-			head="Telchine Cap",  neck="Incanter's Torque",
+			head=gear.ENH_Head,  neck="Incanter's Torque",
 			body="Peda. Gown +3", hands=gear.ENH_Gloves, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back=gear.SCHCape_ENF, legs=gear.ENH_Legs, feet="Telchine Pigaches"
+			back=gear.SCHCape_ENF, waist="Embla Sash", legs=gear.ENH_Legs, feet="Telchine Pigaches"
 		})
 
 	
@@ -194,7 +194,7 @@ function init_gear_sets()
 			main="Bolelabunga",
 			head="Arbatel Bonnet +1",
 			body=gear.ENH_Body,
-			waist="Luminary Sash",
+			waist="Embla Sash"
 		})
 
 		sets.midcast.Refresh = set_combine(sets.midcast.Duration,
@@ -204,8 +204,8 @@ function init_gear_sets()
 
 		sets.midcast.BarElement = set_combine(sets.midcast['Enhancing Magic'],
 		{
-			head="Telchine Cap",
-			legs="Shedir Seraweels"
+			head=gear.ENH_Head,
+			waist="Embla Sash", legs="Shedir Seraweels"
 		})
 
 		sets.midcast.BarStatus = sets.midcast.Duration
@@ -215,7 +215,7 @@ function init_gear_sets()
 			ammo="Staunch Tathlum +1",
 			neck="Stone Gorget", rear="Earthcry Earring",
 			lring="Lebeche Ring", rring="Weather. Ring +1",
-			waist="Witful Belt", legs="Shedir Seraweels"
+			waist="Siegel Sash", legs="Shedir Seraweels"
 		})
 
 		sets.midcast.Aquaveil = set_combine(sets.midcast.Duration,
@@ -466,7 +466,8 @@ function init_gear_sets()
 		sets.buff['Sublimation: Activated'] =
 		{
 			head="Acad. Mortar. +3", rear="Savant's Earring",
-			body="Peda. Gown +3"
+			body="Peda. Gown +3",
+			waist="Embla Sash"
 		}
 		
 		sets.TreasureHunter =

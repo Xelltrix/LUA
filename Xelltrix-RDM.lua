@@ -147,9 +147,9 @@ function init_gear_sets()
 		sets.midcast.Duration =
 		{--		Fast Cast: 33%(+38%)	Duration: (1.75 * 1.64)
 			main="Colada", sub="Ammurapi Shield", ammo="Sapience Orb",
-			head="Telchine Cap", neck="Dls. Torque +1", lear="Loquac. Earring", rear="Malignance Earring",
+			head=gear.ENH_Head, neck="Dls. Torque +1", lear="Loquac. Earring", rear="Malignance Earring",
 			body="Viti. Tabard +3", hands="Atrophy Gloves +3", lring="Kishar Ring", rring="Weather. Ring +1",
-			back="Ghostfyre Cape", waist="Witful Belt", legs=gear.ENH_Legs, feet="Leth. Houseaux +1"
+			back="Ghostfyre Cape", waist="Embla Sash", legs=gear.ENH_Legs, feet="Leth. Houseaux +1"
 		}
 
     --------------------------------------
@@ -193,9 +193,9 @@ function init_gear_sets()
 		sets.midcast.Regen =
 		{
 			main="Bolelabunga", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
-			head="Telchine Cap", neck="Dls. Torque +1", lear="Gwati Earring", rear="Mendi. Earring",
+			head=gear.ENH_Head, neck="Dls. Torque +1", lear="Gwati Earring", rear="Mendi. Earring",
 			body=gear.ENH_Body, hands="Atrophy Gloves +3", lring="Kishar Ring", rring="Freke Ring",
-			back="Ghostfyre Cape", waist="Luminary Sash", legs=gear.ENH_Legs, feet="Leth. Houseaux +1"
+			back="Ghostfyre Cape", waist="Embla Sash", legs=gear.ENH_Legs, feet="Leth. Houseaux +1"
 		}
 
 		sets.midcast.Refresh =
@@ -203,7 +203,7 @@ function init_gear_sets()
 			main="Colada", sub="Ammurapi Shield", ammo="Sapience Orb",
 			head="Amalric Coif +1", neck="Dls. Torque +1", lear="Loquac. Earring", rear="Malignance Earring",
 			body="Atrophy Tabard +3", hands="Atrophy Gloves +3", lring="Kishar Ring", rring="Weather. Ring +1",
-			back="Ghostfyre Cape", waist="Witful Belt", legs="Leth. Fuseau +1", feet="Leth. Houseaux +1"
+			back="Ghostfyre Cape", waist="Embla Sash", legs="Leth. Fuseau +1", feet="Leth. Houseaux +1"
 		}
 
 		--Enspell Formula: Floor[(400/3098)(Skill+3.65)]
@@ -235,9 +235,9 @@ function init_gear_sets()
 		sets.midcast.GainStat =
 		{
 			main="Colada", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
-			head="Telchine Cap", neck="Dls. Torque +1", lear="Andoaa Earring", rear="Mendi. Earring",
+			head=gear.ENH_Head, neck="Dls. Torque +1", lear="Andoaa Earring", rear="Mendi. Earring",
 			body="Viti. Tabard +3", hands="Viti. Gloves +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Ghostfyre Cape", waist="Luminary Sash", legs=gear.ENH_Legs, feet="Leth. Houseaux +1"
+			back="Ghostfyre Cape", waist="Embla Sash", legs=gear.ENH_Legs, feet="Leth. Houseaux +1"
 		}
 
 		sets.midcast.BarElement = set_combine(sets.midcast.GainStat,
@@ -1329,7 +1329,9 @@ function init_gear_sets()
 		sets.engaged.Hybrid = 
 		{
 			ammo="Staunch Tathlum +1",
-			hands="Malignance Gloves", lring="Defending Ring"
+			head="Malignance Chapeau",
+			body="Malignance Tabard", hands="Malignance Gloves", lring="Defending Ring",
+			legs="Malignance Tights", feet="Malignance Boots"
 		}
 		
 		

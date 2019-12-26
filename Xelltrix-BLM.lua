@@ -55,10 +55,7 @@ function init_gear_sets()
 			back=gear.BLMCape_FC, waist="Witful Belt", legs="Volte Brais", feet="Amalric Nails +1"
 		}
 
-		sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC,
-		{--Fast Cast 71 / -8% Enhancing Magic Cast Time
-			waist="Siegel Sash"
-		})
+		sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC)
 
 		sets.precast.FC.Stoneskin = sets.precast.FC['Enhancing Magic']
 
@@ -66,7 +63,8 @@ function init_gear_sets()
 		sets.precast.FC.Impact = set_combine(sets.precast.FC,
 		{--Fast Cast 55
 			head=empty,
-			body="Twilight Cloak"
+			body="Twilight Cloak",
+			waist="Embla Sash"
 		})
 
 		sets.precast.FC.Death = set_combine(sets.precast.FC,
@@ -105,9 +103,9 @@ function init_gear_sets()
 		sets.midcast.Duration =
 		{ --1.5 x 1.16 Duration Bonus
 			main="Gada", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
-			head="Telchine Cap", neck="Orunmila's Torque", lear="Malignance Earring", rear="Loquac. Earring",
+			head=gear.ENH_Head, neck="Orunmila's Torque", lear="Malignance Earring", rear="Loquac. Earring",
 			body=gear.ENH_Body, hands=gear.ENH_Gloves, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Fi Follet Cape +1", waist="Witful Belt", legs=gear.ENH_Legs, feet="Telchine Pigaches"
+			back="Fi Follet Cape +1", waist="Embla Sash", legs=gear.ENH_Legs, feet="Telchine Pigaches"
 		}
 
 		sets.midcast['Enhancing Magic'] =

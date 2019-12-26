@@ -201,7 +201,7 @@ function init_gear_sets()
 		sets.midcast.Duration =
 		{--		Fast Cast: 19%(+15%)	Duration: x1.5
 			ammo="Staunch Tathlum +1",
-			head="Telchine Cap", neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
+			head=gear.ENH_Head, neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
 			body=gear.ENH_Body, hands=gear.ENH_Gloves, lring="Kishar Ring", rring="Weather. Ring +1",
 			back="Fi Follet Cape +1", waist="Luminary Sash", legs=gear.ENH_Legs, feet="Telchine Pigaches"
 		}
@@ -209,7 +209,7 @@ function init_gear_sets()
 		sets.midcast.ConserveMP = set_combine(sets.midcast.FC,
 		{--		Fast Cast: 33%(+15%)
 			ammo="Pemphredo Tathlum",
-			head="Telchine Cap", neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
+			head=gear.ENH_Head, neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
 			body="Amalric Doublet +1", hands="Malignance Gloves",
 			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Lengo Pants", feet="Carmine Greaves +1"
 		})
@@ -443,7 +443,7 @@ function init_gear_sets()
 
 		sets.midcast.Regen = set_combine(sets.midcast.ConserveMP,
 		{
-			head="Telchine Cap", 
+			head=gear.ENH_Head, 
 			body=gear.ENH_Body, hands=gear.ENH_Gloves, 
 			legs=gear.ENH_Legs, feet="Telchine Pigaches"
 		})
@@ -2411,7 +2411,7 @@ function job_post_precast(spell, action, spellMap, eventArgs)
 		end	
 	end
 	
-	if state.TreasureMode.value ~= 'None' and spell.action_type == 'Ability' and spell.target.type == 'MONSTER' then
+	if spell.english == 'Provoke' and state.TreasureMode.value ~= 'None' then
 		equip(sets.TreasureHunter)
 	end
 end
@@ -2596,30 +2596,33 @@ function determine_haste_group()
 				buffactive[604]	= Mighty Guard							]]
 	
 	classes.CustomMeleeGroups:clear()
-
-	if buffactive[1] or buffactive[13] or buffactive[194] then
-		classes.CustomMeleeGroups:append('')						-- Slow Status Effect
-		--add_to_chat(8, '*********Slowed Status Effect Set***********')
-	else
-		if (((buffactive[33] or buffactive[580] or buffactive.embrava) and (buffactive[214] or buffactive[604])) or
-			(buffactive[33] and (buffactive[580] or buffactive.embrava)) or (buffactive.march == 2 and buffactive[604])) then
-			classes.CustomMeleeGroups:append('Max')							-- 43.75% Magical Haste
-			--add_to_chat(8, '*********Maximum Haste Set***********')
-		elseif buffactive[33] or buffactive.march == 2 or buffactive[580] or buffactive[228] then
-			classes.CustomMeleeGroups:append('Med')							-- 30% Magical Haste
-			--add_to_chat(8, '*********Medium Haste Set***********')
-		elseif buffactive[214] or buffactive[604] then
-			classes.CustomMeleeGroups:append('Min')							-- 15% Magical Haste
-			--add_to_chat(8, '*********Minimum Haste Set***********')		
-		else
-			classes.CustomMeleeGroups:append('')							-- No Magical Haste
-			--add_to_chat(8, '*********No Haste Set***********')
-		end
-	end
+	if not midaction() then
 	
-	if buffactive['Aftermath: Lv.3'] and player.equipment.main == "Tizona" then
-		classes.CustomMeleeGroups:append('AM3')
-		handle_equipping_gear(player.status)
+		if buffactive[1] or buffactive[13] or buffactive[194] then
+			classes.CustomMeleeGroups:append('')						-- Slow Status Effect
+			--add_to_chat(8, '*********Slowed Status Effect Set***********')
+		else
+			if (((buffactive[33] or buffactive[580] or buffactive.embrava) and (buffactive[214] or buffactive[604])) or
+				(buffactive[33] and (buffactive[580] or buffactive.embrava)) or (buffactive.march == 2 and buffactive[604])) then
+				classes.CustomMeleeGroups:append('Max')							-- 43.75% Magical Haste
+				--add_to_chat(8, '*********Maximum Haste Set***********')
+			elseif buffactive[33] or buffactive.march == 2 or buffactive[580] or buffactive[228] then
+				classes.CustomMeleeGroups:append('Med')							-- 30% Magical Haste
+				--add_to_chat(8, '*********Medium Haste Set***********')
+			elseif buffactive[214] or buffactive[604] then
+				classes.CustomMeleeGroups:append('Min')							-- 15% Magical Haste
+				--add_to_chat(8, '*********Minimum Haste Set***********')		
+			else
+				classes.CustomMeleeGroups:append('')							-- No Magical Haste
+				--add_to_chat(8, '*********No Haste Set***********')
+			end
+		end
+		
+		if buffactive['Aftermath: Lv.3'] and player.equipment.main == "Tizona" then
+			classes.CustomMeleeGroups:append('AM3')
+			handle_equipping_gear(player.status)
+		end
+		
 	end
 end
 

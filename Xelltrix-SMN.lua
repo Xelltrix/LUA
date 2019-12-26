@@ -49,7 +49,7 @@ function init_gear_sets()
 		sets.precast.JA['Elemental Siphon'] =
 		{
 			main="Espiritus", sub="Vox Grip", ammo="Esper Stone +1",
-			head="Telchine Cap", neck="Incanter's Torque", lear="Andoaa Earring", rear="C. Palug Earring",
+			head=gear.ENH_Head, neck="Incanter's Torque", lear="Andoaa Earring", rear="C. Palug Earring",
 			body="Baayami Robe +1", hands="Baayami Cuffs +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Evoker's Ring",
 			back="Conveyance Cape", waist="Lucidity Sash", legs="Baayami Slops +1",feet="Beck. Pigaches +1"
 		}
@@ -95,16 +95,10 @@ function init_gear_sets()
 		sets.precast.FC['Summoning Magic'] = sets.precast.FC
 
 		--Fast Cast: 68%
-		sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC,
-		{
-			waist="Siegel Sash"
-		})
+		sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC)
 
 		--Fast Cast: 83%
-		sets.precast.FC.Stoneskin = set_combine(sets.precast.FC,
-		{
-			waist="Siegel Sash"
-		})
+		sets.precast.FC.Stoneskin = set_combine(sets.precast.FC)
 
 		sets.precast.FC.Cures = set_combine(sets.precast.FC,
 		{
@@ -116,7 +110,8 @@ function init_gear_sets()
 		sets.precast.FC.Impact = set_combine(sets.precast.FC,
 		{
 			head=empty,
-			body="Twilight Cloak"
+			body="Twilight Cloak",
+			waist="Embla Sash"
 		})
 		
 		sets.precast.FC.Dispelga = set_combine(sets.precast.FC,
@@ -249,9 +244,9 @@ function init_gear_sets()
 		sets.midcast.Duration =
 		{
 			main="Gada", sub="Ammurapi Shield",
-			head="Telchine Cap", neck="Orunmila's Torque", lear="Loquac. Earring", rear="Malignance Earring",
+			head=gear.ENH_Head, neck="Orunmila's Torque", lear="Loquac. Earring", rear="Malignance Earring",
 			body=gear.ENH_Body, hands=gear.ENH_Gloves, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back=gear.SMNCape_Mag, waist="Luminary Sash", legs=gear.ENH_Legs, feet="Telchine Pigaches"
+			back=gear.SMNCape_Mag, waist="Embla Sash", legs=gear.ENH_Legs, feet="Telchine Pigaches"
 		}
 
 		sets.midcast.Stoneskin = set_combine(sets.midcast.Duration,
@@ -276,7 +271,7 @@ function init_gear_sets()
 
 		sets.midcast.BarElement = set_combine(sets.midcast['Enhancing Magic'],
 		{
-			legs="Shedir Seraweels"
+			waist="Embla Sash", legs="Shedir Seraweels"
 		})
 
 		sets.midcast.BarStatus = sets.midcast.BarElement
@@ -286,7 +281,7 @@ function init_gear_sets()
 			main="Gada", sub="Ammurapi Shield",
 			head="Inyanga Tiara +2", neck="Orunmila's Torque", lear="Gwati Earring", rear="Mendi. Earring",
 			body=gear.ENH_Body, hands=gear.ENH_Gloves, lring="Lebeche Ring", rring="Weather. Ring +1",
-			back=gear.SMNCape_Mag, waist="Luminary Sash", legs=gear.ENH_Legs, feet="Telchine Pigaches"
+			back=gear.SMNCape_Mag, waist="Embla Sash", legs=gear.ENH_Legs, feet="Telchine Pigaches"
 		}
 
 		sets.midcast.Refresh =
@@ -294,7 +289,7 @@ function init_gear_sets()
 			main="Gada", sub="Ammurapi Shield",
 			head="Amalric Coif +1", neck="Orunmila's Torque", lear="Gwati Earring", rear="Mendi. Earring",
 			body=gear.ENH_Body, hands=gear.ENH_Gloves, lring="Lebeche Ring", rring="Weather. Ring +1",
-			back="Grapevine Cape", waist="Gishdubar Sash", legs=gear.ENH_Legs, feet="Inspirited Boots"
+			back="Grapevine Cape", waist="Embla Sash", legs=gear.ENH_Legs, feet="Inspirited Boots"
 		}
 
 		sets.midcast.Statless = sets.midcast.Duration
@@ -611,7 +606,7 @@ end
 
 -- Run after the general midcast() is done.
 function job_post_midcast(spell, action, spellMap, eventArgs)
-	 if spellMap == 'Cures' or spellMap == 'Curagas' then
+	 if spellMap == 'Cures' or spellMap == 'Curagas' or spellMap == 'Refresh' then
 		if spell.target.type =='SELF' then 
 			equip { waist="Gishdubar Sash"}
 		end

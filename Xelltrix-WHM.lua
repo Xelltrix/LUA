@@ -130,9 +130,9 @@ function init_gear_sets()
 		sets.midcast.Duration = set_combine(sets.midcast.FC,
 		{--		Fast Cast: 33%		Haste: 23%	Duration: (1.46) * (1.2)
 			main="Gada", sub="Ammurapi Shield",
-			head="Telchine Cap",
+			head=gear.ENH_Head,
 			body=gear.ENH_Body, hands=gear.ENH_Gloves,
-			legs=gear.ENH_Legs, feet="Theo. Duckbills +3"
+			waist="Embla Sash", legs=gear.ENH_Legs, feet="Theo. Duckbills +3"
 		})
 		
 		
@@ -159,7 +159,7 @@ function init_gear_sets()
 			main="Daybreak",
 			rear="Regal Earring",
 			rring={name="Stikini Ring +1", bag="wardrobe3"},
-			waist="Luminary Sash"
+			waist="Embla Sash"
 		})
 		
 		sets.midcast.Curas =
@@ -250,7 +250,7 @@ function init_gear_sets()
 			main="Beneficus", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head="Ebers Cap +1", neck="Incanter's Torque", lear="Andoaa Earring", rear="Augment. Earring",
 			body="Ebers Bliaud +1", hands="Dynasty Mitts", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Alaunus's Cape", waist="Olympus Sash", legs="Piety Pantaln. +3", feet="Ebers Duckbills +1"
+			back="Alaunus's Cape", waist="Embla Sash", legs="Piety Pantaln. +3", feet="Ebers Duckbills +1"
 		}
 		
 		sets.midcast.BarElementLA = set_combine(sets.midcast.BarElement,
@@ -262,7 +262,7 @@ function init_gear_sets()
 		{
 			neck="Incanter's Torque", lear="Andoaa Earring", rear="Augment. Earring",
 			hands="Dynasty Mitts",  lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Fi Follet Cape +1", waist="Olympus Sash"
+			back="Fi Follet Cape +1", waist="Embla Sash"
 		})
 
 		sets.midcast.BarStatusLA = set_combine(sets.midcast.BarStatus,
@@ -273,9 +273,9 @@ function init_gear_sets()
 		sets.midcast.BoostStat =
 		{
 			main="Gada", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
-			head="Telchine Cap", neck="Incanter's Torque", lear="Andoaa Earring", rear="Augment. Earring",
+			head=gear.ENH_Head, neck="Incanter's Torque", lear="Andoaa Earring", rear="Augment. Earring",
 			body=gear.ENH_Body, hands="Dynasty Mitts", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Fi Follet Cape +1", waist="Olympus Sash", legs=gear.ENH_Legs, feet="Theo. Duckbills +3"
+			back="Fi Follet Cape +1", waist="Embla Sash", legs=gear.ENH_Legs, feet="Theo. Duckbills +3"
 		}
 
 		sets.midcast.BoostStatLA = set_combine(sets.midcast.BoostStat,
@@ -286,9 +286,9 @@ function init_gear_sets()
 		sets.midcast.Enhancement = 
 		{
 			main="Gada", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
-			head="Telchine Cap", neck="Incanter's Torque", lear="Andoaa Earring", rear="Augment. Earring",
+			head=gear.ENH_Head, neck="Incanter's Torque", lear="Andoaa Earring", rear="Augment. Earring",
 			body=gear.ENH_Body, hands="Dynasty Mitts", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Fi Follet Cape +1", waist="Olympus Sash", legs=gear.ENH_Legs, feet="Theo. Duckbills +3"
+			back="Fi Follet Cape +1", waist="Embla Sash", legs=gear.ENH_Legs, feet="Theo. Duckbills +3"
 		}
 
 		sets.midcast.Regen =
@@ -297,7 +297,7 @@ function init_gear_sets()
 			main="Bolelabunga", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head="Inyanga Tiara +2", neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
 			body="Piety Briault +3", hands="Ebers Mitts +1", lring="Kishar Ring", rring="Weather. Ring +1",
-			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Th. Pant. +3", feet="Theo. Duckbills +3"
+			back="Fi Follet Cape +1", waist="Embla Sash", legs="Th. Pant. +3", feet="Theo. Duckbills +3"
 		}
 
 		sets.midcast.Refresh = sets.midcast.Duration
@@ -310,7 +310,7 @@ function init_gear_sets()
 		{
 			ammo="Pemphredo Tathlum",
 			neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
-			back="Fi Follet Cape +1", waist="Luminary Sash"
+			back="Fi Follet Cape +1", waist="Embla Sash"
 		})
 		sets.midcast.Teleport = sets.midcast.ConserveMP
 
@@ -620,6 +620,10 @@ end
 -- Job-specific hooks for non-casting events.
 -------------------------------------------------------------------------------------------------------------------
 function job_buff_change(buff,gain)
+	if buff == "Sublimation: Activated" and state.DefenseMode.value == 'None' then
+		handle_equipping_gear(player.status)
+	end
+	
 	if buff == "doom" then
         if gain then
             equip(sets.buff.Doom)
@@ -635,6 +639,24 @@ end
 -------------------------------------------------------------------------------------------------------------------
 -- User code that supplements standard library decisions.
 -------------------------------------------------------------------------------------------------------------------
+
+function customize_idle_set(idleSet)
+	if state.Buff['Sublimation: Activated'] and state.DefenseMode.value == 'None' then
+		idleSet = set_combine(idleSet, 
+		{
+			waist="Embla Sash"
+		})
+	end
+	
+	if player.mpp < 51 and state.IdleMode.value ~= 'DT' and state.DefenseMode.value == 'None' then
+		idleSet = set_combine(idleSet, 
+			{
+				waist="Fucho-no-Obi"
+			})
+	end
+
+	return idleSet
+end
 
 -- Custom spell mapping.
 function job_get_spell_map(spell, default_spell_map)

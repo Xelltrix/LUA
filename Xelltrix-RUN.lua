@@ -187,7 +187,7 @@ function init_gear_sets()
 			ammo="Staunch Tathlum +1",	
 			head="Erilaz Galea +1", neck="Incanter's Torque", lear="Beatific Earring", rear="Odnowa Earring +1",
 			body="Futhark Coat +3", hands="Runeist's Mitons +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Moonlight Cape", waist="Bishop's Sash", legs="Rune. Trousers +1", feet="Ahosi Leggings"
+			back="Moonlight Cape", waist="Bishop's Sash", legs="Rune. Trousers +2", feet="Ahosi Leggings"
 		}
 
 		sets.precast.JA['Elemental Sforzo'] = { body="Futhark Coat +3" }
@@ -283,7 +283,7 @@ function init_gear_sets()
 		{ 
 			ammo="Staunch Tathlum +1",
 			head="Carmine Mask +1", neck="Incanter's Torque", lear="Andoaa Earring", rear="Augment. Earring",
-			body="Futhark Coat +3", hands="Runeist's Mitons +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			body="Manasa Chasuble", hands="Runeist's Mitons +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Merciful Cape", waist="Olympus Sash", legs="Carmine Cuisses +1", feet="Turms Leggings +1"
 		}
 
@@ -291,7 +291,7 @@ function init_gear_sets()
 		{
 			ammo="Staunch Tathlum +1",
 			head="Erilaz Galea +1", neck="Incanter's Torque", lear="Andoaa Earring", rear="Augment. Earring",
-			body="Futhark Coat +3", hands="Runeist's Mitons +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			body="Manasa Chasuble", hands="Runeist's Mitons +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Merciful Cape", waist="Olympus Sash", legs ="Futhark Trousers +2", feet="Turms Leggings +1"
 		}
 
@@ -699,10 +699,6 @@ function job_precast(spell, action, spellMap, eventArgs)
 			equip(sets.precast.JA[currentSpell])
 		end
 	end
-	
-	if state.TreasureMode.value ~= 'None' and spell.action_type == 'Ability' and spell.target.type == 'MONSTER' then
-		equip(sets.TreasureHunter)
-	end
 end
 
 function job_midcast(spell, action, spellMap, eventArgs)
@@ -710,14 +706,14 @@ function job_midcast(spell, action, spellMap, eventArgs)
 	
 	if spell.action_type == 'Magic' then
 		if state.CastingMode.value == 'HP' then
-			if spell.English == 'Flash' or spell.English == 'Foil' or spell.English == 'Stun' or spell.English == 'Poisonga' or spell.skill == 'Blue Magic' then
+			if spell.English == 'Flash' or spell.English == 'Foil' or spell.English == 'Stun' or spell.English == 'Poisonga' or spell.English == 'Banishga' or spell.skill == 'Blue Magic' then
 				equip(sets.Enmity.HP)
 			else
 				equip(sets.midcast.FC.HP)
 				equip(sets.midcast['currentSpell'])
 			end
 		elseif state.CastingMode.value == 'SIRD' then
-			if spell.English == 'Poisonga' then
+			if spell.English == 'Poisonga' or spell.English == 'Banishga' then
 				equip(sets.midcast.FC.SIRD)
 			else
 				equip(sets.midcast.FC.SIRD)

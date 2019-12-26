@@ -27,13 +27,24 @@ end
  
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-	state.OffenseMode:options('Normal', 'Low', 'Mid', 'High')
+	state.OffenseMode:options('Normal', 'High', 'STP')
 	state.HybridMode:options('Normal', 'DT')
-	state.WeaponskillMode:options('Normal', 'Low', 'Mid', 'High')
+	state.WeaponskillMode:options('Normal', 'High')
+	state.IdleMode:options('Normal','Twilight')
+	
+	state.WeaponSet = M{['description']='Weapon Set', 'Trishula', 'Shining','Exalted'}
+	
+	state.GripSet = M{['description']='Grip Set','Utu','Khonsu'}
 	
 	send_command('bind ^= gs c cycle treasuremode')
     
 	send_command('bind numpad. gs c toggle EnmityDown')
+	
+	send_command('bind pageup gs c cycle WeaponSet')
+	send_command('bind pagedown gs c cycleback WeaponSet')
+	
+	send_command('bind ^pageup gs c cycle GripSet')
+	send_command('bind ^pagedown gs c cycleback GripSet')
 	
     apply_job_change()
 end
@@ -41,6 +52,12 @@ end
 function user_unload()
 	send_command('unbind ^=')
 	send_command('unbind numpad.')
+	
+	send_command('unbind pageup')
+	send_command('unbind pagedown')
+		
+	send_command('unbind ^pageup')
+	send_command('unbind ^pagedown')
 end
  
 function init_gear_sets()
@@ -58,31 +75,31 @@ function init_gear_sets()
 	-- Job Abilities --
 	------------------- 
 	
-		sets.precast.JA['Spirit Surge'] = { body="Pteroslaver Mail +1" }
+		sets.precast.JA['Spirit Surge'] = { body="Ptero. Mail +2" }
 		
-		sets.precast.JA['Call Wyvern'] = { body="Pteroslaver Mail +1" }
+		sets.precast.JA['Call Wyvern'] = { body="Ptero. Mail +2" }
 		
-		sets.precast.JA['Ancient Circle'] = { legs="Vishap Brais +2" }
+		sets.precast.JA['Ancient Circle'] = { legs="Vishap Brais +3" }
 		
 		sets.precast.JA['Spirit Link'] =
 		{
 			head="Vishap Armet +1",
 			hands="Pel. Vambraces +1",
-			feet="Ptero. Greaves +1"
+			feet="Ptero. Greaves +2"
 		}
 		
 		sets.precast.JA['Angon'] =
 		{
 			ammo="Angon",
-			hands="Ptero. Fin. G. +1"
+			hands="Ptero. Fin. G. +2"
 		}
 		
 		sets.precast.JA['Jump'] =
 		{
 			ammo="Ginsen",
 			head="Flam. Zucchetto +2", neck="Anu Torque", lear="Sherida Earring", rear="Telos Earring",
-			body="Hjarrandi Breast.", hands="Vishap F. G. +1", lring="Niqmaddu Ring", rring={name="Chirich Ring +1", bag="wardrobe3"},
-			back=gear.DRGCape_STP, waist="Windbuffet Belt +1", legs="Sulev. Cyusses +2", feet="Ostro Greaves"
+			body="Ptero. Mail +2", hands="Vishap F. G. +1", lring="Niqmaddu Ring", rring={name="Chirich Ring +1", bag="wardrobe3"},
+			back=gear.DRGCape_STP, waist="Ioskeha Belt +1", legs="Ptero. Brais +3", feet="Ostro Greaves"
 		}
 		
 		sets.precast.JA['Spirit Jump'] = set_combine(sets.precast.JA['Jump'],
@@ -90,10 +107,7 @@ function init_gear_sets()
 			legs="Peltast's Cuissots +1", feet="Pelt. Schyn. +1"
 		})
 		
-		sets.precast.JA['High Jump'] = set_combine(sets.precast.JA['Jump'],
-		{
-			legs="Vishap Brais +2"
-		})
+		sets.precast.JA['High Jump'] = sets.precast.JA['Jump']
 		
 		sets.precast.JA['Soul Jump'] = set_combine(sets.precast.JA['Jump'],
 		{
@@ -139,7 +153,7 @@ function init_gear_sets()
 		sets.midcast.Pet.Breath =
 		{
 			head="Ptero. Armet +3",
-			back=gear.DRGCape_DA, legs="Vishap Brais +2", feet="Ptero. Greaves +1"
+			back=gear.DRGCape_DA, legs="Vishap Brais +3", feet="Ptero. Greaves +2"
 		}
 	
 
@@ -159,10 +173,16 @@ function init_gear_sets()
 		sets.idle =
 		{
 			ammo="Staunch Tathlum +1",
-			head="Hjarrandi Helm", neck="Warder's Charm +1", lear="Eabani Earring", rear="Sanare Earring",
-			body="Tartarus Platemail", hands="Sulev. Gauntlets +2", lring="Defending Ring", rring="Moonlight Ring",
+			head="Hjarrandi Helm", neck="Warder's Charm +1", lear="Odnowa Earring +1", rear="Genmei Earring",
+			body="Tartarus Platemail", hands="Volte Bracers", lring="Defending Ring", rring="Moonlight Ring",
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Carmine Cuisses +1", feet="Sulev. Leggings +2"
 		}
+		
+		sets.idle.Twilight = set_combine(sets.idle,
+		{
+			head="Twilight Helm",
+			body="Twilight Mail"
+		})
 
 		sets.idle.Town = sets.idle
 		
@@ -170,8 +190,6 @@ function init_gear_sets()
 		{
 			body="Councilor's Garb"
 		})
-
-		sets.idle.Weak = sets.idle
 	
 	
 	------------------------------------------------------------------------------------------------
@@ -194,9 +212,27 @@ function init_gear_sets()
 		{
 			ammo="Staunch Tathlum +1",
 			head="Hjarrandi Helm", neck="Warder's Charm +1", lear="Eabani Earring", rear="Sanare Earring",
-			body="Tartarus Platemail", hands="Sulev. Gauntlets +2", lring="Defending Ring", rring="Moonlight Ring",
-			back="Moonlight Cape", waist="Carrier's Sash", legs="Carmine Cuisses +1", feet="Sulev. Leggings +2"
+			body="Tartarus Platemail",hands="Volte Bracers", lring="Defending Ring", rring="Moonlight Ring",
+			back="Moonlight Cape", waist="Carrier's Sash", legs="Sulev. Cuisses +2", feet="Sulev. Leggings +2"
 		}
+
+
+	
+	
+	------------------------------------------------------------------------------------------------
+	----------------------------------------- Weapon Sets ------------------------------------------
+	------------------------------------------------------------------------------------------------
+	
+		sets.Trishula = { main="Trishula" }
+		
+		sets.Shining = { main="Shining One" }
+		
+		sets.Exalted = { main="Exalted Staff" }
+		
+		sets.Utu = { sub="Utu Grip" }
+	
+		sets.Khonsu = { sub="Khonsu" }
+
 
 	--------------------------------------
 	-- Special Sets
@@ -241,43 +277,68 @@ function init_gear_sets()
 		{
 			ammo="Knobkierrie",
 			head="Valorous Mask", neck="Fotia Gorget", lear="Ishvara Earring", rear="Moonshade Earring",
-			body=gear.VMail_WSD, hands="Sulev. Gauntlets +2", lring="Niqmaddu Ring", rring="Epaminondas's Ring",
-			back=gear.DRGCape_WSD, waist="Fotia Belt", legs="Vishap Brais +2", feet="Sulev. Leggings +2"
+			body=gear.VMail_WSD, hands="Ptero. Fin. G. +2", lring="Niqmaddu Ring", rring="Epaminondas's Ring",
+			back=gear.DRGCape_WSD, waist="Fotia Belt", legs="Vishap Brais +3", feet="Sulev. Leggings +2"
 		}
 		
 		sets.precast.WS['Stardiver'] = set_combine(sets.precast.WS,
 		{
-			head="Ptero. Armet +3", lear="Sherida Earring",
-			body=gear.VMail_DA, rring="Regal Ring",
+			head="Ptero. Armet +3", neck="Dgn. Collar +1", lear="Sherida Earring",
+			body=gear.VMail_DA, hands="Sulev. Gauntlets +2", rring="Regal Ring",
 			back=gear.DRGCape_DA, legs="Sulev. Cuisses +2", feet="Flam. Gambieras +2"
 		})
 		
+		sets.precast.WS['Penta Thrust'] = sets.precast.WS['Stardiver']
+		
 		sets.precast.WS['Drakesbane'] = set_combine(sets.precast.WS,
 		{
-			head="Ptero. Armet +3", lear="Sherida Earring",
+			head="Ptero. Armet +3", neck="Dgn. Collar +1", lear="Sherida Earring", rear="Brutal Earring",
 			body="Hjarrandi Breast.", hands="Flam. Manopolas +2", rring="Begrudging Ring",
-			back=gear.DRGCape_DA, waist="Windbuffet Belt +1", legs="Peltast's Cuissots +1", feet="Thereoid Greaves"
+			back=gear.DRGCape_Crit, waist="Windbuffet Belt +1", legs="Peltast's Cuissots +1", feet="Valorous Greaves"
 		})
 		
 		sets.precast.WS['Camlann\'s Torment'] = set_combine(sets.precast.WS,
 		{
 			lear="Sherida Earring", rear="Ishvara Earring",
-			back=gear.DRGCape_WSD
+			waist="Prosilio Belt +1"
 		})
 		
 		sets.precast.WS['Skewer'] = sets.precast.WS['Drakesbane']
 		
 		sets.precast.WS['Wheeling Thrust'] = sets.precast.WS['Camlann\'s Torment']
+		
+		sets.precast.WS['Impulse Drive'] = set_combine(sets.precast.WS,
+		{
+			neck="Dgn. Collar +1", lear="Sherida Earring",
+			body="Hjarrandi Breast."
+			
+		})
+		
+		sets.precast.WS['Vorpal Thrust'] = sets.precast.WS['Impulse Drive']
+		
+		sets.precast.WS['Leg Sweep'] =
+		{
+			ammo="Pemphredo Tathlum",
+			head="Carmine Mask +1", neck="Sanctity Necklace", lear="Digni. Earring", rear="Moonshade Earring",
+			body="Carm. Sc. Mail +1", hands="Flam. Manopolas +2", lring="Weather. Ring +1", rring={name="Stikini Ring +1", bag="wardrobe3"},
+			back=gear.DRGCape_WSD, waist="Fotia Belt", legs="Vishap Brais +3", feet="Flam. Gambieras +2"
+		}
 	
 		sets.precast.WS['Thunder Thrust'] =
 		{
 			ammo="Pemphredo Tathlum", 
 			head="Valorous Mask", neck="Sanctity Necklace", lear="Friomisi Earring", rear="Moonshade Earring",
 			body="Carm. Sc. Mail +1", hands="Carmine Fin. Ga. +1", lring={name="Shiva Ring +1", bag="wardrobe2"}, rring="Epaminondas's Ring",
-			back=gear.DRGCape_WSD, waist="Orpheus's Sash", legs="Vishap Brais +2", feet="Sulev. Leggings +2"
+			back=gear.DRGCape_WSD, waist="Orpheus's Sash", legs="Vishap Brais +3", feet="Sulev. Leggings +2"
 		}
 		
 		sets.precast.WS['Raiden Thrust'] = sets.precast.WS['Thunder Thrust']
+		
+		--- Staff
+		
+		sets.precast.WS['Shell Crusher'] = sets.precast.WS['Leg Sweep']
+		
+		
 
 	--------------------------------------
 	-- Melee sets
@@ -289,22 +350,25 @@ function init_gear_sets()
 		sets.engaged =
 		{
 			ammo="Ginsen",
-			head="Flam. Zucchetto +2", neck="Anu Torque", lear="Sherida Earring", rear="Brutal Earring",
-			body="Hjarrandi Breast.", hands="Flam. Manopolas +2", lring="Niqmaddu Ring", rring={name="Chirich Ring +1", bag="wardrobe3"},
+			head="Ptero. Armet +3", neck="Anu Torque", lear="Sherida Earring", rear="Brutal Earring",
+			body="Hjarrandi Breast.", hands="Flam. Manopolas +2", lring="Niqmaddu Ring", rring="Moonlight Ring",
 			back=gear.DRGCape_DA, waist="Ioskeha Belt +1", legs="Valorous Hose", feet="Flam. Gambieras +2"
 		}
 		
-		sets.engaged.Low = set_combine(sets.engaged,
+		sets.engaged.High = set_combine(sets.engaged,
 		{
-			head="Ptero. Armet +3", rear="Telos Earring",
-			legs="Sulev. Cuisses +2"
+			neck="Dgn. Collar +1", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
+			lring="Regal Ring",
+			back=gear.DRGCape_STP, legs="Vishap Brais +3"
 		})
 		
-		sets.engaged.Mid = set_combine(sets.engaged.Low,
+		sets.engaged.STP = set_combine(sets.engaged,
 		{
-			neck="Combatant's Torque", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-			back=gear.DRGCape_STP,
+			head="Flam. Zucchetto +2", rear="Dedition Earring",
+			body=gear.VMail_DA, hands="Acro Gauntlets",
+			back=gear.DRGCape_STP, legs="Vishap Brais +3"
 		})
+		
 		
 		----------------------------------------------------------
 		-- Maximum Haste
@@ -313,33 +377,52 @@ function init_gear_sets()
 		{
 			ammo="Ginsen",
 			head="Hjarrandi Helm", neck="Anu Torque", lear="Sherida Earring", rear="Brutal Earring",
-			body="Hjarrandi Breast.", hands="Sulev. Gauntlets +2", lring="Niqmaddu Ring", rring={name="Chirich Ring +1", bag="wardrobe3"},
+			body="Hjarrandi Breast.", hands="Sulev. Gauntlets +2", lring="Niqmaddu Ring", rring="Moonlight Ring",
 			back=gear.DRGCape_DA, waist="Ioskeha Belt +1", legs="Sulev. Cuisses +2", feet="Flam. Gambieras +2"
 		}
 		
-		sets.engaged.Low.Max = set_combine(sets.engaged.Max,
+		sets.engaged.High.Max = set_combine(sets.engaged.Max,
 		{
-			neck="Combatant's Torque", rear="Telos Earring",
-			hands="Flam. Manopolas +2"
+			head="Flam. Zucchetto +2", neck="Dgn. Collar +1", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
+			hands="Flam. Manopolas +2", lring="Regal Ring",
+			back=gear.DRGCape_STP, legs="Vishap Brais +3"
 		})
 		
-		sets.engaged.Mid.Max = set_combine(sets.engaged.Low.Max,
+		sets.engaged.STP.Max = set_combine(sets.engaged.Max,
 		{
-			head="Ptero. Armet +3", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-			back=gear.DRGCape_STP,
+			head="Flam. Zucchetto +2", rear="Brutal Earring",
+			hands="Acro Gauntlets",
+			back=gear.DRGCape_STP, legs="Vishap Brais +3", 
 		})
 
 
-	--------------------------------------
-	-- Hybrid Sets
-	--------------------------------------
+
+	------------------------------------------------------------------------------------------------
+	---------------------------------------  Hybrid Sets -------------------------------------------
+	------------------------------------------------------------------------------------------------	
 	
+	---Base Hybrid Set
 		sets.engaged.Hybrid = 
 		{
 			ammo="Staunch Tathlum +1",
-			neck="Loricate Torque +1",
-			rring="Moonlight Ring"
+			neck="Dgn. Collar +1",
+			lring="Defending Ring", rring="Moonlight Ring",
 		}
+		
+		
+	---Hybrid Combat
+		sets.engaged.DT 						=	set_combine(sets.engaged, 		sets.engaged.Hybrid)
+		sets.engaged.High.DT					=	set_combine(sets.engaged.High, 	sets.engaged.Hybrid)
+
+		
+		sets.engaged.DT.Max 					= 	sets.engaged.Max
+		sets.engaged.High.DT.Max				=	set_combine(sets.engaged.High.Max,
+		{
+			ammo="Staunch Tathlum +1",
+			head="Hjarrandi Helm", neck="Dgn. Collar +1",
+			hands="Sulev. Gauntlets +2",
+			legs="Sulev. Cuisses +2"
+		})
 
  
 end
@@ -402,6 +485,11 @@ function job_post_pet_midcast(spell, action, spellMap, eventArgs)
 end
 
 
+function job_aftercast(spell,action, spellMap, eventArgs)
+	equip(sets[state.WeaponSet.current])
+	equip(sets[state.GripSet.current])
+end
+
 
 
 function customize_idle_set(idleSet)
@@ -454,7 +542,7 @@ function job_buff_change(buff,gain)
     end
 	
 	-- If we gain or lose any haste buffs, adjust which gear set we target.
-	if S{'haste','march','embrava','hasso','spirit surge','haste samba', 'mighty guard', 'geo-haste', 'indi-haste', 'slow', 'indi-slow', 'elegy',}:contains(buff:lower()) then
+	if S{'haste','march','embrava','hasso','last resort','spirit surge','haste samba', 'mighty guard', 'geo-haste', 'indi-haste', 'slow', 'indi-slow', 'elegy',}:contains(buff:lower()) then
 		determine_haste_group()
 		handle_equipping_gear(player.status)
 	end	
@@ -467,6 +555,11 @@ function job_buff_change(buff,gain)
 		end
 	end
 	
+end
+
+function job_state_change(stateField, newValue, oldValue)
+	equip(sets[state.WeaponSet.current])
+	equip(sets[state.GripSet.current])
 end
 
 function job_status_change(new_status, old_status)
@@ -494,6 +587,8 @@ function job_update(cmdParams, eventArgs)
 	determine_haste_group()
 	th_update(cmdParams, eventArgs)
 	
+	equip(sets[state.WeaponSet.current])
+	equip(sets[state.GripSet.current])
 end	
 
 
@@ -551,7 +646,7 @@ function determine_haste_group()
 		classes.CustomMeleeGroups:append('')						-- Slow Status Effect
 		--add_to_chat(8, '*********Slowed Status Effect Set***********')
 	else
-		if (pet.isvalid and buffactive[353]) or buffactive[126] then		-- Job Ability Haste
+		if (pet.isvalid and (buffactive[353] or buffactive[51])) or buffactive[126] then		-- Job Ability Haste
 			if (((buffactive[33] or buffactive[580] or buffactive[228]) and (buffactive[214] or buffactive[604])) or
 				(buffactive[33] and (buffactive[580] or buffactive[228])) or ((buffactive[33] and buffactive[580]) and buffactive[228])
 				or (buffactive.march == 2)) then

@@ -60,6 +60,7 @@ function define_global_sets()
 	gear.DRGCape_DA = { name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
 	gear.DRGCape_WSD = { name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}}
 	gear.DRGCape_STP = { name="Brigantia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Store TP"+10','Phys. dmg. taken-10%',}}
+	gear.DRGCape_Crit = { name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Crit.hit rate+10',}}
 	
 	-- Colada
 	gear.Colada_ENH = { name="Colada", augments={'Enh. Mag. eff. dur. +4','Mag. Acc.+8','DMG:+14'}}
@@ -95,7 +96,7 @@ function define_global_sets()
 	gear.HBoots_Refresh = { name="Herculean Boots", augments={'CHR+2','"Avatar perpetuation cost" -4','"Refresh"+1',}}
 	
 	--- Valorous
-	gear.VMail_DBL = { name="Valorous Mail", augments={'Attack+27','"Dbl.Atk."+4','Accuracy+9',}}
+	gear.VMail_DA = { name="Valorous Mail", augments={'Accuracy+24 Attack+24','"Dbl.Atk."+2','STR+6','Accuracy+6',}}
 	gear.VMail_WSD = { name="Valorous Mail", augments={'Attack+3','Weapon skill damage +3%','STR+15','Accuracy+11',}}
 	
 	--- Adhemar
@@ -115,10 +116,14 @@ function define_global_sets()
     gear.TFeet_TP = { name="Taeon Boots", augments={'Accuracy+19 Attack+19','"Triple Atk."+2','DEX+10',}}
 	
 	---Telchine
+	gear.ENH_Head = { name="Telchine Cap", augments={'Mag. Acc.+14 "Mag.Atk.Bns."+14','"Elemental Siphon"+35','Enh. Mag. eff. dur. +10',}}
+	gear.Pet_Head = { name="Telchine Cap", augments={'Mag. Evasion+25','Pet: "Regen"+3','Pet: Damage taken -4%',}}
+	
 	gear.ENH_Body = { name="Telchine Chas.", augments={'Mag. Evasion+25','"Elemental Siphon"+35','Enh. Mag. eff. dur. +10',}}
 	gear.Pet_Body =  { name="Telchine Chas.", augments={'Mag. Evasion+23','Pet: "Regen"+3','Pet: Damage taken -4%',}}
 
 	gear.ENH_Gloves = { name="Telchine Gloves", augments={'"Mag.Atk.Bns."+15','"Fast Cast"+5','Enh. Mag. eff. dur. +10',}}
+	gear.Pet_Hands = { name="Telchine Gloves", augments={'Mag. Evasion+25','Pet: "Regen"+3','Pet: Damage taken -4%',}}
 	
 	gear.ENH_Legs = { name="Telchine Braconi", augments={'Accuracy+15 Attack+15','"Fast Cast"+4','Enh. Mag. eff. dur. +10',}}
 	gear.Pet_Legs = { name="Telchine Braconi", augments={'Mag. Evasion+25','Pet: "Regen"+3','Pet: Damage taken -4%',}}
