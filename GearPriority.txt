@@ -1,36 +1,34 @@
 -----------
 Priority A
 -----------
-Musa                      Price: 140,000,000G
-Argute Stole +2           Price: 70,000,000G
-
+Ea Cuffs +1               Price: 30,000,000G
 
 -----------
 Priority B
 -----------
+Raetic Staff +1           Price: 30,000,000G
 Raetic Rod +1             Price; 30,000,000G
-Raetic Bangles +1         Price: 30,000,000G
 
 
 -----------
 Priority C
 -----------
-Turms Subligar +1         Price: 35,000,000G
-Ea Cuffs +1               Price: 30,000,000G
-
+Summoner's Collar +2      Price: 80,000,000G
+Duelist's Torque +2       Price: 90,000,000G
+Raetic Bangles +1         Price: 30,000,000G
 
 -----------
 Priority D
 -----------
-Duelist's Torque +2       Price: 100,000,000G
+Turms Subligar +1         Price: 35,000,000G
 Futhark Torque +2         Price: 80,000,000G
-Summoner's Collar +2      Price: 80,000,000G
+Dragoon's Collar +2       Price: 100,000,000G
 
 -----------
 Priority F
 -----------
-Cleric's Torque +2        Price: 100,000,000G
-Raetic Staff +1           Price: 30,000,000G
+Cleric's Torque +2        Price: 90,000,000G
+Bagua Charm +2            Price: 70,000,000G
 
 Pinga Tunic +1            Price: 40,000,000G (30,000,000G)
 Pinga Slops +1            Price: 40,000,000G (30,000,000G)
