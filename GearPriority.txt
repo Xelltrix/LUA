@@ -7,11 +7,15 @@ Raetic Rod +1             Price; 30,000,000G
 Turms Subligar +1         Price: 30,000,000G
 Raetic Bangles +1         Price: 30,000,000G
 
+Total: 150,000,000G
+
 -----------
 Priority B
 -----------
 Summoner's Collar +2      Price: 80,000,000G
 Duelist's Torque +2       Price: 90,000,000G
+
+Total: 170,000,000G
 
 -----------
 Priority C
@@ -19,14 +23,20 @@ Priority C
 Futhark Torque +2         Price: 80,000,000G
 Dragoon's Collar +2       Price: 100,000,000G
 
+Total: 180,000,000G
+
 -----------
 Priority D
 -----------
 Cleric's Torque +2        Price: 90,000,000G
 Bagua Charm +2            Price: 70,000,000G
 
+Total: 160,000,000G
+
 -----------
 Priority F
 -----------
-Pinga Tunic +1            Price: 40,000,000G (30,000,000G)
-Pinga Slops +1            Price: 40,000,000G (30,000,000G)
+Pinga Tunic +1            Price: 40,000,000G
+Pinga Slops +1            Price: 40,000,000G
+
+Total: 80,000,000G
