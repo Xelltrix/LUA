@@ -4,7 +4,7 @@ Priority A
 Ea Cuffs +1               Price: 30,000,000G
 Raetic Staff +1           Price: 30,000,000G
 Raetic Rod +1             Price; 30,000,000G
-Turms Subligar +1         Price: 35,000,000G
+Turms Subligar +1         Price: 30,000,000G
 Raetic Bangles +1         Price: 30,000,000G
 
 -----------
