@@ -219,7 +219,7 @@ function init_gear_sets()
 	-- Buffing Midcast sets
 	--------------------------------------
 	
-		sets.midcast.BlueSkill = set_combine(sets.midcast.ConserveMP,
+		sets.midcast['Magic Barrier'] = set_combine(sets.midcast.ConserveMP,
 		{
 			ammo="Mavi Tathlum",
 			head="Luh. Keffiyeh +3", neck="Mirage Stole +2",
@@ -227,15 +227,14 @@ function init_gear_sets()
 			back="Cornflower Cape", legs="Hashishin Tayt +1", feet="Luhlaza Charuqs +3"
 		})
 		
-		sets.midcast.Occultation = set_combine(sets.midcast.FC,
-		{--		Fast Cast: 31%(+15%)	Blue Magic Recast Delay: -14%
-			ammo="Mavi Tathlum",
-			head="Luh. Keffiyeh +3", neck="Mirage Stole +2",
-			body="Assim. Jubbah +3", hands="Hashi. Bazu. +1", lring={name="Stikini Ring +1", bag="wardrobe2"},
-			back="Cornflower Cape", legs="Hashishin Tayt +1", feet="Luhlaza Charuqs +3"
+		sets.midcast['BlueSkin'] = set_combine(sets.midcast.ConserveMP,
+		{
+			head="Carmine Mask +1",
+			hands="Leyline Gloves",
+			back="Cornflower Cape", 
 		})
 		
-		sets.midcast.Occultation.Alternate = set_combine(sets.midcast.FC,
+		sets.midcast.Occultation = set_combine(sets.midcast.FC,
 		{--		Fast Cast: 31%(+15%)	Blue Magic Recast Delay: -14%
 			neck="Mirage Stole +2",
 			body="Assim. Jubbah +3", hands="Hashi. Bazu. +1",
@@ -415,7 +414,7 @@ function init_gear_sets()
 		sets.midcast['Enhancing Magic'] =
 		{
 			ammo="Staunch Tathlum +1",
-			head="Carmine Mask +1", neck="Incanter's Torque", lear="Andoaa Earring", rear="Augment. Earring",
+			head="Carmine Mask +1", neck="Incanter's Torque", lear="Andoaa Earring", rear="Mimir Earring",
 			body=gear.ENH_Body, hands=gear.ENH_Gloves, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Fi Follet Cape +1", waist="Olympus Sash", legs="Carmine Cuisses +1", feet="Telchine Pigaches"
 		}
@@ -525,17 +524,17 @@ function init_gear_sets()
 	----------------------------------------- Weapon Sets ------------------------------------------
 	------------------------------------------------------------------------------------------------
 	
-		sets.Tizona = { main="Tizona" }
+		sets.Tizona 	= { 	main="Tizona" 		}
 			
-		sets.Almace = { main="Almace" }
+		sets.Almace 	= { 	main="Almace" 		}
 	
-		sets.subAlmace = { sub="Almace" }
+		sets.subAlmace 	= { 	sub="Almace" 		}
 		
-		sets.Maxentius = { main="Maxentius" }
+		sets.Maxentius 	= { 	main="Maxentius" 	}
 		
-		sets.Naegling = { sub="Naegling" }
+		sets.Naegling 	= { 	sub="Naegling" 		}
 		
-		sets.Thibron = { sub="Thibron" }
+		sets.Thibron 	= { 	sub="Thibron" 		}
 	
 	------------------------------------------------------------------------------------------------
 	------------------------------------------ Idle Sets -------------------------------------------
@@ -644,7 +643,7 @@ function init_gear_sets()
 		sets.precast.WS['Chant du Cygne'] = set_combine(sets.precast.WS,
 		{
 			ammo="Falcon Eye",
-			head=gear.AHead_TP, neck="Mirage Stole +2", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
+			head=gear.AHead_TP, neck="Mirage Stole +2", lear="Odr Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Begrudging Ring", rring="Epona's Ring", 
 			back=gear.BLUCape_Crit, feet=gear.HBoots_Crit
 		})
@@ -670,7 +669,7 @@ function init_gear_sets()
 		sets.precast.WS['Vorpal Blade'] = set_combine(sets.precast.WS['Chant du Cygne'],
 		{
 			ammo="Floestone",
-			lear="Brutal Earring", rear="Moonshade Earring"
+			lear="Odr Earring", rear="Moonshade Earring"
 		})
 
 		sets.precast.WS['Vorpal Blade'].Low = set_combine(sets.precast.WS['Vorpal Blade'],
@@ -2460,7 +2459,7 @@ end
 function job_buff_change(buff,gain)
 	
 	if state.Buff[buff] ~= nil then
-        	if not midaction() then
+        	if not midaction() and (player.equipment.lring ~= "Warp Ring"  and player.equipment.rring ~= "Warp Ring") then
         		handle_equipping_gear(player.status)
         	end
 	end
@@ -2479,7 +2478,6 @@ function job_buff_change(buff,gain)
 	-- If we gain or lose any haste buffs, adjust which gear set we target.
 	if S{'haste','march','embrava','haste samba', 'mighty guard', 'geo-haste', 'indi-haste', 'slow', 'indi-slow', 'elegy',}:contains(buff:lower()) then
 		determine_haste_group()
-		handle_equipping_gear(player.status)
 	end
 	
 	if buffactive['Aftermath: Lv.3'] and player.equipment.main == "Tizona" then
@@ -2596,7 +2594,7 @@ function determine_haste_group()
 				buffactive[604]	= Mighty Guard							]]
 	
 	classes.CustomMeleeGroups:clear()
-	if not midaction() then
+	if not midaction() and (player.equipment.lring ~= "Warp Ring"  and player.equipment.rring ~= "Warp Ring") then
 	
 		if buffactive[1] or buffactive[13] or buffactive[194] then
 			classes.CustomMeleeGroups:append('')						-- Slow Status Effect

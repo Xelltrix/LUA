@@ -192,7 +192,7 @@ function init_gear_sets()
 	
 		sets.midcast.Regen =
 		{
-			main="Bolelabunga", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
+			main="Colada", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head=gear.ENH_Head, neck="Dls. Torque +1", lear="Gwati Earring", rear="Mendi. Earring",
 			body=gear.ENH_Body, hands="Atrophy Gloves +3", lring="Kishar Ring", rring="Freke Ring",
 			back="Ghostfyre Cape", waist="Embla Sash", legs=gear.ENH_Legs, feet="Leth. Houseaux +1"
@@ -211,7 +211,7 @@ function init_gear_sets()
 		sets.midcast.Enhancement =
 		{--		Enhancing Skill: 624	Duration: 1.55		Enspell Damage: 81		Temper II: 32%
 			main="Pukulatmuj +1", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
-			head="Befouled Crown", neck="Incanter's Torque", lear="Andoaa Earring", rear="Augment. Earring",
+			head="Befouled Crown", neck="Incanter's Torque", lear="Andoaa Earring", rear="Mimir Earring",
 			body="Viti. Tabard +3", hands="Viti. Gloves +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Ghostfyre Cape", waist="Olympus Sash", legs="Atrophy Tights +3", feet="Leth. Houseaux +1"
 		}
@@ -278,7 +278,7 @@ function init_gear_sets()
 		sets.midcast.Macc =
 		{
 			main="Crocea Mors", sub="Ammurapi Shield", range="Ullr",
-			head="Viti. Chapeau +3", neck="Dls. Torque +1", lear="Regal Earring", rear="Malignance Earring", 
+			head="Viti. Chapeau +3", neck="Dls. Torque +1", lear="Regal Earring", rear="Snotra Earring", 
 			body="Atrophy Tabard +3", hands="Kaykaus Cuffs +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back=gear.RDMCape_ENF, waist="Luminary Sash", legs="Chironic Hose", feet="Vitiation Boots +3"
 		}
@@ -286,7 +286,7 @@ function init_gear_sets()
 		sets.midcast['Enfeebling Magic'] = 
 		{
 			main="Daybreak", sub="Ammurapi Shield", ammo="Regal Gem",
-			head="Viti. Chapeau +3", neck="Dls. Torque +1", lear="Regal Earring", rear="Malignance Earring", 
+			head="Viti. Chapeau +3", neck="Dls. Torque +1", lear="Regal Earring", rear="Snotra Earring",
 			body="Atrophy Tabard +3", hands="Regal Cuffs", lring="Kishar Ring", rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back=gear.RDMCape_ENF, waist="Luminary Sash", legs="Chironic Hose", feet="Vitiation Boots +3"
 		}
@@ -300,15 +300,32 @@ function init_gear_sets()
 		
 		sets.midcast.Static = set_combine(sets.midcast['Enfeebling Magic'].Resistant,
 		{
+			rear="Snotra Earring",
 			hands="Regal Cuffs", lring="Kishar Ring"
 		})
 		
-		sets.midcast.ESkill = set_combine(sets.midcast['Enfeebling Magic'].Potency,
+		sets.midcast['Distract III'] = set_combine(sets.midcast['Enfeebling Magic'],
 		{
-			neck="Incanter's Torque",
-			body="Atrophy Tabard +3", hands="Leth. Gantherots +1",
+			main=gear.Grioavolr_Enf, sub="Mephitis Grip",
+			neck="Incanter's Torque", lear="Vor Earring",
+			body="Lethargy Sayon +1", hands="Leth. Gantherots +1", lring={name="Stikini Ring +1", bag="wardrobe2"},
 			waist="Rumination Sash"
 		})
+		
+		sets.midcast['Frazzle III'] = set_combine(sets.midcast['Enfeebling Magic'],
+		{
+			main=gear.Grioavolr_Enf, sub="Mephitis Grip",
+			neck="Dls. Torque +1", lear="Vor Earring", rear="Enfeebling Earring",
+			body="Atrophy Tabard +3", hands="Leth. Gantherots +1", lring={name="Stikini Ring +1", bag="wardrobe2"},
+			waist="Rumination Sash"
+		})
+		
+		sets.midcast['Poison II'] =
+		{
+			main=gear.Grioavolr_Enf, sub="Enki Strap",
+			neck="Incanter's Torque", lear="Vor Earring",
+			lring={name="Stikini Ring +1", bag="wardrobe2"},
+		}
 		
 		sets.midcast.Dispel = sets.midcast['Enfeebling Magic'].Resistant
 		
@@ -327,7 +344,7 @@ function init_gear_sets()
 		
 		sets.midcast['Dia III'] = set_combine(sets.midcast.ConserveMP,
 		{
-			head="Viti. Chapeau +3", neck="Dls. Torque +1",
+			head="Viti. Chapeau +3", neck="Dls. Torque +1", rear="Snotra Earring", 
 			hands="Regal Cuffs", lring="Kishar Ring"
 		})
 
@@ -343,7 +360,7 @@ function init_gear_sets()
 		sets.midcast.Sap = set_combine(sets.midcast['Dark Magic'],
 		{
 			head="Pixie Hairpin +1", lear="Gwati Earring",
-			body="Chironic Doublet", hands="Leyline Gloves", lring="Archon Ring", rring="Evanescence Ring", 
+			body="Shango Robe", hands="Leyline Gloves", lring="Archon Ring", rring="Evanescence Ring", 
 			waist="Fucho-no-Obi", feet=gear.NukeCrackows
 		})
 
@@ -382,23 +399,24 @@ function init_gear_sets()
 		{
 			head=empty, lear="Gwati Earring",
 			body="Twilight Cloak", lring="Archon Ring",
+			back=gear.RDMCape_Nuke, waist="Sacro Cord"
 		})
 		
 		sets.magic_burst =
-		{--MBD/II: 39/40
+		{--MBD/II: 39/35
 			main="Daybreak", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head="Ea Hat +1", neck="Mizu. Kubikazari", lear="Regal Earring", rear="Malignance Earring",
-			body="Ea Houppe. +1", hands="Amalric Gages +1", lring="Mujin Band", rring="Freke Ring",
-			back=gear.RDMCape_Nuke, waist="Sacro Cord", legs="Ea Slops +1", feet="Ea Pigaches +1"
+			body="Ea Houppe. +1", hands="Amalric Gages +1", lring="Mujin Band", rring="Locus Ring",
+			back=gear.RDMCape_Nuke, waist="Sacro Cord", legs="Ea Slops +1", feet="Amalric Nails +1"
 		}
 		
 		sets.magic_burst.Resistant = set_combine(sets.magic_burst,
-		{--MBD/II: 42/33
+		{--MBD/II: 42/28
 			head="Atrophy Chapeau +3",
-			hands="Regal Cuffs",
+			rring="Freke Ring",
+			feet="Ea Pigaches +1"
 		})
-	
-
+		
 	
 	
 	--------------------------------------
@@ -583,17 +601,13 @@ function init_gear_sets()
 	---Chant du Cygne
 		sets.precast.WS['Chant du Cygne'] = set_combine(sets.precast.WS,
 		{
-			ammo="Yetshila",
-			head=gear.THead_TP, rear={name="Mache Earring +1", bag="wardrobe3"},
+			ammo="Yetshila +1",
+			head="Malignance Chapeau", rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Malignance Tabard", hands="Malignance Gloves", lring="Begrudging Ring", rring="Ilabrat Ring",
-			back=gear.RDMCape_Crit, legs="Viti. Tights +3", feet="Thereoid Greaves"
+			back=gear.RDMCape_Crit, legs="Viti. Tights +3", feet="Malignance Boots"
 		})
 	
-		sets.precast.WS['Chant du Cygne'].Low = set_combine(sets.precast.WS['Chant du Cygne'],
-		{
-			head="Malignance Chapeau",
-			feet="Malignance Boots"
-		})
+		sets.precast.WS['Chant du Cygne'].Low = sets.precast.WS['Chant du Cygne']
 		
 		sets.precast.WS['Chant du Cygne'].Mid = sets.precast.WS['Chant du Cygne'].Low
 		
@@ -1511,7 +1525,8 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 			{
 				main="Maxentius",
 				head=empty, lear="Static Earring",
-				body="Twilight Cloak", rring="Locus Ring"
+				body="Twilight Cloak",
+				feet="Ea Pigaches +1"
 			}))
 		end
 	elseif spell.skill == 'Elemental Magic' and state.MagicBurst.value and state.CastingMode.value == 'Resistant' then
@@ -1522,7 +1537,7 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 			{
 				main="Maxentius",
 				head=empty, lear="Static Earring",
-				body="Twilight Cloak", rring="Locus Ring"
+				body="Twilight Cloak", rring="Locus Ring",
 			}))
 		end
 	end

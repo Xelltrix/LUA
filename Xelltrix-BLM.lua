@@ -111,7 +111,7 @@ function init_gear_sets()
 		sets.midcast['Enhancing Magic'] =
 		{
 			main="Gada", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
-			head="Befouled Crown", neck="Incanter's Torque", lear="Andoaa Earring", rear="Augment. Earring",
+			head="Befouled Crown", neck="Incanter's Torque", lear="Andoaa Earring", rear="Mimir Earring",
 			body=gear.ENH_Body, hands=gear.ENH_Gloves, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Fi Follet Cape +1", waist="Olympus Sash", legs=gear.ENH_Legs, feet="Telchine Pigaches"
 		}
@@ -255,7 +255,7 @@ function init_gear_sets()
 
 		sets.midcast['Elemental Magic'].Occult = set_combine(sets.midcast['Elemental Magic'],
 		{
-			head=gear.NukeHood,
+			head="Mall. Chapeau +2",
 			legs="Perdition Slops"
 		})
 		

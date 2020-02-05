@@ -32,7 +32,7 @@ function user_setup()
 	state.WeaponskillMode:options('Normal', 'High')
 	state.IdleMode:options('Normal','Twilight')
 	
-	state.WeaponSet = M{['description']='Weapon Set', 'Trishula', 'Shining','Exalted'}
+	state.WeaponSet = M{['description']='Weapon Set', 'Trishula', 'Shining','Malignance'}
 	
 	state.GripSet = M{['description']='Grip Set','Utu','Khonsu'}
 	
@@ -75,9 +75,9 @@ function init_gear_sets()
 	-- Job Abilities --
 	------------------- 
 	
-		sets.precast.JA['Spirit Surge'] = { body="Ptero. Mail +2" }
+		sets.precast.JA['Spirit Surge'] = { body="Ptero. Mail +3" }
 		
-		sets.precast.JA['Call Wyvern'] = { body="Ptero. Mail +2" }
+		sets.precast.JA['Call Wyvern'] = { body="Ptero. Mail +3" }
 		
 		sets.precast.JA['Ancient Circle'] = { legs="Vishap Brais +3" }
 		
@@ -85,20 +85,20 @@ function init_gear_sets()
 		{
 			head="Vishap Armet +1",
 			hands="Pel. Vambraces +1",
-			feet="Ptero. Greaves +2"
+			feet="Ptero. Greaves +3"
 		}
 		
 		sets.precast.JA['Angon'] =
 		{
 			ammo="Angon",
-			hands="Ptero. Fin. G. +2"
+			hands="Ptero. Fin. G. +3"
 		}
 		
 		sets.precast.JA['Jump'] =
 		{
 			ammo="Ginsen",
 			head="Flam. Zucchetto +2", neck="Anu Torque", lear="Sherida Earring", rear="Telos Earring",
-			body="Ptero. Mail +2", hands="Vishap F. G. +1", lring="Niqmaddu Ring", rring={name="Chirich Ring +1", bag="wardrobe3"},
+			body="Ptero. Mail +3", hands="Vishap F. G. +1", lring="Niqmaddu Ring", rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.DRGCape_STP, waist="Ioskeha Belt +1", legs="Ptero. Brais +3", feet="Ostro Greaves"
 		}
 		
@@ -153,7 +153,7 @@ function init_gear_sets()
 		sets.midcast.Pet.Breath =
 		{
 			head="Ptero. Armet +3",
-			back=gear.DRGCape_DA, legs="Vishap Brais +3", feet="Ptero. Greaves +2"
+			back=gear.DRGCape_DA, legs="Vishap Brais +3", feet="Ptero. Greaves +3"
 		}
 	
 
@@ -223,15 +223,15 @@ function init_gear_sets()
 	----------------------------------------- Weapon Sets ------------------------------------------
 	------------------------------------------------------------------------------------------------
 	
-		sets.Trishula = { main="Trishula" }
+		sets.Trishula 	= { 	main="Trishula" 		}
 		
-		sets.Shining = { main="Shining One" }
+		sets.Shining 	= { 	main="Shining One" 		}
 		
-		sets.Exalted = { main="Exalted Staff" }
+		sets.Malignance = {  	main="Malignance Pole"	}
 		
-		sets.Utu = { sub="Utu Grip" }
+		sets.Utu 		= { 	sub="Utu Grip" 			}
 	
-		sets.Khonsu = { sub="Khonsu" }
+		sets.Khonsu 	= { 	sub="Khonsu" 			}
 
 
 	--------------------------------------
@@ -277,7 +277,7 @@ function init_gear_sets()
 		{
 			ammo="Knobkierrie",
 			head="Valorous Mask", neck="Fotia Gorget", lear="Ishvara Earring", rear="Moonshade Earring",
-			body=gear.VMail_WSD, hands="Ptero. Fin. G. +2", lring="Niqmaddu Ring", rring="Epaminondas's Ring",
+			body=gear.VMail_WSD, hands="Ptero. Fin. G. +3", lring="Niqmaddu Ring", rring="Epaminondas's Ring",
 			back=gear.DRGCape_WSD, waist="Fotia Belt", legs="Vishap Brais +3", feet="Sulev. Leggings +2"
 		}
 		
@@ -319,9 +319,9 @@ function init_gear_sets()
 		sets.precast.WS['Leg Sweep'] =
 		{
 			ammo="Pemphredo Tathlum",
-			head="Carmine Mask +1", neck="Sanctity Necklace", lear="Digni. Earring", rear="Moonshade Earring",
-			body="Carm. Sc. Mail +1", hands="Flam. Manopolas +2", lring="Weather. Ring +1", rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back=gear.DRGCape_WSD, waist="Fotia Belt", legs="Vishap Brais +3", feet="Flam. Gambieras +2"
+			head="Carmine Mask +1", neck="Sanctity Necklace", lear="Digni. Earring", rear="Gwati Earring",
+			body="Ptero. Mail +3", hands="Flam. Manopolas +2", lring="Weather. Ring +1", rring={name="Stikini Ring +1", bag="wardrobe3"},
+			back=gear.DRGCape_WSD, waist="Fotia Belt", legs="Ptero. Brais +3", feet="Flam. Gambieras +2"
 		}
 	
 		sets.precast.WS['Thunder Thrust'] =
@@ -364,9 +364,9 @@ function init_gear_sets()
 		
 		sets.engaged.STP = set_combine(sets.engaged,
 		{
-			head="Flam. Zucchetto +2", rear="Dedition Earring",
+			head="Flam. Zucchetto +2", rear="Brutal Earring",
 			body=gear.VMail_DA, hands="Acro Gauntlets",
-			back=gear.DRGCape_STP, legs="Vishap Brais +3"
+			back=gear.DRGCape_STP, legs="Ptero. Brais +3"
 		})
 		
 		
@@ -390,9 +390,9 @@ function init_gear_sets()
 		
 		sets.engaged.STP.Max = set_combine(sets.engaged.Max,
 		{
-			head="Flam. Zucchetto +2", rear="Brutal Earring",
+			head="Flam. Zucchetto +2", neck="Dgn. Collar +1", rear="Telos Earring",
 			hands="Acro Gauntlets",
-			back=gear.DRGCape_STP, legs="Vishap Brais +3", 
+			back=gear.DRGCape_STP, legs="Sulev. Cuisses +2", 
 		})
 
 

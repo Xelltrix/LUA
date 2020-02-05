@@ -85,7 +85,7 @@ function init_gear_sets()
 		--Fast Cast: 82%
 		sets.precast.FC =
 		{
-			main="Sucellus", sub="Chanter's Shield", ammo="Sapience Orb",
+			main=gear.Grioavolr_Pet, sub="Khonsu", ammo="Sapience Orb",
 			head="Amalric Coif +1", neck="Orunmila's Torque", lear="Loquac. Earring", rear="Malignance Earring",
 			body="Inyanga Jubbah +2", hands=gear.ENH_Gloves, lring="Kishar Ring", rring="Weather. Ring +1",
 			back=gear.SMNCape_Mag, waist="Witful Belt", legs="Volte Brais", feet="Amalric Nails +1"
@@ -264,7 +264,7 @@ function init_gear_sets()
 		sets.midcast['Enhancing Magic'] =
 		{
 			main="Gada", sub="Ammurapi Shield",
-			head="Befouled Crown", neck="Incanter's Torque", lear="Andoaa Earring", rear="Augment. Earring",
+			head="Befouled Crown", neck="Incanter's Torque", lear="Andoaa Earring", rear="Mimir Earring",
 			body=gear.ENH_Body, hands="Inyan. Dastanas +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Fi Follet Cape +1", waist="Olympus Sash", legs=gear.ENH_Legs, feet="Telchine Pigaches"
 		}
@@ -425,7 +425,7 @@ function init_gear_sets()
 		{
 			ammo="Sancus Sachet +1",
 			head=gear.ACrown_Perp,
-			body="Udug Jacket", lring="Inyanga Ring", rring="C. Palug Ring",
+			body="Udug Jacket", lring="Defending Ring", rring="C. Palug Ring",
 		})
 		
 		sets.idle.Favor.Avatar =

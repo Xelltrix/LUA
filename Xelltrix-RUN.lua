@@ -25,7 +25,7 @@ end
 function user_setup()
     state.OffenseMode:options('Normal', 'Low', 'Mid', 'High')
 	state.WeaponskillMode:options('Normal', 'Low', 'Mid', 'High')
-    state.HybridMode:options('Normal', 'DT')
+    state.HybridMode:options('Normal', 'DT', 'DTEVA')
 	
 	state.PhysicalDefenseMode:options('PDT')
 	state.MagicalDefenseMode:options('MEVA','MDT','Breath')
@@ -104,7 +104,7 @@ function init_gear_sets()
 		sets.buff['Embolden'] =
 		{
 			head="Erilaz Galea +1",
-			back="Evasionist's Cape", legs="Futhark Trousers +2"
+			back="Evasionist's Cape", legs="Futhark Trousers +3"
 		}
 		
 		sets.buff['Battuta'] =
@@ -194,7 +194,7 @@ function init_gear_sets()
 		
 		sets.precast.JA['One for All'] = set_combine(sets.Enmity.HP,
 		{
-			head="Erilaz Galea +1", lear="Etiolation Earring",
+			head="Erilaz Galea +1",
 			body="Runeist's Coat +3", hands="Turms Mittens +1",
 			feet="Turms Leggings +1"
 		})
@@ -222,7 +222,7 @@ function init_gear_sets()
 		sets.precast.FC['Enhancing Magic'] = 
 		{
 			waist="Siegel Sash",
-			legs="Futhark Trousers +2"
+			legs="Futhark Trousers +3"
 		}
 		
 
@@ -256,43 +256,43 @@ function init_gear_sets()
 		sets.midcast.Duration = 
 		{
 			head="Erilaz Galea +1",
-			legs="Futhark Trousers +2"
+			legs="Futhark Trousers +3"
 		}
 		
 		sets.midcast.Regen =
 		{
 			head="Rune. Bandeau +3", neck="Sacro Gorget",
-			body="Futhark Coat +3", legs ="Futhark Trousers +2"
+			body="Futhark Coat +3", legs ="Futhark Trousers +3"
 		}
 
 		sets.midcast.Refresh =
 		{
 			head="Erilaz Galea +1",
-			waist="Gishdubar Sash", legs ="Futhark Trousers +2"
+			waist="Gishdubar Sash", legs ="Futhark Trousers +3"
 		}
 
 		sets.midcast.Phalanx =
 		{-- 28 + ((Enhancing Magic Skill - 300.5)/28.5) + 17 = 50
 			ammo="Staunch Tathlum +1",
-			head="Fu. Bandeau +3", neck="Incanter's Torque", lear="Andoaa Earring", rear="Odnowa Earring +1",
+			head="Fu. Bandeau +3", neck="Incanter's Torque", lear="Etiolation Earring", rear="Mimir Earring",
 			body=gear.TBody_Phalanx, hands=gear.THands_Phalanx, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Moonlight Ring",
-			back="Merciful Cape", waist="Olympus Sash", legs=gear.TLegs_Phalanx, feet=gear.TFeet_Phalanx
+			back="Moonlight Cape", waist="Olympus Sash", legs=gear.TLegs_Phalanx, feet=gear.TFeet_Phalanx
 		}
 
 		sets.midcast.Temper = 
 		{ 
 			ammo="Staunch Tathlum +1",
-			head="Carmine Mask +1", neck="Incanter's Torque", lear="Andoaa Earring", rear="Augment. Earring",
+			head="Carmine Mask +1", neck="Incanter's Torque", lear="Andoaa Earring", rear="Mimir Earring",
 			body="Manasa Chasuble", hands="Runeist's Mitons +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Merciful Cape", waist="Olympus Sash", legs="Carmine Cuisses +1", feet="Turms Leggings +1"
+			back="Moonlight Cape", waist="Olympus Sash", legs="Carmine Cuisses +1", feet="Turms Leggings +1"
 		}
 
 		sets.midcast.BarElement = 
 		{
 			ammo="Staunch Tathlum +1",
-			head="Erilaz Galea +1", neck="Incanter's Torque", lear="Andoaa Earring", rear="Augment. Earring",
-			body="Manasa Chasuble", hands="Runeist's Mitons +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Merciful Cape", waist="Olympus Sash", legs ="Futhark Trousers +2", feet="Turms Leggings +1"
+			head="Erilaz Galea +1", neck="Incanter's Torque", lear="Etiolation Earring", rear="Mimir Earring",
+			body="Manasa Chasuble", hands="Runeist's Mitons +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Moonlight Ring",
+			back="Moonlight Cape", waist="Olympus Sash", legs ="Futhark Trousers +3", feet="Turms Leggings +1"
 		}
 
 		sets.midcast.BarStatus = sets.midcast.Duration
@@ -660,6 +660,13 @@ function init_gear_sets()
 			waist="Ioskeha Belt +1", legs="Meg. Chausses +2"
 		}
 		
+		sets.engaged.Hybrid2 =
+		{
+			head="Fu. Bandeau +3", neck="Futhark Torque +1",
+			body="Futhark Coat +3", lring="Defending Ring", rring="Moonlight Ring",
+			waist="Ioskeha Belt +1", legs="Eri. Leg Guards +1"
+		}
+		
 		
 	---Hybrid Combat
 		sets.engaged.DT 			= set_combine(sets.engaged, 		sets.engaged.Hybrid)
@@ -671,6 +678,16 @@ function init_gear_sets()
 		sets.engaged.Low.DT 		= set_combine(sets.engaged.Low, 	sets.engaged.Hybrid)
 		sets.engaged.Mid.DT			= set_combine(sets.engaged.Mid, 	sets.engaged.Hybrid)
 		sets.engaged.High.DT		= set_combine(sets.engaged.High, 	sets.engaged.Hybrid)
+		
+		sets.engaged.DTEVA 				= set_combine(sets.engaged, 		sets.engaged.Hybrid2)
+		sets.engaged.DTEVA.AM3			= set_combine(sets.engaged.AM3,		sets.engaged.Hybrid2,
+		{
+			body="Futhark Coat +3",
+			feet=gear.HBoots_TP
+		})
+		sets.engaged.Low.DTEVA 			= set_combine(sets.engaged.Low, 	sets.engaged.Hybrid2)
+		sets.engaged.Mid.DTEVA				= set_combine(sets.engaged.Mid, 	sets.engaged.Hybrid2)
+		sets.engaged.High.DTEVA			= set_combine(sets.engaged.High, 	sets.engaged.Hybrid2)
 
 end
 

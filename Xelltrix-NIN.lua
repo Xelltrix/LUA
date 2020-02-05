@@ -216,7 +216,7 @@ function init_gear_sets()
 
 		sets.precast.WS['Blade: Hi'] = set_combine(sets.precast.WS,
 		{
-			ammo="Yetshila",
+			ammo="Yetshila +1",
 			head=gear.HHead_WSD, lear="Ishvara Earring",
 			body="Abnoba Kaftan", hands="Herculean Gloves", rring="Begrudging Ring",
 			legs="Adhemar Kecks +1", feet=gear.HBoots_WSD
@@ -241,7 +241,7 @@ function init_gear_sets()
 
 		sets.precast.WS['Blade: Jin'] = set_combine(sets.precast.WS,
 		{
-			ammo="Yetshila",
+			ammo="Yetshila +1",
 			lring="Begrudging Ring",
 			feet=gear.HBoots_Crit
 		})

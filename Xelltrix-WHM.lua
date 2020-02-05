@@ -12,6 +12,8 @@ end
 
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
 function job_setup()
+	state.Buff['Sublimation: Activated'] = buffactive['Sublimation: Activated'] or false
+	
 	state.Buff['Afflatus Solace'] 	= buffactive['Afflatus Solace'] or false
 	state.Buff['Afflatus Misery'] 	= buffactive['Afflatus Misery'] or false
 	state.Buff['Light Arts'] 		= buffactive['Light Arts'] or false
@@ -64,7 +66,7 @@ function init_gear_sets()
 	
 		sets.precast.FC =
 		{--		Fast Cast: 84%
-			main="Sucellus", sub="Chanter's Shield", ammo="Sapience Orb",
+			main="Piety Wand", sub="Chanter's Shield", ammo="Sapience Orb",
 			head="C. Palug Crown", neck="Cleric's Torque", lear="Loquac. Earring", rear="Malignance Earring",
 			body="Pinga Tunic", hands="Fanatic Gloves", lring="Lebeche Ring", rring="Weather. Ring +1",
 			back="Alaunus's Cape", waist="Witful Belt", legs="Pinga Pants", feet="Telchine Pigaches"
@@ -248,19 +250,14 @@ function init_gear_sets()
 		sets.midcast.BarElement =
 		{
 			main="Beneficus", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
-			head="Ebers Cap +1", neck="Incanter's Torque", lear="Andoaa Earring", rear="Augment. Earring",
-			body="Ebers Bliaud +1", hands="Dynasty Mitts", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			head="Ebers Cap +1", neck="Incanter's Torque", lear="Andoaa Earring", rear="Mimir Earring",
+			body="Ebers Bliaud +1", hands="Ebers Mitts +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Alaunus's Cape", waist="Embla Sash", legs="Piety Pantaln. +3", feet="Ebers Duckbills +1"
 		}
-		
-		sets.midcast.BarElementLA = set_combine(sets.midcast.BarElement,
-		{
-			hands="Ebers Mitts +1"
-		})
 
 		sets.midcast.BarStatus = set_combine(sets.midcast.Duration,
 		{
-			neck="Incanter's Torque", lear="Andoaa Earring", rear="Augment. Earring",
+			neck="Incanter's Torque", lear="Andoaa Earring", rear="Mimir Earring",
 			hands="Dynasty Mitts",  lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Fi Follet Cape +1", waist="Embla Sash"
 		})
@@ -273,7 +270,7 @@ function init_gear_sets()
 		sets.midcast.BoostStat =
 		{
 			main="Gada", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
-			head=gear.ENH_Head, neck="Incanter's Torque", lear="Andoaa Earring", rear="Augment. Earring",
+			head=gear.ENH_Head, neck="Incanter's Torque", lear="Andoaa Earring", rear="Mimir Earring",
 			body=gear.ENH_Body, hands="Dynasty Mitts", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Fi Follet Cape +1", waist="Embla Sash", legs=gear.ENH_Legs, feet="Theo. Duckbills +3"
 		}
@@ -286,7 +283,7 @@ function init_gear_sets()
 		sets.midcast.Enhancement = 
 		{
 			main="Gada", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
-			head=gear.ENH_Head, neck="Incanter's Torque", lear="Andoaa Earring", rear="Augment. Earring",
+			head=gear.ENH_Head, neck="Incanter's Torque", lear="Andoaa Earring", rear="Mimir Earring",
 			body=gear.ENH_Body, hands="Dynasty Mitts", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Fi Follet Cape +1", waist="Embla Sash", legs=gear.ENH_Legs, feet="Theo. Duckbills +3"
 		}
@@ -294,7 +291,7 @@ function init_gear_sets()
 		sets.midcast.Regen =
 		{--(Regen IV	40/tick		120s		1600 HP)	Potency: +76%	Duration: +46	/ +10%(+10%)		
 		 --			70/tick		200s	=	4620 HP
-			main="Bolelabunga", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
+			main="Gada", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head="Inyanga Tiara +2", neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
 			body="Piety Briault +3", hands="Ebers Mitts +1", lring="Kishar Ring", rring="Weather. Ring +1",
 			back="Fi Follet Cape +1", waist="Embla Sash", legs="Th. Pant. +3", feet="Theo. Duckbills +3"
@@ -361,7 +358,7 @@ function init_gear_sets()
 		sets.midcast.Sap = set_combine(sets.midcast['Dark Magic'],
 		{
 			head="Pixie Hairpin +1",
-			body="Chironic Doublet", hands="Inyan. Dastanas +2", lring="Archon Ring", rring="Evanescence Ring",
+			body="Shango Robe", hands="Inyan. Dastanas +2", lring="Archon Ring", rring="Evanescence Ring",
 			waist="Fucho-no-Obi"
 		})
 		
@@ -371,7 +368,7 @@ function init_gear_sets()
 		{
 			main="Daybreak", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head="C. Palug Crown", neck="Sanctity Necklace", lear="Regal Earring", rear="Malignance Earring",
-			body="Chironic Doublet", hands="Fanatic Gloves", lring="Freke Ring", rring="Weather. Ring +1",
+			body="Kaykaus Bliaut +1", hands="Fanatic Gloves", lring="Freke Ring", rring="Weather. Ring +1",
 			back="Alaunus's Cape", waist="Sacro Cord", legs="Kaykaus Tights +1", feet="Chironic Slippers"
 		}
 
@@ -455,7 +452,6 @@ function init_gear_sets()
 		{
 			main="Piety Wand",
 			neck="Warder's Charm +1", lear="Genmei Earring",
-			rring="Inyanga Ring",
 			back="Alaunus's Cape"
 		})
 	
@@ -694,10 +690,6 @@ function job_get_spell_map(spell, default_spell_map)
 				else
 					return "Curagas"
 				end
-			end
-		elseif default_spell_map == 'BarElement'then
-			if buffactive['Light Arts'] then
-				return "BarElementLA"
 			end
 		elseif default_spell_map == 'BarStatus' then
 			if buffactive['Light Arts'] then

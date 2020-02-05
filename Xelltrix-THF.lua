@@ -152,7 +152,7 @@ function init_gear_sets()
 		sets.midcast.Phalanx = 
 		{
 			ammo="Staunch Tathlum +1",
-			head=gear.THead_Phalanx, neck="Incanter's Torque", lear="Andoaa Earring", rear="Augment. Earring",
+			head=gear.THead_Phalanx, neck="Incanter's Torque", lear="Andoaa Earring", rear="Mimir Earring",
 			body=gear.TBody_Phalanx, hands=gear.THands_Phalanx, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Fi Follet Cape +1", waist="Olympus Sash", legs=gear.TLegs_Phalanx, feet=gear.TFeet_Phalanx
 		}
@@ -205,6 +205,7 @@ function init_gear_sets()
 
 		sets.defense.PDT = set_combine(sets.idle,
 		{
+			lear="Eabani Earring", rear="Sanare Earring",
 			feet="Malignance Boots"
 		})
 
@@ -225,7 +226,7 @@ function init_gear_sets()
 
 		sets.buff['Sneak Attack'] =
 		{
-			ammo="Yetshila",
+			ammo="Yetshila +1",
 			head="Malignance Chapeau", neck="Caro Necklace", lear="Sherida Earring", rear="Suppanomimi",
 			body="Adhemar Jacket +1", hands="Malignance Gloves", lring="Ilabrat Ring", rring="Regal Ring",
 			back=gear.THFCape_STP, waist="Grunfeld Rope", legs="Malignance Tights", feet="Malignance Boots"
@@ -233,7 +234,7 @@ function init_gear_sets()
 
 		sets.buff['Trick Attack'] =
 		{
-			ammo="Yetshila",
+			ammo="Yetshila +1",
 			head="Malignance Chapeau", neck="Caro Necklace", lear="Dawn Earring", rear="Suppanomimi",
 			body="Adhemar Jacket +1", hands="Malignance Gloves", lring="Ilabrat Ring", rring="Regal Ring",
 			back=gear.THFCape_STP, waist="Grunfeld Rope", legs="Malignance Tights", feet="Malignance Boots"
@@ -294,7 +295,7 @@ function init_gear_sets()
 
 		sets.precast.WS.SA = set_combine(sets.precast.WS,
 		{
-			ammo="Yetshila",
+			ammo="Yetshila +1",
 			head=gear.AHead_TP, neck="Caro Necklace", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Malignance Tabard", lring="Ilabrat Ring",
 			waist="Grunfeld Rope", legs="Lustr. Subligar +1"
@@ -333,7 +334,7 @@ function init_gear_sets()
 		
 		sets.precast.WS['Exenterator'].SA = set_combine(sets.precast.WS['Exenterator'],
 		{
-			ammo="Yetshila",
+			ammo="Yetshila +1",
 			head=gear.AHead_TP, lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Malignance Tabard", hands="Malignance Gloves",
 			feet=gear.HBoots_Crit
@@ -347,7 +348,7 @@ function init_gear_sets()
 	---Evisceration
 		sets.precast.WS['Evisceration'] = set_combine(sets.precast.WS,
 		{
-			ammo="Yetshila",
+			ammo="Yetshila +1",
 			head=gear.AHead_TP, rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Adhemar Jacket +1", hands="Mummu Wrists +2", lring="Ilabrat Ring", rring="Begrudging Ring",
 			back=gear.THFCape_Crit, legs="Lustr. Subligar +1", feet=gear.HBoots_Crit
@@ -406,7 +407,7 @@ function init_gear_sets()
 
 		sets.precast.WS['Dancing Edge'].SA = set_combine(sets.precast.WS['Dancing Edge'],
 		{
-			ammo="Yetshila",
+			ammo="Yetshila +1",
 			head=gear.AHead_TP, lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Malignance Tabard", hands="Malignance Gloves", rring="Regal Ring",
 			feet=gear.HBoots_Crit
@@ -434,7 +435,7 @@ function init_gear_sets()
 
 		sets.precast.WS['Rudra\'s Storm'].SA = set_combine(sets.precast.WS["Rudra's Storm"],
 		{
-			ammo="Yetshila",
+			ammo="Yetshila +1",
 			head=gear.AHead_TP, rear={name="Mache Earring +1", bag="wardrobe3"}
 		})
 

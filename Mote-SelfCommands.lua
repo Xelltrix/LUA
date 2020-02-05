@@ -364,7 +364,7 @@ end
 function display_current_caster_state()
     local msg = ''
 	
-    msg = msg .. '[IDLE MODE: ' .. state.IdleMode.value .. ' ||   CASTING MODE: ' .. state.CastingMode.value .. ']'
+    msg = msg .. '[IDLE MODE: ' .. state.IdleMode.value .. '   ||   CASTING MODE: ' .. state.CastingMode.value .. ']'
 	
     if state.DefenseMode.value ~= 'None' then
         msg = msg .. ', ' .. 'Defense: ' .. state.DefenseMode.value .. ' (' .. state[state.DefenseMode.value .. 'DefenseMode'].value .. ')'
@@ -379,10 +379,10 @@ function display_current_caster_state()
 	end
 	
 	if state.MagicBurst.value == true then
-		msg = msg .. '\n[ Magic Burst State: ON' 
+		msg = msg .. ' | Magic Burst State: ON |' 
 	end
 	if state.SaveMP.value == true then
-		msg = msg .. ' || Save MP State: ON ]'
+		msg = msg .. ' | Save MP State: ON |'
 	end
 
     add_to_chat(122, msg)
