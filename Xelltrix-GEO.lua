@@ -492,7 +492,6 @@ function init_gear_sets()
 		sets.precast.WS['Hexa Strike'] = set_combine(sets.precast.WS,
 		{
 			lear="Telos Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
-			rring="Begrudging Ring",
 		})
 		
 		sets.precast.WS['True Strike'] = set_combine(sets.precast.WS,

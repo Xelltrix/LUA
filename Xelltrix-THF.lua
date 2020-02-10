@@ -350,7 +350,7 @@ function init_gear_sets()
 		{
 			ammo="Yetshila +1",
 			head=gear.AHead_TP, rear={name="Mache Earring +1", bag="wardrobe3"},
-			body="Adhemar Jacket +1", hands="Mummu Wrists +2", lring="Ilabrat Ring", rring="Begrudging Ring",
+			body="Adhemar Jacket +1", hands="Mummu Wrists +2", lring="Ilabrat Ring", rring="Regal Ring",
 			back=gear.THFCape_Crit, legs="Lustr. Subligar +1", feet=gear.HBoots_Crit
 		})
 
@@ -463,7 +463,7 @@ function init_gear_sets()
 		{
 			ammo="Pemphredo Tathlum",
 			head=gear.HHead_MAB, lear="Friomisi Earring",
-			body="Samnuha Coat", hands="Leyline Gloves", lring="Dingir Ring", rring="Epaminondas's Ring",
+			body="Samnuha Coat", lring="Dingir Ring", rring="Epaminondas's Ring",
 			back="Toutatis's Cape", waist="Orpheus's Sash", legs="Shned. Tights +1", feet="Adhemar Gamashes +1"
 		})
 

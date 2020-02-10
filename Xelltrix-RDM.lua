@@ -603,7 +603,7 @@ function init_gear_sets()
 		{
 			ammo="Yetshila +1",
 			head="Malignance Chapeau", rear={name="Mache Earring +1", bag="wardrobe3"},
-			body="Malignance Tabard", hands="Malignance Gloves", lring="Begrudging Ring", rring="Ilabrat Ring",
+			body="Malignance Tabard", hands="Malignance Gloves", lring="Hetairoi Ring", rring="Ilabrat Ring",
 			back=gear.RDMCape_Crit, legs="Viti. Tights +3", feet="Malignance Boots"
 		})
 	
@@ -621,7 +621,6 @@ function init_gear_sets()
 		sets.precast.WS['Vorpal Blade'] = set_combine(sets.precast.WS['Chant du Cygne'],
 		{
 			rear="Moonshade Earring",
-			lring="Begrudging Ring",
 			back=gear.RDMCape_WSD
 		})
 

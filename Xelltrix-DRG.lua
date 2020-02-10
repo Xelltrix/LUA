@@ -293,7 +293,7 @@ function init_gear_sets()
 		sets.precast.WS['Drakesbane'] = set_combine(sets.precast.WS,
 		{
 			head="Ptero. Armet +3", neck="Dgn. Collar +1", lear="Sherida Earring", rear="Brutal Earring",
-			body="Hjarrandi Breast.", hands="Flam. Manopolas +2", rring="Begrudging Ring",
+			body="Hjarrandi Breast.", hands="Flam. Manopolas +2", rring="Hetairoi Ring",
 			back=gear.DRGCape_Crit, waist="Windbuffet Belt +1", legs="Peltast's Cuissots +1", feet="Valorous Greaves"
 		})
 		
@@ -306,6 +306,8 @@ function init_gear_sets()
 		sets.precast.WS['Skewer'] = sets.precast.WS['Drakesbane']
 		
 		sets.precast.WS['Wheeling Thrust'] = sets.precast.WS['Camlann\'s Torment']
+		
+		sets.precast.WS['Sonic Thrust'] = sets.precast.WS['Camlann\'s Torment']
 		
 		sets.precast.WS['Impulse Drive'] = set_combine(sets.precast.WS,
 		{

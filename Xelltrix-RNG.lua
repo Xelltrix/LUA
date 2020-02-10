@@ -87,7 +87,7 @@ function init_gear_sets()
 	sets.precast.WS["Jishnu's Radiance"] = set_combine(sets.precast.WS,
 	{
 		head=gear.AHead_TP, lear="Sherida Earring",
-		body="Abnoba Kaftan", lring="Begrudging Ring", rring="Ilabrat Ring",
+		body="Abnoba Kaftan", lring="Regal Ring", rring="Ilabrat Ring",
 		legs="Herculean Trousers", feet="Thereoid Greaves"
 	})
 

@@ -107,10 +107,15 @@ function init_gear_sets()
 			back="Evasionist's Cape", legs="Futhark Trousers +3"
 		}
 		
-		sets.buff['Battuta'] =
+		sets.buff['Embolden'] =
+		{
+			head="Erilaz Galea +1",
+			back="Evasionist's Cape", legs="Futhark Trousers +3"
+		}
+		
+		sets.EPhalanx =
  		{
- 			hands="Turms Mittens +1",
- 			back=gear.RUNCape_ENM, legs="Eri. Leg Guards +1", feet="Turms Leggings +1"
+ 			back="Evasionist's Cape", legs="Futhark Trousers +3"
  		}
 
 	
@@ -156,7 +161,7 @@ function init_gear_sets()
 		{
 			ammo="Seeth. Bomblet +1",
 			head=gear.HHead_MAB, neck="Sanctity Necklace", lear="Crematio Earring", rear="Friomisi Earring",
-			body="Carm. Sc. Mail +1", hands="Carmine Fin. Ga. +1", lring={name="Shiva Ring +1", bag="wardrobe2"}, rring={name="Shiva Ring +1", bag="wardrobe3"},
+			body="Samnuha Coat", hands="Carmine Fin. Ga. +1", lring={name="Shiva Ring +1", bag="wardrobe2"}, rring={name="Shiva Ring +1", bag="wardrobe3"},
 			back="Evasionist's Cape", waist="Orpheus's Sash", legs="Shneddick Tights +1", feet="Adhemar Gamashes +1"
 		}
 
@@ -272,7 +277,7 @@ function init_gear_sets()
 		}
 
 		sets.midcast.Phalanx =
-		{-- 28 + ((Enhancing Magic Skill - 300.5)/28.5) + 17 = 50
+		{-- 28 + ((Enhancing Magic Skill - 300.5)/28.5) + 19 = 53
 			ammo="Staunch Tathlum +1",
 			head="Fu. Bandeau +3", neck="Incanter's Torque", lear="Etiolation Earring", rear="Mimir Earring",
 			body=gear.TBody_Phalanx, hands=gear.THands_Phalanx, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Moonlight Ring",
@@ -609,7 +614,8 @@ function init_gear_sets()
 			body="Futhark Coat +3", lring="Defending Ring", rring="Epaminondas's Ring",
 			legs="Meg. Chausses +2", feet=gear.HBoots_WSD
 		})
-	
+
+
 	--------------------------------------
 	-- Melee sets
 	--------------------------------------
@@ -752,7 +758,11 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 	
 	if spell.action_type == 'Magic' then
 		if buffactive['Embolden'] and spell.skill == 'Enhancing Magic' then
-			equip(sets.buff['Embolden'])
+			if spell.english == 'Phalanx' then
+				equip(sets.EPhalanx)
+			else
+				equip(sets.buff['Embolden'])
+			end
 		end
 	end
 	
@@ -824,7 +834,7 @@ function customize_idle_set(idleSet)
 		})
     end
 	
-	if player.in_combat ~= true and buffactive['Embolden'] then
+	if buffactive['Embolden'] then
 		idleSet = set_combine(idleSet, sets.buff['Embolden'])
 	end
 	

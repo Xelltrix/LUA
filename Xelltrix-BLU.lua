@@ -111,7 +111,7 @@ function init_gear_sets()
 		{--		Enmity: +64
 			ammo="Sapience Orb",
 			head="Rabid Visor", neck="Unmoving Collar +1", lear="Cryptic Earring", rear="Friomisi Earring",
-			body="Emet Harness +1", hands="Nilas Gloves", lring="Eihwaz Ring", rring="Begrudging Ring",
+			body="Emet Harness +1", hands="Nilas Gloves", lring="Eihwaz Ring",
 			back="Reiki Cloak", waist="Trance Belt", legs="Zoar Subligar +1", feet="Ahosi Leggings"
 		}
 		
@@ -644,13 +644,13 @@ function init_gear_sets()
 		{
 			ammo="Falcon Eye",
 			head=gear.AHead_TP, neck="Mirage Stole +2", lear="Odr Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
-			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Begrudging Ring", rring="Epona's Ring", 
+			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Hetairoi Ring", rring="Epona's Ring", 
 			back=gear.BLUCape_Crit, feet=gear.HBoots_Crit
 		})
 
 		sets.precast.WS['Chant du Cygne'].Low = set_combine(sets.precast.WS['Chant du Cygne'],
 		{
-			rring="Ilabrat Ring",
+			lring="Ilabrat Ring",
 			legs="Malignance Tights"
 		})
 		

@@ -339,7 +339,7 @@ function init_gear_sets()
 		sets.precast.WS['Evisceration'] = set_combine(sets.precast.WS,
 		{
 			head=gear.AHead_TP,
-			hands="Adhemar Wrist. +1", lring="Begrudging Ring",
+			hands="Adhemar Wrist. +1", lring="Ilabrat Ring",
 			feet=gear.HBoots_Crit
 		})
 

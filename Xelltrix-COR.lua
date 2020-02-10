@@ -113,14 +113,14 @@ function init_gear_sets()
 		{
 			head=gear.HHead_MAB, neck="Sanctity Necklace", lear="Friomisi Earring", rear="Crematio Earring",
 			body="Carm. Sc. Mail +1", hands="Carmine Fin. Ga. +1", lring="Dingir Ring", rring={name="Shiva Ring +1", bag="wardrobe3"},
-			back="Camulus's Mantle", waist="Orpheus's Sash", legs="Lak. Trews +1", feet="Adhemar Gamashes +1"
+			back="Camulus's Mantle", waist="Eschan Stone", legs="Lak. Trews +1", feet="Adhe. Gamashes +1"
 		}
 		
 		sets.midcast.CorsairShot.Resistant =
 		{
 			head="Malignance Chapeau", neck="Sanctity Necklace", lear="Digni. Earring", rring="Gwati Earring",
 			body="Malignance Tabard", hands="Malignance Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Camulus's Mantle", waist="Orpheus's Sash", legs="Malignance Tights", feet="Malignance Boots"
+			back="Camulus's Mantle", waist="Eschan Stone", legs="Malignance Tights", feet="Malignance Boots"
 			
 		}
 		
@@ -183,9 +183,9 @@ function init_gear_sets()
 		sets.idle =
 		{
 			ranged="Fomalhaut", ammo="Chrono Bullet",
-			head="Malignance Chapeau", neck="Warder's Charm +1", lear="Etiolation Earring", "Sanare Earring",
+			head="Malignance Chapeau", neck="Warder's Charm +1", lear="Etiolation Earring", rear="Sanare Earring",
 			body="Malignance Tabard", hands="Malignance Gloves", lring="Defending Ring", rring="Gelatinous Ring +1",
-			back="Moonlight Cape", waist="Engraved Belt", legs="Carmine Cuisses +1", feet="Malignance Boots"
+			back="Moonlight Cape", waist="Carrier's Sash", legs="Carmine Cuisses +1", feet="Malignance Boots"
 		}
 
 		sets.idle.Town = set_combine(sets.idle,
@@ -243,7 +243,7 @@ function init_gear_sets()
 		{
 			head="Chass. Tricorne +1",
 			body="Lak. Frac +1", hands="Carmine Fin. Ga. +1", 
-			waist="Impulse Belt", legs="Adhemar Kecks +1", feet="Adhemar Gamashes +1"
+			waist="Impulse Belt", legs="Adhemar Kecks +1", feet="Adhe. Gamashes +1"
 		}
 		
 		sets.midcast.RA =
@@ -256,7 +256,7 @@ function init_gear_sets()
 		sets.buff.TripleShot =
 		{
 			body="Chasseur's Frac +1", hands="Oshosi Gloves",
-			feet="Adhemar Gamashes"
+			feet="Adhe. Gamashes +1"
 		}
 		
 	-------------------------
@@ -274,7 +274,7 @@ function init_gear_sets()
 		{
 			head="Pixie Hairpin +1", neck="Sanctity Necklace", lear="Friomisi Earring", rear="Crematio Earring",
 			body="Carm. Sc. Mail +1", hands="Herculean Gloves", lring="Archon Ring", rring="Epaminondas's Ring",
-			back="Camulus's Mantle", waist="Orpheus's Sash", legs="Shned. Tights +1", feet="Adhemar Gamashes +1"
+			back="Camulus's Mantle", waist="Eschan Stone", legs="Shned. Tights +1", feet="Adhe. Gamashes +1"
 		})
 		
 		sets.precast.WS['Wildfire'] = set_combine(sets.precast.WS['Leaden Salute'],
@@ -301,7 +301,7 @@ function init_gear_sets()
 		sets.precast.WS['Vorpal Blade'] = set_combine(sets.precast.WS,
 		{
 			head=gear.AHead_TP, lear="Brutal Earring",
-			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Begrudging Ring", rring="Epona's Ring",
+			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Ilabrat Ring", rring="Epona's Ring",
 			legs="Samnuha Tights", feet=gear.HBoots_TP
 		})
 		
@@ -326,7 +326,7 @@ function init_gear_sets()
 		sets.precast.WS['Evisceration'] = set_combine(sets.precast.WS,
 		{
 			head=gear.AHead_TP, lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Begrudging Ring", rring="Epona's Ring",
+			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Ilabrat Ring", rring="Epona's Ring",
 			legs="Samnuha Tights", feet=gear.HBoots_TP
 		})
 		
@@ -753,8 +753,9 @@ function init_gear_sets()
     ------------------------------------------------------------------------------------------------
 		sets.engaged.Hybrid = 
 		{
-			head=gear.AHead_PDT, neck="Loricate Torque +1",
-			lring="Defending Ring", rring="Gelatinous Ring +1"
+			head="Malignance Chapeau", neck="Loricate Torque +1",
+			body="Malignance Tabard", hands="Malignance Gloves", lring="Defending Ring", rring="Gelatinous Ring +1",
+			legs="Malignance Tights", feet="Malignance Boots"
 		}
 		----------------------------------------------------------
 		-- Sword & Board
