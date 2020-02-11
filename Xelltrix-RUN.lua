@@ -24,7 +24,7 @@ end
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
     state.OffenseMode:options('Normal', 'Low', 'Mid', 'High')
-	state.WeaponskillMode:options('Normal', 'Low', 'Mid', 'High')
+	state.WeaponskillMode:options('Normal', 'Low', 'Mid', 'High','Turtle')
     state.HybridMode:options('Normal', 'DT', 'DTEVA')
 	
 	state.PhysicalDefenseMode:options('PDT')
@@ -112,12 +112,6 @@ function init_gear_sets()
 			head="Erilaz Galea +1",
 			back="Evasionist's Cape", legs="Futhark Trousers +3"
 		}
-		
-		sets.EPhalanx =
- 		{
- 			back="Evasionist's Cape", legs="Futhark Trousers +3"
- 		}
-
 	
 		sets.Kiting = { legs="Carmine Cuisses +1" }
 
@@ -160,8 +154,8 @@ function init_gear_sets()
 		sets.precast.JA['Swipe'] =
 		{
 			ammo="Seeth. Bomblet +1",
-			head=gear.HHead_MAB, neck="Sanctity Necklace", lear="Crematio Earring", rear="Friomisi Earring",
-			body="Samnuha Coat", hands="Carmine Fin. Ga. +1", lring={name="Shiva Ring +1", bag="wardrobe2"}, rring={name="Shiva Ring +1", bag="wardrobe3"},
+			head=gear.HHead_MAB, neck="Sanctity Necklace", lear="Crematio Earring", rear="Static Earring",
+			body="Samnuha Coat", hands="Carmine Fin. Ga. +1", lring="Locus Ring", rring="Mujin Band",
 			back="Evasionist's Cape", waist="Orpheus's Sash", legs="Shneddick Tights +1", feet="Adhemar Gamashes +1"
 		}
 
@@ -479,7 +473,7 @@ function init_gear_sets()
 			ammo="Knobkierrie",
 			head="Lustratio Cap +1", neck="Fotia Gorget", lear="Ishvara Earring", rear="Moonshade Earring",
 			body="Adhemar Jacket +1", hands="Meg. Gloves +2", lring="Regal Ring", rring="Niqmaddu Ring",
-			back=gear.RUNCape_RES, waist="Fotia Belt", legs="Samnuha Tights", feet=gear.HBoots_WSD
+			back=gear.RUNCape_RES, waist="Fotia Belt", legs="Meg. Chausses +2", feet=gear.HBoots_WSD
 		}
 
     ---Dimidation
@@ -505,11 +499,19 @@ function init_gear_sets()
 		{
 			head="Fu. Bandeau +3"
 		})
+		
+		sets.precast.WS['Dimidiation'].Turtle = set_combine(sets.precast.WS['Dimidiation'],
+		{
+			head="Fu. Bandeau +3", neck="Futhark Torque +1",
+			body="Futhark Coat +3", lring="Defending Ring",
+			legs="Meg. Chausses +2", feet=gear.HBoots_WSD
+		})
+		
 	
 	---Ground Strike
 		sets.precast.WS['Ground Strike'] = set_combine(sets.precast.WS,
 		{
-			lear="Sherida Earring", rear="Ishvara Earring",
+			neck="Futhark Torque +1", lear="Sherida Earring", rear="Ishvara Earring",
 			body="Lustr. Harness +1", rring="Epaminondas's Ring",
 			waist="Prosilio Belt +1", legs="Meg. Chausses +2", feet="Lustra. Leggings +1"
 		})
@@ -531,6 +533,13 @@ function init_gear_sets()
 			ammo="Seeth. Bomblet +1",
 			lear={name="Mache Earring +1", bag="wardrobe2"}
 		})
+		
+		sets.precast.WS['Ground Strike'].Turtle = set_combine(sets.precast.WS['Ground Strike'],
+		{
+			head="Fu. Bandeau +3",
+			body="Futhark Coat +3", lring="Defending Ring",
+			feet=gear.HBoots_WSD
+		})
 
 	---Spinning Slash
 		sets.precast.WS['Spinning Slash'] = sets.precast.WS['Ground Strike']
@@ -540,6 +549,8 @@ function init_gear_sets()
 		sets.precast.WS['Spinning Slash'].Mid = sets.precast.WS['Ground Strike'].Mid
 		
 		sets.precast.WS['Spinning Slash'].High = sets.precast.WS['Ground Strike'].High
+		
+		sets.precast.WS['Spinning Slash'].Turtle = sets.precast.WS['Ground Strike'].Turtle
 		
 	---Resolution
 		sets.precast.WS['Resolution'] = set_combine(sets.precast.WS,
@@ -570,18 +581,23 @@ function init_gear_sets()
 			legs="Carmine Cuisses +1", feet="Turms Leggings +1"
 		})
 		
-	--Shockwave	
-		sets.precast.WS['Shockwave'] = sets.midcast.Macc
-		
-		sets.precast.WS['Shockwave'].Low = set_combine(sets.precast.WS['Ground Strike'],
+		sets.precast.WS['Resolution'].Turtle = set_combine(sets.precast.WS['Resolution'],
 		{
-			neck="Futhark Torque +1"
+			head="Fu. Bandeau +3", neck="Futhark Torque +1",
+			body="Futhark Coat +3", lring="Defending Ring",
+			feet=gear.HBoots_TP
 		})
+		
+	--Shockwave	
+		sets.precast.WS['Shockwave'] = sets.precast.WS['Ground Strike']
+		
+		sets.precast.WS['Shockwave'].Turtle = sets.midcast.Macc
+		
 	--Frostbite
 		sets.precast.WS['Frostbite'] = set_combine(sets.precast.JA['Swipe'],
 		{
-			rear="Moonshade Earring",
-			rring="Epaminondas's Ring"
+			lear="Crematio Earring", rear="Moonshade Earring",
+			body="Carm. Sc. Mail +1", lring={name="Shiva Ring +1", bag="wardrobe2"}, rring="Epaminondas's Ring"
 		})
 		
 	--Freezebite
@@ -599,6 +615,8 @@ function init_gear_sets()
 	
 		sets.precast.WS['Upheavel'].High = sets.precast.WS['Resolution'].High
 		
+		sets.precast.WS['Upheavel'].Turtle = sets.precast.WS['Resolution'].Turtle
+		
 	---Steel Cyclone
 		sets.precast.WS['Steel Cyclone'] = set_combine(sets.precast.WS,
 		{
@@ -606,13 +624,23 @@ function init_gear_sets()
 			body="Lustr. Harness +1", rring="Epaminondas's Ring",
 			waist="Prosilio Belt +1"
 		})
+		
+		sets.precast.WS['Steel Cyclone'].Turtle = set_combine(sets.precast.WS['Steel Cyclone'],
+		{
+			head="Fu. Bandeau +3",
+			body="Futhark Coat +3", lring="Defending Ring",
+			feet=gear.HBoots_WSD
+		})
 	
 	---Fell Cleave
 		sets.precast.WS['Fell Cleave'] = set_combine(sets.precast.WS['Steel Cyclone'],
 		{
-			head=gear.HHead_WSD, lear="Sherida Earring", rear="Ishvara Earring",
-			body="Futhark Coat +3", lring="Defending Ring", rring="Epaminondas's Ring",
-			legs="Meg. Chausses +2", feet=gear.HBoots_WSD
+			lear="Sherida Earring", rear="Ishvara Earring",
+		})
+		
+		sets.precast.WS['Fell Cleave'].Turtle = set_combine(sets.precast.WS['Steel Cyclone'].Turtle,
+		{
+			lear="Sherida Earring", rear="Ishvara Earring",
 		})
 
 
@@ -759,7 +787,8 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 	if spell.action_type == 'Magic' then
 		if buffactive['Embolden'] and spell.skill == 'Enhancing Magic' then
 			if spell.english == 'Phalanx' then
-				equip(sets.EPhalanx)
+				equip(set_combine(sets.midcast.Phalanx, 
+				{back="Evasionist's Cape", legs="Futhark Trousers +3"}))
 			else
 				equip(sets.buff['Embolden'])
 			end
@@ -845,7 +874,13 @@ function customize_defense_set(defenseSet)
     if buffactive['Battuta'] and player.status == 'Engaged' then
         defenseSet = set_combine(defenseSet, sets.buff['Battuta'])
     end
-
+	
+	if state.Resist.value == 'Death' then
+		defenseSet = set_combine(defenseSet, sets.Death)
+	elseif state.Resist.value == 'Knockback' then
+		defenseSet = set_combine(defenseSet, sets.Knockback)
+	end
+	
     return defenseSet
 end
 
