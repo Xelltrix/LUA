@@ -12,13 +12,13 @@ end
 
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
 function job_setup()
-	state.Buff['Sublimation: Activated'] = buffactive['Sublimation: Activated'] or false
+	state.Buff['Sublimation: Activated'] 	= buffactive['Sublimation: Activated'] or false
 	
-	state.Buff['Afflatus Solace'] 	= buffactive['Afflatus Solace'] or false
-	state.Buff['Afflatus Misery'] 	= buffactive['Afflatus Misery'] or false
-	state.Buff['Light Arts'] 		= buffactive['Light Arts'] or false
+	state.Buff['Afflatus Solace'] 			= buffactive['Afflatus Solace'] or false
+	state.Buff['Afflatus Misery'] 			= buffactive['Afflatus Misery'] or false
+	state.Buff['Light Arts'] 				= buffactive['Light Arts'] or false
 	
-	state.SaveMP        			= M(true)
+	state.SaveMP        					= M(true)
 end
 
 -------------------------------------------------------------------------------------------------------------------

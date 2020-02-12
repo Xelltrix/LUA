@@ -29,7 +29,7 @@ end
 function user_setup()
 	state.OffenseMode:options('Normal', 'High', 'STP')
 	state.HybridMode:options('Normal', 'DT')
-	state.WeaponskillMode:options('Normal', 'High')
+	state.WeaponskillMode:options('Normal', 'High','Capped')
 	state.IdleMode:options('Normal','Twilight')
 	
 	state.WeaponSet = M{['description']='Weapon Set', 'Trishula', 'Shining','Malignance'}
@@ -288,13 +288,35 @@ function init_gear_sets()
 			back=gear.DRGCape_DA, legs="Sulev. Cuisses +2", feet="Flam. Gambieras +2"
 		})
 		
+		sets.precast.WS['Stardiver'].High = set_combine(sets.precast.WS['Stardiver'],
+		{
+			neck="Dgn. Collar +1",
+			legs="Vishap Brais +3"
+		})
+		
+		sets.precast.WS['Stardiver'] = set_combine(sets.precast.WS['Stardiver'],
+		{
+			head="Flam. Zucchetto +2", neck="Dgn. Collar +1"
+		})
+		
 		sets.precast.WS['Penta Thrust'] = sets.precast.WS['Stardiver']
 		
 		sets.precast.WS['Drakesbane'] = set_combine(sets.precast.WS,
 		{
 			head="Ptero. Armet +3", neck="Dgn. Collar +1", lear="Sherida Earring", rear="Brutal Earring",
-			body="Hjarrandi Breast.", hands="Flam. Manopolas +2", rring="Hetairoi Ring",
+			body="Hjarrandi Breast.", hands="Flam. Manopolas +2", rring="Regal Ring",
 			back=gear.DRGCape_Crit, waist="Windbuffet Belt +1", legs="Peltast's Cuissots +1", feet="Valorous Greaves"
+		})
+		
+		sets.precast.WS['Drakesbane'].High = set_combine(sets.precast.WS['Drakesbane'],
+		{
+			rear="Telos Earring",
+			legs="Vishap Brais +3"
+		})
+		
+		sets.precast.WS['Drakesbane'].Capped = set_combine(sets.precast.WS['Drakesbane'],
+		{
+			head="Flam. Zucchetto +2",
 		})
 		
 		sets.precast.WS['Camlann\'s Torment'] = set_combine(sets.precast.WS,

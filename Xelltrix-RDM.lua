@@ -444,31 +444,31 @@ function init_gear_sets()
 
 	
 	-- Mainhand Weapons
-		sets.Crocea = { main="Crocea Mors" }
+		sets.Crocea 		= { main="Crocea Mors" }
 		
-		sets.Naegling = { main="Naegling" }
+		sets.Naegling 		= { main="Naegling" }
 			
-		sets.Tauret = { main="Tauret" }
+		sets.Tauret 		= { main="Tauret" }
 			
-		sets.Almace = { main="Almace" }
+		sets.Almace 		= { main="Almace" }
 		
-		sets.Maxentius = { main="Maxentius" }
+		sets.Maxentius 		= { main="Maxentius" }
 		
-		sets.Norgish = { main="Norgish Dagger" }
+		sets.Norgish 		= { main="Norgish Dagger" }
 	
 	
 	-- Offhand Weapons
-		sets.subNaegling = { sub="Naegling" }
+		sets.subNaegling 	= { sub="Naegling" }
 			
-		sets.subTauret = { sub="Tauret" }
+		sets.subTauret 		= { sub="Tauret" }
 		
-		sets.Daybreak = { sub="Daybreak"}
+		sets.Daybreak 		= { sub="Daybreak"}
 			
-		sets.subAlmace = { sub="Almace" }
+		sets.subAlmace 		= { sub="Almace" }
 		
-		sets.Thibron = { sub="Thibron" }
+		sets.Thibron 		= { sub="Thibron" }
 		
-		sets.Qutrub = { sub="Qutrub Knife" }
+		sets.Qutrub 		= { sub="Qutrub Knife" }
 		
 	
 	------------------------------------------------------------------------------------------------
