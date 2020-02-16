@@ -104,7 +104,8 @@
 		'Ecliptic Growl','Ecliptic Howl','Heavenward Howl',
 		'Noctoshield','Dream Shroud',
 		'Perfect Defense',
-		"Altana's Favor",'Raise II','Mewing Lullaby','Reraise II'
+		"Altana's Favor",'Raise II','Mewing Lullaby','Reraise II',
+		'Katabatic Blades','Chinook',"Wind's Blessing"
 	}
 
 	blood_pacts.bp_Heals =
@@ -121,7 +122,8 @@
 		'Slowga','Tidal Roar',
 		'Eerie Eye',
 		'Lunar Cry','Lunar Roar',
-		'Ultimate Terror','Pavor Nocturnus'
+		'Ultimate Terror','Pavor Nocturnus',
+		'Lunatic Voice','Bitter Elegy'
 	}
 
 	blood_pacts.bp_Physical =
@@ -131,6 +133,7 @@
 		'Chaotic Strike','Volt Strike',
 		'Regal Scratch','Regal Gash',
 		'Eclipse Bite',
+		'Hysteric Assault'
 	}
 	
 	blood_pacts.bp_PhysicalTP =
@@ -143,7 +146,8 @@
 		'Barracude Dive','Tail Whip','Spinning Dive',
 		'Double Punch','Punch',
 		'Moonlit Charge','Crescent Fang',
-		'Camisado','Blindside'
+		'Camisado','Blindside',
+		'Welt','Roundhouse'
 	}
 
 	blood_pacts.bp_Magical =
@@ -156,7 +160,8 @@
 		'Tidal Wave',
 		'Inferno',
 		'Howling Moon',
-		'Ruinous Omen','Somnolence','Nightmare','Nether Blast','Night Terror'
+		'Ruinous Omen','Somnolence','Nightmare','Nether Blast','Night Terror',
+		'Sonic Buffet'
 	}
 
 	blood_pacts.bp_MagicalTP =
@@ -170,7 +175,8 @@
 		'Fire II','Fire IV','Conflag Strike',
 		'Level ? Holy',
 		'Lunar Bay', 'Impact',
-		'Zantetsuken'
+		'Zantetsuken',
+		'Tornado II'
 	}
 	
 	blood_pacts.bp_Merit =

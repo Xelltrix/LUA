@@ -40,28 +40,28 @@ function init_include()
     -- General melee offense/defense modes, allowing for hybrid set builds, as well as idle/resting/weaponskill.
     -- This just defines the vars and sets the descriptions.  List modes with no values automatically
     -- get assigned a 'Normal' default value.
-    state.OffenseMode         = M{['description'] = 'Offense Mode'}
-    state.HybridMode          = M{['description'] = 'Hybrid Mode'}
-    state.RangedMode          = M{['description'] = 'Ranged Mode'}
-    state.WeaponskillMode     = M{['description'] = 'Weaponskill Mode'}
-    state.CastingMode         = M{['description'] = 'Casting Mode'}
-    state.IdleMode            = M{['description'] = 'Idle Mode'}
-    state.RestingMode         = M{['description'] = 'Resting Mode'}
+    state.OffenseMode         	= M{['description'] = 'Offense Mode'}
+    state.HybridMode          	= M{['description'] = 'Hybrid Mode'}
+    state.RangedMode          	= M{['description'] = 'Ranged Mode'}
+    state.WeaponskillMode     	= M{['description'] = 'Weaponskill Mode'}
+    state.CastingMode         	= M{['description'] = 'Casting Mode'}
+    state.IdleMode            	= M{['description'] = 'Idle Mode'}
+    state.RestingMode         	= M{['description'] = 'Resting Mode'}
 
-    state.DefenseMode         = M{['description'] = 'Defense Mode', 'None', 'Physical', 'Magical'}
-    state.PhysicalDefenseMode = M{['description'] = 'Physical Defense Mode', 'PDT'}
-    state.MagicalDefenseMode  = M{['description'] = 'Magical Defense Mode', 'MDT'}
+    state.DefenseMode         	= M{['description'] = 'Defense Mode', 'None', 'Physical', 'Magical'}
+    state.PhysicalDefenseMode 	= M{['description'] = 'Physical Defense Mode', 'PDT'}
+    state.MagicalDefenseMode  	= M{['description'] = 'Magical Defense Mode', 'MDT'}
 	
-    state.WeaponLock		= M(false)
-    state.Kiting		= M(false)
-	state.LagMode		= M(false)
-    state.MagicBurst		= M(false)
-    state.SaveMP        	= M(false)
+    state.WeaponLock			= M(false)
+    state.Kiting				= M(false)
+	state.LagMode				= M(false)
+    state.MagicBurst			= M(false)
+    state.SaveMP        		= M(false)
 
-    state.EquipStop           = M{['description'] = 'Stop Equipping Gear', 'off', 'precast', 'midcast', 'pet_midcast'}
+    state.EquipStop           	= M{['description'] = 'Stop Equipping Gear', 'off', 'precast', 'midcast', 'pet_midcast'}
 
-    state.CombatWeapon        = M{['description']='Combat Weapon', ['string']=''}
-    state.CombatForm          = M{['description']='Combat Form', ['string']=''}
+    state.CombatWeapon        	= M{['description']='Combat Weapon', ['string']=''}
+    state.CombatForm          	= M{['description']='Combat Form', ['string']=''}
 
     -- Non-mode vars that are used for state tracking.
     state.MaxWeaponskillDistance = 0

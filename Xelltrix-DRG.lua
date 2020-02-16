@@ -97,7 +97,7 @@ function init_gear_sets()
 		sets.precast.JA['Jump'] =
 		{
 			ammo="Ginsen",
-			head="Flam. Zucchetto +2", neck="Anu Torque", lear="Sherida Earring", rear="Telos Earring",
+			head="Flam. Zucchetto +2", neck="Anu Torque", lear="Telos Earring", rear="Sherida Earring",
 			body="Ptero. Mail +3", hands="Vishap F. G. +1", lring="Niqmaddu Ring", rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.DRGCape_STP, waist="Ioskeha Belt +1", legs="Ptero. Brais +3", feet="Ostro Greaves"
 		}
@@ -276,14 +276,14 @@ function init_gear_sets()
 		sets.precast.WS = 
 		{
 			ammo="Knobkierrie",
-			head="Valorous Mask", neck="Fotia Gorget", lear="Ishvara Earring", rear="Moonshade Earring",
+			head="Valorous Mask", neck="Fotia Gorget", lear="Thrud Earring", rear="Moonshade Earring",
 			body=gear.VMail_WSD, hands="Ptero. Fin. G. +3", lring="Niqmaddu Ring", rring="Epaminondas's Ring",
 			back=gear.DRGCape_WSD, waist="Fotia Belt", legs="Vishap Brais +3", feet="Sulev. Leggings +2"
 		}
 		
 		sets.precast.WS['Stardiver'] = set_combine(sets.precast.WS,
 		{
-			head="Ptero. Armet +3", neck="Dgn. Collar +1", lear="Sherida Earring",
+			head="Ptero. Armet +3", neck="Dgn. Collar +1", rear="Sherida Earring",
 			body=gear.VMail_DA, hands="Sulev. Gauntlets +2", rring="Regal Ring",
 			back=gear.DRGCape_DA, legs="Sulev. Cuisses +2", feet="Flam. Gambieras +2"
 		})
@@ -303,14 +303,14 @@ function init_gear_sets()
 		
 		sets.precast.WS['Drakesbane'] = set_combine(sets.precast.WS,
 		{
-			head="Ptero. Armet +3", neck="Dgn. Collar +1", lear="Sherida Earring", rear="Brutal Earring",
+			head="Ptero. Armet +3", neck="Dgn. Collar +1", lear="Thrud Earring", rear="Sherida Earring",
 			body="Hjarrandi Breast.", hands="Flam. Manopolas +2", rring="Regal Ring",
 			back=gear.DRGCape_Crit, waist="Windbuffet Belt +1", legs="Peltast's Cuissots +1", feet="Valorous Greaves"
 		})
 		
 		sets.precast.WS['Drakesbane'].High = set_combine(sets.precast.WS['Drakesbane'],
 		{
-			rear="Telos Earring",
+			lear="Telos Earring",
 			legs="Vishap Brais +3"
 		})
 		
@@ -321,7 +321,7 @@ function init_gear_sets()
 		
 		sets.precast.WS['Camlann\'s Torment'] = set_combine(sets.precast.WS,
 		{
-			lear="Sherida Earring", rear="Ishvara Earring",
+			rear="Ishvara Earring",
 			waist="Prosilio Belt +1"
 		})
 		
@@ -333,7 +333,7 @@ function init_gear_sets()
 		
 		sets.precast.WS['Impulse Drive'] = set_combine(sets.precast.WS,
 		{
-			neck="Dgn. Collar +1", lear="Sherida Earring",
+			neck="Dgn. Collar +1",
 			body="Hjarrandi Breast."
 			
 		})
@@ -351,7 +351,7 @@ function init_gear_sets()
 		sets.precast.WS['Thunder Thrust'] =
 		{
 			ammo="Pemphredo Tathlum", 
-			head="Valorous Mask", neck="Sanctity Necklace", lear="Friomisi Earring", rear="Moonshade Earring",
+			head="Valorous Mask", neck="Sanctity Necklace", lear="Thrud Earring", rear="Moonshade Earring",
 			body="Carm. Sc. Mail +1", hands="Carmine Fin. Ga. +1", lring={name="Shiva Ring +1", bag="wardrobe2"}, rring="Epaminondas's Ring",
 			back=gear.DRGCape_WSD, waist="Orpheus's Sash", legs="Vishap Brais +3", feet="Sulev. Leggings +2"
 		}
@@ -374,7 +374,7 @@ function init_gear_sets()
 		sets.engaged =
 		{
 			ammo="Ginsen",
-			head="Ptero. Armet +3", neck="Anu Torque", lear="Sherida Earring", rear="Brutal Earring",
+			head="Ptero. Armet +3", neck="Anu Torque", lear="Brutal Earring", rear="Sherida Earring",
 			body="Hjarrandi Breast.", hands="Flam. Manopolas +2", lring="Niqmaddu Ring", rring="Moonlight Ring",
 			back=gear.DRGCape_DA, waist="Ioskeha Belt +1", legs="Valorous Hose", feet="Flam. Gambieras +2"
 		}
@@ -388,7 +388,7 @@ function init_gear_sets()
 		
 		sets.engaged.STP = set_combine(sets.engaged,
 		{
-			head="Flam. Zucchetto +2", rear="Brutal Earring",
+			head="Flam. Zucchetto +2", lear="Telos Earring",
 			body=gear.VMail_DA, hands="Acro Gauntlets",
 			back=gear.DRGCape_STP, legs="Ptero. Brais +3"
 		})
@@ -400,7 +400,7 @@ function init_gear_sets()
 		sets.engaged.Max =
 		{
 			ammo="Ginsen",
-			head="Hjarrandi Helm", neck="Anu Torque", lear="Sherida Earring", rear="Brutal Earring",
+			head="Hjarrandi Helm", neck="Anu Torque", lear="Brutal Earring", lear="Sherida Earring",
 			body="Hjarrandi Breast.", hands="Sulev. Gauntlets +2", lring="Niqmaddu Ring", rring="Moonlight Ring",
 			back=gear.DRGCape_DA, waist="Ioskeha Belt +1", legs="Sulev. Cuisses +2", feet="Flam. Gambieras +2"
 		}

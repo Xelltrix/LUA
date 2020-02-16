@@ -25,7 +25,7 @@ end
 function user_setup()
     state.OffenseMode:options('Normal', 'Low', 'Mid', 'High')
 	state.WeaponskillMode:options('Normal', 'Low', 'Mid', 'High','Turtle')
-    state.HybridMode:options('Normal', 'DT', 'DTEVA')
+    state.HybridMode:options('Normal', 'DT')
 	
 	state.PhysicalDefenseMode:options('PDT')
 	state.MagicalDefenseMode:options('MEVA','MDT','Breath')
@@ -34,9 +34,9 @@ function user_setup()
 	
     state.IdleMode:options('Normal', 'DT', 'Refresh')
 	
-	state.WeaponSet = M{['description']='Weapon Set', 'Epeolatry', 'Lionheart', 'Aettir', 'Chopper'}
+	state.WeaponSet = M{['description']='Weapon Set', 'Epeolatry', 'Lionheart','Chopper'}
 	
-	state.GripSet = M{['description']='Grip Set','Utu','Khonsu','Irenic'}
+	state.GripSet = M{['description']='Grip Set','Utu','Khonsu'}
 	
 	state.Resist = M{['description']='Resist Type','None','Death','Knockback'}
 	
@@ -117,8 +117,6 @@ function init_gear_sets()
 
 		sets.Epeolatry = { main="Epeolatry" }
 		
-		sets.Aettir = { main="Aettir" }
-		
 		sets.Lionheart = { main="Lionheart" }
 		
 		sets.Chopper = { main="Kaja Chopper" }
@@ -126,8 +124,6 @@ function init_gear_sets()
 		sets.Utu = { sub="Utu Grip" }
 	
 		sets.Khonsu = { sub="Khonsu" }
-		
-		sets.Irenic = { sub="Irenic Strap +1" }
 	
 		
 		sets.Death =
@@ -336,7 +332,7 @@ function init_gear_sets()
 		{
 			ammo="Pemphredo Tathlum",
 			head="Carmine Mask +1", neck="Erra Pendant", lear="Digni. Earring", rear="Gwati Earring",
-			body="Ayanmo Corazza +2", hands="Aya. Manopolas +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			body="Futhark Coat +3", hands="Aya. Manopolas +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back=gear.RUNCape_FC, waist="Luminary Sash", legs="Aya. Cosciales +2", feet="Futhark Boots +3"
 		}
 	
@@ -577,7 +573,7 @@ function init_gear_sets()
 		sets.precast.WS['Resolution'].High = set_combine(sets.precast.WS['Resolution'].Mid,
 		{
 			head="Carmine Mask +1",
-			body="Ayanmo Corazza +2",
+			body="Futhark Coat +3",
 			legs="Carmine Cuisses +1", feet="Turms Leggings +1"
 		})
 		
@@ -597,7 +593,7 @@ function init_gear_sets()
 		sets.precast.WS['Frostbite'] = set_combine(sets.precast.JA['Swipe'],
 		{
 			lear="Crematio Earring", rear="Moonshade Earring",
-			body="Carm. Sc. Mail +1", lring={name="Shiva Ring +1", bag="wardrobe2"}, rring="Epaminondas's Ring"
+			body="Samnuha Coat", lring={name="Shiva Ring +1", bag="wardrobe2"}, rring="Epaminondas's Ring"
 		})
 		
 	--Freezebite
@@ -670,7 +666,7 @@ function init_gear_sets()
 		sets.engaged.Mid = set_combine(sets.engaged.Low,
 		{
 			rear={name="Mache Earring +1", bag="wardrobe3"},
-			body="Ayanmo Corazza +2", 
+			body="Ashera Harness", 
 			waist="Kentarch Belt +1", legs="Aya. Cosciales +2"
 		})
 
@@ -690,38 +686,19 @@ function init_gear_sets()
 		sets.engaged.Hybrid =
 		{-- 		DT: 27%		PDT: 74%	MDT: 27%
 			head=gear.AHead_PDT, neck="Futhark Torque +1",
-			body="Ayanmo Corazza +2", lring="Defending Ring", rring="Moonlight Ring",
+			body="Ashera Harness", lring="Defending Ring", rring="Moonlight Ring",
 			waist="Ioskeha Belt +1", legs="Meg. Chausses +2"
 		}
-		
-		sets.engaged.Hybrid2 =
-		{
-			head="Fu. Bandeau +3", neck="Futhark Torque +1",
-			body="Futhark Coat +3", lring="Defending Ring", rring="Moonlight Ring",
-			waist="Ioskeha Belt +1", legs="Eri. Leg Guards +1"
-		}
-		
 		
 	---Hybrid Combat
 		sets.engaged.DT 			= set_combine(sets.engaged, 		sets.engaged.Hybrid)
 		sets.engaged.DT.AM3			= set_combine(sets.engaged.AM3,		sets.engaged.Hybrid,
 		{
-			body="Futhark Coat +3",
-			feet=gear.HBoots_TP
+			rear="Dedition Earring"
 		})
 		sets.engaged.Low.DT 		= set_combine(sets.engaged.Low, 	sets.engaged.Hybrid)
 		sets.engaged.Mid.DT			= set_combine(sets.engaged.Mid, 	sets.engaged.Hybrid)
 		sets.engaged.High.DT		= set_combine(sets.engaged.High, 	sets.engaged.Hybrid)
-		
-		sets.engaged.DTEVA 				= set_combine(sets.engaged, 		sets.engaged.Hybrid2)
-		sets.engaged.DTEVA.AM3			= set_combine(sets.engaged.AM3,		sets.engaged.Hybrid2,
-		{
-			body="Futhark Coat +3",
-			feet=gear.HBoots_TP
-		})
-		sets.engaged.Low.DTEVA 			= set_combine(sets.engaged.Low, 	sets.engaged.Hybrid2)
-		sets.engaged.Mid.DTEVA				= set_combine(sets.engaged.Mid, 	sets.engaged.Hybrid2)
-		sets.engaged.High.DTEVA			= set_combine(sets.engaged.High, 	sets.engaged.Hybrid2)
 
 end
 

@@ -320,7 +320,7 @@ function init_gear_sets()
 		sets.midcast.Macc =
 		{
 			main="Daybreak", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
-			head="Theophany Cap +2", neck="Incanter's Torque", lear="Regal Earring", rear="Malignance Earring", 
+			head="Theophany Cap +3", neck="Incanter's Torque", lear="Regal Earring", rear="Malignance Earring", 
 			body="Theo. Briault +3", hands="Theophany Mitts +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Alaunus's Cape", waist="Luminary Sash", legs="Th. Pant. +3", feet="Theo. Duckbills +3"
 		}

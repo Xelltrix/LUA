@@ -12,7 +12,9 @@ end
 
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
 function job_setup()
-    state.Buff["Avatar's Favor"] = buffactive["Avatar's Favor"] or false
+    state.Buff['Sublimation: Activated'] 	= buffactive['Sublimation: Activated'] or false
+	
+	state.Buff["Avatar's Favor"] = buffactive["Avatar's Favor"] or false
     state.Buff["Astral Conduit"] = buffactive["Astral Conduit"] or false
 
 end
@@ -59,7 +61,7 @@ function init_gear_sets()
 		sets.precast.JA['Astral Conduit'] =
 		{
 			main="Espiritus", sub="Niobid Strap",
-			head="Amalric Coif +1", neck="Smn. Collar +1", lear="Evans Earring", rear="Etiolation Earring",
+			head="Amalric Coif +1", neck="Smn. Collar +2", lear="Evans Earring", rear="Etiolation Earring",
 			body="Con. Doublet +3", hands="Beck. Bracers +1", lring="Lebeche Ring", rring="Mephitas's Ring +1",
 			back="Conveyance Cape", waist="Luminary Sash", legs="Amalric Slops +1", feet="Amalric Nails +1"
 		}
@@ -143,7 +145,7 @@ function init_gear_sets()
 		sets.midcast.Pet.bp_Heals = set_combine(sets.midcast.Pet.bp_Buffs,
 		{
 			main="Nirvana", sub="Vox Grip", ammo="Sancus Sachet +1",
-			head=gear.ACrown_Perp, neck="Smn. Collar +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
+			head=gear.ACrown_Perp, neck="Smn. Collar +2", lear="Etiolation Earring", rear="Odnowa Earring +1",
 			body="Udug Jacket", hands="Apogee Mitts +1", lring="Eihwaz Ring", rring="C. Palug Ring",
 			back=gear.SMNCape_Mag, waist="Regal Belt", legs=gear.ASlacks_MAB, feet="Apogee Pumps +1"
 		})
@@ -151,7 +153,7 @@ function init_gear_sets()
 		sets.midcast.Pet.bp_Debuffs = set_combine(sets.midcast.Pet.bp_Buffs,
 		{
 			main="Nirvana", sub="Vox Grip", ammo="Sancus Sachet +1",
-			head="Convoker's Horn +3", neck="Smn. Collar +1", lear="Enmerkar Earring", rear="Lugalbanda Earring",
+			head="Convoker's Horn +3", neck="Smn. Collar +2", lear="Enmerkar Earring", rear="Lugalbanda Earring",
 			body="Con. Doublet +3", hands="Apogee Mitts +1", lring="C. Palug Ring",
 			back=gear.SMNCape_Mag, waist="Regal Belt", legs="Tali'ah Sera. +2", feet="Convo. Pigaches +2"
 		})
@@ -159,7 +161,7 @@ function init_gear_sets()
 		sets.midcast.Pet.bp_Physical =
 		{--		Blood Pact Damage: +138		Double Attack: +47%		Accuracy: +157	Attack: +94
 			main="Nirvana", sub="Elan Strap +1", ammo="Sancus Sachet +1",
-			head="Helios Band", neck="Smn. Collar +1", lear="Kyrene's Earring", rear="Lugalbanda Earring",
+			head="Helios Band", neck="Smn. Collar +2", lear="Kyrene's Earring", rear="Lugalbanda Earring",
 			body="Con. Doublet +3", hands=gear.PetAtkHands, lring="Varar Ring +1", rring="C. Palug Ring",
 			back=gear.SMNCape_Phys, waist="Incarnation Sash", legs=gear.ASlacks_DA, feet="Helios Boots"
 		}
@@ -174,7 +176,7 @@ function init_gear_sets()
 		sets.midcast.Pet.bp_Magical =
 		{--		Blood Pact Damage: +127		Magic Attack Bonus: +322	Magic Accuracy: +138
 			main=gear.Grioavolr_Pet, sub="Elan Strap +1", ammo="Sancus Sachet +1",
-			head="C. Palug Crown", neck="Smn. Collar +1", lear="Gelos Earring", rear="Lugalbanda Earring",
+			head="C. Palug Crown", neck="Smn. Collar +2", lear="Gelos Earring", rear="Lugalbanda Earring",
 			body=gear.ADalmatica_MAB, hands=gear.PetNukeHands, lring="Varar Ring +1", rring="Varar Ring +1",
 			back=gear.SMNCape_Mag, waist="Regal Belt", legs=gear.ASlacks_MAB, feet="Apogee Pumps +1"
 		}
@@ -555,7 +557,7 @@ function init_gear_sets()
 		
 		sets.precast.WS['Myrkr'] = 
 		{
-			head="Amalric Coif +1", neck="Smn. Collar +1", lear="Etiolation Earring", rear="Moonshade Earring",
+			head="Amalric Coif +1", neck="Smn. Collar +2", lear="Etiolation Earring", rear="Moonshade Earring",
 			body="Con. Doublet +3", hands="Beck. Bracers +1", lring="Lebeche Ring", rring="Mephitas's Ring +1",
 			back="Conveyance Cape", waist="Luminary Sash", legs="Amalric Slops +1", feet="Amalric Nails +1"
 		}
@@ -643,6 +645,10 @@ function job_buff_change(buff, gain)
         handle_equipping_gear(player.status)
     end
 	
+	if buff == "Sublimation: Activated" and state.DefenseMode.value == 'None' then
+		handle_equipping_gear(player.status)
+	end
+	
 	if buff == "doom" then
         if gain then
             equip(sets.buff.Doom)
@@ -653,13 +659,13 @@ function job_buff_change(buff, gain)
         end
     end
 	
-	if buff == "sleep" then
-		if gain then
-			equip({neck="Sacrifice Torque"})
-		else
-			handle_equipping_gear(player.status)
-		end
-	end
+	-- if buff == "sleep" then
+		-- if gain then
+			-- equip({neck="Sacrifice Torque"})
+		-- else
+			-- handle_equipping_gear(player.status)
+		-- end
+	-- end
 end
 
 -- Called when the player's pet's status changes.
@@ -730,6 +736,13 @@ function customize_idle_set(idleSet)
             idleSet = set_combine(idleSet, sets.perp[pet.name])
         end
     end
+	
+	if state.Buff['Sublimation: Activated'] and state.DefenseMode.value == 'None' then
+		idleSet = set_combine(idleSet, 
+		{
+			waist="Embla Sash"
+		})
+	end
 	
 	if player.mpp < 51 then
         if pet.isvalid then

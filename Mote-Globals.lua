@@ -147,7 +147,7 @@ function global_on_load()
 	--General Bindings
 	send_command('bind f9 gs c cycle OffenseMode')
 	send_command('bind ^f9 gs c cycle HybridMode')
-	send_command('bind !f9 gs c cycleback HybridMode')
+	send_command('bind !f9 gs c cycleback WeaponskillMode')
 	
 	send_command('bind f10 gs c set DefenseMode Physical')
 	send_command('bind ^f10 gs c cycle PhysicalDefenseMode')
