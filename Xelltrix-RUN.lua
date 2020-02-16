@@ -101,10 +101,10 @@ function init_gear_sets()
 			waist="Gishdubar Sash"
 		}
 		
-		sets.buff['Embolden'] =
+		sets.buff['Battuta'] =
 		{
-			head="Erilaz Galea +1",
-			back="Evasionist's Cape", legs="Futhark Trousers +3"
+			hands="Turms Mittens +1",
+ 			legs="Eri. Leg Guards +1", feet="Turms Leggings +1"
 		}
 		
 		sets.buff['Embolden'] =
@@ -647,15 +647,14 @@ function init_gear_sets()
 		sets.engaged =
 		{
 			ammo="Yamarang",
-			head=gear.AHead_TP, neck="Anu Torque", lear="Sherida Earring", rear="Telos Earring",
+			head=gear.AHead_TP, neck="Anu Torque", lear="Sherida Earring", rear="Brutal Earring",
 			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Epona's Ring", rring="Niqmaddu Ring",
 			back=gear.RUNCape_STP, waist="Windbuffet Belt +1", legs="Samnuha Tights", feet=gear.HBoots_TP
 		}
 	
 		sets.engaged.AM3 = set_combine(sets.engaged,
 		{
-			head="Dampening Tam", rear="Dedition Earring",
-			feet="Carmine Greaves +1"
+			head="Dampening Tam", rear="Telos Earring"
 		})
 
 		sets.engaged.Low = set_combine(sets.engaged,
@@ -694,7 +693,7 @@ function init_gear_sets()
 		sets.engaged.DT 			= set_combine(sets.engaged, 		sets.engaged.Hybrid)
 		sets.engaged.DT.AM3			= set_combine(sets.engaged.AM3,		sets.engaged.Hybrid,
 		{
-			rear="Dedition Earring"
+			rear="Telos Earring"
 		})
 		sets.engaged.Low.DT 		= set_combine(sets.engaged.Low, 	sets.engaged.Hybrid)
 		sets.engaged.Mid.DT			= set_combine(sets.engaged.Mid, 	sets.engaged.Hybrid)
