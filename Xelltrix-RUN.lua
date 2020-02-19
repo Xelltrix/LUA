@@ -925,13 +925,13 @@ end
 -- Select default macro book on initial load or subjob change.
 function apply_job_change()
 	if player.sub_job == 'DRK' then
-		set_macro_page(2, 14)
-		send_command('wait 3; input /lockstyleset 9')
+		set_macro_page(2, 2)
+		send_command('wait 3; input /lockstyleset 22')
 	elseif player.sub_job == 'WAR' or player.sub_job == 'SAM' then
-		set_macro_page(5, 14)
-		send_command('wait 3; input /lockstyleset 10')
+		set_macro_page(5, 2)
+		send_command('wait 3; input /lockstyleset 22')
 	else
-		set_macro_page(8,14)
-		send_command('wait 3; input /lockstyleset 9')
+		set_macro_page(8,2)
+		send_command('wait 3; input /lockstyleset 22')
 	end
 end

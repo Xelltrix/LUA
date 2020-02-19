@@ -35,8 +35,7 @@ function job_setup()
 	info.default_u_ja_ids = S{201, 202, 203, 205, 207}
 
 	determine_haste_group()
-
-	lockstyleset = 8
+	
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -958,7 +957,7 @@ end
 
 -- Select default macro book on initial load or subjob change.
 function apply_job_change()
-	set_macro_page(1, 15)
+	set_macro_page(1, 6)
 	
-	send_command('wait 3; input /lockstyleset ' .. lockstyleset)
+	send_command('wait 3; input /lockstyleset 6')
 end

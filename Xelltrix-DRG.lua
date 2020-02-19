@@ -20,8 +20,7 @@ end
 	
 	determine_haste_group()
 	customize_idle_set()
-	
-	lockstyleset = 16
+
 end
  
  
@@ -695,7 +694,7 @@ end
  
 -- Select default macro book on initial load or subjob change.
 function apply_job_change()
-    set_macro_page(1, 13)
+    set_macro_page(1, 14)
 	
-	send_command('wait 3; input /lockstyleset ' .. lockstyleset)
+	send_command('wait 3; input /lockstyleset 14')
 end

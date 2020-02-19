@@ -1126,7 +1126,7 @@ end
 
 -- Select default macro book on initial load or subjob change.
 function apply_job_change()
-    set_macro_page(6, 10)
+    set_macro_page(1, 17)
 	
-	send_command('wait 3; input /lockstyleset 14')
+	send_command('wait 3; input /lockstyleset 17')
 end

@@ -72,7 +72,7 @@ function init_gear_sets()
 	------------------- 
 		sets.precast.BloodPactWard =
 		{
-			ammo="Sancus Sachet +1",
+			main="Espiritus", sub="Vox Grip", ammo="Sancus Sachet +1",
 			head="Beckoner's Horn +1", neck="Incanter's Torque", lear="Andoaa Earring", rear="C. Palug Earring",
 			body="Baayami Robe +1", hands="Baayami Cuffs +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Evoker's Ring",
 			back="Conveyance Cape", waist="Lucidity Sash", legs="Baayami Slops +1", feet="Baaya. Sabots +1"
@@ -155,7 +155,7 @@ function init_gear_sets()
 			main="Nirvana", sub="Vox Grip", ammo="Sancus Sachet +1",
 			head="Convoker's Horn +3", neck="Smn. Collar +2", lear="Enmerkar Earring", rear="Lugalbanda Earring",
 			body="Con. Doublet +3", hands="Apogee Mitts +1", lring="C. Palug Ring",
-			back=gear.SMNCape_Mag, waist="Regal Belt", legs="Tali'ah Sera. +2", feet="Convo. Pigaches +2"
+			back=gear.SMNCape_Mag, waist="Regal Belt", legs="Tali'ah Sera. +2", feet="Convo. Pigaches +3"
 		})
 
 		sets.midcast.Pet.bp_Physical =
@@ -378,7 +378,7 @@ function init_gear_sets()
 
 		sets.idle.DT = set_combine(sets.idle,
 		{
-			neck="Loricate Torque +1", lear="Genmei Earring",
+			neck="Smn. Collar +2", lear="Genmei Earring",
 			body="Udug Jacket", lring="Defending Ring", rring="C. Palug Ring"
 		})
 		
@@ -419,7 +419,7 @@ function init_gear_sets()
 		sets.idle.DT.Avatar = set_combine(sets.idle.DT,
 		{
 			ammo="Sancus Sachet +1",
-			head=gear.ACrown_Perp, lear="Odnowa Earring +1",
+			head=gear.ACrown_Perp,
 			legs="Artsieq Hose"
 		})
 		
@@ -532,7 +532,7 @@ function init_gear_sets()
 			ammo="Floestone",
 			head="Convoker's Horn +3", neck="Fotia Gorget", lear="Ishvara Earring", rear="Moonshade Earring",
 			body="Glyphic Doublet +3", hands="Glyphic Bracers +3", lring="Shukuyu Ring", rring="Epaminondas's Ring",
-			back=gear.SMNCape_Phys, waist="Fotia Belt", legs="Tali'ah Sera. +2", feet="Convo. Pigaches +2"
+			back=gear.SMNCape_Phys, waist="Fotia Belt", legs="Tali'ah Sera. +2", feet="Convo. Pigaches +3"
 		}
 		
 		sets.precast.WS['Retribution'] = set_combine(sets.precast.WS,
@@ -571,7 +571,7 @@ function init_gear_sets()
 			main="Nirvana", sub="Khonsu", ammo="Sancus Sachet +1",
 			head="Convoker's Horn +3", neck="Combatant's Torque", lear="Telos Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Glyphic Doublet +3", hands="Glyphic Bracers +3", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
-			back=gear.SMNCape_Phys, waist="Klouskap Sash +1", legs="Tali'ah Sera. +2", feet="Convo. Pigaches +2"
+			back=gear.SMNCape_Phys, waist="Klouskap Sash +1", legs="Tali'ah Sera. +2", feet="Convo. Pigaches +3"
 		}
 		
 		sets.engaged.Avatar =
@@ -781,9 +781,9 @@ end
 
 -- Select default macro book on initial load or subjob change.
 function apply_job_change()
-    set_macro_page(1, 7)
+    set_macro_page(1, 15)
 	
 	send_command('lua l pettp')
 	
-	send_command('wait 3; input /lockstyleset 7')
+	send_command('wait 3; input /lockstyleset 15')
 end

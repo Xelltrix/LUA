@@ -30,8 +30,6 @@ function job_setup()
 	determine_haste_group()
 	update_combat_form()
 	customize_idle_set()
-	
-	lockstyleset = 1
 
 end
 
@@ -2108,6 +2106,26 @@ function init_gear_sets()
 			waist="Reiki Yotai"
 		})
 		
+		sets.engaged.DW5.DT.Med 	 		= set_combine(sets.engaged.DW5.Med, 		sets.engaged.Hybrid,
+		{
+			lear="Eabani Earring", rear="Dedition Earring",
+			waist="Reiki Yotai"
+		})
+		sets.engaged.DW5.DT.Med.AM3  		= set_combine(sets.engaged.DW5.Med.AM3, 	sets.engaged.Hybrid)
+		sets.engaged.DW5.Low.DT.Med  		= set_combine(sets.engaged.DW5.Low.Med, 	sets.engaged.Hybrid,
+		{
+			waist="Reiki Yotai"
+		})
+		sets.engaged.DW5.Mid.DT.Med  		= set_combine(sets.engaged.DW5.Mid.Med, 	sets.engaged.Hybrid,
+		{
+			lear="Eabani Earring",
+			waist="Reiki Yotai"
+		})
+		sets.engaged.DW5.High.DT.Med 		= set_combine(sets.engaged.DW5.High.Med, 	sets.engaged.Hybrid,
+		{
+			waist="Reiki Yotai"
+		})
+		
 		
 		
 		sets.engaged.DW2.DTMAX.Med 	 		= set_combine(sets.engaged.DW2.Med, 		sets.engaged.Hybrid2)
@@ -2665,9 +2683,9 @@ end
 
 -- Select default macro book on initial load or subjob change.
 function apply_job_change()
-	set_macro_page(1, 5)
+	set_macro_page(1, 16)
 	
 	send_command('lua l azuresets')
 	
-	send_command('wait 3; input /lockstyleset ' .. lockstyleset)
+	send_command('wait 3; input /lockstyleset 16')
 end
