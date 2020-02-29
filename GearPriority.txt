@@ -12,16 +12,16 @@ Total: 185,000,000G               (150,000,000G)
 -----------
 Priority B
 -----------
-Summoner's Collar +2      Price: 70,000,000G (65,000,000G )
 Duelist's Torque +2       Price: 90,000,000G (70,000,000G )
+Futhark Torque +2         Price: 80,000,000G (65,000,000G )
+Dragoon's Collar +2       Price: 100,000,000G (70,000,000G )
 
-Total: 160,000,000G              (135,000,000G)
+Total: 270,000,000G              (205,000,000G)
 
 -----------
 Priority C
 -----------
-Futhark Torque +2         Price: 80,000,000G (65,000,000G )
-Dragoon's Collar +2       Price: 100,000,000G (70,000,000G )
+Aurgelmir Orb +1          Price: 180,000,000G
 
 Total: 180,000,000G             (135,000,000G)
 
