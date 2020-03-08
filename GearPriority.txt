@@ -2,28 +2,24 @@
 Priority A
 -----------
 Ea Cuffs +1               Price: 30,000,000G (35,000,000G )
-Raetic Staff +1           Price: 30,000,000G (25,000,000G )
 Raetic Rod +1             Price; 35,000,000G (35,000,000G )
-Turms Subligar +1         Price: 40,000,000G (30,000,000G )
-Raetic Bangles +1         Price: 50,000,000G (30,000,000G )
 
-Total: 185,000,000G               (150,000,000G)
+Total: 65,000,000G               (70,000,000G)
 
 -----------
 Priority B
 -----------
-Duelist's Torque +2       Price: 90,000,000G (70,000,000G )
-Futhark Torque +2         Price: 80,000,000G (65,000,000G )
-Dragoon's Collar +2       Price: 100,000,000G (70,000,000G )
+Turms Subligar +1         Price: 40,000,000G (30,000,000G )
+Raetic Bangles +1         Price: 50,000,000G (30,000,000G )
 
-Total: 270,000,000G              (205,000,000G)
+Total: 90,000,000G              (60,000,000G)
 
 -----------
 Priority C
 -----------
-Aurgelmir Orb +1          Price: 180,000,000G
+Aurgelmir Orb +1          Price: 180,000,000G (160,000,000G)
 
-Total: 180,000,000G             (135,000,000G)
+Total: 180,000,000G             (160,000,000G)
 
 -----------
 Priority D
