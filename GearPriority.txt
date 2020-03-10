@@ -1,10 +1,7 @@
 -----------
 Priority A
 -----------
-Ea Cuffs +1               Price: 30,000,000G (35,000,000G )
-Raetic Rod +1             Price; 35,000,000G (35,000,000G )
 
-Total: 65,000,000G               (70,000,000G)
 
 -----------
 Priority B
