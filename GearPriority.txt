@@ -1,25 +1,20 @@
 -----------
 Priority A
 -----------
-
-
------------
-Priority B
------------
 Turms Subligar +1         Price: 40,000,000G (30,000,000G )
 Raetic Bangles +1         Price: 50,000,000G (30,000,000G )
 
 Total: 90,000,000G              (60,000,000G)
 
 -----------
-Priority C
+Priority B
 -----------
 Aurgelmir Orb +1          Price: 180,000,000G (160,000,000G)
 
 Total: 180,000,000G             (160,000,000G)
 
 -----------
-Priority D
+Priority C
 -----------
 Cleric's Torque +2        Price: 90,000,000G (60,000,000G )
 Bagua Charm +2            Price: 70,000,000G (65,000,000G )
@@ -27,7 +22,7 @@ Bagua Charm +2            Price: 70,000,000G (65,000,000G )
 Total: 160,000,000G            (125,000,000G)
 
 -----------
-Priority F
+Priority D
 -----------
 Pinga Tunic +1            Price: 40,000,000G (40,000,000G)
 Pinga Pants +1            Price: 50,000,000G (40,000,000G)
