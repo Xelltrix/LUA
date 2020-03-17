@@ -159,7 +159,7 @@ function init_gear_sets()
 		sets.midcast.Cures =
 		{-- 		Cure Potency: 55%		Enmity: -49		Healing Magic Skill: +50
 			ammo="Esper Stone +1",
-			head="Kaykaus Mitra +1", neck="Incanter's Torque", lear="Beatific Earring", rear="Novia Earring",
+			head="Kaykaus Mitra +1", neck="Incanter's Torque", lear="Meili Earring", rear="Novia Earring",
 			body="Kaykaus Bliaut +1", hands="Kaykaus Cuffs +1", lring="Kuchekula Ring", rring="Menelaus's Ring",
 			back=gear.RDMCape_ENF, waist="Bishop's Sash", legs="Kaykaus Tights +1", feet="Kaykaus Boots +1"
 		}
@@ -177,7 +177,7 @@ function init_gear_sets()
 ]]
 		sets.midcast.Cursna = set_combine(sets.midcast.FC,
 		{--		Healing: 515(551)	Cursna: +70		Curnsa Rate: 46%(48%)
-			head="Vanya Hood", neck="Debilis Medallion", lear="Beatific Earring", rear="Healing Earring",
+			head="Vanya Hood", neck="Debilis Medallion", lear="Meili Earring", rear="Beatific Earring",
 			hands="Hieros Mittens", lring="Haoma's Ring", rring="Menelaus's Ring",
 			back="Oretan. Cape +1", waist="Bishop's Sash", feet="Vanya Clogs"
 		})
@@ -215,11 +215,6 @@ function init_gear_sets()
 			body="Viti. Tabard +3", hands="Viti. Gloves +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Ghostfyre Cape", waist="Olympus Sash", legs="Atrophy Tights +3", feet="Leth. Houseaux +1"
 		}
-		
-		sets.midcast.EnhancementDW = set_combine(sets.midcast.Enhancement,
-		{--		Enhancing Skill: 634	Duration: 1.45		Enspell Damage: 82		Temper II: 33%
-			main="Pukulatmuj +1", sub="Pukulatmuj",
-		})
 
 
 		--Phalanx Formula: 28 + Floor( (Enhancing Magic Skill - 300.5) / 28.5)
@@ -307,17 +302,17 @@ function init_gear_sets()
 		sets.midcast['Distract III'] = set_combine(sets.midcast['Enfeebling Magic'],
 		{
 			main=gear.Grioavolr_Enf, sub="Mephitis Grip",
-			neck="Incanter's Torque", lear="Vor Earring",
+			eck="Dls. Torque +1", lear="Vor Earring", rear="Enfeebling Earring",
 			body="Lethargy Sayon +1", hands="Leth. Gantherots +1", lring={name="Stikini Ring +1", bag="wardrobe2"},
-			waist="Rumination Sash"
+			waist="Rumination Sash", legs="Psycloth Lappas"
 		})
 		
 		sets.midcast['Frazzle III'] = set_combine(sets.midcast['Enfeebling Magic'],
 		{
 			main=gear.Grioavolr_Enf, sub="Mephitis Grip",
-			neck="Dls. Torque +1", lear="Vor Earring", rear="Enfeebling Earring",
-			body="Atrophy Tabard +3", hands="Leth. Gantherots +1", lring={name="Stikini Ring +1", bag="wardrobe2"},
-			waist="Rumination Sash"
+			neck="Dls. Torque +1", lear="Vor Earring", rear="Snotra Earring",
+			body="Atrophy Tabard +3", hands="Kaykaus Cuffs +1", lring={name="Stikini Ring +1", bag="wardrobe2"},
+			waist="Rumination Sash", legs="Psycloth Lappas"
 		})
 		
 		sets.midcast['Poison II'] =
@@ -380,7 +375,7 @@ function init_gear_sets()
 	-- Elemental Magic
 		sets.midcast['Elemental Magic'] =
 		{
-			main="Daybreak", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
+			main="Raetic Staff +1", sub="Niobid Strap", ammo="Pemphredo Tathlum",
 			head="C. Palug Crown", neck="Sanctity Necklace", lear="Regal Earring", rear="Malignance Earring", 
 			body="Amalric Doublet +1", hands="Amalric Gages +1", lring={name="Shiva Ring +1", bag="wardrobe2"}, rring="Freke Ring",
 			back=gear.RDMCape_Nuke, waist="Sacro Cord", legs="Amalric Slops +1", feet="Amalric Nails +1"
@@ -388,8 +383,9 @@ function init_gear_sets()
 
 		sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'],
 		{
+			sub="Enki Strap",
 			head="Ea Hat +1",
-			body="Ea Houppe. +1",
+			body="Ea Houppe. +1", hands="Ea Cuffs +1",
 			waist="Sacro Cord", legs="Ea Slops +1", feet="Vitiation Boots +3"
 		})
 
@@ -404,7 +400,7 @@ function init_gear_sets()
 		
 		sets.magic_burst =
 		{--MBD/II: 39/35
-			main="Daybreak", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
+			main="Raetic Staff +1", sub="Niobid Strap", ammo="Pemphredo Tathlum",
 			head="Ea Hat +1", neck="Mizu. Kubikazari", lear="Regal Earring", rear="Malignance Earring",
 			body="Ea Houppe. +1", hands="Amalric Gages +1", lring="Mujin Band", rring="Locus Ring",
 			back=gear.RDMCape_Nuke, waist="Sacro Cord", legs="Ea Slops +1", feet="Amalric Nails +1"
@@ -412,8 +408,8 @@ function init_gear_sets()
 		
 		sets.magic_burst.Resistant = set_combine(sets.magic_burst,
 		{--MBD/II: 42/28
-			head="Atrophy Chapeau +3",
-			rring="Freke Ring",
+			sub="Enki Strap",
+			hands="Ea Cuffs +1", rring="Freke Ring",
 			feet="Ea Pigaches +1"
 		})
 		
@@ -728,6 +724,7 @@ function init_gear_sets()
 	---Exenterator
 		sets.precast.WS['Exenterator'] = set_combine(sets.precast.WS['Requiescat'],
 		{
+			ammo="Floestone",
 			head="Malignance Chapeau",
 			body="Malignance Tabard", hands="Malignance Gloves", lring="Shukuyu Ring", rring="Ilabrat Ring",
 			legs="Malignance Tights", feet="Malignance Boots"
@@ -1522,7 +1519,6 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 		else
 			equip(set_combine(sets.magic_burst,
 			{
-				main="Maxentius",
 				head=empty, lear="Static Earring",
 				body="Twilight Cloak",
 				feet="Ea Pigaches +1"
@@ -1534,7 +1530,6 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 		else
 			equip(set_combine(sets.magic_burst.Resistant,
 			{
-				main="Maxentius",
 				head=empty, lear="Static Earring",
 				body="Twilight Cloak", rring="Locus Ring",
 			}))
@@ -1577,6 +1572,10 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 		end
 	end
 	
+	
+	if spell.skill == 'Elemental Magic' and determine_DW() > 0 then
+		equip{ main="Maxentius", sub="Daybreak" }
+	end
 	
 	
 	if state.TreasureMode.value ~= 'None' and (spell.english == 'Poisonga' or spell.english == 'Diaga' or spell.english == 'Poison' or spell.english == 'Dia') 
@@ -1697,17 +1696,6 @@ end
 -------------------------------------------------------------------------------------------------------------------
 -- User code that supplements standard library decisions.
 -------------------------------------------------------------------------------------------------------------------
-
--- Custom spell mapping.
-function job_get_spell_map(spell, default_spell_map)
-	if spell.action_type == 'Magic' then
-		if determine_DW() > 0 then
-			if default_spell_map == 'Enhancement' then
-				return "EnhancementDW"
-			end
-		end
-	end
-end
 
 -- Called by the 'update' self-command.
 function job_update(cmdParams, eventArgs)

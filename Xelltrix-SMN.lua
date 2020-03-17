@@ -141,11 +141,18 @@ function init_gear_sets()
 			body="Baayami Robe +1", hands="Baayami Cuffs +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Evoker's Ring",
 			back="Conveyance Cape", waist="Lucidity Sash", legs="Baayami Slops +1", feet="Baaya. Sabots +1"
 		}
+		
+		sets.midcast.Pet.bp_Boons = set_combine(sets.midcast.Pet.bp_Buffs,
+		{--		Summoning Magic Skill: 685
+			head="Beckoner's Horn +1",
+			hands="Beck. Bracers +1",
+			feet="Beck. Pigaches +1"
+		})
 
 		sets.midcast.Pet.bp_Heals = set_combine(sets.midcast.Pet.bp_Buffs,
 		{
 			main="Nirvana", sub="Vox Grip", ammo="Sancus Sachet +1",
-			head=gear.ACrown_Perp, neck="Smn. Collar +2", lear="Etiolation Earring", rear="Odnowa Earring +1",
+			head=gear.ACrown_Perp, neck="Smn. Collar +2", lear="Tuisto Earring", rear="Odnowa Earring +1",
 			body="Udug Jacket", hands="Apogee Mitts +1", lring="Eihwaz Ring", rring="C. Palug Ring",
 			back=gear.SMNCape_Mag, waist="Regal Belt", legs=gear.ASlacks_MAB, feet="Apogee Pumps +1"
 		})
@@ -159,22 +166,22 @@ function init_gear_sets()
 		})
 
 		sets.midcast.Pet.bp_Physical =
-		{--		Blood Pact Damage: +138		Double Attack: +47%		Accuracy: +157	Attack: +94
+		{--		Blood Pact Damage: +140		Double Attack: +47%		Accuracy: +157	Attack: +94
 			main="Nirvana", sub="Elan Strap +1", ammo="Sancus Sachet +1",
 			head="Helios Band", neck="Smn. Collar +2", lear="Kyrene's Earring", rear="Lugalbanda Earring",
-			body="Con. Doublet +3", hands=gear.PetAtkHands, lring="Varar Ring +1", rring="C. Palug Ring",
+			body="Glyphic Doublet +3", hands=gear.PetAtkHands, lring="Varar Ring +1", rring="C. Palug Ring",
 			back=gear.SMNCape_Phys, waist="Incarnation Sash", legs=gear.ASlacks_DA, feet="Helios Boots"
 		}
 	
 		sets.midcast.Pet.bp_PhysicalTP = set_combine(sets.midcast.Pet.bp_Physical,
 		{--		Blood Pact Damage: +163		Double Attack: +22%			Accuracy: +200	Attack: +114
 			head=gear.ACrown_AD, lear="Gelos Earring",
-			lring="Varar Ring +1", rring="Varar Ring +1",
-			waist="Regal Belt"
+			body="Con. Doublet +3", lring="Varar Ring +1", rring="Varar Ring +1",
+			waist="Regal Belt", feet="Convo. Pigaches +3"
 		})
 
 		sets.midcast.Pet.bp_Magical =
-		{--		Blood Pact Damage: +127		Magic Attack Bonus: +322	Magic Accuracy: +138
+		{--		Blood Pact Damage: +131		Magic Attack Bonus: +325	Magic Accuracy: +138
 			main=gear.Grioavolr_Pet, sub="Elan Strap +1", ammo="Sancus Sachet +1",
 			head="C. Palug Crown", neck="Smn. Collar +2", lear="Gelos Earring", rear="Lugalbanda Earring",
 			body=gear.ADalmatica_MAB, hands=gear.PetNukeHands, lring="Varar Ring +1", rring="Varar Ring +1",
@@ -229,7 +236,7 @@ function init_gear_sets()
 		sets.midcast.Cursna =
 		{
 			main="Gada", sub="Chanter's Shield", ammo="Sapience Orb",
-			head="Vanya Hood", neck="Debilis Medallion", lear="Beatific Earring", rear="Healing Earring",
+			head="Vanya Hood", neck="Debilis Medallion", lear="Beatific Earring", rear="Meili Earring",
 			body="Vanya Robe", hands="Hieros Mittens", lring="Haoma's Ring", rring="Menelaus's Ring",
 			back="Oretan. Cape +1", waist="Bishop's Sash", legs="Vanya Slops", feet="Vanya Clogs"
 		}
@@ -622,6 +629,10 @@ function job_post_pet_midcast(spell, action, spellMap, eventArgs)
 			
 		equip({ legs="Enticer's Pants" })
 	end
+	
+	if (blood_pacts.bp_Physical:contains(spell.english) and buffactive["Aftermath: Lv.3"] and player.equipment.main == "Nirvana") then
+		equip(sets.midcast.Pet.bp_PhysicalTP)
+	end
 
 	if spell == "Healing Ruby" or spell == "Healing Ruby II" then
 	
@@ -659,13 +670,13 @@ function job_buff_change(buff, gain)
         end
     end
 	
-	-- if buff == "sleep" then
-		-- if gain then
-			-- equip({neck="Sacrifice Torque"})
-		-- else
-			-- handle_equipping_gear(player.status)
-		-- end
-	-- end
+	if buff == "sleep" then
+		if gain then
+			equip({neck="Sacrifice Torque"})
+		else
+			handle_equipping_gear(player.status)
+		end
+	end
 end
 
 -- Called when the player's pet's status changes.

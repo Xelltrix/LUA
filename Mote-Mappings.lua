@@ -94,18 +94,26 @@
 	
 	blood_pacts.bp_Buffs =
 	S{
-		'Shining Ruby','Glittering Ruby','Soothing Ruby','Pacifying Ruby',
+		'Shining Ruby','Glittering Ruby','Soothing Ruby',
 		'Frost Armor','Crystal Blessing',
-		'Hastega','Fleet Wind','Hastega II','Aerial Armor',
-		'Earthen Armor','Earthen Ward',
+		'Hastega','Fleet Wind','Hastega II',
+		'Earthen Armor',
 		'Rolling Thunder','Lightning Armor',
 		'Soothing Current',
 		'Crimson Howl','Inferno Howl',
 		'Ecliptic Growl','Ecliptic Howl','Heavenward Howl',
 		'Noctoshield','Dream Shroud',
 		'Perfect Defense',
-		"Altana's Favor",'Raise II','Mewing Lullaby','Reraise II',
-		'Katabatic Blades','Chinook',"Wind's Blessing"
+		'Katabatic Blades',"Wind's Blessing"
+	}
+	
+	blood_pacts.bp_Boons =
+	S{
+		'Pacifying Ruby',
+		'Aerial Armor',
+		'Earthen Ward',
+		"Altana's Favor",'Raise II','Reraise II',
+		'Chinook'
 	}
 
 	blood_pacts.bp_Heals =
@@ -123,6 +131,7 @@
 		'Eerie Eye',
 		'Lunar Cry','Lunar Roar',
 		'Ultimate Terror','Pavor Nocturnus',
+		'Mewing Lullaby',
 		'Lunatic Voice','Bitter Elegy'
 	}
 

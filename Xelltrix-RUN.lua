@@ -34,7 +34,7 @@ function user_setup()
 	
     state.IdleMode:options('Normal', 'DT', 'Refresh')
 	
-	state.WeaponSet = M{['description']='Weapon Set', 'Epeolatry', 'Lionheart','Chopper'}
+	state.WeaponSet = M{['description']='Weapon Set', 'Epeolatry', 'Lionheart','Lycurgos'}
 	
 	state.GripSet = M{['description']='Grip Set','Utu','Khonsu'}
 	
@@ -89,7 +89,7 @@ function init_gear_sets()
 		
 		sets.Enmity.HP = set_combine(sets.Enmity,
 		{--Enmity + 62
-			neck="Futhark Torque +1", lear="Odnowa Earring", rear="Odnowa Earring +1",
+			neck="Futhark Torque +2", lear="Odnowa Earring +1", rear="Tuisto Earring",
 			lring="Defending Ring", rring="Moonlight Ring",
 			back="Moonlight Cape"
 		})
@@ -119,7 +119,7 @@ function init_gear_sets()
 		
 		sets.Lionheart = { main="Lionheart" }
 		
-		sets.Chopper = { main="Kaja Chopper" }
+		sets.Lycurgos = { main="Lycurgos" }
 	
 		sets.Utu = { sub="Utu Grip" }
 	
@@ -180,7 +180,7 @@ function init_gear_sets()
 		sets.precast.JA['Vivacious Pulse'] = 
 		{
 			ammo="Staunch Tathlum +1",	
-			head="Erilaz Galea +1", neck="Incanter's Torque", lear="Beatific Earring", rear="Odnowa Earring +1",
+			head="Erilaz Galea +1", neck="Incanter's Torque", lear="Beatific Earring", rear="Tuisto Earring",
 			body="Futhark Coat +3", hands="Runeist's Mitons +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Moonlight Cape", waist="Bishop's Sash", legs="Rune. Trousers +2", feet="Ahosi Leggings"
 		}
@@ -209,7 +209,7 @@ function init_gear_sets()
 		
 		sets.precast.FC.HP = set_combine(sets.precast.FC,
 		{--Fast Cast + 53%
-			lear="Odnowa Earring", rear="Odnowa Earring +1",
+			lear="Odnowa Earring +1", rear="Tuisto Earring",
 			lring="Eihwaz Ring", rring="Moonlight Ring",
 			back="Moonlight Cape"
 		})
@@ -238,7 +238,7 @@ function init_gear_sets()
 		sets.midcast.FC.SIRD = 
 		{--		Spell Interrupt: -101
 			ammo="Staunch Tathlum +1",
-			head=gear.THead_Phalanx, neck="Moonlight Necklace", lear="Genmei Earring", rear="Odnowa Earring +1",
+			head=gear.THead_Phalanx, neck="Moonlight Necklace", lear="Genmei Earring", rear="Tuisto Earring",
 			body="Futhark Coat +3", hands="Rawhide Gloves", lring="Defending Ring", rring="Moonlight Ring",
 			back=gear.RUNCape_ENM, waist="Rumination Sash", legs="Carmine Cuisses +1", feet=gear.TFeet_Phalanx
 		}
@@ -349,7 +349,7 @@ function init_gear_sets()
 
 		sets.midcast.Cursna = set_combine(sets.midcast.FastRecast,
 		{
-			neck="Debilis Medallion", lear="Healing Earring", rear="Beatific Earring",
+			neck="Debilis Medallion", lear="Meili Earring", rear="Beatific Earring",
 			lring="Haoma's Ring", rring="Menelaus's Ring",
 			waist="Bishop's Sash"
 		})
@@ -389,7 +389,7 @@ function init_gear_sets()
 		sets.idle.DT = 
 		{-- DT: 38%		PDT: 31%		MDT: 40%	Regen: 23
 			ammo="Staunch Tathlum +1",
-			head="Turms Cap +1", neck="Futhark Torque +1", lear="Genmei Earring", rear="Odnowa Earring +1",
+			head="Turms Cap +1", neck="Futhark Torque +2", lear="Genmei Earring", rear="Tuisto Earring",
 			body="Futhark Coat +3", hands="Turms Mittens +1", lring="Defending Ring", rring="Moonlight Ring",
 			back="Moonlight Cape", waist="Flume Belt +1", legs="Eri. Leg Guards +1", feet="Turms Leggings +1"
 		}
@@ -420,7 +420,7 @@ function init_gear_sets()
 		sets.defense.PDT =
 		{--DT: -24%		PDT: -45%		MDT: -27%
 			ammo="Staunch Tathlum +1",
-			head="Turms Cap +1", neck="Futhark Torque +1", lear="Odnowa Earring", rear="Odnowa Earring +1",
+			head="Turms Cap +1", neck="Futhark Torque +2", lear="Odnowa Earring +1", rear="Tuisto Earring",
 			body="Runeist's Coat +3", hands="Turms Mittens +1", lring="Defending Ring", rring="Moonlight Ring",
 			back=gear.RUNCape_ENM, waist="Flume Belt +1", legs="Eri. Leg Guards +1", feet="Turms Leggings +1"
 		}
@@ -428,7 +428,7 @@ function init_gear_sets()
 		sets.defense.MEVA = 
 		{--DT: -16%		PDT: -33%		MDT: -18%
 			ammo="Yamarang",
-			head="Turms Cap +1", neck="Futhark Torque +1", lear="Sanare Earring", rear="Eabani Earring",
+			head="Turms Cap +1", neck="Futhark Torque +2", lear="Sanare Earring", rear="Eabani Earring",
 			body="Runeist's Coat +3",hands="Volte Bracers", lring="Defending Ring", rring="Purity Ring",
 			back=gear.RUNCape_ENM, waist="Engraved Belt", legs="Eri. Leg Guards +1", feet="Turms Leggings +1"
 		}
@@ -436,7 +436,7 @@ function init_gear_sets()
 		sets.defense.Breath =
 		{--DT: -44%		PDT: -44%		MDT: -44%
 			ammo="Staunch Tathlum +1",
-			head="Turms Cap +1", neck="Futhark Torque +1", lear="Sanare Earring", rear="Eabani Earring",
+			head="Turms Cap +1", neck="Futhark Torque +2", lear="Sanare Earring", rear="Eabani Earring",
 			body="Futhark Coat +3", hands="Turms Mittens +1", lring="Defending Ring", rring="Moonlight Ring",
 			back="Moonlight Cape", waist="Engraved Belt", legs="Aya. Cosciales +2", feet="Turms Leggings +1"
 		}
@@ -444,7 +444,7 @@ function init_gear_sets()
 		sets.defense.MDT = 
 		{--DT: -41%		PDT: -41%		MDT: -46%
 			ammo="Yamarang",
-			head="Turms Cap +1", neck="Futhark Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
+			head="Turms Cap +1", neck="Futhark Torque +2", lear="Etiolation Earring", rear="Odnowa Earring +1",
 			body="Futhark Coat +3",hands="Volte Bracers", lring="Defending Ring", rring="Moonlight Ring",
 			back="Moonlight Cape", waist="Engraved Belt", legs="Aya. Cosciales +2", feet="Turms Leggings +1"
 		}
@@ -498,7 +498,7 @@ function init_gear_sets()
 		
 		sets.precast.WS['Dimidiation'].Turtle = set_combine(sets.precast.WS['Dimidiation'],
 		{
-			head="Fu. Bandeau +3", neck="Futhark Torque +1",
+			head="Fu. Bandeau +3", neck="Futhark Torque +2",
 			body="Futhark Coat +3", lring="Defending Ring",
 			legs="Meg. Chausses +2", feet=gear.HBoots_WSD
 		})
@@ -507,7 +507,7 @@ function init_gear_sets()
 	---Ground Strike
 		sets.precast.WS['Ground Strike'] = set_combine(sets.precast.WS,
 		{
-			neck="Futhark Torque +1", lear="Sherida Earring", rear="Ishvara Earring",
+			neck="Futhark Torque +2", lear="Sherida Earring", rear="Ishvara Earring",
 			body="Lustr. Harness +1", rring="Epaminondas's Ring",
 			waist="Prosilio Belt +1", legs="Meg. Chausses +2", feet="Lustra. Leggings +1"
 		})
@@ -579,7 +579,7 @@ function init_gear_sets()
 		
 		sets.precast.WS['Resolution'].Turtle = set_combine(sets.precast.WS['Resolution'],
 		{
-			head="Fu. Bandeau +3", neck="Futhark Torque +1",
+			head="Fu. Bandeau +3", neck="Futhark Torque +2",
 			body="Futhark Coat +3", lring="Defending Ring",
 			feet=gear.HBoots_TP
 		})
@@ -616,7 +616,7 @@ function init_gear_sets()
 	---Steel Cyclone
 		sets.precast.WS['Steel Cyclone'] = set_combine(sets.precast.WS,
 		{
-			neck="Futhark Torque +1",
+			neck="Futhark Torque +2",
 			body="Lustr. Harness +1", rring="Epaminondas's Ring",
 			waist="Prosilio Belt +1"
 		})
@@ -684,9 +684,9 @@ function init_gear_sets()
 	---Base Hybrid Set
 		sets.engaged.Hybrid =
 		{-- 		DT: 27%		PDT: 74%	MDT: 27%
-			head=gear.AHead_PDT, neck="Futhark Torque +1",
+			head=gear.AHead_PDT, neck="Futhark Torque +2",
 			body="Ashera Harness", lring="Defending Ring", rring="Moonlight Ring",
-			waist="Ioskeha Belt +1", legs="Meg. Chausses +2"
+			waist="Sailfi Belt +1", legs="Meg. Chausses +2"
 		}
 		
 	---Hybrid Combat
@@ -799,9 +799,9 @@ function job_buff_change(buff,gain)
 	if buff == "doom" then
         if gain then
             equip(sets.buff.Doom)
-            disable('neck', 'lring','rring','waist')
+            disable('lring','rring','waist')
         else
-            enable('neck','lring','rring','waist')
+            enable('lring','rring','waist')
             handle_equipping_gear(player.status)
         end
     end

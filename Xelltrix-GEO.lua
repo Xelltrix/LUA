@@ -163,13 +163,12 @@ function init_gear_sets()
 	-- Healing Midcast sets
 	--------------------------------------	
 	
-		--Cure Potency: 50%
 		sets.midcast.Cures =
-		{
-			main="Daybreak", sub="Sors Shield", ammo="Esper Stone +1",
-			head="Vanya Hood", neck="Incanter's Torque", lear="Beatific Earring", rear="Novia Earring",
+		{-- Cure Potency/II: 50%/10%			Enmity: -29		Healing Magic Skill: +24(500)	MND+197
+			main="Raetic Rod +1", sub="Sors Shield", ammo="Esper Stone +1",
+			head="Vanya Hood", neck="Incanter's Torque", lear="Meili Earring", rear="Novia Earring",
 			body="Vanya Robe", hands="Vanya Cuffs", lring="Lebeche Ring", rring="Kuchekula Ring",
-			back="Lifestream Cape", waist="Bishop's Sash", legs="Vanya Slops", feet="Vanya Clogs"
+			back="Oretan. Cape +1", waist="Bishop's Sash", legs="Vanya Slops", feet="Vanya Clogs"
 		}
 
 		sets.midcast.Curaga = sets.midcast.Cures
@@ -177,9 +176,9 @@ function init_gear_sets()
 		sets.midcast.StatusRemoval = sets.midcast.FC
 
 		sets.midcast.Cursna = 
-		{
+		{--	(10 + 605/30)*(1 + 116/100) =		65.16% Success Rate
 			main="Gada", sub="Chanter's Shield", ammo="Sapience Orb",
-			head="Vanya Hood", neck="Debilis Medallion", lear="Beatific Earring", rear="Healing Earring",
+			head="Vanya Hood", neck="Debilis Medallion", lear="Meili Earring", rear="Beatific Earring",
 			body="Vanya Robe", hands="Hieros Mittens", lring="Haoma's Ring", rring="Menelaus's Ring",
 			back="Oretan. Cape +1", waist="Bishop's Sash", legs="Vanya Slops", feet="Vanya Clogs"
 		}

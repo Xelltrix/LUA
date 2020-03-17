@@ -130,7 +130,7 @@ function init_gear_sets()
 	
 		sets.midcast.Cures =
 		{--Cure Potency: 49%
-			mmo="Esper Stone +1",
+			ammo="Esper Stone +1",
 			head="Vanya Hood", neck="Incanter's Torque", lear="Beatific Earring", rear="Mendi. Earring",
 			body="Vanya Robe", hands=gear.ENH_Gloves, lring="Lebeche Ring", rring="Menelaus's Ring",
 			back="Oretan. Cape +1", waist="Bishop's Sash", legs="Vanya Slops", feet="Medium's Sabots"
@@ -142,7 +142,7 @@ function init_gear_sets()
 		sets.midcast.Cursna =
 		{
 			main="Gada", sub="Chanter's Shield", ammo="Sapience Orb",
-			head="Vanya Hood", neck="Debilis Medallion", lear="Beatific Earring", rear="Healing Earring",
+			head="Vanya Hood", neck="Debilis Medallion", lear="Beatific Earring", rear="Meili Earring",
 			body="Vanya Robe", hands="Hieros Mittens", lring="Haoma's Ring", rring="Menelaus's Ring",
 			back="Oretan. Cape +1", waist="Bishop's Sash", legs="Vanya Slops", feet="Vanya Clogs"
 		}
@@ -164,15 +164,12 @@ function init_gear_sets()
 			head="Amalric Coif +1",
 		})
 
-		sets.midcast.Regen = set_combine(sets.midcast.Duration,
-		{
-			main="Bolelabunga"
-		})
+		sets.midcast.Regen = sets.midcast.Duration
 
 		sets.midcast.Aquaveil = set_combine(sets.midcast.Duration,
 		{
 			main="Vadose Rod",
-			head="Amalric Coif +1",
+			head="Amalric Coif +1", hands="Regal Cuffs",
 			waist="Emphatikos Rope", legs="Shedir Seraweels"
 		})
 
@@ -232,7 +229,7 @@ function init_gear_sets()
 		{
 			neck="Orunmila's Torque",
 			body="Shango Robe", lring="Kishar Ring",
-			back=gear.BLMCape_FC, waist="Witful Belt", legs="Volte Brais", feet="Amalric Nails +1"
+			back=gear.BLMCape_FC, waist="Witful Belt", legs="Volte Brais", feet="Volte Gaiters"
 		})
 	
 		sets.midcast.Stun.Resistant = sets.midcast.Macc
@@ -320,13 +317,14 @@ function init_gear_sets()
 		{--MBD/II: 44/40
 			main="Lathi", sub="Niobid Strap", ammo="Pemphredo Tathlum",
 			head="Ea Hat +1", neck="Mizu. Kubikazari", lear="Malignance Earring", rear="Regal Earring",
-			body="Ea Houppe. +1", hands="Amalric Gages +1", lring="Freke Ring", rring="Mujin Band",
-			back=gear.BLMCape_Nuke, waist="Sacro Cord", legs="Ea Slops +1", feet="Ea Pigaches +1"
+			body="Ea Houppe. +1", hands="Ea Cuffs +1", lring="Freke Ring", rring="Mujin Band",
+			back=gear.BLMCape_Nuke, waist="Sacro Cord", legs="Ea Slops +1", feet="Amalric Nails +1"
 		}
 
 		sets.magic_burst.Resistant = set_combine(sets.magic_burst,
 		{--MBD/II: 44/34
-			hands="Regal Cuffs"
+			hands="Ea Cuffs +1",
+			feet="Ea Pigaches +1"
 		})
 	
 	
@@ -358,7 +356,7 @@ function init_gear_sets()
 			main="Lathi", sub="Khonsu", ammo="Staunch Tathlum +1",
 			head="Befouled Crown", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 			body="Amalric Doublet +1", hands="Volte Bracers", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Moonlight Cape", waist="Carrier's Sash", legs="Volte Brais", feet="Amalric Nails +1"
+			back="Moonlight Cape", waist="Carrier's Sash", legs="Volte Brais", feet="Volte Gaiters"
 		}
 
 		sets.idle.DT = set_combine(sets.idle,

@@ -26,12 +26,12 @@ end
  
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-	state.OffenseMode:options('Normal', 'High', 'STP')
-	state.HybridMode:options('Normal', 'DT')
-	state.WeaponskillMode:options('Normal', 'High','Capped')
+	state.OffenseMode:options('Normal','High','STP')
+	state.HybridMode:options('Normal','DT')
+	state.WeaponskillMode:options('Normal','High','Capped')
 	state.IdleMode:options('Normal','Twilight')
 	
-	state.WeaponSet = M{['description']='Weapon Set', 'Trishula', 'Shining','Malignance'}
+	state.WeaponSet = M{['description']='Weapon Set','Trishula','Shining','Malignance'}
 	
 	state.GripSet = M{['description']='Grip Set','Utu','Khonsu'}
 	
@@ -98,7 +98,7 @@ function init_gear_sets()
 			ammo="Ginsen",
 			head="Flam. Zucchetto +2", neck="Anu Torque", lear="Telos Earring", rear="Sherida Earring",
 			body="Ptero. Mail +3", hands="Vishap F. G. +1", lring="Niqmaddu Ring", rring={name="Chirich Ring +1", bag="wardrobe3"},
-			back=gear.DRGCape_STP, waist="Ioskeha Belt +1", legs="Ptero. Brais +3", feet="Ostro Greaves"
+			back=gear.DRGCape_STP, waist="Sailfi Belt +1", legs="Ptero. Brais +3", feet="Ostro Greaves"
 		}
 		
 		sets.precast.JA['Spirit Jump'] = set_combine(sets.precast.JA['Jump'],
@@ -172,7 +172,7 @@ function init_gear_sets()
 		sets.idle =
 		{
 			ammo="Staunch Tathlum +1",
-			head="Hjarrandi Helm", neck="Warder's Charm +1", lear="Odnowa Earring +1", rear="Genmei Earring",
+			head="Hjarrandi Helm", neck="Warder's Charm +1", lear="Tuisto Earring", rear="Genmei Earring",
 			body="Tartarus Platemail", hands="Volte Bracers", lring="Defending Ring", rring="Moonlight Ring",
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Carmine Cuisses +1", feet="Sulev. Leggings +2"
 		}
@@ -374,8 +374,8 @@ function init_gear_sets()
 		{
 			ammo="Ginsen",
 			head="Ptero. Armet +3", neck="Anu Torque", lear="Brutal Earring", rear="Sherida Earring",
-			body="Hjarrandi Breast.", hands="Flam. Manopolas +2", lring="Niqmaddu Ring", rring="Moonlight Ring",
-			back=gear.DRGCape_DA, waist="Ioskeha Belt +1", legs="Valorous Hose", feet="Flam. Gambieras +2"
+			body=gear.VMail_DA, hands="Flam. Manopolas +2", lring="Niqmaddu Ring", rring="Moonlight Ring",
+			back=gear.DRGCape_DA, waist="Sailfi Belt +1", legs="Sulev. Cuisses +2", feet="Flam. Gambieras +2"
 		}
 		
 		sets.engaged.High = set_combine(sets.engaged,
@@ -399,23 +399,23 @@ function init_gear_sets()
 		sets.engaged.Max =
 		{
 			ammo="Ginsen",
-			head="Hjarrandi Helm", neck="Anu Torque", lear="Brutal Earring", lear="Sherida Earring",
+			head="Hjarrandi Helm", neck="Dgn. Collar +1", lear="Brutal Earring", rear="Sherida Earring",
 			body="Hjarrandi Breast.", hands="Sulev. Gauntlets +2", lring="Niqmaddu Ring", rring="Moonlight Ring",
-			back=gear.DRGCape_DA, waist="Ioskeha Belt +1", legs="Sulev. Cuisses +2", feet="Flam. Gambieras +2"
+			back=gear.DRGCape_DA, waist="Sailfi Belt +1", legs="Sulev. Cuisses +2", feet="Flam. Gambieras +2"
 		}
 		
 		sets.engaged.High.Max = set_combine(sets.engaged.Max,
 		{
-			head="Flam. Zucchetto +2", neck="Dgn. Collar +1", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
+			head="Flam. Zucchetto +2", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
 			hands="Flam. Manopolas +2", lring="Regal Ring",
 			back=gear.DRGCape_STP, legs="Vishap Brais +3"
 		})
 		
 		sets.engaged.STP.Max = set_combine(sets.engaged.Max,
 		{
-			head="Flam. Zucchetto +2", neck="Dgn. Collar +1", rear="Telos Earring",
+			head="Flam. Zucchetto +2", neck="Anu Torque", lear="Dedition Earring",
 			hands="Acro Gauntlets",
-			back=gear.DRGCape_STP, legs="Sulev. Cuisses +2", 
+			back=gear.DRGCape_DA, legs="Sulev. Cuisses +2", 
 		})
 
 
@@ -429,12 +429,17 @@ function init_gear_sets()
 		{
 			ammo="Staunch Tathlum +1",
 			neck="Dgn. Collar +1",
+			body="Hjarrandi Breast.",
 			lring="Defending Ring", rring="Moonlight Ring",
 		}
 		
 		
 	---Hybrid Combat
-		sets.engaged.DT 						=	set_combine(sets.engaged, 		sets.engaged.Hybrid)
+		sets.engaged.DT 						=	set_combine(sets.engaged, 		sets.engaged.Hybrid,
+		{
+			body="Hjarrandi Breast.",
+			legs="Valorous Hose"
+		})
 		sets.engaged.High.DT					=	set_combine(sets.engaged.High, 	sets.engaged.Hybrid)
 
 		

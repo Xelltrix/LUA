@@ -139,10 +139,10 @@ function init_gear_sets()
 		
 		sets.midcast.Cures =
 		{-- 	Cure Potency/II: 50%/11%		Enmity: -50		Healing Magic Skill: +69
-			main="Musa", sub="Khonsu", ammo="Esper Stone +1",
-			head="Kaykaus Mitra +1", neck="Incanter's Torque", lear="Novia Earring", rear="Beatific Earring",
+			main="Raetic Rod +1", sub="Ammurapi Shield", ammo="Esper Stone +1",
+			head="Kaykaus Mitra +1", neck="Incanter's Torque", lear="Novia Earring", rear="Meili Earring",
 			body="Kaykaus Bliaut +1", hands="Peda. Bracers +3", lring="Kuchekula Ring", rring="Menelaus's Ring",
-			back="Oretan. Cape +1", waist="Bishop's Sash", legs="Kaykaus Tights +1",  feet="Kaykaus Boots +1"
+			back=gear.SCHCape_ENF, waist="Bishop's Sash", legs="Kaykaus Tights +1",  feet="Kaykaus Boots +1"
 		}
 
 		
@@ -156,7 +156,7 @@ function init_gear_sets()
 	
 		sets.midcast.CuresWeather =
 		{
-			main="Chatoyant Staff", sub="Enki Strap",
+			main="Raetic Rod +1", sub="Ammurapi Shield",
 			neck="Incanter's Torque", lear="Mendi. Earring",
 			lring="Lebeche Ring",
 			back="Twilight Cape", waist="Hachirin-no-Obi"
@@ -169,7 +169,7 @@ function init_gear_sets()
 		sets.midcast.Cursna =
 		{
 			main="Gada", sub="Chanter's Shield", ammo="Sapience Orb",
-			head="Vanya Hood", neck="Debilis Medallion", lear="Healing Earring", rear="Beatific Earring",
+			head="Vanya Hood", neck="Debilis Medallion", lear="Beatific Earring", rear="Meili Earring",
 			body="Peda. Gown +3", hands="Hieros Mittens", lring="Haoma's Ring", rring="Menelaus's Ring",
 			back="Oretan. Cape +1", waist="Bishop's Sash", legs="Acad. Pants +3", feet="Vanya Clogs"
 		}
@@ -334,7 +334,7 @@ function init_gear_sets()
 		
 		sets.midcast.Helix = set_combine(sets.midcast['Elemental Magic'],
 		{
-			head="Mall. Chapeau +2", neck="Argute Stole +2",
+			neck="Argute Stole +2",
 		})
 		
 		sets.midcast.Helix.Resistant = sets.midcast['Elemental Magic'].Resistant
@@ -361,7 +361,7 @@ function init_gear_sets()
 		---Brightness
 		sets.midcast.Brightness = set_combine(sets.midcast['Elemental Magic'],
 		{
-			head="Mall. Chapeau +2", neck="Argute Stole +2", neck="Argute Stole +2",
+			neck="Argute Stole +2", neck="Argute Stole +2",
 			body="Mallquis Saio +2", hands="Amalric Gages +1", rring="Weather. Ring +1"
 		})
 		

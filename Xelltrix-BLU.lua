@@ -241,7 +241,7 @@ function init_gear_sets()
 
 		sets.midcast.Buffs = set_combine(sets.midcast.ConserveMP,
 		{
-			lear="Odnowa Earring +1",
+			lear="Tuisto Earring",
 			body="Luhlaza Jubbah +3", hands="Hashi. Bazu. +1", lring="Defending Ring", rring="Gelatinous Ring +1",
 			legs="Aya. Cosciales +2"
 		})
@@ -265,7 +265,7 @@ function init_gear_sets()
 		sets.midcast.Cures =
 		{--		Cure Potency: 50%
 			ammo="Staunch Tathlum +1",
-			head="Carmine Mask +1", neck="Incanter's Torque", lear="Healing Earring", rear="Beatific Earring",
+			head="Carmine Mask +1", neck="Incanter's Torque", lear="Meili Earring", rear="Beatific Earring",
 			body="Pinga Tunic", hands=gear.ENH_Gloves, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Oretan. Cape +1", waist="Bishop's Sash", legs="Pinga Pants", feet="Medium's Sabots"
 		}
@@ -281,7 +281,7 @@ function init_gear_sets()
 		sets.midcast['White Wind'] = set_combine(sets.midcast.Cures,
 		{--		Cure Potency: 49%
 			ammo="Pemphredo Tathlum",
-			head="Luh. Keffiyeh +3", neck="Sanctity Necklace", lear="Etiolation Earring", ar="Odnowa Earring +1",
+			head="Luh. Keffiyeh +3", neck="Sanctity Necklace", lear="Tuisto Earring", ear="Odnowa Earring +1",
 			lring="Eihwaz Ring", rring="Menelaus's Ring",
 			back="Moonlight Cape", waist="Gishdubar Sash"
 		})
@@ -290,7 +290,7 @@ function init_gear_sets()
 
 		sets.midcast.Cursna = set_combine(sets.precast.FC,
 		{
-			neck="Debilis Medallion", lear="Healing Earring", rear="Beatific Earring",
+			neck="Debilis Medallion", lear="Meili Earring", rear="Beatific Earring",
 			hands="Hieros Mittens", lring="Haoma's Ring", rring="Menelaus's Ring",
 			back="Oretan. Cape +1", waist="Bishop's Sash", legs="Carmine Cuisses +1"
 		})
@@ -365,7 +365,7 @@ function init_gear_sets()
 		sets.midcast.Breath =
 		{
 			ammo="Mavi Tathlum",
-			head="Luh. Keffiyeh +3", neck="Sanctity Necklace", lear="Etiolation Earring", rear="Odnowa Earring +1",
+			head="Luh. Keffiyeh +3", neck="Sanctity Necklace", lear="Tuisto Earring", rear="Odnowa Earring +1",
 			body="Assim. Jubbah +3", hands="Regal Cuffs", lring="Eihwaz Ring", rring="Ilabrat Ring",
 			back="Moonlight Cape", waist="Orpheus's Sash", legs="Assim. Shalwar +3", feet="Assim. Charuqs +3"
 		}
@@ -778,7 +778,7 @@ function init_gear_sets()
 	---Spirits Within
 		sets.precast.WS['Spirits Within'] =
 		{
-			head="Luh. Keffiyeh +3", neck="Sanctity Necklace", lear="Odnowa Earring +1", rear="Moonshade Earring",
+			head="Luh. Keffiyeh +3", neck="Sanctity Necklace", lear="Tuisto Earring", rear="Odnowa Earring +1",
 			body="Assim. Jubbah +3", hands="Regal Cuffs", lring="Ilabrat Ring", rring="Gelatinous Ring +1",
 			back="Moonlight Cape", waist="Sacro Cord", legs="Assim. Shalwar +3", feet="Assim. Charuqs +3"
 		}
