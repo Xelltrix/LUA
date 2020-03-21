@@ -298,7 +298,7 @@ function init_gear_sets()
 	
 	sets.engaged =
 	{
-		ammo="Ginsen",
+		ammo="Aurgelmir Orb",
 		head="Flam. Zucchetto +2", neck="Asperity Necklace", lear="Telos Earring", rear="Cessance Earring",
 		body="Valorous Mail", hands="Flam. Manopolas +2", lring="Niqmaddu Ring", rring="Regal Ring",
 		back="Ankou's Mantle", waist="Ioskeha Belt", legs="Odyssean Cuisses", feet="Odyssean Greaves"

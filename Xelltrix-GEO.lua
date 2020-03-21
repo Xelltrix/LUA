@@ -469,7 +469,6 @@ function init_gear_sets()
 	
 		sets.precast.WS =
 		{
-			ammo="Floestone",
 			head="Jhakri Coronal +2", neck="Fotia Gorget", lear="Ishvara Earring", rear="Moonshade Earring",
 			body="Jhakri Robe +2", hands="Jhakri Cuffs +2", lring="Shukuyu Ring", rring="Epaminondas's Ring",
 			back=gear.GEOCape_Nuke, waist="Fotia Belt", legs="Jhakri Slops +2", feet="Jhakri Pigaches +2"

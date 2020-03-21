@@ -582,7 +582,7 @@ function init_gear_sets()
 	
 		sets.precast.WS =
 		{
-			ammo="Floestone",
+			ammo="Voluspa Tathlum",
 			head="Viti. Chapeau +3", neck="Fotia Gorget", lear="Sherida Earring", rear="Moonshade Earring",
 			body="Viti. Tabard +3", hands="Atrophy Gloves +3", lring="Shukuyu Ring", rring="Epaminondas's Ring",
 			back=gear.RDMCape_WSD, waist="Fotia Belt", legs="Malignance Tights", feet="Malignance Boots"
@@ -659,7 +659,7 @@ function init_gear_sets()
 		{
 			ammo="Regal Gem",
 			head="Viti. Chapeau +3", neck="Dls. Torque +1", lear="Regal Earring",
-			waist="Prosilio Belt +1", legs="Jhakri Slops +2", feet="Carmine Greaves +1"
+			waist="Sailfi Belt +1", legs="Jhakri Slops +2", feet="Carmine Greaves +1"
 		})
 		
 		sets.precast.WS['Savage Blade'].Low = set_combine(sets.precast.WS['Savage Blade'])
@@ -724,7 +724,7 @@ function init_gear_sets()
 	---Exenterator
 		sets.precast.WS['Exenterator'] = set_combine(sets.precast.WS['Requiescat'],
 		{
-			ammo="Floestone",
+			ammo="Voluspa Tathlum",
 			head="Malignance Chapeau",
 			body="Malignance Tabard", hands="Malignance Gloves", lring="Shukuyu Ring", rring="Ilabrat Ring",
 			legs="Malignance Tights", feet="Malignance Boots"
@@ -786,7 +786,7 @@ function init_gear_sets()
 		-----------------------------------------------------------
 		sets.engaged =
 		{
-			sub="Genmei Shield", ammo="Ginsen",
+			sub="Genmei Shield", ammo="Aurgelmir Orb",
 			head="Malignance Chapeau", neck="Anu Torque", lear="Sherida Earring", rear="Brutal Earring",
 			body="Malignance Tabard", hands="Malignance Gloves", lring="Hetairoi Ring", rring="Ilabrat Ring",
 			back=gear.RDMCape_STP, waist="Windbuffet Belt +1", legs="Malignance Tights", feet="Malignance Boots"
@@ -794,7 +794,7 @@ function init_gear_sets()
 		
 		sets.engaged.ENSPELLS =
 		{
-			sub="Genmei Shield", ammo="Ginsen",
+			sub="Genmei Shield", ammo="Aurgelmir Orb",
 			head="Malignance Chapeau", neck="Anu Torque", lear="Sherida Earring", rear="Cessance Earring",
 			body="Malignance Tabard", hands="Aya. Manopolas +2", lring="Hetairoi Ring", rring="Ilabrat Ring",
 			back=gear.RDMCape_STP, waist="Orpheus's Sash", legs="Malignance Tights", feet="Malignance Boots"
@@ -802,7 +802,7 @@ function init_gear_sets()
 		
 		sets.engaged.NOTP =
 		{
-			sub="Genmei Shield", ammo="Ginsen",
+			sub="Genmei Shield", ammo="Aurgelmir Orb",
 			head="Malignance Chapeau", neck="Dls. Torque +1", lear="Digni. Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Malignance Tabard", hands="Aya. Manopolas +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.RDMCape_STP, waist="Orpheus's Sash", legs="Malignance Tights", feet="Malignance Boots"
@@ -857,7 +857,7 @@ function init_gear_sets()
 		-----------------------------------------------------------
 		sets.engaged.DW2 =
 		{
-			ammo="Ginsen",
+			ammo="Aurgelmir Orb",
 			head="Carmine Mask +1", neck="Anu Torque", lear="Eabani Earring", rear="Suppanomimi",
 			body="Malignance Tabard", hands="Malignance Gloves", lring="Hetairoi Ring", rring="Ilabrat Ring",
 			back=gear.RDMCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet=gear.TFeet_TP
@@ -865,7 +865,7 @@ function init_gear_sets()
 		
 		sets.engaged.DW2.ENSPELLS =
 		{
-			ammo="Ginsen",
+			ammo="Aurgelmir Orb",
 			head="Carmine Mask +1", neck="Anu Torque", lear="Eabani Earring", rear="Suppanomimi",
 			body="Malignance Tabard", hands="Aya. Manopolas +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.RDMCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet=gear.TFeet_TP
@@ -873,7 +873,7 @@ function init_gear_sets()
 		
 		sets.engaged.DW2.NOTP =
 		{
-			ammo="Ginsen",
+			ammo="Aurgelmir Orb",
 			head="Malignance Chapeau", neck="Dls. Torque +1", lear="Eabani Earring", rear="Suppanomimi",
 			body="Malignance Tabard", hands="Aya. Manopolas +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.RDMCape_DW, waist="Reiki Yotai", legs="Malignance Tights", feet="Malignance Boots"
@@ -927,7 +927,7 @@ function init_gear_sets()
 		-----------------------------------------------------------	
 		sets.engaged.DW3 = 
 		{
-			ammo="Ginsen",
+			ammo="Aurgelmir Orb",
 			head="Carmine Mask +1", neck="Anu Torque", lear="Eabani Earring", rear="Suppanomimi",
 			body="Malignance Tabard", hands="Malignance Gloves", lring="Hetairoi Ring", rring="Ilabrat Ring",
 			back=gear.RDMCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet=gear.TFeet_TP
@@ -935,7 +935,7 @@ function init_gear_sets()
 		
 		sets.engaged.DW3.ENSPELLS = 
 		{
-			ammo="Ginsen",
+			ammo="Aurgelmir Orb",
 			head="Carmine Mask +1", neck="Anu Torque", lear="Eabani Earring", rear="Suppanomimi",
 			body="Malignance Tabard", hands="Aya. Manopolas +2", lring="Hetairoi Ring", rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.RDMCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet=gear.TFeet_TP
@@ -943,7 +943,7 @@ function init_gear_sets()
 		
 		sets.engaged.DW3.NOTP =
 		{
-			ammo="Ginsen",
+			ammo="Aurgelmir Orb",
 			head="Malignance Chapeau", neck="Dls. Torque +1", lear="Eabani Earring", rear="Suppanomimi",
 			body="Malignance Tabard", hands="Aya. Manopolas +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.RDMCape_DW, waist="Reiki Yotai", legs="Malignance Tights", feet="Malignance Boots"
@@ -1002,7 +1002,7 @@ function init_gear_sets()
 		
 		sets.engaged.DW2.Min.NOTP =
 		{
-			ammo="Ginsen",
+			ammo="Aurgelmir Orb",
 			head="Malignance Chapeau", neck="Dls. Torque +1", lear="Eabani Earring", rear="Suppanomimi",
 			body="Malignance Tabard", hands="Aya. Manopolas +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.RDMCape_DW, waist="Reiki Yotai", legs="Malignance Tights", feet="Malignance Boots"
@@ -1048,7 +1048,7 @@ function init_gear_sets()
 		
 		sets.engaged.DW3.Min.NOTP =
 		{
-			ammo="Ginsen",
+			ammo="Aurgelmir Orb",
 			head="Malignance Chapeau", neck="Dls. Torque +1", lear="Eabani Earring", rear="Suppanomimi",
 			body="Malignance Tabard", hands="Aya. Manopolas +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.RDMCape_DW, waist="Reiki Yotai", legs="Malignance Tights", feet="Malignance Boots"
@@ -1097,7 +1097,7 @@ function init_gear_sets()
 		
 		sets.engaged.DW2.Med.NOTP =
 		{
-			ammo="Ginsen",
+			ammo="Aurgelmir Orb",
 			head="Malignance Chapeau", neck="Dls. Torque +1", lear="Eabani Earring", rear="Suppanomimi",
 			body="Malignance Tabard", hands="Aya. Manopolas +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.RDMCape_DW, waist="Reiki Yotai", legs="Malignance Tights", feet="Malignance Boots"
@@ -1139,7 +1139,7 @@ function init_gear_sets()
 		-----------------------------------------------------------		
 		sets.engaged.DW3.Med =
 		{
-			ammo="Ginsen",
+			ammo="Aurgelmir Orb",
 			head="Carmine Mask +1", neck="Anu Torque", lear="Sherida Earring", rear="Suppanomimi",
 			body="Malignance Tabard", hands="Malignance Gloves", lring="Hetairoi Ring", rring="Ilabrat Ring",
 			back=gear.RDMCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet=gear.TFeet_TP
@@ -1147,7 +1147,7 @@ function init_gear_sets()
 		
 		sets.engaged.DW3.Med.ENSPELLS =
 		{
-			ammo="Ginsen",
+			ammo="Aurgelmir Orb",
 			head="Carmine Mask +1", neck="Anu Torque", lear="Eabani Earring", rear="Suppanomimi",
 			body="Malignance Tabard", hands="Aya. Manopolas +2", lring="Hetairoi Ring", rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.RDMCape_DW, waist="Orpheus's Sash", legs="Carmine Cuisses +1", feet=gear.TFeet_TP
@@ -1155,7 +1155,7 @@ function init_gear_sets()
 		
 		sets.engaged.DW3.Med.NOTP =
 		{
-			ammo="Ginsen",
+			ammo="Aurgelmir Orb",
 			head="Malignance Chapeau", neck="Dls. Torque +1", lear="Eabani Earring", rear="Suppanomimi",
 			body="Malignance Tabard", hands="Aya. Manopolas +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.RDMCape_DW, waist="Reiki Yotai", legs="Malignance Tights", feet="Malignance Boots"
@@ -1208,7 +1208,7 @@ function init_gear_sets()
 		-----------------------------------------------------------	
 		sets.engaged.DW2.Max =
 		{
-			ammo="Ginsen",
+			ammo="Aurgelmir Orb",
 			head="Malignance Chapeau", neck="Anu Torque", lear="Sherida Earring", rear="Suppanomimi",
 			body="Malignance Tabard", hands="Malignance Gloves", lring="Hetairoi Ring", rring="Ilabrat Ring",
 			back=gear.RDMCape_DW, waist="Reiki Yotai", legs="Malignance Tights", feet="Malignance Boots"
@@ -1216,7 +1216,7 @@ function init_gear_sets()
 		
 		sets.engaged.DW2.Max.ENSPELLS =
 		{
-			ammo="Ginsen",
+			ammo="Aurgelmir Orb",
 			head="Carmine Mask +1", neck="Anu Torque", lear="Sherida Earring", rear="Suppanomimi",
 			body="Malignance Tabard", hands="Aya. Manopolas +2", lring="Hetairoi Ring", rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.RDMCape_DW, waist="Orpheus's Sash", legs="Carmine Cuisses +1", feet="Malignance Boots"
@@ -1224,7 +1224,7 @@ function init_gear_sets()
 		
 		sets.engaged.DW2.Max.NOTP =
 		{
-			ammo="Ginsen",
+			ammo="Aurgelmir Orb",
 			head="Malignance Chapeau", neck="Dls. Torque +1", lear="Eabani Earring", rear="Suppanomimi",
 			body="Malignance Tabard", hands="Aya. Manopolas +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.RDMCape_DW, waist="Orpheus's Sash", legs="Malignance Tights", feet="Malignance Boots"
@@ -1237,7 +1237,7 @@ function init_gear_sets()
 		-----------------------------------------------------------	
 		sets.engaged.DW2.Low.Max = set_combine(sets.engaged.DW2.Max,
 		{
-			 neck="Combatant's Torque",
+			neck="Combatant's Torque",
 			hands="Aya. Manopolas +2"
 		})
 		
@@ -1277,7 +1277,7 @@ function init_gear_sets()
 		-----------------------------------------------------------	
 		sets.engaged.DW3.Max =
 		{
-			ammo="Ginsen",
+			ammo="Aurgelmir Orb",
 			head="Malignance Chapeau", neck="Anu Torque", lear="Sherida Earring", rear="Dedition Earring",
 			body="Malignance Tabard", hands="Malignance Gloves", lring="Hetairoi Ring", rring="Ilabrat Ring",
 			back=gear.RDMCape_DW, waist="Windbuffet Belt +1", legs="Malignance Tights", feet="Malignance Boots"
@@ -1285,7 +1285,7 @@ function init_gear_sets()
 		
 		sets.engaged.DW3.Max.ENSPELLS =
 		{
-			ammo="Ginsen",
+			ammo="Aurgelmir Orb",
 			head="Malignance Chapeau", neck="Anu Torque", lear="Sherida Earring", rear="Brutal Earring",
 			body="Malignance Tabard", hands="Aya. Manopolas +2", lring="Hetairoi Ring", rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.RDMCape_DW, waist="Orpheus's Sash", legs="Malignance Tights", feet="Malignance Boots"
@@ -1293,7 +1293,7 @@ function init_gear_sets()
 		
 		sets.engaged.DW3.Max.NOTP =
 		{
-			ammo="Ginsen",
+			ammo="Aurgelmir Orb",
 			head="Malignance Chapeau", neck="Dls. Torque +1", lear="Digni. Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Malignance Tabard", hands="Aya. Manopolas +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.RDMCape_DW, waist="Orpheus's Sash", legs="Malignance Tights", feet="Malignance Boots"
@@ -1494,13 +1494,12 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 		apply_abilities(spell, action, spellMap, eventArgs)
 	end
 	
-	if spellMap == 'Cures' or spellMap == 'Curagas' and (spell.element == world.day_element and spell.element == world.weather_element) then
-		equip
-		{
-			main="Chatoyant Staff", sub="Enki Strap",
-			back="Twilight Cape", waist="Hachirin-no-Obi",
-		}
-	end
+	-- if spellMap == 'Cures' or spellMap == 'Curagas' and (spell.element == world.day_element and spell.element == world.weather_element) then
+		-- equip
+		-- {
+			-- back="Twilight Cape", waist="Hachirin-no-Obi",
+		-- }
+	-- end
 	
 	if spell.target.type == 'SELF' then
 		if (spellMap == 'Cures' or spellMap == 'Refresh') then

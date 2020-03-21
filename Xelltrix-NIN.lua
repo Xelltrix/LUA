@@ -192,7 +192,7 @@ function init_gear_sets()
 
 		sets.precast.WS =
 		{
-			ammo="Seeth. Bomblet +1",
+			ammo="Aurgelmir Orb",
 			head=gear.AHead_TP, neck="Fotia Gorget", lear="Brutal Earring", rear="Moonshade Earring",
 			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Gere Ring", rring="Epona's Ring",
 			back="Andartia's Mantle", waist="Fotia Belt", legs="Samnuha Tights", feet=gear.HBoots_TP

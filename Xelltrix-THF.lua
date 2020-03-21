@@ -183,7 +183,7 @@ function init_gear_sets()
 		{--	DT: 35%		PDT: 51%	MDT: 35%
 			ammo="Staunch Tathlum +1",
 			head="Malignance Chapeau", neck="Warder's Charm +1", lear="Dawn Earring", rear="Infused Earring",
-			body="Malignance Tabard", hands="Malignance Gloves", lring="Defending Ring", rring="Moonlight Ring",
+			body="Malignance Tabard", hands="Raetic Bangles +1", lring="Defending Ring", rring="Moonlight Ring",
 			back="Moonlight Cape", waist="Engraved Belt", legs="Malignance Tights", feet="Jute Boots +1"
 		}
 
@@ -269,7 +269,7 @@ function init_gear_sets()
 
 		sets.precast.WS =
 		{
-			ammo="Seeth. Bomblet +1",
+			ammo="Aurgelmir Orb",
 			head="Lustratio Cap +1", neck="Fotia Gorget", lear="Sherida Earring", rear="Moonshade Earring",
 			body="Adhemar Jacket +1", hands="Meg. Gloves +2", lring="Regal Ring", rring="Epaminondas's Ring",
 			back=gear.THFCape_STP, waist="Fotia Belt", legs="Malignance Tights", feet="Lustra. Leggings +1"

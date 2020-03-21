@@ -123,7 +123,6 @@ function init_gear_sets()
 	}
     sets.precast.Flourish1['Desperate Flourish'] =
 	{
-		ammo="Falcon Eye",
 		head="Meghanada Visor +2", neck="Combatant's Torque", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
 		body="Meg. Cuirie +2", hands="Meg. Gloves +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 		back="Toetapper Mantle", waist="Orpheus's Sash", legs="Meg. Chausses +2", feet="Meg. Jam. +2"
@@ -278,7 +277,7 @@ function init_gear_sets()
 	-------------------------
 		sets.precast.WS =
 		{
-			ammo="Yamarang",
+			ammo="Yamarang *1",
 			head=gear.HHead_WSD, neck="Fotia Gorget", lear="Sherida Earring", rear="Moonshade Earring",
 			body="Adhemar Jacket +1", hands="Meg. Gloves +2", lring="Regal Ring", rring="Epona's Ring",
 			back="Senuna's Mantle", waist="Fotia Belt", legs="Samnuha Tights", feet=gear.HBoots_WSD
@@ -368,7 +367,6 @@ function init_gear_sets()
 	---Dancing Edge
 		sets.precast.WS['Dancing Edge'] = set_combine(sets.precast.WS,
 		{
-			ammo="Falcon Eye",
 			head=gear.AHead_TP,
 			hands="Adhemar Wrist. +1", feet=gear.HBoots_TP
 		})
@@ -418,7 +416,7 @@ function init_gear_sets()
 	---Pyrrhic Kleos
 		sets.precast.WS['Pyrrhic Kleos'] = set_combine(sets.precast.WS,
 		{
-			ammo="Floestone",
+			ammo="Aurgelmir Orb",
 			head=gear.AHead_TP, rear="Brutal Earring",
 			hands="Adhemar Wrist. +1", feet=gear.HBoots_TP
 		})
@@ -476,7 +474,7 @@ function init_gear_sets()
 	
 		sets.engaged =
 		{
-			ammo="Yamarang",
+			ammo="Yamarang +1",
 			head=gear.AHead_TP, neck="Combatant's Torque", lear="Eabani Earring", rear="Suppanomimi",
 			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Hetairoi Ring", rring="Epona's Ring",
 			back="Toetapper Mantle", waist="Reiki Yotai", legs="Samnuha Tights", feet=gear.TFeet_TP
@@ -512,7 +510,7 @@ function init_gear_sets()
 	
 		sets.engaged.Min =
 		{
-			ammo="Yamarang",
+			ammo="Yamarang +1",
 			head=gear.AHead_TP, neck="Anu Torque", lear="Eabani Earring", rear="Suppanomimi",
 			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Hetairoi Ring", rring="Epona's Ring",
 			back="Toetapper Mantle", waist="Reiki Yotai", legs="Samnuha Tights", feet=gear.TFeet_TP
@@ -547,7 +545,7 @@ function init_gear_sets()
 	
 		sets.engaged.Med =
 		{
-			ammo="Yamarang",
+			ammo="Yamarang +1",
 			head=gear.AHead_TP, neck="Anu Torque", lear="Eabani Earring", rear="Suppanomimi",
 			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Hetairoi Ring", rring="Epona's Ring",
 			back="Senuna's Mantle", waist="Reiki Yotai", legs="Samnuha Tights", feet=gear.TFeet_TP
@@ -583,7 +581,7 @@ function init_gear_sets()
 	
 		sets.engaged.Max =
 		{
-			ammo="Yamarang",
+			ammo="Yamarang +1",
 			head=gear.AHead_TP, neck="Anu Torque", lear="Sherida Earring", rear="Telos Earring",
 			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Petrov Ring", rring="Epona's Ring",
 			back="Senuna's Mantle", waist="Windbuffet Belt +1", legs="Samnuha Tights", feet=gear.HBoots_TP

@@ -68,8 +68,8 @@ function init_gear_sets()
 		{--		Fast Cast: 84%
 			main="Piety Wand", sub="Chanter's Shield", ammo="Sapience Orb",
 			head="C. Palug Crown", neck="Cleric's Torque", lear="Loquac. Earring", rear="Malignance Earring",
-			body="Pinga Tunic", hands="Fanatic Gloves", lring="Lebeche Ring", rring="Weather. Ring +1",
-			back="Alaunus's Cape", waist="Witful Belt", legs="Pinga Pants", feet="Telchine Pigaches"
+			body="Pinga Tunic +1", hands="Fanatic Gloves", lring="Lebeche Ring", rring="Weather. Ring +1",
+			back="Alaunus's Cape", waist="Witful Belt", legs="Pinga Pants +1", feet="Telchine Pigaches"
 		}
 
 		sets.precast.FC['Healing Magic'] = set_combine(sets.precast.FC,
@@ -445,7 +445,7 @@ function init_gear_sets()
 		{
 			main="Piety Wand", sub="Genmei Shield", ammo="Staunch Tathlum +1",
 			head="Inyanga Tiara +2", neck="Loricate Torque +1", lear="Eabani Earring", rear="Sanare Earring",
-			body="Inyanga Jubbah +2", hands="Inyan. Dastanas +2", lring="Defending Ring", rring="Gelatinous Ring +1",
+			body="Inyanga Jubbah +2", hands="Raetic Bangles +1", lring="Defending Ring", rring="Gelatinous Ring +1",
 			back="Alaunus's Cape", waist="Carrier's Sash", legs="Inyanga Shalwar +2", feet="Inyan. Crackows +2"
 		}
 
@@ -517,7 +517,7 @@ function init_gear_sets()
 		
 		sets.engaged =
 		{
-			main="Maxentius", sub="Genmei Shield", ammo="Floestone",
+			main="Maxentius", sub="Genmei Shield",
 			head="Chironic Hat", neck="Combatant's Torque", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Piety Briault +3", hands="Volte Bracers", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back="Alaunus's Cape", waist="Windbuffet Belt +1", legs="Aya. Cosciales +2", feet="Chironic Slippers"

@@ -95,7 +95,7 @@ function init_gear_sets()
 		
 		sets.precast.JA['Jump'] =
 		{
-			ammo="Ginsen",
+			ammo="Aurgelmir Orb",
 			head="Flam. Zucchetto +2", neck="Anu Torque", lear="Telos Earring", rear="Sherida Earring",
 			body="Ptero. Mail +3", hands="Vishap F. G. +1", lring="Niqmaddu Ring", rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.DRGCape_STP, waist="Sailfi Belt +1", legs="Ptero. Brais +3", feet="Ostro Greaves"
@@ -321,7 +321,7 @@ function init_gear_sets()
 		sets.precast.WS['Camlann\'s Torment'] = set_combine(sets.precast.WS,
 		{
 			rear="Ishvara Earring",
-			waist="Prosilio Belt +1"
+			waist="Sailfi Belt +1"
 		})
 		
 		sets.precast.WS['Skewer'] = sets.precast.WS['Drakesbane']
@@ -372,7 +372,7 @@ function init_gear_sets()
 		----------------------------------------------------------			
 		sets.engaged =
 		{
-			ammo="Ginsen",
+			ammo="Aurgelmir Orb",
 			head="Ptero. Armet +3", neck="Anu Torque", lear="Brutal Earring", rear="Sherida Earring",
 			body=gear.VMail_DA, hands="Flam. Manopolas +2", lring="Niqmaddu Ring", rring="Moonlight Ring",
 			back=gear.DRGCape_DA, waist="Sailfi Belt +1", legs="Sulev. Cuisses +2", feet="Flam. Gambieras +2"
@@ -398,7 +398,7 @@ function init_gear_sets()
 		----------------------------------------------------------			
 		sets.engaged.Max =
 		{
-			ammo="Ginsen",
+			ammo="Aurgelmir Orb",
 			head="Hjarrandi Helm", neck="Dgn. Collar +1", lear="Brutal Earring", rear="Sherida Earring",
 			body="Hjarrandi Breast.", hands="Sulev. Gauntlets +2", lring="Niqmaddu Ring", rring="Moonlight Ring",
 			back=gear.DRGCape_DA, waist="Sailfi Belt +1", legs="Sulev. Cuisses +2", feet="Flam. Gambieras +2"

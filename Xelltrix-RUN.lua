@@ -149,7 +149,7 @@ function init_gear_sets()
 
 		sets.precast.JA['Swipe'] =
 		{
-			ammo="Seeth. Bomblet +1",
+			ammo="Pemphredo Tathlum",
 			head=gear.HHead_MAB, neck="Sanctity Necklace", lear="Crematio Earring", rear="Static Earring",
 			body="Samnuha Coat", hands="Carmine Fin. Ga. +1", lring="Locus Ring", rring="Mujin Band",
 			back="Evasionist's Cape", waist="Orpheus's Sash", legs="Shneddick Tights +1", feet="Adhemar Gamashes +1"
@@ -488,7 +488,7 @@ function init_gear_sets()
 
 		sets.precast.WS['Dimidiation'].Mid = set_combine(sets.precast.WS['Dimidiation'].Low,
 		{
-			ammo="Falcon Eye"
+			ammo="Voluspa Tathlum"
 		})
 		
 		sets.precast.WS['Dimidiation'].High= set_combine(sets.precast.WS['Dimidiation'].Mid,
@@ -509,7 +509,7 @@ function init_gear_sets()
 		{
 			neck="Futhark Torque +2", lear="Sherida Earring", rear="Ishvara Earring",
 			body="Lustr. Harness +1", rring="Epaminondas's Ring",
-			waist="Prosilio Belt +1", legs="Meg. Chausses +2", feet="Lustra. Leggings +1"
+			waist="Sailfi Belt +1", legs="Meg. Chausses +2", feet="Lustra. Leggings +1"
 		})
 		
 		sets.precast.WS['Ground Strike'].Low = set_combine(sets.precast.WS['Ground Strike'],
@@ -551,7 +551,7 @@ function init_gear_sets()
 	---Resolution
 		sets.precast.WS['Resolution'] = set_combine(sets.precast.WS,
 		{
-			ammo="Seeth. Bomblet +1",
+			ammo="Voluspa Tathlum",
 			lear="Sherida Earring",
 			body="Lustr. Harness +1", hands="Adhemar Wrist. +1", lring="Regal Ring", rring="Niqmaddu Ring",
 			legs="Meg. Chausses +2", feet="Lustra. Leggings +1"
@@ -618,7 +618,7 @@ function init_gear_sets()
 		{
 			neck="Futhark Torque +2",
 			body="Lustr. Harness +1", rring="Epaminondas's Ring",
-			waist="Prosilio Belt +1"
+			waist="Sailfi Belt +1"
 		})
 		
 		sets.precast.WS['Steel Cyclone'].Turtle = set_combine(sets.precast.WS['Steel Cyclone'],
@@ -671,6 +671,7 @@ function init_gear_sets()
 
 		sets.engaged.High = set_combine(sets.engaged.Mid,
 		{
+			ammo="Voluspa Tathlum",
 			head="Carmine Mask +1",
 			hands="Meg. Gloves +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			legs="Carmine Cuisses +1", feet="Turms Leggings +1"
@@ -799,9 +800,9 @@ function job_buff_change(buff,gain)
 	if buff == "doom" then
         if gain then
             equip(sets.buff.Doom)
-            disable('lring','rring','waist')
+            disable('neck','lring','rring','waist')
         else
-            enable('lring','rring','waist')
+            enable('neck','lring','rring','waist')
             handle_equipping_gear(player.status)
         end
     end

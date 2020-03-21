@@ -362,7 +362,7 @@ function init_gear_sets()
 		sets.idle.DT = set_combine(sets.idle,
 		{--Regen+0 | Refresh+6~7 | PDT/MDT: (38/40)
 			neck="Loricate Torque +1",  lear="Genmei Earring", rrear="Lugalbanda Earring",
-			lring="Defending Ring", rring="Gelatinous Ring +1"
+			hands="Raetic Bangles +1", lring="Defending Ring", rring="Gelatinous Ring +1"
 		})
 
 		sets.idle.DeathMode =
@@ -416,7 +416,7 @@ function init_gear_sets()
 		{--MDT: 46 / PDT: 31
 			main="Lathi", sub="Khonsu", ammo="Staunch Tathlum +1",
 			head="Ea Hat +1", neck="Warder's Charm +1", lear="Eabani Earring", rear="Lugalbanda Earring",
-			body="Ea Houppe. +1", hands="Volte Bracers", lring="Defending Ring", rring="Shukuyu Ring",
+			body="Ea Houppe. +1", hands="Raetic Bangles +1", lring="Defending Ring", rring="Shukuyu Ring",
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Ea Slops +1", feet="Ea Pigaches +1"
 		}
 
@@ -459,7 +459,6 @@ function init_gear_sets()
 	
 		sets.precast.WS =
 		{
-			ammo="Floestone",
 			head="Jhakri Coronal +2", neck="Fotia Gorget", lear="Telos Earring", rear="Moonshade Earring",
 			body="Jhakri Robe +2", hands="Jhakri Cuffs +2", lring="Shukuyu Ring", rring="Epaminondas's Ring",
 			back=gear.BLMCape_Nuke, legs="Jhakri Slops +2", feet="Jhakri Pigaches +2"
@@ -479,7 +478,7 @@ function init_gear_sets()
 	
 		sets.engaged =
 		{
-			main="Lathi", sub="Khonsu", ammo="Floestone",
+			main="Lathi", sub="Khonsu",
 			head="Jhakri Coronal +2", neck="Combatant's Torque", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Jhakri Robe +2", hands="Volte Bracers", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.BLMCape_Nuke, waist="Witful Belt", legs="Volte Brais", feet="Jhakri Pigaches +2"

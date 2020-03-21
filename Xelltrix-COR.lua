@@ -184,7 +184,7 @@ function init_gear_sets()
 		{
 			ranged="Fomalhaut", ammo="Chrono Bullet",
 			head="Malignance Chapeau", neck="Warder's Charm +1", lear="Etiolation Earring", rear="Sanare Earring",
-			body="Malignance Tabard", hands="Malignance Gloves", lring="Defending Ring", rring="Gelatinous Ring +1",
+			body="Malignance Tabard", hands="Raetic Bangles +1", lring="Defending Ring", rring="Gelatinous Ring +1",
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Carmine Cuisses +1", feet="Malignance Boots"
 		}
 
@@ -308,7 +308,7 @@ function init_gear_sets()
 		sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, 
 		{
 			head=gear.HHead_WSD,
-			waist="Prosilio Belt +1", feet=gear.HBoots_WSD
+			waist="Sailfi Belt +1", feet=gear.HBoots_WSD
 		})
 		
 		sets.precast.WS['Swift Blade'] = sets.precast.WS['Savage Blade']

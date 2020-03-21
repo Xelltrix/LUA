@@ -73,8 +73,8 @@ function init_gear_sets()
 		{--		Fast Cast: 84%
 			main="Musa", sub="Khonsu", ammo="Sapience Orb",
 			head="Amalric Coif +1", neck="Orunmila's Torque", lear="Loquac. Earring", rear="Malignance Earring",
-			body="Pinga Tunic", hands="Acad. Bracers +3", lring="Lebeche Ring", rring="Weather. Ring +1",
-			back=gear.SCHCape_ENF, waist="Witful Belt", legs="Pinga Pants", feet="Peda. Loafers +3"
+			body="Pinga Tunic +1", hands="Acad. Bracers +3", lring="Lebeche Ring", rring="Weather. Ring +1",
+			back=gear.SCHCape_ENF, waist="Witful Belt", legs="Pinga Pants +1", feet="Peda. Loafers +3"
 		}
 
 		sets.precast.FC.Grimoire =
@@ -416,7 +416,7 @@ function init_gear_sets()
 		sets.idle.MEVA = set_combine(sets.idle,
 		{
 			ammo="Staunch Tathlum +1",
-			ead="Peda. M.Board +3", neck="Warder's Charm +1", lear="Genmei Earring", rear="Lugalbanda Earring",
+			head="Peda. M.Board +3", neck="Warder's Charm +1", lear="Genmei Earring", rear="Lugalbanda Earring",
 			waist="Carrier's Sash", legs="Volte Brais"
 		})
 		
@@ -453,7 +453,7 @@ function init_gear_sets()
 		{--	DT: -27%	PDT: -44%	MDT:-22%
 			main="Akademos", sub="Khonsu", ammo="Staunch Tathlum +1",
 			head="Peda. M.Board +3", neck="Warder's Charm +1", lear="Etiolation Earring", rear="Lugalbanda Earring",
-			body="Pinga Tunic", hands="Volte Bracers", lring="Defending Ring", rring="Shukuyu Ring",
+			body="Pinga Tunic +1", hands="Raetic Bangles +1", lring="Defending Ring", rring="Shukuyu Ring",
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Volte Brais", feet="Amalric Nails +1"
 		}
 		
@@ -461,7 +461,7 @@ function init_gear_sets()
 		{--	DT: -27%	PDT: -44%	MDT:-22%
 			main="Akademos", sub="Khonsu", ammo="Staunch Tathlum +1",
 			head="Chironic Hat", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
-			body="Mallquis Saio +2", hands="Peda. Bracers +3", lring="Defending Ring", rring="Shukuyu Ring",
+			body="Mallquis Saio +2", hands="Raetic Bangles +1", lring="Defending Ring", rring="Shukuyu Ring",
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Peda. Pants +3", feet="Amalric Nails +1"
 		}
 
@@ -532,7 +532,6 @@ function init_gear_sets()
 	-------------------------
 		sets.precast.WS =
 		{
-			ammo="Floestone",
 			head="Jhakri Coronal +2", neck="Fotia Gorget", lear="Telos Earring", rear="Moonshade Earring",
 			body="Jhakri Robe +2", hands="Jhakri Cuffs +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.SCHCape_Nuke, waist="Fotia Belt", legs="Jhakri Slops +2", feet="Jhakri Pigaches +2"
@@ -572,7 +571,6 @@ function init_gear_sets()
 
 		sets.engaged = 
 		{
-			ammo="Floestone",
 			head="Peda. M.Board +3", neck="Combatant's Torque", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Jhakri Robe +2", hands="Peda. Bracers +3", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.SCHCape_Nuke, waist="Windbuffet Belt +1", legs="Volte Brais", feet="Peda. Loafers +3"
