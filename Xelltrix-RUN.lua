@@ -430,7 +430,7 @@ function init_gear_sets()
 			ammo="Yamarang",
 			head="Turms Cap +1", neck="Futhark Torque +2", lear="Sanare Earring", rear="Eabani Earring",
 			body="Runeist's Coat +3",hands="Volte Bracers", lring="Defending Ring", rring="Purity Ring",
-			back=gear.RUNCape_ENM, waist="Engraved Belt", legs="Eri. Leg Guards +1", feet="Turms Leggings +1"
+			back=gear.RUNCape_ENM, waist="Engraved Belt", legs="Turms Subligar +1", feet="Turms Leggings +1"
 		}
 		
 		sets.defense.Breath =

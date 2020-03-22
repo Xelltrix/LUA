@@ -62,7 +62,7 @@ function init_gear_sets()
 		{
 			main="Espiritus", sub="Niobid Strap",
 			head="Amalric Coif +1", neck="Smn. Collar +2", lear="Evans Earring", rear="Etiolation Earring",
-			body="Con. Doublet +3", hands="Beck. Bracers +1", lring="Lebeche Ring", rring="Mephitas's Ring +1",
+			body="Con. Doublet +3", hands="Beck. Bracers +1", lring="Lebeche Ring", rring="Kuchekula Ring",
 			back="Conveyance Cape", waist="Luminary Sash", legs="Amalric Slops +1", feet="Amalric Nails +1"
 		}
 		
@@ -386,14 +386,14 @@ function init_gear_sets()
 		sets.idle.DT = set_combine(sets.idle,
 		{
 			neck="Smn. Collar +2", lear="Genmei Earring",
-			body="Udug Jacket", lring="Defending Ring", rring="C. Palug Ring"
+			body="Udug Jacket", hands="Raetic Bangles +1", lring="Defending Ring", rring="C. Palug Ring"
 		})
 		
 		sets.idle.MEVA = 
 		{
 			main="Nirvana", sub="Khonsu", ammo="Staunch Tathlum +1",
 			head="Inyanga Tiara +2", neck="Warder's Charm +1",lear="Sanare Earring", rear="Lugalbanda Earring",
-			body="Inyanga Jubbah +2", hands="Inyan. Dastanas +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			body="Inyanga Jubbah +2", hands="Raetic Bangles +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Inyanga Shalwar +2", feet="Inyan. Crackows +2"
 		}
 		
@@ -466,7 +466,7 @@ function init_gear_sets()
 		{
 			main="Nirvana", sub="Khonsu",
 			head="Inyanga Tiara +2",
-			body="Udug Jacket", hands="Inyan. Dastanas +2",
+			body="Udug Jacket", hands="Raetic Bangles +1",
 			legs="Artsieq Hose"
 		})
 		
@@ -483,7 +483,7 @@ function init_gear_sets()
 		{
 			sub="Khonsu",
 			neck="Warder's Charm +1",lear="Sanare Earring", rear="Lugalbanda Earring",
-			body="Inyanga Jubbah +2", rring="Shukuyu Ring",
+			body="Inyanga Jubbah +2", hands="Raetic Bangles +1", rring="Shukuyu Ring",
 			waist="Carrier's Sash", legs="Inyanga Shalwar +2", feet="Inyan. Crackows +2"
 		})
 		
@@ -518,7 +518,7 @@ function init_gear_sets()
 		sets.HPDown =
 		{
 			head=gear.ACrown_Perp, neck="Warder's Charm +1", lear="Evans Earring", rear="Loquac. Earring",
-			body=gear.ADalmatica_Idle, hands="Apogee Mitts +1", lring="Defending Ring", rring="Mephitas's Ring +1",
+			body=gear.ADalmatica_Idle, hands="Apogee Mitts +1", lring="Defending Ring", rring="Kuchekula Ring",
 			back=gear.SMNCape_Mag, waist="Luminary Sash", legs=gear.ASlacks_MAB, feet="Apogee Pumps +1"
 		}
 	
@@ -564,7 +564,7 @@ function init_gear_sets()
 		sets.precast.WS['Myrkr'] = 
 		{
 			head="Amalric Coif +1", neck="Smn. Collar +2", lear="Etiolation Earring", rear="Moonshade Earring",
-			body="Con. Doublet +3", hands="Beck. Bracers +1", lring="Lebeche Ring", rring="Mephitas's Ring +1",
+			body="Con. Doublet +3", hands="Beck. Bracers +1", lring="Lebeche Ring", rring="Kuchekula Ring",
 			back="Conveyance Cape", waist="Luminary Sash", legs="Amalric Slops +1", feet="Amalric Nails +1"
 		}
 	

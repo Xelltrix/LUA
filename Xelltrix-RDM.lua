@@ -476,13 +476,13 @@ function init_gear_sets()
 			main="Daybreak", sub="Genmei Shield", ammo="Homiliary",
 			head="Viti. Chapeau +3", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 			body="Atrophy Tabard +3", hands="Chironic Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Moonlight Cape", waist="Flume Belt +1", legs="Carmine Cuisses +1", feet="Chironic Slippers"
+			back="Moonlight Cape", waist="Flume Belt +1", legs="Carmine Cuisses +1", feet="Volte Gaiters"
 		}
 
 		sets.idle.DT = set_combine(sets.idle,
 		{--	DT: -25%	PDT: -60%	MDT:-24%	Refresh: 10~11
 			ammo="Staunch Tathlum +1",
-			neck="Loricate Torque +1",  lear="Genmei Earring", rear="Sanare Earring",
+			neck="Loricate Torque +1", hands="Raetic Bangles +1", lear="Genmei Earring", rear="Sanare Earring",
 			lring="Defending Ring", rring="Gelatinous Ring +1"
 		})
 		

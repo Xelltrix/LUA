@@ -408,7 +408,7 @@ function init_gear_sets()
 		{--PDT: 51 / MDT: 42
 			main="Daybreak", sub="Genmei Shield", ammo="Staunch Tathlum +1",
 			head="Ea Hat +1", neck="Loricate Torque +1", lear="Genmei Earring", rear="Lugalbanda Earring",
-			body="Geomancy Tunic +3", hands="Volte Bracers", lring="Defending Ring", rring="Gelatinous Ring +1",
+			body="Geomancy Tunic +3", hands="Raetic Bangles +1", lring="Defending Ring", rring="Gelatinous Ring +1",
 			back=gear.GEOCape_Nuke, waist="Carrier's Sash", legs="Artsieq Hose", feet="Hippo. Socks +1"
 		}
 		
@@ -424,8 +424,8 @@ function init_gear_sets()
 		{--MDT: 46 / PDT: 31
 			main="Daybreak", sub="Genmei Shield", ammo="Staunch Tathlum +1",
 			head="Ea Hat +1", neck="Loricate Torque +1", lear="Sanare Earring", rear="Lugalbanda Earring",
-			body="Mallquis Saio +2", hands="Volte Bracers", lring="Defending Ring", rring="Gelatinous Ring +1",
-			back=gear.GEOCape_Nuke, waist="Carrier's Sash", legs="Volte Brais", feet="Geo. Sandals +3"
+			body="Mallquis Saio +2", hands="Raetic Bangles +1", lring="Defending Ring", rring="Gelatinous Ring +1",
+			back=gear.GEOCape_Nuke, waist="Carrier's Sash", legs="Volte Brais", feet="Volte Gaiters"
 		}
 		
 		sets.defense.MDPet =

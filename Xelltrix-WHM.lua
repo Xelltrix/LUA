@@ -54,7 +54,7 @@ function init_gear_sets()
 		{
 			main="Piety Wand", sub="Ammurapi Shield", ammo="Esper Stone +1",
 			head="Kaykaus Mitra +1", neck="Sanctity Necklace", lear="Loquac. Earring", rear="Etiolation Earring",
-			body="Piety Briault +3", hands="Kaykaus Cuffs +1", lring="Lebeche Ring", rring="Mephitas's Ring +1",
+			body="Piety Briault +3", hands="Kaykaus Cuffs +1", lring="Lebeche Ring", rring="Kuchekula Ring",
 			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Piety Pantaln. +3", feet="Kaykaus Boots +1"
 		}
 
@@ -69,7 +69,7 @@ function init_gear_sets()
 			main="Piety Wand", sub="Chanter's Shield", ammo="Sapience Orb",
 			head="C. Palug Crown", neck="Cleric's Torque", lear="Loquac. Earring", rear="Malignance Earring",
 			body="Pinga Tunic +1", hands="Fanatic Gloves", lring="Lebeche Ring", rring="Weather. Ring +1",
-			back="Alaunus's Cape", waist="Witful Belt", legs="Pinga Pants +1", feet="Telchine Pigaches"
+			back="Alaunus's Cape", waist="Witful Belt", legs="Pinga Pants +1", feet="Volte Gaiters"
 		}
 
 		sets.precast.FC['Healing Magic'] = set_combine(sets.precast.FC,
@@ -370,7 +370,7 @@ function init_gear_sets()
 			main="Daybreak", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head="C. Palug Crown", neck="Sanctity Necklace", lear="Regal Earring", rear="Malignance Earring",
 			body="Kaykaus Bliaut +1", hands="Fanatic Gloves", lring="Freke Ring", rring="Weather. Ring +1",
-			back="Alaunus's Cape", waist="Sacro Cord", legs="Kaykaus Tights +1", feet="Chironic Slippers"
+			back="Alaunus's Cape", waist="Sacro Cord", legs="Kaykaus Tights +1", feet="Volte Gaiters"
 		}
 
 		sets.midcast['Elemental Magic'] = set_combine(sets.midcast.DivineNuke,
@@ -402,24 +402,16 @@ function init_gear_sets()
 			main="Daybreak", sub="Genmei Shield", ammo="Homiliary",
 			head="Befouled Crown", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 			body="Piety Briault +3", hands="Chironic Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Moonlight Cape", waist="Carrier's Sash", legs="Volte Brais", feet="Chironic Slippers"
+			back="Moonlight Cape", waist="Carrier's Sash", legs="Volte Brais", feet="Volte Gaiters"
 		}
 		
 		sets.idle.DT = set_combine(sets.idle,
 		{
 			main="Piety Wand", ammo="Staunch Tathlum +1",
 			head="Inyanga Tiara +2", neck="Warder's Charm +1", lear="Genmei Earring", rear="Odnowa Earring +1",
-			lring="Defending Ring", rring="Gelatinous Ring +1",
-			legs="Inyanga Shalwar +2",
+			hands="Raetic Bangles +1", lring="Defending Ring", rring="Gelatinous Ring +1",
+			legs="Inyanga Shalwar +2"
 		})
-		
-		-- sets.idle.MEVA = set_combine(sets.idle,
-		-- {
-			-- ammo="Staunch Tathlum +1",
-			-- head="Inyanga Tiara +2", neck="Warder's Charm +1", lear="Eabani Earring", rear="Sanare Earring",
-			-- body="Inyanga Jubbah +2", hands="Inyan. Dastanas +2",
-			-- legs="Inyanga Shalwar +2", feet="Inyan. Crackows +2"
-		-- })
 
 		sets.idle.Town = set_combine(sets.idle,
 		{
@@ -444,7 +436,7 @@ function init_gear_sets()
 		sets.defense.PDT = 
 		{
 			main="Piety Wand", sub="Genmei Shield", ammo="Staunch Tathlum +1",
-			head="Inyanga Tiara +2", neck="Loricate Torque +1", lear="Eabani Earring", rear="Sanare Earring",
+			head="Inyanga Tiara +2", neck="Warder's Charm +1", lear="Eabani Earring", rear="Sanare Earring",
 			body="Inyanga Jubbah +2", hands="Raetic Bangles +1", lring="Defending Ring", rring="Gelatinous Ring +1",
 			back="Alaunus's Cape", waist="Carrier's Sash", legs="Inyanga Shalwar +2", feet="Inyan. Crackows +2"
 		}
@@ -493,13 +485,13 @@ function init_gear_sets()
 		{
 			head="Chironic Hat", neck="Fotia Gorget", lear="Brutal Earring", rear="Ishvara Earring",
 			body="Piety Briault +3", hands="Aya. Manopolas +2", lring="Shukuyu Ring", rring="Epaminondas's Ring",
-			back="Alaunus's Cape", waist="Fotia Belt", legs=gear.ENH_Legs, feet="Chironic Slippers"
+			back="Alaunus's Cape", waist="Fotia Belt", legs=gear.ENH_Legs, feet="Volte Gaiters"
 		}
 		
 		sets.precast.WS['Moonlight'] =
 		{
 			head="Kaykaus Mitra +1", neck="Combatant's Torque", lear="Loquac. Earring", rear="Moonshade Earring",
-			body="Piety Briault +3", hands="Kaykaus Cuffs +1", lring="Lebeche Ring", rring="Mephitas's Ring +1",
+			body="Piety Briault +3", hands="Kaykaus Cuffs +1", lring="Lebeche Ring", rring="Kuchekula Ring",
 			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Piety Pantaln. +3", feet="Kaykaus Boots +1"
 		}
 		
@@ -520,7 +512,7 @@ function init_gear_sets()
 			main="Maxentius", sub="Genmei Shield",
 			head="Chironic Hat", neck="Combatant's Torque", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Piety Briault +3", hands="Volte Bracers", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
-			back="Alaunus's Cape", waist="Windbuffet Belt +1", legs="Aya. Cosciales +2", feet="Chironic Slippers"
+			back="Alaunus's Cape", waist="Windbuffet Belt +1", legs="Aya. Cosciales +2", feet="Volte Gaiters"
 		}
 	
 end

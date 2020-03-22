@@ -57,7 +57,7 @@ function init_gear_sets()
 		sets.precast.JA['Tabula Rasa'] =
 		{
 			head="Amalric Coif +1", neck="Sanctity Necklace", lear="Etiolation Earring", rear="Mendi. Earring",
-			body="Acad. Gown +3", hands="Kaykaus Cuffs +1", lring="Lebeche Ring", rring="Mephitas's Ring +1",
+			body="Acad. Gown +3", hands="Kaykaus Cuffs +1", lring="Lebeche Ring", rring="Kuchekula Ring",
 			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Peda. Pants +3", feet="Amalric Nails +1"
 		}
 
@@ -70,7 +70,7 @@ function init_gear_sets()
 	--/RDM Fast Cast: 15%
 	
 		sets.precast.FC =
-		{--		Fast Cast: 84%
+		{--		Fast Cast: 88%
 			main="Musa", sub="Khonsu", ammo="Sapience Orb",
 			head="Amalric Coif +1", neck="Orunmila's Torque", lear="Loquac. Earring", rear="Malignance Earring",
 			body="Pinga Tunic +1", hands="Acad. Bracers +3", lring="Lebeche Ring", rring="Weather. Ring +1",
@@ -403,7 +403,7 @@ function init_gear_sets()
 			main="Akademos", sub="Khonsu", ammo="Homiliary",
 			head="Befouled Crown", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 			body="Acad. Gown +3", hands="Chironic Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Moonlight Cape", waist="Carrier's Sash", legs="Volte Brais", feet="Chironic Slippers"
+			back="Moonlight Cape", waist="Carrier's Sash", legs="Volte Brais", feet="Volte Gaiters"
 		}
 
 		sets.idle.DT = set_combine(sets.idle,
@@ -417,6 +417,7 @@ function init_gear_sets()
 		{
 			ammo="Staunch Tathlum +1",
 			head="Peda. M.Board +3", neck="Warder's Charm +1", lear="Genmei Earring", rear="Lugalbanda Earring",
+			hands="Raetic Bangles +1",
 			waist="Carrier's Sash", legs="Volte Brais"
 		})
 		
@@ -445,16 +446,16 @@ function init_gear_sets()
 		{--	DT: -38%	PDT: -52%	MDT:-42%
 			main="Akademos", sub="Khonsu", ammo="Staunch Tathlum +1",
 			head="Peda. M.Board +3", neck="Warder's Charm +1",  lear="Genmei Earring", rear="Lugalbanda Earring",
-			body="Mallquis Saio +2", hands="Volte Bracers", lring="Defending Ring", rring="Gelatinous Ring +1",
+			body="Mallquis Saio +2", hands="Raetic Bangles +1", lring="Defending Ring", rring="Gelatinous Ring +1",
 			back=gear.SCHCape_Nuke, waist="Carrier's Sash", legs="Artsieq Hose", feet="Hippo. Socks +1"
 		}
 
 		sets.defense.EVA =
 		{--	DT: -27%	PDT: -44%	MDT:-22%
 			main="Akademos", sub="Khonsu", ammo="Staunch Tathlum +1",
-			head="Peda. M.Board +3", neck="Warder's Charm +1", lear="Etiolation Earring", rear="Lugalbanda Earring",
+			head="Peda. M.Board +3", neck="Warder's Charm +1", lear="Sanare Earring", rear="Lugalbanda Earring",
 			body="Pinga Tunic +1", hands="Raetic Bangles +1", lring="Defending Ring", rring="Shukuyu Ring",
-			back="Moonlight Cape", waist="Carrier's Sash", legs="Volte Brais", feet="Amalric Nails +1"
+			back="Moonlight Cape", waist="Carrier's Sash", legs="Pinga Pants +1", feet="Volte Gaiters"
 		}
 		
 		sets.defense.MDT =
@@ -462,7 +463,7 @@ function init_gear_sets()
 			main="Akademos", sub="Khonsu", ammo="Staunch Tathlum +1",
 			head="Chironic Hat", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
 			body="Mallquis Saio +2", hands="Raetic Bangles +1", lring="Defending Ring", rring="Shukuyu Ring",
-			back="Moonlight Cape", waist="Carrier's Sash", legs="Peda. Pants +3", feet="Amalric Nails +1"
+			back="Moonlight Cape", waist="Carrier's Sash", legs="Pinga Pants +1", feet="Volte Gaiters"
 		}
 
 		sets.Kiting = { feet="Crier's Gaiters" }

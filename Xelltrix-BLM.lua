@@ -355,14 +355,14 @@ function init_gear_sets()
 		{--Regen+3 | Refresh+8~9 | PDT/MDT: (13/15)
 			main="Lathi", sub="Khonsu", ammo="Staunch Tathlum +1",
 			head="Befouled Crown", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
-			body="Amalric Doublet +1", hands="Volte Bracers", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			body="Amalric Doublet +1", hands="Raetic Bangles +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Volte Brais", feet="Volte Gaiters"
 		}
 
 		sets.idle.DT = set_combine(sets.idle,
 		{--Regen+0 | Refresh+6~7 | PDT/MDT: (38/40)
 			neck="Loricate Torque +1",  lear="Genmei Earring", rrear="Lugalbanda Earring",
-			hands="Raetic Bangles +1", lring="Defending Ring", rring="Gelatinous Ring +1"
+			lring="Defending Ring", rring="Gelatinous Ring +1"
 		})
 
 		sets.idle.DeathMode =
@@ -400,7 +400,7 @@ function init_gear_sets()
 		{--PDT: 51 / MDT: 42
 			sub="Khonsu", ammo="Staunch Tathlum +1",
 			head="Ea Hat +1", neck="Loricate Torque +1",  lear="Genmei Earring", rear="Lugalbanda Earring",
-			body="Mallquis Saio +2", hands="Volte Bracers", lring="Defending Ring", rring="Gelatinous Ring +1",
+			body="Mallquis Saio +2", hands="Raetic Bangles +1", lring="Defending Ring", rring="Gelatinous Ring +1",
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Artsieq Hose", feet="Hippo. Socks +1"
 		}
 
@@ -408,8 +408,8 @@ function init_gear_sets()
 		{--MDT: 46 / PDT: 31
 			main="Lathi", sub="Khonsu", ammo="Staunch Tathlum +1",
 			head="Vanya Hood", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
-			body="Mallquis Saio +2", hands="Volte Bracers", lring="Defending Ring", rring="Shukuyu Ring",
-			back="Moonlight Cape", waist="Carrier's Sash", legs="Vanya Slops", feet="Amalric Nails +1"
+			body="Mallquis Saio +2", hands="Raetic Bangles +1", lring="Defending Ring", rring="Shukuyu Ring",
+			back="Moonlight Cape", waist="Carrier's Sash", legs="Vanya Slops", feet="Volte Gaiters"
 		}
 		
 		sets.defense.MEVA =
@@ -417,7 +417,7 @@ function init_gear_sets()
 			main="Lathi", sub="Khonsu", ammo="Staunch Tathlum +1",
 			head="Ea Hat +1", neck="Warder's Charm +1", lear="Eabani Earring", rear="Lugalbanda Earring",
 			body="Ea Houppe. +1", hands="Raetic Bangles +1", lring="Defending Ring", rring="Shukuyu Ring",
-			back="Moonlight Cape", waist="Carrier's Sash", legs="Ea Slops +1", feet="Ea Pigaches +1"
+			back="Moonlight Cape", waist="Carrier's Sash", legs="Ea Slops +1", feet="Volte Gaiters"
 		}
 
 	--------------------------------------
