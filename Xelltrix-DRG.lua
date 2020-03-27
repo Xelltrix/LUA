@@ -374,14 +374,14 @@ function init_gear_sets()
 		sets.engaged =
 		{
 			ammo="Aurgelmir Orb",
-			head="Ptero. Armet +3", neck="Anu Torque", lear="Brutal Earring", rear="Sherida Earring",
+			head="Ptero. Armet +3", neck="Dgn. Collar +2", lear="Brutal Earring", rear="Sherida Earring",
 			body=gear.VMail_DA, hands="Flam. Manopolas +2", lring="Niqmaddu Ring", rring="Moonlight Ring",
 			back=gear.DRGCape_DA, waist="Sailfi Belt +1", legs="Sulev. Cuisses +2", feet="Flam. Gambieras +2"
 		}
 		
 		sets.engaged.High = set_combine(sets.engaged,
 		{
-			neck="Dgn. Collar +2", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
+			lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
 			lring="Regal Ring",
 			back=gear.DRGCape_STP, legs="Vishap Brais +3"
 		})
