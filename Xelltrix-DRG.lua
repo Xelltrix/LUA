@@ -282,7 +282,8 @@ function init_gear_sets()
 		
 		sets.precast.WS['Stardiver'] = set_combine(sets.precast.WS,
 		{
-			head="Ptero. Armet +3", neck="Dgn. Collar +2", rear="Sherida Earring",
+			ammo="Voluspa Tathlum",
+			head="Ptero. Armet +3", rear="Sherida Earring",
 			body=gear.VMail_DA, hands="Sulev. Gauntlets +2", rring="Regal Ring",
 			back=gear.DRGCape_DA, legs="Sulev. Cuisses +2", feet="Flam. Gambieras +2"
 		})
