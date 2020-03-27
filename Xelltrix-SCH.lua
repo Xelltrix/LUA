@@ -320,7 +320,7 @@ function init_gear_sets()
 	---Elemental Magic
 		sets.midcast['Elemental Magic'] =
 		{
-			main="Daybreak", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
+			main="Raetic Staff +1", sub="Niobid Strap", ammo="Pemphredo Tathlum",
 			head="Peda. M.Board +3", neck="Sanctity Necklace", lear="Regal Earring", rear="Malignance Earring",
 			body="Amalric Doublet +1", hands="Amalric Gages +1", lring="Freke Ring", rring={name="Shiva Ring +1", bag="wardrobe3"},
 			back=gear.SCHCape_Nuke, waist="Sacro Cord", legs="Amalric Slops +1", feet="Amalric Nails +1"
@@ -328,6 +328,7 @@ function init_gear_sets()
 
 		sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'],
 		{
+			sub="Enki Strap",
 			head="Acad. Mortar. +3", neck="Argute Stole +2",
 			legs="Peda. Pants +3", feet="Peda. Loafers +3"
 		})
@@ -381,7 +382,8 @@ function init_gear_sets()
 		
 		sets.magic_burst.Resistant = set_combine(sets.magic_burst,
 		{--		Magic Burst: 41%	Magic Burst II: +4%
-			main="Daybreak", sub="Ammurapi Shield",
+			main="Raetic Staff +1", sub="Enki Strap",
+			neck="Argute Stole +2",
 			body="Acad. Gown +3", hands="Regal Cuffs", lring="Freke Ring",
 			feet=gear.NukeCrackows
 		})
@@ -482,7 +484,6 @@ function init_gear_sets()
 		
 		sets.buff['Klimaform'] =
 		{
-			main="Akademos", sub="Niobid Strap",
 			feet="Arbatel Loafers +1"
 		}
 
@@ -695,13 +696,11 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 		if spellMap ~= 'Helix' then
 			equip
 			{
-				main="Akademos", sub="Niobid Strap",
 				waist="Hachirin-no-Obi"
 			}
 		elseif spell.target.distance < (15 - spell.target.model_size) then
 			equip
 			{
-				main="Akademos", sub="Niobid Strap",
 				waist="Orpheus's Sash"
 			}
 		end
@@ -711,13 +710,11 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 		if (spell.target.distance < (15 - spell.target.model_size)) then
 			equip
 			{
-				main="Akademos", sub="Niobid Strap",
 				waist="Orpheus's Sash"
 			}
 		elseif spellMap ~= 'Helix' then
 			equip
 			{
-				main="Akademos", sub="Niobid Strap",
 				waist="Hachirin-no-Obi"
 			}
 		end

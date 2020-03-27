@@ -492,10 +492,7 @@ function init_gear_sets()
 			lear="Telos Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
 		})
 		
-		sets.precast.WS['True Strike'] = set_combine(sets.precast.WS,
-		{
-			waist="Prosilio Belt +1"
-		})
+		sets.precast.WS['True Strike'] = sets.precast.WS
 		
 		sets.precast.WS['Brainshaker'] = sets.precast.WS['True Strike']
 		
@@ -503,8 +500,7 @@ function init_gear_sets()
 		
 		sets.precast.WS['Judgment'] = set_combine(sets.precast.WS,
 		{
-			lear="Regal Earring",
-			waist="Prosilio Belt +1"
+			lear="Regal Earring"
 		})
 		
 		sets.precast.WS['Black Halo'] = set_combine(sets.precast.WS,

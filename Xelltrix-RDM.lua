@@ -1279,13 +1279,13 @@ function init_gear_sets()
 		{
 			ammo="Aurgelmir Orb",
 			head="Malignance Chapeau", neck="Anu Torque", lear="Sherida Earring", rear="Dedition Earring",
-			body="Malignance Tabard", hands="Malignance Gloves", lring="Hetairoi Ring", rring="Ilabrat Ring",
+			body="Malignance Tabard", hands="Malignance Gloves", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.RDMCape_DW, waist="Windbuffet Belt +1", legs="Malignance Tights", feet="Malignance Boots"
 		}
 		
 		sets.engaged.DW3.Max.ENSPELLS =
 		{
-			ammo="Aurgelmir Orb",
+			ammo="Voluspa Tathlum",
 			head="Malignance Chapeau", neck="Anu Torque", lear="Sherida Earring", rear="Brutal Earring",
 			body="Malignance Tabard", hands="Aya. Manopolas +2", lring="Hetairoi Ring", rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.RDMCape_DW, waist="Orpheus's Sash", legs="Malignance Tights", feet="Malignance Boots"

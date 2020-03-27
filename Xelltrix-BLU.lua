@@ -781,7 +781,7 @@ function init_gear_sets()
 	---Red Lotus Blade	
 		sets.precast.WS['Red Lotus Blade'] = set_combine(sets.precast.WS['Seraph Blade'],
 		{
-			lring="Freke Ring"
+			lring={name="Shiva Ring +1", bag="wardrobe2"},
 		})
 		
 		sets.precast.WS['Burning Blade'] = sets.precast.WS['Red Lotus Blade']
