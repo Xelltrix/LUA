@@ -600,12 +600,15 @@ function init_gear_sets()
 			ammo="Yetshila +1",
 			head="Malignance Chapeau", rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Malignance Tabard", hands="Malignance Gloves", lring="Hetairoi Ring", rring="Ilabrat Ring",
-			back=gear.RDMCape_Crit, legs="Viti. Tights +3", feet="Malignance Boots"
+			back=gear.RDMCape_Crit, legs="Zoar Subligar +1", feet="Malignance Boots"
 		})
 	
 		sets.precast.WS['Chant du Cygne'].Low = sets.precast.WS['Chant du Cygne']
 		
-		sets.precast.WS['Chant du Cygne'].Mid = sets.precast.WS['Chant du Cygne'].Low
+		sets.precast.WS['Chant du Cygne'].Mid = set_combine(sets.precast.WS['Chant du Cygne'].Low,
+		{
+			legs="Viti. Tights +3",
+		})
 		
 		sets.precast.WS['Chant du Cygne'].High = set_combine(sets.precast.WS['Chant du Cygne'].Mid,
 		{
@@ -1140,9 +1143,9 @@ function init_gear_sets()
 		sets.engaged.DW3.Med =
 		{
 			ammo="Aurgelmir Orb",
-			head="Carmine Mask +1", neck="Anu Torque", lear="Sherida Earring", rear="Suppanomimi",
-			body="Malignance Tabard", hands="Malignance Gloves", lring="Hetairoi Ring", rring="Ilabrat Ring",
-			back=gear.RDMCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet=gear.TFeet_TP
+			head="Malignance Chapeau", neck="Anu Torque", lear="Eabani Earring", rear="Suppanomimi",
+			body="Malignance Tabard", hands="Raetic Bangles +1", lring="Hetairoi Ring", rring="Ilabrat Ring",
+			back=gear.RDMCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet="Malignance Boots"
 		}
 		
 		sets.engaged.DW3.Med.ENSPELLS =

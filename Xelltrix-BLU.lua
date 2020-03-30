@@ -653,19 +653,18 @@ function init_gear_sets()
 			ammo="Aurgelmir Orb",
 			head=gear.AHead_TP, neck="Mirage Stole +2", lear="Odr Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Hetairoi Ring", rring="Epona's Ring", 
-			back=gear.BLUCape_Crit, feet=gear.HBoots_Crit
+			back=gear.BLUCape_Crit, legs="Zoar Subligar +1", feet=gear.HBoots_Crit
 		})
 
 		sets.precast.WS['Chant du Cygne'].Low = set_combine(sets.precast.WS['Chant du Cygne'],
 		{
-			lring="Ilabrat Ring",
-			legs="Malignance Tights"
+			lring="Ilabrat Ring"
 		})
 		
 		sets.precast.WS['Chant du Cygne'].Mid = set_combine(sets.precast.WS['Chant du Cygne'].Low,
 		{
-			ammo="Aurgelmir Orb",
-			hands="Malignance Gloves"
+			hands="Malignance Gloves",
+			legs="Malignance Tights"
 		})
 		
 		sets.precast.WS['Chant du Cygne'].High = set_combine(sets.precast.WS['Chant du Cygne'].Mid,
@@ -729,7 +728,7 @@ function init_gear_sets()
 		sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS,
 		{
 			neck="Mirage Stole +2", lear="Ishvara Earring", rear="Regal Earring",
-			legs="Luhlaza Shalwar +3", feet=gear.HBoots_WSD
+			waist="Sailfi Belt +1", legs="Luhlaza Shalwar +3", feet=gear.HBoots_WSD
 		})
 
 		sets.precast.WS['Savage Blade'].Low = sets.precast.WS['Savage Blade']
@@ -746,7 +745,7 @@ function init_gear_sets()
 	---Expiacion
 		sets.precast.WS['Expiacion'] = set_combine(sets.precast.WS['Savage Blade'],
 		{
-			lear="Ishvara Earring"
+			lear="Ishvara Earring", rear="Moonshade Earring"
 		})
 
 		sets.precast.WS['Expiacion'].Low = sets.precast.WS['Expiacion']

@@ -408,7 +408,7 @@ function init_gear_sets()
 		{--PDT: 51 / MDT: 42
 			main="Daybreak", sub="Genmei Shield", ammo="Staunch Tathlum +1",
 			head="Ea Hat +1", neck="Loricate Torque +1", lear="Genmei Earring", rear="Lugalbanda Earring",
-			body="Geomancy Tunic +3", hands="Raetic Bangles +1", lring="Defending Ring", rring="Gelatinous Ring +1",
+			body="Geomancy Tunic +3", hands="Geo. Mitaines +3", lring="Defending Ring", rring="Gelatinous Ring +1",
 			back=gear.GEOCape_Nuke, waist="Carrier's Sash", legs="Artsieq Hose", feet="Hippo. Socks +1"
 		}
 		

@@ -89,7 +89,7 @@ function init_gear_sets()
 		
 		sets.Enmity.HP = set_combine(sets.Enmity,
 		{--Enmity + 62
-			neck="Futhark Torque +2", lear="Odnowa Earring +1", rear="Tuisto Earring",
+			neck="Unmoving Collar +1", lear="Odnowa Earring +1", rear="Tuisto Earring",
 			lring="Defending Ring", rring="Moonlight Ring",
 			back="Moonlight Cape"
 		})
@@ -526,7 +526,7 @@ function init_gear_sets()
 		
 		sets.precast.WS['Ground Strike'].High = set_combine(sets.precast.WS['Ground Strike'].Mid,
 		{
-			ammo="Seeth. Bomblet +1",
+			ammo="Voluspa Tathlum",
 			lear={name="Mache Earring +1", bag="wardrobe2"}
 		})
 		
@@ -554,7 +554,7 @@ function init_gear_sets()
 			ammo="Voluspa Tathlum",
 			lear="Sherida Earring",
 			body="Lustr. Harness +1", hands="Adhemar Wrist. +1", lring="Regal Ring", rring="Niqmaddu Ring",
-			legs="Meg. Chausses +2", feet="Lustra. Leggings +1"
+			waist="Sailfi Belt +1", legs="Meg. Chausses +2", feet="Lustra. Leggings +1"
 		})
 		
 		sets.precast.WS['Resolution'].Low = set_combine(sets.precast.WS['Resolution'],
@@ -574,7 +574,7 @@ function init_gear_sets()
 		{
 			head="Carmine Mask +1",
 			body="Futhark Coat +3",
-			legs="Carmine Cuisses +1", feet="Turms Leggings +1"
+			waist="Fotia Belt", legs="Carmine Cuisses +1", feet="Turms Leggings +1"
 		})
 		
 		sets.precast.WS['Resolution'].Turtle = set_combine(sets.precast.WS['Resolution'],
