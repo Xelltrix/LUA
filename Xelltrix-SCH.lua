@@ -168,7 +168,7 @@ function init_gear_sets()
 
 		sets.midcast.Cursna =
 		{
-			main="Gada", sub="Chanter's Shield", ammo="Sapience Orb",
+			main="Gada", sub="Genmei Shield", ammo="Sapience Orb",
 			head="Vanya Hood", neck="Debilis Medallion", lear="Beatific Earring", rear="Meili Earring",
 			body="Peda. Gown +3", hands="Hieros Mittens", lring="Haoma's Ring", rring="Menelaus's Ring",
 			back="Oretan. Cape +1", waist="Bishop's Sash", legs="Acad. Pants +3", feet="Vanya Clogs"
@@ -253,15 +253,15 @@ function init_gear_sets()
 		sets.midcast.Macc =
 		{
 			main="Musa", sub="Khonsu", ammo="Pemphredo Tathlum",
-			head="Acad. Mortar. +3", neck="Erra Pendant", lear="Regal Earring", rear="Malignance Earring",
-			body="Acad. Gown +3", hands="Kaykaus Cuffs +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back=gear.SCHCape_ENF, waist="Luminary Sash", legs="Chironic Hose", feet="Acad. Loafers +3"
+			head="Acad. Mortar. +3", neck="Argute Stole +2", lear="Regal Earring", rear="Malignance Earring",
+			body="Acad. Gown +3", hands="Acad. Bracers +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			back=gear.SCHCape_ENF, waist="Luminary Sash", legs="Acad. Pants +3", feet="Acad. Loafers +3"
 		}
 
 		sets.midcast['Enfeebling Magic'] = set_combine(sets.midcast.Macc,
 		{
 			hands="Regal Cuffs", lring="Kishar Ring",
-			feet="Medium's Sabots"
+			legs="Chironic Hose", feet="Medium's Sabots"
 		})
 
 		sets.midcast['Enfeebling Magic'].Resistant = sets.midcast.Macc
@@ -291,13 +291,13 @@ function init_gear_sets()
 		sets.midcast.Sap = set_combine(sets.midcast['Dark Magic'],
 		{
 			head="Pixie Hairpin +1", lear="Hirudinea Earring",
-			body="Acad. Gown +3", hands="Acad. Bracers +3", lring="Archon Ring", rring="Evanescence Ring",
+			lring="Archon Ring", rring="Evanescence Ring",
 			waist="Fucho-no-Obi", feet=gear.NukeCrackows
 		})
 		
 		sets.midcast.Sap.Resistant = set_combine(sets.midcast.Sap,
 		{
-			head="Acad. Mortar. +3", lear="Regal Earring",
+			head="Acad. Mortar. +3", neck="Argute Stole +2", lear="Regal Earring",
 			body="Acad. Gown +3", hands="Acad. Bracers +3",
 			feet="Acad. Loafers +3"
 		})
@@ -313,7 +313,7 @@ function init_gear_sets()
 		sets.midcast.Stun.Resistant = set_combine(sets.midcast.Stun,
 		{
 			head="Acad. Mortar. +3", neck="Erra Pendant", lear="Regal Earring", rear="Digni. Earring",
-			body="Acad. Gown +3", hands="Kaykaus Cuffs +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			body="Acad. Gown +3", hands="Acad. Bracers +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			waist="Luminary Sash", feet="Acad. Loafers +3"
 		})
 
@@ -349,25 +349,26 @@ function init_gear_sets()
 		
 		sets.midcast.Darkness.Resistant = set_combine(sets.midcast['Elemental Magic'].Resistant,
 		{
+			neck="Argute Stole +2",
 			rring="Archon Ring"
 		})
 		
 		sets.midcast.Impact = set_combine(sets.midcast.Macc,
 		{
 			head=empty, 
-			body="Twilight Cloak",
-			legs="Peda. Pants +3"
+			body="Twilight Cloak"
 		})
 		
 		---Brightness
 		sets.midcast.Brightness = set_combine(sets.midcast['Elemental Magic'],
 		{
-			neck="Argute Stole +2", neck="Argute Stole +2",
-			body="Mallquis Saio +2", hands="Amalric Gages +1", rring="Weather. Ring +1"
+			neck="Argute Stole +2",
+			rring="Weather. Ring +1"
 		})
 		
 		sets.midcast.Brightness.Resistant = set_combine(sets.midcast['Elemental Magic'].Resistant,
 		{
+			neck="Argute Stole +2",
 			rring="Weather. Ring +1"
 		})
 		

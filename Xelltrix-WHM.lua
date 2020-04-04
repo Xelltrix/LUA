@@ -66,7 +66,7 @@ function init_gear_sets()
 	
 		sets.precast.FC =
 		{--		Fast Cast: 84%
-			main="Piety Wand", sub="Chanter's Shield", ammo="Sapience Orb",
+			main="Piety Wand", sub="Genmei Shield", ammo="Sapience Orb",
 			head="C. Palug Crown", neck="Cleric's Torque", lear="Loquac. Earring", rear="Malignance Earring",
 			body="Pinga Tunic +1", hands="Fanatic Gloves", lring="Lebeche Ring", rring="Weather. Ring +1",
 			back="Alaunus's Cape", waist="Witful Belt", legs="Pinga Pants +1", feet="Volte Gaiters"
@@ -165,7 +165,7 @@ function init_gear_sets()
 		
 		sets.midcast.Curas =
 		{-- Cure Potency/II: 52%/14%			Enmity: -50		Healing Magic Skill: +24(500)	MND+197
-			main="Piety Wand", sub="Chanter's Shield", ammo="Sapience Orb",
+			main="Piety Wand", sub="Ammurapi Shield", ammo="Sapience Orb",
 			head="Kaykaus Mitra +1", neck="Cleric's Torque", lear="Glorious Earring", rear="Mendi. Earring",
 			body="Kaykaus Bliaut +1", hands="Kaykaus Cuffs +1", lring="Lebeche Ring", rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Alaunus's Cape", waist="Sacro Cord", legs="Ebers Pant. +1", feet="Kaykaus Boots +1"
@@ -409,7 +409,7 @@ function init_gear_sets()
 		{
 			main="Piety Wand", ammo="Staunch Tathlum +1",
 			head="Inyanga Tiara +2", neck="Warder's Charm +1", lear="Genmei Earring", rear="Odnowa Earring +1",
-			hands="Raetic Bangles +1", lring="Defending Ring", rring="Gelatinous Ring +1",
+			lring="Defending Ring", rring="Gelatinous Ring +1",
 			legs="Inyanga Shalwar +2"
 		})
 

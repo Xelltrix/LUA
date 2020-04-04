@@ -220,7 +220,7 @@ function init_gear_sets()
 		sets.midcast['Magic Barrier'] = set_combine(sets.midcast.ConserveMP,
 		{
 			ammo="Mavi Tathlum",
-			head="Luh. Keffiyeh +3", neck="Mirage Stole +2",
+			head="Luh. Keffiyeh +3", neck="Mirage Stole +2", lear="Njordr Earring",
 			body="Assim. Jubbah +3", hands="Rawhide Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Cornflower Cape", legs="Hashishin Tayt +1", feet="Luhlaza Charuqs +3"
 		})
@@ -232,7 +232,14 @@ function init_gear_sets()
 			back="Cornflower Cape", 
 		})
 		
-		sets.midcast.Occultation = set_combine(sets.midcast.FC,
+		sets.midcast.Occultation = set_combine(sets.midcast['Magic Barrier'],
+		{
+			head="Carmine Mask +1",
+			hands="Hashi. Bazu. +1",
+			waist="Witful Belt"
+		})
+		
+		sets.midcast.Occultation.Alternate = set_combine(sets.midcast.FC,
 		{--		Fast Cast: 31%(+15%)	Blue Magic Recast Delay: -14%
 			neck="Mirage Stole +2",
 			body="Assim. Jubbah +3", hands="Hashi. Bazu. +1",

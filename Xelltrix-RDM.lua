@@ -482,7 +482,7 @@ function init_gear_sets()
 		sets.idle.DT = set_combine(sets.idle,
 		{--	DT: -25%	PDT: -60%	MDT:-24%	Refresh: 10~11
 			ammo="Staunch Tathlum +1",
-			neck="Loricate Torque +1", hands="Raetic Bangles +1", lear="Genmei Earring", rear="Sanare Earring",
+			neck="Loricate Torque +1", hands="Malignance Gloves", lear="Genmei Earring", rear="Sanare Earring",
 			lring="Defending Ring", rring="Gelatinous Ring +1"
 		})
 		
@@ -523,16 +523,16 @@ function init_gear_sets()
 		sets.defense.PDT =
 		{--	DT: -19%	PDT: -51%	MDT:-26%
 			ammo="Staunch Tathlum +1",
-			head="Malignance Chapeau", neck="Warder's Charm +1", lear="Genmei Earring", rear="Sanare Earring",
+			head="Viti. Chapeau +3", neck="Warder's Charm +1", lear="Genmei Earring", rear="Sanare Earring",
 			body="Malignance Tabard", hands="Malignance Gloves", lring="Defending Ring", rring="Gelatinous Ring +1",
-			back="Moonlight Cape", waist="Flume Belt +1", legs="Carmine Cuisses +1", feet="Hippo. Socks +1"
+			back="Moonlight Cape", waist="Carrier's Sash", legs="Carmine Cuisses +1", feet="Hippo. Socks +1"
 		}
 		
 		sets.defense.MDT = 
 		{--	DT: -28%	PDT: -33%	MDT:-28%
 			ammo="Staunch Tathlum +1",
 			head="Malignance Chapeau", neck="Warder's Charm +1", lear="Static Earring", rear="Sanare Earring",
-			body="Malignance Tabard", hands="Malignance Gloves", lring="Defending Ring", rring="Shukuyu Ring",
+			body="Malignance Tabard", hands="Raetic Bangles +1", lring="Defending Ring", rring="Shukuyu Ring",
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Malignance Tights", feet="Malignance Boots"
 		}
 	
