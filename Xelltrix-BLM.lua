@@ -214,12 +214,14 @@ function init_gear_sets()
 	---Dark Magic
 		sets.midcast['Dark Magic'] = set_combine(sets.midcast.Macc,
 		{
+			lear="Mani Earring",
 			body="Shango Robe",
 			waist="Fucho-no-Obi"
 		})
 
 		sets.midcast.Sap = set_combine(sets.midcast['Dark Magic'],
 		{
+			main="Rubicundity", sub="Ammurapi Shield",
 			head="Pixie Hairpin +1", rear="Hirudinea Earring",
 			lring="Archon Ring", rring="Evanescence Ring", 
 			feet=gear.NukeCrackows
@@ -253,7 +255,8 @@ function init_gear_sets()
 		sets.midcast['Elemental Magic'].Occult = set_combine(sets.midcast['Elemental Magic'],
 		{
 			head="Mall. Chapeau +2",
-			legs="Perdition Slops"
+			lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			waist="Oneiros Rope", legs="Perdition Slops"
 		})
 		
 		---Darkness
@@ -282,7 +285,8 @@ function init_gear_sets()
 		
 		sets.midcast.Impact.Occult = set_combine(sets.midcast.Impact,
 		{
-			legs="Perdition Slops"
+			lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			waist="Oneiros Rope", legs="Perdition Slops"
 		})
 		
 
@@ -515,7 +519,7 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 		}
 	end
 
-	if (spell.skill == 'Elemental Magic' or spell.english == 'Death') and state.MagicBurst.value and (state.CastingMode.value == 'Normal' or state.CastingMode.value == 'Occult') then
+	if (spell.skill == 'Elemental Magic' or spell.english == 'Death') and state.MagicBurst.value and (state.CastingMode.value ~= 'Resistant') then
 		if spell.element ~= 'Dark' and spell.element ~= 'Light' then
 			equip(sets.magic_burst)
 		elseif spell.english == 'Comet' or spell.english == 'Noctohelix' then

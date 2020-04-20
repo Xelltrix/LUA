@@ -416,7 +416,7 @@ function init_gear_sets()
 	---Pyrrhic Kleos
 		sets.precast.WS['Pyrrhic Kleos'] = set_combine(sets.precast.WS,
 		{
-			ammo="Aurgelmir Orb",
+			ammo="Aurgelmir Orb +1",
 			head=gear.AHead_TP, rear="Brutal Earring",
 			hands="Adhemar Wrist. +1", feet=gear.HBoots_TP
 		})

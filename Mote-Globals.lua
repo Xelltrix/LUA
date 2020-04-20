@@ -104,8 +104,8 @@ function define_global_sets()
 	gear.AHead_PDT = { name="Adhemar Bonnet +1", augments={'HP+105','Attack+13','Phys. dmg. taken -4',}}
 	
 	--- Taeon
-	gear.THead_Phalanx = { name="Taeon Chapeau", augments={'Mag. Evasion+5','Spell interruption rate down -10%','Phalanx +3',}}
-    gear.TBody_Phalanx = { name="Taeon Tabard", augments={'Mag. Evasion+8','"Fast Cast"+5','Phalanx +3',}}
+	gear.THead_Phalanx = { name="Taeon Chapeau", augments={'DEF+14','Spell interruption rate down -10%','Phalanx +3',}}
+    gear.TBody_Phalanx = { name="Taeon Tabard", augments={'DEF+20','"Fast Cast"+5','Phalanx +3',}}
     gear.THands_Phalanx = { name="Taeon Gloves", augments={'Mag. Evasion+13','Spell interruption rate down -10%','Phalanx +3',}}
     gear.TLegs_Phalanx = { name="Taeon Tights", augments={'Mag. Evasion+20','Spell interruption rate down -10%','Phalanx +3',}}
     gear.TFeet_Phalanx = { name="Taeon Boots", augments={'Mag. Evasion+19','Spell interruption rate down -10%','Phalanx +3',}}
@@ -116,16 +116,16 @@ function define_global_sets()
     gear.TFeet_TP = { name="Taeon Boots", augments={'Accuracy+19 Attack+19','"Triple Atk."+2','DEX+10',}}
 	
 	---Telchine
-	gear.ENH_Head = { name="Telchine Cap", augments={'Mag. Acc.+14 "Mag.Atk.Bns."+14','"Elemental Siphon"+35','Enh. Mag. eff. dur. +10',}}
+	gear.ENH_Head = { name="Telchine Cap", augments={'Mag. Evasion+19','Potency of "Cure" effect received +7','Enh. Mag. eff. dur. +10',}}
 	gear.Pet_Head = { name="Telchine Cap", augments={'Mag. Evasion+25','Pet: "Regen"+3','Pet: Damage taken -4%',}}
 	
-	gear.ENH_Body = { name="Telchine Chas.", augments={'Mag. Evasion+25','"Elemental Siphon"+35','Enh. Mag. eff. dur. +10',}}
+	gear.ENH_Body = { name="Telchine Chas.", augments={'Mag. Evasion+25','"Fast Cast"+5','Enh. Mag. eff. dur. +10',}}
 	gear.Pet_Body =  { name="Telchine Chas.", augments={'Mag. Evasion+23','Pet: "Regen"+3','Pet: Damage taken -4%',}}
 
-	gear.ENH_Gloves = { name="Telchine Gloves", augments={'"Mag.Atk.Bns."+15','"Fast Cast"+5','Enh. Mag. eff. dur. +10',}}
+	gear.ENH_Gloves = { name="Telchine Gloves", augments={'Mag. Evasion+9','"Fast Cast"+5','Enh. Mag. eff. dur. +10',}}
 	gear.Pet_Hands = { name="Telchine Gloves", augments={'Mag. Evasion+25','Pet: "Regen"+3','Pet: Damage taken -4%',}}
 	
-	gear.ENH_Legs = { name="Telchine Braconi", augments={'Accuracy+15 Attack+15','"Fast Cast"+4','Enh. Mag. eff. dur. +10',}}
+	gear.ENH_Legs = { name="Telchine Braconi", augments={'Accuracy+15 Attack+15','"Fast Cast"+5','Enh. Mag. eff. dur. +10',}}
 	gear.Pet_Legs = { name="Telchine Braconi", augments={'Mag. Evasion+25','Pet: "Regen"+3','Pet: Damage taken -4%',}}
 	
 end

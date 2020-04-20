@@ -31,7 +31,7 @@ end
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
 	state.OffenseMode:options('Refresh', 'Normal')
-	state.CastingMode:options('Normal', 'Resistant','Potency')
+	state.CastingMode:options('Normal', 'Resistant','Occult')
 	state.PhysicalDefenseMode:options('PDT')
 	state.MagicalDefenseMode:options('EVA', 'MDT')
 	state.IdleMode:options('Normal', 'DT','MEVA')
@@ -266,14 +266,6 @@ function init_gear_sets()
 
 		sets.midcast['Enfeebling Magic'].Resistant = sets.midcast.Macc
 
-		sets.midcast['Enfeebling Magic'].Potency = set_combine(sets.midcast['Enfeebling Magic'],
-		{
-			main="Daybreak", sub="Ammurapi Shield",
-			neck="Incanter's Torque",
-			hands="Peda. Bracers +3", lring={name="Stikini Ring +1", bag="wardrobe2"},
-			waist="Rumination Sash", feet="Medium's Sabots"
-		})
-		
 		sets.midcast.Dispelga = set_combine(sets.midcast['Enfeebling Magic'].Resistant,
 		{
 			main="Daybreak", sub="Ammurapi Shield"
@@ -284,20 +276,21 @@ function init_gear_sets()
 	---Dark Magic
 		sets.midcast['Dark Magic'] = set_combine(sets.midcast.Macc,
 		{
-			neck="Erra Pendant",
+			neck="Erra Pendant", lear="Mani Earring",
 			legs="Peda. Pants +3"
 		})
 
 		sets.midcast.Sap = set_combine(sets.midcast['Dark Magic'],
 		{
-			head="Pixie Hairpin +1", lear="Hirudinea Earring",
+			main="Rubicundity", sub="Ammurapi Shield",
+			head="Pixie Hairpin +1", rear="Hirudinea Earring",
 			lring="Archon Ring", rring="Evanescence Ring",
 			waist="Fucho-no-Obi", feet=gear.NukeCrackows
 		})
 		
 		sets.midcast.Sap.Resistant = set_combine(sets.midcast.Sap,
 		{
-			head="Acad. Mortar. +3", neck="Argute Stole +2", lear="Regal Earring",
+			head="Acad. Mortar. +3", neck="Argute Stole +2", rear="Malignance Earring",
 			body="Acad. Gown +3", hands="Acad. Bracers +3",
 			feet="Acad. Loafers +3"
 		})
@@ -305,14 +298,14 @@ function init_gear_sets()
 		sets.midcast.Stun =
 		{
 			main="Musa", sub="Khonsu", ammo="Pemphredo Tathlum",
-			head="Amalric Coif +1", neck="Orunmila's Torque", lear="Digni. Earring", rear="Malignance Earring",
+			head="Amalric Coif +1", neck="Orunmila's Torque", lear="Mani Earring", rear="Malignance Earring",
 			body="Shango Robe", hands="Acad. Bracers +3", lring="Kishar Ring", rring="Weather. Ring +1",
 			back=gear.SCHCape_ENF, waist="Witful Belt", legs="Peda. Pants +3", feet="Peda. Loafers +3"
 		}
 
 		sets.midcast.Stun.Resistant = set_combine(sets.midcast.Stun,
 		{
-			head="Acad. Mortar. +3", neck="Erra Pendant", lear="Regal Earring", rear="Digni. Earring",
+			head="Acad. Mortar. +3", neck="Erra Pendant",
 			body="Acad. Gown +3", hands="Acad. Bracers +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			waist="Luminary Sash", feet="Acad. Loafers +3"
 		})
@@ -331,6 +324,13 @@ function init_gear_sets()
 			sub="Enki Strap",
 			head="Acad. Mortar. +3", neck="Argute Stole +2",
 			legs="Peda. Pants +3", feet="Peda. Loafers +3"
+		})
+		
+		sets.midcast['Elemental Magic'].Occult = set_combine(sets.midcast['Elemental Magic'],
+		{
+			head="Mall. Chapeau +2",
+			lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			waist="Oneiros Rope", legs="Perdition Slops"
 		})
 		
 		sets.midcast.Helix = set_combine(sets.midcast['Elemental Magic'],
@@ -359,6 +359,12 @@ function init_gear_sets()
 			body="Twilight Cloak"
 		})
 		
+		sets.midcast.Impact.Occult = set_combine(sets.midcast.Impact,
+		{
+			lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			waist="Oneiros Rope", legs="Perdition Slops"
+		})
+		
 		---Brightness
 		sets.midcast.Brightness = set_combine(sets.midcast['Elemental Magic'],
 		{
@@ -381,12 +387,12 @@ function init_gear_sets()
 			legs="Merlinic Shalwar"
 		})
 		
-		sets.magic_burst.Resistant = set_combine(sets.magic_burst,
+				sets.magic_burst.Resistant = set_combine(sets.magic_burst,
 		{--		Magic Burst: 41%	Magic Burst II: +4%
 			main="Raetic Staff +1", sub="Enki Strap",
 			neck="Argute Stole +2",
-			body="Acad. Gown +3", hands="Regal Cuffs", lring="Freke Ring",
-			feet=gear.NukeCrackows
+			body="Acad. Gown +3", hands="Regal Cuffs",
+			legs="Peda. Pants +3",feet=gear.NukeCrackows
 		})
 
 	
@@ -406,7 +412,7 @@ function init_gear_sets()
 			main="Akademos", sub="Khonsu", ammo="Homiliary",
 			head="Befouled Crown", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 			body="Acad. Gown +3", hands="Chironic Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Moonlight Cape", waist="Carrier's Sash", legs="Volte Brais", feet="Volte Gaiters"
+			back="Moonlight Cape", waist="Carrier's Sash", legs="Volte Brais", feet="Chironic Slippers"
 		}
 
 		sets.idle.DT = set_combine(sets.idle,
@@ -421,7 +427,7 @@ function init_gear_sets()
 			ammo="Staunch Tathlum +1",
 			head="Peda. M.Board +3", neck="Warder's Charm +1", lear="Genmei Earring", rear="Lugalbanda Earring",
 			hands="Raetic Bangles +1",
-			waist="Carrier's Sash", legs="Volte Brais"
+			waist="Carrier's Sash", legs="Volte Brais", feet="Volte Gaiters"
 		})
 		
 --[[		sets.idle.Vagary = set_combine(sets.magic_burst, 
@@ -449,7 +455,7 @@ function init_gear_sets()
 		{--	DT: -38%	PDT: -52%	MDT:-42%
 			main="Akademos", sub="Khonsu", ammo="Staunch Tathlum +1",
 			head="Peda. M.Board +3", neck="Warder's Charm +1",  lear="Genmei Earring", rear="Lugalbanda Earring",
-			body="Mallquis Saio +2", hands="Raetic Bangles +1", lring="Defending Ring", rring="Gelatinous Ring +1",
+			body="Mallquis Saio +2", hands="Volte Bracers", lring="Defending Ring", rring="Gelatinous Ring +1",
 			back=gear.SCHCape_Nuke, waist="Carrier's Sash", legs="Artsieq Hose", feet="Hippo. Socks +1"
 		}
 
@@ -575,8 +581,8 @@ function init_gear_sets()
 		sets.engaged = 
 		{
 			head="Peda. M.Board +3", neck="Combatant's Torque", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-			body="Jhakri Robe +2", hands="Peda. Bracers +3", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
-			back=gear.SCHCape_Nuke, waist="Windbuffet Belt +1", legs="Volte Brais", feet="Peda. Loafers +3"
+			body="Jhakri Robe +2", hands="Raetic Bangles +1", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			back=gear.SCHCape_Nuke, waist="Windbuffet Belt +1", legs="Volte Hose", feet="Peda. Loafers +3"
 		}
 
 		sets.engaged.Refresh = sets.idle

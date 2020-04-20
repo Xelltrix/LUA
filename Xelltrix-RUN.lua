@@ -80,7 +80,7 @@ function init_gear_sets()
 	
 
 		sets.Enmity =
-		{--Enmity + 90
+		{--Enmity + 95	PDT: -29%
 			ammo="Sapience Orb",
 			head="Halitus Helm", neck="Moonlight Necklace", lear="Cryptic Earring", rear="Trux Earring",
 			body="Emet Harness +1", hands="Kurys Gloves", lring="Eihwaz Ring", rring="Supershear Ring",
@@ -88,10 +88,9 @@ function init_gear_sets()
 		}
 		
 		sets.Enmity.HP = set_combine(sets.Enmity,
-		{--Enmity + 62
+		{--Enmity + 71	PDT: -44%
 			neck="Unmoving Collar +1", lear="Odnowa Earring +1", rear="Tuisto Earring",
-			lring="Defending Ring", rring="Moonlight Ring",
-			back="Moonlight Cape"
+			lring="Defending Ring", rring="Moonlight Ring"
 		})
 		
 		sets.buff.Doom = 
@@ -159,7 +158,7 @@ function init_gear_sets()
 		
 		sets.precast.JA['Rayke'] = { feet="Futhark Boots +3" }
 
-		sets.precast.JA['Gambit'] = { hands="Runeist's Mitons +2" }
+		sets.precast.JA['Gambit'] = { hands="Runeist's Mitons +3" }
 
 		sets.precast.JA['Swordplay'] = { hands="Futhark Mitons +3" }
 
@@ -181,7 +180,7 @@ function init_gear_sets()
 		{
 			ammo="Staunch Tathlum +1",	
 			head="Erilaz Galea +1", neck="Incanter's Torque", lear="Beatific Earring", rear="Tuisto Earring",
-			body="Futhark Coat +3", hands="Runeist's Mitons +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			body="Futhark Coat +3", hands="Runeist's Mitons +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Moonlight Cape", waist="Bishop's Sash", legs="Rune. Trousers +2", feet="Ahosi Leggings"
 		}
 
@@ -204,14 +203,13 @@ function init_gear_sets()
 			ammo="Sapience Orb",
 			head="Rune. Bandeau +3", neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
 			body=gear.TBody_Phalanx, hands="Leyline Gloves", lring="Kishar Ring", rring="Weather. Ring +1",
-			back=gear.RUNCape_FC, waist="Trance Belt", legs="Aya. Cosciales +2", feet="Carmine Greaves +1"
+			back=gear.RUNCape_FC, waist="Carrier's Sash", legs="Aya. Cosciales +2", feet="Carmine Greaves +1"
 		}
 		
 		sets.precast.FC.HP = set_combine(sets.precast.FC,
-		{--Fast Cast + 53%
-			lear="Odnowa Earring +1", rear="Tuisto Earring",
-			lring="Eihwaz Ring", rring="Moonlight Ring",
-			back="Moonlight Cape"
+		{--Fast Cast + 63%
+			neck="Unmoving Collar +1", lear="Odnowa Earring +1", rear="Tuisto Earring",
+			lring="Gelatinous Ring +1",
 		})
 		
 		sets.precast.FC['Enhancing Magic'] = 
@@ -236,11 +234,11 @@ function init_gear_sets()
 		sets.midcast.FC.HP = sets.precast.FC.HP
 
 		sets.midcast.FC.SIRD = 
-		{--		Spell Interrupt: -101
+		{--		Spell Interrupt: -101	PDT: -43%
 			ammo="Staunch Tathlum +1",
 			head=gear.THead_Phalanx, neck="Moonlight Necklace", lear="Genmei Earring", rear="Tuisto Earring",
 			body="Futhark Coat +3", hands="Rawhide Gloves", lring="Defending Ring", rring="Moonlight Ring",
-			back=gear.RUNCape_ENM, waist="Rumination Sash", legs="Carmine Cuisses +1", feet=gear.TFeet_Phalanx
+			back=gear.RUNCape_ENM, waist="Audumbla Sash", legs="Carmine Cuisses +1", feet=gear.TFeet_Phalanx
 		}
 
 	
@@ -269,24 +267,24 @@ function init_gear_sets()
 		sets.midcast.Phalanx =
 		{-- 28 + ((Enhancing Magic Skill - 300.5)/28.5) + 19 = 53
 			ammo="Staunch Tathlum +1",
-			head="Fu. Bandeau +3", neck="Incanter's Torque", lear="Etiolation Earring", rear="Mimir Earring",
-			body=gear.TBody_Phalanx, hands=gear.THands_Phalanx, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Moonlight Ring",
+			head="Fu. Bandeau +3", neck="Incanter's Torque", lear="Mimir Earring", rear="Tuisto Earring",
+			body=gear.TBody_Phalanx, hands=gear.THands_Phalanx, lring="Gelatinous Ring +1", rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Moonlight Cape", waist="Olympus Sash", legs=gear.TLegs_Phalanx, feet=gear.TFeet_Phalanx
 		}
 
 		sets.midcast.Temper = 
 		{ 
 			ammo="Staunch Tathlum +1",
-			head="Carmine Mask +1", neck="Incanter's Torque", lear="Andoaa Earring", rear="Mimir Earring",
-			body="Manasa Chasuble", hands="Runeist's Mitons +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Moonlight Cape", waist="Olympus Sash", legs="Carmine Cuisses +1", feet="Turms Leggings +1"
+			head="Carmine Mask +1", neck="Incanter's Torque", lear="Mimir Earring", rear="Andoaa Earring",
+			body="Manasa Chasuble", hands="Runeist's Mitons +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			back="Merciful Cape", waist="Olympus Sash", legs="Carmine Cuisses +1", feet="Turms Leggings +1"
 		}
 
 		sets.midcast.BarElement = 
 		{
 			ammo="Staunch Tathlum +1",
-			head="Erilaz Galea +1", neck="Incanter's Torque", lear="Etiolation Earring", rear="Mimir Earring",
-			body="Manasa Chasuble", hands="Runeist's Mitons +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Moonlight Ring",
+			head="Erilaz Galea +1", neck="Incanter's Torque", lear="Mimir Earring", rear="Tuisto Earring",
+			body="Manasa Chasuble", hands="Runeist's Mitons +3", lring="Gelatinous Ring +1", rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Moonlight Cape", waist="Olympus Sash", legs ="Futhark Trousers +3", feet="Turms Leggings +1"
 		}
 
@@ -337,9 +335,9 @@ function init_gear_sets()
 		}
 	
 		sets.midcast.Cures = set_combine(sets.midcast.FC.SIRD,
-		{
+		{--		Cure Potency: +36%
 			head="Erilaz Galea +1", neck="Sacro Gorget", lear="Mendi. Earring", rear="Roundel Earring",
-			body="Vrikodara Jupon", hands="Runeist's Mitons +2", lring="Lebeche Ring", rring="Menelaus's Ring",
+			body="Vrikodara Jupon", hands="Runeist's Mitons +3", lring="Lebeche Ring", rring="Menelaus's Ring",
 			back="Moonlight Cape", waist="Gishdubar Sash", legs="Carmine Cuisses +1"
 		})
 		
@@ -437,7 +435,7 @@ function init_gear_sets()
 		{--DT: -44%		PDT: -44%		MDT: -44%
 			ammo="Staunch Tathlum +1",
 			head="Turms Cap +1", neck="Futhark Torque +2", lear="Sanare Earring", rear="Eabani Earring",
-			body="Futhark Coat +3", hands="Turms Mittens +1", lring="Defending Ring", rring="Moonlight Ring",
+			body="Futhark Coat +3", hands="Raetic Bangles +1", lring="Defending Ring", rring="Moonlight Ring",
 			back="Moonlight Cape", waist="Engraved Belt", legs="Aya. Cosciales +2", feet="Turms Leggings +1"
 		}
 		
@@ -445,7 +443,7 @@ function init_gear_sets()
 		{--DT: -41%		PDT: -41%		MDT: -46%
 			ammo="Yamarang",
 			head="Turms Cap +1", neck="Futhark Torque +2", lear="Etiolation Earring", rear="Odnowa Earring +1",
-			body="Futhark Coat +3",hands="Volte Bracers", lring="Defending Ring", rring="Moonlight Ring",
+			body="Futhark Coat +3",hands="Raetic Bangles +1", lring="Defending Ring", rring="Moonlight Ring",
 			back="Moonlight Cape", waist="Engraved Belt", legs="Aya. Cosciales +2", feet="Turms Leggings +1"
 		}
 

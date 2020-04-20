@@ -66,7 +66,7 @@ function init_gear_sets()
 	
 		sets.precast.FC =
 		{--		Fast Cast: 84%
-			main="Piety Wand", sub="Genmei Shield", ammo="Sapience Orb",
+			main="Sucellus", sub="Chanter's Shield", ammo="Sapience Orb",
 			head="C. Palug Crown", neck="Cleric's Torque", lear="Loquac. Earring", rear="Malignance Earring",
 			body="Pinga Tunic +1", hands="Fanatic Gloves", lring="Lebeche Ring", rring="Weather. Ring +1",
 			back="Alaunus's Cape", waist="Witful Belt", legs="Pinga Pants +1", feet="Volte Gaiters"
@@ -74,10 +74,10 @@ function init_gear_sets()
 
 		sets.precast.FC['Healing Magic'] = set_combine(sets.precast.FC,
 		{--		Fast Cast: 71%		Healing Casting Time: -21%
-			legs="Ebers Pant. +1"
+			main="Piety Wand"			
 		})
 
-		sets.precast.FC.StatusRemoval = set_combine(sets.precast.FC['Healing Magic'],
+		sets.precast.FC.StatusRemoval = set_combine(sets.precast.FC,
 		{--		Fast Cast: 66%		Healing Cast Time: 21%
 			main="Yagrush"
 		})
@@ -117,6 +117,7 @@ function init_gear_sets()
 
 		sets.midcast.FC = set_combine(sets.precast.FC,
 		{--		Fast Cast: 81%		Haste: 24%
+			ammo="Hasty Pinion +1",
 			lring="Kishar Ring",
 			legs="Aya. Cosciales +2"
 		})
@@ -207,13 +208,17 @@ function init_gear_sets()
 		
 		sets.midcast.Cursna = set_combine(sets.precast.FC['Healing Magic'],
 		{--	(10 + 605/30)*(1 + 116/100) =		65.16% Success Rate
-			main="Yagrush",
+			main="Yagrush", ammo="Hasty Pinion +1",
 			head="Vanya Hood", neck="Debilis Medallion", lear="Beatific Earring", rear="Meili Earring",
 			body="Ebers Bliaud +1", lring="Haoma's Ring", rring="Menelaus's Ring",
 			waist="Bishop's Sash", legs="Th. Pant. +3", feet="Vanya Clogs"
 		})
 
-		sets.midcast.StatusRemoval = sets.precast.FC.StatusRemoval
+		sets.midcast.StatusRemoval = set_combine(sets.precast.FC.StatusRemoval,
+		{
+			ammo="Hasty Pinion +1",
+			legs="Ebers Pant. +1"
+		})
 		
 		sets.midcast.Esuna = set_combine(sets.midcast.FC,
 		{--		Fast Cast: 72%		Haste: 24%
@@ -322,13 +327,12 @@ function init_gear_sets()
 		{
 			main="Daybreak", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head="Theophany Cap +3", neck="Incanter's Torque", lear="Regal Earring", rear="Malignance Earring", 
-			body="Theo. Briault +3", hands="Theophany Mitts +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			body="Theo. Briault +3", hands="Kaykaus Cuffs +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Alaunus's Cape", waist="Luminary Sash", legs="Th. Pant. +3", feet="Theo. Duckbills +3"
 		}
 		
 		sets.midcast['Enfeebling Magic'] = set_combine(sets.midcast.Macc,
 		{
-			hands="Kaykaus Cuffs +1",
 			legs="Chironic Hose" 
 		})
 
@@ -353,11 +357,13 @@ function init_gear_sets()
 	---Dark Magic	
 		sets.midcast['Dark Magic'] = set_combine(sets.midcast.Macc,
 		{
+			lear="Mani Earring",
 			body="Shango Robe"
 		})
 
 		sets.midcast.Sap = set_combine(sets.midcast['Dark Magic'],
 		{
+			main="Rubicundity",
 			head="Pixie Hairpin +1",
 			body="Shango Robe", hands="Inyan. Dastanas +2", lring="Archon Ring", rring="Evanescence Ring",
 			waist="Fucho-no-Obi"
@@ -370,7 +376,7 @@ function init_gear_sets()
 			main="Daybreak", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head="C. Palug Crown", neck="Sanctity Necklace", lear="Regal Earring", rear="Malignance Earring",
 			body="Kaykaus Bliaut +1", hands="Fanatic Gloves", lring="Freke Ring", rring="Weather. Ring +1",
-			back="Alaunus's Cape", waist="Sacro Cord", legs="Kaykaus Tights +1", feet="Volte Gaiters"
+			back="Alaunus's Cape", waist="Sacro Cord", legs="Kaykaus Tights +1", feet="Chironic Slippers"
 		}
 
 		sets.midcast['Elemental Magic'] = set_combine(sets.midcast.DivineNuke,
@@ -402,7 +408,7 @@ function init_gear_sets()
 			main="Daybreak", sub="Genmei Shield", ammo="Homiliary",
 			head="Befouled Crown", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 			body="Piety Briault +3", hands="Chironic Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Moonlight Cape", waist="Carrier's Sash", legs="Volte Brais", feet="Volte Gaiters"
+			back="Moonlight Cape", waist="Carrier's Sash", legs="Volte Brais", feet="Chironic Slippers"
 		}
 		
 		sets.idle.DT = set_combine(sets.idle,
@@ -410,7 +416,7 @@ function init_gear_sets()
 			main="Piety Wand", ammo="Staunch Tathlum +1",
 			head="Inyanga Tiara +2", neck="Warder's Charm +1", lear="Genmei Earring", rear="Odnowa Earring +1",
 			lring="Defending Ring", rring="Gelatinous Ring +1",
-			legs="Inyanga Shalwar +2"
+			legs="Inyanga Shalwar +2", feet="Volte Gaiters"
 		})
 
 		sets.idle.Town = set_combine(sets.idle,
@@ -441,7 +447,12 @@ function init_gear_sets()
 			back="Alaunus's Cape", waist="Carrier's Sash", legs="Inyanga Shalwar +2", feet="Inyan. Crackows +2"
 		}
 
-		sets.defense.MDT = sets.defense.PDT
+		sets.defense.MDT = set_combine(
+		{
+			main="Daybreak",
+			lear="Etiolation Earring",
+			lring="Shadow Ring", rring="Inyanga Ring"
+		})
 	
 	
 	--------------------------------------
@@ -509,10 +520,10 @@ function init_gear_sets()
 		
 		sets.engaged =
 		{
-			main="Maxentius", sub="Genmei Shield",
-			head="Chironic Hat", neck="Combatant's Torque", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-			body="Piety Briault +3", hands="Volte Bracers", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
-			back="Alaunus's Cape", waist="Windbuffet Belt +1", legs="Aya. Cosciales +2", feet="Volte Gaiters"
+			main="Maxentius", sub="Genmei Shield", ammo="Hasty Pinion +1",
+			head="Aya. Zucchetto +2", neck="Combatant's Torque", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
+			body="Piety Briault +3", hands="Raetic Bangles +1", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			back="Alaunus's Cape", waist="Windbuffet Belt +1", legs="Piety Pantaln. +3", feet="Aya. Gambieras +2"
 		}
 	
 end

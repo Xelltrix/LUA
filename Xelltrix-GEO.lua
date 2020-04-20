@@ -26,7 +26,7 @@ end
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
 	state.OffenseMode:options('Normal','Refresh')
-	state.CastingMode:options('Normal','Resistant','Potency')
+	state.CastingMode:options('Normal','Resistant','Occult')
 	state.IdleMode:options('Normal','DT')
 	state.PhysicalDefenseMode:options('PDMaster','PDPet')
 	state.MagicalDefenseMode:options('MDMaster','MDPet')
@@ -80,11 +80,11 @@ function init_gear_sets()
 	-- Precast Magic --
 	------------------- 
 		sets.precast.FC =
-		{--Fast Cast 82
-			main="Sucellus", sub="Chanter's Shield",
+		{--Fast Cast 86
+			main="Sucellus", sub="Chanter's Shield", ammo="Sapience Orb",
 			head="Amalric Coif +1", neck="Orunmila's Torque", lear="Loquac. Earring", rear="Malignance Earring",
 			body="Shango Robe", hands=gear.ENH_Gloves, lring="Kishar Ring", rring="Weather. Ring +1",
-			back="Lifestream Cape", waist="Witful Belt", legs="Geomancy Pants +2", feet="Amalric Nails +1"
+			back="Lifestream Cape", waist="Witful Belt", legs="Geomancy Pants +3", feet="Amalric Nails +1"
 		}
 
 		sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC)
@@ -94,7 +94,7 @@ function init_gear_sets()
 			main="Sucellus", sub="Chanter's Shield", range="Dunna",
 			head="Amalric Coif +1", neck="Orunmila's Torque", lear="Loquac. Earring", rear="Malignance Earring",
 			body="Shango Robe", hands=gear.ENH_Gloves, lring="Kishar Ring", rring="Weather. Ring +1",
-			back="Lifestream Cape", waist="Witful Belt", legs="Geomancy Pants +2", feet="Amalric Nails +1"
+			back="Lifestream Cape", waist="Witful Belt", legs="Geomancy Pants +3", feet="Amalric Nails +1"
 		}
 
 		sets.precast.FC.Stoneskin = sets.precast.FC['Enhancing Magic']
@@ -133,7 +133,10 @@ function init_gear_sets()
 	-- Base Midcast sets
 	--------------------------------------
 	
-		sets.midcast.FC = sets.precast.FC
+		sets.midcast.FC = set_combine(sets.precast.FC,
+		{
+			ammo="Hasty Pinion +1"
+		})
 
 		sets.midcast.Duration =
 		{ --1.5 x 1.16 Duration Bonus
@@ -239,7 +242,7 @@ function init_gear_sets()
 			main="Daybreak", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head="C. Palug Crown", neck="Bagua Charm +1", lear="Regal Earring", rear="Malignance Earring",
 			body="Geomancy Tunic +3", hands="Geo. Mitaines +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back=gear.GEOCape_Nuke, waist="Luminary Sash", legs="Ea Slops +1", feet="Ea Pigaches +1"
+			back=gear.GEOCape_Nuke, waist="Luminary Sash", legs="Geomancy Pants +3", feet="Geo. Sandals +3"
 		}
 	
 		sets.midcast['Enfeebling Magic'] = set_combine(sets.midcast.Macc,
@@ -262,22 +265,18 @@ function init_gear_sets()
 	---Dark Magic
 		sets.midcast['Dark Magic'] = set_combine(sets.midcast.Macc,
 		{
-			neck="Erra Pendant",
+			neck="Erra Pendant", lear="Mani Earring",
 			waist="Fucho-no-Obi", legs="Azimuth Tights +1",
 		})
 
 		sets.midcast.Sap = set_combine(sets.midcast['Dark Magic'],
 		{
-			head="Pixie Hairpin +1", lear="Hirudinea Earring",
+			main="Rubicundity", sub="Ammurapi Shield",
+			head="Bagua Galero +3", rear="Hirudinea Earring",
 			lring="Archon Ring", rring="Evanescence Ring", 
 			feet=gear.NukeCrackows
 		})
 		
-		sets.midcast.Sap.Resistant = set_combine(sets.midcast.Sap,
-		{
-			head="Bagua Galero +3"
-		})
-
 		sets.midcast.Stun = set_combine(sets.midcast['Dark Magic'],
 		{
 			neck="Orunmila's Torque",
@@ -298,22 +297,29 @@ function init_gear_sets()
 
 		sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'],
 		{
-			head="Ea Hat +1",
-			body="Ea Houppe. +1", 
-			waist="Sacro Cord", legs="Ea Slops +1", feet="Jhakri Pigaches +2"
-		})
-
-		sets.midcast['Elemental Magic'].Potency = set_combine(sets.midcast['Elemental Magic'],
-		{
 			head="C. Palug Crown",
+			waist="Sacro Cord", legs="Merlinic Shalwar", feet="Jhakri Pigaches +2"
 		})
 
-		sets.midcast.Impact = set_combine(sets.midcast['Elemental Magic'],
+		sets.midcast['Elemental Magic'].Occult = set_combine(sets.midcast['Elemental Magic'],
+		{
+			head="Mall. Chapeau +2",
+			lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			waist="Oneiros Rope", legs="Perdition Slops"
+		})
+
+		sets.midcast.Impact = set_combine(sets.midcast.Macc,
 		{
 			head=empty,
 			body="Twilight Cloak",
 			rring="Archon Ring",
 		})
+		
+		sets.midcast.Impact.Occult = set_combine(sets.midcast.Impact,
+		{
+			lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			waist="Oneiros Rope", legs="Perdition Slops"
+		})		
 	
 		sets.magic_burst =
 		{--MB/II: 39/35
@@ -533,14 +539,14 @@ function init_gear_sets()
 		{
 			sub="Genmei Shield", ammo="Hasty Pinion +1",
 			head="Bagua Galero +3", neck="Combatant's Torque", lear={name="Mache Earring +1", bag="wardrobe2"},  rear={name="Mache Earring +1", bag="wardrobe3"},
-			body="Bagua Tunic +3", hands="Bagua Mitaines +3", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
-			back=gear.GEOCape_Luopan, waist="Windbuffet Belt +1",  legs="Volte Brais", feet="Bagua Sandals +3"
+			body="Bagua Tunic +3", hands="Raetic Bangles +1", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			back=gear.GEOCape_Luopan, waist="Windbuffet Belt +1",  legs="Volte Hose", feet="Bagua Sandals +3"
 		}
 		
 		sets.engaged.Refresh =
 		{
 			main="Idris", sub="Genmei Shield", ammo="Staunch Tathlum +1",
-			head="Bagua Galero +3", neck="Bagua Charm +1", lear="Dawn Earring", rear="Infused Earring",
+			head=gear.Pet_Head, neck="Bagua Charm +1", lear="Dawn Earring", rear="Infused Earring",
 			body="Geomancy Tunic +3", hands="Geo. Mitaines +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back=gear.GEOCape_Luopan, waist="Isa Belt", legs="Volte Brais", feet="Bagua Sandals +3"
 		}
@@ -585,7 +591,7 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 		equip({ neck="Bagua Charm +1" })
 	end
 
-	if (spell.skill == 'Elemental Magic') and state.MagicBurst.value and (state.CastingMode.value == 'Normal' or state.CastingMode.value == 'Potency') then
+	if (spell.skill == 'Elemental Magic') and state.MagicBurst.value and (state.CastingMode.value ~= 'Resistant') then
 		if spell.element ~= 'Dark' then
 			equip(sets.magic_burst)
 		elseif spell.english =='Impact' then

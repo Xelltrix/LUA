@@ -51,9 +51,9 @@ function init_gear_sets()
 		sets.precast.JA['Elemental Siphon'] =
 		{
 			main="Espiritus", sub="Vox Grip", ammo="Esper Stone +1",
-			head=gear.ENH_Head, neck="Incanter's Torque", lear="Andoaa Earring", rear="C. Palug Earring",
+			head="Baayami Hat +1", neck="Incanter's Torque", lear="Lodurr Earring", rear="C. Palug Earring",
 			body="Baayami Robe +1", hands="Baayami Cuffs +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Evoker's Ring",
-			back="Conveyance Cape", waist="Lucidity Sash", legs="Baayami Slops +1",feet="Beck. Pigaches +1"
+			back="Conveyance Cape", waist="Kobo Obi", legs="Baayami Slops +1",feet="Beck. Pigaches +1"
 		}
 
 		sets.precast.JA['Mana Cede'] = { hands="Beck. Bracers +1" }
@@ -73,9 +73,9 @@ function init_gear_sets()
 		sets.precast.BloodPactWard =
 		{
 			main="Espiritus", sub="Vox Grip", ammo="Sancus Sachet +1",
-			head="Beckoner's Horn +1", neck="Incanter's Torque", lear="Andoaa Earring", rear="C. Palug Earring",
+			head="Beckoner's Horn +1", neck="Incanter's Torque", lear="Lodurr Earring", rear="C. Palug Earring",
 			body="Baayami Robe +1", hands="Baayami Cuffs +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Evoker's Ring",
-			back="Conveyance Cape", waist="Lucidity Sash", legs="Baayami Slops +1", feet="Baaya. Sabots +1"
+			back="Conveyance Cape", waist="Kobo Obi", legs="Baayami Slops +1", feet="Baaya. Sabots +1"
 		}
 
 		sets.precast.BloodPactRage = sets.precast.BloodPactWard
@@ -137,9 +137,9 @@ function init_gear_sets()
 		sets.midcast.Pet.bp_Buffs =
 		{--		Summoning Magic Skill: 685
 			main="Espiritus", sub="Vox Grip", ammo="Esper Stone +1",
-			head="Baayami Hat +1", neck="Incanter's Torque", lear="Andoaa Earring", rear="C. Palug Earring",
+			head="Baayami Hat +1", neck="Incanter's Torque", lear="Lodurr Earring", rear="C. Palug Earring",
 			body="Baayami Robe +1", hands="Baayami Cuffs +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Evoker's Ring",
-			back="Conveyance Cape", waist="Lucidity Sash", legs="Baayami Slops +1", feet="Baaya. Sabots +1"
+			back="Conveyance Cape", waist="Kobo Obi", legs="Baayami Slops +1", feet="Baaya. Sabots +1"
 		}
 		
 		sets.midcast.Pet.bp_Boons = set_combine(sets.midcast.Pet.bp_Buffs,
@@ -328,11 +328,13 @@ function init_gear_sets()
 
 		sets.midcast['Dark Magic'] = set_combine(sets.midcast.Macc,
 		{
-			body="Shango Robe", 
+			lear="Mani Earring",
+			body="Shango Robe"
 		})
 
 		sets.midcast.Sap = set_combine(sets.midcast['Dark Magic'],
 		{
+			main="Rubicundity", sub="Ammurapi Shield",
 			head="Pixie Hairpin +1",
 			rring="Archon Ring",
 			waist="Fucho-no-Obi", feet=gear.NukeCrackows

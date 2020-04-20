@@ -269,7 +269,7 @@ function init_gear_sets()
 
 		sets.precast.WS =
 		{
-			ammo="Aurgelmir Orb",
+			ammo="Aurgelmir Orb +1",
 			head="Lustratio Cap +1", neck="Fotia Gorget", lear="Sherida Earring", rear="Moonshade Earring",
 			body="Adhemar Jacket +1", hands="Meg. Gloves +2", lring="Regal Ring", rring="Epaminondas's Ring",
 			back=gear.THFCape_STP, waist="Fotia Belt", legs="Malignance Tights", feet="Lustra. Leggings +1"

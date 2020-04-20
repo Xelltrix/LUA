@@ -95,7 +95,7 @@ function init_gear_sets()
 		
 		sets.precast.JA['Jump'] =
 		{
-			ammo="Aurgelmir Orb",
+			ammo="Aurgelmir Orb +1",
 			head="Flam. Zucchetto +2", neck="Anu Torque", lear="Telos Earring", rear="Sherida Earring",
 			body="Ptero. Mail +3", hands="Vishap F. G. +1", lring="Niqmaddu Ring", rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.DRGCape_STP, waist="Sailfi Belt +1", legs="Ptero. Brais +3", feet="Ostro Greaves"
@@ -123,7 +123,7 @@ function init_gear_sets()
 		{
 			ammo="Sapience Orb",
 			head="Carmine Mask +1", neck="Orunmila's Torque", lear="Loquac. Earring", rear="Etiolation Earring",
-			body=gear.TBody_Phalanx, hands="Leyline Gloves", lring="Defending Ring", rring="Weather. Ring +1",
+			body="Sacro Breastplate", hands="Leyline Gloves", lring="Defending Ring", rring="Weather. Ring +1",
 			back="Moonlight Cape", waist="Flume Belt +1", legs="Carmine Cuisses +1", feet="Carmine Greaves +1"
 		}
 
@@ -173,7 +173,7 @@ function init_gear_sets()
 		{
 			ammo="Staunch Tathlum +1",
 			head="Hjarrandi Helm", neck="Warder's Charm +1", lear="Tuisto Earring", rear="Genmei Earring",
-			body="Tartarus Platemail", hands="Volte Bracers", lring="Defending Ring", rring="Moonlight Ring",
+			body="Sacro Breastplate", hands="Volte Bracers", lring="Defending Ring", rring="Moonlight Ring",
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Carmine Cuisses +1", feet="Sulev. Leggings +2"
 		}
 		
@@ -352,7 +352,7 @@ function init_gear_sets()
 		{
 			ammo="Pemphredo Tathlum", 
 			head="Valorous Mask", neck="Sanctity Necklace", lear="Thrud Earring", rear="Moonshade Earring",
-			body="Carm. Sc. Mail +1", hands="Carmine Fin. Ga. +1", lring={name="Shiva Ring +1", bag="wardrobe2"}, rring="Epaminondas's Ring",
+			body="Sacro Breastplate", hands="Carmine Fin. Ga. +1", lring={name="Shiva Ring +1", bag="wardrobe2"}, rring="Epaminondas's Ring",
 			back=gear.DRGCape_WSD, waist="Orpheus's Sash", legs="Vishap Brais +3", feet="Sulev. Leggings +2"
 		}
 		
@@ -373,7 +373,7 @@ function init_gear_sets()
 		----------------------------------------------------------			
 		sets.engaged =
 		{
-			ammo="Aurgelmir Orb",
+			ammo="Aurgelmir Orb +1",
 			head="Ptero. Armet +3", neck="Dgn. Collar +2", lear="Brutal Earring", rear="Sherida Earring",
 			body=gear.VMail_DA, hands="Flam. Manopolas +2", lring="Niqmaddu Ring", rring="Moonlight Ring",
 			back=gear.DRGCape_DA, waist="Sailfi Belt +1", legs="Sulev. Cuisses +2", feet="Flam. Gambieras +2"
@@ -399,7 +399,7 @@ function init_gear_sets()
 		----------------------------------------------------------			
 		sets.engaged.Max =
 		{
-			ammo="Aurgelmir Orb",
+			ammo="Aurgelmir Orb +1",
 			head="Hjarrandi Helm", neck="Dgn. Collar +2", lear="Brutal Earring", rear="Sherida Earring",
 			body="Hjarrandi Breast.", hands="Sulev. Gauntlets +2", lring="Niqmaddu Ring", rring="Moonlight Ring",
 			back=gear.DRGCape_DA, waist="Sailfi Belt +1", legs="Sulev. Cuisses +2", feet="Flam. Gambieras +2"
@@ -436,15 +436,21 @@ function init_gear_sets()
 		
 		
 	---Hybrid Combat
-		sets.engaged.DT 						=	set_combine(sets.engaged, 		sets.engaged.Hybrid,
+		sets.engaged.DT 						=	set_combine(sets.engaged,
 		{
-			body="Hjarrandi Breast.",
-			legs="Valorous Hose"
+			ammo="Staunch Tathlum +1",
+			neck="Dgn. Collar +2",
+			body="Sacro Breastplate", lring="Defending Ring", rring="Moonlight Ring",
+			legs="Sulev. Cuisses +2"
 		})
 		sets.engaged.High.DT					=	set_combine(sets.engaged.High, 	sets.engaged.Hybrid)
 
 		
-		sets.engaged.DT.Max 					= 	sets.engaged.Max
+		sets.engaged.DT.Max 					= 	set_combine(sets.engaged.Max,
+		{
+			ammo="Staunch Tathlum +1",
+			body="Sacro Breastplate", lring="Defending Ring"
+		})
 		sets.engaged.High.DT.Max				=	set_combine(sets.engaged.High.Max,
 		{
 			ammo="Staunch Tathlum +1",

@@ -138,18 +138,20 @@ function init_gear_sets()
 	---Dark Magic
 		sets.midcast.Stun = set_combine(sets.midcast.Macc,
 		{
+			lear="Mani Earring",
 			body="Carm. Sc. Mail +1", lring="Kishar Ring", rring="Weather. Ring +1",
 			feet="Carmine Greaves +1"
 		})
 		
 		sets.midcast.Absorb = set_combine(sets.midcast.Macc,
 		{
+			lear="Mani Earring",
 			back="Ankou's Mantle"
 		})
 	  
 		sets.midcast.Sap = set_combine(sets.midcast.Macc,
 		{
-			head="Pixie Hairpin +1",
+			head="Pixie Hairpin +1", lear="Mani Earring",
 			body="Carm. Sc. Mail +1",  lring="Archon Ring", rring="Evanescence Ring",
 			back="Ankou's Mantle", 
 		})
@@ -298,7 +300,7 @@ function init_gear_sets()
 	
 	sets.engaged =
 	{
-		ammo="Aurgelmir Orb",
+		ammo="Aurgelmir Orb +1",
 		head="Flam. Zucchetto +2", neck="Asperity Necklace", lear="Telos Earring", rear="Cessance Earring",
 		body="Valorous Mail", hands="Flam. Manopolas +2", lring="Niqmaddu Ring", rring="Regal Ring",
 		back="Ankou's Mantle", waist="Ioskeha Belt", legs="Odyssean Cuisses", feet="Odyssean Greaves"
