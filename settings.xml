@@ -6,6 +6,45 @@
         <setmode>PreserveTraits</setmode>
         <setspeed>0.8</setspeed>
         <spellsets>
+            <alex>
+                <slot01>anvil lightning</slot01>
+                <slot02>disseverment</slot02>
+                <slot03>erratic flutter</slot03>
+                <slot04>embalming earth</slot04>
+                <slot05>plenilune embrace</slot05>
+                <slot06>vanity dive</slot06>
+                <slot07>sudden lunge</slot07>
+                <slot08>nat. meditation</slot08>
+                <slot09>rending deluge</slot09>
+                <slot10>blinding fulgor</slot10>
+                <slot11>dimensional death</slot11>
+                <slot12>fantod</slot12>
+                <slot13>battle dance</slot13>
+                <slot14>barbed crescent</slot14>
+                <slot15>delta thrust</slot15>
+                <slot16>frenetic rip</slot16>
+                <slot17>uppercut</slot17>
+                <slot20>diffusion ray</slot20>
+            </alex>
+            <ambu>
+                <slot01>barbed crescent</slot01>
+                <slot02>delta thrust</slot02>
+                <slot03>erratic flutter</slot03>
+                <slot04>dream flower</slot04>
+                <slot05>paralyzing triad</slot05>
+                <slot06>embalming earth</slot06>
+                <slot07>nat. meditation</slot07>
+                <slot08>entomb</slot08>
+                <slot09>tenebral crush</slot09>
+                <slot10>white wind</slot10>
+                <slot11>geist wall</slot11>
+                <slot12>magic hammer</slot12>
+                <slot13>sudden lunge</slot13>
+                <slot15>sinker drill</slot15>
+                <slot17>heavy strike</slot17>
+                <slot18>empty thrash</slot18>
+                <slot19>diffusion ray</slot19>
+            </ambu>
             <amorph>
                 <slot01>searing tempest</slot01>
                 <slot02>sudden lunge</slot02>
