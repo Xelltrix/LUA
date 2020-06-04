@@ -47,14 +47,14 @@ function user_setup()
 
 	state.MainWeaponSet = M{['description']='Main Weapon Set',
 		'Tizona',
-		'Almace',
+		'Sequence',
 		'Maxentius'
 	}
 	
 	state.SubWeaponSet = M{['description']='Sub Weapon Set',
-		'subAlmace',
-		'Naegling',
-		'Thibron'
+		'Thibron',
+		'Almace',
+		'Naegling'
 	}
 	
 	send_command('bind ^= gs c cycle treasuremode')
@@ -122,7 +122,7 @@ function init_gear_sets()
 		
 		sets.SubtleBlow =
 		{--		Subtle Blow 50
-			head=gear.AHead_TP, lear="Digni. Earring",
+			head="Dampening Tam", lear="Digni. Earring",
 			hands="Luh. Bazubands +3", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			feet=gear.HBoots_TP
 		}
@@ -344,7 +344,7 @@ function init_gear_sets()
 		{
 			ammo="Pemphredo Tathlum",
 			head="Jhakri Coronal +2", neck="Sanctity Necklace", lear="Friomisi Earring", rear="Regal Earring",
-			body="Amalric Doublet +1", hands="Amalric Gages +1", lring={name="Shiva Ring +1", bag="wardrobe2"}, rring={name="Shiva Ring +1", bag="wardrobe3"},
+			body="Amalric Doublet +1", hands="Amalric Gages +1", lring="Shiva Ring +1", rring="Metamor. Ring +1",
 			back=gear.BLUCape_Nuke, waist="Orpheus's Sash", legs="Amalric Slops +1", feet="Amalric Nails +1"
 		}
 		
@@ -446,6 +446,7 @@ function init_gear_sets()
 		sets.midcast.Stoneskin = set_combine(sets.midcast.Duration,
 		{
 			neck="Stone Gorget", rear="Earthcry Earring",
+			hands="Stone Mufflers",
 			waist="Siegel Sash", legs="Shedir Seraweels"
 		})
 
@@ -484,7 +485,10 @@ function init_gear_sets()
 		
 
 	---Offensive Magic
-		sets.midcast['Elemental Magic'] = sets.midcast.Magical
+		sets.midcast['Elemental Magic'] = set_combine(sets.midcast.Magical,
+		{
+			waist="Sacro Cord"
+		})
 	
 		sets.midcast['Enfeebling Magic'] =
 		{
@@ -542,9 +546,9 @@ function init_gear_sets()
 	
 		sets.Tizona 	= { 	main="Tizona" 		}
 			
-		sets.Almace 	= { 	main="Almace" 		}
+		sets.Sequence 	= { 	main="Sequence"		}
 	
-		sets.subAlmace 	= { 	sub="Almace" 		}
+		sets.Almace 	= { 	sub="Almace" 		}
 		
 		sets.Maxentius 	= { 	main="Maxentius" 	}
 		
@@ -574,7 +578,7 @@ function init_gear_sets()
 		sets.idle.MEVA = set_combine(sets.idle,
 		{--		DT: -15%	PDT: -15%	MDT: -15%	Refresh: 5	Regen: 0
 			head="Malignance Chapeau", neck="Warder's Charm +1", lear="Eabani Earring", rear="Sanare Earring",
-			body="Amalric Doublet +1", hands="Malignance Gloves",
+			body="Amalric Doublet +1", hands="Malignance Gloves", rring="Purity Ring",
 			waist="Carrier's Sash", feet="Malignance Boots"
 		})
 		
@@ -616,7 +620,7 @@ function init_gear_sets()
 		sets.defense.MDT = set_combine(sets.defense.PDT,
 		{--		DT: -36%	PDT: -45%	MDT: -46%
 			head="Malignance Chapeau", neck="Warder's Charm +1", lear="Eabani Earring", rear="Sanare Earring",
-			rring="Shukuyu Ring",
+			rring="Shadow Ring",
 			legs="Malignance Tights", feet="Malignance Boots"
 		})
 
@@ -661,14 +665,11 @@ function init_gear_sets()
 		{
 			ammo="Aurgelmir Orb +1",
 			head=gear.AHead_TP, neck="Mirage Stole +2", lear="Odr Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
-			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Hetairoi Ring", rring="Epona's Ring", 
+			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Ilabrat Ring", rring="Epona's Ring", 
 			back=gear.BLUCape_Crit, legs="Zoar Subligar +1", feet=gear.HBoots_Crit
 		})
 
-		sets.precast.WS['Chant du Cygne'].Low = set_combine(sets.precast.WS['Chant du Cygne'],
-		{
-			lring="Ilabrat Ring"
-		})
+		sets.precast.WS['Chant du Cygne'].Low = sets.precast.WS['Chant du Cygne']
 		
 		sets.precast.WS['Chant du Cygne'].Mid = set_combine(sets.precast.WS['Chant du Cygne'].Low,
 		{
@@ -686,7 +687,8 @@ function init_gear_sets()
 		sets.precast.WS['Vorpal Blade'] = set_combine(sets.precast.WS['Chant du Cygne'],
 		{
 			ammo="Aurgelmir Orb +1",
-			lear="Odr Earring", rear="Moonshade Earring"
+			rear="Moonshade Earring",
+			lring="Shukuyu Ring"
 		})
 
 		sets.precast.WS['Vorpal Blade'].Low = set_combine(sets.precast.WS['Vorpal Blade'],
@@ -697,13 +699,12 @@ function init_gear_sets()
 		
 		sets.precast.WS['Vorpal Blade'].Mid = set_combine(sets.precast.WS['Vorpal Blade'].Low,
 		{
-			ammo="Aurgelmir Orb +1",
 			hands="Malignance Gloves"
 		})
 		
 		sets.precast.WS['Vorpal Blade'].High = set_combine(sets.precast.WS['Vorpal Blade'].Mid,
 		{
-			head="Dampening Tam",
+			head="Malignance Chapeau",
 			feet="Luhlaza Charuqs +3"
 		})
 		
@@ -711,13 +712,12 @@ function init_gear_sets()
 		sets.precast.WS['Requiescat'] = set_combine(sets.precast.WS,
 		{
 			head="Jhakri Coronal +2", lear="Regal Earring",
-			body="Luhlaza Jubbah +3", hands="Luh. Bazubands +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Epona's Ring", 
+			body="Luhlaza Jubbah +3", hands="Luh. Bazubands +3", lring="Metamor. Ring +1", rring="Epona's Ring", 
 			legs="Jhakri Slops +2", feet="Luhlaza Charuqs +3"
 		})
 
 		sets.precast.WS['Requiescat'].Low = set_combine(sets.precast.WS['Requiescat'],
 		{
-			ammo="Aurgelmir Orb +1",
 			rear={name="Mache Earring +1", bag="wardrobe3"},
 		})
 		
@@ -737,6 +737,7 @@ function init_gear_sets()
 		sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS,
 		{
 			neck="Mirage Stole +2", lear="Ishvara Earring", rear="Regal Earring",
+			lring="Metamor. Ring +1",
 			waist="Sailfi Belt +1", legs="Luhlaza Shalwar +3", feet=gear.HBoots_WSD
 		})
 
@@ -746,7 +747,6 @@ function init_gear_sets()
 		
 		sets.precast.WS['Savage Blade'].High = set_combine(sets.precast.WS['Savage Blade'].Mid,
 		{
-			ammo="Aurgelmir Orb +1",
 			head="Jhakri Coronal +2", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
 			feet="Assim. Charuqs +3"
 		})
@@ -754,7 +754,8 @@ function init_gear_sets()
 	---Expiacion
 		sets.precast.WS['Expiacion'] = set_combine(sets.precast.WS['Savage Blade'],
 		{
-			lear="Ishvara Earring", rear="Moonshade Earring"
+			lear="Ishvara Earring", rear="Moonshade Earring",
+			lring="Shukuyu Ring"
 		})
 
 		sets.precast.WS['Expiacion'].Low = sets.precast.WS['Expiacion']
@@ -763,7 +764,6 @@ function init_gear_sets()
 		
 		sets.precast.WS['Expiacion'].High = set_combine(sets.precast.WS['Expiacion'].Mid,
 		{
-			ammo="Aurgelmir Orb +1",
 			head="Jhakri Coronal +2", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
 			feet="Assim. Charuqs +3"
 		})
@@ -789,7 +789,7 @@ function init_gear_sets()
 	---Red Lotus Blade	
 		sets.precast.WS['Red Lotus Blade'] = set_combine(sets.precast.WS['Seraph Blade'],
 		{
-			lring={name="Shiva Ring +1", bag="wardrobe2"},
+			lring="Metamor. Ring +1"
 		})
 		
 		sets.precast.WS['Burning Blade'] = sets.precast.WS['Red Lotus Blade']
@@ -821,7 +821,6 @@ function init_gear_sets()
 		
 		sets.precast.WS['True Strike'].High = set_combine(sets.precast.WS['True Strike'].Mid,
 		{
-			ammo="Aurgelmir Orb +1",
 			head="Jhakri Coronal +2", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
 			feet="Assim. Charuqs +3"
 		})
@@ -845,7 +844,6 @@ function init_gear_sets()
 		
 		sets.precast.WS['Black Halo'].High = set_combine(sets.precast.WS['Black Halo'].Mid,
 		{
-			ammo="Aurgelmir Orb +1",
 			head="Jhakri Coronal +2", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
 			feet="Assim. Charuqs +3"
 		})
@@ -875,7 +873,7 @@ function init_gear_sets()
 		sets.engaged =
 		{
 			sub="Genmei Shield", ammo="Aurgelmir Orb +1",
-			head=gear.AHead_TP, neck="Mirage Stole +2", lear="Telos Earring", rear="Cessance Earring",
+			head="Dampening Tam", neck="Mirage Stole +2", lear="Telos Earring", rear="Cessance Earring",
 			body="Malignance Tabard", hands="Adhemar Wrist. +1", lring="Hetairoi Ring", rring="Epona's Ring",
 			back=gear.BLUCape_STP, waist="Windbuffet Belt +1", legs="Samnuha Tights", feet=gear.HBoots_TP
 		}
@@ -936,7 +934,7 @@ function init_gear_sets()
 		sets.engaged.DW2 =
 		{
 			ammo="Aurgelmir Orb +1",
-			head=gear.AHead_TP, neck="Mirage Stole +2", lear="Eabani Earring", rear="Suppanomimi",
+			head="Dampening Tam", neck="Mirage Stole +2", lear="Eabani Earring", rear="Suppanomimi",
 			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Hetairoi Ring", rring="Epona's Ring",
 			back=gear.BLUCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet=gear.TFeet_TP
 		}
@@ -944,7 +942,7 @@ function init_gear_sets()
 		sets.engaged.DW2.AM3 =
 		{
 			ammo="Aurgelmir Orb +1",
-			head=gear.AHead_TP, neck="Mirage Stole +2", lear="Eabani Earring", rear="Suppanomimi",
+			head="Dampening Tam", neck="Mirage Stole +2", lear="Eabani Earring", rear="Suppanomimi",
 			body="Adhemar Jacket +1", hands="Malignance Gloves", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.BLUCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet=gear.TFeet_TP
 		}
@@ -992,7 +990,7 @@ function init_gear_sets()
 		sets.engaged.DW3 =
 		{
 			ammo="Aurgelmir Orb +1",
-			head=gear.AHead_TP, neck="Mirage Stole +2", lear="Eabani Earring", rear="Suppanomimi",
+			head="Dampening Tam", neck="Mirage Stole +2", lear="Eabani Earring", rear="Suppanomimi",
 			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Hetairoi Ring", rring="Epona's Ring",
 			back=gear.BLUCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet=gear.TFeet_TP
 		}
@@ -1000,7 +998,7 @@ function init_gear_sets()
 		sets.engaged.DW3.AM3 =
 		{
 			ammo="Aurgelmir Orb +1",
-			head=gear.AHead_TP, neck="Mirage Stole +2", lear="Eabani Earring", rear="Suppanomimi",
+			head="Dampening Tam", neck="Mirage Stole +2", lear="Eabani Earring", rear="Suppanomimi",
 			body="Adhemar Jacket +1", hands="Malignance Gloves", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.BLUCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet=gear.TFeet_TP
 		}
@@ -1047,7 +1045,7 @@ function init_gear_sets()
 		sets.engaged.DW4 =
 		{
 			ammo="Aurgelmir Orb +1",
-			head=gear.AHead_TP, neck="Mirage Stole +2", lear="Eabani Earring", rear="Suppanomimi",
+			head="Dampening Tam", neck="Mirage Stole +2", lear="Eabani Earring", rear="Suppanomimi",
 			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Hetairoi Ring", rring="Epona's Ring",
 			back=gear.BLUCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet=gear.TFeet_TP
 		}
@@ -1055,7 +1053,7 @@ function init_gear_sets()
 		sets.engaged.DW4.AM3 =
 		{
 			ammo="Aurgelmir Orb +1",
-			head=gear.AHead_TP, neck="Mirage Stole +2", lear="Eabani Earring", rear="Suppanomimi",
+			head="Dampening Tam", neck="Mirage Stole +2", lear="Eabani Earring", rear="Suppanomimi",
 			body="Adhemar Jacket +1", hands="Malignance Gloves", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.BLUCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet=gear.TFeet_TP
 		}
@@ -1170,7 +1168,7 @@ function init_gear_sets()
 		sets.engaged.DW2.Min =
 		{
 			ammo="Aurgelmir Orb +1",
-			head=gear.AHead_TP, neck="Mirage Stole +2", lear="Eabani Earring", rear="Suppanomimi",
+			head="Dampening Tam", neck="Mirage Stole +2", lear="Eabani Earring", rear="Suppanomimi",
 			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Hetairoi Ring", rring="Epona's Ring",
 			back=gear.BLUCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet=gear.TFeet_TP
 		}
@@ -1223,7 +1221,7 @@ function init_gear_sets()
 		sets.engaged.DW3.Min =
 		{
 			ammo="Aurgelmir Orb +1",
-			head=gear.AHead_TP, neck="Mirage Stole +2", lear="Eabani Earring", rear="Suppanomimi",
+			head="Dampening Tam", neck="Mirage Stole +2", lear="Eabani Earring", rear="Suppanomimi",
 			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Hetairoi Ring", rring="Epona's Ring",
 			back=gear.BLUCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet=gear.TFeet_TP
 		}
@@ -1277,7 +1275,7 @@ function init_gear_sets()
 		sets.engaged.DW4.Min =
 		{
 			ammo="Aurgelmir Orb +1",
-			head=gear.AHead_TP, neck="Mirage Stole +2", lear="Eabani Earring", rear="Suppanomimi",
+			head="Dampening Tam", neck="Mirage Stole +2", lear="Eabani Earring", rear="Suppanomimi",
 			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Hetairoi Ring", rring="Epona's Ring",
 			back=gear.BLUCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet=gear.HBoots_TP
 		}
@@ -1332,7 +1330,7 @@ function init_gear_sets()
 		sets.engaged.DW5.Min =
 		{
 			ammo="Aurgelmir Orb +1",
-			head=gear.AHead_TP, neck="Mirage Stole +2", lear="Eabani Earring", rear="Suppanomimi",
+			head="Dampening Tam", neck="Mirage Stole +2", lear="Eabani Earring", rear="Suppanomimi",
 			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Hetairoi Ring", rring="Epona's Ring",
 			back=gear.BLUCape_DW, waist="Reiki Yotai", legs="Samnuha Tights", feet=gear.HBoots_TP
 		}
@@ -1405,7 +1403,7 @@ function init_gear_sets()
 		sets.engaged.DW2.Med =
 		{
 			ammo="Aurgelmir Orb +1",
-			head=gear.AHead_TP, neck="Mirage Stole +2", lear="Eabani Earring", rear="Suppanomimi",
+			head="Dampening Tam", neck="Mirage Stole +2", lear="Eabani Earring", rear="Suppanomimi",
 			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Hetairoi Ring", rring="Epona's Ring",
 			back=gear.BLUCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet=gear.TFeet_TP
 		}
@@ -1462,7 +1460,7 @@ function init_gear_sets()
 		sets.engaged.DW3.Med =
 		{
 			ammo="Aurgelmir Orb +1",
-			head=gear.AHead_TP, neck="Mirage Stole +2", lear="Eabani Earring", rear="Suppanomimi",
+			head="Dampening Tam", neck="Mirage Stole +2", lear="Eabani Earring", rear="Suppanomimi",
 			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Hetairoi Ring", rring="Epona's Ring",
 			back=gear.BLUCape_DW, waist="Reiki Yotai", legs="Samnuha Tights", feet=gear.HBoots_TP
 		}
@@ -1524,7 +1522,7 @@ function init_gear_sets()
 		sets.engaged.DW4.Med =
 		{
 			ammo="Aurgelmir Orb +1",
-			head=gear.AHead_TP, neck="Mirage Stole +2", lear="Eabani Earring", rear="Suppanomimi",
+			head="Dampening Tam", neck="Mirage Stole +2", lear="Eabani Earring", rear="Suppanomimi",
 			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Hetairoi Ring", rring="Epona's Ring",
 			back=gear.BLUCape_DW, waist="Windbuffet Belt +1", legs="Samnuha Tights", feet=gear.HBoots_TP
 		}
@@ -1586,7 +1584,7 @@ function init_gear_sets()
 		sets.engaged.DW5.Med =
 		{
 			ammo="Aurgelmir Orb +1",
-			head=gear.AHead_TP, neck="Mirage Stole +2", lear="Brutal Earring", rear="Suppanomimi",
+			head="Dampening Tam", neck="Mirage Stole +2", lear="Brutal Earring", rear="Suppanomimi",
 			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Hetairoi Ring", rring="Epona's Ring",
 			back=gear.BLUCape_DW, waist="Windbuffet Belt +1", legs="Samnuha Tights", feet=gear.HBoots_TP
 		}
@@ -1661,7 +1659,7 @@ function init_gear_sets()
 		sets.engaged.DW2.Max =
 		{
 			ammo="Aurgelmir Orb +1",
-			head=gear.AHead_TP, neck="Mirage Stole +2", lear="Brutal Earring", rear="Suppanomimi",
+			head="Dampening Tam", neck="Mirage Stole +2", lear="Brutal Earring", rear="Suppanomimi",
 			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Hetairoi Ring", rring="Epona's Ring",
 			back=gear.BLUCape_DW, waist="Windbuffet Belt +1", legs="Samnuha Tights", feet=gear.HBoots_TP
 		}
@@ -1722,7 +1720,7 @@ function init_gear_sets()
 		sets.engaged.DW3.Max =
 		{
 			ammo="Aurgelmir Orb +1",
-			head=gear.AHead_TP, neck="Mirage Stole +2", lear="Brutal Earring", rear="Suppanomimi",
+			head="Dampening Tam", neck="Mirage Stole +2", lear="Brutal Earring", rear="Suppanomimi",
 			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Hetairoi Ring", rring="Epona's Ring",
 			back=gear.BLUCape_STP, waist="Windbuffet Belt +1", legs="Samnuha Tights", feet=gear.HBoots_TP
 		}
@@ -1733,7 +1731,7 @@ function init_gear_sets()
 		sets.engaged.DW3.Max.AM3 =
 		{
 			ammo="Aurgelmir Orb +1",
-			head="Dampening Tam", neck="Mirage Stole +2", lear="Telos Earring", rear="Suppanomimi",
+			head="Malignance Chapeau", neck="Mirage Stole +2", lear="Telos Earring", rear="Suppanomimi",
 			body="Adhemar Jacket +1", hands="Malignance Gloves",  lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.BLUCape_STP, waist="Windbuffet Belt +1", legs="Malignance Tights", feet="Malignance Boots"
 		}
@@ -1744,7 +1742,7 @@ function init_gear_sets()
 		sets.engaged.DW3.Low.Max = set_combine(sets.engaged.DW3.Max,
 		{
 			
-			head="Dampening Tam", lear="Telos Earring", 
+			head="Malignance Chapeau", lear="Telos Earring", 
 			lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			legs="Malignance Tights"
 		})
@@ -1784,7 +1782,7 @@ function init_gear_sets()
 		sets.engaged.DW4.Max =
 		{
 			ammo="Aurgelmir Orb +1",
-			head=gear.AHead_TP, neck="Mirage Stole +2", lear="Brutal Earring", rear="Cessance Earring",
+			head="Dampening Tam", neck="Mirage Stole +2", lear="Brutal Earring", rear="Cessance Earring",
 			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Hetairoi Ring", rring="Epona's Ring",
 			back=gear.BLUCape_STP, waist="Windbuffet Belt +1", legs="Samnuha Tights", feet=gear.HBoots_TP
 		}
@@ -1846,7 +1844,7 @@ function init_gear_sets()
 		sets.engaged.DW5.Max =
 		{
 			ammo="Aurgelmir Orb +1",
-			head=gear.AHead_TP, neck="Mirage Stole +2", lear="Brutal Earring", rear="Cessance Earring",
+			head="Dampening Tam", neck="Mirage Stole +2", lear="Brutal Earring", rear="Cessance Earring",
 			body="Malignance Tabard", hands="Adhemar Wrist. +1", lring="Hetairoi Ring", rring="Epona's Ring",
 			back=gear.BLUCape_STP, waist="Windbuffet Belt +1", legs="Samnuha Tights", feet=gear.HBoots_TP
 		}
@@ -2476,7 +2474,7 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 	end
 	
 	if state.TreasureMode.value ~= 'None' and spell.action_type == 'Magic' and spell.target.type == 'MONSTER' 
-				and spellMap ~= 'Magical' and spellMap ~= 'LightBlue' and spellMap ~='DarkBlue' then
+				and spellMap ~= 'Magical' and spellMap ~= 'LightBlue' and spellMap ~='DarkBlue' and spellMap ~= 'AddEffect' then
 		equip(sets.TreasureHunter)
 	end
 end
@@ -2607,7 +2605,7 @@ function display_current_job_state(eventArgs)
 		msg = msg .. ', TH: ' .. state.TreasureMode.value
 	end
 		
-	add_to_chat(060, msg)
+	add_to_chat(122, msg)
 
 	eventArgs.handled = true
 end

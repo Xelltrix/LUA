@@ -97,7 +97,7 @@ function init_gear_sets()
 	{
 		ammo="Pemphredo Tathlum",
 		head=gear.HHead_MAB, neck="Sanctity Necklace", lear="Friomisi Earring", rear="Crematio Earring",
-		body="Gyve Doublet", hands="Hattori Tekko +1", lring="Dingir Ring", rring={name="Shiva Ring +1", bag="wardrobe3"},
+		body="Gyve Doublet", hands="Hattori Tekko +1", lring="Dingir Ring", rring="Shiva Ring +1"
 		back="Andartia's Mantle", waist="Orpheus's Sash", legs="Gyve Trousers", feet="Herculean Boots"
 	}
 
@@ -281,7 +281,7 @@ function init_gear_sets()
 		{
 			ammo="Pemphredo Tathlum",
 			head=gear.HHead_MAB, lear="Friomisi Earring", rear="Crematio Earring",
-			body="Gyve Doublet", hands="Leyline Gloves", lring="Dingir Ring", rring={name="Shiva Ring +1", bag="wardrobe3"},
+			body="Gyve Doublet", hands="Leyline Gloves", lring="Dingir Ring", rring="Shiva Ring +1"
 			back="Andartia's Mantle", legs="Gyve Trousers", feet="Herculean Boots"
 		})
 

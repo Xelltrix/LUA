@@ -104,7 +104,7 @@ function init_gear_sets()
 	sets.precast.WS['Trueflight'] = set_combine(sets.precast.WS,
 	{
 		head=gear.HHead_MAB, neck="Sanctity Necklace", lear="Friomisi Earring", rear="Crematio Earring",
-		body="Carm. Sc. Mail +1", hands="Carmine Fin. Ga. +1", lring="Dingir Ring", rring={name="Shiva Ring +1", bag="wardrobe3"},
+		body="Carm. Sc. Mail +1", hands="Carmine Fin. Ga. +1", lring="Dingir Ring", rring="Shiva Ring +1"
 		back="Belenus's Cape", waist="Orpheus's Sash", legs="Gyve Trousers", feet="Adhemar Gamashes +1"
 	})
 

@@ -78,10 +78,14 @@ function define_global_sets()
 	--Merlinic
 	gear.NukeHood = { name="Merlinic Hood", augments={'Mag. Acc.+21 "Mag.Atk.Bns."+21','"Occult Acumen"+8','INT+8','Mag. Acc.+10','"Mag.Atk.Bns."+15',}}
 	
+	gear.FCJubbah = { name="Merlinic Jubbah", augments={'Mag. Acc.+22 "Mag.Atk.Bns."+22','"Fast Cast"+6','"Mag.Atk.Bns."+5',}}
+	
 	gear.PetAtkHands = { name="Merlinic Dastanas", augments={'Pet: Attack+24 Pet: Rng.Atk.+24','Blood Pact Dmg.+10','Pet: DEX+2','Pet: Mag. Acc.+10',}}
 	gear.PetNukeHands = { name="Merlinic Dastanas", augments={'Pet: Mag. Acc.+17 Pet: "Mag.Atk.Bns."+17','Blood Pact Dmg.+9','Pet: INT+9','Pet: "Mag.Atk.Bns."+3',}}
+	gear.FCHands = { name="Merlinic Dastanas", augments={'Mag. Acc.+26','"Fast Cast"+6','CHR+1',}}
 	
-	gear.NukeCrackows = { name="Merlinic Crackows", augments={'Mag. Acc.+21 "Mag.Atk.Bns."+21','Magic burst dmg.+11%','Mag. Acc.+14',}}
+	gear.SapCrackows = { name="Merlinic Crackows", augments={'Mag. Acc.+24','"Drain" and "Aspir" potency +10','"Mag.Atk.Bns."+6',}}
+	gear.FCCrackows = { name="Merlinic Crackows", augments={'Mag. Acc.+23 "Mag.Atk.Bns."+23','"Fast Cast"+5','INT+3','Mag. Acc.+2','"Mag.Atk.Bns."+9',}}
 
 	--- Herculean
 	gear.HHead_MAB = { name="Herculean Helm", augments={'"Mag.Atk.Bns."+25','Pet: Accuracy+28 Pet: Rng. Acc.+28','Phalanx +1','Accuracy+12 Attack+12','Mag. Acc.+19 "Mag.Atk.Bns."+19',}}
@@ -122,7 +126,7 @@ function define_global_sets()
 	gear.ENH_Body = { name="Telchine Chas.", augments={'Mag. Evasion+25','"Fast Cast"+5','Enh. Mag. eff. dur. +10',}}
 	gear.Pet_Body =  { name="Telchine Chas.", augments={'Mag. Evasion+23','Pet: "Regen"+3','Pet: Damage taken -4%',}}
 
-	gear.ENH_Gloves = { name="Telchine Gloves", augments={'Mag. Evasion+9','"Fast Cast"+5','Enh. Mag. eff. dur. +10',}}
+	gear.ENH_Gloves = { name="Telchine Gloves", augments={'Mag. Evasion+9','Potency of "Cure" effect received +7','Enh. Mag. eff. dur. +10',}}
 	gear.Pet_Hands = { name="Telchine Gloves", augments={'Mag. Evasion+25','Pet: "Regen"+3','Pet: Damage taken -4%',}}
 	
 	gear.ENH_Legs = { name="Telchine Braconi", augments={'Accuracy+15 Attack+15','"Fast Cast"+5','Enh. Mag. eff. dur. +10',}}
@@ -147,7 +151,7 @@ function global_on_load()
 	--General Bindings
 	send_command('bind f9 gs c cycle OffenseMode')
 	send_command('bind ^f9 gs c cycle HybridMode')
-	send_command('bind !f9 gs c cycleback WeaponskillMode')
+	send_command('bind !f9 gs c cycle WeaponskillMode')
 	
 	send_command('bind f10 gs c set DefenseMode Physical')
 	send_command('bind ^f10 gs c cycle PhysicalDefenseMode')

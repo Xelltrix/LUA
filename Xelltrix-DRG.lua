@@ -211,7 +211,7 @@ function init_gear_sets()
 		{
 			ammo="Staunch Tathlum +1",
 			head="Hjarrandi Helm", neck="Warder's Charm +1", lear="Eabani Earring", rear="Sanare Earring",
-			body="Tartarus Platemail",hands="Volte Bracers", lring="Defending Ring", rring="Moonlight Ring",
+			body="Tartarus Platemail",hands="Volte Bracers", lring="Defending Ring", rring="Shadow Ring",
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Sulev. Cuisses +2", feet="Sulev. Leggings +2"
 		}
 
@@ -352,7 +352,7 @@ function init_gear_sets()
 		{
 			ammo="Pemphredo Tathlum", 
 			head="Valorous Mask", neck="Sanctity Necklace", lear="Thrud Earring", rear="Moonshade Earring",
-			body="Sacro Breastplate", hands="Carmine Fin. Ga. +1", lring={name="Shiva Ring +1", bag="wardrobe2"}, rring="Epaminondas's Ring",
+			body="Sacro Breastplate", hands="Carmine Fin. Ga. +1", lring="Shiva Ring +1", rring="Epaminondas's Ring",
 			back=gear.DRGCape_WSD, waist="Orpheus's Sash", legs="Vishap Brais +3", feet="Sulev. Leggings +2"
 		}
 		

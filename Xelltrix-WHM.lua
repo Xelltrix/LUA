@@ -29,7 +29,7 @@ end
 function user_setup()
 	state.OffenseMode:options('Normal')
 	state.CastingMode:options('Normal', 'Resistant')
-	state.IdleMode:options('Normal', 'DT')
+	state.IdleMode:options('Normal', 'DT','MEVA')
 
 	apply_job_change()
 end
@@ -67,7 +67,7 @@ function init_gear_sets()
 		sets.precast.FC =
 		{--		Fast Cast: 84%
 			main="Sucellus", sub="Chanter's Shield", ammo="Sapience Orb",
-			head="C. Palug Crown", neck="Cleric's Torque", lear="Loquac. Earring", rear="Malignance Earring",
+			head="C. Palug Crown", neck="Clr. Torque +2", lear="Loquac. Earring", rear="Malignance Earring",
 			body="Pinga Tunic +1", hands="Fanatic Gloves", lring="Lebeche Ring", rring="Weather. Ring +1",
 			back="Alaunus's Cape", waist="Witful Belt", legs="Pinga Pants +1", feet="Volte Gaiters"
 		}
@@ -119,12 +119,12 @@ function init_gear_sets()
 		{--		Fast Cast: 81%		Haste: 24%
 			ammo="Hasty Pinion +1",
 			lring="Kishar Ring",
-			legs="Aya. Cosciales +2"
+			legs="Volte Brais"
 		})
 
 		sets.midcast.ConserveMP = set_combine(sets.midcast.FC,
 		{--		Fast Cast: 38%		Haste: 20%	Conserve MP: 
-			ammo="Pemphredo Tathlum",
+			main="Piety Wand", ammo="Pemphredo Tathlum",
 			head="Vanya Hood", neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
 			body="Kaykaus Bliaut +1",
 			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Lengo Pants", feet="Kaykaus Boots +1"
@@ -146,16 +146,10 @@ function init_gear_sets()
 		sets.midcast.Cures =
 		{-- Cure Potency/II: 50%/26%			Enmity: -51		Healing Magic Skill: +68(544)	MND+217
 			main="Raetic Rod +1", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
-			head="Kaykaus Mitra +1", neck="Cleric's Torque", lear="Glorious Earring", rear="Meili Earring",
+			head="Kaykaus Mitra +1", neck="Clr. Torque +2", lear="Glorious Earring", rear="Meili Earring",
 			body="Theo. Briault +3", hands="Theophany Mitts +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Alaunus's Cape", waist="Bishop's Sash", legs="Ebers Pant. +1", feet="Kaykaus Boots +1"
 		}
-			
-		sets.midcast.CureSolace = set_combine(sets.midcast.Cures,
-		{-- Cure Potency/II: 50%/20%			Enmity: -50		Healing Magic Skill: +90(568)	MND+211
-			ammo="Esper Stone +1",
-			body="Ebers Bliaud +1"
-		})
 		
 		sets.midcast.Curagas = set_combine(sets.midcast.Cures,
 		{-- Cure Potency/II: 50%/26%			Enmity: -51		Healing Magic Skill: +34(529)	MND+237
@@ -165,38 +159,12 @@ function init_gear_sets()
 		})
 		
 		sets.midcast.Curas =
-		{-- Cure Potency/II: 52%/14%			Enmity: -50		Healing Magic Skill: +24(500)	MND+197
-			main="Piety Wand", sub="Ammurapi Shield", ammo="Sapience Orb",
-			head="Kaykaus Mitra +1", neck="Cleric's Torque", lear="Glorious Earring", rear="Mendi. Earring",
-			body="Kaykaus Bliaut +1", hands="Kaykaus Cuffs +1", lring="Lebeche Ring", rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Alaunus's Cape", waist="Sacro Cord", legs="Ebers Pant. +1", feet="Kaykaus Boots +1"
+		{-- Cure Potency/II: 51%/16%			Enmity: -58		Healing Magic Skill: +45(521)	MND+194
+			main="Piety Wand", sub="Ammurapi Shield", ammo="Hasty Pinion +1",
+			head="Kaykaus Mitra +1", neck="Clr. Torque +2", lear="Glorious Earring", rear="Mendi. Earring",
+			body="Theo. Briault +3", hands="Theophany Mitts +3", lring="Lebeche Ring", rring={name="Stikini Ring +1", bag="wardrobe3"},
+			back="Alaunus's Cape", waist="Witful Belt", legs="Sifahir Slacks", feet="Kaykaus Boots +1"
 		}
-		
-		sets.midcast.CuresWeather =
-		{-- Cure Potency/II: 50%/26%			Enmity: -51		Healing Magic Skill: +63(539)	MND+197
-			main="Raetic Rod +1", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
-			head="Kaykaus Mitra +1", neck="Cleric's Torque", lear="Glorious Earring", rear="Meili Earring",
-			body="Theo. Briault +3", hands="Theophany Mitts +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Twilight Cape", waist="Hachirin-no-Obi", legs="Ebers Pant. +1", feet="Kaykaus Boots +1"
-		}
-			
-		sets.midcast.CureSolaceWeather = set_combine(sets.midcast.CuresWeather,
-		{-- Cure Potency/II: 50%/20%			Enmity: -50		Healing Magic Skill: +87(563)	MND+211
-			ammo="Esper Stone +1",
-			body="Ebers Bliaud +1",
-			back="Alaunus's Cape"
-		})
-		sets.midcast.CuragaWeather = set_combine(sets.midcast.CuresWeather,
-		{-- Cure Potency/II: 50%/26%			Enmity: -51		Healing Magic Skill: +53(529)	MND+207
-			rear="Regal Earring",
-			rring={name="Stikini Ring +1", bag="wardrobe3"},
-		})
-		
-		sets.midcast.CurasWeather = set_combine(sets.midcast.Curas,
-		{-- Cure Potency/II: 52%/14%			Enmity: -54		Healing Magic Skill: +24(500)	MND+169
-			ammo="Esper Stone +1",
-			back="Twilight Cape", waist="Hachirin-no-Obi"
-		})
 
 --[[		CURSNA FORMULA
 		R = (10 + s/30)*(1 + c/100)*(1 + r/100)
@@ -268,11 +236,6 @@ function init_gear_sets()
 			back="Fi Follet Cape +1", waist="Embla Sash"
 		})
 
-		sets.midcast.BarStatusLA = set_combine(sets.midcast.BarStatus,
-		{
-			hands=gear.ENH_Gloves
-		})
-	
 		sets.midcast.BoostStat =
 		{
 			main="Gada", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
@@ -281,11 +244,6 @@ function init_gear_sets()
 			back="Fi Follet Cape +1", waist="Embla Sash", legs=gear.ENH_Legs, feet="Theo. Duckbills +3"
 		}
 
-		sets.midcast.BoostStatLA = set_combine(sets.midcast.BoostStat,
-		{
-			hands=gear.ENH_Gloves
-		})
-		
 		sets.midcast.Enhancement = 
 		{
 			main="Gada", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
@@ -313,7 +271,7 @@ function init_gear_sets()
 		{
 			ammo="Pemphredo Tathlum",
 			neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
-			back="Fi Follet Cape +1", waist="Embla Sash"
+			back="Fi Follet Cape +1",
 		})
 		sets.midcast.Teleport = sets.midcast.ConserveMP
 
@@ -327,13 +285,14 @@ function init_gear_sets()
 		{
 			main="Daybreak", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head="Theophany Cap +3", neck="Incanter's Torque", lear="Regal Earring", rear="Malignance Earring", 
-			body="Theo. Briault +3", hands="Kaykaus Cuffs +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			body="Theo. Briault +3", hands="Kaykaus Cuffs +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Metamor. Ring +1",
 			back="Alaunus's Cape", waist="Luminary Sash", legs="Th. Pant. +3", feet="Theo. Duckbills +3"
 		}
 		
 		sets.midcast['Enfeebling Magic'] = set_combine(sets.midcast.Macc,
 		{
-			legs="Chironic Hose" 
+			rring={name="Stikini Ring +1", bag="wardrobe3"},
+			legs="Chironic Hose"
 		})
 
 		sets.midcast.Static = set_combine(sets.midcast['Enfeebling Magic'],
@@ -358,6 +317,7 @@ function init_gear_sets()
 		sets.midcast['Dark Magic'] = set_combine(sets.midcast.Macc,
 		{
 			lear="Mani Earring",
+			rring={name="Stikini Ring +1", bag="wardrobe3"},
 			body="Shango Robe"
 		})
 
@@ -371,17 +331,17 @@ function init_gear_sets()
 		
 		
 	-- Elemental Magic	
-		sets.midcast.DivineNuke =
+		sets.midcast.Brightness =
 		{
 			main="Daybreak", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head="C. Palug Crown", neck="Sanctity Necklace", lear="Regal Earring", rear="Malignance Earring",
-			body="Kaykaus Bliaut +1", hands="Fanatic Gloves", lring="Freke Ring", rring="Weather. Ring +1",
+			body="Kaykaus Bliaut +1", hands="Fanatic Gloves", rring="Metamor. Ring +1", rring="Weather. Ring +1",
 			back="Alaunus's Cape", waist="Sacro Cord", legs="Kaykaus Tights +1", feet="Chironic Slippers"
 		}
 
-		sets.midcast['Elemental Magic'] = set_combine(sets.midcast.DivineNuke,
+		sets.midcast['Elemental Magic'] = set_combine(sets.midcast.Brightness,
 		{
-			rring={name="Shiva Ring +1", bag="wardrobe3"}
+			lring="Freke Ring", rring={name="Shiva Ring +1", bag="wardrobe3"}
 		})
 		
 		sets.midcast.Impact = set_combine(sets.midcast.Macc,
@@ -418,6 +378,14 @@ function init_gear_sets()
 			lring="Defending Ring", rring="Gelatinous Ring +1",
 			legs="Inyanga Shalwar +2", feet="Volte Gaiters"
 		})
+		
+		sets.idle.MEVA = set_combine(sets.idle,
+		{
+			main="Piety Wand", ammo="Staunch Tathlum +1",
+			head="Inyanga Tiara +2", neck="Warder's Charm +1", lear="Genmei Earring", rear="Sanare Earring",
+			hands="Inyan. Dastanas +2", lring="Inyanga Ring", rring="Purity Ring",
+			back="Alaunus's Cape", legs="Inyanga Shalwar +2", feet="Volte Gaiters"
+		})
 
 		sets.idle.Town = set_combine(sets.idle,
 		{
@@ -443,15 +411,13 @@ function init_gear_sets()
 		{
 			main="Piety Wand", sub="Genmei Shield", ammo="Staunch Tathlum +1",
 			head="Inyanga Tiara +2", neck="Warder's Charm +1", lear="Eabani Earring", rear="Sanare Earring",
-			body="Inyanga Jubbah +2", hands="Raetic Bangles +1", lring="Defending Ring", rring="Gelatinous Ring +1",
+			body="Inyanga Jubbah +2", hands="Inyan. Dastanas +2", lring="Defending Ring", rring="Gelatinous Ring +1",
 			back="Alaunus's Cape", waist="Carrier's Sash", legs="Inyanga Shalwar +2", feet="Inyan. Crackows +2"
 		}
 
-		sets.defense.MDT = set_combine(
+		sets.defense.MDT = set_combine(sets.defense.PDT,
 		{
-			main="Daybreak",
-			lear="Etiolation Earring",
-			lring="Shadow Ring", rring="Inyanga Ring"
+			 hands="Raetic Bangles +1", lring="Inyanga Ring", rring="Shadow Ring"
 		})
 	
 	
@@ -494,22 +460,30 @@ function init_gear_sets()
 		
 		sets.precast.WS = 
 		{
-			head="Chironic Hat", neck="Fotia Gorget", lear="Brutal Earring", rear="Ishvara Earring",
-			body="Piety Briault +3", hands="Aya. Manopolas +2", lring="Shukuyu Ring", rring="Epaminondas's Ring",
-			back="Alaunus's Cape", waist="Fotia Belt", legs=gear.ENH_Legs, feet="Volte Gaiters"
+			ammo="Hasty Pinion +1",
+			head="Aya. Zucchetto +2", neck="Fotia Gorget", lear="Brutal Earring", rear="Ishvara Earring",
+			body="Piety Briault +3", hands="Raetic Bangles +1", lring="Shukuyu Ring", rring="Epaminondas's Ring",
+			back="Alaunus's Cape", waist="Fotia Belt", legs=gear.ENH_Legs, feet="Aya. Gambieras +2"
 		}
 		
-		sets.precast.WS['Moonlight'] =
+		sets.precast.WS['Dagan'] =
 		{
-			head="Kaykaus Mitra +1", neck="Combatant's Torque", lear="Loquac. Earring", rear="Moonshade Earring",
-			body="Piety Briault +3", hands="Kaykaus Cuffs +1", lring="Lebeche Ring", rring="Kuchekula Ring",
+			head="Kaykaus Mitra +1", neck="Sanctity Necklace", lear="Loquac. Earring", rear="Moonshade Earring",
+			body="Kaykaus Bliaut +1", hands="Kaykaus Cuffs +1", lring="Lebeche Ring", rring="Metamor. Ring +1",
 			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Piety Pantaln. +3", feet="Kaykaus Boots +1"
 		}
+		
+		sets.precast.WS['Starlight'] = set_combine(sets.precast.WS['Dagan'],
+		{
+			neck="Combatant's Torque"
+		})
+		
+		sets.precast.WS['Moonlight'] = sets.precast.WS['Starlight']
 		
 		sets.precast.WS['Mystic Boon'] = set_combine(sets.precast.WS,
 		{
 			lear="Regal Earring", rear="Moonshade Earring",
-			body="Piety Briault +3", hands="Theophany Mitts +3", lring={name="Stikini Ring +1", bag="wardrobe2"},
+			body="Piety Briault +3", hands="Theophany Mitts +3", lring="Metamor. Ring +1",
 			legs="Piety Pantaln. +3"
 		})	
 		
@@ -521,7 +495,7 @@ function init_gear_sets()
 		sets.engaged =
 		{
 			main="Maxentius", sub="Genmei Shield", ammo="Hasty Pinion +1",
-			head="Aya. Zucchetto +2", neck="Combatant's Torque", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
+			head="Aya. Zucchetto +2", neck="Combatant's Torque", lear="Telos Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Piety Briault +3", hands="Raetic Bangles +1", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back="Alaunus's Cape", waist="Windbuffet Belt +1", legs="Piety Pantaln. +3", feet="Aya. Gambieras +2"
 		}
@@ -538,11 +512,43 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 		equip(sets.buff['Divine Caress'])
 	end
 	
-	if spellMap == 'Cures' and spell.target.type == 'SELF' then
-        	equip
-		{
-			waist="Gishdubar Sash"
-		}
+	if (spellMap == 'Cures' or spellMap == 'Curagas' or spellMap ==  'Curas') then
+        if (state.WeaponLock.value and player.equipment.sub ~= "Raetic Rod +1") and (spellMap == 'Curagas' or spellMap == 'Cures') then
+			equip 
+			{ 
+				hands="Kaykaus Cuffs +1",
+				legs="Sifahir Slacks"
+			}
+		end
+		
+		if (spellMap == 'Cures' and buffactive['Afflatus Solace']) then
+			equip
+				{
+					body="Ebers Bliaud +1"
+				}
+		end
+		
+		if (spell.element == world.day_element or (spell.element == world.weather_element and get_weather_intensity() == 1)
+				or (spell.element == world.weather_element and get_weather_intensity() == 2 and world.day_element == elements.strong_to[spell.element])) then
+			if (spellMap == 'Cures' and buffactive['Afflatus Solace']) then
+				equip
+				{
+					waist="Hachirin-no-Obi"
+				}
+			else
+				equip
+				{
+					back="Twilight Cape", waist="Hachirin-no-Obi"
+				}
+			end
+		end
+		
+		if spell.target.type =='SELF' and spellMap == 'Cures' then 
+			equip 
+			{ 
+				waist="Gishdubar Sash"
+			}
+		end
 	end
 	
 	if spellMap == 'Refresh' and spell.target.type == 'SELF' then
@@ -556,8 +562,11 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 		equip(sets.midcast.ConserveMP)
 	end
 	
+	if (spellMap ==  'BoostStat' or spellMap == 'BarStatus') and buffactive['Light Arts'] then
+		equip{ hands=gear.ENH_Gloves }
+	end
 	
-	if (spell.skill == 'Elemental Magic' or spellMap ==  'DivineNuke') and state.MagicBurst.value then
+	if (spell.skill == 'Elemental Magic' or spellMap ==  'Brightness') and state.MagicBurst.value then
 		if spell.element ~= 'Dark' and spell.element ~= 'Light' then
 			equip(
 			{
@@ -589,19 +598,18 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 		end
 	end
 	
-	
-	if (spell.skill == 'Elemental Magic' or spellMap == 'DivineNuke') and (spell.element ~= world.day_element and spell.element ~= world.weather_element) then
+	if (spell.skill == 'Elemental Magic' or spellMap == 'Brightness') and (spell.element ~= world.day_element and spell.element ~= world.weather_element) then
 		if spell.target.distance < (15 - spell.target.model_size) then
 			equip { waist="Orpheus's Sash" }
 		end
-	elseif (spell.skill == 'Elemental Magic' or spellMap == 'DivineNuke') and (spell.element == world.day_element and spell.element == world.weather_element)
+	elseif (spell.skill == 'Elemental Magic' or spellMap == 'Brightness') and (spell.element == world.day_element and spell.element == world.weather_element)
 			or (spell.element == world.weather_element and get_weather_intensity() == 2 and world.day_element ~= elements.strong_to[spell.element]) then
 		if spellMap ~= 'Helix' then
 			equip { waist="Hachirin-no-Obi" }
 		elseif spell.target.distance < (15 - spell.target.model_size) then
 			equip { waist="Orpheus's Sash" }
 		end
-	elseif (spell.skill == 'Elemental Magic' or spellMap == 'DivineNuke') and (spell.element == world.day_element or (spell.element == world.weather_element and get_weather_intensity() == 1)
+	elseif (spell.skill == 'Elemental Magic' or spellMap == 'Brightness') and (spell.element == world.day_element or (spell.element == world.weather_element and get_weather_intensity() == 1)
 		or (spell.element == world.weather_element and get_weather_intensity() == 2 and world.day_element == elements.strong_to[spell.element])) then
 		if spell.target.distance < (7 - spell.target.model_size) then
 			equip { waist="Orpheus's Sash" }
@@ -653,54 +661,6 @@ function customize_idle_set(idleSet)
 	return idleSet
 end
 
--- Custom spell mapping.
-function job_get_spell_map(spell, default_spell_map)
-	if spell.action_type == 'Magic' then
-		if default_spell_map == 'Cures' then
-            if buffactive['Afflatus Solace'] then
-                if (world.weather_element == 'Light' or world.day_element == 'Light') then
-                    return "CureSolaceWeather"
-                else
-                    return "CureSolace"
-                end
-            else
-                if (world.weather_element == 'Light' or world.day_element == 'Light') then
-                    return "CuresWeather"
-                else
-                    return "Cures"
-                end
-            end
-        elseif default_spell_map == 'Curagas' then
-            if (world.weather_element == 'Light' or world.day_element == 'Light') then
-                return "CuragaWeather"
-            else
-                return "Curagas"
-            end
-		elseif default_spell_map == 'Curas' then
-			if buffactive['Afflatus Misery'] then
-				if (world.weather_element == 'Light' or world.day_element == 'Light') then
-					return "CurasWeather"
-				else
-					return "Curas"
-				end
-			else
-				if (world.weather_element == 'Light' or world.day_element == 'Light') then
-					return "CuragasWeather"
-				else
-					return "Curagas"
-				end
-			end
-		elseif default_spell_map == 'BarStatus' then
-			if buffactive['Light Arts'] then
-				return "BarStatusLA"
-			end
-		elseif default_spell_map == 'BoostStat' then
-			if buffactive['Light Arts'] then
-				return "BoostStatLA"
-			end
-		end
-	end
-end
 
 -- Function to display the current relevant user state when doing an update.
 function display_current_job_state(eventArgs)

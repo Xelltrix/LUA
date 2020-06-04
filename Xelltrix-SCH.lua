@@ -30,11 +30,11 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-	state.OffenseMode:options('Refresh', 'Normal')
-	state.CastingMode:options('Normal', 'Resistant','Occult')
+	state.OffenseMode:options('Refresh','Normal')
+	state.CastingMode:options('Normal','Resistant','Occult')
 	state.PhysicalDefenseMode:options('PDT')
-	state.MagicalDefenseMode:options('EVA', 'MDT')
-	state.IdleMode:options('Normal', 'DT','MEVA')
+	state.MagicalDefenseMode:options('EVA','MDT')
+	state.IdleMode:options('Normal','DT','MEVA')
 
 	apply_job_change()
 end
@@ -56,8 +56,9 @@ function init_gear_sets()
 
 		sets.precast.JA['Tabula Rasa'] =
 		{
+			main="Musa", sub="Niobid Strap", ammo="Psilomene",
 			head="Amalric Coif +1", neck="Sanctity Necklace", lear="Etiolation Earring", rear="Mendi. Earring",
-			body="Acad. Gown +3", hands="Kaykaus Cuffs +1", lring="Lebeche Ring", rring="Kuchekula Ring",
+			body="Acad. Gown +3", hands="Kaykaus Cuffs +1", lring="Mephitas's Ring +1", rring="Metamor. Ring +1",
 			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Peda. Pants +3", feet="Amalric Nails +1"
 		}
 
@@ -70,7 +71,7 @@ function init_gear_sets()
 	--/RDM Fast Cast: 15%
 	
 		sets.precast.FC =
-		{--		Fast Cast: 88%
+		{--		Fast Cast: 98%
 			main="Musa", sub="Khonsu", ammo="Sapience Orb",
 			head="Amalric Coif +1", neck="Orunmila's Torque", lear="Loquac. Earring", rear="Malignance Earring",
 			body="Pinga Tunic +1", hands="Acad. Bracers +3", lring="Lebeche Ring", rring="Weather. Ring +1",
@@ -78,15 +79,15 @@ function init_gear_sets()
 		}
 
 		sets.precast.FC.Grimoire =
-		{--		Fast Cast: 65%
+		{--		Fast Cast: 79%
 			head="Peda. M.Board +3",
 			feet="Acad. Loafers +3"
 		}
 	
 		sets.precast.FC.Impact = set_combine(sets.precast.FC,
-		{
+		{--		Fast Cast: 72%
 			head=empty,
-			body="Twilight Cloak",
+			body="Twilight Cloak", lring="Kishar Ring",
 		})
 		
 		sets.precast.FC.Dispelga = set_combine(sets.precast.FC,
@@ -109,10 +110,11 @@ function init_gear_sets()
 	--------------------------------------
 	
 		sets.midcast.FC = set_combine(sets.precast.FC,
-		{
+		{--		Fast Cast: 92%
+			ammo="Hasty Pinion +1",
 			head="Amalric Coif +1",
 			lring="Kishar Ring",
-			waist="Embla Sash", legs="Lengo Pants"
+			legs="Lengo Pants"
 		})
 
 		sets.midcast.ConserveMP = set_combine(sets.precast.FC,
@@ -147,7 +149,7 @@ function init_gear_sets()
 
 		
 		sets.midcast.CuresLocked =
-		{-- 	Cure Potency/II: 50%/11%		Enmity: -50		Healing Magic Skill: +69
+		{-- 	
 			ammo="Staunch Tathlum +1",
 			head="Kaykaus Mitra +1", neck="Loricate Torque +1", lear="Genmei Earring", rear="Sanare Earring",
 			body="Kaykaus Bliaut +1", hands="Kaykaus Cuffs +1", lring="Defending Ring", rring="Gelatinous Ring +1",
@@ -156,9 +158,6 @@ function init_gear_sets()
 	
 		sets.midcast.CuresWeather =
 		{
-			main="Raetic Rod +1", sub="Ammurapi Shield",
-			neck="Incanter's Torque", lear="Mendi. Earring",
-			lring="Lebeche Ring",
 			back="Twilight Cape", waist="Hachirin-no-Obi"
 		}
 
@@ -253,14 +252,15 @@ function init_gear_sets()
 		sets.midcast.Macc =
 		{
 			main="Musa", sub="Khonsu", ammo="Pemphredo Tathlum",
-			head="Acad. Mortar. +3", neck="Argute Stole +2", lear="Regal Earring", rear="Malignance Earring",
-			body="Acad. Gown +3", hands="Acad. Bracers +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			head="Acad. Mortar. +3", neck="Argute Stole +2", lear="Gwati Earring", rear="Malignance Earring",
+			body="Acad. Gown +3", hands="Acad. Bracers +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Metamor. Ring +1",
 			back=gear.SCHCape_ENF, waist="Luminary Sash", legs="Acad. Pants +3", feet="Acad. Loafers +3"
 		}
 
 		sets.midcast['Enfeebling Magic'] = set_combine(sets.midcast.Macc,
 		{
-			hands="Regal Cuffs", lring="Kishar Ring",
+			lear="Regal Earring",
+			hands="Regal Cuffs", lring="Kishar Ring", rring={name="Stikini Ring +1", bag="wardrobe3"},
 			legs="Chironic Hose", feet="Medium's Sabots"
 		})
 
@@ -285,13 +285,12 @@ function init_gear_sets()
 			main="Rubicundity", sub="Ammurapi Shield",
 			head="Pixie Hairpin +1", rear="Hirudinea Earring",
 			lring="Archon Ring", rring="Evanescence Ring",
-			waist="Fucho-no-Obi", feet=gear.NukeCrackows
+			waist="Fucho-no-Obi", feet=gear.SapCrackows
 		})
 		
 		sets.midcast.Sap.Resistant = set_combine(sets.midcast.Sap,
 		{
 			head="Acad. Mortar. +3", neck="Argute Stole +2", rear="Malignance Earring",
-			body="Acad. Gown +3", hands="Acad. Bracers +3",
 			feet="Acad. Loafers +3"
 		})
 
@@ -313,32 +312,37 @@ function init_gear_sets()
 	---Elemental Magic
 		sets.midcast['Elemental Magic'] =
 		{
-			main="Raetic Staff +1", sub="Niobid Strap", ammo="Pemphredo Tathlum",
-			head="Peda. M.Board +3", neck="Sanctity Necklace", lear="Regal Earring", rear="Malignance Earring",
-			body="Amalric Doublet +1", hands="Amalric Gages +1", lring="Freke Ring", rring={name="Shiva Ring +1", bag="wardrobe3"},
+			main="Akademos", sub="Enki Strap", ammo="Pemphredo Tathlum",
+			head="Peda. M.Board +3", neck="Argute Stole +2", lear="Regal Earring", rear="Malignance Earring",
+			body="Amalric Doublet +1", hands="Amalric Gages +1", lring="Freke Ring", rring="Metamor. Ring +1",
 			back=gear.SCHCape_Nuke, waist="Sacro Cord", legs="Amalric Slops +1", feet="Amalric Nails +1"
 		}
 
 		sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'],
 		{
-			sub="Enki Strap",
-			head="Acad. Mortar. +3", neck="Argute Stole +2",
-			legs="Peda. Pants +3", feet="Peda. Loafers +3"
+			main="Raetic Staff +1", sub="Khonsu",
+			head="Acad. Mortar. +3",
+			legs="Peda. Pants +3", feet="Acad. Loafers +3"
 		})
 		
 		sets.midcast['Elemental Magic'].Occult = set_combine(sets.midcast['Elemental Magic'],
 		{
+			ammo="Seraphic Ampulla",
 			head="Mall. Chapeau +2",
 			lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			waist="Oneiros Rope", legs="Perdition Slops"
 		})
 		
-		sets.midcast.Helix = set_combine(sets.midcast['Elemental Magic'],
+		sets.midcast.MDMG = set_combine(sets.midcast['Elemental Magic'],
 		{
-			neck="Argute Stole +2",
+			main="Raetic Staff +1", sub="Niobid Strap",
+			head="Mall. Chapeau +2", neck="Argute Stole +2",
+			rring="Shiva Ring +1"
 		})
 		
-		sets.midcast.Helix.Resistant = sets.midcast['Elemental Magic'].Resistant
+		sets.midcast.MDMG.Resistant = sets.midcast['Elemental Magic'].Resistant
+		
+		sets.midcast.MDMG.Occult = sets.midcast['Elemental Magic'].Occult
 
 		---Darkness
 		sets.midcast.Darkness = set_combine(sets.midcast['Elemental Magic'],
@@ -361,6 +365,7 @@ function init_gear_sets()
 		
 		sets.midcast.Impact.Occult = set_combine(sets.midcast.Impact,
 		{
+			ammo="Seraphic Ampulla",
 			lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			waist="Oneiros Rope", legs="Perdition Slops"
 		})
@@ -379,20 +384,20 @@ function init_gear_sets()
 		})
 		
 		---Magic Burst
-		sets.magic_burst = set_combine(sets.midcast['Elemental Magic'],
-		{--		Magic Burst: +41%	Magic Burst II: +10%
-			main="Akademos", sub="Niobid Strap",
-			neck="Mizu. Kubikazari", rear="Static Earring",
-			lring="Locus Ring", rring="Mujin Band",
-			legs="Merlinic Shalwar"
-		})
+		sets.magic_burst = 
+		{--		Magic Burst: +40%	Magic Burst II: +10%
+			main="Akademos", sub="Enki Strap", ammo="Pemphredo Tathlum",
+			head="Peda. M.Board +3", neck="Argute Stole +2", lear="Static Earring", rear="Malignance Earring",
+			body="Amalric Doublet +1", hands="Amalric Gages +1", lring="Locus Ring", rring="Mujin Band",
+			back=gear.SCHCape_Nuke, waist="Sacro Cord", legs="Merlinic Shalwar", feet="Amalric Nails +1"
+		}
 		
 				sets.magic_burst.Resistant = set_combine(sets.magic_burst,
-		{--		Magic Burst: 41%	Magic Burst II: +4%
-			main="Raetic Staff +1", sub="Enki Strap",
-			neck="Argute Stole +2",
-			body="Acad. Gown +3", hands="Regal Cuffs",
-			legs="Peda. Pants +3",feet=gear.NukeCrackows
+		{--		Magic Burst: 40%	Magic Burst II: +4%
+			main="Raetic Staff +1", sub="Khonsu", ammo="Pemphredo Tathlum",
+			head="Peda. M.Board +3", neck="Argute Stole +2", lear="Static Earring", rear="Malignance Earring",
+			body="Acad. Gown +3", hands="Regal Cuffs", lring="Locus Ring", rring="Mujin Band",
+			back=gear.SCHCape_Nuke, waist="Sacro Cord", legs="Merlinic Shalwar", feet="Acad. Loafers +3"
 		})
 
 	
@@ -426,7 +431,7 @@ function init_gear_sets()
 		{
 			ammo="Staunch Tathlum +1",
 			head="Peda. M.Board +3", neck="Warder's Charm +1", lear="Genmei Earring", rear="Lugalbanda Earring",
-			hands="Raetic Bangles +1",
+			hands="Raetic Bangles +1", lring="Inyanga Ring", rring="Purity Ring",
 			waist="Carrier's Sash", legs="Volte Brais", feet="Volte Gaiters"
 		})
 		
@@ -463,7 +468,7 @@ function init_gear_sets()
 		{--	DT: -27%	PDT: -44%	MDT:-22%
 			main="Akademos", sub="Khonsu", ammo="Staunch Tathlum +1",
 			head="Peda. M.Board +3", neck="Warder's Charm +1", lear="Sanare Earring", rear="Lugalbanda Earring",
-			body="Pinga Tunic +1", hands="Raetic Bangles +1", lring="Defending Ring", rring="Shukuyu Ring",
+			body="Pinga Tunic +1", hands="Raetic Bangles +1", lring="Inyanga Ring", rring="Purity Ring",
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Pinga Pants +1", feet="Volte Gaiters"
 		}
 		
@@ -471,7 +476,7 @@ function init_gear_sets()
 		{--	DT: -27%	PDT: -44%	MDT:-22%
 			main="Akademos", sub="Khonsu", ammo="Staunch Tathlum +1",
 			head="Chironic Hat", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
-			body="Mallquis Saio +2", hands="Raetic Bangles +1", lring="Defending Ring", rring="Shukuyu Ring",
+			body="Mallquis Saio +2", hands="Raetic Bangles +1", lring="Defending Ring", rring="Shadow Ring",
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Pinga Pants +1", feet="Volte Gaiters"
 		}
 
@@ -560,19 +565,21 @@ function init_gear_sets()
 			back=gear.SCHCape_Nuke, waist="Orpheus's Sash", legs="Amalric Slops +1", feet="Amalric Nails +1"
 		}
 	
-		sets.precast.WS['Sunburst'] = 
+		sets.precast.WS['Starburst'] = 
 		{
 			ammo="Pemphredo Tathlum",
 			head="Peda. M.Board +3", neck="Sanctity Necklace", lear="Regal Earring", rear="Malignance Earring",
-			body="Amalric Doublet +1", hands="Amalric Gages +1", lring="Freke Ring", rring="Epaminondas's Ring",
+			body="Amalric Doublet +1", hands="Amalric Gages +1", lring="Epaminondas's Ring", rring="Weather. Ring +1",
 			back=gear.SCHCape_Nuke, waist="Orpheus's Sash", legs="Amalric Slops +1", feet="Amalric Nails +1"
 		}
 		
-		sets.precast.WS['Myrkr'] = set_combine(sets.precast.JA['Tabula Rasa'],
+		sets.precast.WS['Myrkr'] =
 		{
-			rear="Moonshade Earring",
-			legs="Amalric Slops +1"
-		})
+			ammo="Psilomene",
+			head="Amalric Coif +1", neck="Sanctity Necklace", lear="Etiolation Earring", rear="Moonshade Earring",
+			body="Acad. Gown +3", hands="Kaykaus Cuffs +1", lring="Mephitas's Ring +1", rring="Metamor. Ring +1",
+			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Amalric Slops +1", feet="Amalric Nails +1"
+		}
 		
 	--------------------------------------
 	-- Melee sets
@@ -615,7 +622,10 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 		end
 	
 		if spell.target.type =='SELF' then 
-			equip { waist="Gishdubar Sash"}
+			equip 
+			{ 
+				waist="Gishdubar Sash"
+			}
 		end
 	end
 
@@ -654,7 +664,6 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 				{
 					main="Daybreak", sub="Ammurapi Shield",
 					lring="Mujin Band", rring="Weather. Ring +1",
-					feet=gear.NukeCrackows
 				}))
 			end
 		else
@@ -676,12 +685,14 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 		elseif spell.element == 'Light' then
 			equip(set_combine(sets.magic_burst.Resistant,
 			{
+				main="Daybreak", sub="Ammurapi Shield",
 				lring="Mujin Band", rring="Weather. Ring +1"
 			}))
 		else
 			equip(set_combine(sets.magic_burst.Resistant,
 			{
-				head=empty, rear="Static Earring",
+				main="Akademos", sub="Khonsu",
+				head=empty,
 				body="Twilight Cloak", lring="Archon Ring"
 			}))
 		end

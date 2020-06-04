@@ -432,8 +432,11 @@ end
 function job_state_change(stateField, newValue, oldValue)
     if state.WeaponLock.value == true then
         disable('main','sub','ranged')
+		if (player.equipment.ammo == "Demon Arrow" or player.equipment.range == "Raider's Bmrng.") then
+			disable('ammo')
+		end
     else
-        enable('main','sub','ranged')
+        enable('main','sub','ranged','ammo')
     end
 end
 

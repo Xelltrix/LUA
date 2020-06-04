@@ -60,9 +60,10 @@ function init_gear_sets()
 		
 		sets.precast.JA['Astral Conduit'] =
 		{
+			ammo="Psilomene",
 			main="Espiritus", sub="Niobid Strap",
 			head="Amalric Coif +1", neck="Smn. Collar +2", lear="Evans Earring", rear="Etiolation Earring",
-			body="Con. Doublet +3", hands="Beck. Bracers +1", lring="Lebeche Ring", rring="Kuchekula Ring",
+			body="Con. Doublet +3", hands="Beck. Bracers +1", lring="Mephitas's Ring +1", rring="Metamor. Ring +1",
 			back="Conveyance Cape", waist="Luminary Sash", legs="Amalric Slops +1", feet="Amalric Nails +1"
 		}
 		
@@ -72,7 +73,7 @@ function init_gear_sets()
 	------------------- 
 		sets.precast.BloodPactWard =
 		{
-			main="Espiritus", sub="Vox Grip", ammo="Sancus Sachet +1",
+			ammo="Sancus Sachet +1",
 			head="Beckoner's Horn +1", neck="Incanter's Torque", lear="Lodurr Earring", rear="C. Palug Earring",
 			body="Baayami Robe +1", hands="Baayami Cuffs +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Evoker's Ring",
 			back="Conveyance Cape", waist="Kobo Obi", legs="Baayami Slops +1", feet="Baaya. Sabots +1"
@@ -89,8 +90,8 @@ function init_gear_sets()
 		{
 			main=gear.Grioavolr_Pet, sub="Khonsu", ammo="Sapience Orb",
 			head="Amalric Coif +1", neck="Orunmila's Torque", lear="Loquac. Earring", rear="Malignance Earring",
-			body="Inyanga Jubbah +2", hands=gear.ENH_Gloves, lring="Kishar Ring", rring="Weather. Ring +1",
-			back=gear.SMNCape_Mag, waist="Witful Belt", legs="Volte Brais", feet="Amalric Nails +1"
+			body="Inyanga Jubbah +2", hands=gear.FCHands, lring="Kishar Ring", rring="Weather. Ring +1",
+			back=gear.SMNCape_Mag, waist="Witful Belt", legs="Volte Brais", feet=gear.FCCrackows
 		}
 		
 		--Fast Cast: 78%
@@ -152,8 +153,8 @@ function init_gear_sets()
 		sets.midcast.Pet.bp_Heals = set_combine(sets.midcast.Pet.bp_Buffs,
 		{
 			main="Nirvana", sub="Vox Grip", ammo="Sancus Sachet +1",
-			head=gear.ACrown_Perp, neck="Smn. Collar +2", lear="Tuisto Earring", rear="Odnowa Earring +1",
-			body="Udug Jacket", hands="Apogee Mitts +1", lring="Eihwaz Ring", rring="C. Palug Ring",
+			head=gear.ACrown_Perp, neck="Unmoving Collar +1", lear="Tuisto Earring", rear="Odnowa Earring +1",
+			bbody=gear.ADalmatica_Idle, hands="Apogee Mitts +1", lring="Eihwaz Ring", rring="Gelatinous Ring +1",
 			back=gear.SMNCape_Mag, waist="Regal Belt", legs=gear.ASlacks_MAB, feet="Apogee Pumps +1"
 		})
 
@@ -215,7 +216,7 @@ function init_gear_sets()
 		{
 			neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
 			body="Amalric Doublet +1",
-			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Lengo Pants", feet=gear.NukeCrackows
+			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Lengo Pants", feet=gear.FCCrackows
 		})
 
 	
@@ -224,19 +225,35 @@ function init_gear_sets()
 	--------------------------------------	
 
 		sets.midcast.Cures =
-		{
-			ammo="Esper Stone +1",
-			head="Vanya Hood", neck="Incanter's Torque", lear="Novia Earring", rear="Mendi. Earring",
-			body="Vanya Robe", hands=gear.ENH_Gloves, lring="Lebeche Ring", rring="Menelaus's Ring",
-			back="Oretan. Cape +1",  waist="Bishop's Sash", legs="Vanya Slops", feet="Medium's Sabots"
+		{-- Cure Potency/II: 50%/10%			Enmity: -29		Healing Magic Skill: +24(500)	MND+197
+			main="Raetic Rod +1", sub="Sors Shield", ammo="Esper Stone +1",
+			head="Vanya Hood", neck="Incanter's Torque", lear="Meili Earring", rear="Novia Earring",
+			body="Vanya Robe", hands="Vanya Cuffs", lring="Lebeche Ring", rring="Kuchekula Ring",
+			back="Oretan. Cape +1", waist="Bishop's Sash", legs="Vanya Slops", feet="Vanya Clogs"
 		}
+		
+		sets.midcast.CuresLocked =
+		{--Cure Potency: 49%
+			ammo="Esper Stone +1",
+			head="Vanya Hood", neck="Incanter's Torque", lear="Meili Earring", rear="Mendi. Earring",
+			body="Vanya Robe", hands=gear.ENH_Gloves, lring="Lebeche Ring", rring="Menelaus's Ring",
+			back="Oretan. Cape +1", waist="Bishop's Sash", legs="Vanya Slops", feet="Medium's Sabots"
+		}
+		
+		sets.midcast.CuresWeather =
+		{
+			rear="Mendi. Earring",
+			rring="Menelaus's Ring",
+			back="Twilight Cape", waist="Hachirin-no-Obi"
+		}
+
 		
 		sets.midcast.Curaga = sets.midcast.Cures
 
 		sets.midcast.Cursna =
 		{
 			main="Gada", sub="Chanter's Shield", ammo="Sapience Orb",
-			head="Vanya Hood", neck="Debilis Medallion", lear="Beatific Earring", rear="Meili Earring",
+			head="Vanya Hood", neck="Debilis Medallion", lear="Meili Earring", rear="Beatific Earring",
 			body="Vanya Robe", hands="Hieros Mittens", lring="Haoma's Ring", rring="Menelaus's Ring",
 			back="Oretan. Cape +1", waist="Bishop's Sash", legs="Vanya Slops", feet="Vanya Clogs"
 		}
@@ -273,7 +290,7 @@ function init_gear_sets()
 		sets.midcast['Enhancing Magic'] =
 		{
 			main="Gada", sub="Ammurapi Shield",
-			head="Befouled Crown", neck="Incanter's Torque", lear="Andoaa Earring", rear="Mimir Earring",
+			head=gear.ENH_Head, neck="Incanter's Torque", lear="Andoaa Earring", rear="Mimir Earring",
 			body=gear.ENH_Body, hands="Inyan. Dastanas +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Fi Follet Cape +1", waist="Olympus Sash", legs=gear.ENH_Legs, feet="Telchine Pigaches"
 		}
@@ -298,7 +315,7 @@ function init_gear_sets()
 			main="Gada", sub="Ammurapi Shield",
 			head="Amalric Coif +1", neck="Orunmila's Torque", lear="Gwati Earring", rear="Mendi. Earring",
 			body=gear.ENH_Body, hands=gear.ENH_Gloves, lring="Lebeche Ring", rring="Weather. Ring +1",
-			back="Grapevine Cape", waist="Embla Sash", legs=gear.ENH_Legs, feet="Inspirited Boots"
+			back="Fi Follet Cape +1", waist="Embla Sash", legs=gear.ENH_Legs, feet="Telchine Pigaches"
 		}
 
 		sets.midcast.Statless = sets.midcast.Duration
@@ -337,14 +354,14 @@ function init_gear_sets()
 			main="Rubicundity", sub="Ammurapi Shield",
 			head="Pixie Hairpin +1",
 			rring="Archon Ring",
-			waist="Fucho-no-Obi", feet=gear.NukeCrackows
+			waist="Fucho-no-Obi", feet=gear.SapCrackows
 		})
 
 		sets.midcast['Elemental Magic'] =
 		{
 			main="Daybreak", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head="C. Palug Crown", neck="Sanctity Necklace", lear="Friomisi Earring", rear="Malignance Earring",
-			body="Amalric Doublet +1", hands="Amalric Gages +1", lring="Freke Ring", rring={name="Shiva Ring +1", bag="wardrobe3"},
+			body="Amalric Doublet +1", hands="Amalric Gages +1", lring="Freke Ring", rring="Shiva Ring +1",
 			back="Grapevine Cape", waist="Orpheus's Sash", legs="Amalric Slops +1", feet="Amalric Nails +1"
 		}
 
@@ -395,8 +412,8 @@ function init_gear_sets()
 		{
 			main="Nirvana", sub="Khonsu", ammo="Staunch Tathlum +1",
 			head="Inyanga Tiara +2", neck="Warder's Charm +1",lear="Sanare Earring", rear="Lugalbanda Earring",
-			body="Inyanga Jubbah +2", hands="Raetic Bangles +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Moonlight Cape", waist="Carrier's Sash", legs="Inyanga Shalwar +2", feet="Inyan. Crackows +2"
+			body="Inyanga Jubbah +2", hands="Inyan. Dastanas +2", lring="Inyanga Ring", rring="Purity Ring",
+			back="Moonlight Cape", waist="Carrier's Sash", legs="Inyanga Shalwar +2", feet="Baaya. Sabots +1"
 		}
 		
 		sets.idle.Favor = set_combine(sets.idle)
@@ -450,8 +467,8 @@ function init_gear_sets()
 		sets.idle.Spirit =
 		{
 			main="Nirvana", sub="Vox Grip", ammo="Sancus Sachet +1",
-			head="Convoker's Horn +3", neck="Incanter's Torque", lear="Andoaa Earring", rear="C. Palug Earring",
-			body=gear.ADalmatica_Idle, hands="Lamassu Mitts +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			head="Convoker's Horn +3", neck="Smn. Collar +2", lear="Lodurr Earring", rear="C. Palug Earring",
+			body=gear.ADalmatica_Idle, hands="Baayami Cuffs +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back=gear.SMNCape_Mag, waist="Regal Belt", legs="Baayami Slops +1", feet="Baaya. Sabots +1"
 		}
 
@@ -468,7 +485,7 @@ function init_gear_sets()
 		{
 			main="Nirvana", sub="Khonsu",
 			head="Inyanga Tiara +2",
-			body="Udug Jacket", hands="Raetic Bangles +1",
+			body="Udug Jacket", hands="Volte Bracers",
 			legs="Artsieq Hose"
 		})
 		
@@ -480,15 +497,6 @@ function init_gear_sets()
 			back=gear.SMNCape_Phys, waist="Isa Belt", legs="Enticer's Pants", feet="Baaya. Sabots +1"
 		}
 
-		-- MDT:-57%		PDT: -29%
-		sets.defense.MDT = set_combine(sets.defense.Master,
-		{
-			sub="Khonsu",
-			neck="Warder's Charm +1",lear="Sanare Earring", rear="Lugalbanda Earring",
-			body="Inyanga Jubbah +2", hands="Raetic Bangles +1", rring="Shukuyu Ring",
-			waist="Carrier's Sash", legs="Inyanga Shalwar +2", feet="Inyan. Crackows +2"
-		})
-		
 	
 	--------------------------------------
 	-- Special Sets
@@ -538,6 +546,7 @@ function init_gear_sets()
 	-------------------------
 		sets.precast.WS =
 		{
+			ammo="Hasty Pinion +1",
 			head="Convoker's Horn +3", neck="Fotia Gorget", lear="Ishvara Earring", rear="Moonshade Earring",
 			body="Glyphic Doublet +3", hands="Glyphic Bracers +3", lring="Shukuyu Ring", rring="Epaminondas's Ring",
 			back=gear.SMNCape_Phys, waist="Fotia Belt", legs="Tali'ah Sera. +2", feet="Convo. Pigaches +3"
@@ -553,7 +562,7 @@ function init_gear_sets()
 		{
 			ammo="Pemphredo Tathlum",
 			head="C. Palug Crown", neck="Sanctity Necklace", lear="Friomisi Earring", rear="Malignance Earring",
-			body="Amalric Doublet +1", hands="Amalric Gages +1", lring="Freke Ring", rring={name="Shiva Ring +1", bag="wardrobe3"},
+			body="Amalric Doublet +1", hands="Amalric Gages +1", lring="Freke Ring", rring="Weather. Ring +1",
 			back=gear.SMNCape_Phys, waist="Orpheus's Sash", legs="Amalric Slops +1", feet="Amalric Nails +1"
 		}
 	 
@@ -565,8 +574,9 @@ function init_gear_sets()
 		
 		sets.precast.WS['Myrkr'] = 
 		{
+			ammo="Psilomene",
 			head="Amalric Coif +1", neck="Smn. Collar +2", lear="Etiolation Earring", rear="Moonshade Earring",
-			body="Con. Doublet +3", hands="Beck. Bracers +1", lring="Lebeche Ring", rring="Kuchekula Ring",
+			body="Con. Doublet +3", hands="Beck. Bracers +1", lring="Mephitas's Ring +1", rring="Metamor. Ring +1",
 			back="Conveyance Cape", waist="Luminary Sash", legs="Amalric Slops +1", feet="Amalric Nails +1"
 		}
 	
@@ -577,7 +587,7 @@ function init_gear_sets()
 		sets.engaged =
 		{
 			main="Nirvana", sub="Khonsu", ammo="Sancus Sachet +1",
-			head="Convoker's Horn +3", neck="Combatant's Torque", lear="Telos Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
+			head="Convoker's Horn +3", neck="Shulmanu Collar", lear="Telos Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Glyphic Doublet +3", hands="Glyphic Bracers +3", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.SMNCape_Phys, waist="Klouskap Sash +1", legs="Tali'ah Sera. +2", feet="Convo. Pigaches +3"
 		}
@@ -585,7 +595,7 @@ function init_gear_sets()
 		sets.engaged.Avatar =
 		{
 			main="Nirvana", sub="Khonsu", ammo="Sancus Sachet +1",
-			head="Convoker's Horn +3", neck="Caller's Pendant", lear="Evans Earring", rear="C. Palug Earring",
+			head="Convoker's Horn +3", neck="Shulmanu Collar", lear="Evans Earring", rear="C. Palug Earring",
 			body=gear.ADalmatica_Idle, hands="Asteria Mitts +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back=gear.SMNCape_Phys, waist="Lucidity Sash", legs="Assid. Pants +1", feet="Baaya. Sabots +1"
 		}
@@ -616,10 +626,29 @@ end
 
 -- Run after the general midcast() is done.
 function job_post_midcast(spell, action, spellMap, eventArgs)
-	 if spellMap == 'Cures' or spellMap == 'Curagas' or spellMap == 'Refresh' then
-		if spell.target.type =='SELF' then 
-			equip { waist="Gishdubar Sash"}
+	 if spellMap == 'Cures' or spellMap == 'Curagas' then
+		if state.WeaponLock.value == true then
+			equip(sets.midcast.CuresLocked)
+		else
+			if spell.element == world.day_element or spell.element == world.weather_element then
+				equip(sets.midcast.CuresWeather)
+			end
 		end
+	
+		if spell.target.type =='SELF' then 
+			equip 
+			{ 
+				hands=gear.ENH_Gloves,
+				waist="Gishdubar Sash"
+			}
+		end
+	end
+	
+	if spellMap == 'Refresh' and spell.target.type == 'SELF' then
+		equip
+		{
+			back="Grapevine Cape", waist="Gishdubar Sash", feet="Inspirited Boots"
+		}
 	end
 end
 
@@ -757,13 +786,7 @@ function customize_idle_set(idleSet)
 	end
 	
 	if player.mpp < 51 then
-        if pet.isvalid then
-			idleSet = set_combine(idleSet,
-			{
-				rring="Evoker's Ring",
-				waist="Fucho-no-Obi"
-			})
-		else
+        if not pet.isvalid then
 			idleSet = set_combine(idleSet,
 			{
 				waist="Fucho-no-Obi"

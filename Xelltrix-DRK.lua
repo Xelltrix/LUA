@@ -161,7 +161,7 @@ function init_gear_sets()
 	{
 		ammo="Pemphredo Tathlum", 
 		head="Flamma Zucchetto +2", neck="Sanctity Necklace", lear="Friomisi Earring", rear="Malignance Earring",
-		body="Flamma Korazin +2", hands="Carmine Fin. Ga. +1", lring={name="Shiva Ring +1", bag="wardrobe2"}, rring={name="Shiva Ring +1", bag="wardrobe3"},
+		body="Flamma Korazin +2", hands="Carmine Fin. Ga. +1", lring="Shiva Ring +1" rring="Shiva Ring +1"
 		back="Ankou's Mantle", waist="Orpheus's Sash", legs="Flamma Dirs +2", feet="Flam. Gambieras +2"
 	}
 

@@ -112,7 +112,7 @@ function init_gear_sets()
 		sets.midcast.CorsairShot =
 		{
 			head=gear.HHead_MAB, neck="Sanctity Necklace", lear="Friomisi Earring", rear="Crematio Earring",
-			body="Carm. Sc. Mail +1", hands="Carmine Fin. Ga. +1", lring="Dingir Ring", rring={name="Shiva Ring +1", bag="wardrobe3"},
+			body="Carm. Sc. Mail +1", hands="Carmine Fin. Ga. +1", lring="Dingir Ring", rring="Shiva Ring +1"
 			back="Camulus's Mantle", waist="Eschan Stone", legs="Lak. Trews +1", feet="Adhe. Gamashes +1"
 		}
 		
