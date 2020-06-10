@@ -767,7 +767,10 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 		if buffactive['Embolden'] and spell.skill == 'Enhancing Magic' then
 			if spell.english == 'Phalanx' then
 				equip(set_combine(sets.midcast.Phalanx, 
-				{back="Evasionist's Cape", legs="Futhark Trousers +3"}))
+				{
+					hands="Regal Guauntlets",
+					back="Evasionist's Cape", legs="Futhark Trousers +3"
+				}))
 			else
 				equip(sets.buff['Embolden'])
 			end

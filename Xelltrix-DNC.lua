@@ -37,6 +37,18 @@ function user_setup()
     state.HybridMode:options('Normal', 'DT')
 	state.WeaponskillMode:options('Normal', 'Low', 'Mid', 'High')
     state.IdleMode:options('Normal')
+	
+	state.MainWeaponSet = M{['description']='Main Weapon Set',
+		'Aeneas',
+		'Twashtar',
+		'Tauret'
+	}
+	
+	state.SubWeaponSet = M{['description']='Sub Weapon Set',
+		'subTwashtar',
+		'subTauret',
+		'Centovente'
+	}
 
     -- Additional local binds
     send_command('bind ^= gs c cycle mainstep')
@@ -45,6 +57,12 @@ function user_setup()
     send_command('bind !- gs c toggle usealtstep')
     send_command('bind ^` input /ja "Chocobo Jig" <me>')
     send_command('bind !` input /ja "Chocobo Jig II" <me>')
+	
+	send_command('bind pageup gs c cycle MainWeaponSet')
+	send_command('bind pagedown gs c cycleback MainWeaponSet')
+	
+	send_command('bind ^pageup gs c cycle SubWeaponSet')
+	send_command('bind ^pagedown gs c cycleback SubWeaponSet')
 
     apply_job_change()
 end
@@ -88,9 +106,9 @@ function init_gear_sets()
 		sets.precast.Waltz =
 		{
 			ammo="Yamarang",
-			head="Horos Tiara +1", lear="Roundel Earring",
-			body="Maxixi Casaque +1",
-			back="Toetapper Mantle", legs="Dashing Subligar", feet="Maxixi Shoes +1"
+			head="Mummu Bonnet +2", neck="Etoile Gorget +2", lear="Sjofn Earring", rear="Tuisto Earring",
+			body="Passion Jacket", hands="Malignance Gloves", lring="Metamor. Ring +1", rring="Moonlight Ring",
+			back="Toetapper Mantle", waist="Flume Belt +1", legs="Dashing Subligar", feet="MAxixi Shoes +1"
 		}
 
 
@@ -176,7 +194,25 @@ function init_gear_sets()
 ------------							 						------------
 --------------------									--------------------
 ----------------------------------------------------------------------------	
-
+	
+	
+	------------------------------------------------------------------------------------------------
+	----------------------------------------- Weapon Sets ------------------------------------------
+	------------------------------------------------------------------------------------------------
+	
+		sets.Aeneas 		= { 	main="Aeneas" 		}
+			
+		sets.Twashtar 		= { 	main="Twashtar"		}
+	
+		sets.subTwashtar 	= { 	sub="Twashtar" 		}
+		
+		sets.Tauret 		= { 	main="Tauret" 		}
+		
+		sets.subTauret 		= { 	sub="Tauret" 		}
+		
+		sets.Centovente		= { 	sub="Centovente"	}
+		
+		
 	------------------------------------------------------------------------------------------------
 	------------------------------------------ Idle Sets -------------------------------------------
 	------------------------------------------------------------------------------------------------
@@ -199,7 +235,7 @@ function init_gear_sets()
 
 		sets.idle.Town = set_combine(sets.idle,
 		{
-			feet="Tandava Crackows"
+			feet="Skd. Jambeaux +1"
 		})
 		
 		sets.idle.Adoulin = set_combine(sets.idle,
@@ -329,13 +365,13 @@ function init_gear_sets()
 		})
 
 	---Evisceration	
-		sets.precast.WS['Evisceration'] = set_combine(sets.precast.WS,
+		sets.precast.WS['Evisceration'] =
 		{
-			ammo="Yetshila +1",
-			head=gear.AHead_TP, lear="Odr Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
-			body="Adhemar Jacket +1", hands="Mummu Wrists +2", lring="Ilabrat Ring", rring="Regal Ring",
-			legs="Lustr. Subligar +1", feet=gear.HBoots_Crit
-		})
+			ammo="Charis Feather",
+			head=gear.AHead_TP, neck="Fotia Gorget", lear="Odr Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
+			body="Meg. Cuirie +2", hands="Mummu Wrists +2", lring="Ilabrat Ring", rring="Regal Ring",
+			back="Sacro Mantle", waist="Fotia Belt", legs="Lustr. Subligar +1", feet=gear.HBoots_Crit
+		}
 
 		sets.precast.WS['Evisceration'].Low = set_combine(sets.precast.WS['Evisceration'],
 		{
@@ -389,13 +425,13 @@ function init_gear_sets()
 		})
 		
 	---Rudra's Storm
-		sets.precast.WS['Rudra\'s Storm'] = set_combine(sets.precast.WS,
+		sets.precast.WS['Rudra\'s Storm'] = 
 		{
 			ammo="C. Palug Stone",
-			lear="Odr Earring",
-			body="Herculean Vest", lring="Regal Ring", rring="Epaminondas's Ring",
-			waist="Grunfeld Rope", legs="Lustr. Subligar +1", feet="Lustra. Leggings +1"
-		})
+			head="Lustratio Cap +1", neck="Etoile Gorget +2", lear="Odr Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
+			body="Herculean Vest", hands="Meg. Gloves +2", lring="Regal Ring", rring="Epaminondas's Ring",
+			back="Sacro Mantle", waist="Grunfeld Rope", legs="Lustr. Subligar +1", feet="Lustra. Leggings +1"
+		}
 
 		sets.precast.WS['Rudra\'s Storm'].Low = sets.precast.WS["Rudra's Storm"]
 		
@@ -405,7 +441,9 @@ function init_gear_sets()
 
 		sets.precast.WS['Rudra\'s Storm'].CF = set_combine(sets.precast.WS["Rudra's Storm"],
 		{
+			ammo="Charis Feather",
 			head="Maculele Tiara +1",
+			body="Meg. Cuirie +2",
 			feet=gear.HBoots_Crit
 		})
 
@@ -480,9 +518,9 @@ function init_gear_sets()
 		sets.engaged =
 		{
 			ammo="Yamarang",
-			head=gear.AHead_TP, neck="Combatant's Torque", lear="Eabani Earring", rear="Suppanomimi",
+			head="Dampening Tam", neck="Etoile Gorget +2", lear="Eabani Earring", rear="Suppanomimi",
 			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Epona's Ring", rring="Gere Ring",
-			back="Sacro Mantle", waist="Reiki Yotai", legs="Samnuha Tights", feet=gear.TFeet_TP
+			back="Senuna's Mantle", waist="Reiki Yotai", legs="Samnuha Tights", feet=gear.TFeet_TP
 		}
 
 		sets.engaged.Low = set_combine(sets.engaged,
@@ -516,14 +554,14 @@ function init_gear_sets()
 		sets.engaged.Min =
 		{
 			ammo="Yamarang",
-			head=gear.AHead_TP, neck="Anu Torque", lear="Eabani Earring", rear="Suppanomimi",
+			head="Dampening Tam", neck="Etoile Gorget +2", lear="Eabani Earring", rear="Suppanomimi",
 			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Hetairoi Ring", rring="Epona's Ring",
-			back="Toetapper Mantle", waist="Reiki Yotai", legs="Samnuha Tights", feet=gear.TFeet_TP
+			back="Senuna's Mantle", waist="Reiki Yotai", legs="Samnuha Tights", feet=gear.TFeet_TP
 		}
 
 		sets.engaged.Low.Min = set_combine(sets.engaged.Min,
 		{
-			head="Malignance Chapeau", neck="Combatant's Torque",
+			head="Malignance Chapeau", neck="Etoile Gorget +2",
 			legs="Malignance Tights"
 		})
 
@@ -551,14 +589,14 @@ function init_gear_sets()
 		sets.engaged.Med =
 		{
 			ammo="Yamarang",
-			head=gear.AHead_TP, neck="Anu Torque", lear="Eabani Earring", rear="Suppanomimi",
+			head="Dampening Tam", neck="Etoile Gorget +2", lear="Eabani Earring", rear="Suppanomimi",
 			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Epona's Ring", rring="Gere Ring",
-			back="Sacro Mantle", waist="Reiki Yotai", legs="Samnuha Tights", feet=gear.TFeet_TP
+			back="Senuna's Mantle", waist="Reiki Yotai", legs="Samnuha Tights", feet=gear.TFeet_TP
 		}
 
 		sets.engaged.Low.Med = set_combine(sets.engaged.Med,
 		{
-			head="Malignance Chapeau", neck="Combatant's Torque",
+			head="Malignance Chapeau", neck="Etoile Gorget +2",
 			legs="Malignance Tights"
 		})
 
@@ -587,27 +625,27 @@ function init_gear_sets()
 		sets.engaged.Max =
 		{
 			ammo="Yamarang",
-			head=gear.AHead_TP, neck="Anu Torque", lear="Sherida Earring", rear="Telos Earring",
+			head="Dampening Tam", neck="Etoile Gorget +2", lear="Sherida Earring", rear="Telos Earring",
 			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Epona's Ring", rring="Gere Ring",
-			back="Sacro Mantle", waist="Windbuffet Belt +1", legs="Samnuha Tights", feet=gear.HBoots_TP
+			back="Senuna's Mantle", waist="Windbuffet Belt +1", legs="Samnuha Tights", feet=gear.HBoots_TP
 		}
 
 		sets.engaged.Low.Max = set_combine(sets.engaged.Max,
 		{
-			head="Malignance Chapeau", neck="Combatant's Torque",
-			legs="Malignance Tights"
+			legs="Malignance Tights", feet="Malignance Boots"
 		})
 
 		sets.engaged.Mid.Max = set_combine(sets.engaged.Low.Max,
 		{
-			hands="Malignance Gloves", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
-			feet="Malignance Boots"
+			head="Malignance Chapeau",
+			hands="Malignance Gloves", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"}
 		})
 
 		sets.engaged.High.Max = set_combine(sets.engaged.Mid.Max,
 		{
 			lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-			waist="Kentarch Belt +1"
+			body="Malignance Tabard",
+			waist="Reiki Yotai"
 		})
 
 
@@ -741,6 +779,11 @@ function job_status_change(new_status, old_status)
     end
 end
 
+-- Handle notifications of general user state change.
+function job_state_change(stateField, newValue, oldValue)
+	equip(sets[state.MainWeaponSet.current])
+	equip(sets[state.SubWeaponSet.current])
+end
 
 -------------------------------------------------------------------------------------------------------------------
 -- User code that supplements standard library decisions.
@@ -748,6 +791,9 @@ end
 
 -- Called by the default 'update' self-command.
 function job_update(cmdParams, eventArgs)
+	equip(sets[state.MainWeaponSet.current])
+	equip(sets[state.SubWeaponSet.current])
+
     determine_haste_group()
 end
 
@@ -787,7 +833,7 @@ end
 -- Function to display the current relevant user state when doing an update.
 -- Set eventArgs.handled to true if display was handled, and you don't want the default info shown.
 function display_current_job_state(eventArgs)
-    local msg = 'Melee'
+    local msg = '[' .. state.MainWeaponSet.value .. '/' .. state.SubWeaponSet.value .. ']'
 
     if state.CombatForm.has_value then
         msg = msg .. ' (' .. state.CombatForm.value .. ')'
@@ -873,7 +919,7 @@ function determine_haste_group()
 		--add_to_chat(8, '*********Slowed Status Effect Set***********')
 	else
 		if (((buffactive[33] or buffactive[580] or buffactive.embrava) and (buffactive[214] or buffactive[604])) or
-			(buffactive[33] and (buffactive[580] or buffactive.embrava)) or (buffactive.march == 2 and buffactive[604])
+			(buffactive[33] and (buffactive[580] or buffactive.embrava)) or buffactive.march == 2
 			or (buffactive[189] and (buffactive[33] or buffactive.march == 2 or buffactive[228] or buffactive[580]))) then
 			classes.CustomMeleeGroups:append('Max')							-- 43.75% Magical Haste
 			--add_to_chat(8, '*********Maximum Haste Set***********')

@@ -52,7 +52,7 @@ function init_gear_sets()
 	
 		sets.precast.JA['Benediction'] =
 		{
-			main="Piety Wand", sub="Ammurapi Shield", ammo="Esper Stone +1",
+			main="Asclepius", sub="Ammurapi Shield", ammo="Esper Stone +1",
 			head="Kaykaus Mitra +1", neck="Sanctity Necklace", lear="Loquac. Earring", rear="Etiolation Earring",
 			body="Piety Briault +3", hands="Kaykaus Cuffs +1", lring="Lebeche Ring", rring="Kuchekula Ring",
 			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Piety Pantaln. +3", feet="Kaykaus Boots +1"
@@ -190,7 +190,7 @@ function init_gear_sets()
 		
 		sets.midcast.Esuna = set_combine(sets.midcast.FC,
 		{--		Fast Cast: 72%		Haste: 24%
-			main="Piety Wand"
+			main="Asclepius"
 		})
 
 		sets.midcast['Healing Magic'] = set_combine(sets.midcast.FC,
@@ -283,7 +283,7 @@ function init_gear_sets()
 	---Enfeebling Magic	
 		sets.midcast.Macc =
 		{
-			main="Daybreak", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
+			main="Asclepius", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head="Theophany Cap +3", neck="Incanter's Torque", lear="Regal Earring", rear="Malignance Earring", 
 			body="Theo. Briault +3", hands="Kaykaus Cuffs +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Metamor. Ring +1",
 			back="Alaunus's Cape", waist="Luminary Sash", legs="Th. Pant. +3", feet="Theo. Duckbills +3"
@@ -300,7 +300,10 @@ function init_gear_sets()
 			hands="Regal Cuffs", lring="Kishar Ring"
 		})
 		
-		sets.midcast.Dispelga = sets.midcast['Enfeebling Magic']
+		sets.midcast.Dispelga = set_combine(sets.midcast['Enfeebling Magic'],
+		{
+			main="Daybreak"
+		})
 		
 		sets.midcast.Repose = sets.midcast.Macc
 

@@ -205,7 +205,7 @@ function init_gear_sets()
 			main="Raetic Staff +1", sub="Khonsu", ammo="Pemphredo Tathlum",
 			head="Spae. Petasos +3", neck="Src. Stole +2", lear="Malignance Earring", rear="Regal Earring",
 			body="Spaekona's Coat +2", hands="Spae. Gloves +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Metamor. Ring +1",
-			back="Taranus's Cape", waist="Luminary Sash", legs="Spae. Tonban +3", feet="Spae. Sabots +2"
+			back="Taranus's Cape", waist="Luminary Sash", legs="Spae. Tonban +3", feet="Spae. Sabots +3"
 		}
 	
 		sets.midcast['Enfeebling Magic'] = set_combine(sets.midcast.Macc,
@@ -612,7 +612,7 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 				equip(sets.magic_burst)
 			end
 		else
-			if state.CastingMode.value == 'Occult' and (spell.skill == 'Elemental Magic' or spell.skill == 'Dark Magic')  then
+			if state.CastingMode.value == 'Occult' and (spell.skill == 'Elemental Magic' or spell.english == 'Death')  then
 				equip(sets.Occult)
 			end
 		end	

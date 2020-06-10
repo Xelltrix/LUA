@@ -398,7 +398,7 @@ function init_gear_sets()
 		{
 			main="Nirvana", sub="Khonsu", ammo="Staunch Tathlum +1",
 			head="Convoker's Horn +3", neck="Sanctity Necklace", lear="Dawn Earring", rear="C. Palug Earring",
-			body=gear.ADalmatica_Idle, hands="Asteria Mitts +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			body="Shomonjijoe +1", hands="Asteria Mitts +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Moonlight Cape", waist="Regal Belt", legs="Volte Brais", feet="Baaya. Sabots +1"
 		}
 

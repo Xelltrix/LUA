@@ -105,25 +105,26 @@ function init_gear_sets()
 			head="Skulker's Bonnet +1"
 		}
 		sets.precast.JA['Accomplice'] = sets.precast.JA['Collaborator']
+		
+		sets.precast.JA['Steal'] = 
+		{
+			head="Plun. Bonnet +1",
+			legs="Pill. Culottes +1",feet="Pill. Poulaines +2"
+		}
 
 		sets.precast.JA['Flee'] =
 		{
-			feet="Pill. Poulaines +1"
+			feet="Pill. Poulaines +2"
 		}
 		sets.precast.JA['Steal'] =
 		{
-			hands="Pill. Armlets +1",
-			feet="Pill. Poulaines +1"
+			hands="Pill. Armlets +2",
+			feet="Pill. Poulaines +2"
 		}
-
-		sets.precast.JA['Despoil'] =
-		{
-			feet="Skulk. Poulaines +1"
-		}
-
+		
 		sets.precast.JA['Perfect Dodge'] =
 		{
-			hands="Plun. Armlets +1"
+			hands="Plun. Armlets +3"
 		}
 
 		sets.precast.Waltz =
@@ -201,20 +202,32 @@ function init_gear_sets()
 			back=gear.THFCape_STP, waist="Orpheus's Sash", legs="Shned. Tights +1", feet="Adhemar Gamashes +1"
 		}
 		
+		sets.midcast.Macc =
+		{
+			ammo="Yamarang",
+			head="Malignance Chapeau", neck="Asn. Gorget +1", lear="Gwati Earring", rear="Digni. Earring",
+			body="Malignance Tabard", hands="Malignance Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			back="Sacro Mantle", waist="Engraved Belt", legs="Malignance Tights", feet="Malignance Boots"
+		}
+		
+		sets.midcast['Enfeebling Magic'] = sets.midcast.Macc
+		
+		sets.midcast['Dark Magic'] = sets.midcast.Macc
+		
 		-- sets.midcast.Stonega =
 		-- {
 			-- main=none, sub=none, ammo="Staunch Tathlum +1",
 			-- head="Malignance Chapeau", neck="Loricate Torque +1", lear="Eabani Earring", rear="Sanare Earring",
 			-- body="Malignance Tabard", hands="Plun. Armelts +1", lring="Defending Ring", rring="Moonlight Ring",
-			-- back="Moonlight Cape", waist="Engraved Belt", legs="Malignance Tights", feet="Skulk. Poulaines +1"
+			-- back="Moonlight Cape", waist="Chaac Belt", legs="Malignance Tights", feet="Malignance Boots"
 		-- }
 		
 		-- sets.midcast.Poisonga =
 		-- {
 			-- main=none, sub=none, ammo="Staunch Tathlum +1",
 			-- head=gear.AHead_PDT, neck="Loricate Torque +1", lear="Genmei Earring", rear="Sanare Earring",
-			-- body="Ashera Harness", hands="Plun. Armlets +1", lring="Defending Ring", rring="Gelatinous Ring +1",
-			-- back="Moonlight Cape", waist="Flume Belt +1",  legs="Meg. Chausses +2", feet="Skulk. Poulaines +1"
+			-- body="Ashera Harness", hands="Plun. Armlets +3", lring="Defending Ring", rring="Gelatinous Ring +1",
+			-- back="Moonlight Cape", waist="Chaac Belt",  legs="Meg. Chausses +2", feet="Malignance Boots"
 		-- }
 		
 	
@@ -298,8 +311,8 @@ function init_gear_sets()
 
 		sets.TreasureHunter =
 		{
-			hands="Plun. Armlets +1",
-			feet="Skulk. Poulaines +1"
+			hands="Plun. Armlets +3",
+			waist="Chaac Belt"
 		}
 		
 		sets.EnmityDown =
@@ -337,7 +350,7 @@ function init_gear_sets()
 		sets.precast.WS =
 		{
 			ammo="Aurgelmir Orb +1",
-			head="Lustratio Cap +1", neck="Fotia Gorget", lear="Sherida Earring", rear="Moonshade Earring",
+			head="Pill. Bonnet +2", neck="Fotia Gorget", lear="Sherida Earring", rear="Moonshade Earring",
 			body="Adhemar Jacket +1", hands="Meg. Gloves +2", lring="Regal Ring", rring="Epaminondas's Ring",
 			back="Sacro Mantle", waist="Fotia Belt", legs="Malignance Tights", feet="Lustra. Leggings +1"
 		} 
@@ -362,15 +375,16 @@ function init_gear_sets()
 		sets.precast.WS.SA = set_combine(sets.precast.WS,
 		{
 			ammo="Yetshila +1",
-			head=gear.AHead_TP, neck="Asn. Gorget +1", lear="Odr Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
-			body="Malignance Tabard", lring="Ilabrat Ring",
+			head="Pill. Bonnet +2", neck="Asn. Gorget +1", lear="Odr Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
+			body="Pillager's Vest +2", lring="Ilabrat Ring",
 			waist="Grunfeld Rope", legs="Lustr. Subligar +1"
 		})
 
 		sets.precast.WS.TA = set_combine(sets.precast.WS.SA,
 		{
 			neck="Fotia Gorget", lear="Ishvara Earring", rear="Moonshade Earring",
-			waist="Fotia Belt", legs="Malignance Tights", feet="Malignance Boots"
+			hands="Pill. Armlets +2",
+			waist="Fotia Belt", legs="Pill. Culottes +2", feet="Malignance Boots"
 		})
 
 
@@ -380,7 +394,7 @@ function init_gear_sets()
 			ammo="C. Palug Stone",
 			head="Malignance Chapeau", rear="Brutal Earring",
 			hands="Floral Gauntlets", lring="Ilabrat Ring", rring="Regal Ring",
-			legs="Meg. Chausses +2", feet=gear.HBoots_TP
+			legs="Meg. Chausses +2", feet="Plun. Poulaines +3"
 		})
 
 		sets.precast.WS['Exenterator'].Low = set_combine(sets.precast.WS['Exenterator'],
@@ -401,13 +415,14 @@ function init_gear_sets()
 		sets.precast.WS['Exenterator'].SA = set_combine(sets.precast.WS['Exenterator'],
 		{
 			ammo="Yetshila +1",
-			head=gear.AHead_TP, lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-			body="Malignance Tabard", hands="Malignance Gloves",
-			feet=gear.HBoots_Crit
+			head="Pill. Bonnet +2", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
+			body="Pillager's Vest +2", hands="Malignance Gloves",
+			leg="Pill. Culottes +2", feet=gear.HBoots_Crit
 		})
 
 		sets.precast.WS['Exenterator'].TA = set_combine(sets.precast.WS['Exenterator'].SA,
 		{
+			body="Pillager's Vest +2", hands="Pill. Armlets +2",
 			feet="Malignance Boots"
 		})
 
@@ -417,7 +432,7 @@ function init_gear_sets()
 			ammo="Yetshila +1",
 			head=gear.AHead_TP, lear="Odr Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Adhemar Jacket +1", hands="Mummu Wrists +2", lring="Ilabrat Ring", rring="Regal Ring",
-			back=gear.THFCape_Crit, legs="Lustr. Subligar +1", feet=gear.HBoots_Crit
+			back=gear.THFCape_STP, legs="Lustr. Subligar +1", feet=gear.HBoots_Crit
 		})
 
 		sets.precast.WS['Evisceration'].Low = set_combine(sets.precast.WS['Evisceration'],
@@ -436,13 +451,14 @@ function init_gear_sets()
 		sets.precast.WS['Evisceration'].SA = set_combine(sets.precast.WS['Evisceration'],
 		{
 			head=gear.AHead_TP,
-			body="Malignance Tabard", hands="Malignance Gloves", rring="Regal Ring",
-			feet=gear.HBoots_Crit
+			body="Pillager's Vest +2", hands="Adhemar Wrist. +1", rring="Regal Ring",
+			leg="Pill. Culottes +2", feet=gear.HBoots_Crit
 		})
 
 		sets.precast.WS['Evisceration'].TA = set_combine(sets.precast.WS['Evisceration'].SA,
 		{
-			back="Sacro Mantle", feet="Malignance Boots"
+			body="Pillager's Vest +2", hands="Pill. Armlets +2",
+			back="Sacro Mantle", legs="Pill. Culottes +2", feet=gear.HBoots_Crit
 		})
 		
 	---Dancing Edge
@@ -474,23 +490,24 @@ function init_gear_sets()
 		{
 			ammo="Yetshila +1",
 			head=gear.AHead_TP, lear="Odr Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
-			body="Malignance Tabard", hands="Malignance Gloves", rring="Regal Ring",
-			feet=gear.HBoots_Crit
+			body="Pillager's Vest +2", hands="Adhemar Wrist. +1", rring="Regal Ring",
+			leg="Pill. Culottes +2", feet=gear.HBoots_Crit
 		})
 
 		sets.precast.WS['Dancing Edge'].TA = set_combine(sets.precast.WS['Dancing Edge'].SA,
 		{
-			feet="Malignance Boots"
+			body="Pillager's Vest +2",
+			leg="Pill. Culottes +2", feet=gear.HBoots_Crit
 		})
 
 	---Rudra's Storm
-		sets.precast.WS['Rudra\'s Storm'] = set_combine(sets.precast.WS,
+		sets.precast.WS['Rudra\'s Storm'] =
 		{
 			ammo="C. Palug Stone",
-			neck="Asn. Gorget +1", lear="Odr Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
-			body="Herculean Vest", lring="Regal Ring", rring="Epaminondas's Ring",
-			waist="Grunfeld Rope", legs="Lustr. Subligar +1", feet="Lustra. Leggings +1"
-		})
+			head="Pill. Bonnet +2", neck="Asn. Gorget +1", lear="Odr Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
+			body="Herculean Vest", hands="Meg. Gloves +2", lring="Regal Ring", rring="Epaminondas's Ring",
+			back="Sacro Mantle", waist="Grunfeld Rope", legs="Lustr. Subligar +1", feet="Lustra. Leggings +1"
+		}
 
 		sets.precast.WS['Rudra\'s Storm'].Low = sets.precast.WS["Rudra's Storm"]
 		
@@ -501,13 +518,14 @@ function init_gear_sets()
 		sets.precast.WS['Rudra\'s Storm'].SA = set_combine(sets.precast.WS["Rudra's Storm"],
 		{
 			ammo="Yetshila +1",
-			head=gear.AHead_TP, rear={name="Mache Earring +1", bag="wardrobe3"}
+			body="Pillager's Vest +2",
+			leg="Pill. Culottes +2"
 		})
 
 		sets.precast.WS['Rudra\'s Storm'].TA = set_combine(sets.precast.WS["Rudra's Storm"].SA,
 		{
-			body="Malignance Tabard",
-			feet=gear.HBoots_Crit
+			body="Pillager's Vest +2",
+			leg="Pill. Culottes +2", feet=gear.HBoots_Crit
 		})
 
 	---Mandalic Stab
@@ -557,9 +575,9 @@ function init_gear_sets()
 		sets.engaged =
 		{
 			ammo="Yamarang",
-			head=gear.AHead_TP, neck="Asn. Gorget +1", lear="Eabani Earring", rear="Suppanomimi",
+			head="Plun. Bonnet +3", neck="Asn. Gorget +1", lear="Eabani Earring", rear="Suppanomimi",
 			body="Adhemar Jacket +1", hands="Floral Gauntlets", lring="Epona's Ring", rring="Gere Ring",
-			back=gear.THFCape_STP, waist="Reiki Yotai", legs="Samnuha Tights", feet=gear.TFeet_TP
+			back=gear.THFCape_DW, waist="Reiki Yotai", legs="Samnuha Tights", feet=gear.TFeet_TP
 		}
 
 		sets.engaged.Low = set_combine(sets.engaged,
@@ -570,14 +588,15 @@ function init_gear_sets()
 
 		sets.engaged.Mid = set_combine(sets.engaged.Low,
 		{
-			hands="Malignance Gloves", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			hands="Pill. Armlets +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring="Regal Ring",
 			feet="Malignance Boots"
 		})
 
 		sets.engaged.High = set_combine(sets.engaged.Mid,
 		{
-			lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-			waist="Kentarch Belt +1"
+			lear="Odr Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
+			body="Pillager's Vest +2", hands="Malignance Gloves",
+			waist="Sailfi Belt +1", legs="Pill. Culottes +2"
 		})
 	
 	
@@ -593,9 +612,9 @@ function init_gear_sets()
 		sets.engaged.Min =
 		{
 			ammo="Yamarang",
-			head=gear.AHead_TP, neck="Asn. Gorget +1", lear="Eabani Earring", rear="Suppanomimi",
+			head="Plun. Bonnet +3", neck="Asn. Gorget +1", lear="Eabani Earring", rear="Suppanomimi",
 			body="Adhemar Jacket +1", hands="Floral Gauntlets", lring="Epona's Ring", rring="Gere Ring",
-			back=gear.THFCape_STP, waist="Reiki Yotai", legs="Samnuha Tights", feet=gear.TFeet_TP
+			back=gear.THFCape_DW, waist="Reiki Yotai", legs="Samnuha Tights", feet="Plun. Poulaines +3"
 		}
 
 		sets.engaged.Low.Min = set_combine(sets.engaged.Min,
@@ -606,14 +625,15 @@ function init_gear_sets()
 
 		sets.engaged.Mid.Min = set_combine(sets.engaged.Low.Min,
 		{
-			hands="Malignance Gloves", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			hands="Pill. Armlets +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring="Regal Ring",
 			feet="Malignance Boots"
 		})
 
 		sets.engaged.High.Min = set_combine(sets.engaged.Mid.Min,
 		{
-			lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-			waist="Kentarch Belt +1"
+			lear="Odr Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
+			body="Pillager's Vest +2", hands="Malignance Gloves",
+			waist="Sailfi Belt +1", legs="Pill. Culottes +2"
 		})
 
 	
@@ -628,9 +648,9 @@ function init_gear_sets()
 		sets.engaged.Med =
 		{
 			ammo="Yamarang",
-			head=gear.AHead_TP, neck="Asn. Gorget +1", lear="Eabani Earring", rear="Suppanomimi",
-			body="Adhemar Jacket +1", hands="Floral Gauntlets", lring="Epona's Ring", rring="Gere Ring",
-			back=gear.THFCape_STP, waist="Reiki Yotai", legs="Samnuha Tights", feet=gear.HBoots_TP
+			head="Plun. Bonnet +3", neck="Asn. Gorget +1", lear="Sherida Earring", rear="Telos Earring",
+			body="Adhemar Jacket +1", hands="Pill. Armlets +2", lring="Epona's Ring", rring="Gere Ring",
+			back=gear.THFCape_DW, waist="Reiki Yotai", legs="Samnuha Tights", feet="Plun. Poulaines +3"
 		}
 
 		sets.engaged.Low.Med = set_combine(sets.engaged.Med,
@@ -641,14 +661,15 @@ function init_gear_sets()
 
 		sets.engaged.Mid.Med = set_combine(sets.engaged.Low.Med,
 		{
-			hands="Malignance Gloves", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			hands="Pill. Armlets +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring="Regal Ring",
 			feet="Malignance Boots"
 		})
 
 		sets.engaged.High.Med = set_combine(sets.engaged.Mid.Med,
 		{
-			lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-			waist="Kentarch Belt +1"
+			lear="Odr Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
+			body="Pillager's Vest +2", hands="Malignance Gloves",
+			waist="Sailfi Belt +1", legs="Pill. Culottes +2"
 		})
 
 	
@@ -664,9 +685,9 @@ function init_gear_sets()
 		sets.engaged.Max =
 		{
 			ammo="Yamarang",
-			head=gear.AHead_TP, neck="Asn. Gorget +1", lear="Sherida Earring", rear="Telos Earring",
+			head="Plun. Bonnet +3", neck="Asn. Gorget +1", lear="Sherida Earring", rear="Telos Earring",
 			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Epona's Ring", rring="Gere Ring",
-			back=gear.THFCape_STP, waist="Windbuffet Belt +1", legs="Samnuha Tights", feet=gear.HBoots_TP
+			back=gear.THFCape_STP, waist="Windbuffet Belt +1", legs="Samnuha Tights", feet="Plun. Poulaines +3"
 		}
 
 		sets.engaged.Low.Max = set_combine(sets.engaged.Max,
@@ -677,14 +698,15 @@ function init_gear_sets()
 
 		sets.engaged.Mid.Max = set_combine(sets.engaged.Low.Max,
 		{
-			hands="Malignance Gloves", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			hands="Malignance Gloves", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring="Regal Ring",
 			feet="Malignance Boots"
 		})
 
 		sets.engaged.High.Max = set_combine(sets.engaged.Mid.Max,
 		{
-			lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-			waist="Kentarch Belt +1"
+			lear="Odr Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
+			body="Pillager's Vest +2", hands="Malignance Gloves",
+			waist="Sailfi Belt +1", legs="Pill. Culottes +2"
 		})
 
 	
