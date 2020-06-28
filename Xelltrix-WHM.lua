@@ -428,7 +428,10 @@ function init_gear_sets()
 	-- Special Sets
 	--------------------------------------
 		
-		sets.Kiting = { feet="Crier's Gaiters" }
+		sets.Kiting = 
+		{ 
+			feet="Crier's Gaiters" 
+		}
 
 		sets.buff['Divine Caress'] =
 		{

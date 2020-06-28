@@ -34,20 +34,21 @@ end
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
 	state.OffenseMode:options('Normal', 'Low', 'Mid', 'High')
-    state.HybridMode:options('Normal', 'DT')
+    state.HybridMode:options('Normal', 'DT', 'DTMAX')
 	state.WeaponskillMode:options('Normal', 'Low', 'Mid', 'High')
-    state.IdleMode:options('Normal')
+    state.IdleMode:options('Normal','DT')
 	
 	state.MainWeaponSet = M{['description']='Main Weapon Set',
-		'Aeneas',
 		'Twashtar',
+		'Aeneas',
 		'Tauret'
+
 	}
 	
 	state.SubWeaponSet = M{['description']='Sub Weapon Set',
-		'subTwashtar',
+		'Centovente',
 		'subTauret',
-		'Centovente'
+		'subTwashtar'
 	}
 
     -- Additional local binds
@@ -95,7 +96,7 @@ function init_gear_sets()
 
 		sets.precast.JA['No Foot Rise'] =
 		{
-			body="Horos Casaque +1"
+			body="Horos Casaque +3"
 		}
 
 		sets.precast.JA['Trance'] =
@@ -115,12 +116,12 @@ function init_gear_sets()
 		sets.precast.Samba =
 		{
 			head="Maxixi Tiara +1",
-			back="Senuna's Mantle"
+			back=gear.DNCCape_STP
 		}
 
 		sets.precast.Jig =
 		{
-			legs="Horos Tights +1", feet="Maxixi Shoes +1"
+			legs="Horos Tights +3", feet="Maxixi Shoes +1"
 		}
 
 		sets.precast.Step = sets.engaged.High
@@ -129,7 +130,7 @@ function init_gear_sets()
 		sets.precast.Flourish1['Violent Flourish'] = set_combine(sets.engaged.High,
 		{
 			neck="Sanctity Necklace", lear="Digni. Earring",ear2="Gwati Earring",
-			body="Horos Casaque +1",lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			body="Horos Casaque +3",lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 		})
 		sets.precast.Flourish1['Desperate Flourish'] = sets.engaged.High
 
@@ -220,14 +221,14 @@ function init_gear_sets()
 		sets.idle =
 		{
 			ammo="Staunch Tathlum +1",
-			head="Malignance Chapeau", neck="Warder's Charm +1", lear="Dawn Earring", rear="Infused Earring",
-			body="Malignance Tabard", hands="Malignance Gloves", lring="Defending Ring", rring="Moonlight Ring",
-			back="Moonlight Cape", waist="Engraved Belt", legs="Malignance Tights", feet="Skd. Jambeaux +1"
+			head="Turms Cap +1", neck="Warder's Charm +1", lear="Dawn Earring", rear="Infused Earring",
+			body="Malignance Tabard", hands="Turms Mittens +1", lring="Defending Ring", rring="Moonlight Ring",
+			back="Moonlight Cape", waist="Engraved Belt", legs="Turms Subligar +1", feet="Skd. Jambeaux +1"
 		}
 		
 		sets.idle.DT =
 		{--	DT: 35%		PDT: 51%	MDT: 35%
-			ammo="Staunch Tathlum +1",
+			ammo="Yamarang",
 			head="Malignance Chapeau",  neck="Warder's Charm +1", lear="Dawn Earring", rear="Infused Earring",
 			body="Malignance Tabard", hands="Malignance Gloves", lring="Defending Ring", rring="Moonlight Ring",
 			back="Moonlight Cape", waist="Engraved Belt", legs="Malignance Tights", feet="Malignance Boots"
@@ -310,7 +311,7 @@ function init_gear_sets()
 			ammo="Aurgelmir Orb +1",
 			head=gear.HHead_WSD, neck="Fotia Gorget", lear="Sherida Earring", rear="Moonshade Earring",
 			body="Adhemar Jacket +1", hands="Meg. Gloves +2", lring="Regal Ring", rring="Epona's Ring",
-			back="Sacro Mantle", waist="Fotia Belt", legs="Samnuha Tights", feet=gear.HBoots_WSD
+			back="Sacro Mantle", waist="Fotia Belt", legs="Horos Tights +3", feet=gear.HBoots_WSD
 		}
 
 		sets.precast.WS.Low = set_combine(sets.precast.WS,
@@ -369,7 +370,7 @@ function init_gear_sets()
 		{
 			ammo="Charis Feather",
 			head=gear.AHead_TP, neck="Fotia Gorget", lear="Odr Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
-			body="Meg. Cuirie +2", hands="Mummu Wrists +2", lring="Ilabrat Ring", rring="Regal Ring",
+			body="Meg. Cuirie +2", hands="adhemar Wrist. +1", lring="Ilabrat Ring", rring="Regal Ring",
 			back="Sacro Mantle", waist="Fotia Belt", legs="Lustr. Subligar +1", feet=gear.HBoots_Crit
 		}
 
@@ -430,7 +431,7 @@ function init_gear_sets()
 			ammo="C. Palug Stone",
 			head="Lustratio Cap +1", neck="Etoile Gorget +2", lear="Odr Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Herculean Vest", hands="Meg. Gloves +2", lring="Regal Ring", rring="Epaminondas's Ring",
-			back="Sacro Mantle", waist="Grunfeld Rope", legs="Lustr. Subligar +1", feet="Lustra. Leggings +1"
+			back="Sacro Mantle", waist="Grunfeld Rope", legs="Horos Tights +3", feet="Lustra. Leggings +1"
 		}
 
 		sets.precast.WS['Rudra\'s Storm'].Low = sets.precast.WS["Rudra's Storm"]
@@ -485,7 +486,7 @@ function init_gear_sets()
 			ammo="Pemphredo Tathlum",
 			head=gear.HHead_MAB, lear="Friomisi Earring",
 			body="Samnuha Coat", hands="Leyline Gloves", lring="Shiva Ring +1", rring="Epaminondas's Ring",
-			back="Sacro Mantle", legs="Shned. Tights +1", feet=gear.HBoots_WSD
+			back="Sacro Mantle", waist="Orpheus's Sash", legs="Shned. Tights +1", feet="Adhe. Gamashes +1"
 		})
 
 
@@ -497,8 +498,8 @@ function init_gear_sets()
 	{
 		ammo="Pemphredo Tathlum",
 		head="Malignance Chapeau", neck="Sanctity Necklace", lear="Friomisi Earring", rear="Moonshade Earring",
-		body="Malignance Tabard", hands="Malignance Gloves", lring="Shiva Ring +1", rring="Epaminondas's Ring",
-		back="Sacro Mantle", waist="Engraved Belt", legs="Malignance Tights", feet="Malignance Boots"
+		body="Malignance Tabard", hands="Leyline Gloves", lring="Shiva Ring +1", rring="Epaminondas's Ring",
+		back="Sacro Mantle", waist="Orpheus's Sash", legs="Shned. Tights +1", feet="Adhe. Gamashes +1"
 	}
 
 	
@@ -508,19 +509,19 @@ function init_gear_sets()
 
 	
 	----------------------------------------------------------
-	--					(DW4 + No Haste)
+	--					(DW5 + No Haste)
 	----------------------------------------------------------
 
-	--30 DW = 44 DW needed		
+	--30 DW = 41 DW needed		
 	
 	----------------------------------------------------------	
 	
 		sets.engaged =
-		{
+		{--		DW36
 			ammo="Yamarang",
 			head="Dampening Tam", neck="Etoile Gorget +2", lear="Eabani Earring", rear="Suppanomimi",
 			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Epona's Ring", rring="Gere Ring",
-			back="Senuna's Mantle", waist="Reiki Yotai", legs="Samnuha Tights", feet=gear.TFeet_TP
+			back=gear.DNCCape_DW, waist="Reiki Yotai", legs="Samnuha Tights", feet=gear.TFeet_TP
 		}
 
 		sets.engaged.Low = set_combine(sets.engaged,
@@ -544,10 +545,10 @@ function init_gear_sets()
 	
 	
 	----------------------------------------------------------
-	--					(DW4 + 15% Haste)
+	--					(DW5 + 15% Haste)
 	----------------------------------------------------------
 
-	--30 DW = 37 DW needed		
+	--30 DW = 31 DW needed		
 	
 	----------------------------------------------------------	
 	
@@ -556,7 +557,7 @@ function init_gear_sets()
 			ammo="Yamarang",
 			head="Dampening Tam", neck="Etoile Gorget +2", lear="Eabani Earring", rear="Suppanomimi",
 			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Hetairoi Ring", rring="Epona's Ring",
-			back="Senuna's Mantle", waist="Reiki Yotai", legs="Samnuha Tights", feet=gear.TFeet_TP
+			back=gear.DNCCape_DW, waist="Reiki Yotai", legs="Samnuha Tights", feet="Horos T. Shoes +3"
 		}
 
 		sets.engaged.Low.Min = set_combine(sets.engaged.Min,
@@ -579,24 +580,24 @@ function init_gear_sets()
 
 	
 	----------------------------------------------------------
-	--					(DW4 + 30% Haste)
+	--					(DW5 + 30% Haste)
 	----------------------------------------------------------
 
-	--30 DW = 26 DW needed		
+	--30 DW = 21 DW needed		
 	
 	----------------------------------------------------------	
 	
 		sets.engaged.Med =
 		{
 			ammo="Yamarang",
-			head="Dampening Tam", neck="Etoile Gorget +2", lear="Eabani Earring", rear="Suppanomimi",
+			head="Dampening Tam", neck="Etoile Gorget +2", lear="Sherida Earring", rear="Suppanomimi",
 			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Epona's Ring", rring="Gere Ring",
-			back="Senuna's Mantle", waist="Reiki Yotai", legs="Samnuha Tights", feet=gear.TFeet_TP
+			back=gear.DNCCape_DW, waist="Windbuffet Belt +1", legs="Samnuha Tights", feet="Horos T. Shoes +3"
 		}
 
 		sets.engaged.Low.Med = set_combine(sets.engaged.Med,
 		{
-			head="Malignance Chapeau", neck="Etoile Gorget +2",
+			head="Malignance Chapeau",
 			legs="Malignance Tights"
 		})
 
@@ -615,10 +616,10 @@ function init_gear_sets()
 	
 	
 	----------------------------------------------------------
-	--					(DW4 + Max Haste)
+	--					(DW5 + Max Haste)
 	----------------------------------------------------------
 
-	--30 DW = 6 DW needed
+	--30 DW = 1 DW needed
 	
 	----------------------------------------------------------
 	
@@ -626,26 +627,26 @@ function init_gear_sets()
 		{
 			ammo="Yamarang",
 			head="Dampening Tam", neck="Etoile Gorget +2", lear="Sherida Earring", rear="Telos Earring",
-			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Epona's Ring", rring="Gere Ring",
-			back="Senuna's Mantle", waist="Windbuffet Belt +1", legs="Samnuha Tights", feet=gear.HBoots_TP
+			body="Horos Casaque +3", hands="Adhemar Wrist. +1", lring="Epona's Ring", rring="Gere Ring",
+			back=gear.DNCCape_STP, waist="Windbuffet Belt +1", legs="Samnuha Tights", feet=gear.HBoots_TP
 		}
 
 		sets.engaged.Low.Max = set_combine(sets.engaged.Max,
 		{
-			legs="Malignance Tights", feet="Malignance Boots"
+			head="Malignance Chapeau",
+			legs="Malignance Tights", feet="Horos T. Shoes +3"
 		})
 
 		sets.engaged.Mid.Max = set_combine(sets.engaged.Low.Max,
 		{
-			head="Malignance Chapeau",
-			hands="Malignance Gloves", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"}
+			hands="Malignance Gloves", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			waist="Kentarch Belt +1"
 		})
 
 		sets.engaged.High.Max = set_combine(sets.engaged.Mid.Max,
 		{
 			lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-			body="Malignance Tabard",
-			waist="Reiki Yotai"
+			body="Malignance Tabard"
 		})
 
 
@@ -655,6 +656,7 @@ function init_gear_sets()
 		sets.engaged.Hybrid = 
 		{--	DT: 23%		PDT: 27%	MDT: 23%
 			head="Malignance Chapeau",
+			body="Malignance Tabard", hands="Malignance Gloves", 
 			legs="Malignance Tights", feet="Malignance Boots"
 		}
 		
@@ -707,10 +709,17 @@ function init_gear_sets()
 		sets.engaged.High.DT.Med		= set_combine(sets.engaged.High.Med, 	sets.engaged.Hybrid)	
 	
 	
-	    sets.engaged.DTMAX.Med 			= set_combine(sets.engaged.Med, 		sets.engaged.Hybrid2)
-		sets.engaged.Low.DTMAX.Med		= set_combine(sets.engaged.Low.Med, 	sets.engaged.Hybrid2)
-		sets.engaged.Mid.DTMAX.Med		= set_combine(sets.engaged.Mid.Med, 	sets.engaged.Hybrid2)
-		sets.engaged.High.DTMAX.Med		= set_combine(sets.engaged.High.Med, 	sets.engaged.Hybrid2)		
+	    sets.engaged.DTMAX.Med 			= set_combine(sets.engaged.Med, 		sets.engaged.Hybrid2,
+		{
+			rring="Epona's Ring",
+			waist="Reiki Yotai"
+		})
+		sets.engaged.Low.DTMAX.Med		= set_combine(sets.engaged.DTMAX.Med,
+		{
+			rring={name="Chirich Ring +1", bag="wardrobe3"}
+		})
+		sets.engaged.Mid.DTMAX.Med		= sets.engaged.Low.DTMAX.Med
+		sets.engaged.High.DTMAX.Med		= sets.engaged.Mid.DTMAX.Med	
 	
 	
 	
@@ -723,10 +732,26 @@ function init_gear_sets()
 		sets.engaged.High.DT.Max		= set_combine(sets.engaged.High.Max, 	sets.engaged.Hybrid)
 	
 	
-	    sets.engaged.DTMAX.Max 			= set_combine(sets.engaged.Max, 		sets.engaged.Hybrid2)
-		sets.engaged.Low.DTMAX.Max		= set_combine(sets.engaged.Low.Max, 	sets.engaged.Hybrid2)
-		sets.engaged.Mid.DTMAX.Max		= set_combine(sets.engaged.Mid.Max, 	sets.engaged.Hybrid2)
-		sets.engaged.High.DTMAX.Max		= set_combine(sets.engaged.High.Max, 	sets.engaged.Hybrid2)	
+	    sets.engaged.DTMAX.Max 			= set_combine(sets.engaged.Max, 		sets.engaged.Hybrid2,
+		{
+			rear="Suppanomimi",
+			rring="Epona's Ring"
+		})
+		sets.engaged.Low.DTMAX.Max		= set_combine(sets.engaged.DTMAX.Max,
+		{
+			lear="Telos Earring"
+		})
+		sets.engaged.Mid.DTMAX.Max		= set_combine(sets.engaged.Low.DTMAX.Max,
+		{
+			rring={name="Chirich Ring +1", bag="wardrobe3"}
+		})
+		sets.engaged.High.DTMAX.Max		= set_combine(sets.engaged.Mid.DTMAX.Max,
+		{
+			lear={name="Mache Earring +1", bag="wardrobe2"},
+			waist="Kentarch Belt +1"
+		})	
+		
+		
 
 end
 

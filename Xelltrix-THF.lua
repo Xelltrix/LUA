@@ -95,21 +95,82 @@ function init_gear_sets()
 ------------							 						------------
 --------------------									--------------------
 ----------------------------------------------------------------------------
+	
+	
+	--------------------------------------
+	-- Special sets 
+	--------------------------------------
 
+		sets.TreasureHunter =
+		{
+			hands="Plun. Armlets +3",
+			waist="Chaac Belt"
+		}
+		
+		sets.TreasureHunter2 =
+		{
+			head=gear.HHead_TH,
+			hands="Plun. Armlets +3"
+		}
+		
+		sets.Enmity = 
+		{--		Enmity: +75
+			ammo="Sapience Orb",
+			head="Rabid Visor", neck="Unmoving Collar +1", lear="Cryptic Earring", rear="Trux Earring",
+			body="Plunderer's Vest +3", hands="Nilas Gloves", lring="Eihwaz Ring", rring="Supershear Ring",
+			back="Reiki Cloak", waist="Trance Belt", legs="Zoar Subligar +1", feet="Ahosi Leggings"
+		}
+		
+		sets.EnmityDown =
+		{--		Enmity: -27
+			rear="Novia Earring",
+			body="Adhemar Jacket +1",
+			lring="Lebeche Ring", rring="Kuchekula Ring"
+		}
+
+		sets.Kiting = { feet="Jute Boots +1" }
+
+		sets.buff.Doom = 
+		{
+			neck="Nicander's Necklace",
+			lring={name="Eshmun's Ring", bag="wardrobe2"}, rring={name="Eshmun's Ring", bag="wardrobe3"},
+			waist="Gishdubar Sash"
+		}
+	
+		sets.buff['Feint'] = sets.TreasureHunter
+		
+		
+		
 	-------------------
 	-- Job Abilities --
 	------------------- 
 
-		sets.precast.JA['Collaborator'] =
+		sets.precast.JA['Collaborator'] = set_combine(sets.Enmity,
 		{
 			head="Skulker's Bonnet +1"
-		}
+		})
+		
 		sets.precast.JA['Accomplice'] = sets.precast.JA['Collaborator']
+		
+		sets.precast.JA['Feint'] =
+		{
+			legs="Plun. Culottes +3"
+		}
 		
 		sets.precast.JA['Steal'] = 
 		{
-			head="Plun. Bonnet +1",
+			head="Plun. Bonnet +3",
 			legs="Pill. Culottes +1",feet="Pill. Poulaines +2"
+		}
+		
+		sets.precast.JA['Mug'] =
+		{
+			head="Plun. Bonnet +3"
+		}
+		
+		sets.precast.JA['Hide'] =
+		{
+			body="Pillager's Vest +2"
 		}
 
 		sets.precast.JA['Flee'] =
@@ -303,35 +364,7 @@ function init_gear_sets()
 		}
 
 		sets.defense.MDT = sets.defense.PDT
-	
-	
-	--------------------------------------
-	-- Special sets (required by rules)
-	--------------------------------------
 
-		sets.TreasureHunter =
-		{
-			hands="Plun. Armlets +3",
-			waist="Chaac Belt"
-		}
-		
-		sets.EnmityDown =
-		{--		Enmity: -27
-			rear="Novia Earring",
-			body="Adhemar Jacket +1",
-			lring="Lebeche Ring", rring="Kuchekula Ring"
-		}
-
-		sets.Kiting = { feet="Jute Boots +1" }
-
-		sets.buff.Doom = 
-		{
-			neck="Nicander's Necklace",
-			lring={name="Eshmun's Ring", bag="wardrobe2"}, rring={name="Eshmun's Ring", bag="wardrobe3"},
-			waist="Gishdubar Sash"
-		}
-	
-		sets.buff['Feint'] = sets.TreasureHunter
 		
 	
 	
@@ -352,7 +385,7 @@ function init_gear_sets()
 			ammo="Aurgelmir Orb +1",
 			head="Pill. Bonnet +2", neck="Fotia Gorget", lear="Sherida Earring", rear="Moonshade Earring",
 			body="Adhemar Jacket +1", hands="Meg. Gloves +2", lring="Regal Ring", rring="Epaminondas's Ring",
-			back="Sacro Mantle", waist="Fotia Belt", legs="Malignance Tights", feet="Lustra. Leggings +1"
+			back="Sacro Mantle", waist="Fotia Belt", legs="Plun. Culottes +3", feet="Lustra. Leggings +1"
 		} 
 
 		sets.precast.WS.Low = set_combine(sets.precast.WS,
@@ -368,23 +401,22 @@ function init_gear_sets()
 		sets.precast.WS.High = set_combine(sets.precast.WS.Mid,
 		{
 			rear={name="Mache Earring +1", bag="wardrobe3"},	
-			body="Malignance Tabard", rring="Regal Ring",
-			legs="Meg. Chausses +2"
+			body="Malignance Tabard", rring="Regal Ring"
 		})
 
 		sets.precast.WS.SA = set_combine(sets.precast.WS,
 		{
 			ammo="Yetshila +1",
 			head="Pill. Bonnet +2", neck="Asn. Gorget +1", lear="Odr Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
-			body="Pillager's Vest +2", lring="Ilabrat Ring",
-			waist="Grunfeld Rope", legs="Lustr. Subligar +1"
+			body="Plunderer's Vest +3", lring="Ilabrat Ring",
+			waist="Grunfeld Rope"
 		})
 
 		sets.precast.WS.TA = set_combine(sets.precast.WS.SA,
 		{
 			neck="Fotia Gorget", lear="Ishvara Earring", rear="Moonshade Earring",
-			hands="Pill. Armlets +2",
-			waist="Fotia Belt", legs="Pill. Culottes +2", feet="Malignance Boots"
+			body="Plunderer's Vest +3", hands="Pill. Armlets +2",
+			waist="Fotia Belt", feet="Malignance Boots"
 		})
 
 
@@ -392,8 +424,8 @@ function init_gear_sets()
 		sets.precast.WS['Exenterator'] = set_combine(sets.precast.WS,
 		{
 			ammo="C. Palug Stone",
-			head="Malignance Chapeau", rear="Brutal Earring",
-			hands="Floral Gauntlets", lring="Ilabrat Ring", rring="Regal Ring",
+			head="Plun. Bonnet +3", rear="Brutal Earring",
+			body="Plunderer's Vest +3", hands="Floral Gauntlets", lring="Ilabrat Ring", rring="Regal Ring",
 			legs="Meg. Chausses +2", feet="Plun. Poulaines +3"
 		})
 
@@ -416,13 +448,13 @@ function init_gear_sets()
 		{
 			ammo="Yetshila +1",
 			head="Pill. Bonnet +2", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-			body="Pillager's Vest +2", hands="Malignance Gloves",
+			hands="Malignance Gloves",
 			leg="Pill. Culottes +2", feet=gear.HBoots_Crit
 		})
 
 		sets.precast.WS['Exenterator'].TA = set_combine(sets.precast.WS['Exenterator'].SA,
 		{
-			body="Pillager's Vest +2", hands="Pill. Armlets +2",
+			hands="Pill. Armlets +2",
 			feet="Malignance Boots"
 		})
 
@@ -431,8 +463,8 @@ function init_gear_sets()
 		{
 			ammo="Yetshila +1",
 			head=gear.AHead_TP, lear="Odr Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
-			body="Adhemar Jacket +1", hands="Mummu Wrists +2", lring="Ilabrat Ring", rring="Regal Ring",
-			back=gear.THFCape_STP, legs="Lustr. Subligar +1", feet=gear.HBoots_Crit
+			body="Plunderer's Vest +3", hands="Adhemar Wrist. +1", lring="Ilabrat Ring", rring="Regal Ring",
+			back="Sacro Mantle", legs="Lustr. Subligar +1", feet=gear.HBoots_Crit
 		})
 
 		sets.precast.WS['Evisceration'].Low = set_combine(sets.precast.WS['Evisceration'],
@@ -444,20 +476,19 @@ function init_gear_sets()
 		
 		sets.precast.WS['Evisceration'].High = set_combine(sets.precast.WS['Evisceration'].Mid,
 		{
-			body="Malignance Tabard",
 			legs="Malignance Tights", feet="Malignance Boots"
 		})
 
 		sets.precast.WS['Evisceration'].SA = set_combine(sets.precast.WS['Evisceration'],
 		{
 			head=gear.AHead_TP,
-			body="Pillager's Vest +2", hands="Adhemar Wrist. +1", rring="Regal Ring",
+			rring="Regal Ring",
 			leg="Pill. Culottes +2", feet=gear.HBoots_Crit
 		})
 
 		sets.precast.WS['Evisceration'].TA = set_combine(sets.precast.WS['Evisceration'].SA,
 		{
-			body="Pillager's Vest +2", hands="Pill. Armlets +2",
+			hands="Pill. Armlets +2",
 			back="Sacro Mantle", legs="Pill. Culottes +2", feet=gear.HBoots_Crit
 		})
 		
@@ -490,13 +521,13 @@ function init_gear_sets()
 		{
 			ammo="Yetshila +1",
 			head=gear.AHead_TP, lear="Odr Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
-			body="Pillager's Vest +2", hands="Adhemar Wrist. +1", rring="Regal Ring",
+			body="Plunderer's Vest +3", hands="Adhemar Wrist. +1", rring="Regal Ring",
 			leg="Pill. Culottes +2", feet=gear.HBoots_Crit
 		})
 
 		sets.precast.WS['Dancing Edge'].TA = set_combine(sets.precast.WS['Dancing Edge'].SA,
 		{
-			body="Pillager's Vest +2",
+			body="Plunderer's Vest +3",
 			leg="Pill. Culottes +2", feet=gear.HBoots_Crit
 		})
 
@@ -518,13 +549,13 @@ function init_gear_sets()
 		sets.precast.WS['Rudra\'s Storm'].SA = set_combine(sets.precast.WS["Rudra's Storm"],
 		{
 			ammo="Yetshila +1",
-			body="Pillager's Vest +2",
+			body="Plunderer's Vest +3",
 			leg="Pill. Culottes +2"
 		})
 
 		sets.precast.WS['Rudra\'s Storm'].TA = set_combine(sets.precast.WS["Rudra's Storm"].SA,
 		{
-			body="Pillager's Vest +2",
+			body="Plunderer's Vest +3",
 			leg="Pill. Culottes +2", feet=gear.HBoots_Crit
 		})
 
@@ -594,9 +625,10 @@ function init_gear_sets()
 
 		sets.engaged.High = set_combine(sets.engaged.Mid,
 		{
+			ammo="C. Palug Stone",
 			lear="Odr Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Pillager's Vest +2", hands="Malignance Gloves",
-			waist="Sailfi Belt +1", legs="Pill. Culottes +2"
+			waist="Reiki Yotai", legs="Pill. Culottes +2"
 		})
 	
 	
@@ -631,9 +663,10 @@ function init_gear_sets()
 
 		sets.engaged.High.Min = set_combine(sets.engaged.Mid.Min,
 		{
+			ammo="C. Palug Stone",
 			lear="Odr Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Pillager's Vest +2", hands="Malignance Gloves",
-			waist="Sailfi Belt +1", legs="Pill. Culottes +2"
+			waist="Reiki Yotai", legs="Pill. Culottes +2"
 		})
 
 	
@@ -667,9 +700,10 @@ function init_gear_sets()
 
 		sets.engaged.High.Med = set_combine(sets.engaged.Mid.Med,
 		{
+			ammo="C. Palug Stone",
 			lear="Odr Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Pillager's Vest +2", hands="Malignance Gloves",
-			waist="Sailfi Belt +1", legs="Pill. Culottes +2"
+			waist="Reiki Yotai", legs="Pill. Culottes +2"
 		})
 
 	
@@ -704,9 +738,10 @@ function init_gear_sets()
 
 		sets.engaged.High.Max = set_combine(sets.engaged.Mid.Max,
 		{
+			ammo="C. Palug Stone",
 			lear="Odr Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Pillager's Vest +2", hands="Malignance Gloves",
-			waist="Sailfi Belt +1", legs="Pill. Culottes +2"
+			waist="Reiki Yotai", legs="Pill. Culottes +2"
 		})
 
 	
@@ -768,10 +803,17 @@ function init_gear_sets()
 		sets.engaged.High.DT.Med		= set_combine(sets.engaged.High.Med, 	sets.engaged.Hybrid)	
 	
 	
-	    sets.engaged.DTMAX.Med 			= set_combine(sets.engaged.Med, 		sets.engaged.Hybrid2)
-		sets.engaged.Low.DTMAX.Med		= set_combine(sets.engaged.Low.Med, 	sets.engaged.Hybrid2)
-		sets.engaged.Mid.DTMAX.Med		= set_combine(sets.engaged.Mid.Med, 	sets.engaged.Hybrid2)
-		sets.engaged.High.DTMAX.Med		= set_combine(sets.engaged.High.Med, 	sets.engaged.Hybrid2)		
+	    sets.engaged.DTMAX.Med 			= set_combine(sets.engaged.Med, 		sets.engaged.Hybrid2,
+		{
+			rring="Epona's Ring",
+			waist="Reiki Yotai"
+		})
+		sets.engaged.Low.DTMAX.Med		= set_combine(sets.engaged.DTMAX.Med,
+		{
+			rring={name="Chirich Ring +1", bag="wardrobe3"}
+		})
+		sets.engaged.Mid.DTMAX.Med		= sets.engaged.Low.DTMAX.Med
+		sets.engaged.High.DTMAX.Med		= sets.engaged.Mid.DTMAX.Med	
 	
 	
 	
@@ -784,10 +826,24 @@ function init_gear_sets()
 		sets.engaged.High.DT.Max		= set_combine(sets.engaged.High.Max, 	sets.engaged.Hybrid)
 	
 	
-	    sets.engaged.DTMAX.Max 			= set_combine(sets.engaged.Max, 		sets.engaged.Hybrid2)
-		sets.engaged.Low.DTMAX.Max		= set_combine(sets.engaged.Low.Max, 	sets.engaged.Hybrid2)
-		sets.engaged.Mid.DTMAX.Max		= set_combine(sets.engaged.Mid.Max, 	sets.engaged.Hybrid2)
-		sets.engaged.High.DTMAX.Max		= set_combine(sets.engaged.High.Max, 	sets.engaged.Hybrid2)		
+	    sets.engaged.DTMAX.Max 			= set_combine(sets.engaged.Max, 		sets.engaged.Hybrid2,
+		{
+			rring="Epona's Ring",
+			waist="Reiki Yotai"
+		})
+		sets.engaged.Low.DTMAX.Max		= set_combine(sets.engaged.DTMAX.Max,
+		{
+			lear="Telos Earring"
+		})
+		sets.engaged.Mid.DTMAX.Max		= set_combine(sets.engaged.Low.DTMAX.Max,
+		{
+			rring={name="Chirich Ring +1", bag="wardrobe3"}
+		})
+		sets.engaged.High.DTMAX.Max		= set_combine(sets.engaged.Mid.DTMAX.Max,
+		{
+			lear={name="Mache Earring +1", bag="wardrobe2"},
+			waist="Kentarch Belt +1"
+		})		
 
 	
 end
@@ -804,13 +860,11 @@ function job_post_precast(spell, action, spellMap, eventArgs)
 	end
 	
 	if (spell.english == 'Cyclone' or (spell.action_type == 'Ability' and spell.target.type == 'MONSTER')) and state.TreasureMode.value ~= 'None' then
-		equip(sets.TreasureHunter)
+		equip(sets.TreasureHunter2)
 	elseif spell.english=='Sneak Attack' or spell.english=='Trick Attack' or spell.type == 'WeaponSkill' then
 		if state.TreasureMode.value == 'SATA' or state.TreasureMode.value == 'Fulltime' then
 			equip(sets.TreasureHunter)
 		end
-	elseif spell.action_type == 'Magic' and spell.target.type == 'MONSTER' and state.TreasureMode.value ~= 'None' then
-		equip(sets.TreasureHunter)
 	end
 end
 
@@ -829,6 +883,8 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 	
 	if state.TreasureMode.value ~= 'None' and spell.action_type == 'Ranged Attack' then
 		equip(sets.TreasureHunter)
+	elseif spell.action_type == 'Magic' and spell.target.type == 'MONSTER' and state.TreasureMode.value ~= 'None' then
+		equip(sets.TreasureHunter2)
 	end
 end
 

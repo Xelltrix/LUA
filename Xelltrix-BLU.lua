@@ -265,6 +265,8 @@ function init_gear_sets()
 		
 		sets.midcast.Fantod =  sets.Enmity
 		
+		sets.midcast.Exuviation = sets.Enmity
+		
 		
     --------------------------------------
 	-- Healing Midcast sets
@@ -506,7 +508,8 @@ function init_gear_sets()
 		
 		sets.midcast.Sap = set_combine(sets.midcast['Dark Magic'],
 		{
-			rring="Evanescence Ring",
+			head="Pixie Hairpin +1", lear="Mani Earring",
+			lring="Archon Ring", rring="Evanescence Ring",
 			waist="Fucho-no-Obi"
 		})
 
@@ -1804,9 +1807,9 @@ function init_gear_sets()
 		sets.engaged.DW4.Low.Max = set_combine(sets.engaged.DW4.Max,
 		{
 			ammo="Aurgelmir Orb +1",
-			head="Malignance Chapeau", lear="Telos Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
+			lear="Telos Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
 			lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
-			legs="Malignance Tights"
+			legs="Malignance Tights", feet="Malignance Boots"
 		})
 
 		-----------------------------------------------------------------------------------
@@ -1814,9 +1817,9 @@ function init_gear_sets()
 		-----------------------------------------------------------
 		sets.engaged.DW4.Mid.Max = set_combine(sets.engaged.DW4.Low.Max,
 		{
-			lear={name="Mache Earring +1", bag="wardrobe2"}, 
+			head="Malignance Chapeau", lear={name="Mache Earring +1", bag="wardrobe2"}, 
 			hands="Malignance Gloves",
-			waist="Kentarch Belt +1", feet="Malignance Boots"
+			waist="Kentarch Belt +1"
 		})
 
 		-----------------------------------------------------------------------------------

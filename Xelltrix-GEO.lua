@@ -290,9 +290,14 @@ function init_gear_sets()
 		sets.midcast.Sap = set_combine(sets.midcast['Dark Magic'],
 		{
 			main="Rubicundity", sub="Ammurapi Shield",
-			head="Bagua Galero +3", rear="Hirudinea Earring",
+			head="Pixie Hiarpin +1", rear="Hirudinea Earring",
 			lring="Archon Ring", rring="Evanescence Ring", 
 			feet=gear.SapCrackows
+		})
+		
+		sets.midcast.Sap.Resistant = set_combine(sets.midcast.Sap,
+		{
+			head="Bagua Galero +3"
 		})
 		
 		sets.midcast.Stun = set_combine(sets.midcast['Dark Magic'],

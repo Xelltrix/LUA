@@ -18,7 +18,7 @@ function job_setup()
 	state.Buff['Perpetuance'] 	= buffactive['Perpetuance'] 	or false
 	state.Buff['Celerity'] 		= buffactive['Celerity'] 		or false
 	state.Buff['Alacrity'] 		= buffactive['Alacrity'] 		or false
-	state.Buff['Immanence']		= buffactive['Immanance']		or false
+	state.Buff['Immanence']		= buffactive['Immanence']		or false
 	state.Buff['Focalizatoin'] 	= buffactive['Focalization'] 	or false
 
 	state.Buff['Klimaform'] 	= buffactive['Klimaform'] 		or false
@@ -34,7 +34,7 @@ function user_setup()
 	state.CastingMode:options('Normal','Resistant','Occult')
 	state.PhysicalDefenseMode:options('PDT')
 	state.MagicalDefenseMode:options('EVA','MDT')
-	state.IdleMode:options('Normal','DT','MEVA')
+	state.IdleMode:options('Normal','DT','MEVA','Vagary')
 
 	apply_job_change()
 end
@@ -435,11 +435,11 @@ function init_gear_sets()
 			waist="Carrier's Sash", legs="Volte Brais", feet="Volte Gaiters"
 		})
 		
---[[		sets.idle.Vagary = set_combine(sets.magic_burst, 
+		sets.idle.Vagary = set_combine(sets.magic_burst, 
 		{
 			main="Akademos", sub="Niobid Strap",
 			waist="Hachirin-no-Obi", feet="Arbatel Loafers +1"
-		})]]
+		})
 
 		sets.idle.Town = set_combine(sets.idle,
 		{
