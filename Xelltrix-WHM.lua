@@ -27,7 +27,7 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-	state.OffenseMode:options('Normal')
+	state.OffenseMode:options('Normal','DW')
 	state.CastingMode:options('Normal', 'Resistant')
 	state.IdleMode:options('Normal', 'DT','MEVA')
 
@@ -55,7 +55,7 @@ function init_gear_sets()
 			main="Asclepius", sub="Ammurapi Shield", ammo="Esper Stone +1",
 			head="Kaykaus Mitra +1", neck="Sanctity Necklace", lear="Loquac. Earring", rear="Etiolation Earring",
 			body="Piety Briault +3", hands="Kaykaus Cuffs +1", lring="Lebeche Ring", rring="Kuchekula Ring",
-			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Piety Pantaln. +3", feet="Kaykaus Boots +1"
+			back="Fi Follet Cape +1", waist="Shinjutsu-no-Obi +1", legs="Piety Pantaln. +3", feet="Kaykaus Boots +1"
 		}
 
 	-------------------
@@ -127,7 +127,7 @@ function init_gear_sets()
 			main="Piety Wand", ammo="Pemphredo Tathlum",
 			head="Vanya Hood", neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
 			body="Kaykaus Bliaut +1",
-			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Lengo Pants", feet="Kaykaus Boots +1"
+			back="Fi Follet Cape +1", waist="Shinjutsu-no-Obi +1", legs="Lengo Pants", feet="Kaykaus Boots +1"
 		})
 
 		sets.midcast.Duration = set_combine(sets.midcast.FC,
@@ -144,18 +144,18 @@ function init_gear_sets()
 	--------------------------------------	
 
 		sets.midcast.Cures =
-		{-- Cure Potency/II: 50%/26%			Enmity: -51		Healing Magic Skill: +68(544)	MND+217
+		{-- Cure Potency/II: 50%/26%			Enmity: -51		Healing Magic Skill: +63(539)	MND+217
 			main="Raetic Rod +1", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head="Kaykaus Mitra +1", neck="Clr. Torque +2", lear="Glorious Earring", rear="Meili Earring",
 			body="Theo. Briault +3", hands="Theophany Mitts +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Alaunus's Cape", waist="Bishop's Sash", legs="Ebers Pant. +1", feet="Kaykaus Boots +1"
+			back="Alaunus's Cape", waist="Shinjutsu-no-Obi +1", legs="Ebers Pant. +1", feet="Kaykaus Boots +1"
 		}
 		
 		sets.midcast.Curagas = set_combine(sets.midcast.Cures,
-		{-- Cure Potency/II: 50%/26%			Enmity: -51		Healing Magic Skill: +34(529)	MND+237
+		{-- Cure Potency/II: 50%/26%			Enmity: -51		Healing Magic Skill: +34(529)	MND+227
 			rear="Regal Earring",
 			rring={name="Stikini Ring +1", bag="wardrobe3"},
-			waist="Luminary Sash"
+			waist="Shinjutsu-no-Obi +1"
 		})
 		
 		sets.midcast.Curas =
@@ -291,7 +291,8 @@ function init_gear_sets()
 		
 		sets.midcast['Enfeebling Magic'] = set_combine(sets.midcast.Macc,
 		{
-			rring={name="Stikini Ring +1", bag="wardrobe3"},
+			head=empty,
+			body="Cohort Cloak +1", rring={name="Stikini Ring +1", bag="wardrobe3"},
 			legs="Chironic Hose"
 		})
 
@@ -337,8 +338,8 @@ function init_gear_sets()
 		sets.midcast.Brightness =
 		{
 			main="Daybreak", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
-			head="C. Palug Crown", neck="Sanctity Necklace", lear="Regal Earring", rear="Malignance Earring",
-			body="Kaykaus Bliaut +1", hands="Fanatic Gloves", rring="Metamor. Ring +1", rring="Weather. Ring +1",
+			head=empty, neck="Sanctity Necklace", lear="Regal Earring", rear="Malignance Earring",
+			body="Cohort Cloak +1", hands="Fanatic Gloves", rring="Metamor. Ring +1", rring="Weather. Ring +1",
 			back="Alaunus's Cape", waist="Sacro Cord", legs="Kaykaus Tights +1", feet="Chironic Slippers"
 		}
 
@@ -491,7 +492,15 @@ function init_gear_sets()
 			lear="Regal Earring", rear="Moonshade Earring",
 			body="Piety Briault +3", hands="Theophany Mitts +3", lring="Metamor. Ring +1",
 			legs="Piety Pantaln. +3"
-		})	
+		})
+		
+		sets.precast.WS['Flash Nova'] = 
+		{
+			ammo="Pemphredo Tathlum",
+			head=empty, neck="Sanctity Necklace", lear="Regal Earring", rear="Malignance Earring",
+			body="Cohort Cloak +1", hands="Fanatic Gloves", rring="Epaminondas's Ring", rring="Weather. Ring +1",
+			back="Alaunus's Cape", waist="Orpheus's Sash", legs="Kaykaus Tights +1", feet="Chironic Slippers"
+		}
 		
 	
 	--------------------------------------
@@ -504,6 +513,14 @@ function init_gear_sets()
 			head="Aya. Zucchetto +2", neck="Combatant's Torque", lear="Telos Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Piety Briault +3", hands="Raetic Bangles +1", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back="Alaunus's Cape", waist="Windbuffet Belt +1", legs="Piety Pantaln. +3", feet="Aya. Gambieras +2"
+		}
+		
+		sets.engaged.DW =
+		{
+			main="Maxentius", sub="Asclepius", ammo="Hasty Pinion +1",
+			head="Aya. Zucchetto +2", neck="Combatant's Torque", lear="Telos Earring", rear="Suppanomimi",
+			body="Piety Briault +3", hands="Raetic Bangles +1", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			back="Alaunus's Cape", waist="Shetal Stone", legs="Piety Pantaln. +3", feet="Aya. Gambieras +2"
 		}
 	
 end

@@ -40,7 +40,7 @@ end
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
 	state.OffenseMode:options('Normal', 'Low', 'Mid', 'High')
-	state.HybridMode:options('Normal', 'DT', 'DTMAX')
+	state.HybridMode:options('Normal', 'DT', 'DTMAX', 'SB')
 	state.WeaponskillMode:options('Normal', 'Low', 'Mid', 'High')
 	state.IdleMode:options('Normal', 'DT', 'MEVA', 'Refresh')
 	state.CastingMode:options('Normal','Alternate')
@@ -118,13 +118,6 @@ function init_gear_sets()
 			rear="Novia Earring",
 			body="Adhemar Jacket +1",
 			lring="Lebeche Ring", rring="Kuchekula Ring"
-		}
-		
-		sets.SubtleBlow =
-		{--		Subtle Blow 50
-			head="Dampening Tam", lear="Digni. Earring",
-			hands="Luh. Bazubands +3", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
-			feet=gear.HBoots_TP
 		}
 		
 	---Buffs
@@ -263,10 +256,6 @@ function init_gear_sets()
 			body=gear.ENH_Body
 		})
 		
-		sets.midcast.Fantod =  sets.Enmity
-		
-		sets.midcast.Exuviation = sets.Enmity
-		
 		
     --------------------------------------
 	-- Healing Midcast sets
@@ -313,6 +302,56 @@ function init_gear_sets()
 	-- Offensive Midcast sets
 	--------------------------------------    
 	
+
+	---Offensive Magic
+		sets.midcast['Elemental Magic'] =
+		{
+			ammo="Pemphredo Tathlum",
+			head="Jhakri Coronal +2", neck="Sanctity Necklace", lear="Friomisi Earring", rear="Regal Earring",
+			body="Amalric Doublet +1", hands="Amalric Gages +1", lring="Shiva Ring +1", rring="Metamor. Ring +1",
+			back=gear.BLUCape_Nuke, waist="Sacro Cord", legs="Amalric Slops +1", feet="Amalric Nails +1"
+		}
+		
+		sets.midcast.Macc =
+		{
+			ammo="Pemphredo Tathlum",
+			head=empty, neck="Mirage Stole +2", lear="Digni. Earring", rear="Regal Earring",
+			body="Cohort Cloak +1", hands="Regal Cuffs", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Metamor. Ring +1",
+			back="Cornflower Cape", waist="Acuity Belt +1", legs="Assim. Shalwar +3", feet="Luhlaza Charuqs +3"
+		}
+	
+		sets.midcast['Enfeebling Magic'] =
+		{
+			ammo="Pemphredo Tathlum",
+			head=empty, neck="Mirage Stole +2", lear="Digni. Earring", rear="Regal Earring",
+			body="Cohort Cloak +1", hands="Regal Cuffs", lring="Kishar Ring", rring={name="Stikini Ring +1", bag="wardrobe3"},
+			back=gear.BLUCape_Nuke, waist="Acuity Belt +1", legs="Assim. Shalwar +3", feet="Medium's Sabots"
+		}
+		
+		sets.midcast['Dark Magic'] = set_combine(sets.midcast.Macc,
+		{
+			neck="Erra Pendant",
+			hands="Malignance Gloves", rring={name="Stikini Ring +1", bag="wardrobe3"}
+		})
+		
+		sets.midcast.Sap = set_combine(sets.midcast['Dark Magic'],
+		{
+			head="Pixie Hairpin +1", lear="Mani Earring",
+			lring="Archon Ring", rring="Evanescence Ring",
+			waist="Fucho-no-Obi"
+		})
+
+		sets.midcast.Stun = set_combine(sets.midcast.Macc,
+		{
+			head="Carmine Mask +1", neck="Erra Pendant", rear="Gwati Earring",
+			body="Luhlaza Jubbah +3", hands="Leyline Gloves",
+			legs="Aya. Cosciales +2", feet="Amalric Nails +1"
+		})
+		
+		sets.midcast.Flash = sets.midcast.Fantod	
+	
+
+	
 	--- Physical Spells
 		sets.midcast.Physical =
 		{
@@ -327,7 +366,7 @@ function init_gear_sets()
 			ammo="Pemphredo Tathlum",
 			head="Luh. Keffiyeh +3", neck="Mirage Stole +2", lear="Digni. Earring", rear="Njordr Earring",
 			body="Luhlaza Jubbah +3", hands="Malignance Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Cornflower Cape", waist="Sacro Cord", legs="Aya. Cosciales +2", feet="Luhlaza Charuqs +3"
+			back="Cornflower Cape", waist="Acuity Belt +1", legs="Aya. Cosciales +2", feet="Luhlaza Charuqs +3"
 		}
 		
 		-- sets.midcast.AddEffect =
@@ -342,63 +381,56 @@ function init_gear_sets()
 		
 		sets.midcast['Paralyzing Triad'].Alternate = sets.midcast.AddEffect
 
-		sets.midcast.Magical =
+		sets.midcast.Magical = sets.midcast['Elemental Magic']
+		
+		sets.midcast['Scouring Spate'] =
 		{
 			ammo="Pemphredo Tathlum",
-			head="Jhakri Coronal +2", neck="Sanctity Necklace", lear="Friomisi Earring", rear="Regal Earring",
-			body="Amalric Doublet +1", hands="Amalric Gages +1", lring="Shiva Ring +1", rring="Metamor. Ring +1",
+			head=empty, neck="Sanctity Necklace", lear="Friomisi Earring", rear="Regal Earring",
+			body="Cohort Cloak +1", hands="Amalric Gages +1", lring="Shiva Ring +1", rring="Metamor. Ring +1",
 			back=gear.BLUCape_Nuke, waist="Orpheus's Sash", legs="Amalric Slops +1", feet="Amalric Nails +1"
 		}
 		
-		sets.midcast.Entomb = set_combine(sets.midcast.Magical,
+		sets.midcast['Anvil Lightning'] = sets.midcast['Scouring Spate']
+		
+		sets.midcast['Entomb'] =
 		{
-			head="Assim. Keffiyeh +3",
-			legs="Luhlaza Shalwar +3"
-		})
-				
-		sets.midcast['Silent Storm'] = set_combine(sets.midcast.Magical,
-		{
-			head="Assim. Keffiyeh +3",
-			legs="Luhlaza Shalwar +3"
-		})
+			ammo="Pemphredo Tathlum",
+			head=empty, neck="Sanctity Necklace", lear="Friomisi Earring", rear="Regal Earring",
+			body="Cohort Cloak +1", hands="Amalric Gages +1", lring="Shiva Ring +1", rring="Metamor. Ring +1",
+			back=gear.BLUCape_Nuke, waist="Orpheus's Sash", legs="Luhlaza Shalwar +3", feet="Amalric Nails +1"
+		}
+		
+		sets.midcast['Silent Storm'] = sets.midcast['Entomb']
 		
 		sets.midcast['Silent Storm'].Alternate = sets.midcast.Debuffs
+			
+		sets.midcast['Searing Tempest'] = sets.midcast['Entomb']
 		
-	
-		sets.midcast['Searing Tempest'] = set_combine(sets.midcast.Magical,
-		{
-			legs="Luhlaza Shalwar +3"
-		})
-
-		sets.midcast.DarkBlue = set_combine(sets.midcast.Magical,
+		sets.midcast.Darkness = set_combine(sets.midcast.Magical,
 		{
 			head="Pixie Hairpin +1",
-			rring="Archon Ring"
+			body="Amalric Doublet +1", lring="Archon Ring", rring="Metamor. Ring +1"
 		})
 
-		sets.midcast.LightBlue = set_combine(sets.midcast.Magical,
+		sets.midcast.Brightness = set_combine(sets.midcast.Magical,
 		{
-			rring="Weather. Ring +1",
+			head=empty,
+			body="Cohort Cloak +1",	lring="Metamor. Ring +1", rring="Weather. Ring +1",
 			legs="Luhlaza Shalwar +3"
 		})
 
 		sets.midcast.Breath =
 		{
 			ammo="Mavi Tathlum",
-			head="Luh. Keffiyeh +3", neck="Sanctity Necklace", lear="Tuisto Earring", rear="Odnowa Earring +1",
-			body="Assim. Jubbah +3", hands="Regal Cuffs", lring="Eihwaz Ring", rring="Ilabrat Ring",
+			head="Luh. Keffiyeh +3", neck="Unmoving Collar +1", lear="Tuisto Earring", rear="Odnowa Earring +1",
+			body="Assim. Jubbah +3", hands="Regal Cuffs", lring="Eihwaz Ring", rring="Gelatinous Ring +1",
 			back="Moonlight Cape", waist="Orpheus's Sash", legs="Assim. Shalwar +3", feet="Assim. Charuqs +3"
 		}
 
-		sets.midcast.Debuffs =
-		{
-			ammo="Pemphredo Tathlum",
-			head="Assim. Keffiyeh +3", neck="Mirage Stole +2", lear="Digni. Earring", rear="Regal Earring",
-			body="Luhlaza Jubbah +3", hands="Regal Cuffs", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Cornflower Cape", waist="Luminary Sash", legs="Assim. Shalwar +3", feet="Luhlaza Charuqs +3"
-		}
+		sets.midcast.Debuffs = sets.midcast.Macc
 	
-		sets.midcast['Dream Flower'] = set_combine(sets.midcast.Debuffs)
+		sets.midcast['Dream Flower'] = sets.midcast.Debuffs
 
 		sets.midcast['Dream Flower'].Alternate =
 		{--		DT: -28%	PDT: 49%
@@ -408,7 +440,7 @@ function init_gear_sets()
 			back=gear.BLUCape_Nuke, waist="Flume Belt +1", legs="Assim. Shalwar +3", feet="Malignance Boots"
 		}
 		
-		sets.midcast['Embalming Earth'] = set_combine(sets.midcast.Magical)
+		sets.midcast['Embalming Earth'] = sets.midcast['Entomb']
 		
 		sets.midcast['Embalming Earth'].Alternate = sets.midcast.Debuffs
 
@@ -420,7 +452,11 @@ function init_gear_sets()
 			legs="Hashishin Tayt +1", feet="Luhlaza Charuqs +3"
 		})
 		
-		sets.midcast['Actinic Burst'] = sets.midcast.Fantod
+		sets.midcast['Actinic Burst'] = sets.Enmity
+		
+		sets.midcast.Fantod =  sets.Enmity
+		
+		sets.midcast.Exuviation = sets.Enmity
 
 
 
@@ -495,9 +531,9 @@ function init_gear_sets()
 		sets.midcast['Enfeebling Magic'] =
 		{
 			ammo="Pemphredo Tathlum",
-			head="Assim. Keffiyeh +3", neck="Mirage Stole +2", lear="Digni. Earring", rear="Regal Earring",
-			body="Malignance Tabard", hands="Regal Cuffs", lring="Kishar Ring", rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back=gear.BLUCape_Nuke, waist="Luminary Sash", legs="Assim. Shalwar +3", feet="Malignance Boots"
+			head=empty, neck="Mirage Stole +2", lear="Digni. Earring", rear="Regal Earring",
+			body="Cohort Cloak +1", hands="Regal Cuffs", lring="Kishar Ring", rring={name="Stikini Ring +1", bag="wardrobe3"},
+			back=gear.BLUCape_Nuke, waist="Acuity Belt +1", legs="Assim. Shalwar +3", feet="Malignance Boots"
 		}
 		
 		sets.midcast['Dark Magic'] = set_combine(sets.midcast['Enfeebling Magic'],
@@ -664,13 +700,13 @@ function init_gear_sets()
 		--Tizona/Almace TP: 80/h		Almace/Naegling TP:79/h		(DW3 STP25 or DW4 STP30)
 		
 	--Chant du Cygne
-		sets.precast.WS['Chant du Cygne'] = set_combine(sets.precast.WS,
+		sets.precast.WS['Chant du Cygne'] =
 		{
 			ammo="Aurgelmir Orb +1",
 			head=gear.AHead_TP, neck="Mirage Stole +2", lear="Odr Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Ilabrat Ring", rring="Epona's Ring", 
-			back=gear.BLUCape_Crit, legs="Zoar Subligar +1", feet=gear.HBoots_Crit
-		})
+			back=gear.BLUCape_Crit, waist="Fotia Belt", legs="Zoar Subligar +1", feet=gear.HBoots_Crit
+		}
 
 		sets.precast.WS['Chant du Cygne'].Low = sets.precast.WS['Chant du Cygne']
 		
@@ -1914,6 +1950,13 @@ function init_gear_sets()
 			body="Malignance Tabard", hands="Malignance Gloves", lring="Defending Ring",
 			legs="Malignance Tights", feet="Malignance Boots"
 		}
+				
+		sets.SubtleBlow =
+		{--		Subtle Blow 50
+			head="Dampening Tam", lear="Digni. Earring",
+			hands="Luh. Bazubands +3", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			feet=gear.HBoots_TP
+		}
 		
 		
 		----------------------------------------------------------
@@ -1931,6 +1974,12 @@ function init_gear_sets()
 		sets.engaged.Low.DTMAX 				= set_combine(sets.engaged.Low, 	sets.engaged.Hybrid2)
 		sets.engaged.Mid.DTMAX				= set_combine(sets.engaged.Mid, 	sets.engaged.Hybrid2)
 		sets.engaged.High.DTMAX				= set_combine(sets.engaged.High, 	sets.engaged.Hybrid2)
+		
+		sets.engaged.SB 					= set_combine(sets.engaged, 		sets.SubtleBlow)
+		sets.engaged.SB.AM3 				= set_combine(sets.engaged.AM3,		sets.SubtleBlow)
+		sets.engaged.Low.SB 				= set_combine(sets.engaged.Low, 	sets.SubtleBlow)
+		sets.engaged.Mid.SB 				= set_combine(sets.engaged.Mid, 	sets.SubtleBlow)
+		sets.engaged.High.SB				= set_combine(sets.engaged.High, 	sets.SubtleBlow)
 
 		
 	
@@ -2009,6 +2058,35 @@ function init_gear_sets()
 		sets.engaged.DW5.High.DTMAX			= set_combine(sets.engaged.DW5.High, 	sets.engaged.Hybrid)
 		
 		
+		
+		sets.engaged.DW2.SB 				= set_combine(sets.engaged.DW2, 		sets.SubtleBlow)
+		sets.engaged.DW2.SB.AM3 			= set_combine(sets.engaged.DW2.AM3, 	sets.SubtleBlow)
+		sets.engaged.DW2.Low.SB 			= set_combine(sets.engaged.DW2.Low, 	sets.SubtleBlow)
+		sets.engaged.DW2.Mid.SB 			= set_combine(sets.engaged.DW2.Mid, 	sets.SubtleBlow)
+		sets.engaged.DW2.High.SB			= set_combine(sets.engaged.DW2.High, 	sets.SubtleBlow)
+
+	
+		sets.engaged.DW3.SB 				= set_combine(sets.engaged.DW3, 		sets.SubtleBlow)
+		sets.engaged.DW3.SB.AM3 			= set_combine(sets.engaged.DW3.AM3, 	sets.SubtleBlow)
+		sets.engaged.DW3.Low.SB 			= set_combine(sets.engaged.DW3.Low, 	sets.SubtleBlow)
+		sets.engaged.DW3.Mid.SB 			= set_combine(sets.engaged.DW3.Mid, 	sets.SubtleBlow)
+		sets.engaged.DW3.High.SB			= set_combine(sets.engaged.DW3.High, 	sets.SubtleBlow)
+		
+	
+		sets.engaged.DW4.SB 				= set_combine(sets.engaged.DW4, 		sets.SubtleBlow)
+		sets.engaged.DW4.SB.AM3 			= set_combine(sets.engaged.DW4.AM3, 	sets.SubtleBlow)
+		sets.engaged.DW4.Low.SB 			= set_combine(sets.engaged.DW4.Low, 	sets.SubtleBlow)
+		sets.engaged.DW4.Mid.SB 			= set_combine(sets.engaged.DW4.Mid, 	sets.SubtleBlow)
+		sets.engaged.DW4.High.SB			= set_combine(sets.engaged.DW4.High, 	sets.SubtleBlow)
+		
+		
+		sets.engaged.DW5.SB 				= set_combine(sets.engaged.DW5, 		sets.SubtleBlow)
+		sets.engaged.DW5.SB.AM3 			= set_combine(sets.engaged.DW5.AM3, 	sets.SubtleBlow)
+		sets.engaged.DW5.Low.SB 			= set_combine(sets.engaged.DW5.Low, 	sets.SubtleBlow)
+		sets.engaged.DW5.Mid.SB 			= set_combine(sets.engaged.DW5.Mid, 	sets.SubtleBlow)
+		sets.engaged.DW5.High.SB			= set_combine(sets.engaged.DW5.High, 	sets.SubtleBlow)
+		
+		
 	
 		----------------------------------------------------------
 		-- Minimum Haste
@@ -2068,6 +2146,35 @@ function init_gear_sets()
 		sets.engaged.DW5.Low.DTMAX.Min  	= set_combine(sets.engaged.DW5.Low.Min, 	sets.engaged.Hybrid)
 		sets.engaged.DW5.Mid.DTMAX.Min  	= set_combine(sets.engaged.DW5.Mid.Min, 	sets.engaged.Hybrid)
 		sets.engaged.DW5.High.DTMAX.Min 	= set_combine(sets.engaged.DW5.High.Min, 	sets.engaged.Hybrid)
+		
+		
+		
+		sets.engaged.DW2.SB.Min 	 		= set_combine(sets.engaged.DW2.Min, 		sets.SubtleBlow)
+		sets.engaged.DW2.SB.Min.AM3  		= set_combine(sets.engaged.DW2.Min.AM3, 	sets.SubtleBlow)
+		sets.engaged.DW2.Low.SB.Min  		= set_combine(sets.engaged.DW2.Low.Min, 	sets.SubtleBlow)
+		sets.engaged.DW2.Mid.SB.Min  		= set_combine(sets.engaged.DW2.Mid.Min, 	sets.SubtleBlow)
+		sets.engaged.DW2.High.SB.Min		= set_combine(sets.engaged.DW2.High.Min, 	sets.SubtleBlow)
+		
+	
+		sets.engaged.DW3.SB.Min 	 		= set_combine(sets.engaged.DW3.Min, 		sets.SubtleBlow)
+		sets.engaged.DW3.SB.Min.AM3  		= set_combine(sets.engaged.DW3.Min.AM3, 	sets.SubtleBlow)
+		sets.engaged.DW3.Low.SB.Min  		= set_combine(sets.engaged.DW3.Low.Min, 	sets.SubtleBlow)
+		sets.engaged.DW3.Mid.SB.Min  		= set_combine(sets.engaged.DW3.Mid.Min, 	sets.SubtleBlow)
+		sets.engaged.DW3.High.SB.Min 		= set_combine(sets.engaged.DW3.High.Min, 	sets.SubtleBlow)
+		
+	
+		sets.engaged.DW4.SB.Min 	 		= set_combine(sets.engaged.DW4.Min, 		sets.SubtleBlow)
+		sets.engaged.DW4.SB.Min.AM3  		= set_combine(sets.engaged.DW4.Min.AM3, 	sets.SubtleBlow)
+		sets.engaged.DW4.Low.SB.Min  		= set_combine(sets.engaged.DW4.Low.Min, 	sets.SubtleBlow)
+		sets.engaged.DW4.Mid.SB.Min  		= set_combine(sets.engaged.DW4.Mid.Min, 	sets.SubtleBlow)
+		sets.engaged.DW4.High.SB.Min 		= set_combine(sets.engaged.DW4.High.Min, 	sets.SubtleBlow)
+		
+	
+		sets.engaged.DW5.SB.Min				= set_combine(sets.engaged.DW5.Min, 		sets.SubtleBlow)
+		sets.engaged.DW5.SB.Min.AM3  		= set_combine(sets.engaged.DW5.Min.AM3, 	sets.SubtleBlow)
+		sets.engaged.DW5.Low.SB.Min  		= set_combine(sets.engaged.DW5.Low.Min, 	sets.SubtleBlow)
+		sets.engaged.DW5.Mid.SB.Min  		= set_combine(sets.engaged.DW5.Mid.Min, 	sets.SubtleBlow)
+		sets.engaged.DW5.High.SB.Min 		= set_combine(sets.engaged.DW5.High.Min, 	sets.SubtleBlow)
 		
 		
 	
@@ -2208,6 +2315,35 @@ function init_gear_sets()
 			waist="Reiki Yotai"
 		})
 		sets.engaged.DW5.High.DTMAX.Med 	= sets.engaged.DW5.Mid.DTMAX.Med
+		
+		
+		
+		sets.engaged.DW2.SB.Med 	 		= set_combine(sets.engaged.DW2.Med, 		sets.SubtleBlow)
+		sets.engaged.DW2.SB.Med.AM3  		= set_combine(sets.engaged.DW2.Med.AM3, 	sets.SubtleBlow)
+		sets.engaged.DW2.Low.SB.Med  		= set_combine(sets.engaged.DW2.Low.Med, 	sets.SubtleBlow)
+		sets.engaged.DW2.Mid.SB.Med  		= set_combine(sets.engaged.DW2.Mid.Med, 	sets.SubtleBlow)
+		sets.engaged.DW2.High.SB.Med		= set_combine(sets.engaged.DW2.High.Med, 	sets.SubtleBlow)
+		
+	
+		sets.engaged.DW3.SB.Med 	 		= set_combine(sets.engaged.DW3.Med, 		sets.SubtleBlow)
+		sets.engaged.DW3.SB.Med.AM3  		= set_combine(sets.engaged.DW3.Med.AM3, 	sets.SubtleBlow)
+		sets.engaged.DW3.Low.SB.Med  		= set_combine(sets.engaged.DW3.Low.Med, 	sets.SubtleBlow)
+		sets.engaged.DW3.Mid.SB.Med  		= set_combine(sets.engaged.DW3.Mid.Med, 	sets.SubtleBlow)
+		sets.engaged.DW3.High.SB.Med 		= set_combine(sets.engaged.DW3.High.Med, 	sets.SubtleBlow)
+		
+	
+		sets.engaged.DW4.SB.Med 	 		= set_combine(sets.engaged.DW4.Med, 		sets.SubtleBlow)
+		sets.engaged.DW4.SB.Med.AM3  		= set_combine(sets.engaged.DW4.Med.AM3, 	sets.SubtleBlow)
+		sets.engaged.DW4.Low.SB.Med  		= set_combine(sets.engaged.DW4.Low.Med, 	sets.SubtleBlow)
+		sets.engaged.DW4.Mid.SB.Med  		= set_combine(sets.engaged.DW4.Mid.Med, 	sets.SubtleBlow)
+		sets.engaged.DW4.High.SB.Med 		= set_combine(sets.engaged.DW4.High.Med, 	sets.SubtleBlow)
+		
+	
+		sets.engaged.DW5.SB.Med				= set_combine(sets.engaged.DW5.Med, 		sets.SubtleBlow)
+		sets.engaged.DW5.SB.Med.AM3  		= set_combine(sets.engaged.DW5.Med.AM3, 	sets.SubtleBlow)
+		sets.engaged.DW5.Low.SB.Med  		= set_combine(sets.engaged.DW5.Low.Med, 	sets.SubtleBlow)
+		sets.engaged.DW5.Mid.SB.Med  		= set_combine(sets.engaged.DW5.Mid.Med, 	sets.SubtleBlow)
+		sets.engaged.DW5.High.SB.Med 		= set_combine(sets.engaged.DW5.High.Med, 	sets.SubtleBlow)
 		
 	
 	
@@ -2368,6 +2504,35 @@ function init_gear_sets()
 			rring={name="Chirich Ring +1", bag="wardrobe3"},
 			waist="Kentarch Belt +1"
 		})
+		
+		
+		
+		sets.engaged.DW2.SB.Max 	 		= set_combine(sets.engaged.DW2.Max, 		sets.SubtleBlow)
+		sets.engaged.DW2.SB.Max.AM3  		= set_combine(sets.engaged.DW2.Max.AM3, 	sets.SubtleBlow)
+		sets.engaged.DW2.Low.SB.Max  		= set_combine(sets.engaged.DW2.Low.Max, 	sets.SubtleBlow)
+		sets.engaged.DW2.Mid.SB.Max  		= set_combine(sets.engaged.DW2.Mid.Max, 	sets.SubtleBlow)
+		sets.engaged.DW2.High.SB.Max		= set_combine(sets.engaged.DW2.High.Max, 	sets.SubtleBlow)
+		
+	
+		sets.engaged.DW3.SB.Max 	 		= set_combine(sets.engaged.DW3.Max, 		sets.SubtleBlow)
+		sets.engaged.DW3.SB.Max.AM3  		= set_combine(sets.engaged.DW3.Max.AM3, 	sets.SubtleBlow)
+		sets.engaged.DW3.Low.SB.Max  		= set_combine(sets.engaged.DW3.Low.Max, 	sets.SubtleBlow)
+		sets.engaged.DW3.Mid.SB.Max  		= set_combine(sets.engaged.DW3.Mid.Max, 	sets.SubtleBlow)
+		sets.engaged.DW3.High.SB.Max 		= set_combine(sets.engaged.DW3.High.Max, 	sets.SubtleBlow)
+		
+	
+		sets.engaged.DW4.SB.Max 	 		= set_combine(sets.engaged.DW4.Max, 		sets.SubtleBlow)
+		sets.engaged.DW4.SB.Max.AM3  		= set_combine(sets.engaged.DW4.Max.AM3, 	sets.SubtleBlow)
+		sets.engaged.DW4.Low.SB.Max  		= set_combine(sets.engaged.DW4.Low.Max, 	sets.SubtleBlow)
+		sets.engaged.DW4.Mid.SB.Max  		= set_combine(sets.engaged.DW4.Mid.Max, 	sets.SubtleBlow)
+		sets.engaged.DW4.High.SB.Max 		= set_combine(sets.engaged.DW4.High.Max, 	sets.SubtleBlow)
+		
+	
+		sets.engaged.DW5.SB.Max				= set_combine(sets.engaged.DW5.Max, 		sets.SubtleBlow)
+		sets.engaged.DW5.SB.Max.AM3  		= set_combine(sets.engaged.DW5.Max.AM3, 	sets.SubtleBlow)
+		sets.engaged.DW5.Low.SB.Max  		= set_combine(sets.engaged.DW5.Low.Max, 	sets.SubtleBlow)
+		sets.engaged.DW5.Mid.SB.Max  		= set_combine(sets.engaged.DW5.Mid.Max, 	sets.SubtleBlow)
+		sets.engaged.DW5.High.SB.Max 		= set_combine(sets.engaged.DW5.High.Max, 	sets.SubtleBlow)
 end
 
 
@@ -2466,10 +2631,26 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 		}
 	end
 	
-	if (spell.skill =='Elemental Magic' or spellMap == 'Magical' or spellMap == 'DarkBlue' or spellMap == 'LightBlue' or spellMap == 'Breath')
-			and ((spell.element == world.day_element and spell.element == world.weather_element) 
-				or (spell.element == world.weather_element and get_weather_intensity() == 2)) then
-		equip { waist="Hachirin-no-Obi" }
+	if (spell.skill =='Elemental Magic' or spellMap == 'Magical' or spellMap == 'Darkness' or spellMap == 'Brightness' or spellMap == 'Breath') then
+		if spell.element ~= world.day_element and spell.element ~= world.weather_element then
+			if spell.target.distance < (15 - spell.target.model_size) then
+				equip { waist="Orpheus's Sash" }
+			end
+		elseif (spell.element == world.day_element and spell.element == world.weather_element)
+				or (spell.element == world.weather_element and get_weather_intensity() == 2 and world.day_element ~= elements.strong_to[spell.element]) then
+			if spellMap ~= 'Helix' then
+				equip { waist="Hachirin-no-Obi" }
+			elseif spell.target.distance < (15 - spell.target.model_size) then
+				equip { waist="Orpheus's Sash" }
+			end
+		elseif (spell.element == world.day_element or (spell.element == world.weather_element and get_weather_intensity() == 1)
+				or (spell.element == world.weather_element and get_weather_intensity() == 2 and world.day_element == elements.strong_to[spell.element])) then
+			if spell.target.distance < (7 - spell.target.model_size) then
+				equip { waist="Orpheus's Sash" }
+			elseif spellMap ~= 'Helix' then
+				equip { waist="Hachirin-no-Obi" }
+			end
+		end
 	end
 	
 	if spell.action_type == 'Magic' then
@@ -2477,7 +2658,7 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 	end
 	
 	if state.TreasureMode.value ~= 'None' and spell.action_type == 'Magic' and spell.target.type == 'MONSTER' 
-				and spellMap ~= 'Magical' and spellMap ~= 'LightBlue' and spellMap ~='DarkBlue' and spellMap ~= 'AddEffect' then
+				and spellMap ~= 'Magical' and spellMap ~= 'Brightness' and spellMap ~='Darkness' and spellMap ~= 'AddEffect' then
 		equip(sets.TreasureHunter)
 	end
 end

@@ -119,7 +119,7 @@ function init_gear_sets()
 			main="Gada", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head="Vanya Hood", neck="Incanter's Torque", lear="Mendi. Earring", rear="Gwati Earring",
 			body="Amalric Doublet +1", hands=gear.FCHands, lring="Kishar Ring", rring="Weather. Ring +1",
-			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Lengo Pants", feet="Medium's Sabots"
+			back="Fi Follet Cape +1", waist="Shinjutsu-no-Obi +1", legs="Lengo Pants", feet="Medium's Sabots"
 		}
 
 	--------------------------------------
@@ -203,15 +203,15 @@ function init_gear_sets()
 		sets.midcast.Macc =
 		{
 			main="Raetic Staff +1", sub="Khonsu", ammo="Pemphredo Tathlum",
-			head="Spae. Petasos +3", neck="Src. Stole +2", lear="Malignance Earring", rear="Regal Earring",
-			body="Spaekona's Coat +2", hands="Spae. Gloves +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Metamor. Ring +1",
-			back="Taranus's Cape", waist="Luminary Sash", legs="Spae. Tonban +3", feet="Spae. Sabots +3"
+			head=none, neck="Src. Stole +2", lear="Malignance Earring", rear="Regal Earring",
+			body="Cohort Cloak +1", hands="Spae. Gloves +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Metamor. Ring +1",
+			back="Taranus's Cape", waist="Acuity Belt +1", legs="Spae. Tonban +3", feet="Spae. Sabots +3"
 		}
 	
 		sets.midcast['Enfeebling Magic'] = set_combine(sets.midcast.Macc,
 		{
 			main="Daybreak", sub="Ammurapi Shield",
-			head="Befouled Crown", lear="Vor Earring",
+			lear="Vor Earring",
 			hands="Regal Cuffs", lring="Kishar Ring",
 			legs="Psycloth Lappas", feet="Medium's Sabots"
 		})
@@ -235,7 +235,7 @@ function init_gear_sets()
 		sets.midcast['Dark Magic'] = set_combine(sets.midcast.Macc,
 		{
 			main="Rubicundity", sub="Ammurapi Shield",
-			neck="Erra Pendant", rear="Mani Earring",
+			head="Spae. Petasos +3", neck="Erra Pendant", rear="Mani Earring",
 			body="Shango Robe", rring={name="Stikini Ring +1", bag="wardrobe3"},
 			feet="Wicce Sabots +1"
 		})
@@ -285,7 +285,7 @@ function init_gear_sets()
 			main="Raetic Staff +1", sub="Enki Strap", ammo="Pemphredo Tathlum",
 			head="Arch. Petasos +3", neck="Src. Stole +2", lear="Malignance Earring", rear="Regal Earring",
 			body="Arch. Coat +3", hands="Arch. Gloves +3", lring="Freke Ring", rring="Metamor. Ring +1",
-			back=gear.BLMCape_Nuke, waist="Sacro Cord", legs="Spae. Tonban +3", feet="Arch. Sabots +3"
+			back=gear.BLMCape_Nuke, waist="Acuity Belt +1", legs="Spae. Tonban +3", feet="Arch. Sabots +3"
 		}
 
 		sets.midcast.MDMG = set_combine(sets.midcast['Elemental Magic'],
@@ -316,7 +316,7 @@ function init_gear_sets()
 		
 		sets.midcast.Death.Potency =
 		{
-			main="Lathi", sub="Niobid Strap", ammo="Psilomene",
+			main="Lathi", sub="Niobid Strap", ammo="Ghastly Tathlum +1",
 			head="Pixie Hairpin +1", neck="Saevus Pendant +1", lear="Malignance Earring", rear="Barkaro. Earring",
 			body="Amalric Doublet +1", hands="Amalric Gages +1", lring="Archon Ring", rring="Mephitas's Ring +1",
 			back=gear.BLMCape_FC, waist="Sacro Cord", legs="Amalric Slops +1", feet="Amalric Nails +1"
@@ -341,7 +341,7 @@ function init_gear_sets()
 			main="Lathi", sub="Khonsu", ammo="Pemphredo Tathlum",
 			head="Ea Hat +1", neck="Src. Stole +2", lear="Malignance Earring", rear="Regal Earring",
 			body="Ea Houppe. +1", hands="Spae. Gloves +3", lring="Freke Ring", rring="Metamor. Ring +1",
-			back=gear.BLMCape_Nuke, waist="Sacro Cord", legs="Ea Slops +1", feet="Ea Pigaches +1"
+			back=gear.BLMCape_Nuke, waist="Acuity Belt +1", legs="Ea Slops +1", feet="Ea Pigaches +1"
 		}
 	
 	
@@ -384,10 +384,10 @@ function init_gear_sets()
 
 		sets.idle.DeathMode =
 		{--Regen+1 | Refresh+4~5 | PDT/MDT: (5/8)
-			main="Lathi", sub="Khonsu", ammo="Psilomene",
+			main="Lathi", sub="Khonsu", ammo="Ghastly Tathlum +1",
 			head="Befouled Crown", neck="Sanctity Necklace", lear="Etiolation Earring", rear="Loquac. Earring",
 			body="Amalric Doublet +1", hands="Regal Cuffs", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back=gear.BLMCape_FC, waist="Fucho-no-Obi", legs="Volte Brais", feet="Amalric Nails +1"
+			back=gear.BLMCape_FC, waist="Shinjutsu-no-Obi +1", legs="Volte Brais", feet="Amalric Nails +1"
 		}
 
 		sets.idle.Weak = sets.idle.DT	
@@ -518,10 +518,10 @@ function init_gear_sets()
 
 		sets.precast.WS['Myrkr'] =
 		{
-			ammo="Psilomene",
+			ammo="Ghastly Tathlum +1",
 			head="Amalric Coif +1", neck="Sanctity Necklace", lear="Etiolation Earring", rear="Moonshade Earring",
 			body="Amalric Doublet +1", hands="Spae. Gloves +3", lring="Mephitas's Ring +1", rring="Metamor. Ring +1",
-			back=gear.BLMCape_FC, waist="Luminary Sash", legs="Amalric Slops +1", feet="Amalric Nails +1"
+			back=gear.BLMCape_FC, waist="Shinjutsu-no-Obi +1", legs="Amalric Slops +1", feet="Amalric Nails +1"
 		}
 	
 	--------------------------------------

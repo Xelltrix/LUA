@@ -56,10 +56,10 @@ function init_gear_sets()
 
 		sets.precast.JA['Tabula Rasa'] =
 		{
-			main="Musa", sub="Niobid Strap", ammo="Psilomene",
+			main="Musa", sub="Niobid Strap", ammo="Ghastly Tathlum +1",
 			head="Amalric Coif +1", neck="Sanctity Necklace", lear="Etiolation Earring", rear="Mendi. Earring",
 			body="Acad. Gown +3", hands="Kaykaus Cuffs +1", lring="Mephitas's Ring +1", rring="Metamor. Ring +1",
-			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Peda. Pants +3", feet="Amalric Nails +1"
+			back="Fi Follet Cape +1", waist="Shinjutsu-no-Obi +1", legs="Peda. Pants +3", feet="Amalric Nails +1"
 		}
 
 		sets.precast.JA['Enlightenment'] = { body="Peda. Gown +3" }
@@ -122,7 +122,7 @@ function init_gear_sets()
 			ammo="Pemphredo Tathlum",
 			head="Vanya Hood", neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
 			body="Amalric Doublet +1", lring="Kishar Ring",
-			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Lengo Pants", feet="Kaykaus Boots +1"
+			back="Fi Follet Cape +1", waist="Shinjutsu-no-Obi +1", legs="Lengo Pants", feet="Kaykaus Boots +1"
 		})
 
 		sets.midcast.Duration = 
@@ -254,17 +254,21 @@ function init_gear_sets()
 			main="Musa", sub="Khonsu", ammo="Pemphredo Tathlum",
 			head="Acad. Mortar. +3", neck="Argute Stole +2", lear="Gwati Earring", rear="Malignance Earring",
 			body="Acad. Gown +3", hands="Acad. Bracers +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Metamor. Ring +1",
-			back=gear.SCHCape_ENF, waist="Luminary Sash", legs="Acad. Pants +3", feet="Acad. Loafers +3"
+			back=gear.SCHCape_ENF, waist="Acuity Belt +1", legs="Acad. Pants +3", feet="Acad. Loafers +3"
 		}
 
 		sets.midcast['Enfeebling Magic'] = set_combine(sets.midcast.Macc,
 		{
-			lear="Regal Earring",
-			hands="Regal Cuffs", lring="Kishar Ring", rring={name="Stikini Ring +1", bag="wardrobe3"},
+			head=empty, lear="Regal Earring",
+			body="Cohort Cloak +1", hands="Regal Cuffs", lring="Kishar Ring", rring={name="Stikini Ring +1", bag="wardrobe3"},
 			legs="Chironic Hose", feet="Medium's Sabots"
 		})
 
-		sets.midcast['Enfeebling Magic'].Resistant = sets.midcast.Macc
+		sets.midcast['Enfeebling Magic'].Resistant = set_combine(sets.midcast.Macc,
+		{
+			head=empty,
+			body="Cohort Cloak +1",
+		})
 
 		sets.midcast.Dispelga = set_combine(sets.midcast['Enfeebling Magic'].Resistant,
 		{
@@ -321,7 +325,8 @@ function init_gear_sets()
 		sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'],
 		{
 			main="Raetic Staff +1", sub="Khonsu",
-			head="Acad. Mortar. +3",
+			head=empty,
+			body="Cohort Cloak +1",
 			legs="Peda. Pants +3", feet="Acad. Loafers +3"
 		})
 		
@@ -431,7 +436,7 @@ function init_gear_sets()
 		{
 			ammo="Staunch Tathlum +1",
 			head="Peda. M.Board +3", neck="Warder's Charm +1", lear="Genmei Earring", rear="Lugalbanda Earring",
-			hands="Raetic Bangles +1", lring="Inyanga Ring", rring="Purity Ring",
+			hands="Raetic Bangles +1", lring="Shadow Ring", rring="Purity Ring",
 			waist="Carrier's Sash", legs="Volte Brais", feet="Volte Gaiters"
 		})
 		
@@ -468,7 +473,7 @@ function init_gear_sets()
 		{--	DT: -27%	PDT: -44%	MDT:-22%
 			main="Akademos", sub="Khonsu", ammo="Staunch Tathlum +1",
 			head="Peda. M.Board +3", neck="Warder's Charm +1", lear="Sanare Earring", rear="Lugalbanda Earring",
-			body="Pinga Tunic +1", hands="Raetic Bangles +1", lring="Inyanga Ring", rring="Purity Ring",
+			body="Pinga Tunic +1", hands="Raetic Bangles +1", lring="Shadow Ring", rring="Purity Ring",
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Pinga Pants +1", feet="Volte Gaiters"
 		}
 		
@@ -575,7 +580,7 @@ function init_gear_sets()
 		
 		sets.precast.WS['Myrkr'] =
 		{
-			ammo="Psilomene",
+			ammo="Ghastly Tathlum +1",
 			head="Amalric Coif +1", neck="Sanctity Necklace", lear="Etiolation Earring", rear="Moonshade Earring",
 			body="Acad. Gown +3", hands="Kaykaus Cuffs +1", lring="Mephitas's Ring +1", rring="Metamor. Ring +1",
 			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Amalric Slops +1", feet="Amalric Nails +1"

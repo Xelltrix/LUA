@@ -395,10 +395,10 @@ spell_maps = {
 	['Spectral Floe']='Magical',['Scouring Spate']='Magical',['Anvil Lightning']='Magical',['Silent Storm']='Magical',['Entomb']='Magical',
 	
 	--- Dark Magic Damage
-	['Death Ray']='DarkBlue',['Eyes On Me']='DarkBlue',['Evryone. Grudge']='DarkBlue',['Dark Orb']='DarkBlue',['Palling Salvo']='DarkBlue',['Tenebral Crush']='DarkBlue',
+	['Death Ray']='Darkness',['Eyes On Me']='Darkness',['Evryone. Grudge']='Darkness',['Dark Orb']='Darkness',['Palling Salvo']='Darkness',['Tenebral Crush']='Darkness',
 	
 	--- Light Magic Damage
-	['Magic Hammer']='LightBlue',['Retinal Glare']='LightBlue',['Rail Cannon']='LightBlue',['Diffusion Ray']='LightBlue',['Blinding Fulgor']='LightBlue',
+	['Magic Hammer']='Brightness',['Retinal Glare']='Brightness',['Rail Cannon']='Brightness',['Diffusion Ray']='Brightness',['Blinding Fulgor']='Brightness',
 	
 	--- Draining 
 	['Blood Drain']='BlueDrain',['Digest']='BlueDrain',['MP Drainkiss']='BlueDrain',['Blood Saber']='BlueDrain',['Atra. Libations']='BlueDrain',

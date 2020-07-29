@@ -141,7 +141,7 @@ function init_gear_sets()
 			ammo="Pemphredo Tathlum",
 			head="Vanya Hood", neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
 			body="Amalric Doublet +1", hands="Leyline Gloves", lring="Kishar Ring", rring="Weather. Ring +1",
-			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Lengo Pants", feet="Carmine Greaves +1"
+			back="Fi Follet Cape +1", waist="Shinjutsu-no-Obi +1", legs="Lengo Pants", feet="Carmine Greaves +1"
 		}
 		
 		sets.midcast.Duration =
@@ -273,9 +273,9 @@ function init_gear_sets()
 		sets.midcast.Macc =
 		{
 			main="Crocea Mors", sub="Ammurapi Shield", range="Ullr",
-			head="Viti. Chapeau +3", neck="Dls. Torque +2", lear="Regal Earring", rear="Snotra Earring", 
+			head="Atrophy Chapeau +3", neck="Dls. Torque +2", lear="Regal Earring", rear="Snotra Earring", 
 			body="Atrophy Tabard +3", hands="Kaykaus Cuffs +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Metamor. Ring +1",
-			back=gear.RDMCape_ENF, waist="Luminary Sash", legs="Chironic Hose", feet="Vitiation Boots +3"
+			back=gear.RDMCape_ENF, waist="Acuity Belt +1", legs="Chironic Hose", feet="Vitiation Boots +3"
 		}
 
 		sets.midcast['Enfeebling Magic'] = 
@@ -386,9 +386,9 @@ function init_gear_sets()
 		sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'],
 		{
 			sub="Niobid Strap",
-			head="Ea Hat +1",
-			body="Ea Houppe. +1", hands="Ea Cuffs +1",
-			waist="Sacro Cord", legs="Ea Slops +1", feet="Vitiation Boots +3"
+			head=empty,
+			body="Cohort Cloak +1", hands="Ea Cuffs +1",
+			waist="Acuity Belt +1", legs="Ea Slops +1", feet="Vitiation Boots +3"
 		})
 
 		sets.midcast['Elemental Magic'].Potency = sets.midcast['Elemental Magic']
@@ -413,7 +413,7 @@ function init_gear_sets()
 			sub="Enki Strap",
 			head="Atrophy Chapeau +3", neck="Dls. Torque +2",
 			hands="Ea Cuffs +1", lring="Metamor. Ring +1", rring="Freke Ring",
-			feet="Ea Pigaches +1"
+			waist="Acuity Belt +1", feet="Ea Pigaches +1"
 		})
 		
 	

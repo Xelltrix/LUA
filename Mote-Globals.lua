@@ -107,7 +107,7 @@ function define_global_sets()
 	gear.VMail_WSD = { name="Valorous Mail", augments={'Attack+3','Weapon skill damage +3%','STR+15','Accuracy+11',}}
 	
 	--- Adhemar
-	gear.AHead_TP = { name="Adhemar Bonnet +1", augments={'STR+12','DEX+12','Attack+20',}}
+	gear.AHead_TP = { name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}}
 	gear.AHead_PDT = { name="Adhemar Bonnet +1", augments={'HP+105','Attack+13','Phys. dmg. taken -4',}}
 	
 	--- Taeon

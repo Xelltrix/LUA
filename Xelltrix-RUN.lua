@@ -333,8 +333,8 @@ function init_gear_sets()
 		sets.midcast.Macc =
 		{
 			ammo="Pemphredo Tathlum",
-			head="Carmine Mask +1", neck="Erra Pendant", lear="Digni. Earring", rear="Gwati Earring",
-			body="Futhark Coat +3", hands="Aya. Manopolas +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			head=empty, neck="Erra Pendant", lear="Digni. Earring", rear="Gwati Earring",
+			body="Cohort Cloak +1", hands="Aya. Manopolas +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back=gear.RUNCape_FC, waist="Luminary Sash", legs="Aya. Cosciales +2", feet="Futhark Boots +3"
 		}
 	
@@ -345,7 +345,11 @@ function init_gear_sets()
 			back="Moonlight Cape", waist="Gishdubar Sash", legs="Carmine Cuisses +1"
 		})
 		
-		sets.midcast['Elemental Magic'] = sets.precast.JA['Swipe']
+		sets.midcast['Elemental Magic'] = set_combine(sets.precast.JA['Swipe'],
+		{
+			head=empty,
+			body="Cohort Cloak +1"
+		})
 
 		sets.midcast.StatusRemoval = sets.midcast.FastRecast
 
@@ -594,8 +598,8 @@ function init_gear_sets()
 	--Frostbite
 		sets.precast.WS['Frostbite'] = set_combine(sets.precast.JA['Swipe'],
 		{
-			lear="Crematio Earring", rear="Moonshade Earring",
-			body="Samnuha Coat", lring="Shiva Ring +1", rring="Epaminondas's Ring"
+			head=empty, lear="Crematio Earring", rear="Moonshade Earring",
+			body="Cohort Cloak +1", lring="Shiva Ring +1", rring="Epaminondas's Ring"
 		})
 		
 	--Freezebite

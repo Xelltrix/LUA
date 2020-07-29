@@ -60,7 +60,7 @@ function init_gear_sets()
 		
 		sets.precast.JA['Astral Conduit'] =
 		{
-			ammo="Psilomene",
+			ammo="Ghastly Tathlum +1",
 			main="Espiritus", sub="Niobid Strap",
 			head="Amalric Coif +1", neck="Smn. Collar +2", lear="Evans Earring", rear="Etiolation Earring",
 			body="Con. Doublet +3", hands="Beck. Bracers +1", lring="Mephitas's Ring +1", rring="Metamor. Ring +1",
@@ -574,7 +574,7 @@ function init_gear_sets()
 		
 		sets.precast.WS['Myrkr'] = 
 		{
-			ammo="Psilomene",
+			ammo="Ghastly Tathlum +1",
 			head="Amalric Coif +1", neck="Smn. Collar +2", lear="Etiolation Earring", rear="Moonshade Earring",
 			body="Con. Doublet +3", hands="Beck. Bracers +1", lring="Mephitas's Ring +1", rring="Metamor. Ring +1",
 			back="Conveyance Cape", waist="Luminary Sash", legs="Amalric Slops +1", feet="Amalric Nails +1"

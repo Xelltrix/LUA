@@ -157,8 +157,8 @@ function init_gear_sets()
 		{
 			main="Solstice", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head="Vanya Hood", neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
-			body="Amalric Doublet +1", hands=gear.ENH_Gloves, lring="Kishar Ring", rring="Weather. Ring +1",
-			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Lengo Pants", feet="Medium's Sabots"
+			body="Amalric Doublet +1", hands=gear.FCHands, lring="Kishar Ring", rring="Weather. Ring +1",
+			back="Fi Follet Cape +1", waist="Shinjutsu-no-Obi +1", legs="Lengo Pants", feet="Medium's Sabots"
 		}
 
 	--------------------------------------
@@ -241,8 +241,8 @@ function init_gear_sets()
 		{
 			main="Idris", sub="Chanter's Shield", range="Dunna", ammo="",
 			head="Vanya Hood", neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
-			body="Amalric Doublet +1", hands="Geo. Mitaines +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Lifestream Cape", waist="Luminary Sash", legs="Lengo Pants", feet="Medium's Sabots"
+			body="Amalric Doublet +1", hands="Geo. Mitaines +3", lring="Kishar Ring", rring="Weather. Ring +1",
+			back="Fi Follet Cape +1", waist="Shinjutsu-no-Obi +1", legs="Lengo Pants", feet="Medium's Sabots"
 		}
 	
 	--------------------------------------
@@ -254,14 +254,14 @@ function init_gear_sets()
 		sets.midcast.Macc =
 		{
 			main="Daybreak", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
-			head="C. Palug Crown", neck="Bagua Charm +1", lear="Regal Earring", rear="Malignance Earring",
-			body="Geomancy Tunic +3", hands="Geo. Mitaines +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Metamor. Ring +1",
-			back=gear.GEOCape_Nuke, waist="Luminary Sash", legs="Geomancy Pants +3", feet="Geo. Sandals +3"
+			head=empty, neck="Bagua Charm +1", lear="Regal Earring", rear="Malignance Earring",
+			body="Cohort Cloak +1", hands="Geo. Mitaines +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Metamor. Ring +1",
+			back=gear.GEOCape_Nuke, waist="Acuity Belt +1", legs="Geomancy Pants +3", feet="Geo. Sandals +3"
 		}
 	
 		sets.midcast['Enfeebling Magic'] = set_combine(sets.midcast.Macc,
 		{
-			head="Befouled Crown", neck="Incanter's Torque",
+			neck="Incanter's Torque",
 			lring="Kishar Ring", hands="Regal Cuffs",
 			feet="Bagua Sandals +3"
 		})
@@ -283,14 +283,15 @@ function init_gear_sets()
 	---Dark Magic
 		sets.midcast['Dark Magic'] = set_combine(sets.midcast.Macc,
 		{
-			neck="Erra Pendant", lear="Mani Earring",
+			head="C. Palug Crown", neck="Erra Pendant", lear="Mani Earring",
+			body="Geomancy Tunic +3",
 			waist="Fucho-no-Obi", legs="Azimuth Tights +1",
 		})
 
 		sets.midcast.Sap = set_combine(sets.midcast['Dark Magic'],
 		{
 			main="Rubicundity", sub="Ammurapi Shield",
-			head="Pixie Hiarpin +1", rear="Hirudinea Earring",
+			head="Pixie Hairpin +1", rear="Hirudinea Earring",
 			lring="Archon Ring", rring="Evanescence Ring", 
 			feet=gear.SapCrackows
 		})
@@ -320,7 +321,8 @@ function init_gear_sets()
 
 		sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'],
 		{
-			head="C. Palug Crown", neck="Sanctity Necklace",
+			head=empty, neck="Sanctity Necklace",
+			body="Cohort Cloak +1",
 			waist="Sacro Cord", legs="Merlinic Shalwar", feet="Bagua Sandals +3"
 		})
 
@@ -625,13 +627,13 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 		if spell.target.type == 'SELF' then
 			equip(
 			{
-				legs="Bagua Pants +3", feet="Azimuth Gaiters +1"
+				back="Lifestream Cape", legs="Bagua Pants +3", feet="Azimuth Gaiters +1"
 			})
 		elseif spell.target.type == 'PLAYER' or spell.target.type == 'NPC' then
 			equip(
 			{
 				main="Solstice",
-				legs="Bagua Pants +3", feet="Azimuth Gaiters +1"
+				back="Lifestream Cape", legs="Bagua Pants +3", feet="Azimuth Gaiters +1"
 			})
 		end
 	end

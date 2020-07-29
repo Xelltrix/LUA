@@ -23,6 +23,8 @@ function job_setup()
     state.IgnoreTargetting = M(false, 'Ignore Targetting')
 
     state.CurrentStep = M{['description']='Current Step', 'Main', 'Alt'}
+	
+	state.EnmityDown = M(false)
 
     determine_haste_group()
 end
@@ -59,6 +61,8 @@ function user_setup()
     send_command('bind ^` input /ja "Chocobo Jig" <me>')
     send_command('bind !` input /ja "Chocobo Jig II" <me>')
 	
+	send_command('bind numpad. gs c toggle EnmityDown')
+	
 	send_command('bind pageup gs c cycle MainWeaponSet')
 	send_command('bind pagedown gs c cycleback MainWeaponSet')
 	
@@ -90,6 +94,24 @@ function init_gear_sets()
 --------------------									--------------------
 ----------------------------------------------------------------------------
 
+
+		sets.Enmity = 
+		{--		Enmity: +75
+			ammo="Sapience Orb",
+			head="Rabid Visor", neck="Unmoving Collar +1", lear="Cryptic Earring", rear="Trux Earring",
+			body="Emet Harness +1", hands="Nilas Gloves", lring="Eihwaz Ring", rring="Supershear Ring",
+			back="Reiki Cloak", waist="Trance Belt", legs="Zoar Subligar +1", feet="Ahosi Leggings"
+		}
+		
+		sets.EnmityDown =
+		{--		Enmity: -27
+			rear="Novia Earring",
+			body="Adhemar Jacket +1",
+			lring="Lebeche Ring", rring="Kuchekula Ring"
+		}
+
+
+
 	-------------------
 	-- Job Abilities --
 	------------------- 
@@ -108,8 +130,8 @@ function init_gear_sets()
 		{
 			ammo="Yamarang",
 			head="Mummu Bonnet +2", neck="Etoile Gorget +2", lear="Sjofn Earring", rear="Tuisto Earring",
-			body="Passion Jacket", hands="Malignance Gloves", lring="Metamor. Ring +1", rring="Moonlight Ring",
-			back="Toetapper Mantle", waist="Flume Belt +1", legs="Dashing Subligar", feet="MAxixi Shoes +1"
+			body="Maxixi Casaque +1", hands="Malignance Gloves", lring="Metamor. Ring +1", rring="Moonlight Ring",
+			back=gear.DNCCape_STP, waist="Flume Belt +1", legs="Dashing Subligar", feet="Malignance Boots"
 		}
 
 
@@ -370,7 +392,7 @@ function init_gear_sets()
 		{
 			ammo="Charis Feather",
 			head=gear.AHead_TP, neck="Fotia Gorget", lear="Odr Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
-			body="Meg. Cuirie +2", hands="adhemar Wrist. +1", lring="Ilabrat Ring", rring="Regal Ring",
+			body="Meg. Cuirie +2", hands="Adhemar Wrist. +1", lring="Ilabrat Ring", rring="Regal Ring",
 			back="Sacro Mantle", waist="Fotia Belt", legs="Lustr. Subligar +1", feet=gear.HBoots_Crit
 		}
 
@@ -761,6 +783,26 @@ end
 ----------------------------------
 ---------------------------------------------------------------------------------
 
+-- Run after the general precast() is done.
+function job_post_precast(spell, action, spellMap, eventArgs)
+	if state.EnmityDown.value and spell.type == 'WeaponSkill' then
+		equip(sets.EnmityDown)
+	end
+	
+	if spell.type == 'WeaponSkill' and magical_ws:contains(spell.name) then
+		if spell.element ~= world.day_element and spell.element ~= world.weather_element then
+			if spell.target.distance < (15 - spell.target.model_size) then
+				equip { waist="Orpheus's Sash" }
+			end
+		elseif (spell.element == world.day_element and spell.element == world.weather_element)
+				or (spell.element == world.weather_element and get_weather_intensity() == 2 and world.day_element ~= elements.strong_to[spell.element]) then
+			equip { waist="Hachirin-no-Obi" }
+		elseif (spell.element == world.day_element or (spell.element == world.weather_element and get_weather_intensity() == 1)
+				or (spell.element == world.weather_element and get_weather_intensity() == 2 and world.day_element == elements.strong_to[spell.element])) then
+			equip { waist="Hachirin-no-Obi" }
+		end	
+	end
+end
 
 -------------------------------------------------------------------------------------------------------------------
 -- Job-specific hooks for non-casting events.
