@@ -109,6 +109,14 @@ function init_gear_sets()
 			body="Adhemar Jacket +1",
 			lring="Lebeche Ring", rring="Kuchekula Ring"
 		}
+		
+		sets.MAXHP =
+		{
+			ammo="Staunch Tathlum +1",
+			head="Turms Cap +1", neck="Unmoving Collar +1", lear="Odnowa Earring +1", rear="Tuisto Earring",
+			body="Malignance Tabard", hands="Turms Mittens +1", lring="Gelatinous Ring +1", rring="Moonlight Ring",
+			back="Moonlight Cape", waist="Carrier's Sash", legs="Turms Subligar +1", feet="Turms Leggings +1"
+		}
 
 
 
@@ -398,7 +406,7 @@ function init_gear_sets()
 
 		sets.precast.WS['Evisceration'].Low = set_combine(sets.precast.WS['Evisceration'],
 		{
-			head="Malignance Chapeau"
+			head="Blistering Sallet +1"
 		})
 		
 		sets.precast.WS['Evisceration'].Mid = set_combine(sets.precast.WS['Evisceration'].Low,

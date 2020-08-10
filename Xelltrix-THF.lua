@@ -54,9 +54,9 @@ function user_setup()
 	state.IdleMode:options('Normal','DT')
 	
 	state.MainWeaponSet = M{['description']='Main Weapon Set',
+		'Tauret',
 		'Aeneas',
-		'Twashtar',
-		'Tauret'
+		'Twashtar'
 	}
 	
 	state.SubWeaponSet = M{['description']='Sub Weapon Set',
@@ -253,9 +253,9 @@ function init_gear_sets()
 		sets.midcast.Cures =
 		{
 			ammo="Staunch Tathlum +1",
-			head="Malignance Chapeau", neck="Incanter's Torque", lear="Mendi. Earring", rear="Meili Earring",
-			body="Malignance Tabard", hands="Malignance Gloves", lring="Defending Ring", rring="Menelaus's Ring",
-			back="Moonlight Cape", waist="Bishop's Sash", legs="Malignance Tights", feet="Malignance Boots"
+			head="Turms Cap +1", neck="Incanter's Torque", lear="Mendi. Earring", rear="Meili Earring",
+			body="Pillager's Vest +3", hands="Turms Mittens +1", lring="Lebeche Ring", rring="Menelaus's Ring",
+			back="Moonlight Cape", waist="Bishop's Sash", legs="Turms Subligar +1", feet="Turms Leggings +1"
 		}
 		
 		sets.midcast['Elemental Magic'] =
@@ -338,7 +338,7 @@ function init_gear_sets()
 		sets.idle.DT =
 		{--	DT: 35%		PDT: 51%	MDT: 35%
 			ammo="Yamarang",
-			head="Malignance Chapeau",  neck="Warder's Charm +1", lear="Dawn Earring", rear="Infused Earring",
+			head="Malignance Chapeau",  neck="Loricate Torque +1", lear="Dawn Earring", rear="Infused Earring",
 			body="Malignance Tabard", hands="Malignance Gloves", lring="Defending Ring", rring="Moonlight Ring",
 			back="Moonlight Cape", waist="Engraved Belt", legs="Malignance Tights", feet="Jute Boots +1"
 		}
@@ -360,7 +360,7 @@ function init_gear_sets()
 
 		sets.defense.PDT =
 		{
-			ammo="Staunch Tathlum +1",
+			ammo="Yamarang",
 			head="Malignance Chapeau", neck="Warder's Charm +1", lear="Eabani Earring", rear="Sanare Earring",
 			body="Malignance Tabard", hands="Malignance Gloves", lring="Defending Ring", rring="Moonlight Ring",
 			back="Moonlight Cape", waist="Engraved Belt", legs="Malignance Tights", feet="Malignance Boots"
@@ -472,7 +472,7 @@ function init_gear_sets()
 
 		sets.precast.WS['Evisceration'].Low = set_combine(sets.precast.WS['Evisceration'],
 		{
-			head="Malignance Chapeau"
+			head="Blistering Sallet +1"
 		})
 		
 		sets.precast.WS['Evisceration'].Mid = sets.precast.WS['Evisceration'].Low

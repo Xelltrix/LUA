@@ -340,13 +340,17 @@ spell_maps = {
 	['Foe Requiem V']='Requiem',['Foe Requiem VI']='Requiem',['Foe Requiem VII']='Requiem',
 	
     ---- Ninjutsu 
-	['Utsusemi: Ichi']='Utsusemi',['Utsusemi: Ni']='Utsusemi', ['Utsusemi: San']='Utsusemi',
-    ['Katon: Ichi'] = 'ElementalNinjutsu',['Suiton: Ichi'] = 'ElementalNinjutsu',['Raiton: Ichi'] = 'ElementalNinjutsu',
-    ['Doton: Ichi'] = 'ElementalNinjutsu',['Huton: Ichi'] = 'ElementalNinjutsu',['Hyoton: Ichi'] = 'ElementalNinjutsu',
-    ['Katon: Ni'] = 'ElementalNinjutsu',['Suiton: Ni'] = 'ElementalNinjutsu',['Raiton: Ni'] = 'ElementalNinjutsu',
-    ['Doton: Ni'] = 'ElementalNinjutsu',['Huton: Ni'] = 'ElementalNinjutsu',['Hyoton: Ni'] = 'ElementalNinjutsu',
-    ['Katon: San'] = 'ElementalNinjutsu',['Suiton: San'] = 'ElementalNinjutsu',['Raiton: San'] = 'ElementalNinjutsu',
-    ['Doton: San'] = 'ElementalNinjutsu',['Huton: San'] = 'ElementalNinjutsu',['Hyoton: San'] = 'ElementalNinjutsu',
+	['Utsusemi: Ichi']='Utsusemi',['Utsusemi: Ni']='Utsusemi',['Utsusemi: San']='Utsusemi',
+	
+	['Kurayami: Ichi']='Genjutsu',['Kurayami: Ni']='Genjutsu',['Hojo: Ichi']='Genjutsu',['Hojo: Ni']='Genjutsu',
+	['Dokumori: Ichi']='Genjutsu',['Jubaku: Ichi']='Genjutsu',['Aisha: Ichi']='Genjutsu',['Yurin: Ichi']='Genjutsu',
+	
+    ['Katon: Ichi'] = 'Wheel',['Suiton: Ichi'] = 'Wheel',['Raiton: Ichi'] = 'Wheel',
+    ['Doton: Ichi'] = 'Wheel',['Huton: Ichi'] = 'Wheel',['Hyoton: Ichi'] = 'Wheel',
+    ['Katon: Ni'] = 'Wheel',['Suiton: Ni'] = 'Wheel',['Raiton: Ni'] = 'Wheel',
+    ['Doton: Ni'] = 'Wheel',['Huton: Ni'] = 'Wheel',['Hyoton: Ni'] = 'Wheel',
+    ['Katon: San'] = 'Wheel',['Suiton: San'] = 'Wheel',['Raiton: San'] = 'Wheel',
+    ['Doton: San'] = 'Wheel',['Huton: San'] = 'Wheel',['Hyoton: San'] = 'Wheel',
 
 	--- Runes
 	['Lux']='Rune',['Tenebrae']='Rune',['Ignis']='Rune',['Gelus']='Rune',['Flabra']='Rune',['Tellus']='Rune',['Sulpor']='Rune',['Unda']='Rune',

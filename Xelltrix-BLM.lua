@@ -531,7 +531,7 @@ function init_gear_sets()
 		sets.engaged =
 		{
 			main="Lathi", sub="Khonsu", ammo="Hasty Pinion +1",
-			head="Arch. Petasos +3", neck="Combatant's Torque", lear="Telos Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
+			head="Blistering Sallet +1", neck="Combatant's Torque", lear="Telos Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Arch. Coat +3", hands="Arch. Gloves +3", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.BLMCape_Nuke, waist="Witful Belt", legs="Arch. Tonban +3", feet="Arch. Sabots +3"
 		}

@@ -310,7 +310,7 @@ function init_gear_sets()
 		{
 			head="Acad. Mortar. +3", neck="Erra Pendant",
 			body="Acad. Gown +3", hands="Acad. Bracers +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			waist="Luminary Sash", feet="Acad. Loafers +3"
+			waist="Acuity Belt +1", feet="Acad. Loafers +3"
 		})
 
 	---Elemental Magic
@@ -583,7 +583,7 @@ function init_gear_sets()
 			ammo="Ghastly Tathlum +1",
 			head="Amalric Coif +1", neck="Sanctity Necklace", lear="Etiolation Earring", rear="Moonshade Earring",
 			body="Acad. Gown +3", hands="Kaykaus Cuffs +1", lring="Mephitas's Ring +1", rring="Metamor. Ring +1",
-			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Amalric Slops +1", feet="Amalric Nails +1"
+			back="Fi Follet Cape +1", waist="Shinjutsu-no-Obi +1", legs="Amalric Slops +1", feet="Amalric Nails +1"
 		}
 		
 	--------------------------------------
@@ -592,7 +592,8 @@ function init_gear_sets()
 
 		sets.engaged = 
 		{
-			head="Peda. M.Board +3", neck="Combatant's Torque", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
+			ammo="Hasty Pinion +1",
+			head="Blistering Sallet +1", neck="Combatant's Torque", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Jhakri Robe +2", hands="Raetic Bangles +1", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.SCHCape_Nuke, waist="Windbuffet Belt +1", legs="Volte Hose", feet="Peda. Loafers +3"
 		}

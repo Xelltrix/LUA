@@ -575,7 +575,7 @@ function init_gear_sets()
 		sets.engaged =
 		{
 			sub="Genmei Shield", ammo="Hasty Pinion +1",
-			head="Bagua Galero +3", neck="Combatant's Torque", lear={name="Mache Earring +1", bag="wardrobe2"},  rear={name="Mache Earring +1", bag="wardrobe3"},
+			head="Blistering Sallet +1", neck="Combatant's Torque", lear={name="Mache Earring +1", bag="wardrobe2"},  rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Bagua Tunic +3", hands="Raetic Bangles +1", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.GEOCape_Luopan, waist="Windbuffet Belt +1",  legs="Volte Hose", feet="Bagua Sandals +3"
 		}

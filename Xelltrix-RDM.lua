@@ -283,7 +283,7 @@ function init_gear_sets()
 			main="Daybreak", sub="Ammurapi Shield", ammo="Regal Gem",
 			head="Viti. Chapeau +3", neck="Dls. Torque +2", lear="Regal Earring", rear="Snotra Earring",
 			body="Atrophy Tabard +3", hands="Regal Cuffs", lring="Kishar Ring", rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back=gear.RDMCape_ENF, waist="Luminary Sash", legs="Chironic Hose", feet="Vitiation Boots +3"
+			back=gear.RDMCape_ENF, waist="Sacro Cord", legs="Chironic Hose", feet="Vitiation Boots +3"
 		}
 
 		sets.midcast['Enfeebling Magic'].Resistant = sets.midcast.Macc
@@ -601,8 +601,8 @@ function init_gear_sets()
 		sets.precast.WS['Chant du Cygne'] = set_combine(sets.precast.WS,
 		{
 			ammo="Yetshila +1",
-			head="Malignance Chapeau", rear={name="Mache Earring +1", bag="wardrobe3"},
-			body="Malignance Tabard", hands="Malignance Gloves", lring="Hetairoi Ring", rring="Ilabrat Ring",
+			head="Blistering Sallet +1", rear={name="Mache Earring +1", bag="wardrobe3"},
+			body="Ayanmo Corazza +2", hands="Malignance Gloves", lring="Hetairoi Ring", rring="Ilabrat Ring",
 			back=gear.RDMCape_Crit, legs="Zoar Subligar +1", feet="Thereoid Greaves"
 		})
 	
@@ -638,7 +638,7 @@ function init_gear_sets()
 		{
 			ammo="Regal Gem",
 			head="Viti. Chapeau +3", lear="Regal Earring",
-			hands="Malignance Gloves", lring="Metamor. Ring +1", rring={name="Stikini Ring +1", bag="wardrobe3"},
+			hands="Viti. Gloves +3", lring="Metamor. Ring +1", rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back=gear.RDMCape_ENF, legs="Jhakri Slops +2", feet="Jhakri Pigaches +2"
 		})
 
@@ -819,8 +819,8 @@ function init_gear_sets()
 		-----------------------------------------------------------
 		sets.engaged.Low = set_combine(sets.engaged,
 		{
-			rear="Telos Earring",
-			hands="Aya. Manopolas +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			ammo="Voluspa Tathlum",
+			neck="Combatant's Toque", rear="Telos Earring",
 		})
 
 		-----------------------------------------------------------------------------------
@@ -931,9 +931,9 @@ function init_gear_sets()
 		-----------------------------------------------------------	
 		sets.engaged.DW3 = 
 		{
-			ammo="Aurgelmir Orb +1",
-			head="Carmine Mask +1", neck="Anu Torque", lear="Eabani Earring", rear="Suppanomimi",
-			body="Malignance Tabard", hands="Malignance Gloves", lring="Hetairoi Ring", rring="Ilabrat Ring",
+			ammo="Hasty Pinion +1",
+			head="Malignance Chapeau", neck="Anu Torque", lear="Eabani Earring", rear="Suppanomimi",
+			body="Malignance Tabard", hands="Malignance Gloves", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.RDMCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet=gear.TFeet_TP
 		}
 		
@@ -941,7 +941,7 @@ function init_gear_sets()
 		{
 			ammo="Aurgelmir Orb +1",
 			head="Carmine Mask +1", neck="Anu Torque", lear="Eabani Earring", rear="Suppanomimi",
-			body="Malignance Tabard", hands="Aya. Manopolas +2", lring="Hetairoi Ring", rring={name="Chirich Ring +1", bag="wardrobe3"},
+			body="Malignance Tabard", hands="Aya. Manopolas +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.RDMCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet=gear.TFeet_TP
 		}
 		
@@ -1143,10 +1143,10 @@ function init_gear_sets()
 		-----------------------------------------------------------		
 		sets.engaged.DW3.Med =
 		{
-			ammo="Aurgelmir Orb +1",
+			ammo="Hasty Pinion +1",
 			head="Malignance Chapeau", neck="Anu Torque", lear="Eabani Earring", rear="Suppanomimi",
-			body="Malignance Tabard", hands="Raetic Bangles +1", lring="Hetairoi Ring", rring="Ilabrat Ring",
-			back=gear.RDMCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet="Malignance Boots"
+			body="Malignance Tabard", hands="Malignance Gloves", lring="Hetairoi Ring", rring="Ilabrat Ring",
+			back=gear.RDMCape_DW, waist="Reiki Yotai", legs="Carmine Cuisses +1", feet="Carmine Greaves +1"
 		}
 		
 		sets.engaged.DW3.Med.ENSPELLS =
@@ -1162,7 +1162,7 @@ function init_gear_sets()
 			ammo="Hasty Pinion +1",
 			head="Malignance Chapeau", neck="Dls. Torque +2", lear="Eabani Earring", rear="Suppanomimi",
 			body="Malignance Tabard", hands="Aya. Manopolas +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
-			back=gear.RDMCape_DW, waist="Reiki Yotai", legs="Malignance Tights", feet="Malignance Boots"
+			back=gear.RDMCape_DW, waist="Reiki Yotai", legs="Malignance Tights", feet=gear.TFeet_TP
 		}
 		
 		-----------------------------------------------------------------------------------
@@ -1297,7 +1297,7 @@ function init_gear_sets()
 		
 		sets.engaged.DW3.Max.NOTP =
 		{
-			ammo="Hasty Pinion +1",
+			ammo="Voluspa Tahtlum",
 			head="Malignance Chapeau", neck="Dls. Torque +2", lear="Digni. Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Malignance Tabard", hands="Aya. Manopolas +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.RDMCape_DW, waist="Orpheus's Sash", legs="Malignance Tights", feet="Malignance Boots"
@@ -1310,8 +1310,8 @@ function init_gear_sets()
 		-----------------------------------------------------------	
 		sets.engaged.DW3.Low.Max = set_combine(sets.engaged.DW3.Max,
 		{
-			rear="Telos Earring",
-			hands="Aya. Manopolas +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			ammo="Voluspa Tathlum",
+			neck="Combatant's Toque", rear="Telos Earring",
 		})
 		
 		-----------------------------------------------------------------------------------
@@ -1319,9 +1319,11 @@ function init_gear_sets()
 		---	Primary Accuracy: 1138 		/ Primary Attack: 951
 		--- Auxiliary Accuracy: 1113 	/ Auxiliary Attack: 867
 		-----------------------------------------------------------	
-		sets.engaged.DW3.Mid.Max = set_combine(sets.engaged.DW3.Low.Max,
+		sets.engaged.DW3.Mid.Max = set_combine(sets.engaged.DW3.Max,
 		{
-			neck="Combatant's Torque"
+			ammo="Hasty Pinion +1",
+			head="Carmine Mask +1", neck="Combatant's Torque", rear="Telos Earring",
+			back=gear.RDMCape_STP, waist="Reiki Yotai", legs="Carmine Cuisses +1"
 		})
 		-----------------------------------------------------------------------------------
 		---	TP/h:78~	(DW:10	STP:34~38	QA:0%	TA:4%	DA:14%)
@@ -1331,7 +1333,7 @@ function init_gear_sets()
 		sets.engaged.DW3.High.Max = set_combine(sets.engaged.DW3.Mid.Max,
 		{
 			lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-			waist="Kentarch Belt +1"
+			back=gear.RDMCape_DW, waist="Kentarch Belt +1"
 		})
 
 

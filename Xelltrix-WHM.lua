@@ -74,7 +74,7 @@ function init_gear_sets()
 
 		sets.precast.FC['Healing Magic'] = set_combine(sets.precast.FC,
 		{--		Fast Cast: 71%		Healing Casting Time: -21%
-			main="Piety Wand"			
+			main="Asclepius"			
 		})
 
 		sets.precast.FC.StatusRemoval = set_combine(sets.precast.FC,
@@ -124,7 +124,7 @@ function init_gear_sets()
 
 		sets.midcast.ConserveMP = set_combine(sets.midcast.FC,
 		{--		Fast Cast: 38%		Haste: 20%	Conserve MP: 
-			main="Piety Wand", ammo="Pemphredo Tathlum",
+			main="Asclepius", ammo="Pemphredo Tathlum",
 			head="Vanya Hood", neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
 			body="Kaykaus Bliaut +1",
 			back="Fi Follet Cape +1", waist="Shinjutsu-no-Obi +1", legs="Lengo Pants", feet="Kaykaus Boots +1"
@@ -160,7 +160,7 @@ function init_gear_sets()
 		
 		sets.midcast.Curas =
 		{-- Cure Potency/II: 51%/16%			Enmity: -58		Healing Magic Skill: +45(521)	MND+194
-			main="Piety Wand", sub="Ammurapi Shield", ammo="Hasty Pinion +1",
+			main="Asclepius", sub="Ammurapi Shield", ammo="Hasty Pinion +1",
 			head="Kaykaus Mitra +1", neck="Clr. Torque +2", lear="Glorious Earring", rear="Mendi. Earring",
 			body="Theo. Briault +3", hands="Theophany Mitts +3", lring="Lebeche Ring", rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Alaunus's Cape", waist="Witful Belt", legs="Sifahir Slacks", feet="Kaykaus Boots +1"
@@ -195,7 +195,7 @@ function init_gear_sets()
 
 		sets.midcast['Healing Magic'] = set_combine(sets.midcast.FC,
 		{
-			main="Piety Wand"
+			main="Asclepius"
 		})
 
 	--------------------------------------
@@ -286,7 +286,7 @@ function init_gear_sets()
 			main="Asclepius", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head="Theophany Cap +3", neck="Incanter's Torque", lear="Regal Earring", rear="Malignance Earring", 
 			body="Theo. Briault +3", hands="Kaykaus Cuffs +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Metamor. Ring +1",
-			back="Alaunus's Cape", waist="Luminary Sash", legs="Th. Pant. +3", feet="Theo. Duckbills +3"
+			back="Alaunus's Cape", waist="Sacro Cord", legs="Th. Pant. +3", feet="Theo. Duckbills +3"
 		}
 		
 		sets.midcast['Enfeebling Magic'] = set_combine(sets.midcast.Macc,
@@ -377,7 +377,7 @@ function init_gear_sets()
 		
 		sets.idle.DT = set_combine(sets.idle,
 		{
-			main="Piety Wand", ammo="Staunch Tathlum +1",
+			main="Asclepius", ammo="Staunch Tathlum +1",
 			head="Inyanga Tiara +2", neck="Warder's Charm +1", lear="Genmei Earring", rear="Odnowa Earring +1",
 			lring="Defending Ring", rring="Gelatinous Ring +1",
 			legs="Inyanga Shalwar +2", feet="Volte Gaiters"
@@ -385,7 +385,7 @@ function init_gear_sets()
 		
 		sets.idle.MEVA = set_combine(sets.idle,
 		{
-			main="Piety Wand", ammo="Staunch Tathlum +1",
+			main="Asclepius", ammo="Staunch Tathlum +1",
 			head="Inyanga Tiara +2", neck="Warder's Charm +1", lear="Genmei Earring", rear="Sanare Earring",
 			hands="Inyan. Dastanas +2", lring="Inyanga Ring", rring="Purity Ring",
 			back="Alaunus's Cape", legs="Inyanga Shalwar +2", feet="Volte Gaiters"
@@ -413,7 +413,7 @@ function init_gear_sets()
 		
 		sets.defense.PDT = 
 		{
-			main="Piety Wand", sub="Genmei Shield", ammo="Staunch Tathlum +1",
+			main="Asclepius", sub="Genmei Shield", ammo="Staunch Tathlum +1",
 			head="Inyanga Tiara +2", neck="Warder's Charm +1", lear="Eabani Earring", rear="Sanare Earring",
 			body="Inyanga Jubbah +2", hands="Inyan. Dastanas +2", lring="Defending Ring", rring="Gelatinous Ring +1",
 			back="Alaunus's Cape", waist="Carrier's Sash", legs="Inyanga Shalwar +2", feet="Inyan. Crackows +2"
@@ -477,7 +477,7 @@ function init_gear_sets()
 		{
 			head="Kaykaus Mitra +1", neck="Sanctity Necklace", lear="Loquac. Earring", rear="Moonshade Earring",
 			body="Kaykaus Bliaut +1", hands="Kaykaus Cuffs +1", lring="Lebeche Ring", rring="Metamor. Ring +1",
-			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Piety Pantaln. +3", feet="Kaykaus Boots +1"
+			back="Fi Follet Cape +1", waist="Shinjutsu-no-Obi +1", legs="Piety Pantaln. +3", feet="Kaykaus Boots +1"
 		}
 		
 		sets.precast.WS['Starlight'] = set_combine(sets.precast.WS['Dagan'],
