@@ -303,7 +303,7 @@ function init_gear_sets()
 		
 		sets.precast.WS['Drakesbane'] = set_combine(sets.precast.WS,
 		{
-			head="Ptero. Armet +3", neck="Dgn. Collar +2", lear="Thrud Earring", rear="Sherida Earring",
+			head="Blistering Sallet +1", neck="Dgn. Collar +2", lear="Thrud Earring", rear="Sherida Earring",
 			body="Hjarrandi Breast.", hands="Flam. Manopolas +2", rring="Regal Ring",
 			back=gear.DRGCape_Crit, waist="Windbuffet Belt +1", legs="Peltast's Cuissots +1", feet="Valorous Greaves"
 		})

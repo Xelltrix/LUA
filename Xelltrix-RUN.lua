@@ -90,7 +90,8 @@ function init_gear_sets()
 		sets.Enmity.HP = set_combine(sets.Enmity,
 		{--Enmity + 71	PDT: -44%
 			neck="Unmoving Collar +1", lear="Odnowa Earring +1", rear="Tuisto Earring",
-			lring="Defending Ring", rring="Moonlight Ring"
+			lring="Defending Ring", rring="Moonlight Ring",
+			waist="Flume Belt +1"
 		})
 		
 		sets.buff.Doom = 
@@ -150,9 +151,9 @@ function init_gear_sets()
 		sets.precast.JA['Swipe'] =
 		{
 			ammo="Pemphredo Tathlum",
-			head=gear.HHead_MAB, neck="Sanctity Necklace", lear="Crematio Earring", rear="Static Earring",
-			body="Samnuha Coat", hands="Carmine Fin. Ga. +1", lring="Locus Ring", rring="Mujin Band",
-			back="Evasionist's Cape", waist="Orpheus's Sash", legs="Shneddick Tights +1", feet="Adhemar Gamashes +1"
+			head=gear.HHead_MAB, neck="Sanctity Necklace", lear="Crematio Earring", rear="Friomisi Earring",
+			body="Carm. Sc. Mail +1", hands="Carmine Fin. Ga. +1", lring="Shiva Ring +1", rring="Metamor. Ring +1",
+			back="Evasionist's Cape", waist="Orpheus's Sash", legs="Herculean Trousers", feet="Adhemar Gamashes +1"
 		}
 
 		sets.precast.JA['Lunge'] = sets.precast.JA['Swipe']
@@ -170,8 +171,6 @@ function init_gear_sets()
 		}
 
 		sets.precast.JA['Valiance'] = sets.precast.JA['Vallation']
-		
-		sets.precast.JA['Pflug'] = { feet="Runeist's Boots +3" }
 
 		sets.precast.JA['Battuta'] = { head="Fu. Bandeau +3" }
 
@@ -182,17 +181,18 @@ function init_gear_sets()
 			ammo="Staunch Tathlum +1",	
 			head="Erilaz Galea +1", neck="Incanter's Torque", lear="Beatific Earring", rear="Saxnot Earring",
 			body="Futhark Coat +3", hands="Runeist's Mitons +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Moonlight Cape", waist="Bishop's Sash", legs="Rune. Trousers +2", feet="Ahosi Leggings"
+			back=gear.RUNCape_ENM, waist="Bishop's Sash", legs="Rune. Trousers +2", feet="Ahosi Leggings"
 		}
 
 		sets.precast.JA['Elemental Sforzo'] = { body="Futhark Coat +3" }
 		
-		sets.precast.JA['One for All'] = set_combine(sets.Enmity.HP,
+		sets.precast.JA['One for All'] =
 		{
-			head="Erilaz Galea +1",
-			body="Runeist's Coat +3", hands="Turms Mittens +1",
-			feet="Turms Leggings +1"
-		})
+			ammo="Sapience Orb",
+			head=gear.AHead_PDT, neck="Unmoving Collar +1", lear="Odnowa Earring +1", rear="Tuisto Earring",
+			body="Runeist's Coat +3", hands="Regal Gauntlets", lring="Gelatinous Ring +1", rring="Moonlight Ring",
+			back="Moonlight Cape", waist="Trance Belt", legs="Futhark Trousers +3", feet="Turms Leggings +1"
+		}
 	
 	-------------------
 	-- Precast Magic --
@@ -237,8 +237,8 @@ function init_gear_sets()
 		sets.midcast.FC.SIRD = 
 		{--		Spell Interrupt: -101	PDT: -43%
 			ammo="Staunch Tathlum +1",
-			head=gear.THead_Phalanx, neck="Moonlight Necklace", lear="Genmei Earring", rear="Tuisto Earring",
-			body="Futhark Coat +3", hands="Rawhide Gloves", lring="Defending Ring", rring="Moonlight Ring",
+			head=gear.THead_Phalanx, neck="Moonlight Necklace", lear="Odnowa Earring +1", rear="Tuisto Earring",
+			body="Futhark Coat +3", hands="Rawhide Gloves", lring="Gelatinous Ring +1", rring="Defending Ring",
 			back=gear.RUNCape_ENM, waist="Audumbla Sash", legs="Carmine Cuisses +1", feet=gear.TFeet_Phalanx
 		}
 
@@ -288,11 +288,11 @@ function init_gear_sets()
 		{
 			ammo="Staunch Tathlum +1",
 			head="Erilaz Galea +1", neck="Incanter's Torque", lear="Mimir Earring", rear="Tuisto Earring",
-			body="Manasa Chasuble", hands="Runeist's Mitons +3", lring="Gelatinous Ring +1", rring={name="Stikini Ring +1", bag="wardrobe3"},
+			body="Runeist's Coat +3", hands="Runeist's Mitons +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Moonlight Cape", waist="Olympus Sash", legs ="Futhark Trousers +3", feet="Turms Leggings +1"
 		}
 
-		sets.midcast.BarStatus = sets.midcast.Duration
+		sets.midcast.BarStatus = set_combine(sets.midcast.BarElement, sets.midcast.Duration)
 
 		sets.midcast.Stoneskin = set_combine(sets.midcast.FC, sets.midcast.FC.SIRD,
 		{
@@ -300,7 +300,7 @@ function init_gear_sets()
 			waist="Siegel Sash"
 		})
 
-		sets.midcast.Aquaveil = set_combine(sets.midcast.Duration, sets.midcast.FC.SIRD)
+		sets.midcast.Aquaveil = sets.midcast.FC.SIRD
 
 		sets.midcast.Statless = sets.midcast.Duration
 
@@ -335,7 +335,7 @@ function init_gear_sets()
 			ammo="Pemphredo Tathlum",
 			head=empty, neck="Erra Pendant", lear="Digni. Earring", rear="Gwati Earring",
 			body="Cohort Cloak +1", hands="Aya. Manopolas +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back=gear.RUNCape_FC, waist="Luminary Sash", legs="Aya. Cosciales +2", feet="Futhark Boots +3"
+			back=gear.RUNCape_FC, waist="Acuity Belt +1", legs="Aya. Cosciales +2", feet="Futhark Boots +3"
 		}
 	
 		sets.midcast.Cures = set_combine(sets.midcast.FC.SIRD,
@@ -350,6 +350,14 @@ function init_gear_sets()
 			head=empty,
 			body="Cohort Cloak +1"
 		})
+		
+		sets.magic_burst =
+		{
+			ammo="Pemphredo Tathlum",
+			head=gear.HHead_MAB, neck="Sanctity Necklace", lear="Crematio Earring", rear="Static Earring",
+			body="Samnuha Coat", hands="Carmine Fin. Ga. +1", lring="Mujin Band", rring="Locus Ring",
+			back="Evasionist's Cape", waist="Orpheus's Sash", legs="Herculean Trousers", feet="Adhemar Gamashes +1"
+		}
 
 		sets.midcast.StatusRemoval = sets.midcast.FastRecast
 
@@ -394,8 +402,8 @@ function init_gear_sets()
 
 		sets.idle.DT = 
 		{-- DT: 38%		PDT: 31%		MDT: 40%	Regen: 23
-			ammo="Staunch Tathlum +1",
-			head="Turms Cap +1", neck="Futhark Torque +2", lear="Genmei Earring", rear="Tuisto Earring",
+			ammo="Yamarang",
+			head="Turms Cap +1", neck="Futhark Torque +2", lear="Odnowa Earring +1", rear="Tuisto Earring",
 			body="Futhark Coat +3", hands="Turms Mittens +1", lring="Defending Ring", rring="Moonlight Ring",
 			back="Moonlight Cape", waist="Flume Belt +1", legs="Eri. Leg Guards +1", feet="Turms Leggings +1"
 		}
@@ -426,7 +434,7 @@ function init_gear_sets()
 		sets.defense.PDT =
 		{--DT: -24%		PDT: -45%		MDT: -27%
 			ammo="Staunch Tathlum +1",
-			head="Turms Cap +1", neck="Futhark Torque +2", lear="Odnowa Earring +1", rear="Tuisto Earring",
+			head="Turms Cap +1", neck="Futhark Torque +2", lear="Odnowa Earring +1", rear="Genmei Earring",
 			body="Runeist's Coat +3", hands="Turms Mittens +1", lring="Defending Ring", rring="Moonlight Ring",
 			back=gear.RUNCape_ENM, waist="Flume Belt +1", legs="Eri. Leg Guards +1", feet="Turms Leggings +1"
 		}
@@ -435,14 +443,14 @@ function init_gear_sets()
 		{--DT: -16%		PDT: -33%		MDT: -22%
 			ammo="Yamarang",
 			head="Turms Cap +1", neck="Futhark Torque +2", lear="Sanare Earring", rear="Eabani Earring",
-			body="Runeist's Coat +3",hands="Volte Bracers", lring="Defending Ring", rring="Purity Ring",
+			body="Runeist's Coat +3", hands="Turms Mittens +1", lring="Defending Ring", rring="Purity Ring",
 			back=gear.RUNCape_ENM, waist="Engraved Belt", legs="Turms Subligar +1", feet="Turms Leggings +1"
 		}
 		
 		sets.defense.Breath =
 		{--DT: -44%		PDT: -44%		MDT: -44%
 			ammo="Staunch Tathlum +1",
-			head="Turms Cap +1", neck="Futhark Torque +2", lear="Sanare Earring", rear="Eabani Earring",
+			head="Turms Cap +1", neck="Futhark Torque +2",lear="Odnowa Earring +1", rear="Eabani Earring",
 			body="Futhark Coat +3", hands="Raetic Bangles +1", lring="Defending Ring", rring="Moonlight Ring",
 			back="Moonlight Cape", waist="Engraved Belt", legs="Aya. Cosciales +2", feet="Turms Leggings +1"
 		}
@@ -450,7 +458,7 @@ function init_gear_sets()
 		sets.defense.MDT = 
 		{--DT: -36%		PDT: -36%		MDT: -45%
 			ammo="Yamarang",
-			head="Turms Cap +1", neck="Futhark Torque +2", lear="Etiolation Earring", rear="Odnowa Earring +1",
+			head="Turms Cap +1", neck="Futhark Torque +2", lear="Odnowa Earring +1", rear="Etiolation Earring",
 			body="Futhark Coat +3",hands="Raetic Bangles +1", lring="Defending Ring", rring="Purity Ring",
 			back="Moonlight Cape", waist="Engraved Belt", legs="Aya. Cosciales +2", feet="Turms Leggings +1"
 		}
@@ -652,8 +660,8 @@ function init_gear_sets()
 
 		sets.engaged =
 		{
-			ammo="Yamarang",
-			head=gear.AHead_TP, neck="Anu Torque", lear="Sherida Earring", rear="Brutal Earring",
+			ammo="Aurgelmir Orb +1",
+			head=gear.AHead_TP, neck="Anu Torque", lear="Sherida Earring", rear="Dedition Earring",
 			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Epona's Ring", rring="Niqmaddu Ring",
 			back=gear.RUNCape_STP, waist="Windbuffet Belt +1", legs="Samnuha Tights", feet=gear.HBoots_TP
 		}
@@ -665,6 +673,7 @@ function init_gear_sets()
 
 		sets.engaged.Low = set_combine(sets.engaged,
 		{
+			ammo="Yamarang",
 			head="Dampening Tam", neck="Combatant's Torque", lear={name="Mache Earring +1", bag="wardrobe2"}
 		})
 
@@ -691,6 +700,7 @@ function init_gear_sets()
 	---Base Hybrid Set
 		sets.engaged.Hybrid =
 		{-- 		DT: 27%		PDT: 74%	MDT: 27%
+			ammo="Yamarang",
 			head=gear.AHead_PDT, neck="Futhark Torque +2",
 			body="Ashera Harness", lring="Defending Ring", rring="Moonlight Ring",
 			waist="Sailfi Belt +1", legs="Meg. Chausses +2"
@@ -733,6 +743,45 @@ function job_precast(spell, action, spellMap, eventArgs)
 			equip(sets.precast.JA[currentSpell])
 		end
 	end
+end
+
+function job_post_precast(spell, action, spellMap, eventArgs)
+	currentSpell = spell.english
+	
+	
+	if (spell.type == 'WeaponSkill' and magical_ws:contains(spell.name)) then
+		if spell.element ~= world.day_element and spell.element ~= world.weather_element then
+			if spell.target.distance < (15 - spell.target.model_size) then
+				equip { waist="Orpheus's Sash" }
+			end
+		elseif (spell.element == world.day_element and spell.element == world.weather_element)
+				or (spell.element == world.weather_element and get_weather_intensity() == 2 and world.day_element ~= elements.strong_to[spell.element]) then
+			equip { waist="Hachirin-no-Obi" }
+		elseif (spell.element == world.day_element or (spell.element == world.weather_element and get_weather_intensity() == 1)
+				or (spell.element == world.weather_element and get_weather_intensity() == 2 and world.day_element == elements.strong_to[spell.element])) then
+			equip { waist="Hachirin-no-Obi" }
+		end	
+	end
+	
+	if (spell.english == 'Swipe' or spell.english == 'Lunge') and state.MagicBurst.value then
+		equip(sets.magic_burst)
+	end
+	
+	if spell.english == 'Swipe' or spell.english == 'Lunge' then
+		if buffactive['Tenebrae'] then
+			equip
+			{
+				head="Pixie Hairpin +1",
+				rring="Archon Ring"
+			}
+		elseif buffactive['Lux'] then
+			equip
+			{
+				rring="Weather. Ring +1"
+			}
+		end
+	end
+	
 end
 
 function job_midcast(spell, action, spellMap, eventArgs)
@@ -778,6 +827,30 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 			else
 				equip(sets.buff['Embolden'])
 			end
+		end
+	end
+	
+	if spell.skill == 'Elemental Magic' and state.MagicBurst.value then
+		equip(sets.magic_burst)
+	end
+	
+	if spell.skill == 'Elemental Magic' and (spell.element ~= world.day_element and spell.element ~= world.weather_element) then
+		if spell.target.distance < (15 - spell.target.model_size) then
+			equip { waist="Orpheus's Sash" }
+		end
+	elseif spell.skill == 'Elemental Magic' and (spell.element == world.day_element and spell.element == world.weather_element)
+			or (spell.element == world.weather_element and get_weather_intensity() == 2 and world.day_element ~= elements.strong_to[spell.element]) then
+		if spellMap ~= 'Helix' then
+			equip { waist="Hachirin-no-Obi" }
+		elseif spell.target.distance < (15 - spell.target.model_size) then
+			equip { waist="Orpheus's Sash" }
+		end
+	elseif spell.skill == 'Elemental Magic' and (spell.element == world.day_element or (spell.element == world.weather_element and get_weather_intensity() == 1)
+		or (spell.element == world.weather_element and get_weather_intensity() == 2 and world.day_element == elements.strong_to[spell.element])) then
+		if spell.target.distance < (7 - spell.target.model_size) then
+			equip { waist="Orpheus's Sash" }
+		elseif spellMap ~= 'Helix' then
+			equip { waist="Hachirin-no-Obi" }
 		end
 	end
 	

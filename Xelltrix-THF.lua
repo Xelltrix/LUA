@@ -263,7 +263,7 @@ function init_gear_sets()
 			ammo="Pemphredo Tathlum",
 			head=gear.HHead_MAB, neck="Sanctity Necklace", lear="Friomisi Earring", rear="Crematio Earring",
 			body="Samnuha Coat", hands="Leyline Gloves", lring="Shiva Ring +1", rring="Dingir Ring",
-			back=gear.THFCape_STP, waist="Orpheus's Sash", legs="Shned. Tights +1", feet="Adhemar Gamashes +1"
+			back=gear.THFCape_STP, waist="Orpheus's Sash", legs="Herculean Trousers", feet="Adhemar Gamashes +1"
 		}
 		
 		sets.midcast.Macc =
@@ -576,7 +576,7 @@ function init_gear_sets()
 			ammo="Pemphredo Tathlum",
 			head=gear.HHead_MAB, neck="Sanctity Necklace", lear="Friomisi Earring",
 			body="Samnuha Coat", lring="Epaminondas's Ring", rring="Dingir Ring",
-			back="Sacro Mantle", waist="Orpheus's Sash", legs="Shned. Tights +1", feet="Adhemar Gamashes +1"
+			back="Sacro Mantle", waist="Orpheus's Sash", legs="Herculean Trousers", feet="Adhemar Gamashes +1"
 		})
 
 		sets.precast.WS['Aeolian Edge'].TH = set_combine(sets.precast.WS['Aeolian Edge'], sets.TreasureHunter)

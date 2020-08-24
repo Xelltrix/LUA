@@ -58,7 +58,7 @@ function init_gear_sets()
 	------------------- 
 		sets.precast.FC =
 		{--Fast Cast 82
-			main=gear.Grioavolr_Enf, sub="Khonsu", ammo="Sapience Orb",
+			ammo="Sapience Orb",
 			head="Amalric Coif +1", neck="Orunmila's Torque", lear="Malignance Earring", rear="Loquac. Earring",
 			body=gear.FCJubbah, hands=gear.FCHands, lring="Lebeche Ring", rring="Weather. Ring +1",
 			back=gear.BLMCape_FC, waist="Witful Belt", legs="Psycloth Lappas", feet=gear.FCCrackows
@@ -372,13 +372,13 @@ function init_gear_sets()
 		{--Regen+4 | Refresh+9 | PDT/MDT: (15/15)
 			main="Lathi", sub="Khonsu", ammo="Staunch Tathlum +1",
 			head="Befouled Crown", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
-			body="Amalric Doublet +1", hands="Volte Bracers", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			body="Shamash Robe", hands="Volte Bracers", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Volte Brais", feet="Volte Gaiters"
 		}
 
 		sets.idle.DT = set_combine(sets.idle,
 		{--Regen+1 | Refresh+6 | PDT/MDT: (40/30)
-			neck="Loricate Torque +1",  lear="Genmei Earring", rrear="Lugalbanda Earring",
+			neck="Loricate Torque +1", lrear="Lugalbanda Earring", rear="Odnowa Earring +1",
 			lring="Defending Ring", rring="Gelatinous Ring +1"
 		})
 
@@ -414,26 +414,26 @@ function init_gear_sets()
 	--------------------------------------
 	
 		sets.defense.PDT =
-		{--PDT: 51 / MDT: 42
+		{--PDT: 53 / MDT: 40
 			sub="Khonsu", ammo="Staunch Tathlum +1",
-			head="Ea Hat +1", neck="Loricate Torque +1",  lear="Genmei Earring", rear="Lugalbanda Earring",
-			body="Mallquis Saio +2", hands="Volte Bracers", lring="Defending Ring", rring="Gelatinous Ring +1",
+			head="Ea Hat +1", neck="Loricate Torque +1",  rear="Odnowa Earring +1",
+			body="Shamash Robe", hands="Volte Bracers", lring="Defending Ring", rring="Gelatinous Ring +1",
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Artsieq Hose", feet="Hippo. Socks +1"
 		}
 
 		sets.defense.MDT = 
-		{--MDT: 46 / PDT: 31
+		{--MDT: 36 / PDT: 33
 			main="Lathi", sub="Khonsu", ammo="Staunch Tathlum +1",
 			head="Vanya Hood", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
-			body="Mallquis Saio +2", hands="Raetic Bangles +1", lring="Defending Ring", rring="Shadow Ring",
+			body="Shamash Robe", hands="Raetic Bangles +1", lring="Defending Ring", rring="Shadow Ring",
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Vanya Slops", feet="Volte Gaiters"
 		}
 		
 		sets.defense.EVA =
 		{--MDT: 46 / PDT: 31
 			main="Lathi", sub="Khonsu", ammo="Staunch Tathlum +1",
-			head="Ea Hat +1", neck="Warder's Charm +1", lear="Eabani Earring", rear="Lugalbanda Earring",
-			body="Ea Houppe. +1", hands="Raetic Bangles +1", lring="Defending Ring", rring="Purity Ring",
+			head="Ea Hat +1", neck="Warder's Charm +1", lear="Lugalbanda Earring",  rear="Eabani Earring",
+			body="Shamash Robe", hands="Raetic Bangles +1", lring="Defending Ring", rring="Purity Ring",
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Ea Slops +1", feet="Volte Gaiters"
 		}
 
@@ -540,7 +540,7 @@ function init_gear_sets()
 		{
 			main="Lathi", sub="Khonsu", ammo="Staunch Tathlum +1",
 			head="Befouled Crown", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
-			body="Amalric Doublet +1", hands="Volte Bracers", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			body="Shamash Robe", hands="Volte Bracers", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Volte Brais", feet="Volte Gaiters"
 		}
 

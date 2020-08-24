@@ -516,7 +516,7 @@ function init_gear_sets()
 			ammo="Pemphredo Tathlum",
 			head=gear.HHead_MAB, lear="Friomisi Earring",
 			body="Samnuha Coat", hands="Leyline Gloves", lring="Shiva Ring +1", rring="Epaminondas's Ring",
-			back="Sacro Mantle", waist="Orpheus's Sash", legs="Shned. Tights +1", feet="Adhe. Gamashes +1"
+			back="Sacro Mantle", waist="Orpheus's Sash", legs="Herculean Trousers", feet="Adhe. Gamashes +1"
 		})
 
 
@@ -529,7 +529,7 @@ function init_gear_sets()
 		ammo="Pemphredo Tathlum",
 		head="Malignance Chapeau", neck="Sanctity Necklace", lear="Friomisi Earring", rear="Moonshade Earring",
 		body="Malignance Tabard", hands="Leyline Gloves", lring="Shiva Ring +1", rring="Epaminondas's Ring",
-		back="Sacro Mantle", waist="Orpheus's Sash", legs="Shned. Tights +1", feet="Adhe. Gamashes +1"
+		back="Sacro Mantle", waist="Orpheus's Sash", legs="Herculean Trousers", feet="Adhe. Gamashes +1"
 	}
 
 	

@@ -46,6 +46,7 @@ function user_setup()
 		'subAlmace',
 		'subNaegling',
 		'Thibron',
+		'Ternion',
 		'Qutrub'
 	}
 
@@ -272,7 +273,7 @@ function init_gear_sets()
 	---Enfeebling Magic
 		sets.midcast.Macc =
 		{
-			main="Crocea Mors", sub="Ammurapi Shield", range="Ullr",
+			main="Crocea Mors", sub="Ammurapi Shield", range="Ullr", ammo=empty,
 			head="Atrophy Chapeau +3", neck="Dls. Torque +2", lear="Regal Earring", rear="Snotra Earring", 
 			body="Atrophy Tabard +3", hands="Kaykaus Cuffs +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Metamor. Ring +1",
 			back=gear.RDMCape_ENF, waist="Acuity Belt +1", legs="Chironic Hose", feet="Vitiation Boots +3"
@@ -280,7 +281,7 @@ function init_gear_sets()
 
 		sets.midcast['Enfeebling Magic'] = 
 		{
-			main="Daybreak", sub="Ammurapi Shield", ammo="Regal Gem",
+			main="Daybreak", sub="Ammurapi Shield", range=empty, ammo="Regal Gem",
 			head="Viti. Chapeau +3", neck="Dls. Torque +2", lear="Regal Earring", rear="Snotra Earring",
 			body="Atrophy Tabard +3", hands="Regal Cuffs", lring="Kishar Ring", rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back=gear.RDMCape_ENF, waist="Sacro Cord", legs="Chironic Hose", feet="Vitiation Boots +3"
@@ -300,28 +301,35 @@ function init_gear_sets()
 		})
 		
 		sets.midcast['Distract III'] = set_combine(sets.midcast['Enfeebling Magic'],
-		{-- 	Potency = [Floor(6/21)(Enfeebling Skill - 190)] + Floor(dMND/5); where dMND/5 caps at 0 and 10.		610 Max
-			main=gear.Grioavolr_Enf, sub="Mephitis Grip",
-			eck="Dls. Torque +2", lear="Vor Earring", rear="Enfeebling Earring",
-			body="Lethargy Sayon +1", hands="Leth. Gantherots +1", lring={name="Stikini Ring +1", bag="wardrobe2"},
-			waist="Rumination Sash", legs="Psycloth Lappas"
+		{
+			lear="Vor Earring",
+			waist="Rumination Sash"
 		})
 		
-		sets.midcast['Frazzle III'] = set_combine(sets.midcast['Enfeebling Magic'],
-		{-- 	Potency = [Floor(6/21)(Enfeebling Skill - 205)] + Floor(dMND/5); where dMND/5 caps at 0 and 10.		625Max
-			main=gear.Grioavolr_Enf, sub="Mephitis Grip",
-			neck="Dls. Torque +2", lear="Vor Earring", rear="Snotra Earring",
-			body="Atrophy Tabard +3", hands="Kaykaus Cuffs +1", lring={name="Stikini Ring +1", bag="wardrobe2"},
-			waist="Rumination Sash", legs="Psycloth Lappas"
-		})
+		sets.midcast['Distract III'].Potency =
+		{-- 	Potency = [Floor(6/21)(Enfeebling Skill - 190)] + Floor(dMND/5); where dMND/5 caps at 0 and 10.		610 Max
+			main="Daybreak", sub="Ammurapi Shield", ammo="Regal Gem",
+			head="Viti. Chapeau +3", neck="Dls. Torque +2", lear="Vor Earring", rear="Snotra Earring",
+			body="Lethargy Sayon +1", hands="Leth. Gantherots +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			back=gear.RDMCape_ENF, waist="Rumination Sash", legs="Psycloth Lappas", feet="Vitiation Boots +3"
+		}
+		
+		sets.midcast['Distract III'].Resistant = sets.midcast['Enfeebling Magic'].Resistant
+		
+		sets.midcast['Frazzle III'] = sets.midcast['Distract III']
+		
+		sets.midcast['Frazzle III'].Potency = sets.midcast['Distract III'].Potency
+		
+		sets.midcast['Frazzle III'].Resistant = sets.midcast['Enfeebling Magic'].Resistant
 		
 		sets.midcast['Poison II'] = set_combine(sets.midcast['Enfeebling Magic'].Potency,
 		{-- 	Potency = 82 + Floor[(180/783)(Skill-500)] 
-			main=gear.Grioavolr_Enf, sub="Mephitis Grip",
-			lear="Vor Earring", rear="Enfeebling Earring",
+			lear="Vor Earring",
 			hands="Leth. Gantherots +1",
 			waist="Rumination Sash", legs="Psycloth Lappas"
 		})
+		
+		sets.midcast['Poison II'].Resistant = sets.midcast['Enfeebling Magic'].Resistant
 		
 		sets.midcast.Dispel = sets.midcast['Enfeebling Magic'].Resistant
 		
@@ -469,6 +477,8 @@ function init_gear_sets()
 		
 		sets.Qutrub 		= { sub="Qutrub Knife" }
 		
+		sets.Ternion		= { sub="Ternion Dagger +1" }
+		
 	
 	------------------------------------------------------------------------------------------------
 	------------------------------------------ Idle Sets -------------------------------------------
@@ -478,7 +488,7 @@ function init_gear_sets()
 		{--	DT: -6%		PDT: -11%	MDT:-11%	Refresh: 14~15
 			main="Daybreak", sub="Genmei Shield", ammo="Homiliary",
 			head="Viti. Chapeau +3", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
-			body="Atrophy Tabard +3", hands="Chironic Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			body="Shamash Robe", hands="Chironic Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Moonlight Cape", waist="Flume Belt +1", legs="Carmine Cuisses +1", feet="Volte Gaiters"
 		}
 
@@ -492,7 +502,7 @@ function init_gear_sets()
 		sets.idle.MEVA = set_combine(sets.idle,
 		{--	DT: -6%		PDT: -11%	MDT:-11%	Refresh: 14~15
 			head="Viti. Chapeau +3", neck="Warder's Charm +1", lear="Static Earring", rear="Sanare Earring",
-			body="Malignance Tabard", hands="Malignance Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			hands="Malignance Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Carmine Cuisses +1", feet="Malignance Boots"
 		})
 		
@@ -799,7 +809,7 @@ function init_gear_sets()
 		sets.engaged.ENSPELLS =
 		{
 			sub="Genmei Shield", ammo="Aurgelmir Orb +1",
-			head="Malignance Chapeau", neck="Anu Torque", lear="Sherida Earring", rear="Cessance Earring",
+			head="Malignance Chapeau", neck="Anu Torque", lear="Sherida Earring", rear="Brutal Earring",
 			body="Malignance Tabard", hands="Aya. Manopolas +2", lring="Hetairoi Ring", rring="Ilabrat Ring",
 			back=gear.RDMCape_STP, waist="Orpheus's Sash", legs="Malignance Tights", feet="Malignance Boots"
 		}
@@ -820,7 +830,7 @@ function init_gear_sets()
 		sets.engaged.Low = set_combine(sets.engaged,
 		{
 			ammo="Voluspa Tathlum",
-			neck="Combatant's Toque", rear="Telos Earring",
+			neck="Combatant's Torque", rear="Telos Earring",
 		})
 
 		-----------------------------------------------------------------------------------
@@ -1297,7 +1307,7 @@ function init_gear_sets()
 		
 		sets.engaged.DW3.Max.NOTP =
 		{
-			ammo="Voluspa Tahtlum",
+			ammo="Voluspa Tathlum",
 			head="Malignance Chapeau", neck="Dls. Torque +2", lear="Digni. Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Malignance Tabard", hands="Aya. Manopolas +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.RDMCape_DW, waist="Orpheus's Sash", legs="Malignance Tights", feet="Malignance Boots"
@@ -1311,7 +1321,7 @@ function init_gear_sets()
 		sets.engaged.DW3.Low.Max = set_combine(sets.engaged.DW3.Max,
 		{
 			ammo="Voluspa Tathlum",
-			neck="Combatant's Toque", rear="Telos Earring",
+			neck="Combatant's Torque", rear="Telos Earring",
 		})
 		
 		-----------------------------------------------------------------------------------

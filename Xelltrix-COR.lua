@@ -274,7 +274,7 @@ function init_gear_sets()
 		{
 			head="Pixie Hairpin +1", neck="Sanctity Necklace", lear="Friomisi Earring", rear="Crematio Earring",
 			body="Carm. Sc. Mail +1", hands="Herculean Gloves", lring="Archon Ring", rring="Epaminondas's Ring",
-			back="Camulus's Mantle", waist="Eschan Stone", legs="Shned. Tights +1", feet="Adhe. Gamashes +1"
+			back="Camulus's Mantle", waist="Eschan Stone", legs="Herculean Trousers", feet="Adhe. Gamashes +1"
 		})
 		
 		sets.precast.WS['Wildfire'] = set_combine(sets.precast.WS['Leaden Salute'],

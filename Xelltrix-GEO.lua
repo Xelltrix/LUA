@@ -399,7 +399,7 @@ function init_gear_sets()
 		{--Regen+3 | Refresh+9 | PDT/MDT: (21/9)
 			main="Daybreak", sub="Genmei Shield", ammo="Staunch Tathlum +1",
 			head="Befouled Crown", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
-			body="Geomancy Tunic +3", hands="Bagua Mitaines +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			body="Shamash Robe", hands="Bagua Mitaines +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Volte Brais", feet="Geo. Sandals +3"
 		}
 
@@ -413,7 +413,7 @@ function init_gear_sets()
 		{--Refresh+6 | PDT/MDT: (15/3)	[Luopan: Regen+24 | DT: -40% | Abs. Dmg. Tkn. +8%]
 			main="Idris", sub="Genmei Shield", ammo="Staunch Tathlum +1",
 			head=gear.Pet_Head, neck="Bagua Charm +1", lear="Sanare Earring", rear="Lugalbanda Earring",
-			body="Geomancy Tunic +3", hands=gear.Pet_Hands, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			body="Shamash Robe", hands=gear.Pet_Hands, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back=gear.GEOCape_Luopan, waist="Isa Belt", legs=gear.Pet_Legs, feet="Bagua Sandals +3"
 		}	
 
@@ -421,7 +421,7 @@ function init_gear_sets()
 		{--Refresh+5 | PDT/MDT: (13/3)	[Luopan: Regen+30 | DT: -39% | Abs. Dmg. Tkn. +8%]
 			main="Idris", sub="Genmei Shield", ammo="Staunch Tathlum +1",
 			head=gear.Pet_Head, neck="Bagua Charm +1", lear="Genmei Earring", rear="Lugalbanda Earring",
-			body="Geomancy Tunic +3", hands=gear.Pet_Hands, lring="Defending Ring", rring="Gelatinous Ring +1",
+			body="Shamash Robe", hands=gear.Pet_Hands, lring="Defending Ring", rring="Gelatinous Ring +1",
 			back=gear.GEOCape_Luopan, waist="Isa Belt", legs=gear.Pet_Legs, feet="Bagua Sandals +3"
 		}
 
@@ -448,16 +448,16 @@ function init_gear_sets()
 		sets.defense.PDMaster =
 		{--PDT: 51 / MDT: 42
 			main="Daybreak", sub="Genmei Shield", ammo="Staunch Tathlum +1",
-			head="Ea Hat +1", neck="Loricate Torque +1", lear="Genmei Earring", rear="Lugalbanda Earring",
-			body="Geomancy Tunic +3", hands="Geo. Mitaines +3", lring="Defending Ring", rring="Gelatinous Ring +1",
+			head="Ea Hat +1", neck="Loricate Torque +1", lear="Odnowa Earring +1", rear="Lugalbanda Earring",
+			body="Shamash Robe", hands="Geo. Mitaines +3", lring="Defending Ring", rring="Gelatinous Ring +1",
 			back=gear.GEOCape_Nuke, waist="Carrier's Sash", legs="Artsieq Hose", feet="Hippo. Socks +1"
 		}
 		
 		sets.defense.PDPet =
 		{--PDT: 51 / MDT: 42
 			main="Idris", sub="Genmei Shield", ammo="Staunch Tathlum +1",
-			head=gear.Pet_Head, neck="Bagua Charm +1",  lear="Genmei Earring", rear="Lugalbanda Earring",
-			body="Mallquis Saio +2", hands="Geo. Mitaines +3", lring="Defending Ring", rring="Gelatinous Ring +1",
+			head=gear.Pet_Head, neck="Bagua Charm +1",  lear="Odnowa Earring +1", rear="Lugalbanda Earring",
+			body="Shamash Robe", hands="Geo. Mitaines +3", lring="Defending Ring", rring="Gelatinous Ring +1",
 			back=gear.GEOCape_Luopan, waist="Isa Belt", legs="Artsieq Hose", feet="Bagua Sandals +3"
 		}
 
@@ -465,15 +465,15 @@ function init_gear_sets()
 		{--MDT: 46 / PDT: 31
 			main="Daybreak", sub="Genmei Shield", ammo="Staunch Tathlum +1",
 			head="Ea Hat +1", neck="Loricate Torque +1", lear="Sanare Earring", rear="Lugalbanda Earring",
-			body="Mallquis Saio +2", hands="Raetic Bangles +1", lring="Defending Ring", rring="Shadow Ring",
+			body="Shamash Robe", hands="Raetic Bangles +1", lring="Defending Ring", rring="Shadow Ring",
 			back=gear.GEOCape_Nuke, waist="Carrier's Sash", legs="Volte Brais", feet="Volte Gaiters"
 		}
 		
 		sets.defense.MDPet =
 		{--PDT: 32 / MDT: 12
 			main="Idris", sub="Genmei Shield", ammo="Staunch Tathlum +1",
-			head=gear.Pet_Head, neck="Bagua Charm +1",  lear="Etiolation Earring", rear="Odnowa Earring +1",
-			body="Mallquis Saio +2", hands=gear.Pet_Hands, lring="Defending Ring", rring="Gelatinous Ring +1",
+			head=gear.Pet_Head, neck="Bagua Charm +1", lear="Odnowa Earring +1", rear="Lugalbanda Earring",
+			body="Shamash Robe", hands=gear.Pet_Hands, lring="Defending Ring", rring="Gelatinous Ring +1",
 			back=gear.GEOCape_Luopan, waist="Isa Belt", legs=gear.Pet_Legs, feet="Bagua Sandals +3"
 		}
 
@@ -584,7 +584,7 @@ function init_gear_sets()
 		{
 			main="Idris", sub="Genmei Shield", ammo="Staunch Tathlum +1",
 			head=gear.Pet_Head, neck="Bagua Charm +1", lear="Dawn Earring", rear="Infused Earring",
-			body="Geomancy Tunic +3", hands="Geo. Mitaines +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			body="Shamash Robe", hands="Geo. Mitaines +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back=gear.GEOCape_Luopan, waist="Isa Belt", legs="Volte Brais", feet="Bagua Sandals +3"
 		}
 

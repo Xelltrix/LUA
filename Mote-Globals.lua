@@ -55,7 +55,8 @@ function define_global_sets()
 	gear.DNCCape_DW = { name="Senuna's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dual Wield"+10','Phys. dmg. taken -10%'}}
 	
 	gear.NINCape_STP = { name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken -10%'}}
-	gear.NINCape_FC = { name="Andartia's Mantle", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10%','Phys. dmg. taken-10%'}}
+	gear.NINCape_FC = { name="Andartia's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','"Fast Cast"+10%','Phys. dmg. taken-10%'}}
+	gear.NINCape_Nuke = { name="Andartia's Mantle", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10','Phys. dmg. taken-10%'}}
 	
 	gear.SMNCape_Phys = { name="Campestres's Cape", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+20 /Mag. Eva.+20','Pet: Accuracy+10 Pet: Rng. Acc.+10','Pet: "Regen"+10','Pet: Damage taken -5%'}}
 	gear.SMNCape_Mag =  { name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Magic Damage+10','"Fast Cast"+10','Phys. dmg. taken-10%'}}
@@ -99,6 +100,7 @@ function define_global_sets()
 	gear.HHead_TH = { name="Herculean Helm", augments={'Pet: Accuracy+9 Pet: Rng. Acc.+9','Pet: "Mag.Atk.Bns."+8','"Treasure Hunter"+2',}}
 	
 	gear.HHands_Refresh = { name="Herculean Gloves", augments={'Pet: CHR+1','Attack+25','"Refresh"+1',}}
+	gear.HHands_Burst = { name="Herculean Gloves", augments={'Pet: INT+11','"Fast Cast"+5','Magic burst dmg.+14%','Accuracy+17 Attack+17','Mag. Acc.+13 "Mag.Atk.Bns."+13',}}
 	
 	gear.HBoots_TP = { name="Herculean Boots", augments={'Accuracy+20 Attack+20','"Triple Atk."+4','Accuracy+6','Attack+15',}}
 	gear.HBoots_Crit = { name="Herculean Boots", augments={'Accuracy+26','Crit. hit damage +5%','DEX+8',}}

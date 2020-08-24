@@ -64,7 +64,7 @@ function init_gear_sets()
 			main="Espiritus", sub="Niobid Strap",
 			head="Amalric Coif +1", neck="Smn. Collar +2", lear="Evans Earring", rear="Etiolation Earring",
 			body="Con. Doublet +3", hands="Beck. Bracers +1", lring="Mephitas's Ring +1", rring="Metamor. Ring +1",
-			back="Conveyance Cape", waist="Luminary Sash", legs="Amalric Slops +1", feet="Amalric Nails +1"
+			back="Conveyance Cape", waist="Shinjutsu-no-Obi +1", legs="Amalric Slops +1", feet="Amalric Nails +1"
 		}
 		
 	
@@ -216,7 +216,7 @@ function init_gear_sets()
 		{
 			neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
 			body="Amalric Doublet +1",
-			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Lengo Pants", feet=gear.FCCrackows
+			back="Fi Follet Cape +1", waist="Shinjutsu-no-Obi +1", legs="Lengo Pants", feet=gear.FCCrackows
 		})
 
 	
@@ -335,7 +335,7 @@ function init_gear_sets()
 			main="Maxentius", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head="C. Palug Crown", neck="Erra Pendant", lear="Digni. Earring", rear="Malignance Earring",
 			body="Amalric Doublet +1", hands="Inyan. Dastanas +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Grapevine Cape", waist="Luminary Sash", legs="Inyanga Shalwar +2", feet="Medium's Sabots"
+			back="Grapevine Cape", waist="Acuity Belt +1", legs="Inyanga Shalwar +2", feet="Medium's Sabots"
 		}
 		
 		sets.midcast.Dispelga = set_combine(sets.midcast.Macc,
@@ -412,7 +412,7 @@ function init_gear_sets()
 		{
 			main="Nirvana", sub="Khonsu", ammo="Staunch Tathlum +1",
 			head="Inyanga Tiara +2", neck="Warder's Charm +1",lear="Sanare Earring", rear="Lugalbanda Earring",
-			body="Inyanga Jubbah +2", hands="Inyan. Dastanas +2", lring="Inyanga Ring", rring="Purity Ring",
+			body="Inyanga Jubbah +2", hands="Inyan. Dastanas +2", lring="Purity Ring", rring="Shadow Ring",
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Inyanga Shalwar +2", feet="Baaya. Sabots +1"
 		}
 		
@@ -529,7 +529,7 @@ function init_gear_sets()
 		{
 			head=gear.ACrown_Perp, neck="Warder's Charm +1", lear="Evans Earring", rear="Loquac. Earring",
 			body=gear.ADalmatica_Idle, hands="Apogee Mitts +1", lring="Defending Ring", rring="Kuchekula Ring",
-			back=gear.SMNCape_Mag, waist="Luminary Sash", legs=gear.ASlacks_MAB, feet="Apogee Pumps +1"
+			back=gear.SMNCape_Mag, waist="Shinjutsu-no-Obi +1", legs=gear.ASlacks_MAB, feet="Apogee Pumps +1"
 		}
 	
 	
@@ -577,7 +577,7 @@ function init_gear_sets()
 			ammo="Ghastly Tathlum +1",
 			head="Amalric Coif +1", neck="Smn. Collar +2", lear="Etiolation Earring", rear="Moonshade Earring",
 			body="Con. Doublet +3", hands="Beck. Bracers +1", lring="Mephitas's Ring +1", rring="Metamor. Ring +1",
-			back="Conveyance Cape", waist="Luminary Sash", legs="Amalric Slops +1", feet="Amalric Nails +1"
+			back="Conveyance Cape", waist="Shinjutsu-no-Obi +1", legs="Amalric Slops +1", feet="Amalric Nails +1"
 		}
 	
 	--------------------------------------

@@ -194,7 +194,7 @@ function init_gear_sets()
 			ammo="Staunch Tathlum +1",
 			head=gear.ENH_Head, neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
 			body=gear.ENH_Body, hands=gear.ENH_Gloves, lring="Kishar Ring", rring="Weather. Ring +1",
-			back="Fi Follet Cape +1", waist="Luminary Sash", legs=gear.ENH_Legs, feet="Telchine Pigaches"
+			back="Fi Follet Cape +1", waist="Witful Belt", legs=gear.ENH_Legs, feet="Telchine Pigaches"
 		}
 
 		sets.midcast.ConserveMP = set_combine(sets.midcast.FC,
@@ -202,7 +202,7 @@ function init_gear_sets()
 			ammo="Pemphredo Tathlum",
 			head=gear.ENH_Head, neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
 			body="Amalric Doublet +1", hands="Malignance Gloves",
-			back="Fi Follet Cape +1", waist="Luminary Sash", legs="Lengo Pants", feet="Carmine Greaves +1"
+			back="Fi Follet Cape +1", waist="Witful Belt", legs="Lengo Pants", feet="Carmine Greaves +1"
 		})
 
 
@@ -369,14 +369,6 @@ function init_gear_sets()
 			back="Cornflower Cape", waist="Acuity Belt +1", legs="Aya. Cosciales +2", feet="Luhlaza Charuqs +3"
 		}
 		
-		-- sets.midcast.AddEffect =
-		-- {
-			-- ammo="Pemphredo Tathlum",
-			-- head="Jhakri Coronal +2", neck="Mirage Stole +2", lear="Digni. Earring", rear="Gwati Earring",
-			-- body="Jhakri Robe +2", hands="Jhakri Cuffs +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			-- back="Cornflower Cape", waist="Sacro Cord", legs="Jhakri Slops +2", feet="Jhakri Pigaches +2"
-		-- }
-		
 		sets.midcast['Paralyzing Triad'] = set_combine(sets.midcast.Physical)
 		
 		sets.midcast['Paralyzing Triad'].Alternate = sets.midcast.AddEffect
@@ -435,7 +427,7 @@ function init_gear_sets()
 		sets.midcast['Dream Flower'].Alternate =
 		{--		DT: -28%	PDT: 49%
 			ammo="Staunch Tathlum +1",
-			head="Assim. Keffiyeh +3", neck="Mirage Stole +2", lear="Digni. Earring", rear="Regal Earring",
+			head="Malignance Chapeau", neck="Mirage Stole +2", lear="Digni. Earring", rear="Regal Earring",
 			body="Malignance Tabard", hands="Malignance Gloves", lring="Defending Ring", rring="Gelatinous Ring +1",
 			back=gear.BLUCape_Nuke, waist="Flume Belt +1", legs="Assim. Shalwar +3", feet="Malignance Boots"
 		}
@@ -603,21 +595,21 @@ function init_gear_sets()
 		{--		DT: -9%		PDT: -15%	MDT: -9%	Refresh: 8	Regen: 3
 			ammo="Staunch Tathlum +1",
 			head="Rawhide Mask", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
-			body="Assim. Jubbah +3", hands=gear.HHands_Refresh, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			body="Shamash Robe", hands=gear.HHands_Refresh, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Moonlight Cape", waist="Flume Belt +1", legs="Carmine Cuisses +1", feet=gear.HBoots_Refresh
 		}
 
 		sets.idle.DT = set_combine(sets.idle,
 		{--		DT: -31%	PDT: -46%	MDT: -32%	Refresh: 5	Regen: 0
-			head="Malignance Chapeau", neck="Loricate Torque +1",  lear="Genmei Earring", rear="Sanare Earring",
+			head="Malignance Chapeau", neck="Loricate Torque +1",  lear="Sanare Earring", rear="Odnowa Earring +1",
 			hands="Malignance Gloves", lring="Defending Ring", rring="Gelatinous Ring +1",
 			feet="Hippo. Socks +1"
 		})
 		
 		sets.idle.MEVA = set_combine(sets.idle,
 		{--		DT: -15%	PDT: -15%	MDT: -15%	Refresh: 5	Regen: 0
-			head="Malignance Chapeau", neck="Warder's Charm +1", lear="Eabani Earring", rear="Sanare Earring",
-			body="Amalric Doublet +1", hands="Malignance Gloves", rring="Purity Ring",
+			head="Malignance Chapeau", neck="Warder's Charm +1", lear="Sanare Earring", rear="Odnowa Earring +1",
+			body="Shamash Robe", hands="Malignance Gloves", lring="Shadow Ring", rring="Purity Ring",
 			waist="Carrier's Sash", feet="Malignance Boots"
 		})
 		
@@ -649,9 +641,9 @@ function init_gear_sets()
 	-- Defensive Sets
 	--------------------------------------
 		sets.defense.PDT =
-		{--		DT: -40%	PDT: -51%	MDT: -44%
+		{--		DT: -42%	PDT: -51%	MDT: -43%
 			ammo="Staunch Tathlum +1",
-			head="Malignance Chapeau", neck="Loricate Torque +1", lear="Genmei Earring", rear="Odnowa Earring +1",
+			head="Malignance Chapeau", neck="Warder's Charm +1", lear="Genmei Earring", rear="Odnowa Earring +1",
 			body="Malignance Tabard", hands="Malignance Gloves", lring="Defending Ring", rring="Gelatinous Ring +1",
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Carmine Cuisses +1", feet="Hippo. Socks +1"
 		}
@@ -712,14 +704,13 @@ function init_gear_sets()
 		
 		sets.precast.WS['Chant du Cygne'].Mid = set_combine(sets.precast.WS['Chant du Cygne'].Low,
 		{
+			head="Blistering Sallet +1",
 			hands="Malignance Gloves",
-			legs="Malignance Tights"
 		})
 		
 		sets.precast.WS['Chant du Cygne'].High = set_combine(sets.precast.WS['Chant du Cygne'].Mid,
 		{
-			head="Dampening Tam",
-			feet="Luhlaza Charuqs +3"
+			legs="Malignance Tights", feet="Luhlaza Charuqs +3"
 		})
 
 	---Vorpal Blade
@@ -738,6 +729,7 @@ function init_gear_sets()
 		
 		sets.precast.WS['Vorpal Blade'].Mid = set_combine(sets.precast.WS['Vorpal Blade'].Low,
 		{
+			head="Blistering Sallet +1",
 			hands="Malignance Gloves"
 		})
 		
@@ -819,8 +811,8 @@ function init_gear_sets()
 	---Seraph Blade
 		sets.precast.WS['Seraph Blade'] = set_combine(sets.precast.WS['Sanguine Blade'],
 		{
-			head="Assim. Keffiyeh +3",
-			lring="Weather. Ring +1"
+			head=empty,
+			body="Cohort Cloak +1", lring="Weather. Ring +1"
 		})
 		
 		sets.precast.WS['Shining Blade'] = sets.precast.WS['Seraph Blade']
@@ -912,7 +904,7 @@ function init_gear_sets()
 		sets.engaged =
 		{
 			sub="Genmei Shield", ammo="Aurgelmir Orb +1",
-			head="Dampening Tam", neck="Mirage Stole +2", lear="Telos Earring", rear="Cessance Earring",
+			head="Dampening Tam", neck="Mirage Stole +2", lear="Brutal Earring", rear="Telos Earring",
 			body="Malignance Tabard", hands="Adhemar Wrist. +1", lring="Hetairoi Ring", rring="Epona's Ring",
 			back=gear.BLUCape_STP, waist="Windbuffet Belt +1", legs="Samnuha Tights", feet=gear.HBoots_TP
 		}
@@ -926,7 +918,7 @@ function init_gear_sets()
 		
 		sets.engaged.Low = set_combine(sets.engaged,
 		{
-			head="Dampening Tam", rear="Cessance Earring",
+			head="Dampening Tam", rear="Digni. Earring",
 			lring={name="Chirich Ring +1", bag="wardrobe2"},
 		})
 
@@ -1821,7 +1813,7 @@ function init_gear_sets()
 		sets.engaged.DW4.Max =
 		{
 			ammo="Aurgelmir Orb +1",
-			head="Dampening Tam", neck="Mirage Stole +2", lear="Brutal Earring", rear="Cessance Earring",
+			head="Dampening Tam", neck="Mirage Stole +2", lear="Telos Earring", rear="Brutal Earring",
 			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Hetairoi Ring", rring="Epona's Ring",
 			back=gear.BLUCape_STP, waist="Windbuffet Belt +1", legs="Samnuha Tights", feet=gear.HBoots_TP
 		}
@@ -1883,7 +1875,7 @@ function init_gear_sets()
 		sets.engaged.DW5.Max =
 		{
 			ammo="Aurgelmir Orb +1",
-			head="Dampening Tam", neck="Mirage Stole +2", lear="Brutal Earring", rear="Cessance Earring",
+			head="Dampening Tam", neck="Mirage Stole +2", lear="Brutal Earring", rear="Digni. Earring",
 			body="Malignance Tabard", hands="Adhemar Wrist. +1", lring="Hetairoi Ring", rring="Epona's Ring",
 			back=gear.BLUCape_STP, waist="Windbuffet Belt +1", legs="Samnuha Tights", feet=gear.HBoots_TP
 		}
@@ -2433,13 +2425,13 @@ function init_gear_sets()
 	
 		sets.engaged.DW3.DTMAX.Max 	 		= set_combine(sets.engaged.DW3.Max, 		sets.engaged.Hybrid2,
 		{
-			rear="Cessance Earring",
+			rear="Digni. Earring",
 			rring="Epona's Ring",
 			back=gear.BLUCape_DW
 		})
 		sets.engaged.DW3.DTMAX.Max.AM3  	= set_combine(sets.engaged.DW3.Max.AM3, 	sets.engaged.Hybrid2,
 		{
-			rear="Cessance Earring",
+			rear="Digni. Earring",
 			rring="Epona's Ring",
 			back=gear.BLUCape_DW
 		})

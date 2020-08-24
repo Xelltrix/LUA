@@ -421,7 +421,7 @@ function init_gear_sets()
 		{--	DT: -11%	PDT: -11%	MDT:-11%	Refresh: 14~15
 			main="Akademos", sub="Khonsu", ammo="Homiliary",
 			head="Befouled Crown", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
-			body="Acad. Gown +3", hands="Chironic Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			body="Shamash Robe", hands="Chironic Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Volte Brais", feet="Chironic Slippers"
 		}
 
@@ -465,7 +465,7 @@ function init_gear_sets()
 		{--	DT: -38%	PDT: -52%	MDT:-42%
 			main="Akademos", sub="Khonsu", ammo="Staunch Tathlum +1",
 			head="Peda. M.Board +3", neck="Warder's Charm +1",  lear="Genmei Earring", rear="Lugalbanda Earring",
-			body="Mallquis Saio +2", hands="Volte Bracers", lring="Defending Ring", rring="Gelatinous Ring +1",
+			body="Shamash Robe", hands="Volte Bracers", lring="Defending Ring", rring="Gelatinous Ring +1",
 			back=gear.SCHCape_Nuke, waist="Carrier's Sash", legs="Artsieq Hose", feet="Hippo. Socks +1"
 		}
 
@@ -473,15 +473,15 @@ function init_gear_sets()
 		{--	DT: -27%	PDT: -44%	MDT:-22%
 			main="Akademos", sub="Khonsu", ammo="Staunch Tathlum +1",
 			head="Peda. M.Board +3", neck="Warder's Charm +1", lear="Sanare Earring", rear="Lugalbanda Earring",
-			body="Pinga Tunic +1", hands="Raetic Bangles +1", lring="Shadow Ring", rring="Purity Ring",
+			body="Shamash Robe", hands="Raetic Bangles +1", lring="Shadow Ring", rring="Purity Ring",
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Pinga Pants +1", feet="Volte Gaiters"
 		}
 		
 		sets.defense.MDT =
 		{--	DT: -27%	PDT: -44%	MDT:-22%
 			main="Akademos", sub="Khonsu", ammo="Staunch Tathlum +1",
-			head="Chironic Hat", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
-			body="Mallquis Saio +2", hands="Raetic Bangles +1", lring="Defending Ring", rring="Shadow Ring",
+			head="Blistering Sallet +1", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
+			body="Shamash Robe", hands="Raetic Bangles +1", lring="Defending Ring", rring="Shadow Ring",
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Pinga Pants +1", feet="Volte Gaiters"
 		}
 
