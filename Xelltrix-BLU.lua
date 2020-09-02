@@ -306,7 +306,7 @@ function init_gear_sets()
 	---Offensive Magic
 		sets.midcast['Elemental Magic'] =
 		{
-			ammo="Pemphredo Tathlum",
+			ammo="Ghastly Tathlum +1",
 			head="Jhakri Coronal +2", neck="Sanctity Necklace", lear="Friomisi Earring", rear="Regal Earring",
 			body="Amalric Doublet +1", hands="Amalric Gages +1", lring="Shiva Ring +1", rring="Metamor. Ring +1",
 			back=gear.BLUCape_Nuke, waist="Sacro Cord", legs="Amalric Slops +1", feet="Amalric Nails +1"
@@ -377,7 +377,7 @@ function init_gear_sets()
 		
 		sets.midcast['Scouring Spate'] =
 		{
-			ammo="Pemphredo Tathlum",
+			ammo="Ghastly Tathlum +1",
 			head=empty, neck="Sanctity Necklace", lear="Friomisi Earring", rear="Regal Earring",
 			body="Cohort Cloak +1", hands="Amalric Gages +1", lring="Shiva Ring +1", rring="Metamor. Ring +1",
 			back=gear.BLUCape_Nuke, waist="Orpheus's Sash", legs="Amalric Slops +1", feet="Amalric Nails +1"
@@ -387,7 +387,7 @@ function init_gear_sets()
 		
 		sets.midcast['Entomb'] =
 		{
-			ammo="Pemphredo Tathlum",
+			ammo="Ghastly Tathlum +1",
 			head=empty, neck="Sanctity Necklace", lear="Friomisi Earring", rear="Regal Earring",
 			body="Cohort Cloak +1", hands="Amalric Gages +1", lring="Shiva Ring +1", rring="Metamor. Ring +1",
 			back=gear.BLUCape_Nuke, waist="Orpheus's Sash", legs="Luhlaza Shalwar +3", feet="Amalric Nails +1"

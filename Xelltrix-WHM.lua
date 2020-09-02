@@ -470,7 +470,7 @@ function init_gear_sets()
 			ammo="Hasty Pinion +1",
 			head="Blistering Sallet +1", neck="Fotia Gorget", lear="Brutal Earring", rear="Ishvara Earring",
 			body="Piety Briault +3", hands="Raetic Bangles +1", lring="Shukuyu Ring", rring="Epaminondas's Ring",
-			back="Alaunus's Cape", waist="Fotia Belt", legs=gear.ENH_Legs, feet="Aya. Gambieras +2"
+			back="Alaunus's Cape", waist="Fotia Belt", legs=gear.ENH_Legs, feet="Chironic Slippers"
 		}
 		
 		sets.precast.WS['Dagan'] =

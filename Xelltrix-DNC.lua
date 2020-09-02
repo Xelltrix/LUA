@@ -214,8 +214,50 @@ function init_gear_sets()
 	--------------------------------------	
 		
 		sets.midcast.Utsusemi = sets.precast.FC
-
-	
+		
+		sets.midcast.Phalanx = 
+		{
+			ammo="Staunch Tathlum +1",
+			head=gear.THead_Phalanx, neck="Incanter's Torque", lear="Andoaa Earring", rear="Mimir Earring",
+			body=gear.TBody_Phalanx, hands=gear.THands_Phalanx, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			back="Moonlight Cape", waist="Olympus Sash", legs=gear.TLegs_Phalanx, feet=gear.TFeet_Phalanx
+		}
+		
+		sets.midcast.Stoneskin =
+		{
+			ammo="Staunch Tathlum +1",
+			head=gear.THead_Phalanx, neck="Stone Gorget", lear="Earthcry Earring", rear="Mimir Earring",
+			body=gear.TBody_Phalanx, hands=gear.THands_Phalanx, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			back="Moonlight Cape", waist="Olympus Sash", legs=gear.TLegs_Phalanx, feet=gear.TFeet_Phalanx
+		}
+		
+		sets.midcast.Cures =
+		{
+			ammo="Staunch Tathlum +1",
+			head="Turms Cap +1", neck="Incanter's Torque", lear="Mendi. Earring", rear="Meili Earring",
+			body="Malignance Tabard", hands="Turms Mittens +1", lring="Lebeche Ring", rring="Menelaus's Ring",
+			back="Moonlight Cape", waist="Bishop's Sash", legs="Turms Subligar +1", feet="Turms Leggings +1"
+		}
+		
+		sets.midcast['Elemental Magic'] =
+		{
+			ammo="Pemphredo Tathlum",
+			head=gear.HHead_MAB, neck="Sanctity Necklace", lear="Friomisi Earring", rear="Crematio Earring",
+			body="Samnuha Coat", hands="Leyline Gloves", lring="Shiva Ring +1", rring="Metamor. Ring +1",
+			back="Sacro Mantle", waist="Orpheus's Sash", legs="Herculean Trousers", feet="Adhemar Gamashes +1"
+		}
+		
+		sets.midcast.Macc =
+		{
+			ammo="Yamarang",
+			head="Malignance Chapeau", neck="Etoile Gorget +2", lear="Gwati Earring", rear="Digni. Earring",
+			body="Malignance Tabard", hands="Malignance Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			back="Sacro Mantle", waist="Engraved Belt", legs="Malignance Tights", feet="Malignance Boots"
+		}
+		
+		sets.midcast['Enfeebling Magic'] = sets.midcast.Macc
+		
+		sets.midcast['Dark Magic'] = sets.midcast.Macc
 	
 	
 ----------------------------------------------------------------------------

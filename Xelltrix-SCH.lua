@@ -442,7 +442,6 @@ function init_gear_sets()
 		
 		sets.idle.Vagary = set_combine(sets.magic_burst, 
 		{
-			main="Akademos", sub="Niobid Strap",
 			waist="Hachirin-no-Obi", feet="Arbatel Loafers +1"
 		})
 
