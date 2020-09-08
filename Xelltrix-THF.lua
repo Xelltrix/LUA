@@ -55,13 +55,12 @@ function user_setup()
 	
 	state.MainWeaponSet = M{['description']='Main Weapon Set',
 		'Tauret',
-		'Aeneas',
 		'Twashtar'
 	}
 	
 	state.SubWeaponSet = M{['description']='Sub Weapon Set',
 		'subTwashtar',
-		'subTauret',
+		'Ternion',
 		'Centovente'
 	}
 	
@@ -310,17 +309,15 @@ function init_gear_sets()
 	----------------------------------------- Weapon Sets ------------------------------------------
 	------------------------------------------------------------------------------------------------
 	
-		sets.Aeneas 		= { 	main="Aeneas" 		}
-			
-		sets.Twashtar 		= { 	main="Twashtar"		}
+		sets.Twashtar 		= { 		main="Twashtar"			}
 	
-		sets.subTwashtar 	= { 	sub="Twashtar" 		}
+		sets.subTwashtar 	= { 		sub="Twashtar" 			}
 		
-		sets.Tauret 		= { 	main="Tauret" 		}
+		sets.Tauret 		= { 		main="Tauret" 			}
 		
-		sets.subTauret 		= { 	sub="Tauret" 		}
+		sets.Ternion 		= { 		sub="Ternion Dagger +1" }
 		
-		sets.Centovente		= { 	sub="Centovente"	}
+		sets.Centovente		= { 		sub="Centovente"		}
 		
 		
 	------------------------------------------------------------------------------------------------
@@ -1119,7 +1116,13 @@ end
 
 -- Select default macro book on initial load or subjob change.
 function apply_job_change()
-	set_macro_page(1, 6)
+	if player.sub_job == 'WAR' or player.sub_job == 'NIN' then
+		set_macro_page(1, 6)
+	elseif player.sub_job == 'DNC' then
+		set_macro_page(4, 6)
+	elseif player.sub_job == 'RDM' or player.sub_job == 'WHM' or player.sub_job == 'BLM' then
+		set_macro_page(7, 6)
+	end
 	
 	send_command('wait 3; input /lockstyleset 6')
 end

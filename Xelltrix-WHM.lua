@@ -286,7 +286,7 @@ function init_gear_sets()
 			main="Asclepius", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head="Theophany Cap +3", neck="Incanter's Torque", lear="Regal Earring", rear="Malignance Earring", 
 			body="Theo. Briault +3", hands="Kaykaus Cuffs +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Metamor. Ring +1",
-			back="Alaunus's Cape", waist="Sacro Cord", legs="Th. Pant. +3", feet="Theo. Duckbills +3"
+			back="Aurist's Cape +1", waist="Sacro Cord", legs="Th. Pant. +3", feet="Theo. Duckbills +3"
 		}
 		
 		sets.midcast['Enfeebling Magic'] = set_combine(sets.midcast.Macc,
@@ -340,7 +340,7 @@ function init_gear_sets()
 			main="Daybreak", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head=empty, neck="Sanctity Necklace", lear="Regal Earring", rear="Malignance Earring",
 			body="Cohort Cloak +1", hands="Fanatic Gloves", rring="Metamor. Ring +1", rring="Weather. Ring +1",
-			back="Alaunus's Cape", waist="Sacro Cord", legs="Kaykaus Tights +1", feet="Chironic Slippers"
+			back="Aurist's Cape +1", waist="Sacro Cord", legs="Kaykaus Tights +1", feet="Chironic Slippers"
 		}
 
 		sets.midcast['Elemental Magic'] = set_combine(sets.midcast.Brightness,
@@ -387,7 +387,7 @@ function init_gear_sets()
 		{
 			main="Asclepius", ammo="Staunch Tathlum +1",
 			head="Inyanga Tiara +2", neck="Warder's Charm +1", lear="Genmei Earring", rear="Sanare Earring",
-			hands="Inyan. Dastanas +2", lring="Purity Ring", rring="Purity Ring",
+			hands="Inyan. Dastanas +2", lring="Purity Ring", rring="Shadow Ring",
 			back="Alaunus's Cape", legs="Inyanga Shalwar +2", feet="Inyan. Crackows +2"
 		})
 
@@ -416,7 +416,7 @@ function init_gear_sets()
 			main="Asclepius", sub="Genmei Shield", ammo="Staunch Tathlum +1",
 			head="Inyanga Tiara +2", neck="Warder's Charm +1", lear="Eabani Earring", rear="Sanare Earring",
 			body="Shamash Robe", hands="Inyan. Dastanas +2", lring="Defending Ring", rring="Gelatinous Ring +1",
-			back="Alaunus's Cape", waist="Carrier's Sash", legs="Inyanga Shalwar +2", feet="Inyan. Crackows +2"
+			back="Moonlight Cape", waist="Carrier's Sash", legs="Inyanga Shalwar +2", feet="Inyan. Crackows +2"
 		}
 
 		sets.defense.MDT = set_combine(sets.defense.PDT,
@@ -470,7 +470,7 @@ function init_gear_sets()
 			ammo="Hasty Pinion +1",
 			head="Blistering Sallet +1", neck="Fotia Gorget", lear="Brutal Earring", rear="Ishvara Earring",
 			body="Piety Briault +3", hands="Raetic Bangles +1", lring="Shukuyu Ring", rring="Epaminondas's Ring",
-			back="Alaunus's Cape", waist="Fotia Belt", legs=gear.ENH_Legs, feet="Chironic Slippers"
+			back="Aurist's Cape +1", waist="Fotia Belt", legs=gear.ENH_Legs, feet="Chironic Slippers"
 		}
 		
 		sets.precast.WS['Dagan'] =
@@ -499,7 +499,7 @@ function init_gear_sets()
 			ammo="Pemphredo Tathlum",
 			head=empty, neck="Sanctity Necklace", lear="Regal Earring", rear="Malignance Earring",
 			body="Cohort Cloak +1", hands="Fanatic Gloves", rring="Epaminondas's Ring", rring="Weather. Ring +1",
-			back="Alaunus's Cape", waist="Orpheus's Sash", legs="Kaykaus Tights +1", feet="Chironic Slippers"
+			back="Aurist's Cape +1", waist="Orpheus's Sash", legs="Kaykaus Tights +1", feet="Chironic Slippers"
 		}
 		
 	
@@ -512,7 +512,7 @@ function init_gear_sets()
 			main="Maxentius", sub="Genmei Shield", ammo="Hasty Pinion +1",
 			head="Blistering Sallet +1", neck="Combatant's Torque", lear="Telos Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Piety Briault +3", hands="Raetic Bangles +1", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
-			back="Alaunus's Cape",  waist="Windbuffet Belt +1", legs="Piety Pantaln. +3", feet="Chironic Slippers"
+			back="Aurist's Cape +1",  waist="Windbuffet Belt +1", legs="Piety Pantaln. +3", feet="Chironic Slippers"
 		}
 	
 end

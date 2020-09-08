@@ -316,16 +316,16 @@ function init_gear_sets()
 		{
 			ammo="Pemphredo Tathlum",
 			head=empty, neck="Mirage Stole +2", lear="Digni. Earring", rear="Regal Earring",
-			body="Cohort Cloak +1", hands="Regal Cuffs", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Metamor. Ring +1",
-			back="Cornflower Cape", waist="Acuity Belt +1", legs="Assim. Shalwar +3", feet="Luhlaza Charuqs +3"
+			body="Cohort Cloak +1", hands="Raetic Bangles +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Metamor. Ring +1",
+			back="Aurist's Cape +1", waist="Acuity Belt +1", legs="Assim. Shalwar +3", feet="Luhlaza Charuqs +3"
 		}
 	
 		sets.midcast['Enfeebling Magic'] =
 		{
 			ammo="Pemphredo Tathlum",
 			head=empty, neck="Mirage Stole +2", lear="Digni. Earring", rear="Regal Earring",
-			body="Cohort Cloak +1", hands="Regal Cuffs", lring="Kishar Ring", rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back=gear.BLUCape_Nuke, waist="Acuity Belt +1", legs="Assim. Shalwar +3", feet="Medium's Sabots"
+			body="Cohort Cloak +1", hands="Regal Cuffs", lring="Kishar Ring", rring="Metamor. Ring +1",
+			back="Aurist's Cape +1", waist="Acuity Belt +1", legs="Assim. Shalwar +3", feet="Medium's Sabots"
 		}
 		
 		sets.midcast['Dark Magic'] = set_combine(sets.midcast.Macc,
@@ -358,15 +358,15 @@ function init_gear_sets()
 			ammo="Aurgelmir Orb +1",
 			head="Luh. Keffiyeh +3", neck="Mirage Stole +2", lear="Telos Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Luhlaza Jubbah +3", hands="Luh. Bazubands +3", lring="Ilabrat Ring", rring="Shukuyu Ring",
-			back=gear.BLUCape_WSD, waist="Sailfi Belt +1", legs="Jhakri Slops +2", feet="Luhlaza Charuqs +3"
+			back=gear.BLUCape_WSD, waist="Kentarch Belt +1", legs="Jhakri Slops +2", feet="Luhlaza Charuqs +3"
 		}
 
 		sets.midcast.AddEffect =
 		{
 			ammo="Pemphredo Tathlum",
 			head="Luh. Keffiyeh +3", neck="Mirage Stole +2", lear="Digni. Earring", rear="Njordr Earring",
-			body="Luhlaza Jubbah +3", hands="Malignance Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Cornflower Cape", waist="Acuity Belt +1", legs="Aya. Cosciales +2", feet="Luhlaza Charuqs +3"
+			body="Luhlaza Jubbah +3", hands="Raetic Bangles +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			back="Aurist's Cape +1", waist="Acuity Belt +1", legs="Aya. Cosciales +2", feet="Luhlaza Charuqs +3"
 		}
 		
 		sets.midcast['Paralyzing Triad'] = set_combine(sets.midcast.Physical)
@@ -439,9 +439,9 @@ function init_gear_sets()
 		sets.midcast.BlueDrain = set_combine(sets.midcast.Debuffs,
 		{
 			ammo="Mavi Tathlum",
-			head="Luh. Keffiyeh +3",
-			body="Assim. Jubbah +3", hands="Rawhide Gloves",
-			legs="Hashishin Tayt +1", feet="Luhlaza Charuqs +3"
+			head="Luh. Keffiyeh +3", lear="Njordr Earring",
+			body="Assim. Jubbah +3", hands="Rawhide Gloves", rring={name="Stikini Ring +1", bag="wardrobe3"},
+			back="Cornflower Cape", legs="Hashishin Tayt +1", feet="Luhlaza Charuqs +3"
 		})
 		
 		sets.midcast['Actinic Burst'] = sets.Enmity
@@ -543,7 +543,7 @@ function init_gear_sets()
 
 		sets.midcast.Stun = set_combine(sets.midcast['Enfeebling Magic'],
 		{
-			head="Carmine Mask +1", neck="Erra Pendant", rear="Gwati Earring",
+			head="Carmine Mask +1", neck="Erra Pendant", rear="Mani Earring",
 			body="Luhlaza Jubbah +3", hands="Leyline Gloves",
 			legs="Aya. Cosciales +2", feet="Amalric Nails +1"
 		})
@@ -710,7 +710,7 @@ function init_gear_sets()
 		
 		sets.precast.WS['Chant du Cygne'].High = set_combine(sets.precast.WS['Chant du Cygne'].Mid,
 		{
-			legs="Malignance Tights", feet="Luhlaza Charuqs +3"
+			legs="Malignance Tights", waist="Kentarch Belt +1", feet="Luhlaza Charuqs +3"
 		})
 
 	---Vorpal Blade
@@ -779,7 +779,7 @@ function init_gear_sets()
 		sets.precast.WS['Savage Blade'].High = set_combine(sets.precast.WS['Savage Blade'].Mid,
 		{
 			head="Jhakri Coronal +2", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-			feet="Assim. Charuqs +3"
+			waist="Kentarch Belt +1", feet="Assim. Charuqs +3"
 		})
 
 	---Expiacion
@@ -796,7 +796,7 @@ function init_gear_sets()
 		sets.precast.WS['Expiacion'].High = set_combine(sets.precast.WS['Expiacion'].Mid,
 		{
 			head="Jhakri Coronal +2", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-			feet="Assim. Charuqs +3"
+			waist="Kentarch Belt +1", feet="Assim. Charuqs +3"
 		})
 
 	---Sanguine Blade

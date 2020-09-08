@@ -354,7 +354,7 @@ function init_gear_sets()
 		sets.magic_burst =
 		{
 			ammo="Pemphredo Tathlum",
-			head=gear.HHead_MAB, neck="Sanctity Necklace", lear="Crematio Earring", rear="Static Earring",
+			head=gear.HHead_MAB, neck="Warder's Charm +1", lear="Crematio Earring", rear="Static Earring",
 			body="Samnuha Coat", hands="Carmine Fin. Ga. +1", lring="Mujin Band", rring="Locus Ring",
 			back="Evasionist's Cape", waist="Orpheus's Sash", legs="Herculean Trousers", feet="Adhemar Gamashes +1"
 		}

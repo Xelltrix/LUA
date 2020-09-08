@@ -205,7 +205,7 @@ function init_gear_sets()
 			main="Raetic Staff +1", sub="Khonsu", ammo="Pemphredo Tathlum",
 			head=none, neck="Src. Stole +2", lear="Malignance Earring", rear="Regal Earring",
 			body="Cohort Cloak +1", hands="Spae. Gloves +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Metamor. Ring +1",
-			back="Taranus's Cape", waist="Acuity Belt +1", legs="Spae. Tonban +3", feet="Spae. Sabots +3"
+			back="Aurist's Cape +1", waist="Acuity Belt +1", legs="Spae. Tonban +3", feet="Spae. Sabots +3"
 		}
 	
 		sets.midcast['Enfeebling Magic'] = set_combine(sets.midcast.Macc,
@@ -488,7 +488,7 @@ function init_gear_sets()
 			ammo="Hasty Pinion +1",
 			head="Jhakri Coronal +2", neck="Fotia Gorget", lear="Telos Earring", rear="Moonshade Earring",
 			body="Jhakri Robe +2", hands="Jhakri Cuffs +2", lring="Shukuyu Ring", rring="Epaminondas's Ring",
-			back=gear.BLMCape_Nuke, legs="Jhakri Slops +2", feet="Jhakri Pigaches +2"
+			back="Aurist's Cape +1", legs="Jhakri Slops +2", feet="Jhakri Pigaches +2"
 		}
 		
 		sets.precast.WS['Rock Crusher'] = 
@@ -533,7 +533,7 @@ function init_gear_sets()
 			main="Lathi", sub="Khonsu", ammo="Hasty Pinion +1",
 			head="Blistering Sallet +1", neck="Combatant's Torque", lear="Telos Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Arch. Coat +3", hands="Arch. Gloves +3", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
-			back=gear.BLMCape_Nuke, waist="Witful Belt", legs="Arch. Tonban +3", feet="Arch. Sabots +3"
+			back="Aurist's Cape +1", waist="Witful Belt", legs="Arch. Tonban +3", feet="Arch. Sabots +3"
 		}
 	
 		sets.engaged.Refresh =

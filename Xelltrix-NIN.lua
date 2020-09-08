@@ -234,7 +234,7 @@ function init_gear_sets()
 		sets.magic_burst =
 		{
 			ammo="Ghastly Tathlum +1",
-			head="Mochi. Hatsuburi +3", neck="Sanctity Necklace", lear="Friomisi Earring", rear="Static Earring",
+			head="Mochi. Hatsuburi +3", neck="Warder's Charm +1", lear="Friomisi Earring", rear="Static Earring",
 			body="Samnuha Coat", hands=gear.HHands_Burst, lring="Locus Ring", rring="Mujin Band",
 			back=gear.NINCape_Nuke, waist="Orpheus's Sash", legs="Gyve Trousers", feet="Mochi. Kyahan +3"
 		}
@@ -878,7 +878,7 @@ function determine_haste_group()
 			--add_to_chat(8, '*********Slowed Status Effect Set***********')
 		else
 			if (((buffactive[33] or buffactive[580] or buffactive.embrava) and (buffactive[214] or buffactive[604])) or
-				(buffactive[33] and (buffactive[580] or buffactive.embrava)) or (buffactive.march == 2 and buffactive[604])) then
+				(buffactive[33] and (buffactive[580] or buffactive.embrava)) or buffactive.march == 2) then
 				classes.CustomMeleeGroups:append('Max')							-- 43.75% Magical Haste
 				--add_to_chat(8, '*********Maximum Haste Set***********')
 			elseif buffactive[33] or buffactive.march == 2 or buffactive[580] or buffactive[228] then

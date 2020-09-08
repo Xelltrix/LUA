@@ -549,13 +549,13 @@ function init_gear_sets()
 			ammo="Hasty Pinion +1",
 			head="Convoker's Horn +3", neck="Fotia Gorget", lear="Ishvara Earring", rear="Moonshade Earring",
 			body="Glyphic Doublet +3", hands="Glyphic Bracers +3", lring="Shukuyu Ring", rring="Epaminondas's Ring",
-			back=gear.SMNCape_Phys, waist="Fotia Belt", legs="Tali'ah Sera. +2", feet="Convo. Pigaches +3"
+			back="Aurist's Cape +1", waist="Fotia Belt", legs="Tali'ah Sera. +2", feet="Convo. Pigaches +3"
 		}
 		
 		sets.precast.WS['Retribution'] = set_combine(sets.precast.WS,
 		{
 			body="Inyanga Jubbah +2", hands="Inyan. Dastanas +2",
-			back=gear.SMNCape_Phys, feet="Baaya. Sabots +1"
+			feet="Baaya. Sabots +1"
 		})
 		
 		sets.precast.WS['Garland of Bliss'] =
@@ -563,7 +563,7 @@ function init_gear_sets()
 			ammo="Pemphredo Tathlum",
 			head="C. Palug Crown", neck="Sanctity Necklace", lear="Friomisi Earring", rear="Malignance Earring",
 			body="Amalric Doublet +1", hands="Amalric Gages +1", lring="Freke Ring", rring="Weather. Ring +1",
-			back=gear.SMNCape_Phys, waist="Orpheus's Sash", legs="Amalric Slops +1", feet="Amalric Nails +1"
+			back="Aurist's Cape +1", waist="Orpheus's Sash", legs="Amalric Slops +1", feet="Amalric Nails +1"
 		}
 	 
 		sets.precast.WS['Shattersoul'] = set_combine(sets.precast.WS,
@@ -589,7 +589,7 @@ function init_gear_sets()
 			main="Nirvana", sub="Khonsu", ammo="Sancus Sachet +1",
 			head="Convoker's Horn +3", neck="Shulmanu Collar", lear="Telos Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Glyphic Doublet +3", hands="Glyphic Bracers +3", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
-			back=gear.SMNCape_Phys, waist="Klouskap Sash +1", legs="Tali'ah Sera. +2", feet="Convo. Pigaches +3"
+			back="Aurist's Cape +1", waist="Klouskap Sash +1", legs="Tali'ah Sera. +2", feet="Convo. Pigaches +3"
 		}
 		
 		sets.engaged.Avatar =
