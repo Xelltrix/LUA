@@ -44,6 +44,10 @@ function user_setup()
 	state.WeaponskillMode:options('Normal', 'Low', 'Mid', 'High')
 	state.IdleMode:options('Normal', 'DT', 'MEVA', 'Refresh')
 	state.CastingMode:options('Normal','Alternate')
+	
+	state.MainStep = M{['description']='Main Step', 'Box Step', 'Quickstep','Stutter Step'}
+	state.Runes = M{['description']='Runes', 'Ignis', 'Gelus', 'Flabra', 'Tellus', 'Sulpor', 'Unda', 'Lux', 'Tenebrae'}
+	
 
 	state.MainWeaponSet = M{['description']='Main Weapon Set',
 		'Tizona',
@@ -57,7 +61,7 @@ function user_setup()
 		'Naegling'
 	}
 	
-	send_command('bind ^= gs c cycle treasuremode')
+	send_command('bind ^` gs c cycle treasuremode')
 	
 	send_command('bind numpad. gs c toggle EnmityDown')
 	
@@ -66,18 +70,33 @@ function user_setup()
 	
 	send_command('bind ^pageup gs c cycle SubWeaponSet')
 	send_command('bind ^pagedown gs c cycleback SubWeaponSet')
+	
+	
+	if player.sub_job == 'DNC' then
+		send_command('bind ^= gs c cycle mainstep')
+	elseif player.sub_job == 'RUN' then
+		send_command('bind ^= gs c cycle Runes')
+		send_command('bind ^- gs c cycleback Runes')
+	end
 
 	apply_job_change()
 end
 
 -- Called when this job file is unloaded (eg: job change)
 function user_unload()
-	send_command('unbind ^=')
+	send_command('unbind ^`')
 	send_command('unbind numpad.')
 	send_command('unbind pageup')
 	send_command('unbind pagedown')
 	send_command('unbind ^pageup')
 	send_command('unbind ^pagedown')
+	
+	if player.sub_job == 'DNC' then
+		send_command('unbind ^= gs')
+	elseif player.sub_job == 'RUN' then
+		send_command('unbind ^=')
+		send_command('unbind ^-')
+	end
 end
 
 -- Define sets and vars used by this job file.
@@ -2689,6 +2708,8 @@ function job_buff_change(buff,gain)
 	-- If we gain or lose any haste buffs, adjust which gear set we target.
 	if S{'haste','march','embrava','haste samba', 'mighty guard', 'geo-haste', 'indi-haste', 'slow', 'indi-slow', 'elegy',}:contains(buff:lower()) then
 		determine_haste_group()
+	elseif state.Buff[buff] ~= nil then
+        handle_equipping_gear(player.status)
 	end
 	
 	if buffactive['Aftermath: Lv.3'] and player.equipment.main == "Tizona" then
@@ -2784,6 +2805,22 @@ function display_current_job_state(eventArgs)
 	add_to_chat(122, msg)
 
 	eventArgs.handled = true
+end
+
+-------------------------------------------------------------------------------------------------------------------
+-- User self-commands.
+-------------------------------------------------------------------------------------------------------------------
+
+
+function job_self_command(cmdParams, eventArgs)
+   
+    if cmdParams[1]:lower() == 'rune' then
+        send_command('@input /ja '..state.Runes.value..' <me>')
+    end
+	
+	if cmdParams[1] == 'step' then
+		 send_command('@input /ja "'..state.MainStep.current..'" <t>')		 	 
+	end
 end
 
 

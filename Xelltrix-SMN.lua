@@ -446,6 +446,7 @@ function init_gear_sets()
 		{
 			ammo="Sancus Sachet +1",
 			head=gear.ACrown_Perp,
+			hands="Baayami Cuffs +1",
 			legs="Artsieq Hose"
 		})
 		
@@ -492,8 +493,8 @@ function init_gear_sets()
 		sets.defense.Pet =
 		{
 			main="Nirvana", sub="Khonsu", ammo="Sancus Sachet +1",
-			head=gear.ACrown_Perp, neck="Caller's Pendant", lear="Enmerkar Earring", rear="Handler's Earring +1",
-			body=gear.ADalmatica_Idle, hands="Asteria Mitts +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			head=gear.ACrown_Perp, neck="Smn. Collar +2", lear="Enmerkar Earring", rear="Handler's Earring +1",
+			body=gear.ADalmatica_Idle, hands="Baayami Cuffs +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back=gear.SMNCape_Phys, waist="Isa Belt", legs="Enticer's Pants", feet="Baaya. Sabots +1"
 		}
 

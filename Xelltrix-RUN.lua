@@ -40,7 +40,7 @@ function user_setup()
 	
 	state.Resist = M{['description']='Resist Type','None','Death','Knockback'}
 	
-	send_command('bind ^= gs c cycle treasuremode')
+	send_command('bind ^` gs c cycle treasuremode')
 	
 	send_command('bind pageup gs c cycle WeaponSet')
 	send_command('bind pagedown gs c cycleback WeaponSet')
@@ -56,7 +56,7 @@ function user_setup()
 end
 
 function user_unload()
-		send_command('unbind ^=')
+		send_command('unbind ^`')
 		send_command('unbind pageup')
 		send_command('unbind pagedown')
 		
@@ -565,7 +565,7 @@ function init_gear_sets()
 	---Resolution
 		sets.precast.WS['Resolution'] = set_combine(sets.precast.WS,
 		{
-			ammo="Voluspa Tathlum",
+			ammo="Seeth. Bomblet +1",
 			lear="Sherida Earring",
 			body="Lustr. Harness +1", hands="Adhemar Wrist. +1", lring="Regal Ring", rring="Niqmaddu Ring",
 			waist="Sailfi Belt +1", legs="Meg. Chausses +2", feet="Lustra. Leggings +1"

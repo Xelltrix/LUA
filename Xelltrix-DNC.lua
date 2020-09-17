@@ -17,12 +17,8 @@ function job_setup()
 
     state.MainStep = M{['description']='Main Step', 'Box Step', 'Quickstep', 'Feather Step', 'Stutter Step'}
     state.AltStep = M{['description']='Alt Step', 'Quickstep', 'Feather Step', 'Stutter Step', 'Box Step'}
-	state.Samba = M{['description']='Samba', 'Haste Samba', 'Drain Samba', 'Aspir Samba'}
-    state.UseAltStep = M(false, 'Use Alt Step')
-    state.SelectStepTarget = M(false, 'Select Step Target')
-    state.IgnoreTargetting = M(false, 'Ignore Targetting')
-
-    state.CurrentStep = M{['description']='Current Step', 'Main', 'Alt'}
+	--state.Samba = M{['description']='Samba', 'Haste Samba', 'Drain Samba', 'Aspir Samba'}
+	state.Runes = M{['description']='Runes', 'Ignis', 'Gelus', 'Flabra', 'Tellus', 'Sulpor', 'Unda', 'Lux', 'Tenebrae'}
 	
 	state.EnmityDown = M(false)
 
@@ -55,9 +51,16 @@ function user_setup()
 
     -- Additional local binds
     send_command('bind ^= gs c cycle mainstep')
-    send_command('bind != gs c cycle altstep')
-    send_command('bind ^- gs c toggle selectsteptarget')
-    send_command('bind !- gs c toggle usealtstep')
+    send_command('bind ^- gs c cycle altstep')
+	
+	if player.sub_job == 'RUN' then
+		send_command('bind != gs c cycle Runes')
+		send_command('bind !- gs c cycleback Runes')
+	else
+		send_command('bind ^= gs c cycleback mainstep')
+		send_command('bind ^- gs c cycleback altstep')
+	end
+	
     send_command('bind ^` input /ja "Chocobo Jig" <me>')
     send_command('bind !` input /ja "Chocobo Jig II" <me>')
 	
@@ -77,9 +80,9 @@ function user_unload()
     send_command('unbind ^`')
     send_command('unbind !`')
     send_command('unbind ^=')
-    send_command('unbind !=')
     send_command('unbind ^-')
-    send_command('unbind !-')
+	send_command('unbind !=')
+	send_command('unbind !-')
 end
 
 
@@ -863,10 +866,12 @@ end
 -- gain == true if the buff was gained, false if it was lost.
 function job_buff_change(buff,gain)
     -- If we gain or lose any haste buffs, adjust which gear set we target.
-    if S{'haste','march','embrava','haste samba', 'mighty guard'}:contains(buff:lower()) then
+    if S{'haste','march','embrava','haste samba', 'mighty guard', 'geo-haste','indi-haste','slow','indi-slow','elegy'}:contains(buff:lower()) then
 		determine_haste_group()
 		handle_equipping_gear(player.status)
     elseif buff == 'Climactic Flourish' then
+        handle_equipping_gear(player.status)
+	 elseif state.Buff[buff] ~= nil then
         handle_equipping_gear(player.status)
     end
 	
@@ -934,18 +939,6 @@ function customize_melee_set(meleeSet)
     return meleeSet
 end
 
--- Handle auto-targetting based on local setup.
-function job_auto_change_target(spell, action, spellMap, eventArgs)
-    if spell.type == 'Step' then
-        if state.IgnoreTargetting.value == true then
-            state.IgnoreTargetting:reset()
-            eventArgs.handled = true
-        end
-
-        eventArgs.SelectNPCTargets = state.SelectStepTarget.value
-    end
-end
-
 
 -- Function to display the current relevant user state when doing an update.
 -- Set eventArgs.handled to true if display was handled, and you don't want the default info shown.
@@ -973,16 +966,10 @@ function display_current_job_state(eventArgs)
     end
 
     msg = msg .. ', ['..state.MainStep.current
-
-    if state.UseAltStep.value == true then
-        msg = msg .. '/'..state.AltStep.current
-    end
+	
+	msg = msg .. '/'..state.AltStep.current
 
     msg = msg .. ']'
-
-    if state.SelectStepTarget.value == true then
-        steps = steps..' (Targetted)'
-    end
 
     add_to_chat(122, msg)
 
@@ -996,21 +983,11 @@ end
 
 -- Called for custom player commands.
 function job_self_command(cmdParams, eventArgs)
-    if cmdParams[1] == 'step' then
-        if cmdParams[2] == 't' then
-            state.IgnoreTargetting:set()
-        end
-
-        local doStep = ''
-        if state.UseAltStep.value == true then
-            doStep = state[state.CurrentStep.current..'Step'].current
-            state.CurrentStep:cycle()
-        else
-            doStep = state.MainStep.current
-        end
-
-        send_command('@input /ja "'..doStep..'" <t>')
-    end
+	if cmdParams[1] == 'mstep' then
+		 send_command('@input /ja "'..state.MainStep.current..'" <t>')		 
+	elseif cmdParams[1] == 'astep' then
+		send_command('@input /ja "'..state.AltStep.current..'" <t>')		 
+	end
 end
 
 -------------------------------------------------------------------------------------------------------------------

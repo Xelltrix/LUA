@@ -577,9 +577,11 @@ function job_buff_change(buff,gain)
     end
 	
 	-- If we gain or lose any haste buffs, adjust which gear set we target.
-	if S{'haste','march','embrava','hasso','last resort','spirit surge','haste samba', 'mighty guard', 'geo-haste', 'indi-haste', 'slow', 'indi-slow', 'elegy',}:contains(buff:lower()) then
+	if S{'haste','march','embrava','hasso','last resort','spirit surge','haste samba','mighty guard','geo-haste','indi-haste','slow','indi-slow','elegy'}:contains(buff:lower()) then
 		determine_haste_group()
 		handle_equipping_gear(player.status)
+	elseif state.Buff[buff] ~= nil then
+        handle_equipping_gear(player.status)
 	end	
 	
 	if buff == "sleep" then

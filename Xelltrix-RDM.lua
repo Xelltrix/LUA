@@ -57,13 +57,13 @@ function user_setup()
 	send_command('bind ^pageup gs c cycle SubWeaponSet')
 	send_command('bind ^pagedown gs c cycleback SubWeaponSet')
 	
-	send_command('bind ^= gs c cycle treasuremode')
+	send_command('bind ^` gs c cycle treasuremode')
 
 	apply_job_change()
 end
 
 function user_unload()
-	send_command('unbind ^=')
+	send_command('unbind ^`')
 	send_command('unbind pageup')
 	send_command('unbind pagedown')
 	send_command('unbind ^pageup')
@@ -1636,9 +1636,11 @@ end
 -------------------------------------------------------------------------------------------------------------------
 function job_buff_change(buff,gain)
 	-- If we gain or lose any haste buffs, adjust which gear set we target.
-	if S{'haste','march','embrava','haste samba', 'mighty guard'}:contains(buff:lower()) then
+	if S{'haste','march','embrava','haste samba', 'mighty guard', 'geo-haste','indi-haste','slow','indi-slow','elegy'}:contains(buff:lower()) then
 		determine_haste_group()
 		handle_equipping_gear(player.status)
+	elseif state.Buff[buff] ~= nil then
+        handle_equipping_gear(player.status)
 	end
 	
 	if buff == "doom" then

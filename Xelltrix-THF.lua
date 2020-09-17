@@ -64,9 +64,12 @@ function user_setup()
 		'Centovente'
 	}
 	
+	state.MainStep = M{['description']='Main Step', 'Box Step', 'Quickstep','Stutter Step'}
+	state.Runes = M{['description']='Runes', 'Ignis', 'Gelus', 'Flabra', 'Tellus', 'Sulpor', 'Unda', 'Lux', 'Tenebrae'}
+	
 
 	-- Additional local binds
-	send_command('bind ^= gs c cycle treasuremode')
+	send_command('bind ^` gs c cycle treasuremode')
 	
 	send_command('bind numpad. gs c toggle EnmityDown')
 	
@@ -75,13 +78,28 @@ function user_setup()
 	
 	send_command('bind ^pageup gs c cycle SubWeaponSet')
 	send_command('bind ^pagedown gs c cycleback SubWeaponSet')
+	
+	
+	if player.sub_job == 'DNC' then
+		send_command('bind ^= gs c cycle mainstep')
+	elseif player.sub_job == 'RUN' then
+		send_command('bind ^= gs c cycle Runes')
+		send_command('bind ^- gs c cycleback Runes')
+	end
 
 	apply_job_change()
 end
 
 -- Called when this job file is unloaded (eg: job change)
 function user_unload()
-	send_command('unbind ^=')
+	send_command('unbind ^`')
+	
+	if player.sub_job == 'DNC' then
+		send_command('unbind ^= gs')
+	elseif player.sub_job == 'RUN' then
+		send_command('unbind ^=')
+		send_command('unbind ^-')
+	end
 end
 
 -- Define sets and vars used by this job file.
@@ -338,6 +356,14 @@ function init_gear_sets()
 			head="Malignance Chapeau",  neck="Loricate Torque +1", lear="Dawn Earring", rear="Infused Earring",
 			body="Malignance Tabard", hands="Malignance Gloves", lring="Defending Ring", rring="Moonlight Ring",
 			back="Moonlight Cape", waist="Engraved Belt", legs="Malignance Tights", feet="Jute Boots +1"
+		}
+		
+		sets.idle.Refresh =
+		{
+			ammo="Staunch Tathlum +1",
+			head="Rawhide Mask",  neck="Warder's Charm +1", lear="Dawn Earring", rear="Infused Earring",
+			body="Malignance Tabard", hands=gear.HHands_Refresh, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			back="Moonlight Cape",  waist="Engraved Belt", legs="Rawhide Trousers", feet=gear.HBoots_Refresh
 		}
 
 		sets.idle.Town = set_combine(sets.idle,
@@ -925,11 +951,13 @@ function job_buff_change(buff,gain)
 	
 
 	-- If we gain or lose any haste buffs, adjust which gear set we target.
-	if S{'haste','march','embrava','haste samba', 'mighty guard'}:contains(buff:lower()) then
+	if S{'haste','march','embrava','haste samba', 'mighty guard', 'geo-haste','indi-haste','slow','indi-slow','elegy'}:contains(buff:lower()) then
 		determine_haste_group()
 		handle_equipping_gear(player.status)
 	elseif state.Buff['Sneak Attack'] == false or state.Buff['Trick Attack'] == false then
 		handle_equipping_gear(player.status)
+	 elseif state.Buff[buff] ~= nil then
+        handle_equipping_gear(player.status)
 	end
 end
 
@@ -1049,8 +1077,25 @@ function display_current_job_state(eventArgs)
 end
 
 -------------------------------------------------------------------------------------------------------------------
+-- User self-commands.
+-------------------------------------------------------------------------------------------------------------------
+
+
+function job_self_command(cmdParams, eventArgs)
+    if cmdParams[1]:lower() == 'rune' then
+        send_command('@input /ja '..state.Runes.value..' <me>')
+    end
+	
+	if cmdParams[1] == 'step' then
+		 send_command('@input /ja "'..state.MainStep.current..'" <t>')		 	 
+	end
+end
+
+
+-------------------------------------------------------------------------------------------------------------------
 -- Utility functions specific to this job.
 -------------------------------------------------------------------------------------------------------------------
+
 
 function determine_haste_group()
 --[[
@@ -1116,7 +1161,7 @@ end
 
 -- Select default macro book on initial load or subjob change.
 function apply_job_change()
-	if player.sub_job == 'WAR' or player.sub_job == 'NIN' then
+	if player.sub_job == 'WAR' or player.sub_job == 'NIN' or player.sub_job == 'RUN' then
 		set_macro_page(1, 6)
 	elseif player.sub_job == 'DNC' then
 		set_macro_page(4, 6)

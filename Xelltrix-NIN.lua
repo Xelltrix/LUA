@@ -376,7 +376,7 @@ function init_gear_sets()
 	-- Blade: Teki
 		sets.precast.WS['Blade: Teki'] =
 		{
-			ammo="Pemphredo Tathlum",
+			ammo="Seeth. Bomblet +1",
 			head="Mochi. Hatsuburi +3", neck="Sanctity Necklace", lear="Friomisi Earring", rear="Moonshade Earring",
 			body="Samnuha Coat", hands=gear.HHands_MWS, lring="Epaminondas's Ring", rring="Dingir Ring",
 			back=gear.NINCape_Nuke, waist="Orpheus's Sash", legs="Mochi. Hakama +3", feet="Adhe. Gamashes +1"
@@ -385,7 +385,7 @@ function init_gear_sets()
 	-- Blade: To
 		sets.precast.WS['Blade: To'] = 
 		{
-			ammo="Pemphredo Tathlum",
+			ammo="Seeth. Bomblet +1",
 			head="Mochi. Hatsuburi +3", neck="Sanctity Necklace", lear="Friomisi Earring", rear="Moonshade Earring",
 			body="Samnuha Coat", hands=gear.HHands_MWS, lring="Epaminondas's Ring", rring="Dingir Ring",
 			back=gear.NINCape_Nuke, waist="Orpheus's Sash", legs="Mochi. Hakama +3", feet="Adhe. Gamashes +1"
@@ -395,7 +395,7 @@ function init_gear_sets()
 	-- Blade: Chi
 		sets.precast.WS['Blade: Chi'] = 
 		{
-			ammo="Pemphredo Tathlum",
+			ammo="Seeth. Bomblet +1",
 			head="Mochi. Hatsuburi +3", neck="Fotia Gorget", lear="Friomisi Earring", rear="Moonshade Earring",
 			body="Gyve Doublet", hands=gear.HHands_MWS, lring="Epaminondas's Ring", rring="Gere Ring",
 			back=gear.NINCape_Nuke, waist="Orpheus's Sash", legs="Mochi. Hakama +3", feet="Adhe. Gamashes +1"
@@ -407,7 +407,7 @@ function init_gear_sets()
 	--Blade: Yu
 		sets.precast.WS['Blade: Yu'] =
 		{
-			ammo="Pemphredo Tathlum",
+			ammo="Seeth. Bomblet +1",
 			head="Mochi. Hatsuburi +3", neck="Sanctity Necklace", lear="Friomisi Earring", rear="Crematio Earring",
 			body="Gyve Doublet", hands=gear.HHands_MWS, lring="Dingir Ring", rring="Epaminondas's Ring",
 			back=gear.NINCape_Nuke, waist="Orpheus's Sash", legs="Gyve Trousers", feet="Adhe. Gamashes +1"
@@ -757,6 +757,8 @@ function job_midcast(spell, action, spellMap, eventArgs)
 			equip(sets.midcast['currentSpell'])
 		end
 	end
+	
+	
 end
 
 
@@ -791,6 +793,10 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 	end
 end
 
+function job_aftercast(spell, action, spellMap, eventArgs)
+	determine_haste_group()
+	--add_to_chat(8,'****Aftercast****')
+end
 -------------------------------------------------------------------------------------------------------------------
 -- Job-specific hooks for non-casting events.
 -------------------------------------------------------------------------------------------------------------------
@@ -810,7 +816,7 @@ function job_buff_change(buff, gain)
     end
 	
 	-- If we gain or lose any haste buffs, adjust which gear set we target.
-    if S{'haste','march','embrava','haste samba'}:contains(buff:lower()) then
+    if S{'haste','march','embrava','haste samba', 'mighty guard', 'geo-haste','indi-haste','slow','indi-slow','elegy'}:contains(buff:lower()) then
         determine_haste_group()
         handle_equipping_gear(player.status)
     elseif state.Buff[buff] ~= nil then
