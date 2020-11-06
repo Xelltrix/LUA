@@ -33,7 +33,7 @@ function user_setup()
 	state.OffenseMode:options('Refresh','Normal')
 	state.CastingMode:options('Normal','Resistant','Occult')
 	state.PhysicalDefenseMode:options('PDT')
-	state.MagicalDefenseMode:options('EVA','MDT')
+	state.MagicalDefenseMode:options('MEVA','MDT')
 	state.IdleMode:options('Normal','DT','MEVA','Vagary')
 
 	apply_job_change()
@@ -121,7 +121,7 @@ function init_gear_sets()
 		{
 			ammo="Pemphredo Tathlum",
 			head="Vanya Hood", neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
-			body="Amalric Doublet +1", lring="Kishar Ring",
+			body="Amalric Doublet +1", lring="Mephitas's Ring +1",
 			back="Fi Follet Cape +1", waist="Shinjutsu-no-Obi +1", legs="Lengo Pants", feet="Kaykaus Boots +1"
 		})
 
@@ -259,6 +259,7 @@ function init_gear_sets()
 
 		sets.midcast['Enfeebling Magic'] = set_combine(sets.midcast.Macc,
 		{
+			main="Contemplator +1", sub="Enki Strap",
 			head=empty, lear="Regal Earring",
 			body="Cohort Cloak +1", hands="Regal Cuffs", lring="Kishar Ring", rring={name="Stikini Ring +1", bag="wardrobe3"},
 			legs="Chironic Hose", feet="Medium's Sabots"
@@ -316,7 +317,7 @@ function init_gear_sets()
 	---Elemental Magic
 		sets.midcast['Elemental Magic'] =
 		{
-			main="Akademos", sub="Enki Strap", ammo="Pemphredo Tathlum",
+			main="Marin Staff +1", sub="Enki Strap", ammo="Ghastly Tathlum +1",
 			head="Peda. M.Board +3", neck="Argute Stole +2", lear="Regal Earring", rear="Malignance Earring",
 			body="Amalric Doublet +1", hands="Amalric Gages +1", lring="Freke Ring", rring="Metamor. Ring +1",
 			back=gear.SCHCape_Nuke, waist="Sacro Cord", legs="Amalric Slops +1", feet="Amalric Nails +1"
@@ -324,7 +325,7 @@ function init_gear_sets()
 
 		sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'],
 		{
-			main="Raetic Staff +1", sub="Khonsu",
+			main="Marin Staff +1", sub="Khonsu", ammo="Pemphredo Tathlum",
 			head=empty,
 			body="Cohort Cloak +1",
 			legs="Peda. Pants +3", feet="Acad. Loafers +3"
@@ -340,7 +341,7 @@ function init_gear_sets()
 		
 		sets.midcast.MDMG = set_combine(sets.midcast['Elemental Magic'],
 		{
-			main="Raetic Staff +1", sub="Niobid Strap",
+			main="Marin Staff +1", sub="Niobid Strap", ammo="Pemphredo Tathlum",
 			head="Mall. Chapeau +2", neck="Argute Stole +2",
 			rring="Shiva Ring +1"
 		})
@@ -391,15 +392,15 @@ function init_gear_sets()
 		---Magic Burst
 		sets.magic_burst = 
 		{--		Magic Burst: +40%	Magic Burst II: +10%
-			main="Akademos", sub="Enki Strap", ammo="Pemphredo Tathlum",
+			main="Akademos", sub="Enki Strap", ammo="Ghastly Tathlum +1",
 			head="Peda. M.Board +3", neck="Argute Stole +2", lear="Static Earring", rear="Malignance Earring",
 			body="Amalric Doublet +1", hands="Amalric Gages +1", lring="Locus Ring", rring="Mujin Band",
 			back=gear.SCHCape_Nuke, waist="Sacro Cord", legs="Merlinic Shalwar", feet="Amalric Nails +1"
 		}
 		
-				sets.magic_burst.Resistant = set_combine(sets.magic_burst,
+		sets.magic_burst.Resistant = set_combine(sets.magic_burst,
 		{--		Magic Burst: 40%	Magic Burst II: +4%
-			main="Raetic Staff +1", sub="Khonsu", ammo="Pemphredo Tathlum",
+			main="Marin Staff +1", sub="Khonsu", ammo="Ghastly Tathlum +1",
 			head="Peda. M.Board +3", neck="Argute Stole +2", lear="Static Earring", rear="Malignance Earring",
 			body="Acad. Gown +3", hands="Regal Cuffs", lring="Locus Ring", rring="Mujin Band",
 			back=gear.SCHCape_Nuke, waist="Sacro Cord", legs="Merlinic Shalwar", feet="Acad. Loafers +3"
@@ -418,27 +419,28 @@ function init_gear_sets()
 	------------------------------------------------------------------------------------------------
 
 		sets.idle =
-		{--	DT: -11%	PDT: -11%	MDT:-11%	Refresh: 14~15
-			main="Akademos", sub="Khonsu", ammo="Homiliary",
+		{-- 	PDT: -24% | MDT:-12%	|	Refresh: 13~14 | Regen: 3
+			main="Contemplator +1", sub="Khonsu", ammo="Homiliary",
 			head="Befouled Crown", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 			body="Shamash Robe", hands="Chironic Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Volte Brais", feet="Chironic Slippers"
 		}
 
-		sets.idle.DT = set_combine(sets.idle,
-		{--	DT: -30%	PDT: -41%	MDT:-29%	Refresh: 11~12
-			ammo="Staunch Tathlum +1",
-			neck="Loricate Torque +1", lear="Genmei Earring", rear="Lugalbanda Earring",
-			lring="Defending Ring", rring="Gelatinous Ring +1"
-		})
+		sets.idle.DT =
+		{-- 	PDT: -51% | MDT:-30%	|	Refresh: 8~9 | Regen: 0
+			main="Contemplator +1", sub="Khonsu", ammo="Staunch Tathlum +1",
+			head="Hike Khat +1", neck="Warder's Charm +1", lear="Odnowa Earring +1", rear="Lugalbanda Earring",
+			body="Shamash Robe", hands="Chironic Gloves", lring="Defending Ring", rring="Shadow Ring",
+			back="Moonlight Cape", waist="Carrier's Sash", legs="Volte Brais", feet="Volte Gaiters"
+		}
 		
-		sets.idle.MEVA = set_combine(sets.idle,
-		{
-			ammo="Staunch Tathlum +1",
-			head="Peda. M.Board +3", neck="Warder's Charm +1", lear="Genmei Earring", rear="Lugalbanda Earring",
-			hands="Raetic Bangles +1", lring="Shadow Ring", rring="Purity Ring",
-			waist="Carrier's Sash", legs="Volte Brais", feet="Volte Gaiters"
-		})
+		sets.idle.MEVA =
+		{-- 	PDT: -41% | MDT:-24%	|	Refresh: 6~7 | Regen: 0
+			main="Contemplator +1", sub="Khonsu", ammo="Staunch Tathlum +1",
+			head="Hike Khat +1", neck="Warder's Charm +1", lear="Odnowa Earring +1", rear="Lugalbanda Earring",
+			body="Shamash Robe", hands="Raetic Bangles +1", lring="Shadow Ring", rring="Purity Ring",
+			back="Moonlight Cape", waist="Carrier's Sash", legs="Volte Brais", feet="Volte Gaiters"
+		}
 		
 		sets.idle.Vagary = set_combine(sets.magic_burst, 
 		{
@@ -461,36 +463,37 @@ function init_gear_sets()
 	------------------------------------------------------------------------------------------------
 
 		sets.defense.PDT =
-		{--	DT: -38%	PDT: -52%	MDT:-42%
-			main="Akademos", sub="Khonsu", ammo="Staunch Tathlum +1",
-			head="Peda. M.Board +3", neck="Warder's Charm +1",  lear="Genmei Earring", rear="Lugalbanda Earring",
+		{--PDT: 53 / MDT: 17
+			ammo="Staunch Tathlum +1",
+			head="Hike Khat +1", neck="Warder's Charm +1", lear="Odnowa Earring +1", rear="Genmei Earring",
 			body="Shamash Robe", hands="Volte Bracers", lring="Defending Ring", rring="Gelatinous Ring +1",
-			back=gear.SCHCape_Nuke, waist="Carrier's Sash", legs="Artsieq Hose", feet="Hippo. Socks +1"
+			back="Shadow Mantle", waist="Carrier's Sash", legs="Artsieq Hose", feet="Hippo. Socks +1"
 		}
 
-		sets.defense.EVA =
-		{--	DT: -27%	PDT: -44%	MDT:-22%
-			main="Akademos", sub="Khonsu", ammo="Staunch Tathlum +1",
-			head="Peda. M.Board +3", neck="Warder's Charm +1", lear="Sanare Earring", rear="Lugalbanda Earring",
-			body="Shamash Robe", hands="Raetic Bangles +1", lring="Shadow Ring", rring="Purity Ring",
-			back="Moonlight Cape", waist="Carrier's Sash", legs="Pinga Pants +1", feet="Volte Gaiters"
+		sets.defense.MEVA =
+		{--PDT: 42 / MDT: 24
+			ammo="Staunch Tathlum +1",
+			head="Hike Khat +1", neck="Warder's Charm +1", lear="Odnowa Earring +1", rear="Lugalbanda Earring",
+			body="Shamash Robe", hands="Raetic Bangles +1", lring="Defending Ring", rring="Shadow Ring",
+			back="Moonlight Cape", waist="Carrier's Sash", legs="Volte Brais", feet="Volte Gaiters"
+		}
+
+		sets.defense.MDT = 
+		{--PDT: 38 / MDT: 45
+			ammo="Staunch Tathlum +1",
+			head="Vanya Hood", neck="Loricate Torque +1", lear="Odnowa Earring +1", rear="Etiolation Earring",
+			body="Shamash Robe", hands="Raetic Bangles +1", lring="Defending Ring", rring="Purity Ring",
+			back="Moonlight Cape", waist="Carrier's Sash", legs="Volte Brais", feet="Vanya Clogs"
 		}
 		
-		sets.defense.MDT =
-		{--	DT: -27%	PDT: -44%	MDT:-22%
-			main="Akademos", sub="Khonsu", ammo="Staunch Tathlum +1",
-			head="Blistering Sallet +1", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Odnowa Earring +1",
-			body="Shamash Robe", hands="Raetic Bangles +1", lring="Defending Ring", rring="Shadow Ring",
-			back="Moonlight Cape", waist="Carrier's Sash", legs="Pinga Pants +1", feet="Volte Gaiters"
-		}
 
-		sets.Kiting = { feet="Crier's Gaiters" }
-	
 	
 	------------------------------------------------------------------------------------------------
 	---------------------------------------- Special Sets ------------------------------------------
 	------------------------------------------------------------------------------------------------
 
+		sets.Kiting = { feet="Crier's Gaiters" }
+		
 		sets.buff.Doom = 
 		{
 			neck="Nicander's Necklace",
@@ -552,13 +555,12 @@ function init_gear_sets()
 		{
 			head="Jhakri Coronal +2", neck="Fotia Gorget", lear="Telos Earring", rear="Moonshade Earring",
 			body="Jhakri Robe +2", hands="Jhakri Cuffs +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
-			back=gear.SCHCape_Nuke, waist="Fotia Belt", legs="Jhakri Slops +2", feet="Jhakri Pigaches +2"
+			back="Aurist's Cape +1", waist="Fotia Belt", legs="Jhakri Slops +2", feet="Jhakri Pigaches +2"
 		}
 
 		sets.precast.WS['Shattersoul'] = set_combine(sets.precast.WS,
 		{
-			lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-			back=gear.SCHCape_Nuke
+			lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"}
 		})
 		
 		sets.precast.WS['Omniscience'] = 
@@ -591,10 +593,10 @@ function init_gear_sets()
 
 		sets.engaged = 
 		{
-			ammo="Hasty Pinion +1",
+			sub="Khonsu", ammo="Hasty Pinion +1",
 			head="Blistering Sallet +1", neck="Combatant's Torque", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-			body="Jhakri Robe +2", hands="Raetic Bangles +1", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
-			back=gear.SCHCape_Nuke, waist="Windbuffet Belt +1", legs="Volte Hose", feet="Peda. Loafers +3"
+			body="Peda. Gown +3", hands="Gazu Bracelet +1", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			back="Aurist's Cape +1", waist="Windbuffet Belt +1", legs="Jhakri Slops +2", feet="Battlecast Gaiters"
 		}
 
 		sets.engaged.Refresh = sets.idle

@@ -16,7 +16,9 @@ function job_setup()
 	
 	state.Buff["Avatar's Favor"] = buffactive["Avatar's Favor"] or false
     state.Buff["Astral Conduit"] = buffactive["Astral Conduit"] or false
-
+	
+	state.Avatar = M{['description']='Avatar','Carbuncle','Fenrir','Diabolos','Ifrit','Titan','Leviathan','Garuda','Shiva','Ramuh','Odin','Alexander','Cait Sith','Atomos','Siren'}
+	
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -28,6 +30,15 @@ function user_setup()
     state.OffenseMode:options('Avatar','Normal')
     state.IdleMode:options('Normal', 'DT','MEVA','Favor')
 	state.PhysicalDefenseMode:options('Master','Pet')
+	
+	
+	if player.sub_job == 'WHM' then
+		state.BarElement = M{['description']='BarElement', 'Barfira', 'Barblizzara', 'Baraera', 'Barstonra', 'Barthundra', 'Barwatera'}
+		state.BarStatus = M{['description']='BarStatus', 'Baramnesra', 'Barvira', 'Barparalyzra', 'Barsilencera', 'Barpetra', 'Barpoisonra', 'Barblindra', 'Barsleepra'}
+	elseif player.sub_job == 'RDM' then
+		state.BarElement = M{['description']='BarElement', 'Barfire', 'Barblizzard', 'Baraero', 'Barstone', 'Barthunder', 'Barwater'}
+		state.BarStatus = M{['description']='BarStatus', 'Baramnesia', 'Barvirus', 'Barparalyze', 'Barsilence', 'Barpetrify', 'Barpoison', 'Barblind', 'Barsleep'}
+	end
 	
     apply_job_change()
 end
@@ -154,7 +165,7 @@ function init_gear_sets()
 		{
 			main="Nirvana", sub="Vox Grip", ammo="Sancus Sachet +1",
 			head=gear.ACrown_Perp, neck="Unmoving Collar +1", lear="Tuisto Earring", rear="Odnowa Earring +1",
-			bbody=gear.ADalmatica_Idle, hands="Apogee Mitts +1", lring="Eihwaz Ring", rring="Gelatinous Ring +1",
+			body=gear.ADalmatica_Idle, hands="Apogee Mitts +1", lring="Eihwaz Ring", rring="Gelatinous Ring +1",
 			back=gear.SMNCape_Mag, waist="Regal Belt", legs=gear.ASlacks_MAB, feet="Apogee Pumps +1"
 		})
 
@@ -248,7 +259,7 @@ function init_gear_sets()
 		}
 
 		
-		sets.midcast.Curaga = sets.midcast.Cures
+		sets.midcast.Curagas = sets.midcast.Cures
 
 		sets.midcast.Cursna =
 		{
@@ -338,6 +349,14 @@ function init_gear_sets()
 			back="Grapevine Cape", waist="Acuity Belt +1", legs="Inyanga Shalwar +2", feet="Medium's Sabots"
 		}
 		
+		sets.midcast['Enfeebling Magic'] = set_combine(sets.midcast.Macc,
+		{
+			main="Contemplator +1", sub="Enki Strap",
+			head=empty,
+			body="Cohort Cloak +1", lring="Kishar Ring"
+		})
+		
+		
 		sets.midcast.Dispelga = set_combine(sets.midcast.Macc,
 		{
 			main="Daybreak", sub="Ammurapi Shield"
@@ -396,17 +415,19 @@ function init_gear_sets()
 	
 		sets.idle =
 		{
-			main="Nirvana", sub="Khonsu", ammo="Staunch Tathlum +1",
+			main="Contemplator +1", sub="Khonsu", ammo="Staunch Tathlum +1",
 			head="Convoker's Horn +3", neck="Sanctity Necklace", lear="Dawn Earring", rear="C. Palug Earring",
 			body="Shomonjijoe +1", hands="Asteria Mitts +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Moonlight Cape", waist="Regal Belt", legs="Volte Brais", feet="Baaya. Sabots +1"
 		}
 
-		sets.idle.DT = set_combine(sets.idle,
+		sets.idle.DT =
 		{
-			neck="Smn. Collar +2", lear="Genmei Earring",
-			body="Udug Jacket", hands="Raetic Bangles +1", lring="Defending Ring", rring="C. Palug Ring"
-		})
+			main="Contemplator +1", sub="Khonsu", ammo="Staunch Tathlum +1",
+			head="Convoker's Horn +3", neck="Smn. Collar +2", lear="Odnowa Earring +1", rear="C. Palug Earring",
+			body="Udug Jacket", hands="Raetic Bangles +1", lring="Defending Ring", rring="C. Palug Ring",
+			back="Moonlight Cape", waist="Regal Belt", legs="Volte Brais", feet="Baaya. Sabots +1"
+		}
 		
 		sets.idle.MEVA = 
 		{
@@ -442,21 +463,22 @@ function init_gear_sets()
 			back=gear.SMNCape_Phys, waist="Lucidity Sash", legs="Assid. Pants +1", feet="Baaya. Sabots +1"
 		}
 		
-		sets.idle.DT.Avatar = set_combine(sets.idle.DT,
+		sets.idle.DT.Avatar =
 		{
-			ammo="Sancus Sachet +1",
-			head=gear.ACrown_Perp,
-			hands="Baayami Cuffs +1",
-			legs="Artsieq Hose"
-		})
+			main="Nirvana", sub="Khonsu", ammo="Sancus Sachet +1",
+			head=gear.ACrown_Perp, neck="Smn. Collar +2", lear="Odnowa Earring +1", rear="C. Palug Earring",
+			body="Udug Jacket", hands="Baayami Cuffs +1", lring="Defending Ring", rring="C. Palug Ring",
+			back="Moonlight Cape", waist="Regal Belt", legs="Artsieq Hose", feet="Baaya. Sabots +1"
+		}
 		
-		sets.idle.MEVA.Avatar = set_combine(sets.idle.MEVA,
+		sets.idle.MEVA.Avatar =
 		{
-			ammo="Sancus Sachet +1",
-			head=gear.ACrown_Perp,
-			body="Udug Jacket", lring="Defending Ring", rring="C. Palug Ring",
-		})
-		
+			main="Nirvana", sub="Khonsu", ammo="Sancus Sachet +1",
+			head=gear.ACrown_Perp, neck="Warder's Charm +1",lear="Sanare Earring", rear="Lugalbanda Earring",
+			body="Udug Jacket", hands="Inyan. Dastanas +2", lring="Defending Ring", rring="C. Palug Ring",
+			back="Moonlight Cape", waist="Carrier's Sash", legs="Inyanga Shalwar +2", feet="Baaya. Sabots +1"
+		}
+	
 		sets.idle.Favor.Avatar =
 		{
 			main="Nirvana", sub="Vox Grip", ammo="Sancus Sachet +1",
@@ -482,13 +504,13 @@ function init_gear_sets()
 	-- Defensive Sets
 	-------------------------------------
 		-- PDT: -44% 	MDT: -42%
-		sets.defense.Master = set_combine(sets.idle.DT,
+		sets.defense.Master =
 		{
-			main="Nirvana", sub="Khonsu",
-			head="Inyanga Tiara +2",
-			body="Udug Jacket", hands="Volte Bracers",
-			legs="Artsieq Hose"
-		})
+			main="Contemplator +1", sub="Khonsu", ammo="Staunch Tathlum +1",
+			head="Inyanga Tiara +2", neck="Smn. Collar +2", lear="Odnowa Earring +1", rear="C. Palug Earring",
+			body="Udug Jacket", hands="Volte Bracers", lring="Defending Ring", rring="C. Palug Ring",
+			back="Moonlight Cape", waist="Regal Belt", legs="Artsieq Hose", feet="Baaya. Sabots +1"
+		}
 		
 		sets.defense.Pet =
 		{
@@ -548,7 +570,7 @@ function init_gear_sets()
 		sets.precast.WS =
 		{
 			ammo="Hasty Pinion +1",
-			head="Convoker's Horn +3", neck="Fotia Gorget", lear="Ishvara Earring", rear="Moonshade Earring",
+			head="Blistering Sallet +1", neck="Fotia Gorget", lear="Ishvara Earring", rear="Moonshade Earring",
 			body="Glyphic Doublet +3", hands="Glyphic Bracers +3", lring="Shukuyu Ring", rring="Epaminondas's Ring",
 			back="Aurist's Cape +1", waist="Fotia Belt", legs="Tali'ah Sera. +2", feet="Convo. Pigaches +3"
 		}
@@ -590,7 +612,7 @@ function init_gear_sets()
 			main="Nirvana", sub="Khonsu", ammo="Sancus Sachet +1",
 			head="Convoker's Horn +3", neck="Shulmanu Collar", lear="Telos Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Glyphic Doublet +3", hands="Glyphic Bracers +3", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
-			back="Aurist's Cape +1", waist="Klouskap Sash +1", legs="Tali'ah Sera. +2", feet="Convo. Pigaches +3"
+			back="Aurist's Cape +1", waist="Klouskap Sash +1", legs="Tali'ah Sera. +2", feet="Battlecast Gaiters"
 		}
 		
 		sets.engaged.Avatar =
@@ -759,7 +781,8 @@ end
 function job_pet_change(petparam, gain)
     classes.CustomIdleGroups:clear()
     if gain then
-        if avatars:contains(pet.name)  then
+        update_avatar()
+		if avatars:contains(pet.name)  then
             classes.CustomIdleGroups:append('Avatar')
         elseif spirits:contains(pet.name) then
             classes.CustomIdleGroups:append('Spirit')
@@ -798,6 +821,14 @@ function customize_idle_set(idleSet)
     return idleSet
 end
 
+function update_avatar()
+	if state.Avatar:contains(pet.name) then
+		state.Avatar:set(pet.name)
+	end
+	
+	add_to_chat(100, (pet.name))
+end
+
 -- Called by the 'update' self-command, for common needs.
 -- Set eventArgs.handled to true if we don't want automatic equipping of gear.
 function job_update(cmdParams, eventArgs)
@@ -810,6 +841,31 @@ function job_update(cmdParams, eventArgs)
         end
     end
 end
+
+
+-------------------------------------------------------------------------------------------------------------------
+-- User self-commands.
+-------------------------------------------------------------------------------------------------------------------
+
+-- Called for custom player commands.
+function job_self_command(cmdParams, eventArgs)
+	if cmdParams[1] == '70BP' then
+		if pet.name == 'Titan' then
+			send_command('@input /pet "Mountain Buster" <t>')	
+		elseif pet.name == 'Leviathan' then
+			send_command('@input /pet "Spinning Dive" <t>')	
+		elseif pet.name == 'Garuda' then
+			send_command('@input /pet "Predator Claws" <t>')	
+		elseif pet.name == 'Ifrit' then
+			send_command('@input /pet "Flaming Crush" <t>')	
+		elseif pet.name == 'Shiva' then
+			send_command('@input /pet "Rush" <t>')	
+		elseif pet.name == 'Ramuh' then
+			send_command('@input /pet "Chaotic Strike" <t>')	
+		end
+	end
+end
+
 
 -------------------------------------------------------------------------------------------------------------------
 -- Utility functions specific to this job.

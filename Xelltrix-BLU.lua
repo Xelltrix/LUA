@@ -74,6 +74,7 @@ function user_setup()
 	
 	if player.sub_job == 'DNC' then
 		send_command('bind ^= gs c cycle mainstep')
+		send_command('bind ^- gs c cycleback mainstep')
 	elseif player.sub_job == 'RUN' then
 		send_command('bind ^= gs c cycle Runes')
 		send_command('bind ^- gs c cycleback Runes')
@@ -92,7 +93,8 @@ function user_unload()
 	send_command('unbind ^pagedown')
 	
 	if player.sub_job == 'DNC' then
-		send_command('unbind ^= gs')
+		send_command('unbind ^=')
+		send_command('unbind ^-')
 	elseif player.sub_job == 'RUN' then
 		send_command('unbind ^=')
 		send_command('unbind ^-')
@@ -335,7 +337,7 @@ function init_gear_sets()
 		{
 			ammo="Pemphredo Tathlum",
 			head=empty, neck="Mirage Stole +2", lear="Digni. Earring", rear="Regal Earring",
-			body="Cohort Cloak +1", hands="Raetic Bangles +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Metamor. Ring +1",
+			body="Cohort Cloak +1", hands="Malignance Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Metamor. Ring +1",
 			back="Aurist's Cape +1", waist="Acuity Belt +1", legs="Assim. Shalwar +3", feet="Luhlaza Charuqs +3"
 		}
 	
@@ -384,13 +386,15 @@ function init_gear_sets()
 		{
 			ammo="Pemphredo Tathlum",
 			head="Luh. Keffiyeh +3", neck="Mirage Stole +2", lear="Digni. Earring", rear="Njordr Earring",
-			body="Luhlaza Jubbah +3", hands="Raetic Bangles +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			body="Luhlaza Jubbah +3", hands="Malignance Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Aurist's Cape +1", waist="Acuity Belt +1", legs="Aya. Cosciales +2", feet="Luhlaza Charuqs +3"
 		}
 		
-		sets.midcast['Paralyzing Triad'] = set_combine(sets.midcast.Physical)
+		sets.midcast.AddEffect.Alternate = sets.midcast.Physical
 		
-		sets.midcast['Paralyzing Triad'].Alternate = sets.midcast.AddEffect
+		sets.midcast['Sudden Lunge'] = sets.midcast.AddEffect
+		
+		sets.midcast['Sudden Lunge'].Alternate = sets.midcast.AddEffect
 
 		sets.midcast.Magical = sets.midcast['Elemental Magic']
 		
@@ -439,9 +443,16 @@ function init_gear_sets()
 			back="Moonlight Cape", waist="Orpheus's Sash", legs="Assim. Shalwar +3", feet="Assim. Charuqs +3"
 		}
 
-		sets.midcast.Debuffs = sets.midcast.Macc
+		sets.midcast.Debuffs = set_combine(sets.midcast.Macc,
+		{
+			rring={name="Stikini Ring +1", bag="wardrobe3"}
+		})
 	
-		sets.midcast['Dream Flower'] = sets.midcast.Debuffs
+		sets.midcast['Dream Flower'] = set_combine(sets.midcast.Debuffs,
+		{
+			head="Malignance Chapeau",
+			body="Malignance Tabard",
+		})
 
 		sets.midcast['Dream Flower'].Alternate =
 		{--		DT: -28%	PDT: 49%
@@ -628,7 +639,7 @@ function init_gear_sets()
 		sets.idle.MEVA = set_combine(sets.idle,
 		{--		DT: -15%	PDT: -15%	MDT: -15%	Refresh: 5	Regen: 0
 			head="Malignance Chapeau", neck="Warder's Charm +1", lear="Sanare Earring", rear="Odnowa Earring +1",
-			body="Shamash Robe", hands="Malignance Gloves", lring="Shadow Ring", rring="Purity Ring",
+			body="Shamash Robe", hands="Malignance Gloves",
 			waist="Carrier's Sash", feet="Malignance Boots"
 		})
 		

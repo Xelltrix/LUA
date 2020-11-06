@@ -94,113 +94,118 @@
 	
 	blood_pacts.bp_Buffs =
 	S{
-		'Shining Ruby','Glittering Ruby','Soothing Ruby',
-		'Frost Armor','Crystal Blessing',
-		'Hastega','Fleet Wind','Hastega II',
-		'Earthen Armor',
-		'Rolling Thunder','Lightning Armor',
-		'Soothing Current',
-		'Crimson Howl','Inferno Howl',
-		'Ecliptic Growl','Ecliptic Howl','Heavenward Howl',
-		'Noctoshield','Dream Shroud',
-		'Perfect Defense',
-		'Katabatic Blades',"Wind's Blessing"
+		'Shining Ruby','Glittering Ruby',												--Carbuncle (2)
+		'Frost Armor','Crystal Blessing',												--Shiva (2)
+		'Hastega','Fleet Wind','Hastega II',											--Garuda (3)
+		'Earthen Armor',																--Titan (1)
+		'Rolling Thunder','Lightning Armor',											--Ramuh (2)
+		'Soothing Current',																--Leviathan (1)
+		'Crimson Howl','Inferno Howl',													--Ifrit (2)
+		'Ecliptic Growl','Ecliptic Howl','Heavenward Howl',								--Fenrir (3)
+		'Noctoshield','Dream Shroud',													--Diabolos (2)
+		"Altana's Favor",																--Cait Sith (1)
+		'Katabatic Blades',"Wind's Blessing",											--Siren (2)
+		'Perfect Defense'																--Alexander
 	}
 	
 	blood_pacts.bp_Boons =
 	S{
-		'Pacifying Ruby',
-		'Aerial Armor',
-		'Earthen Ward',
-		"Altana's Favor",'Raise II','Reraise II',
-		'Chinook'
+		'Pacifying Ruby','Soothing Ruby',												--Carbuncle (2)
+		'Aerial Armor',																	--Garuda (1)
+		'Earthen Ward',																	--Titan (1)
+		'Raise II','Reraise II',														--Cait Sith (2)
+		'Chinook'																		--Siren (1)
 	}
 
 	blood_pacts.bp_Heals =
 	S{
-		'Healing Ruby','Healing Ruby II',
-		'Whispering Wind',
-		'Spring Water'
+		'Healing Ruby','Healing Ruby II',												--Carbuncle (2)
+		'Whispering Wind',																--Garuda (1)
+		'Spring Water'																	--Leviathan (1)
 	}
 
 	blood_pacts.bp_Debuffs =
 	S{
-		'Sleepga','Diamond Storm',
-		'Shock Squall',
-		'Slowga','Tidal Roar',
-		'Eerie Eye',
-		'Lunar Cry','Lunar Roar',
-		'Ultimate Terror','Pavor Nocturnus',
-		'Mewing Lullaby',
-		'Lunatic Voice','Bitter Elegy'
+		'Sleepga','Diamond Storm',														--Shiva (2)
+		'Shock Squall',																	--Ramuh (1)
+		'Slowga','Tidal Roar',															--Leviathan (2)
+		'Lunar Cry','Lunar Roar',														--Fenrir (2)
+		'Somnolence','Nightmare','Ultimate Terror','Pavor Nocturnus',					--Diabolos (4)
+		'Eerie Eye','Mewing Lullaby',													--Cait Sith (2)
+		'Lunatic Voice','Bitter Elegy'													--Siren (2)
 	}
 
 	blood_pacts.bp_Physical =
 	S{
-		'Double Slap','Rush',
-		'Predator Claws',
-		'Chaotic Strike','Volt Strike',
-		'Regal Scratch','Regal Gash',
-		'Eclipse Bite',
-		'Hysteric Assault'
+		'Double Slap','Rush',															--Shiva (2)
+		'Predator Claws',																--Garuda (1)
+		'Rock Throw','Megalith Throw','Crag Throw',										--Titan (3)
+		'Chaotic Strike','Volt Strike',													--Ramuh (2)
+		'Barracude Dive','Spinning Dive',												--Leviathan (1)
+		'Punch',																		--Ifrit (1)
+		'Regal Scratch','Regal Gash',													--Cait Sith (2)
+		'Eclipse Bite',																	--Fenrir (1)
+		'Camisado',																		--Diabolos (1)
+		'Hysteric Assault'																--Siren (1)
 	}
 	
 	blood_pacts.bp_PhysicalTP =
 	S{
-		'Poison Nails',
-		'Axe Kick',
-		'Claw',
-		'Rock Throw','Rock Buster','Megalith Throw','Mountain Buster','Crag Throw',
-		'Shock Strike',
-		'Barracude Dive','Tail Whip','Spinning Dive',
-		'Double Punch','Punch',
-		'Moonlit Charge','Crescent Fang',
-		'Camisado','Blindside',
-		'Welt','Roundhouse'
+		'Poison Nails',																	--Carbuncle (1)
+		'Axe Kick',																		--Shiva (1)
+		'Claw',																			--Garuda (1)
+		'Rock Buster','Mountain Buster',												--Tiatn (2)
+		'Shock Strike',																	--Rmauh (1)
+		'Tail Whip',																	--Leviathan (1)
+		'Double Punch',																	--Ifrit (1)
+		'Moonlit Charge','Crescent Fang',												--Fenrir (2)
+		'Blindside',																	--Diabolos (1)
+		'Welt','Roundhouse'																--Siren (2)
 	}
 
 	blood_pacts.bp_Magical =
 	S{
-		'Searing Light','Holy Mist',
-		'Diamond Dust',
-		'Aerial Blast',
-		'Earthen Fury',
-		'Judgment Bolt',
-		'Tidal Wave',
-		'Inferno',
-		'Howling Moon',
-		'Ruinous Omen','Somnolence','Nightmare','Nether Blast','Night Terror',
-		'Sonic Buffet'
+		'Searing Light','Holy Mist',													--Carbuncle (2)
+		'Diamond Dust',																	--Shiva (1)
+		'Aerial Blast',																	--Garuda (1)
+		'Earthen Fury',																	--Titan (1)
+		'Judgment Bolt',																--Ramuh (1)
+		'Tidal Wave',																	--Leviathan (1)
+		'Inferno',																		--Ifrit (1)
+		'Howling Moon',																	--Fenrir (1)
+		'Ruinous Omen','Nether Blast',													--Diabolos (2)
+		'Sonic Buffet'																	--Siren (1)
 	}
 
 	blood_pacts.bp_MagicalTP =
 	S{
-		'Meteorite',
-		'Blizard II','Blizzard IV',
-		'Aero II','Aero IV',
-		'Stone II','Stone IV',
-		'Thunder II','Thunderspark','Thunder IV',
-		'Water II','Water IV',
-		'Fire II','Fire IV','Conflag Strike',
-		'Level ? Holy',
-		'Lunar Bay', 'Impact',
-		'Zantetsuken',
-		'Tornado II'
+		'Meteorite',																	--Carbuncle (1)
+		'Blizard II','Blizzard IV',														--Shiva (2)
+		'Aero II','Aero IV',															--Garuda (2)
+		'Stone II','Stone IV',															--Titan (2)
+		'Thunder II','Thunderspark','Thunder IV',										--Ramuh (3)
+		'Water II','Water IV',															--Leviathan (2)
+		'Fire II','Fire IV','Conflag Strike',											--Ifrit (3)
+		'Level ? Holy',																	--Cait Sith (1)
+		'Lunar Bay', 'Impact',															--Fenrir (2)
+		'Night Terror',																	--Diabolos (1)
+		'Tornado II',																	--Siren (1)
+		'Zantetsuken'																	--Odin (1)
 	}
 	
 	blood_pacts.bp_Merit =
 	S{
-		'Heavenly Strike',
-		'Wind Blade',
-		'Geocrush',
-		'Thunderstorm',
-		'Grand Fall',
-		'Meteor Strike',
+		'Heavenly Strike',																--Shiva (1)
+		'Wind Blade',																	--Garuda (1)
+		'Geocrush',																		--Titan (1)
+		'Thunderstorm',																	--Ramuh (1)
+		'Grand Fall',																	--Leviathan (1)
+		'Meteor Strike',																--Ifrit (1)
 	}
 
 	blood_pacts.bp_Hybrid =
 	S{
-		'Burning Strike','Flaming Crush'
+		'Burning Strike','Flaming Crush'												--Ifrit (2)
 	}
 
 -------------------------------------------------------------------------------------------------------------------
@@ -306,7 +311,7 @@ spell_maps = {
 	
 	---Enfeebles
 	['Sleep']='Static',['Sleep II']='Static',['Sleepga']='Static',['Sleepga II']='Static',['Break']='Static',['Breakga']='Static',['Bind']='Static',
-	['Gravity']='Static',['Gravity II']='Static',['Silence']='Static',['Poison']='Static',['Poisonga']='Static',
+	['Gravity']='Static',['Gravity II']='Static',['Silence']='Static',['Poison']='Static',['Poisonga']='Static',['Repose']='Static',
 	
 	--- Leeching Spells
 	['Drain']='Sap',['Drain II']='Sap',['Drain III']='Sap',['Aspir']='Sap',['Aspir II']='Sap',['Aspir III']='Sap',

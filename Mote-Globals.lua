@@ -133,7 +133,7 @@ function define_global_sets()
 	gear.Pet_Head = { name="Telchine Cap", augments={'Mag. Evasion+25','Pet: "Regen"+3','Pet: Damage taken -4%',}}
 	
 	gear.ENH_Body = { name="Telchine Chas.", augments={'Mag. Evasion+25','"Fast Cast"+5','Enh. Mag. eff. dur. +10',}}
-	gear.Pet_Body =  { name="Telchine Chas.", augments={'Mag. Evasion+23','Pet: "Regen"+3','Pet: Damage taken -4%',}}
+	gear.Pet_Body =  { name="Telchine Chas.", augments={'Accuracy+19','Pet: "Regen"+3','Pet: Damage taken -4%',}}
 
 	gear.ENH_Gloves = { name="Telchine Gloves", augments={'Mag. Evasion+9','Potency of "Cure" effect received +7','Enh. Mag. eff. dur. +10',}}
 	gear.Pet_Hands = { name="Telchine Gloves", augments={'Mag. Evasion+25','Pet: "Regen"+3','Pet: Damage taken -4%',}}
@@ -174,9 +174,8 @@ function global_on_load()
 	send_command('bind ^f12 gs c cycle IdleMode')
 	send_command('bind !f12 gs c reset DefenseMode')
 	
-	send_command('bind ^delete gs c toggle LagMode')
-	send_command('bind ^home gs c toggle WeaponLock')
-	send_command('bind ^end gs c toggle Kiting')
+	send_command('bind pause gs c toggle WeaponLock')
+	send_command('bind scrolllock gs c toggle Kiting')
 	
 	send_command('bind numpad/ gs c cycle CastingMode')
 	send_command('bind numpad* gs c toggle MagicBurst')
@@ -201,9 +200,8 @@ function global_on_unload()
 	send_command('unbind ^f12')
 	send_command('unbind !f12')
 	
-	send_command('unbind ^delete')
-	send_command('unbind ^home')
-	send_command('unbind ^end')
+	send_command('unbind pause')
+	send_command('unbind scrolllock')
 	
 	send_command('unbind numpad/')
 	send_command('unbind numpad*')

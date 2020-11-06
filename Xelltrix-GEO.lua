@@ -25,11 +25,19 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-	state.OffenseMode:options('Normal','Refresh')
-	state.CastingMode:options('Normal','Resistant','Occult')
+	state.OffenseMode:options('Normal','Luopan','Refresh')
+	state.CastingMode:options('Normal','Resistant')
 	state.IdleMode:options('Normal','DT')
 	state.PhysicalDefenseMode:options('PDMaster','PDPet')
-	state.MagicalDefenseMode:options('MDMaster','MDPet')
+	state.MagicalDefenseMode:options('MEVA','MDT')
+	
+	if player.sub_job == 'WHM' then
+		state.BarElement = M{['description']='BarElement', 'Barfira', 'Barblizzara', 'Baraera', 'Barstonra', 'Barthundra', 'Barwatera'}
+		state.BarStatus = M{['description']='BarStatus', 'Baramnesra', 'Barvira', 'Barparalyzra', 'Barsilencera', 'Barpetra', 'Barpoisonra', 'Barblindra', 'Barsleepra'}
+	elseif player.sub_job == 'RDM' then
+		state.BarElement = M{['description']='BarElement', 'Barfire', 'Barblizzard', 'Baraero', 'Barstone', 'Barthunder', 'Barwater'}
+		state.BarStatus = M{['description']='BarStatus', 'Baramnesia', 'Barvirus', 'Barparalyze', 'Barsilence', 'Barpetrify', 'Barpoison', 'Barblind', 'Barsleep'}
+	end
 	
 	send_command('bind ^= gs c cycle treasuremode')
 
@@ -80,21 +88,21 @@ function init_gear_sets()
 	-- Precast Magic --
 	------------------- 
 		sets.precast.FC =
-		{--Fast Cast 86
-			main="Sucellus", sub="Chanter's Shield", ammo="Sapience Orb",
+		{--Fast Cast 90
+			main="Solstice", sub="Chanter's Shield", ammo="Sapience Orb",
 			head="Amalric Coif +1", neck="Orunmila's Torque", lear="Loquac. Earring", rear="Malignance Earring",
-			body=gear.FCJubbah, hands=gear.FCHands, lring="Kishar Ring", rring="Weather. Ring +1",
-			back="Lifestream Cape", waist="Witful Belt", legs="Geomancy Pants +3", feet=gear.FCCrackows
+			body=gear.FCJubbah, hands=gear.FCHands, lring="Lebeche Ring", rring="Weather. Ring +1",
+			back="Fi Follet Cape +1", waist="Witful Belt", legs="Geomancy Pants +3", feet="Volte Gaiters"
 		}
 
 		sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC)
 		
 		sets.precast.FC.Geomancy =
-		{--Fast Cast 85
-			main="Sucellus", sub="Chanter's Shield", range="Dunna",
+		{--Fast Cast 91
+			main="Solstice", sub="Chanter's Shield", range="Dunna", ammo=empty,
 			head="Amalric Coif +1", neck="Orunmila's Torque", lear="Loquac. Earring", rear="Malignance Earring",
-			body=gear.FCJubbah, hands=gear.FCHands, lring="Kishar Ring", rring="Weather. Ring +1",
-			back="Lifestream Cape", waist="Witful Belt", legs="Geomancy Pants +3", feet=gear.FCCrackows
+			body=gear.FCJubbah, hands=gear.FCHands, lring="Lebeche Ring", rring="Weather. Ring +1",
+			back="Fi Follet Cape +1", waist="Witful Belt", legs="Geomancy Pants +3", feet="Volte Gaiters"
 		}
 
 		sets.precast.FC.Stoneskin = sets.precast.FC['Enhancing Magic']
@@ -106,8 +114,10 @@ function init_gear_sets()
 
 		sets.precast.FC.Impact = set_combine(sets.precast.FC['Elemental Magic'],
 		{--Fast Cast 64
+			range="Dunna", ammo=empty,
 			head=empty,
-			body="Twilight Cloak"
+			body="Twilight Cloak",
+			feet=gear.FCCrackows
 		})
 
 		sets.precast.FC.Cures = sets.precast.FC
@@ -134,7 +144,8 @@ function init_gear_sets()
 	
 		sets.midcast.FC = set_combine(sets.precast.FC,
 		{
-			ammo="Hasty Pinion +1"
+			ammo="Hasty Pinion +1",
+			lring="Kishar Ring"
 		})
 
 		sets.midcast.Duration =
@@ -157,7 +168,7 @@ function init_gear_sets()
 		{
 			main="Solstice", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head="Vanya Hood", neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
-			body="Amalric Doublet +1", hands=gear.FCHands, lring="Kishar Ring", rring="Weather. Ring +1",
+			body="Amalric Doublet +1", hands=gear.FCHands, lring="Mephitas's Ring +1", rring="Weather. Ring +1",
 			back="Fi Follet Cape +1", waist="Shinjutsu-no-Obi +1", legs="Lengo Pants", feet="Medium's Sabots"
 		}
 
@@ -239,9 +250,9 @@ function init_gear_sets()
 		
 		sets.midcast.Geomancy = 
 		{
-			main="Idris", sub="Chanter's Shield", range="Dunna", ammo="",
+			main="Idris", sub="Chanter's Shield", range="Dunna", ammo=empty,
 			head="Vanya Hood", neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
-			body="Amalric Doublet +1", hands="Geo. Mitaines +3", lring="Kishar Ring", rring="Weather. Ring +1",
+			body="Amalric Doublet +1", hands="Geo. Mitaines +3", lring="Mephitas's Ring +1", rring="Weather. Ring +1",
 			back="Fi Follet Cape +1", waist="Shinjutsu-no-Obi +1", legs="Lengo Pants", feet="Medium's Sabots"
 		}
 	
@@ -256,11 +267,12 @@ function init_gear_sets()
 			main="Daybreak", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head=empty, neck="Bagua Charm +1", lear="Regal Earring", rear="Malignance Earring",
 			body="Cohort Cloak +1", hands="Geo. Mitaines +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Metamor. Ring +1",
-			back=gear.GEOCape_Nuke, waist="Acuity Belt +1", legs="Geomancy Pants +3", feet="Geo. Sandals +3"
+			back="Aurist's Cape +1", waist="Acuity Belt +1", legs="Geomancy Pants +3", feet="Geo. Sandals +3"
 		}
 	
 		sets.midcast['Enfeebling Magic'] = set_combine(sets.midcast.Macc,
 		{
+			main="Contemplator +1", sub="Enki Strap",
 			neck="Incanter's Torque",
 			lring="Kishar Ring", hands="Regal Cuffs",
 			feet="Bagua Sandals +3"
@@ -305,7 +317,7 @@ function init_gear_sets()
 		{
 			neck="Orunmila's Torque",
 			body="Shango Robe",
-			back="Lifestream Cape", waist="Witful Belt"
+			back="Lifestream Cape", waist="Witful Belt", feet="Volte Gaiters"
 		})
 	
 		sets.midcast.Stun.Resistant = sets.midcast.Macc
@@ -313,7 +325,7 @@ function init_gear_sets()
 	-- Elemental Magic
 		sets.midcast['Elemental Magic'] =
 		{
-			main="Daybreak", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
+			main="Marin Staff +1", sub="Niobid Strap", ammo="Ghastly Tathlum +1",
 			head="Bagua Galero +3", neck="Saevus Pendant +1", lear="Regal Earring", rear="Malignance Earring",
 			body="Amalric Doublet +1", hands="Amalric Gages +1", lring="Freke Ring", rring="Metamor. Ring +1",
 			back=gear.GEOCape_Nuke, waist="Sacro Cord", legs="Amalric Slops +1", feet="Amalric Nails +1"
@@ -321,28 +333,20 @@ function init_gear_sets()
 
 		sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'],
 		{
+			ammo="Pemphredo Tathlum",
 			head=empty, neck="Sanctity Necklace",
 			body="Cohort Cloak +1",
 			waist="Sacro Cord", legs="Merlinic Shalwar", feet="Bagua Sandals +3"
 		})
-
-		sets.midcast['Elemental Magic'].Occult = set_combine(sets.midcast['Elemental Magic'],
-		{
-			ammo="Seraphic Ampulla",
-			head="Mall. Chapeau +2",
-			lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
-			waist="Oneiros Rope", legs="Perdition Slops"
-		})
 		
 		sets.midcast.MDMG = set_combine(sets.midcast['Elemental Magic'],
 		{
+			ammo="Ghastly Tathlum +1",
 			head="Mall. Chapeau +2",
 			rring="Shiva Ring +1",
 		})
 		
 		sets.midcast.MDMG.Resistant = sets.midcast['Elemental Magic'].Resistant
-		
-		sets.midcast.MDMG.Occult = sets.midcast['Elemental Magic'].Occult
 
 		sets.midcast.Impact = set_combine(sets.midcast.Macc,
 		{
@@ -351,15 +355,9 @@ function init_gear_sets()
 			rring="Archon Ring",
 		})
 		
-		sets.midcast.Impact.Occult = set_combine(sets.midcast.Impact,
-		{
-			lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
-			waist="Oneiros Rope", legs="Perdition Slops"
-		})		
-	
 		sets.magic_burst =
 		{--MB/II: 39/35
-			main="Daybreak", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
+			main="Marin Staff +1", sub="Niobid Strap", ammo="Ghastly Tathlum +1",
 			head="Ea Hat +1", neck="Mizu. Kubikazari", lear="Regal Earring", rear="Malignance Earring",
 			body="Ea Houppe. +1", hands="Amalric Gages +1", lring="Locus Ring", rring="Mujin Band",
 			back=gear.GEOCape_Nuke, waist="Sacro Cord", legs="Ea Slops +1", feet="Amalric Nails +1"
@@ -367,6 +365,7 @@ function init_gear_sets()
 
 		sets.magic_burst.Resistant = set_combine(sets.magic_burst,
 		{--MBD/II: 42/34
+			ammo="Pemphredo Tathlum",
 			hands="Ea Cuffs +1", lring="Metamor. Ring +1",
 			feet="Ea Pigaches +1"
 		})
@@ -403,11 +402,13 @@ function init_gear_sets()
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Volte Brais", feet="Geo. Sandals +3"
 		}
 
-		sets.idle.DT = set_combine(sets.idle,
+		sets.idle.DT =
 		{--Refresh+6 | PDT/MDT: (49/14)
-			neck="Loricate Torque +1", lear="Genmei Earring", rear="Lugalbanda Earring",
-			hands="Geo. Mitaines +3", lring="Defending Ring", rring="Gelatinous Ring +1"
-		})
+			main="Daybreak", sub="Genmei Shield", ammo="Staunch Tathlum +1",
+			head="Hike Khat +1", neck="Warder's Charm +1", lear="Odnowa Earring +1", rear="Lugalbanda Earring",
+			body="Shamash Robe", hands="Bagua Mitaines +3", lring="Defending Ring", rring="Shadow Ring",
+			back="Moonlight Cape", waist="Carrier's Sash", legs="Volte Brais", feet="Geo. Sandals +3"
+		}
 		
 		sets.idle.Luopan =
 		{--Refresh+6 | PDT/MDT: (15/3)	[Luopan: Regen+24 | DT: -40% | Abs. Dmg. Tkn. +8%]
@@ -424,8 +425,6 @@ function init_gear_sets()
 			body="Shamash Robe", hands=gear.Pet_Hands, lring="Defending Ring", rring="Gelatinous Ring +1",
 			back=gear.GEOCape_Luopan, waist="Isa Belt", legs=gear.Pet_Legs, feet="Bagua Sandals +3"
 		}
-
-		sets.idle.Weak = sets.idle.DT	
 	
 		sets.idle.Town = sets.idle
 
@@ -446,35 +445,35 @@ function init_gear_sets()
 	--------------------------------------
 	
 		sets.defense.PDMaster =
-		{--PDT: 51 / MDT: 42
+		{--PDT: 54 / MDT: 22
 			main="Daybreak", sub="Genmei Shield", ammo="Staunch Tathlum +1",
-			head="Ea Hat +1", neck="Loricate Torque +1", lear="Odnowa Earring +1", rear="Lugalbanda Earring",
-			body="Shamash Robe", hands="Geo. Mitaines +3", lring="Defending Ring", rring="Gelatinous Ring +1",
-			back=gear.GEOCape_Nuke, waist="Carrier's Sash", legs="Artsieq Hose", feet="Hippo. Socks +1"
+			head="Hike Khat +1", neck="Warder's Charm +1", lear="Odnowa Earring +1", rear="Lugalbanda Earring",
+			body="Shamash Robe", hands="Volte Bracers", lring="Defending Ring", rring="Purity Ring",
+			back="Shadow Mantle", waist="Carrier's Sash", legs="Artsieq Hose", feet="Hippo. Socks +1"
 		}
 		
 		sets.defense.PDPet =
-		{--PDT: 51 / MDT: 42
+		{--PDT: 51 / MDT: 22		Pet DT: 41 / Regen: 27
 			main="Idris", sub="Genmei Shield", ammo="Staunch Tathlum +1",
-			head=gear.Pet_Head, neck="Bagua Charm +1",  lear="Odnowa Earring +1", rear="Lugalbanda Earring",
-			body="Shamash Robe", hands="Geo. Mitaines +3", lring="Defending Ring", rring="Gelatinous Ring +1",
-			back=gear.GEOCape_Luopan, waist="Isa Belt", legs="Artsieq Hose", feet="Bagua Sandals +3"
-		}
-
-		sets.defense.MDMaster = 
-		{--MDT: 46 / PDT: 31
-			main="Daybreak", sub="Genmei Shield", ammo="Staunch Tathlum +1",
-			head="Ea Hat +1", neck="Loricate Torque +1", lear="Sanare Earring", rear="Lugalbanda Earring",
-			body="Shamash Robe", hands="Raetic Bangles +1", lring="Defending Ring", rring="Shadow Ring",
-			back=gear.GEOCape_Nuke, waist="Carrier's Sash", legs="Volte Brais", feet="Volte Gaiters"
+			head="Hike Khat +1", neck="Bagua Charm +1",  lear="Odnowa Earring +1", rear="Genmei Earring",
+			body="Shamash Robe", hands=gear.Pet_Hands, lring="Defending Ring", rring="Purity Ring",
+			back=gear.GEOCape_Luopan, waist="Isa Belt", legs=gear.Pet_Legs, feet="Bagua Sandals +3"
 		}
 		
-		sets.defense.MDPet =
-		{--PDT: 32 / MDT: 12
-			main="Idris", sub="Genmei Shield", ammo="Staunch Tathlum +1",
-			head=gear.Pet_Head, neck="Bagua Charm +1", lear="Odnowa Earring +1", rear="Lugalbanda Earring",
-			body="Shamash Robe", hands=gear.Pet_Hands, lring="Defending Ring", rring="Gelatinous Ring +1",
-			back=gear.GEOCape_Luopan, waist="Isa Belt", legs=gear.Pet_Legs, feet="Bagua Sandals +3"
+		sets.defense.MEVA = 
+		{--PDT: 42 / MDT: 24
+			main="Daybreak", sub="Genmei Shield", ammo="Staunch Tathlum +1",
+			head="Ea Hat +1", neck="Warder's Charm +1", lear="Odnowa Earring +1", rear="Lugalbanda Earring",
+			body="Shamash Robe", hands="Raetic Bangles +1", lring="Defending Ring", rring="Shadow Ring",
+			back="Moonlight Cape", waist="Carrier's Sash", legs="Volte Brais", feet="Volte Gaiters"
+		}
+		
+		sets.defense.MDT = 
+		{--PDT: 39 / MDT: 52
+			main="Daybreak", sub="Genmei Shield", ammo="Staunch Tathlum +1",
+			head="Vanya Hood", neck="Loricate Torque +1", lear="Odnowa Earring +1", rear="Etiolation Earring",
+			body="Vanya Robe", hands="Raetic Bangles +1", lring="Defending Ring", rring="Purity Ring",
+			back="Moonlight Cape", waist="Carrier's Sash", legs="Vanya Slops", feet="Vanya Clogs"
 		}
 
 	--------------------------------------
@@ -511,9 +510,9 @@ function init_gear_sets()
 		sets.precast.WS =
 		{
 			ammo="Hasty Pinion +1",
-			head="Jhakri Coronal +2", neck="Fotia Gorget", lear="Ishvara Earring", rear="Moonshade Earring",
+			head="Blistering Sallet +1", neck="Fotia Gorget", lear="Ishvara Earring", rear="Moonshade Earring",
 			body="Jhakri Robe +2", hands="Jhakri Cuffs +2", lring="Shukuyu Ring", rring="Epaminondas's Ring",
-			back=gear.GEOCape_Nuke, waist="Fotia Belt", legs="Jhakri Slops +2", feet="Jhakri Pigaches +2"
+			back="Aurist's Cape +1", waist="Fotia Belt", legs="Jhakri Slops +2", feet="Jhakri Pigaches +2"
 		}
 		
 		--Physical Club
@@ -576,16 +575,24 @@ function init_gear_sets()
 		{
 			sub="Genmei Shield", ammo="Hasty Pinion +1",
 			head="Blistering Sallet +1", neck="Combatant's Torque", lear={name="Mache Earring +1", bag="wardrobe2"},  rear={name="Mache Earring +1", bag="wardrobe3"},
-			body="Bagua Tunic +3", hands="Raetic Bangles +1", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
-			back=gear.GEOCape_Luopan, waist="Windbuffet Belt +1",  legs="Volte Hose", feet="Bagua Sandals +3"
+			body="Bagua Tunic +3", hands="Gazu Bracelet +1", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			back="Aurist's Cape +1", waist="Windbuffet Belt +1", legs="Jhakri Slops +2", feet="Battlecast Gaiters"
+		}
+		
+		sets.engaged.Luopan =
+		{
+			main="Idris", sub="Genmei Shield", range="Dunna", ammo=empty,
+			head="Blistering Sallet +1", neck="Bagua Charm +1", lear={name="Mache Earring +1", bag="wardrobe2"},  rear={name="Mache Earring +1", bag="wardrobe3"},
+			body=gear.Pet_Body, hands="Gazu Bracelet +1", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
+			back=gear.GEOCape_Luopan, waist="Isa Belt", legs="Jhakri Slops +2", feet="Bagua Sandals +3"
 		}
 		
 		sets.engaged.Refresh =
 		{
 			main="Idris", sub="Genmei Shield", ammo="Staunch Tathlum +1",
-			head=gear.Pet_Head, neck="Bagua Charm +1", lear="Dawn Earring", rear="Infused Earring",
-			body="Shamash Robe", hands="Geo. Mitaines +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back=gear.GEOCape_Luopan, waist="Isa Belt", legs="Volte Brais", feet="Bagua Sandals +3"
+			head=gear.Pet_Head, neck="Bagua Charm +1", lear="Sanare Earring", rear="Lugalbanda Earring",
+			body="Shamash Robe", hands=gear.Pet_Hands, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			back=gear.GEOCape_Luopan, waist="Isa Belt", legs=gear.Pet_Legs, feet="Bagua Sandals +3"
 		}
 
 end

@@ -57,8 +57,8 @@ function user_setup()
 		send_command('bind != gs c cycle Runes')
 		send_command('bind !- gs c cycleback Runes')
 	else
-		send_command('bind ^= gs c cycleback mainstep')
-		send_command('bind ^- gs c cycleback altstep')
+		send_command('bind != gs c cycleback mainstep')
+		send_command('bind !- gs c cycleback altstep')
 	end
 	
     send_command('bind ^` input /ja "Chocobo Jig" <me>')
@@ -297,7 +297,7 @@ function init_gear_sets()
 		{
 			ammo="Staunch Tathlum +1",
 			head="Turms Cap +1", neck="Warder's Charm +1", lear="Dawn Earring", rear="Infused Earring",
-			body="Malignance Tabard", hands="Turms Mittens +1", lring="Defending Ring", rring="Moonlight Ring",
+			body="Tu. Harness +1", hands="Turms Mittens +1", lring="Defending Ring", rring="Moonlight Ring",
 			back="Moonlight Cape", waist="Engraved Belt", legs="Turms Subligar +1", feet="Skd. Jambeaux +1"
 		}
 		

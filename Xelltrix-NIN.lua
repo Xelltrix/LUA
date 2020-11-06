@@ -27,27 +27,62 @@ function user_setup()
     state.OffenseMode:options('Normal', 'Low', 'Mid', 'High')
     state.WeaponskillMode:options('Normal', 'Low', 'Mid', 'High')
 	state.HybridMode:options('Normal', 'DT')
-	
     state.CastingMode:options('Normal','Enmity','SIRD')
-	
     state.IdleMode:options('Normal', 'DT')
+	
+	state.MainStep = M{['description']='Main Step', 'Box Step', 'Quickstep','Stutter Step'}
+	state.Runes = M{['description']='Runes', 'Ignis', 'Gelus', 'Flabra', 'Tellus', 'Sulpor', 'Unda', 'Lux', 'Tenebrae'}
+	
+	
+	state.MainWeaponSet = M{['description']='Main Weapon Set',
+		'Heishi',
+		'Tauret',
+		'Naegling'
+	}
+	
+	state.SubWeaponSet = M{['description']='Sub Weapon Set',
+		'Fudo',
+		'Ternion',
+		'Gokotai',
+		'Hitaki'
+	}	
 	
     gear.DayFeet = "Danzo Sune-ate"
     gear.NightFeet = "Hachi. Kyahan +1"
 	
 	
-	send_command('bind ^= gs c cycle treasuremode')
+	send_command('bind ^` gs c cycle treasuremode')
+
+	send_command('bind pageup gs c cycle MainWeaponSet')
+	send_command('bind pagedown gs c cycleback MainWeaponSet')
+	
+	send_command('bind ^pageup gs c cycle SubWeaponSet')
+	send_command('bind ^pagedown gs c cycleback SubWeaponSet')
+
+	
+	if player.sub_job == 'DNC' then
+		send_command('bind ^= gs c cycle mainstep')
+	elseif player.sub_job == 'RUN' then
+		send_command('bind ^= gs c cycle Runes')
+		send_command('bind ^- gs c cycleback Runes')
+	end
 	
     apply_job_change()
 end
 
 function user_unload()
-		send_command('unbind ^=')
-		send_command('unbind pageup')
-		send_command('unbind pagedown')
+	send_command('unbind ^`')
+	send_command('unbind pageup')
+	send_command('unbind pagedown')
+	send_command('unbind ^pageup')
+	send_command('unbind ^pagedown')
 		
-		send_command('unbind ^pageup')
-		send_command('unbind ^pagedown')
+	if player.sub_job == 'DNC' then
+		send_command('unbind ^= gs')
+	elseif player.sub_job == 'RUN' then
+		send_command('unbind ^=')
+		send_command('unbind ^-')
+	end
 end
 
 -- Define sets and vars used by this job file.
@@ -67,7 +102,7 @@ function init_gear_sets()
 
 		sets.Enmity =
 		{--Enmity + 95	PDT: -29%
-			ammo="Sapience Orb",
+			ammo="Date Shuriken",
 			head="Malignance Chapeau", neck="Moonlight Necklace", lear="Cryptic Earring", rear="Trux Earring",
 			body="Emet Harness +1", hands="Kurys Gloves", lring="Eihwaz Ring", rring="Supershear Ring",
 			back="Reiki Cloak", waist="Trance Belt", legs="Zoar Subligar +1", feet="Ahosi Leggings"
@@ -201,7 +236,7 @@ function init_gear_sets()
 			ammo="Yamarang",
 			head="Malignance Chapeau", neck="Incanter's Torque", lear="Gwati Earring", rear="Digni. Earring",
 			body="Malignance Tabard", hands="Malignance Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back=gear.NINCape_FC, waist="Engraved Belt", legs="Malignance Tights", feet="Malignance Boots"
+			back=gear.NINCape_FC, waist="Audumbla Sash", legs="Malignance Tights", feet="Malignance Boots"
 		}
 
 		sets.midcast.Genjutsu =
@@ -214,7 +249,9 @@ function init_gear_sets()
 		sets.midcast['Enfeebling Magic'] = sets.midcast.Macc
 		
 		sets.midcast['Dark Magic'] = sets.midcast.Macc
-
+		
+		sets.midcast.Stun = sets.midcast.Macc
+		
 		sets.midcast.Wheel =
 		{
 			ammo="Ghastly Tathlum +1",
@@ -248,7 +285,26 @@ function init_gear_sets()
 ------------							 						------------
 --------------------									--------------------
 ----------------------------------------------------------------------------	
-
+	
+	
+	------------------------------------------------------------------------------------------------
+	----------------------------------------- Weapon Sets ------------------------------------------
+	------------------------------------------------------------------------------------------------
+	
+		sets.Heishi 	= { 	main="Heishi Shorinken" 		}
+			
+		sets.Tauret 	= { 	main="Tauret" 		}
+		
+		sets.Naegling 	= { 	main="Naegling" 		}
+	
+		sets.Fudo 		= { 	sub="Fudo Masamune" 		}
+		
+		sets.Ternion 	= { 	sub="Ternion Dagger +1" 	}
+		
+		sets.Gokotai 	= { 	sub="Gokotai" 		}
+		
+		sets.Hitaki 	= { 	sub="Hitaki" 		}
+		
    	------------------------------------------------------------------------------------------------
 	------------------------------------------ Idle Sets -------------------------------------------
 	------------------------------------------------------------------------------------------------
@@ -457,7 +513,7 @@ function init_gear_sets()
 	
 		sets.engaged =
 		{--	
-			ammo="Seki Shuriken",
+			ammo="Date Shuriken",
 			head="Ryuo Somen +1", neck="Ninja Nodowa +2", lear="Eabani Earring", rear="Suppanomimi",
 			body="Mochi. Chainmail +3", hands="Adhemar Wrist. +1", lring="Epona's Ring", rring="Gere Ring",
 			back=gear.NINCape_STP, waist="Reiki Yotai", legs="Hachiya Hakama +3", feet=gear.HBoots_TP
@@ -465,7 +521,7 @@ function init_gear_sets()
 
 		sets.engaged.Low = set_combine(sets.engaged,
 		{
-			ammo="Seki Shuriken",
+			ammo="Date Shuriken",
 			head="Blistering Sallet +1", neck="Ninja Nodowa +2", lear="Eabani Earring", rear="Suppanomimi",
 			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Epona's Ring", rring="Gere Ring",
 			back=gear.NINCape_STP, waist="Reiki Yotai", legs="Mochi. Hakama +3", feet="Hiza. Sune-Ate +2"
@@ -495,7 +551,7 @@ function init_gear_sets()
 	
 		sets.engaged.Min =
 		{
-			ammo="Seki Shuriken",
+			ammo="Date Shuriken",
 			head="Ryuo Somen +1", neck="Ninja Nodowa +2", lear="Brutal Earring", rear="Telos Earring",
 			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Epona's Ring", rring="Gere Ring",
 			back=gear.NINCape_STP, waist="Reiki Yotai", legs="Mochi. Hakama +3", feet=gear.HBoots_TP
@@ -503,7 +559,7 @@ function init_gear_sets()
 
 		sets.engaged.Low.Min =
 		{
-			ammo="Seki Shuriken",
+			ammo="Date Shuriken",
 			head="Blistering Sallet +1", neck="Ninja Nodowa +2", lear="Eabani Earring", rear="Suppanomimi",
 			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Epona's Ring", rring="Gere Ring",
 			back=gear.NINCape_STP, waist="Reiki Yotai", legs="Mochi. Hakama +3", feet="Ken. Sune-Ate +1"
@@ -531,7 +587,7 @@ function init_gear_sets()
 	
 		sets.engaged.Med =
 		{
-			ammo="Seki Shuriken",
+			ammo="Date Shuriken",
 			head="Ryuo Somen +1", neck="Ninja Nodowa +2", lear="Dedition Earring", rear="Suppanomimi",
 			body="Ken. Samue +1", hands="Adhemar Wrist. +1", lring="Epona's Ring", rring="Gere Ring",
 			back=gear.NINCape_STP, waist="Reiki Yotai", legs="Ken. Hakama +1", feet="Ken. Sune-Ate +1"
@@ -539,7 +595,7 @@ function init_gear_sets()
 
 		sets.engaged.Low.Med =
 		{
-			ammo="Seki Shuriken",
+			ammo="Date Shuriken",
 			head="Blistering Sallet +1", neck="Ninja Nodowa +2", lear="Eabani Earring", rear="Telos Earring",
 			body="Ken. Samue +1", hands="Adhemar Wrist. +1", lring="Epona's Ring", rring="Gere Ring",
 			back=gear.NINCape_STP, waist="Reiki Yotai", legs="Mochi. Hakama +3", feet="Ken. Sune-Ate +1"
@@ -547,7 +603,7 @@ function init_gear_sets()
 
 		sets.engaged.Mid.Med =
 		{
-			ammo="Seki Shuriken",
+			ammo="Date Shuriken",
 			head="Blistering Sallet +1", neck="Ninja Nodowa +2", lear="Eabani Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Ken. Samue +1", hands="Adhemar Wrist. +1", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring="Gere Ring",
 			back=gear.NINCape_STP, waist="Reiki Yotai", legs="Mochi. Hakama +3", feet="Ken. Sune-Ate +1"
@@ -555,7 +611,7 @@ function init_gear_sets()
 
 		sets.engaged.High.Med =
 		{
-			ammo="Seki Shuriken",
+			ammo="Date Shuriken",
 			head="Ken. Jinpachi +1", neck="Ninja Nodowa +2", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.NINCape_STP, waist="Reiki Yotai", legs="Ken. Hakama +1", feet="Hiza. Sune-Ate +2"
@@ -573,7 +629,7 @@ function init_gear_sets()
 	
 		sets.engaged.Max =
 		{
-			ammo="Seki Shuriken",
+			ammo="Date Shuriken",
 			head="Ken. Jinpachi +1", neck="Ninja Nodowa +2", lear="Dedition Earring", rear="Telos Earring",
 			body="Ken. Samue +1", hands="Adhemar Wrist. +1", lring="Epona's Ring", rring="Gere Ring",
 			back=gear.NINCape_STP, waist="Sailfi Belt +1", legs="Samnuha Tights", feet="Ken. Sune-Ate +1"
@@ -581,7 +637,7 @@ function init_gear_sets()
 
 		sets.engaged.Low.Max = 
 		{
-			ammo="Seki Shuriken",
+			ammo="Date Shuriken",
 			head="Ken. Jinpachi +1", neck="Ninja Nodowa +2", lear="Brutal Earring", rear="Telos Earring",
 			body="Ken. Samue +1", hands="Adhemar Wrist. +1", lring="Epona's Ring", rring="Gere Ring",
 			back=gear.NINCape_STP, waist="Windbuffet Belt +1", legs="Ken. Hakama +1", feet="Ken. Sune-Ate +1"
@@ -589,7 +645,7 @@ function init_gear_sets()
 
 		sets.engaged.Mid.Max = 
 		{
-			ammo="Seki Shuriken",
+			ammo="Date Shuriken",
 			head="Blistering Sallet +1", neck="Ninja Nodowa +2", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Ken. Samue +1", hands="Adhemar Wrist. +1", lring="Epona's Ring", rring="Gere Ring",
 			back=gear.NINCape_STP, waist="Kentarch Belt +1", legs="Ken. Hakama +1", feet="Ken. Sune-Ate +1"
@@ -597,7 +653,7 @@ function init_gear_sets()
 
 		sets.engaged.High.Max =
 		{
-			ammo="Seki Shuriken",
+			ammo="Date Shuriken",
 			head="Ken. Jinpachi +1", neck="Ninja Nodowa +2", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Malignance Tabard", hands="Adhemar Wrist. +1",  lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back=gear.NINCape_STP, waist="Kentarch Belt +1", legs="Ken. Hakama +1", feet="Ken. Sune-Ate +1"
@@ -729,6 +785,10 @@ function job_precast(spell, action, spellMap, eventArgs)
 			equip { waist="Hachirin-no-Obi" }
 		end	
 	end
+	
+	if spell.english == 'Provoke' and state.TreasureMode.value ~= 'None' then
+		equip(sets.TreasureHunter)
+	end
 end
 
 function job_midcast(spell, action, spellMap, eventArgs)
@@ -830,6 +890,11 @@ function job_status_change(new_status, old_status)
 	end
 end
 
+-- Handle notifications of general user state change.
+function job_state_change(stateField, newValue, oldValue)
+	equip(sets[state.MainWeaponSet.current])
+	equip(sets[state.SubWeaponSet.current])
+end
 
 function customize_idle_set(idleSet)
     if state.DefenseMode.value == 'None' then
@@ -857,8 +922,65 @@ end
 
 -- Called by the default 'update' self-command.
 function job_update(cmdParams, eventArgs)
-    determine_haste_group()
+    equip(sets[state.MainWeaponSet.current])
+	equip(sets[state.SubWeaponSet.current])
+	
+	determine_haste_group()
+	
+	th_update(cmdParams, eventArgs)
 end
+
+
+-- Function to display the current relevant user state when doing an update.
+-- Return true if display was handled, and you don't want the default info shown.
+function display_current_job_state(eventArgs)
+	local msg = '[' .. state.MainWeaponSet.value .. '/' .. state.SubWeaponSet.value .. ']'
+
+	if state.CombatForm.has_value then
+		msg = msg .. ' (' .. state.CombatForm.value .. ')'
+	end
+	
+	msg = msg .. ': '
+
+	msg = msg .. state.OffenseMode.value
+	if state.HybridMode.value ~= 'Normal' then
+		msg = msg .. '/' .. state.HybridMode.value
+	end
+
+	if state.DefenseMode.value ~= 'None' then
+		msg = msg .. ', ' .. 'Defense: ' .. state.DefenseMode.value .. ' (' .. state[state.DefenseMode.value .. 'DefenseMode'].value .. ')'
+	end
+
+	if state.Kiting.value == true then
+		msg = msg .. ', KITING'
+	end
+
+	if state.TreasureMode.has_value then
+		msg = msg .. ', TH: ' .. state.TreasureMode.value
+	end
+		
+	add_to_chat(122, msg)
+
+	eventArgs.handled = true
+end
+
+-------------------------------------------------------------------------------------------------------------------
+-- User self-commands.
+-------------------------------------------------------------------------------------------------------------------
+
+
+function job_self_command(cmdParams, eventArgs)
+   
+    if cmdParams[1]:lower() == 'rune' then
+        send_command('@input /ja '..state.Runes.value..' <me>')
+    end
+	
+	if cmdParams[1] == 'step' then
+		 send_command('@input /ja "'..state.MainStep.current..'" <t>')		 	 
+	end
+end
+
+
 
 -------------------------------------------------------------------------------------------------------------------
 -- Utility functions specific to this job.
