@@ -12,12 +12,12 @@ end
 
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
 function job_setup()
-    state.Buff['Sublimation: Activated'] 	= buffactive['Sublimation: Activated'] or false
+    state.Buff['Sublimation: Activated'] 	= 	buffactive['Sublimation: Activated'] or false
 	
 	state.Buff["Avatar's Favor"] = buffactive["Avatar's Favor"] or false
     state.Buff["Astral Conduit"] = buffactive["Astral Conduit"] or false
 	
-	state.Avatar = M{['description']='Avatar','Carbuncle','Fenrir','Diabolos','Ifrit','Titan','Leviathan','Garuda','Shiva','Ramuh','Odin','Alexander','Cait Sith','Atomos','Siren'}
+	--state.Avatar = M{['description']='Avatar','Carbuncle','Fenrir','Diabolos','Ifrit','Titan','Leviathan','Garuda','Shiva','Ramuh','Odin','Alexander','Cait Sith','Atomos','Siren'}
 	
 end
 
@@ -40,9 +40,22 @@ function user_setup()
 		state.BarStatus = M{['description']='BarStatus', 'Baramnesia', 'Barvirus', 'Barparalyze', 'Barsilence', 'Barpetrify', 'Barpoison', 'Barblind', 'Barsleep'}
 	end
 	
-    apply_job_change()
+	send_command('bind ^home gs c cycle BarElement')
+	send_command('bind ^end gs c cycleback BarElement')
+	
+	send_command('bind !home gs c cycle BarStatus')
+	send_command('bind !end gs c cycleback BarStatus')
+
+	apply_job_change()
 end
 
+
+function user_unload()
+	send_command('unbind ^home')
+	send_command('unbind !home')
+	send_command('unbind ^end')
+	send_command('unbind !end')
+end
 
 -- Define sets and vars used by this job file.
 function init_gear_sets()
@@ -102,7 +115,7 @@ function init_gear_sets()
 			main=gear.Grioavolr_Pet, sub="Khonsu", ammo="Sapience Orb",
 			head="Amalric Coif +1", neck="Orunmila's Torque", lear="Loquac. Earring", rear="Malignance Earring",
 			body="Inyanga Jubbah +2", hands=gear.FCHands, lring="Kishar Ring", rring="Weather. Ring +1",
-			back=gear.SMNCape_Mag, waist="Witful Belt", legs="Volte Brais", feet=gear.FCCrackows
+			back="Fi Follet Cape +1", waist="Witful Belt", legs="Volte Brais", feet=gear.FCCrackows
 		}
 		
 		--Fast Cast: 78%
@@ -147,7 +160,7 @@ function init_gear_sets()
 	------------------- 
 	
 		sets.midcast.Pet.bp_Buffs =
-		{--		Summoning Magic Skill: 685
+		{
 			main="Espiritus", sub="Vox Grip", ammo="Esper Stone +1",
 			head="Baayami Hat +1", neck="Incanter's Torque", lear="Lodurr Earring", rear="C. Palug Earring",
 			body="Baayami Robe +1", hands="Baayami Cuffs +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Evoker's Ring",
@@ -155,27 +168,27 @@ function init_gear_sets()
 		}
 		
 		sets.midcast.Pet.bp_Boons = set_combine(sets.midcast.Pet.bp_Buffs,
-		{--		Summoning Magic Skill: 685
+		{
 			head="Beckoner's Horn +1",
 			hands="Beck. Bracers +1",
 			feet="Beck. Pigaches +1"
 		})
 
-		sets.midcast.Pet.bp_Heals = set_combine(sets.midcast.Pet.bp_Buffs,
+		sets.midcast.Pet.bp_Heals =
 		{
 			main="Nirvana", sub="Vox Grip", ammo="Sancus Sachet +1",
 			head=gear.ACrown_Perp, neck="Unmoving Collar +1", lear="Tuisto Earring", rear="Odnowa Earring +1",
 			body=gear.ADalmatica_Idle, hands="Apogee Mitts +1", lring="Eihwaz Ring", rring="Gelatinous Ring +1",
 			back=gear.SMNCape_Mag, waist="Regal Belt", legs=gear.ASlacks_MAB, feet="Apogee Pumps +1"
-		})
+		}
 
-		sets.midcast.Pet.bp_Debuffs = set_combine(sets.midcast.Pet.bp_Buffs,
+		sets.midcast.Pet.bp_Debuffs =
 		{
 			main="Nirvana", sub="Vox Grip", ammo="Sancus Sachet +1",
 			head="Convoker's Horn +3", neck="Smn. Collar +2", lear="Enmerkar Earring", rear="Lugalbanda Earring",
-			body="Con. Doublet +3", hands="Apogee Mitts +1", lring="C. Palug Ring",
+			body="Con. Doublet +3", hands="Apogee Mitts +1", lring="C. Palug Ring", rring="Evoker's Ring",
 			back=gear.SMNCape_Mag, waist="Regal Belt", legs="Tali'ah Sera. +2", feet="Convo. Pigaches +3"
-		})
+		}
 
 		sets.midcast.Pet.bp_Physical =
 		{--		Blood Pact Damage: +140		Double Attack: +47%		Accuracy: +157	Attack: +94
@@ -226,7 +239,7 @@ function init_gear_sets()
 		sets.midcast.ConserveMP = set_combine(sets.midcast.FC,
 		{
 			neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
-			body="Amalric Doublet +1",
+			body="Amalric Doublet +1", lring="Mephitas's Ring +1",
 			back="Fi Follet Cape +1", waist="Shinjutsu-no-Obi +1", legs="Lengo Pants", feet=gear.FCCrackows
 		})
 
@@ -283,7 +296,7 @@ function init_gear_sets()
 			main="Gada", sub="Ammurapi Shield",
 			head=gear.ENH_Head, neck="Orunmila's Torque", lear="Loquac. Earring", rear="Malignance Earring",
 			body=gear.ENH_Body, hands=gear.ENH_Gloves, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back=gear.SMNCape_Mag, waist="Embla Sash", legs=gear.ENH_Legs, feet="Telchine Pigaches"
+			back="Fi Follet Cape +1", waist="Embla Sash", legs=gear.ENH_Legs, feet="Telchine Pigaches"
 		}
 
 		sets.midcast.Stoneskin = set_combine(sets.midcast.Duration,
@@ -295,7 +308,8 @@ function init_gear_sets()
 		sets.midcast.Aquaveil = set_combine(sets.midcast.Duration,
 		{
 			main="Vadose Rod",
-			head="Amalric Coif +1", waist="Emphatikos Rope", legs="Shedir Seraweels"
+			head="Amalric Coif +1", 
+			waist="Emphatikos Rope", legs="Shedir Seraweels"
 		})
 
 		sets.midcast['Enhancing Magic'] =
@@ -318,7 +332,7 @@ function init_gear_sets()
 			main="Gada", sub="Ammurapi Shield",
 			head="Inyanga Tiara +2", neck="Orunmila's Torque", lear="Gwati Earring", rear="Mendi. Earring",
 			body=gear.ENH_Body, hands=gear.ENH_Gloves, lring="Lebeche Ring", rring="Weather. Ring +1",
-			back=gear.SMNCape_Mag, waist="Embla Sash", legs=gear.ENH_Legs, feet="Telchine Pigaches"
+			back="Fi Follet Cape +1", waist="Embla Sash", legs=gear.ENH_Legs, feet="Telchine Pigaches"
 		}
 
 		sets.midcast.Refresh =
@@ -344,16 +358,15 @@ function init_gear_sets()
 		sets.midcast.Macc =
 		{
 			main="Maxentius", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
-			head="C. Palug Crown", neck="Erra Pendant", lear="Digni. Earring", rear="Malignance Earring",
-			body="Amalric Doublet +1", hands="Inyan. Dastanas +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Grapevine Cape", waist="Acuity Belt +1", legs="Inyanga Shalwar +2", feet="Medium's Sabots"
+			head=empty, neck="Erra Pendant", lear="Digni. Earring", rear="Malignance Earring",
+			body="Cohort Cloak +1", hands="Inyan. Dastanas +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			back="Aurist's Cape +1", waist="Acuity Belt +1", legs="Inyanga Shalwar +2", feet="Medium's Sabots"
 		}
 		
 		sets.midcast['Enfeebling Magic'] = set_combine(sets.midcast.Macc,
 		{
 			main="Contemplator +1", sub="Enki Strap",
-			head=empty,
-			body="Cohort Cloak +1", lring="Kishar Ring"
+			lring="Kishar Ring"
 		})
 		
 		
@@ -364,7 +377,7 @@ function init_gear_sets()
 
 		sets.midcast['Dark Magic'] = set_combine(sets.midcast.Macc,
 		{
-			lear="Mani Earring",
+			head="C. Palug Crown", lear="Mani Earring",
 			body="Shango Robe"
 		})
 
@@ -378,10 +391,10 @@ function init_gear_sets()
 
 		sets.midcast['Elemental Magic'] =
 		{
-			main="Daybreak", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
-			head="C. Palug Crown", neck="Sanctity Necklace", lear="Friomisi Earring", rear="Malignance Earring",
-			body="Amalric Doublet +1", hands="Amalric Gages +1", lring="Freke Ring", rring="Shiva Ring +1",
-			back="Grapevine Cape", waist="Orpheus's Sash", legs="Amalric Slops +1", feet="Amalric Nails +1"
+			main="Daybreak", sub="Ammurapi Shield", ammo="Ghastly Tathlum +1",
+			head=empty, neck="Sanctity Necklace", lear="Friomisi Earring", rear="Malignance Earring",
+			body="Cohort Cloak +1", hands="Amalric Gages +1", lring="Freke Ring", rring="Shiva Ring +1",
+			back="Aurist's Cape +1", waist="Orpheus's Sash", legs="Amalric Slops +1", feet="Amalric Nails +1"
 		}
 
 		sets.midcast.Impact = set_combine(sets.midcast.Macc,
@@ -425,13 +438,13 @@ function init_gear_sets()
 		{
 			main="Contemplator +1", sub="Khonsu", ammo="Staunch Tathlum +1",
 			head="Convoker's Horn +3", neck="Smn. Collar +2", lear="Odnowa Earring +1", rear="C. Palug Earring",
-			body="Udug Jacket", hands="Raetic Bangles +1", lring="Defending Ring", rring="C. Palug Ring",
+			body="Udug Jacket", hands="Inyan. Dastanas +2", lring="Defending Ring", rring="C. Palug Ring",
 			back="Moonlight Cape", waist="Regal Belt", legs="Volte Brais", feet="Baaya. Sabots +1"
 		}
 		
 		sets.idle.MEVA = 
 		{
-			main="Nirvana", sub="Khonsu", ammo="Staunch Tathlum +1",
+			main="Contemplator +1", sub="Khonsu", ammo="Staunch Tathlum +1",
 			head="Inyanga Tiara +2", neck="Warder's Charm +1",lear="Sanare Earring", rear="Lugalbanda Earring",
 			body="Inyanga Jubbah +2", hands="Inyan. Dastanas +2", lring="Purity Ring", rring="Shadow Ring",
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Inyanga Shalwar +2", feet="Baaya. Sabots +1"
@@ -503,13 +516,13 @@ function init_gear_sets()
 	--------------------------------------
 	-- Defensive Sets
 	-------------------------------------
-		-- PDT: -44% 	MDT: -42%
+
 		sets.defense.Master =
 		{
 			main="Contemplator +1", sub="Khonsu", ammo="Staunch Tathlum +1",
 			head="Inyanga Tiara +2", neck="Smn. Collar +2", lear="Odnowa Earring +1", rear="C. Palug Earring",
-			body="Udug Jacket", hands="Volte Bracers", lring="Defending Ring", rring="C. Palug Ring",
-			back="Moonlight Cape", waist="Regal Belt", legs="Artsieq Hose", feet="Baaya. Sabots +1"
+			body="Udug Jacket", hands="Inyan. Dastanas +2", lring="Defending Ring", rring="C. Palug Ring",
+			back="Moonlight Cape", waist="Regal Belt", legs="Artsieq Hose", feet="Hippo. Socks +1"
 		}
 		
 		sets.defense.Pet =
@@ -520,6 +533,14 @@ function init_gear_sets()
 			back=gear.SMNCape_Phys, waist="Isa Belt", legs="Enticer's Pants", feet="Baaya. Sabots +1"
 		}
 
+		sets.defense.MDT =
+		{
+			main="Contemplator +1", sub="Khonsu", ammo="Staunch Tathlum +1",
+			head="Inyanga Tiara +2", neck="Smn. Collar +2", lear="Odnowa Earring +1", rear="C. Palug Earring",
+			body="Udug Jacket", hands="Inyan. Dastanas +2", lring="Defending Ring", rring="C. Palug Ring",
+			back="Moonlight Cape", waist="Regal Belt", legs="Artsieq Hose", feet="Hippo. Socks +1"
+		}
+		
 	
 	--------------------------------------
 	-- Special Sets
@@ -584,8 +605,8 @@ function init_gear_sets()
 		sets.precast.WS['Garland of Bliss'] =
 		{
 			ammo="Pemphredo Tathlum",
-			head="C. Palug Crown", neck="Sanctity Necklace", lear="Friomisi Earring", rear="Malignance Earring",
-			body="Amalric Doublet +1", hands="Amalric Gages +1", lring="Freke Ring", rring="Weather. Ring +1",
+			head=empty, neck="Sanctity Necklace", lear="Friomisi Earring", rear="Malignance Earring",
+			body="Cohort Cloak +1", hands="Amalric Gages +1", lring="Freke Ring", rring="Weather. Ring +1",
 			back="Aurist's Cape +1", waist="Orpheus's Sash", legs="Amalric Slops +1", feet="Amalric Nails +1"
 		}
 	 
@@ -781,7 +802,7 @@ end
 function job_pet_change(petparam, gain)
     classes.CustomIdleGroups:clear()
     if gain then
-        update_avatar()
+        --update_avatar()
 		if avatars:contains(pet.name)  then
             classes.CustomIdleGroups:append('Avatar')
         elseif spirits:contains(pet.name) then
@@ -821,13 +842,13 @@ function customize_idle_set(idleSet)
     return idleSet
 end
 
-function update_avatar()
-	if state.Avatar:contains(pet.name) then
-		state.Avatar:set(pet.name)
-	end
+-- function update_avatar()
+	-- if state.Avatar:contains(pet.name) then
+		-- state.Avatar:set(pet.name)
+	-- end
 	
-	add_to_chat(100, (pet.name))
-end
+	-- add_to_chat(100, (pet.name))
+-- end
 
 -- Called by the 'update' self-command, for common needs.
 -- Set eventArgs.handled to true if we don't want automatic equipping of gear.
@@ -848,23 +869,250 @@ end
 -------------------------------------------------------------------------------------------------------------------
 
 -- Called for custom player commands.
+------------------------------------------------------------------------------------
+-- Commands:
+-- AF
+-- Protection
+-- Buff
+-- Enchant
+-- Heal
+-- Secondary
+-- Nuke
+-- Primary
+-- Debuffs
+-- CC
+------------------------------------------------------------------------------------
 function job_self_command(cmdParams, eventArgs)
-	if cmdParams[1] == '70BP' then
-		if pet.name == 'Titan' then
-			send_command('@input /pet "Mountain Buster" <t>')	
-		elseif pet.name == 'Leviathan' then
-			send_command('@input /pet "Spinning Dive" <t>')	
-		elseif pet.name == 'Garuda' then
-			send_command('@input /pet "Predator Claws" <t>')	
-		elseif pet.name == 'Ifrit' then
-			send_command('@input /pet "Flaming Crush" <t>')	
-		elseif pet.name == 'Shiva' then
-			send_command('@input /pet "Rush" <t>')	
-		elseif pet.name == 'Ramuh' then
-			send_command('@input /pet "Chaotic Strike" <t>')	
+	if pet.name == 'Carbuncle' then
+		if cmdParams[1] == 'AF' then
+			send_command('@input /pet "Searing Light" <t>')
+		elseif cmdParams[1] == 'Protection' then
+			send_command('@input /pet "Pacifying Ruby" <stpt>')
+		elseif cmdParams[1] == 'Buff' then
+			send_command('@input /pet "Shining Ruby" <me>')
+		elseif cmdParams[1] == 'Enchant' then
+			send_command('@input /pet "Soothing Ruby" <me>')
+		elseif cmdParams[1] == 'Heal' then
+			send_command('@input /pet "Healing Ruby II" <me>')
+		elseif cmdParams[1] == 'Secondary' then
+			send_command('@input /pet "Meteorite" <t>')
+		elseif cmdParams[1] == 'Nuke' then
+			send_command('@input /pet "Holy Mist" <t>')
+		end
+	elseif pet.name == 'Shiva' then
+		if cmdParams[1] == 'AF' then
+			send_command('@input /pet "Diamond Dust" <t>')
+		elseif cmdParams[1] == 'Protection' then
+			send_command('@input /pet "Frost Armor" <me>')
+		elseif cmdParams[1] == 'Buff' then
+			send_command('@input /pet "Crystal Blessing" <me>')
+		elseif cmdParams[1] == 'Nuke' then
+			send_command('@input /pet "Heavenly Strike" <t>')
+		elseif cmdParams[1] == 'TierIV' then
+			send_command('@input /pet "Blizzard IV" <t>')
+		elseif cmdParams[1] == 'Primary' then
+			send_command('@input /pet "Rush" <t>')
+		elseif cmdParams[1] == 'Debuff' then
+			send_command('@input /pet "Diamond Storm" <t>')
+		elseif cmdParams[1] == 'CC' then
+			send_command('@input /pet "Sleepga" <stnpc>')
+		end
+	elseif pet.name == 'Garuda' then
+		if cmdParams[1] == 'AF' then
+			send_command('@input /pet "Aerial Blast" <t>')
+		elseif cmdParams[1] == 'Protection' then
+			send_command('@input /pet "Aerial Armor" <me>')
+		elseif cmdParams[1] == 'Buff' then
+			send_command('@input /pet "Hastega II" <me>')
+		elseif cmdParams[1] == 'Enchant' then
+			send_command('@input /pet "Fleet Wind" <me>')
+		elseif cmdParams[1] == 'Heal' then
+			send_command('@input /pet "Whispering Wind" <me>')
+		elseif cmdParams[1] == 'Nuke' then
+			send_command('@input /pet "Wind Blade" <t>')
+		elseif cmdParams[1] == 'TierIV' then
+			send_command('@input /pet "Aero IV" <t>')
+		elseif cmdParams[1] == 'Primary' then
+			send_command('@input /pet "Predator Claws" <t>')
+		end
+	elseif pet.name == 'Titan' then
+		if cmdParams[1] == 'AF' then
+			send_command('@input /pet "Earthen Fury" <t>')
+		elseif cmdParams[1] == 'Protection' then
+			send_command('@input /pet "Earthen Armor" <me>')
+		elseif cmdParams[1] == 'Enchant' then
+			send_command('@input /pet "Earthen Ward" <me>')
+		elseif cmdParams[1] == 'Secondary' then
+			send_command('@input /pet "Crag Throw" <stnpc>')
+		elseif cmdParams[1] == 'Nuke' then
+			send_command('@input /pet "Geocrush" <t>')
+		elseif cmdParams[1] == 'TierIV' then
+			send_command('@input /pet "Stone IV" <t>')
+		elseif cmdParams[1] == 'Primary' then
+			send_command('@input /pet "Mountain Buster" <t>')
+		end
+	elseif pet.name == 'Ramuh' then
+		if cmdParams[1] == 'AF' then
+			send_command('@input /pet "Judgment Bolt" <t>')
+		elseif cmdParams[1] == 'Protection' then
+			send_command('@input /pet "Lightning Armor" <me>')
+		elseif cmdParams[1] == 'Enchant' then
+			send_command('@input /pet "Rolling Thunder" <me>')
+		elseif cmdParams[1] == 'Secondary' then
+			send_command('@input /pet "Chaotic Strike" <t>')
+		elseif cmdParams[1] == 'Nuke' then
+			send_command('@input /pet "Thunderstorm" <t>')
+		elseif cmdParams[1] == 'TierIV' then
+			send_command('@input /pet "Thunder IV" <t>')
+		elseif cmdParams[1] == 'Primary' then
+			send_command('@input /pet "Volt Strike" <t>')
+		elseif cmdParams[1] == 'Debuff' then
+			send_command('@input /pet "Thunderspark" <stnpc>')
+		elseif cmdParams[1] == 'CC' then
+			send_command('@input /pet "Shock Squall" <stnpc>')
+		end
+	elseif pet.name == 'Leviathan' then
+		if cmdParams[1] == 'AF' then
+			send_command('@input /pet "Tidal Wave" <t>')
+		elseif cmdParams[1] == 'Enchant' then
+			send_command('@input /pet "Soothing Current" <me>')
+		elseif cmdParams[1] == 'Heal' then
+			send_command('@input /pet "Spring Water" <me>')
+		elseif cmdParams[1] == 'Nuke' then
+			send_command('@input /pet "Grand Fall" <t>')
+		elseif cmdParams[1] == 'TierIV' then
+			send_command('@input /pet "Water IV" <t>')
+		elseif cmdParams[1] == 'Primary' then
+			send_command('@input /pet "Spinning Dive" <t>')
+		elseif cmdParams[1] == 'Debuff' then
+			send_command('@input /pet "Tidal Roar" <stnpc>')
+		elseif cmdParams[1] == 'CC' then
+			send_command('@input /pet "Slowga" <stnpc>')
+		end
+	elseif pet.name == 'Ifrit' then
+		if cmdParams[1] == 'AF' then
+			send_command('@input /pet "Inferno" <t>')
+		elseif cmdParams[1] == 'Buff' then
+			send_command('@input /pet "Crimson Howl" <me>')
+		elseif cmdParams[1] == 'Enchant' then
+			send_command('@input /pet "Inferno Howl" <me>')
+		elseif cmdParams[1] == 'Secondary' then
+			send_command('@input /pet "Conflag Strike" <t>')
+		elseif cmdParams[1] == 'Nuke' then
+			send_command('@input /pet "Meteor Strike" <t>')
+		elseif cmdParams[1] == 'TierIV' then
+			send_command('@input /pet "Fire IV" <t>')
+		elseif cmdParams[1] == 'Primary' then
+			send_command('@input /pet "Flaming Crush" <t>')
+		end
+	elseif pet.name == 'Fenrir' then
+		if cmdParams[1] == 'AF' then
+			send_command('@input /pet "Howling Moon" <t>')
+		elseif cmdParams[1] == 'Protection' then
+			send_command('@input /pet "Ecliptic Growl" <me>')
+		elseif cmdParams[1] == 'Buff' then
+			send_command('@input /pet "Ecliptic Howl" <me>')
+		elseif cmdParams[1] == 'Enchant' then
+			send_command('@input /pet "Heavenward Howl" <me>')
+		elseif cmdParams[1] == 'Nuke' then
+			send_command('@input /pet "Impact" <t>')
+		elseif cmdParams[1] == 'Secondary' then
+			send_command('@input /pet "Lunar Bay" <t>')
+		elseif cmdParams[1] == 'Primary' then
+			send_command('@input /pet "Eclipse Bite" <t>')
+		elseif cmdParams[1] == 'Debuff' then
+			send_command('@input /pet "Lunar Roar" <stnpc>')
+		elseif cmdParams[1] == 'CC' then
+			send_command('@input /pet "Lunar Cry" <t>')
+		end
+	elseif pet.name == 'Diabolos' then
+		if cmdParams[1] == 'AF' then
+			send_command('@input /pet "Ruminous Omen" <t>')
+		elseif cmdParams[1] == 'Protection' then
+			send_command('@input /pet "Noctoshield" <me>')
+		elseif cmdParams[1] == 'Buff' then
+			send_command('@input /pet "Dream Shroud" <me>')
+		elseif cmdParams[1] == 'Secondary' then
+			send_command('@input /pet "Nether Blast" <stnpc>')
+		elseif cmdParams[1] == 'Nuke' then
+			send_command('@input /pet "Night Terror" <t>')
+		elseif cmdParams[1] == 'Primary' then
+			send_command('@input /pet "Blindside" <t>')
+		elseif cmdParams[1] == 'Debuff' then
+			send_command('@input /pet "Pavor Nocturnus" <stnpc>')
+		elseif cmdParams[1] == 'CC' then
+			send_command('@input /pet "Nightmare" <stnpc>')
+		end
+	elseif pet.name == 'Cait Sith' then
+		if cmdParams[1] == 'AF' then
+			send_command('@input /pet "Altana\'s Favor" <t>')
+		elseif cmdParams[1] == 'Enchant' then
+			send_command('@input /pet "Reraise II" <stpt>')
+		elseif cmdParams[1] == 'Heal' then
+			send_command('@input /pet "Raise II" <stpt>')
+		elseif cmdParams[1] == 'Nuke' then
+			send_command('@input /pet "Level ? Holy" <t>')
+		elseif cmdParams[1] == 'Primary' then
+			send_command('@input /pet "Regal Gash" <t>')
+		elseif cmdParams[1] == 'Debuff' then
+			send_command('@input /pet "Eerie Eye" <stnpc>')
+		elseif cmdParams[1] == 'CC' then
+			send_command('@input /pet "Mewing Lullaby" <stnpc>')
+		end
+	elseif pet.name == 'Siren' then
+		if cmdParams[1] == 'AF' then
+			send_command('@input /pet "Clarsach Call" <t>')
+		elseif cmdParams[1] == 'Protection' then
+			send_command('@input /pet "Chinook" <me>')
+		elseif cmdParams[1] == 'Buff' then
+			send_command('@input /pet "Wind\'s Blessing" <me>')
+		elseif cmdParams[1] == 'Enchant' then
+			send_command('@input /pet "Katabatic Blades" <me>')
+		elseif cmdParams[1] == 'Secondary' then
+			send_command('@input /pet "Sonic Buffet" <t>')
+		elseif cmdParams[1] == 'Nuke' then
+			send_command('@input /pet "Tornado II" <t>')
+		elseif cmdParams[1] == 'Primary' then
+			send_command('@input /pet "Hysteric Assault" <t>')
+		elseif cmdParams[1] == 'Debuff' then
+			send_command('@input /pet "Bitter Elegy" <t>')
+		elseif cmdParams[1] == 'CC' then
+			send_command('@input /pet "Lunatic Voice" <stnpc>')
 		end
 	end
+	
+	if cmdParams[1]:lower() == 'barele' then
+        send_command('@input /ma '..state.BarElement.current..' <me>')
+    elseif cmdParams[1]:lower() == 'barstat' then
+		 send_command('@input /ma "'..state.BarStatus.current..'" <me>')
+	end
 end
+
+
+
+-- function job_self_command(cmdParams, eventArgs)
+	-- if cmdParams[1] == '70BP' then
+		-- if pet.name == 'Titan' then
+			-- send_command('@input /pet "Mountain Buster" <t>')	
+		-- elseif pet.name == 'Leviathan' then
+			-- send_command('@input /pet "Spinning Dive" <t>')	
+		-- elseif pet.name == 'Garuda' then
+			-- send_command('@input /pet "Predator Claws" <t>')	
+		-- elseif pet.name == 'Ifrit' then
+			-- send_command('@input /pet "Flaming Crush" <t>')	
+		-- elseif pet.name == 'Shiva' then
+			-- send_command('@input /pet "Rush" <t>')	
+		-- elseif pet.name == 'Ramuh' then
+			-- send_command('@input /pet "Chaotic Strike" <t>')
+		-- elseif pet.name == 'Cait Sith' then
+			-- send_command('@input /pet Regal Gash" <t>')
+		-- elseif pet.name == 'Fenrir' then
+			-- send_command('@input /pet "Eclipse Bite" <t>')
+		-- elseif pet.name == 'Siren' then
+			-- send_command('@input /pet "Hysteric Assault" <t>')
+		-- end
+	-- end
+-- end
 
 
 -------------------------------------------------------------------------------------------------------------------

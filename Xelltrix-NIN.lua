@@ -13,8 +13,6 @@ end
 
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
 function job_setup()
-	include('Mote-TreasureHunter')
-
     determine_haste_group()
 end
 
@@ -37,11 +35,12 @@ function user_setup()
 	state.MainWeaponSet = M{['description']='Main Weapon Set',
 		'Heishi',
 		'Tauret',
+		'Fudo',
 		'Naegling'
 	}
 	
 	state.SubWeaponSet = M{['description']='Sub Weapon Set',
-		'Fudo',
+		'Masamune',
 		'Ternion',
 		'Gokotai',
 		'Hitaki'
@@ -50,8 +49,6 @@ function user_setup()
     gear.DayFeet = "Danzo Sune-ate"
     gear.NightFeet = "Hachi. Kyahan +1"
 	
-	
-	send_command('bind ^` gs c cycle treasuremode')
 
 	send_command('bind pageup gs c cycle MainWeaponSet')
 	send_command('bind pagedown gs c cycleback MainWeaponSet')
@@ -71,7 +68,6 @@ function user_setup()
 end
 
 function user_unload()
-	send_command('unbind ^`')
 	send_command('unbind pageup')
 	send_command('unbind pagedown')
 	send_command('unbind ^pageup')
@@ -186,20 +182,20 @@ function init_gear_sets()
 		
 		sets.midcast['Ninjutsu'] =
 		{
-			hands="Mochizuki Tekko +1"
+			hands="Mochizuki Tekko +3"
 		}
 		
 		sets.midcast.Utsusemi =
 		{
 			head=gear.HHead_WSD,
-			hands="Mochizuki Tekko +1",
+			hands="Mochizuki Tekko +3",
 			back=gear.NINCape_FC, feet="Hattori Kyahan +1"
 		}
 		
 		sets.midcast['Migawari: Ichi'] =
 		{
 			head="Hachiya Hatsu. +3", neck="Incanter's Torque",
-			hands="Mochizuki Tekko +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			hands="Mochizuki Tekko +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back=gear.NINCape_FC, feet="Mochi. Kyahan +3"
 		}
 	
@@ -242,7 +238,7 @@ function init_gear_sets()
 		sets.midcast.Genjutsu =
 		{
 			neck="Moonlight Necklace",
-			hands="Mochizuki Tekko +1",
+			hands="Mochizuki Tekko +3",
 			feet="Mochi. Kyahan +3"
 		}
 		
@@ -297,7 +293,9 @@ function init_gear_sets()
 		
 		sets.Naegling 	= { 	main="Naegling" 		}
 	
-		sets.Fudo 		= { 	sub="Fudo Masamune" 		}
+		sets.Fudo 		= { 	main="Fudo Masamune" 		}
+		
+		sets.Masamune	= { 	sub="Fudo Masamune" 		}
 		
 		sets.Ternion 	= { 	sub="Ternion Dagger +1" 	}
 		
@@ -396,7 +394,7 @@ function init_gear_sets()
 		sets.precast.WS['Blade: Ten'] =
 		{
 			ammo="Aurgelmir Orb +1",
-			head="Hachiya Hatsu. +3", neck="Fotia Gorget", lear="Ishvara Earring", rear="Moonshade Earring",
+			head="Hachiya Hatsu. +3", neck="Ninja Nodowa +2", lear="Ishvara Earring", rear="Moonshade Earring",
 			body="Herculean Vest", hands="Adhemar Wrist. +1", lring="Epaminondas's Ring", rring="Regal Ring",
 			back="Sacro Mantle", waist="Sailfi Belt +1", legs="Mochi. Hakama +3", feet=gear.HBoots_WSD
 		}
@@ -405,7 +403,7 @@ function init_gear_sets()
 		sets.precast.WS['Blade: Kamu'] =
 		{
 			ammo="Aurgelmir Orb +1",
-			head=gear.HHead_WSD, neck="Fotia Gorget", lear="Brutal Earring", rear="Ishvara Earring",
+			head=gear.HHead_WSD, neck="Ninja Nodowa +2", lear="Brutal Earring", rear="Ishvara Earring",
 			body="Herculean Vest", hands="Adhemar Wrist. +1", lring="Epaminondas's Ring", rring="Regal Ring",
 			back="Sacro Mantle", waist="Sailfi Belt +1", legs="Mochi. Hakama +3", feet=gear.HBoots_WSD
 		}

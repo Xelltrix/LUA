@@ -75,7 +75,7 @@ function init_gear_sets()
 			main="Musa", sub="Khonsu", ammo="Sapience Orb",
 			head="Amalric Coif +1", neck="Orunmila's Torque", lear="Loquac. Earring", rear="Malignance Earring",
 			body="Pinga Tunic +1", hands="Acad. Bracers +3", lring="Lebeche Ring", rring="Weather. Ring +1",
-			back=gear.SCHCape_ENF, waist="Witful Belt", legs="Pinga Pants +1", feet="Peda. Loafers +3"
+			back="Fi Follet Cape +1", waist="Witful Belt", legs="Pinga Pants +1", feet="Peda. Loafers +3"
 		}
 
 		sets.precast.FC.Grimoire =
@@ -130,7 +130,7 @@ function init_gear_sets()
 			main="Musa", sub="Khonsu", ammo="Sapience Orb",
 			head=gear.ENH_Head, neck="Incanter's Torque", lear="Andoaa Earring", rear="Mimir Earring",
 			body="Peda. Gown +3", hands=gear.ENH_Gloves, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back=gear.SCHCape_ENF, waist="Embla Sash", legs=gear.ENH_Legs, feet="Telchine Pigaches"
+			back="Fi Follet Cape +1", waist="Embla Sash", legs=gear.ENH_Legs, feet="Telchine Pigaches"
 		}
 
 	
@@ -144,14 +144,14 @@ function init_gear_sets()
 			main="Raetic Rod +1", sub="Ammurapi Shield", ammo="Esper Stone +1",
 			head="Kaykaus Mitra +1", neck="Incanter's Torque", lear="Novia Earring", rear="Meili Earring",
 			body="Kaykaus Bliaut +1", hands="Peda. Bracers +3", lring="Kuchekula Ring", rring="Menelaus's Ring",
-			back=gear.SCHCape_ENF, waist="Bishop's Sash", legs="Kaykaus Tights +1",  feet="Kaykaus Boots +1"
+			back="Fi Follet Cape +1", waist="Bishop's Sash", legs="Kaykaus Tights +1",  feet="Kaykaus Boots +1"
 		}
 
 		
 		sets.midcast.CuresLocked =
 		{-- 	
 			ammo="Staunch Tathlum +1",
-			head="Kaykaus Mitra +1", neck="Loricate Torque +1", lear="Genmei Earring", rear="Sanare Earring",
+			head="Kaykaus Mitra +1", neck="Loricate Torque +1", lear="Odnowa Earring +1", rear="Genmei Earring",
 			body="Kaykaus Bliaut +1", hands="Kaykaus Cuffs +1", lring="Defending Ring", rring="Gelatinous Ring +1",
 			back=gear.SCHCape_ENF, waist="Carrier's Sash", legs="Kaykaus Tights +1",  feet="Kaykaus Boots +1"
 		}
@@ -421,7 +421,7 @@ function init_gear_sets()
 		sets.idle =
 		{-- 	PDT: -24% | MDT:-12%	|	Refresh: 13~14 | Regen: 3
 			main="Contemplator +1", sub="Khonsu", ammo="Homiliary",
-			head="Befouled Crown", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
+			head="Volte Beret", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 			body="Shamash Robe", hands="Chironic Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Volte Brais", feet="Chironic Slippers"
 		}
@@ -435,10 +435,10 @@ function init_gear_sets()
 		}
 		
 		sets.idle.MEVA =
-		{-- 	PDT: -41% | MDT:-24%	|	Refresh: 6~7 | Regen: 0
+		{-- 	PDT: -41% | MDT:-24%	|	Refresh: 7~8 | Regen: 0
 			main="Contemplator +1", sub="Khonsu", ammo="Staunch Tathlum +1",
-			head="Hike Khat +1", neck="Warder's Charm +1", lear="Odnowa Earring +1", rear="Lugalbanda Earring",
-			body="Shamash Robe", hands="Raetic Bangles +1", lring="Shadow Ring", rring="Purity Ring",
+			head="Volte Beret", neck="Warder's Charm +1", lear="Odnowa Earring +1", rear="Lugalbanda Earring",
+			body="Shamash Robe", hands="Chironic Gloves", lring="Shadow Ring", rring="Purity Ring",
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Volte Brais", feet="Volte Gaiters"
 		}
 		
@@ -471,19 +471,19 @@ function init_gear_sets()
 		}
 
 		sets.defense.MEVA =
-		{--PDT: 42 / MDT: 24
+		{--PDT: 29 / MDT: 24
 			ammo="Staunch Tathlum +1",
-			head="Hike Khat +1", neck="Warder's Charm +1", lear="Odnowa Earring +1", rear="Lugalbanda Earring",
+			head="Volte Beret", neck="Warder's Charm +1", lear="Odnowa Earring +1", rear="Lugalbanda Earring",
 			body="Shamash Robe", hands="Raetic Bangles +1", lring="Defending Ring", rring="Shadow Ring",
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Volte Brais", feet="Volte Gaiters"
 		}
 
 		sets.defense.MDT = 
-		{--PDT: 38 / MDT: 45
+		{--PDT: 29 / MDT: 51
 			ammo="Staunch Tathlum +1",
 			head="Vanya Hood", neck="Loricate Torque +1", lear="Odnowa Earring +1", rear="Etiolation Earring",
-			body="Shamash Robe", hands="Raetic Bangles +1", lring="Defending Ring", rring="Purity Ring",
-			back="Moonlight Cape", waist="Carrier's Sash", legs="Volte Brais", feet="Vanya Clogs"
+			body="Vanya Robe", hands="Vanya Cuffs", lring="Defending Ring", rring="Shadow Ring",
+			back="Moonlight Cape", waist="Carrier's Sash", legs="Vanya Slops", feet="Vanya Clogs"
 		}
 		
 
@@ -534,7 +534,7 @@ function init_gear_sets()
 			main="Musa", sub="Khonsu", ammo="Pemphredo Tathlum",
 			head="Acad. Mortar. +3", neck="Orunmila's Torque", lear="Regal Earring", rear="Malignance Earring",
 			body="Amalric Doublet +1", hands="Acad. Bracers +3", lring="Freke Ring", rring="Weather. Ring +1",
-			back=gear.SCHCape_ENF, waist="Embla Sash", legs="Kaykaus Tights +1", feet="Amalric Nails +1"
+			back="Fi Follet Cape +1", waist="Embla Sash", legs="Kaykaus Tights +1", feet="Amalric Nails +1"
 		}
 		
 		sets.buff['Focalization'] 	= { head="Peda. M.Board +3" }
@@ -553,7 +553,8 @@ function init_gear_sets()
 	-------------------------
 		sets.precast.WS =
 		{
-			head="Jhakri Coronal +2", neck="Fotia Gorget", lear="Telos Earring", rear="Moonshade Earring",
+			ammo="Hasty Pinion +1",
+			head="Blistering Sallet +1", neck="Fotia Gorget", lear="Telos Earring", rear="Moonshade Earring",
 			body="Jhakri Robe +2", hands="Jhakri Cuffs +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			back="Aurist's Cape +1", waist="Fotia Belt", legs="Jhakri Slops +2", feet="Jhakri Pigaches +2"
 		}

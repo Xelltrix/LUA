@@ -212,18 +212,18 @@ function init_gear_sets()
 		sets.midcast.Macc =
 		{
 			main="Contemplator +1", sub="Khonsu", ammo="Pemphredo Tathlum",
-			head=none, neck="Src. Stole +2", lear="Malignance Earring", rear="Regal Earring",
-			body="Cohort Cloak +1", hands="Spae. Gloves +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Metamor. Ring +1",
+			head="Spae. Petasos +3", neck="Src. Stole +2", lear="Malignance Earring", rear="Regal Earring",
+			body="Spaekona's Coat +3", hands="Spae. Gloves +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Metamor. Ring +1",
 			back="Aurist's Cape +1", waist="Acuity Belt +1", legs="Spae. Tonban +3", feet="Spae. Sabots +3"
 		}
-	
-		sets.midcast['Enfeebling Magic'] = set_combine(sets.midcast.Macc,
+
+		sets.midcast['Enfeebling Magic'] =
 		{
-			sub="Enki Strap",
-			lear="Vor Earring",
-			hands="Regal Cuffs", lring="Kishar Ring",
-			legs="Psycloth Lappas", feet="Medium's Sabots"
-		})
+			main="Contemplator +1", sub="Enki Strap", ammo="Pemphredo Tathlum",
+			head=none, neck="Src. Stole +2", lear="Vor Earring", rear="Regal Earring",
+			body="Cohort Cloak +1", hands="Regal Cuffs", lring="Kishar Ring", rring="Metamor. Ring +1",
+			back="Aurist's Cape +1", waist="Acuity Belt +1", legs="Psycloth Lappas", feet="Medium's Sabots"
+		}
 	
 		sets.midcast['Enfeebling Magic'].Resistant = sets.midcast.Macc
 		
@@ -259,7 +259,7 @@ function init_gear_sets()
 		sets.midcast.Sap.Resistant = set_combine(sets.midcast.Sap,
 		{
 			head="Spae. Petasos +3",
-			body="Spaekona's Coat +2"
+			body="Spaekona's Coat +3"
 		})
 
 		sets.midcast.Stun = set_combine(sets.midcast['Dark Magic'],
@@ -390,7 +390,7 @@ function init_gear_sets()
 		sets.idle =
 		{-- 	PDT: -25% | MDT:-15%	|	Refresh: 10~11 | Regen: 3
 			main="Contemplator +1", sub="Khonsu", ammo="Staunch Tathlum +1",
-			head="Befouled Crown", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
+			head="Volte Beret", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 			body="Shamash Robe", hands="Volte Bracers", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Volte Brais", feet="Volte Gaiters"
 		}
@@ -427,7 +427,7 @@ function init_gear_sets()
 		sets.defense.PDT =
 		{--PDT: 53 / MDT: 17
 			ammo="Staunch Tathlum +1",
-			head="Hike Khat +1", neck="Warder's Charm +1", lear="Odnowa Earring +1", rear="Genmei Earring",
+			head="Hike Khat +1", neck="Warder's Charm +1", lear="Odnowa Earring +1", rear="Etiolation Earring",
 			body="Shamash Robe", hands="Volte Bracers", lring="Defending Ring", rring="Gelatinous Ring +1",
 			back="Shadow Mantle", waist="Carrier's Sash", legs="Artsieq Hose", feet="Hippo. Socks +1"
 		}
@@ -435,7 +435,7 @@ function init_gear_sets()
 		sets.defense.MEVA =
 		{--PDT: 42 / MDT: 24
 			ammo="Staunch Tathlum +1",
-			head="Ea Hat +1", neck="Warder's Charm +1", lear="Odnowa Earring +1", rear="Lugalbanda Earring",
+			head="Volte Beret", neck="Warder's Charm +1", lear="Odnowa Earring +1", rear="Lugalbanda Earring",
 			body="Shamash Robe", hands="Raetic Bangles +1", lring="Defending Ring", rring="Shadow Ring",
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Volte Brais", feet="Volte Gaiters"
 		}
@@ -634,7 +634,7 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 			if not (buffactive['Manawell'] or buffactive['Manafont']) then
 				equip
 				{
-					body="Spaekona's Coat +2"
+					body="Spaekona's Coat +3"
 				}
 				if state.MagicBurst.value then
 					equip
@@ -760,6 +760,21 @@ function display_current_job_state(eventArgs)
 	display_current_caster_state()
 	eventArgs.handled = true
 end
+
+
+-------------------------------------------------------------------------------------------------------------------
+-- User self-commands.
+-------------------------------------------------------------------------------------------------------------------
+
+
+function job_self_command(cmdParams, eventArgs)
+    if cmdParams[1]:lower() == 'barele' then
+        send_command('@input /ma '..state.BarElement.current..' <me>')
+    elseif cmdParams[1]:lower() == 'barstat' then
+		 send_command('@input /ma "'..state.BarStatus.current..'" <me>')
+	end
+end
+
 
 
 -------------------------------------------------------------------------------------------------------------------

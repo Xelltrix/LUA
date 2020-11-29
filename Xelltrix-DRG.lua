@@ -14,8 +14,6 @@ end
 -- User setup functions for this job.  Recommend that these be overridden in a sidecar file.
 -------------------------------------------------------------------------------------------------------------------
  function job_setup()
-	include('Mote-TreasureHunter')
-	
 	state.EnmityDown = M(false)
 	
 	determine_haste_group()
@@ -34,8 +32,6 @@ function user_setup()
 	state.WeaponSet = M{['description']='Weapon Set','Trishula','Shining','Malignance'}
 	
 	state.GripSet = M{['description']='Grip Set','Utu','Khonsu'}
-	
-	send_command('bind ^= gs c cycle treasuremode')
     
 	send_command('bind numpad. gs c toggle EnmityDown')
 	
@@ -49,7 +45,6 @@ function user_setup()
 end
 
 function user_unload()
-	send_command('unbind ^=')
 	send_command('unbind numpad.')
 	
 	send_command('unbind pageup')
@@ -172,7 +167,7 @@ function init_gear_sets()
 		sets.idle =
 		{
 			ammo="Staunch Tathlum +1",
-			head="Hjarrandi Helm", neck="Warder's Charm +1", lear="Tuisto Earring", rear="Genmei Earring",
+			head="Hjarrandi Helm", neck="Warder's Charm +1", lear="Odnowa Earring +1", rear="Genmei Earring",
 			body="Sacro Breastplate", hands="Volte Bracers", lring="Defending Ring", rring="Moonlight Ring",
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Carmine Cuisses +1", feet="Sulev. Leggings +2"
 		}
@@ -211,7 +206,7 @@ function init_gear_sets()
 		{
 			ammo="Staunch Tathlum +1",
 			head="Hjarrandi Helm", neck="Warder's Charm +1", lear="Eabani Earring", rear="Sanare Earring",
-			body="Tartarus Platemail",hands="Volte Bracers", lring="Defending Ring", rring="Shadow Ring",
+			body="Sacro Breastplate", hands="Volte Bracers", lring="Defending Ring", rring="Shadow Ring",
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Sulev. Cuisses +2", feet="Sulev. Leggings +2"
 		}
 

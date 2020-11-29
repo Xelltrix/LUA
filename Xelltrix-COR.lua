@@ -31,9 +31,7 @@ function user_setup()
     state.RangedMode:options('Normal', 'Low', 'Mid', 'High')
     state.WeaponskillMode:options('Normal', 'Low', 'Mid', 'High')
     state.IdleMode:options('Normal')
-	
-	send_command('bind ^= gs c cycle treasuremode')
-	
+
 	-- Additional local binds
 	send_command('bind numpad/ input /ja "Snake Eye" <me>')
     send_command('bind numpad* input /ja "Fold" <me>')

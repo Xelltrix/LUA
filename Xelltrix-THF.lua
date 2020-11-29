@@ -26,8 +26,6 @@ function job_setup()
 	state.Buff['Trick Attack'] = buffactive['Trick Attack'] or false
 	state.Buff['Feint'] = buffactive['Feint'] or false
 
-	include('Mote-TreasureHunter')
-	
 	state.EnmityDown = M(false)
 
 	customize_idle_set()
@@ -69,8 +67,6 @@ function user_setup()
 	
 
 	-- Additional local binds
-	send_command('bind ^` gs c cycle treasuremode')
-	
 	send_command('bind numpad. gs c toggle EnmityDown')
 	
 	send_command('bind pageup gs c cycle MainWeaponSet')
@@ -93,8 +89,6 @@ end
 
 -- Called when this job file is unloaded (eg: job change)
 function user_unload()
-	send_command('unbind ^`')
-	
 	if player.sub_job == 'DNC' then
 		send_command('unbind ^=')
 		send_command('unbind ^-')

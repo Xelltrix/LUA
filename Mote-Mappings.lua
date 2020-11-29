@@ -143,9 +143,9 @@
 		'Chaotic Strike','Volt Strike',													--Ramuh (2)
 		'Barracude Dive','Spinning Dive',												--Leviathan (1)
 		'Punch',																		--Ifrit (1)
-		'Regal Scratch','Regal Gash',													--Cait Sith (2)
 		'Eclipse Bite',																	--Fenrir (1)
 		'Camisado',																		--Diabolos (1)
+		'Regal Scratch','Regal Gash',													--Cait Sith (2)
 		'Hysteric Assault'																--Siren (1)
 	}
 	

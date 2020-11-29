@@ -27,29 +27,31 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-	state.OffenseMode:options('Normal','DW')
-	state.CastingMode:options('Normal', 'Resistant')
-	state.IdleMode:options('Normal', 'DT','MEVA')
+	state.OffenseMode:options('Normal')
+	state.CastingMode:options('Normal','Resistant')
+	state.IdleMode:options('Normal','DT','MEVA')
 	state.MagicalDefenseMode:options('MEVA','MDT')
 	
-	state.BarElement = M{['description']='BarElement', 'Barfira', 'Barblizzara', 'Baraera', 'Barstonra', 'Barthundra', 'Barwatera'}
-    state.BarStatus = M{['description']='BarStatus', 'Baramnesra', 'Barvira', 'Barparalyzra', 'Barsilencera', 'Barpetra', 'Barpoisonra', 'Barblindra', 'Barsleepra'}
+	state.BarElement = M{['description']='BarElement','Barfira','Barblizzara','Baraera','Barstonra','Barthundra','Barwatera'}
+    state.BarStatus = M{['description']='BarStatus','Baramnesra','Barvira','Barparalyzra','Barsilencera','Barpetra','Barpoisonra','Barblindra','Barsleepra'}
 	
-	send_command('bind pageup gs c cycle BarElement')
-	send_command('bind pagedown gs c cycleback BarElement')
+	state.Boost = M{['description']='Boost','Boost-STR','Boost-DEX','Boost-INT','Boost-AGI','Boost-MND'}
 	
-	send_command('bind ^pageup gs c cycle BarStatus')
-	send_command('bind ^pagedown gs c cycleback BarStatus')
+	send_command('bind ^home gs c cycle BarElement')
+	send_command('bind ^end gs c cycleback BarElement')
+	
+	send_command('bind !home gs c cycle BarStatus')
+	send_command('bind !end gs c cycleback BarStatus')
 
 	apply_job_change()
 end
 
 
 function user_unload()
-	send_command('unbind pageup')
-	send_command('unbind ^pageup')
-	send_command('unbind pagedown')
-	send_command('unbind ^pagedown')
+	send_command('unbind ^home')
+	send_command('unbind !home')
+	send_command('unbind ^end')
+	send_command('unbind !end')
 end
 
 -- Define sets and vars used by this job file.
@@ -69,8 +71,8 @@ function init_gear_sets()
 	
 		sets.precast.JA['Benediction'] =
 		{
-			main="Asclepius", sub="Ammurapi Shield", ammo="Esper Stone +1",
-			head="Kaykaus Mitra +1", neck="Sanctity Necklace", lear="Loquac. Earring", rear="Etiolation Earring",
+			main="Asclepius", sub="Ammurapi Shield", ammo="Ghastly Tathlum +1",
+			head="Kaykaus Mitra +1", neck="Clr. Torque +2", lear="Loquac. Earring", rear="Etiolation Earring",
 			body="Piety Briault +3", hands="Kaykaus Cuffs +1", lring="Lebeche Ring", rring="Kuchekula Ring",
 			back="Fi Follet Cape +1", waist="Shinjutsu-no-Obi +1", legs="Piety Pantaln. +3", feet="Kaykaus Boots +1"
 		}
@@ -289,9 +291,12 @@ function init_gear_sets()
 		{
 			ammo="Pemphredo Tathlum",
 			neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
+			lring="Mephitas's Ring +1",
 			back="Fi Follet Cape +1",
 		})
 		sets.midcast.Teleport = sets.midcast.ConserveMP
+		
+		sets.midcast.Utsusemi = sets.midcast.FC
 
 
 	--------------------------------------
@@ -390,7 +395,7 @@ function init_gear_sets()
 		sets.idle =
 		{-- 	DT: -6%		|	PDT: -28%	| 	MDT: -6%	|	Refresh: 13 	| 	Regen: 3
 			main="Daybreak", sub="Genmei Shield", ammo="Homiliary",
-			head="Befouled Crown", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
+			head="Volte Beret", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 			body="Shamash Robe", hands="Chironic Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Volte Brais", feet="Chironic Slippers"
 		}
@@ -480,7 +485,8 @@ function init_gear_sets()
 		
 		sets.TreasureHunter =
 		{
-			head="Chironic Hat", hands="Volte Bracers",
+			head="Chironic Hat",
+			hands="Volte Bracers",
 			waist="Chaac Belt", legs="Volte Hose"
 		}
 	
@@ -690,7 +696,7 @@ end
 -------------------------------------------------------------------------------------------------------------------
 
 function customize_idle_set(idleSet)
-	if state.Buff['Sublimation: Activated'] and state.DefenseMode.value == 'None' then
+	if state.Buff['Sublimation: Activated'] and state.IdleMode.value == 'None' and state.DefenseMode.value == 'None' then
 		idleSet = set_combine(idleSet, 
 		{
 			waist="Embla Sash"
@@ -725,6 +731,8 @@ function job_self_command(cmdParams, eventArgs)
         send_command('@input /ma '..state.BarElement.current..' <me>')
     elseif cmdParams[1]:lower() == 'barstat' then
 		 send_command('@input /ma "'..state.BarStatus.current..'" <me>')
+    elseif cmdParams[1]:lower() == 'boost' then
+		 send_command('@input /ma "'..state.Boost.current..'" <me>')
 	end
 end
 

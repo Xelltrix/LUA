@@ -158,6 +158,8 @@ https://docs.windower.net/commands/keymapping/#
 --Function to bind GearSwap binds when loading a GS script.
 function global_on_load()
 	--General Bindings
+	send_command('bind f5 gs c cycle treasuremode')
+	
 	send_command('bind f9 gs c cycle OffenseMode')
 	send_command('bind ^f9 gs c cycle HybridMode')
 	send_command('bind !f9 gs c cycle WeaponskillMode')
@@ -174,16 +176,26 @@ function global_on_load()
 	send_command('bind ^f12 gs c cycle IdleMode')
 	send_command('bind !f12 gs c reset DefenseMode')
 	
-	send_command('bind pause gs c toggle WeaponLock')
-	send_command('bind scrolllock gs c toggle Kiting')
+	send_command('bind pause gs c toggle Kiting')
+	send_command('bind scrolllock gs c toggle WeaponLock')
 	
-	send_command('bind numpad/ gs c cycle CastingMode')
-	send_command('bind numpad* gs c toggle MagicBurst')
-	send_command('bind numpad. gs c toggle SaveMP')
+	if player.main_job == 'WHM' or player.main_job == 'BLM' or player.main_job == 'RDM' or player.main_job == 'NIN' or player.main_job == 'BLU' or player.main_job == 'SCH' or player.main_job == 'GEO' or player.main_job == 'RUN' then
+		send_command('bind numpad/ gs c cycle CastingMode')
+	end
+	
+	if player.main_job == 'WHM' or player.main_job == 'BLM' or player.main_job == 'RDM' or player.main_job == 'NIN' or player.main_job == 'SCH' or player.main_job == 'GEO' or player.main_job == 'RUN' then
+		send_command('bind numpad* gs c toggle MagicBurst')
+	end
+	
+	if player.main_job == 'WHM' or player.main_job == 'BLM' or player.main_job == 'RDM' or player.main_job == 'SCH' or player.main_job == 'GEO' then
+		send_command('bind numpad. gs c toggle SaveMP')
+	end
 end
 
 -- Function to revert binds when unloading.
 function global_on_unload()
+	send_command('unbind f5')
+	
 	send_command('unbind f9')
 	send_command('unbind ^f9')
 	send_command('unbind !f9')
@@ -203,9 +215,17 @@ function global_on_unload()
 	send_command('unbind pause')
 	send_command('unbind scrolllock')
 	
-	send_command('unbind numpad/')
-	send_command('unbind numpad*')
-	send_command('unbind numpad.')
+	if player.main_job == 'WHM' or player.main_job == 'BLM' or player.main_job == 'RDM' or player.main_job == 'NIN' or player.main_job == 'BLU' or player.main_job == 'SCH' or player.main_job == 'GEO' or player.main_job == 'RUN' then
+		send_command('unbind numpad/')
+	end
+	
+	if player.main_job == 'WHM' or player.main_job == 'BLM' or player.main_job == 'RDM' or player.main_job == 'NIN' or player.main_job == 'SCH' or player.main_job == 'GEO' or player.main_job == 'RUN' then
+		send_command('unbind numpad*')
+	end
+	
+	if player.main_job == 'WHM' or player.main_job == 'BLM' or player.main_job == 'RDM' or player.main_job == 'SCH' or player.main_job == 'GEO' then
+		send_command('unbind numpad.')
+	end
 end
 
 -------------------------------------------------------------------------------------------------------------------

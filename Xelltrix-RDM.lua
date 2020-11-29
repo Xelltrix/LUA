@@ -13,8 +13,6 @@ end
 
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
 function job_setup()
-	include('Mote-TreasureHunter')
-
     determine_haste_group()
 	update_combat_form()
 end
@@ -53,12 +51,16 @@ function user_setup()
 	}
 	
 	if player.sub_job == 'WHM' then
-		state.BarElement = M{['description']='BarElement', 'Barfira', 'Barblizzara', 'Baraera', 'Barstonra', 'Barthundra', 'Barwatera'}
-		state.BarStatus = M{['description']='BarStatus', 'Baramnesra', 'Barvira', 'Barparalyzra', 'Barsilencera', 'Barpetra', 'Barpoisonra', 'Barblindra', 'Barsleepra'}
+		state.BarElement = M{['description']='BarElement','Barfira','Barblizzara','Baraera','Barstonra','Barthundra','Barwatera'}
+		state.BarStatus = M{['description']='BarStatus','Baramnesra','Barvira','Barparalyzra','Barsilencera','Barpetra','Barpoisonra','Barblindra','Barsleepra'}
 	else
-		state.BarElement = M{['description']='BarElement', 'Barfire', 'Barblizzard', 'Baraero', 'Barstone', 'Barthunder', 'Barwater'}
-		state.BarStatus = M{['description']='BarStatus', 'Baramnesia', 'Barvirus', 'Barparalyze', 'Barsilence', 'Barpetrify', 'Barpoison', 'Barblind', 'Barsleep'}
+		state.BarElement = M{['description']='BarElement','Barfire','Barblizzard','Baraero','Barstone','Barthunder','Barwater'}
+		state.BarStatus = M{['description']='BarStatus','Baramnesia','Barvirus','Barparalyze','Barsilence','Barpetrify','Barpoison','Barblind','Barsleep'}
 	end
+	
+	state.Gain = M{['description']='Gain','Gain-STR','Gain-INT','Gain-DEX','Gain-MND'}
+	
+	state.Enspells = M{['description']='Enspell','Enfire','Enblizzard','Enaero','Enstone','Enthunder','Enwater'}
 
 
 	send_command('bind pageup gs c cycle MainWeaponSet')
@@ -67,17 +69,26 @@ function user_setup()
 	send_command('bind ^pageup gs c cycle SubWeaponSet')
 	send_command('bind ^pagedown gs c cycleback SubWeaponSet')
 	
-	send_command('bind ^` gs c cycle treasuremode')
+	send_command('bind ^home gs c cycle BarElement')
+	send_command('bind ^end gs c cycleback BarElement')
+	
+	send_command('bind !home gs c cycle BarStatus')
+	send_command('bind !end gs c cycleback BarStatus')
 
 	apply_job_change()
 end
 
-function user_unload()
-	send_command('unbind ^`')
+
+function user_unload()	
 	send_command('unbind pageup')
 	send_command('unbind pagedown')
 	send_command('unbind ^pageup')
 	send_command('unbind ^pagedown')
+	
+	send_command('unbind ^home')
+	send_command('unbind !home')
+	send_command('unbind ^end')
+	send_command('unbind !end')
 end
 
 -- Define sets and vars used by this job file.
@@ -105,19 +116,19 @@ function init_gear_sets()
 	--Fast Cast: 38%
 	
 		sets.precast.FC =
-		{--		51%(+38%)
+		{--		61%(+38%)
 			ammo="Staunch Tathlum +1",
 			head="Atrophy Chapeau +3", neck="Orunmila's Torque", lear="Loquac. Earring", rear="Malignance Earring",
 			body="Viti. Tabard +3", hands="Chironic Gloves", lring="Lebeche Ring", rring="Weather. Ring +1", 
-			back="Moonlight Cape", waist="Witful Belt", legs="Carmine Cuisses +1",feet="Amalric Nails +1"
+			back="Fi Follet Cape +1", waist="Witful Belt", legs="Carmine Cuisses +1",feet="Amalric Nails +1"
 		}
 
 		sets.precast.FC.Impact = 
-		{--		42%(+38%)
+		{--		52%(+38%)
 			ammo="Sapience Orb",
 			head=empty, neck="Orunmila's Torque", lear="Loquac. Earring", rear="Malignance Earring",
 			body="Twilight Cloak", hands="Leyline Gloves", lring="Lebeche Ring", rring="Weather. Ring +1", 
-			back="Moonlight Cape", waist="Witful Belt", legs="Volte Brais", feet="Carmine Greaves +1"
+			back="Fi Follet Cape +1", waist="Witful Belt", legs="Volte Brais", feet="Carmine Greaves +1"
 		}
 		
 		sets.precast.FC.Dispelga = set_combine(sets.precast.FC,
@@ -140,11 +151,11 @@ function init_gear_sets()
 	--------------------------------------
 
 		sets.midcast.FC =
-		{--		Fast Cast: 52%(+38%)
+		{--		Fast Cast: 62%(+38%)
 			ammo="Hasty Pinion +1",
 			head="Atrophy Chapeau +3", neck="Orunmila's Torque", lear="Loquac. Earring", rear="Malignance Earring",
 			body="Viti. Tabard +3", hands="Chironic Gloves", lring="Kishar Ring", rring="Freke Ring",
-			back="Moonlight Cape", waist="Witful Belt", legs="Carmine Cuisses +1",feet="Amalric Nails +1"
+			back="Fi Follet Cape +1", waist="Witful Belt", legs="Carmine Cuisses +1",feet="Amalric Nails +1"
 		}
 
 		sets.midcast.ConserveMP = 
@@ -172,7 +183,7 @@ function init_gear_sets()
 			ammo="Esper Stone +1",
 			head="Kaykaus Mitra +1", neck="Incanter's Torque", lear="Meili Earring", rear="Novia Earring",
 			body="Kaykaus Bliaut +1", hands="Kaykaus Cuffs +1", lring="Kuchekula Ring", rring="Menelaus's Ring",
-			back=gear.RDMCape_ENF, waist="Bishop's Sash", legs="Kaykaus Tights +1", feet="Kaykaus Boots +1"
+			back="Fi Follet Cape +1", waist="Bishop's Sash", legs="Kaykaus Tights +1", feet="Kaykaus Boots +1"
 		}
 
 		sets.midcast.Curagas = sets.midcast.Cures
@@ -257,15 +268,16 @@ function init_gear_sets()
 		{
 			ammo="Staunch Tathlum +1",
 			neck="Stone Gorget", lear="Earthcry Earring",
-			hands="Stone Mufflers",
+			hands="Stone Mufflers", rring="Freke Ring",
 			waist="Siegel Sash", legs="Shedir Seraweels"
 		})
 
 		sets.midcast.Aquaveil = set_combine(sets.midcast.Duration,
 		{
 			ammo="Staunch Tathlum +1",
-			head="Amalric Coif +1", hands="Regal Cuffs",
-			waist="Emphatikos Rope", legs="Shedir Seraweels"
+			head="Amalric Coif +1", 
+			hands="Regal Cuffs", rring="Freke Ring",
+			back="Fi Follet Cape +1", waist="Emphatikos Rope", legs="Shedir Seraweels", feet="Amalric Nails +1"
 		})
 		
 		sets.midcast.Protection = sets.midcast.Duration
@@ -513,11 +525,11 @@ function init_gear_sets()
 		}
 		
 		sets.idle.MEVA =
-		{-- 	PDT: -31% | MDT:-11%	|	Refresh: 11 | Regen: 0
+		{-- 	PDT: -31% | MDT:-11%	|	Refresh: 10 | Regen: 0
 			main="Daybreak", sub="Genmei Shield", ammo="Homiliary",
-			head="Viti. Chapeau +3", neck="Warder's Charm +1", lear="Eabani Earring", rear="Sanare Earring",
+			head="Volte Beret", neck="Warder's Charm +1", lear="Eabani Earring", rear="Sanare Earring",
 			body="Shamash Robe", hands="Malignance Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Moonlight Cape", waist="Carrier's Sash", legs="Carmine Cuisses +1", feet="Volte Gaiters"
+			back="Moonlight Cape", waist="Carrier's Sash", legs="Volte Brais", feet="Volte Gaiters"
 		}
 		
 		sets.idle.Refresh = set_combine(sets.idle,

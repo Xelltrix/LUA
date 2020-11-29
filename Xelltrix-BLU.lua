@@ -21,10 +21,6 @@ end
 
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
 function job_setup()
-
-
-	include('Mote-TreasureHunter')
-	
 	state.EnmityDown = M(false)
 
 	determine_haste_group()
@@ -61,8 +57,6 @@ function user_setup()
 		'Naegling'
 	}
 	
-	send_command('bind ^` gs c cycle treasuremode')
-	
 	send_command('bind numpad. gs c toggle EnmityDown')
 	
 	send_command('bind pageup gs c cycle MainWeaponSet')
@@ -85,7 +79,6 @@ end
 
 -- Called when this job file is unloaded (eg: job change)
 function user_unload()
-	send_command('unbind ^`')
 	send_command('unbind numpad.')
 	send_command('unbind pageup')
 	send_command('unbind pagedown')
@@ -175,11 +168,11 @@ function init_gear_sets()
 	-- Fast Cast: 15%
 	
 		sets.precast.FC =
-		{--		Fast Cast: 73%(+15%)
+		{--		Fast Cast: 83%(+15%)
 			ammo="Sapience Orb",
 			head="Carmine Mask +1", neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
 			body="Pinga Tunic +1", hands="Leyline Gloves", lring="Lebeche Ring", rring="Weather. Ring +1",
-			back="Moonlight Cape", waist="Witful Belt", legs="Pinga Pants +1", feet="Carmine Greaves +1"
+			back="Fi Follet Cape +1", waist="Witful Belt", legs="Pinga Pants +1", feet="Carmine Greaves +1"
 		}
 
 ----------------------------------------------------------------------------
@@ -196,14 +189,14 @@ function init_gear_sets()
 	--------------------------------------
 
 		sets.midcast.FC = set_combine(sets.precast.FC,
-		{--		Fast Cast: 72%(+15%)
+		{--		Fast Cast: 82%(+15%)
 			lring="Kishar Ring",
 			legs="Aya. Cosciales +2"
 		})
 
 		
 		sets.midcast.FC.SIRD = set_combine(sets.midcast.FC,
-		{--		Fast Cast: 33%(+15%)
+		{--		Fast Cast: 43%(+15%)
 			ammo="Staunch Tathlum +1",
 			head=gear.THead_Phalanx,
 			hands="Rawhide Gloves", lring="Evanescence Ring",
@@ -211,7 +204,7 @@ function init_gear_sets()
 		})
 		
 		sets.midcast.Duration =
-		{--		Fast Cast: 19%(+15%)	Duration: x1.5
+		{--		Fast Cast: 29%(+15%)	Duration: x1.5
 			ammo="Staunch Tathlum +1",
 			head=gear.ENH_Head, neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
 			body=gear.ENH_Body, hands=gear.ENH_Gloves, lring="Kishar Ring", rring="Weather. Ring +1",
@@ -219,7 +212,7 @@ function init_gear_sets()
 		}
 
 		sets.midcast.ConserveMP = set_combine(sets.midcast.FC,
-		{--		Fast Cast: 33%(+15%)
+		{--		Fast Cast: 43%(+15%)
 			ammo="Pemphredo Tathlum",
 			head=gear.ENH_Head, neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
 			body="Amalric Doublet +1", hands="Malignance Gloves",
@@ -369,7 +362,7 @@ function init_gear_sets()
 			legs="Aya. Cosciales +2", feet="Amalric Nails +1"
 		})
 		
-		sets.midcast.Flash = sets.midcast.Fantod	
+		sets.midcast.Flash = sets.Enmity	
 	
 
 	
@@ -630,10 +623,9 @@ function init_gear_sets()
 		}
 
 		sets.idle.DT = set_combine(sets.idle,
-		{--		DT: -31%	PDT: -46%	MDT: -32%	Refresh: 5	Regen: 0
+		{--		DT: -31%	PDT: -48%	MDT: -32%	Refresh: 5	Regen: 0
 			head="Malignance Chapeau", neck="Loricate Torque +1",  lear="Sanare Earring", rear="Odnowa Earring +1",
 			hands="Malignance Gloves", lring="Defending Ring", rring="Gelatinous Ring +1",
-			feet="Hippo. Socks +1"
 		})
 		
 		sets.idle.MEVA = set_combine(sets.idle,
@@ -2699,12 +2691,6 @@ end
 		gain == true if the buff was gained, false if it was lost. ]]
 function job_buff_change(buff,gain)
 	
-	if state.Buff[buff] ~= nil then
-        	if not midaction() and (player.equipment.lring ~= "Warp Ring"  and player.equipment.rring ~= "Warp Ring") then
-        		handle_equipping_gear(player.status)
-        	end
-	end
-	
 	---Gearswap for Doom Status
 	if buff == "doom" then
         	if gain then
@@ -2757,8 +2743,7 @@ function customize_idle_set(idleSet)
     if player.mpp < 51 and state.IdleMode.value ~= 'DT' and state.DefenseMode.value == 'None' then
         idleSet = set_combine(idleSet,
 		{
-			body="Jhakri Robe +2",
-			waist="Fucho-no-Obi",
+			waist="Fucho-no-Obi"
 		})
     end
 	

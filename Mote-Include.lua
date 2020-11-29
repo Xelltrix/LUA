@@ -133,6 +133,9 @@ function init_include()
 
     -- Used to define misc utility functions that may be useful for this include or any job files.
     include('Mote-Utility')
+	
+	-- Treasure Hunter LUA
+	include('Mote-TreasureHunter')
 
     -- Used for all self-command handling.
     include('Mote-SelfCommands')

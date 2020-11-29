@@ -38,14 +38,12 @@ function user_setup()
 	
 	state.MainWeaponSet = M{['description']='Main Weapon Set',
 		'Twashtar',
-		'Aeneas',
 		'Tauret'
-
 	}
 	
 	state.SubWeaponSet = M{['description']='Sub Weapon Set',
 		'Centovente',
-		'subTauret',
+		'Ternion',
 		'subTwashtar'
 	}
 
@@ -276,15 +274,13 @@ function init_gear_sets()
 	----------------------------------------- Weapon Sets ------------------------------------------
 	------------------------------------------------------------------------------------------------
 	
-		sets.Aeneas 		= { 	main="Aeneas" 		}
+		sets.Ternion 		= { 	sub="Ternion Dagger +1" 		}
 			
 		sets.Twashtar 		= { 	main="Twashtar"		}
 	
 		sets.subTwashtar 	= { 	sub="Twashtar" 		}
 		
 		sets.Tauret 		= { 	main="Tauret" 		}
-		
-		sets.subTauret 		= { 	sub="Tauret" 		}
 		
 		sets.Centovente		= { 	sub="Centovente"	}
 		
@@ -366,6 +362,13 @@ function init_gear_sets()
 			neck="Nicander's Necklace",
 			lring={name="Eshmun's Ring", bag="wardrobe2"}, rring={name="Eshmun's Ring", bag="wardrobe3"},
 			waist="Gishdubar Sash"
+		}
+		
+		sets.TreasureHunter = 
+		{ 
+			head=gear.HHead_TH, 
+			hands="Volte Bracers",
+			waist="Chaac Belt"
 		}
 	
 	

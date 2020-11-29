@@ -249,11 +249,19 @@ function init_gear_sets()
 		sets.midcast.Protection = sets.midcast.Duration
 		
 		sets.midcast.Geomancy = 
-		{
+		{--		Geomancy+Handbell: 904	Conserve MP: 57%
+			main="Idris", sub="Chanter's Shield", range="Dunna", ammo=empty,
+			head="Azimuth Hood +1", neck="Bagua Charm +1", lear="Loquac. Earring", rear="Mendi. Earring",
+			body="Amalric Doublet +1", hands="Shrieker's Cuffs", lring="Mephitas's Ring +1", rring={name="Stikini Ring +1", bag="wardrobe3"},
+			back="Fi Follet Cape +1", waist="Shinjutsu-no-Obi +1", legs="Azimuth Tights +1", feet="Medium's Sabots"
+		}
+		
+		sets.midcast.Indicolure =
+		{--		Geomancy+Handbell: 902	Conserve MP: 53%
 			main="Idris", sub="Chanter's Shield", range="Dunna", ammo=empty,
 			head="Vanya Hood", neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
-			body="Amalric Doublet +1", hands="Geo. Mitaines +3", lring="Mephitas's Ring +1", rring="Weather. Ring +1",
-			back="Fi Follet Cape +1", waist="Shinjutsu-no-Obi +1", legs="Lengo Pants", feet="Medium's Sabots"
+			body="Amalric Doublet +1", hands="Shrieker's Cuffs", lring="Mephitas's Ring +1", rring="Weather. Ring +1",
+			back="Lifestream Cape", waist="Shinjutsu-no-Obi +1", legs="Bagua Pants +3", feet="Azimuth Gaiters +1"
 		}
 	
 	--------------------------------------
@@ -397,15 +405,15 @@ function init_gear_sets()
 		sets.idle =
 		{--Regen+3 | Refresh+9 | PDT/MDT: (21/9)
 			main="Daybreak", sub="Genmei Shield", ammo="Staunch Tathlum +1",
-			head="Befouled Crown", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
+			head="Volte Beret", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 			body="Shamash Robe", hands="Bagua Mitaines +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Volte Brais", feet="Geo. Sandals +3"
 		}
 
 		sets.idle.DT =
-		{--Refresh+6 | PDT/MDT: (49/14)
+		{--Refresh+6 | PDT/MDT: (51/14)
 			main="Daybreak", sub="Genmei Shield", ammo="Staunch Tathlum +1",
-			head="Hike Khat +1", neck="Warder's Charm +1", lear="Odnowa Earring +1", rear="Lugalbanda Earring",
+			head="Hike Khat +1", neck="Warder's Charm +1", lear="Odnowa Earring +1", rear="Genmei Earring",
 			body="Shamash Robe", hands="Bagua Mitaines +3", lring="Defending Ring", rring="Shadow Ring",
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Volte Brais", feet="Geo. Sandals +3"
 		}
@@ -463,7 +471,7 @@ function init_gear_sets()
 		sets.defense.MEVA = 
 		{--PDT: 42 / MDT: 24
 			main="Daybreak", sub="Genmei Shield", ammo="Staunch Tathlum +1",
-			head="Ea Hat +1", neck="Warder's Charm +1", lear="Odnowa Earring +1", rear="Lugalbanda Earring",
+			head="Volte Beret", neck="Warder's Charm +1", lear="Odnowa Earring +1", rear="Lugalbanda Earring",
 			body="Shamash Robe", hands="Raetic Bangles +1", lring="Defending Ring", rring="Shadow Ring",
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Volte Brais", feet="Volte Gaiters"
 		}
@@ -480,7 +488,7 @@ function init_gear_sets()
 	-- Special Sets
 	--------------------------------------
 
-		sets.Kiting = { feet="Hippo. Socks +1" }
+		sets.Kiting = { ffeet="Geo. Sandals +3" }
 
 		sets.buff.Doom = 
 		{
@@ -632,21 +640,14 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 	
 	if spell.english:startswith('Indi') then
 		if spell.target.type == 'SELF' then
-			equip(
-			{
-				back="Lifestream Cape", legs="Bagua Pants +3", feet="Azimuth Gaiters +1"
-			})
+			equip(sets.midcast.Indicolure)
 		elseif spell.target.type == 'PLAYER' or spell.target.type == 'NPC' then
-			equip(
+			equip(set_combine(sets.midcast.Indicolure,
 			{
 				main="Solstice",
-				back="Lifestream Cape", legs="Bagua Pants +3", feet="Azimuth Gaiters +1"
-			})
+				rear="Malignance Earring"
+			}))
 		end
-	end
-	
-	if spell.english:startswith('Geo') then
-		equip({ neck="Bagua Charm +1" })
 	end
 
 	if (spell.skill == 'Elemental Magic') and state.MagicBurst.value and (state.CastingMode.value ~= 'Resistant') then
@@ -760,6 +761,22 @@ end
 function display_current_job_state(eventArgs)
 	display_current_caster_state()
 	eventArgs.handled = true
+end
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------
+-- User self-commands.
+-------------------------------------------------------------------------------------------------------------------
+
+
+function job_self_command(cmdParams, eventArgs)
+    if cmdParams[1]:lower() == 'barele' then
+        send_command('@input /ma '..state.BarElement.current..' <me>')
+    elseif cmdParams[1]:lower() == 'barstat' then
+		 send_command('@input /ma "'..state.BarStatus.current..'" <me>')
+	end
 end
 
 
