@@ -398,13 +398,13 @@ function init_gear_sets()
 			back=gear.SCHCape_Nuke, waist="Sacro Cord", legs="Merlinic Shalwar", feet="Amalric Nails +1"
 		}
 		
-		sets.magic_burst.Resistant = set_combine(sets.magic_burst,
+		sets.magic_burst.Resistant =
 		{--		Magic Burst: 40%	Magic Burst II: +4%
 			main="Marin Staff +1", sub="Khonsu", ammo="Ghastly Tathlum +1",
 			head="Peda. M.Board +3", neck="Argute Stole +2", lear="Static Earring", rear="Malignance Earring",
 			body="Acad. Gown +3", hands="Regal Cuffs", lring="Locus Ring", rring="Mujin Band",
 			back=gear.SCHCape_Nuke, waist="Sacro Cord", legs="Merlinic Shalwar", feet="Acad. Loafers +3"
-		})
+		}
 
 	
 	--------------------------------------
@@ -515,9 +515,9 @@ function init_gear_sets()
 		
 		sets.TreasureHunter =
 		{
+			ammo="Per. Lucky Egg",
 			head="Chironic Hat",
-			hands="Volte Bracers",
-			waist="Chaac Belt", legs="Volte Hose"
+			waist="Chaac Belt",
 		}
 	
 	---Stratagem Buffs

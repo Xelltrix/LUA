@@ -69,6 +69,12 @@ function define_global_sets()
 	gear.DRGCape_STP = { name="Brigantia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}}
 	gear.DRGCape_Crit = { name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Crit.hit rate+10','Phys. dmg. taken -10%'}}
 	
+	gear.CORCape_SWSD = { name="Camulus's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken -10%'}}
+	gear.CORCape_RWSD = { name="Camulus's Mantle", augments={'AGI+20','Rng. Acc.+20 Rng. Atk.+20','AGI+10','Weapon skill damage +10%','Phys. dmg. taken-10%'}}
+	gear.CORCape_DA = { name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken -10%'}}
+	gear.CORCape_STP = { name="Camulus's Mantle", augments={'AGI+20','Rng. Acc.+20 Rng. Atk.+20','Rng. Acc.+10','"Store TP"+10','Phys. dmg. taken -10%'}}
+	gear.CORCape_Snap = { name="Camulus's Mantle", augments={'AGI+20','Rng. Acc.+20 /Rng. Atk.+20','"Snapshot"+10','Phys. dmg. taken-10%'}}
+	
 	-- Colada
 	gear.Colada_ENH = { name="Colada", augments={'Enh. Mag. eff. dur. +4','Mag. Acc.+8','DMG:+14'}}
 	
@@ -113,7 +119,7 @@ function define_global_sets()
 	gear.VMail_WSD = { name="Valorous Mail", augments={'Attack+3','Weapon skill damage +3%','STR+15','Accuracy+11',}}
 	
 	--- Adhemar
-	gear.AHead_TP = { name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}}
+	gear.AHead_TP = { name="Adhemar Bonnet +1", augments={'DEX+12','STR+12','Attack+20',}}
 	gear.AHead_PDT = { name="Adhemar Bonnet +1", augments={'HP+105','Attack+13','Phys. dmg. taken -4',}}
 	
 	--- Taeon

@@ -114,8 +114,8 @@ function init_gear_sets()
 		
 		sets.TreasureHunter = 
 		{ 
+			ammo="Per. Lucky Egg",
 			head=gear.HHead_TH, 
-			legs="Volte Hose",
 			waist="Chaac Belt"
 		}
 		
@@ -168,7 +168,7 @@ function init_gear_sets()
 	-- Fast Cast: 15%
 	
 		sets.precast.FC =
-		{--		Fast Cast: 83%(+15%)
+		{--		Fast Cast: 87%(+15%)
 			ammo="Sapience Orb",
 			head="Carmine Mask +1", neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
 			body="Pinga Tunic +1", hands="Leyline Gloves", lring="Lebeche Ring", rring="Weather. Ring +1",
@@ -189,22 +189,22 @@ function init_gear_sets()
 	--------------------------------------
 
 		sets.midcast.FC = set_combine(sets.precast.FC,
-		{--		Fast Cast: 82%(+15%)
+		{--		Fast Cast: 84%(+15%)
 			lring="Kishar Ring",
 			legs="Aya. Cosciales +2"
 		})
 
 		
 		sets.midcast.FC.SIRD = set_combine(sets.midcast.FC,
-		{--		Fast Cast: 43%(+15%)
+		{--		Fast Cast: 43%(+15%)	SIRD: 92%(+10%)
 			ammo="Staunch Tathlum +1",
 			head=gear.THead_Phalanx,
-			hands="Rawhide Gloves", lring="Evanescence Ring",
+			hands="Rawhide Gloves",
 			waist="Emphatikos Rope", legs="Assim. Shalwar +3", feet="Amalric Nails +1"
 		})
 		
 		sets.midcast.Duration =
-		{--		Fast Cast: 29%(+15%)	Duration: x1.5
+		{--		Fast Cast: 46%(+15%)	Duration: x1.5
 			ammo="Staunch Tathlum +1",
 			head=gear.ENH_Head, neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
 			body=gear.ENH_Body, hands=gear.ENH_Gloves, lring="Kishar Ring", rring="Weather. Ring +1",
@@ -212,10 +212,10 @@ function init_gear_sets()
 		}
 
 		sets.midcast.ConserveMP = set_combine(sets.midcast.FC,
-		{--		Fast Cast: 43%(+15%)
+		{--		Fast Cast: 44%(+15%)	CMP: 36
 			ammo="Pemphredo Tathlum",
 			head=gear.ENH_Head, neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
-			body="Amalric Doublet +1", hands="Malignance Gloves",
+			body="Amalric Doublet +1",
 			back="Fi Follet Cape +1", waist="Witful Belt", legs="Lengo Pants", feet="Carmine Greaves +1"
 		})
 
@@ -224,30 +224,30 @@ function init_gear_sets()
 	-- Buffing Midcast sets
 	--------------------------------------
 	
-		sets.midcast['Magic Barrier'] = set_combine(sets.midcast.FC,
-		{
+		sets.midcast['Magic Barrier'] =
+		{--		Fast Cast: 5%(+15%)		Skill: 628
 			ammo="Mavi Tathlum",
-			head="Luh. Keffiyeh +3", neck="Mirage Stole +2", lear="Njordr Earring",
+			head="Luh. Keffiyeh +3", neck="Mirage Stole +2", lear="Njordr Earring", rear="Loquac. Earring",
 			body="Assim. Jubbah +3", hands="Rawhide Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Cornflower Cape", legs="Hashishin Tayt +1", feet="Luhlaza Charuqs +3"
-		})
+			back="Cornflower Cape", waist="Witful Belt", legs="Hashishin Tayt +1", feet="Luhlaza Charuqs +3"
+		}
 		
 		sets.midcast['BlueSkin'] = set_combine(sets.midcast.ConserveMP,
-		{
+		{--		Fast Cast: 48%(+15%)	Skill: 501
 			head="Carmine Mask +1",
 			hands="Leyline Gloves",
 			back="Cornflower Cape", 
 		})
 		
 		sets.midcast.Occultation = set_combine(sets.midcast['Magic Barrier'],
-		{
+		{--		Fast Cast: 19%(+15%)	Skill: 601 		Recast Delay -14%
 			head="Carmine Mask +1",
 			hands="Hashi. Bazu. +1",
 			waist="Witful Belt"
 		})
 		
 		sets.midcast.Occultation.Alternate = set_combine(sets.midcast.FC,
-		{--		Fast Cast: 31%(+15%)	Blue Magic Recast Delay: -14%
+		{--		Fast Cast: 42%(+15%)	Skill: 50 		Recast Delay: -14%
 			ammo="Mavi Tathlum",
 			neck="Mirage Stole +2", lear="Njordr Earring",
 			body="Assim. Jubbah +3", hands="Hashi. Bazu. +1",
@@ -255,7 +255,7 @@ function init_gear_sets()
 		})
 
 		sets.midcast.Buffs = set_combine(sets.midcast.ConserveMP,
-		{
+		{--		Fast Cast: 36%(+15%)	Recsat Delay: -14%
 			lear="Tuisto Earring",
 			body="Luhlaza Jubbah +3", hands="Hashi. Bazu. +1", lring="Defending Ring", rring="Gelatinous Ring +1",
 			legs="Aya. Cosciales +2"
@@ -276,33 +276,33 @@ function init_gear_sets()
 	--------------------------------------	
 	
 		sets.midcast.Cures =
-		{--		Cure Potency: 50%
+		{--		Cure Potency: 53%	Cure Received: 14%
 			ammo="Staunch Tathlum +1",
-			head=gear.ENH_Head, neck="Incanter's Torque", lear="Meili Earring", rear="Beatific Earring",
+			head=gear.ENH_Head, neck="Incanter's Torque", lear="Meili Earring", rear="Mendi. Earring",
 			body="Pinga Tunic +1", hands=gear.ENH_Gloves, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Oretan. Cape +1", waist="Bishop's Sash", legs="Pinga Pants +1", feet="Medium's Sabots"
+			back="Fi Follet Cape +1", waist="Bishop's Sash", legs="Pinga Pants +1", feet="Medium's Sabots"
 		}
 		
-		sets.midcast.Cures.Alternate = set_combine(sets.midcast.Cures,
-		{
-			head="Malignance Chapeau", neck="Loricate Torque +1", lear="Genmei Earring", rear="Mendi. Earring",
-			hands="Malignance Gloves", lring="Defending Ring", rring="Menelaus's Ring",
-			waist="Flume Belt +1"
-			
-		})
+		sets.midcast.Cures.Alternate = 
+		{--		Cure Potency: 54%	PDT:37% 	MDT:35%
+			ammo="Staunch Tathlum +1",
+			head="Malignance Chapeau", neck="Loricate Torque +1", lear="Odnowa Earring +1", rear="Mendi. Earring",
+			body="Pinga Tunic +1", hands="Malignance Gloves", lring="Defending Ring", rring="Menelaus's Ring",
+			back="Oretan. Cape +1", waist="Flume Belt +1", legs="Pinga Pants +1", feet="Medium's Sabots"
+		}
 
-		sets.midcast['White Wind'] = set_combine(sets.midcast.Cures,
-		{--		Cure Potency: 53%
+		sets.midcast['White Wind'] =
+		{--		Cure Potency: 53%		HP+1149
 			ammo="Pemphredo Tathlum",
 			head=gear.ENH_Head, neck="Unmoving Collar +1", lear="Tuisto Earring", rear="Odnowa Earring +1",
-			lring="Lebeche Ring", rring="Gelatinous Ring +1",
-			back="Moonlight Cape", waist="Gishdubar Sash"
-		})
+			body="Pinga Tunic +1", hands=gear.ENH_Gloves, lring="Lebeche Ring", rring="Gelatinous Ring +1",
+			back="Moonlight Cape", waist="Gishdubar Sash", legs="Pinga Pants +1", feet="Medium's Sabots"
+		}
 		
 		sets.midcast.StatusRemoval = sets.midcast.FC
 
 		sets.midcast.Cursna = set_combine(sets.precast.FC,
-		{
+		{-- Healing Magic Skill + 60		Cursna + 65
 			neck="Debilis Medallion", lear="Meili Earring", rear="Beatific Earring",
 			hands="Hieros Mittens", lring="Haoma's Ring", rring="Menelaus's Ring",
 			back="Oretan. Cape +1", waist="Bishop's Sash", legs="Carmine Cuisses +1"
@@ -448,11 +448,11 @@ function init_gear_sets()
 		})
 
 		sets.midcast['Dream Flower'].Alternate =
-		{--		DT: -28%	PDT: 49%
+		{--		DT: -37%	PDT: 54%
 			ammo="Staunch Tathlum +1",
-			head="Malignance Chapeau", neck="Mirage Stole +2", lear="Digni. Earring", rear="Regal Earring",
+			head="Malignance Chapeau", neck="Mirage Stole +2", lear="Digni. Earring", rear="Njordr Earring",
 			body="Malignance Tabard", hands="Malignance Gloves", lring="Defending Ring", rring="Gelatinous Ring +1",
-			back=gear.BLUCape_Nuke, waist="Flume Belt +1", legs="Assim. Shalwar +3", feet="Malignance Boots"
+			back=gear.BLUCape_Nuke, waist="Rumination Sash", legs="Assim. Shalwar +3", feet="Malignance Boots"
 		}
 		
 		sets.midcast['Embalming Earth'] = sets.midcast['Entomb']
@@ -481,7 +481,7 @@ function init_gear_sets()
 	
 	---Defensive Magic
 		sets.midcast['Enhancing Magic'] =
-		{
+		{--	 Enhancing Skill + 96
 			ammo="Staunch Tathlum +1",
 			head="Carmine Mask +1", neck="Incanter's Torque", lear="Andoaa Earring", rear="Mimir Earring",
 			body=gear.ENH_Body, hands=gear.ENH_Gloves, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
@@ -497,14 +497,14 @@ function init_gear_sets()
 		
 		
 		sets.midcast.Stoneskin = set_combine(sets.midcast.Duration,
-		{
+		{--		Stoneskin +125
 			neck="Stone Gorget", rear="Earthcry Earring",
 			hands="Stone Mufflers",
 			waist="Siegel Sash", legs="Shedir Seraweels"
 		})
 
 		sets.midcast.Refresh = set_combine(sets.midcast.ConserveMP,
-		{
+		{--		Refresh +2
 			head="Amalric Coif +1", 
 			body=gear.ENH_Body, hands=gear.ENH_Gloves,
 			legs=gear.ENH_Legs, feet="Telchine Pigaches"
@@ -615,7 +615,7 @@ function init_gear_sets()
 	------------------------------------------------------------------------------------------------
 
 		sets.idle =
-		{--		DT: -9%		PDT: -15%	MDT: -9%	Refresh: 8	Regen: 3
+		{--		DT: -9%		PDT: -27%	MDT: -9%	Refresh: 9	Regen: 4
 			ammo="Staunch Tathlum +1",
 			head="Rawhide Mask", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 			body="Shamash Robe", hands=gear.HHands_Refresh, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
@@ -623,20 +623,21 @@ function init_gear_sets()
 		}
 
 		sets.idle.DT = set_combine(sets.idle,
-		{--		DT: -31%	PDT: -48%	MDT: -32%	Refresh: 5	Regen: 0
-			head="Malignance Chapeau", neck="Loricate Torque +1",  lear="Sanare Earring", rear="Odnowa Earring +1",
+		{--		DT: -33%	PDT: -52%	MDT: -34%	Refresh: 5	Regen: 0
+			head="Malignance Chapeau", neck="Warder's Charm +1",  lear="Sanare Earring", rear="Odnowa Earring +1",
 			hands="Malignance Gloves", lring="Defending Ring", rring="Gelatinous Ring +1",
+			waist="Carrier's Sash"
 		})
 		
 		sets.idle.MEVA = set_combine(sets.idle,
-		{--		DT: -15%	PDT: -15%	MDT: -15%	Refresh: 5	Regen: 0
+		{--		DT: -27%	PDT: -37%	MDT: -29%	Refresh: 5	Regen: 0
 			head="Malignance Chapeau", neck="Warder's Charm +1", lear="Sanare Earring", rear="Odnowa Earring +1",
 			body="Shamash Robe", hands="Malignance Gloves",
 			waist="Carrier's Sash", feet="Malignance Boots"
 		})
 		
 		sets.idle.Refresh = set_combine(sets.idle,
-		{--		DT: -9%		PDT: -15%	MDT: -9%	Refresh: 10	Regen: 3
+		{--		DT: -9%		PDT: -17%	MDT: -9%	Refresh: 11	Regen: 4
 			body="Jhakri Robe +2",
 			legs="Lengo Pants"
 		})
@@ -671,7 +672,7 @@ function init_gear_sets()
 		}
 
 		sets.defense.MDT = set_combine(sets.defense.PDT,
-		{--		DT: -36%	PDT: -45%	MDT: -46%
+		{--		DT: -53%	PDT: -53%	MDT: -53%
 			head="Malignance Chapeau", neck="Warder's Charm +1", lear="Eabani Earring", rear="Sanare Earring",
 			rring="Shadow Ring",
 			legs="Malignance Tights", feet="Malignance Boots"
@@ -1908,9 +1909,9 @@ function init_gear_sets()
 		sets.engaged.DW5.Max.AM3 =
 		{
 			ammo="Aurgelmir Orb +1",
-			head="Malignance Chapeau", neck="Mirage Stole +2", lear="Telos Earring", rear="Dedition Earring",
+			head="Dampening Tam", neck="Mirage Stole +2", lear="Telos Earring", rear="Dedition Earring",
 			body="Malignance Tabard", hands="Malignance Gloves", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
-			back=gear.BLUCape_STP, waist="Kentarch Belt +1", legs="Malignance Tights", feet="Malignance Boots"
+			back=gear.BLUCape_STP, waist="Windbuffet Belt +1", legs="Malignance Tights", feet="Malignance Boots"
 		}
 
 		-----------------------------------------------------------------------------------
@@ -2607,6 +2608,21 @@ end
 -- Job-specific hooks for standard casting events.
 -------------------------------------------------------------------------------------------------------------------
 
+function precast(spell,abil)
+    if midaction() then
+            return
+    else
+        windower.send_command('wait 1;gs c midact')
+    end
+end
+ 
+function self_command(cmd)
+    if cmd == 'midact' then
+        midaction(false)
+    end
+end
+
+
 -- Run after the general precast() is done.
 function job_post_precast(spell, action, spellMap, eventArgs)
 	if state.EnmityDown.value and spell.type == 'WeaponSkill' then
@@ -2704,9 +2720,13 @@ function job_buff_change(buff,gain)
 	
 	-- If we gain or lose any haste buffs, adjust which gear set we target.
 	if S{'haste','march','embrava','haste samba', 'mighty guard', 'geo-haste', 'indi-haste', 'slow', 'indi-slow', 'elegy',}:contains(buff:lower()) then
-		determine_haste_group()
+		if not midaction() then
+			determine_haste_group()
+		end
 	elseif state.Buff[buff] ~= nil then
-        handle_equipping_gear(player.status)
+        if not midaction() then
+			handle_equipping_gear(player.status)
+		end
 	end
 	
 	if buffactive['Aftermath: Lv.3'] and player.equipment.main == "Tizona" then
@@ -2763,11 +2783,12 @@ function job_update(cmdParams, eventArgs)
 		handle_equipping_gear(player.status)
 	end
 	
-	determine_haste_group()
-	update_active_abilities()
-	update_combat_form()
-	th_update(cmdParams, eventArgs)
-	
+	if not midaction() then
+		determine_haste_group()
+		update_active_abilities()
+		update_combat_form()
+		th_update(cmdParams, eventArgs)
+	end
 end
 
 -- Function to display the current relevant user state when doing an update.

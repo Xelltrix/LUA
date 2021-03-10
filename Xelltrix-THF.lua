@@ -52,14 +52,14 @@ function user_setup()
 	state.IdleMode:options('Normal','DT')
 	
 	state.MainWeaponSet = M{['description']='Main Weapon Set',
-		'Tauret',
-		'Twashtar'
+		'Twashtar',
+		'Tauret'
 	}
 	
 	state.SubWeaponSet = M{['description']='Sub Weapon Set',
-		'subTwashtar',
+		'Centovente',
 		'Ternion',
-		'Centovente'
+		'subTwashtar'
 	}
 	
 	state.MainStep = M{['description']='Main Step', 'Box Step', 'Quickstep','Stutter Step'}
@@ -116,16 +116,10 @@ function init_gear_sets()
 
 		sets.TreasureHunter =
 		{
-			hands="Plun. Armlets +3",
-			waist="Chaac Belt"
-		}
-		
-		sets.TreasureHunter2 =
-		{
-			head=gear.HHead_TH,
+			ammo="Per. Lucky Egg",
 			hands="Plun. Armlets +3"
 		}
-		
+
 		sets.Enmity = 
 		{--		Enmity: +75
 			ammo="Sapience Orb",
@@ -431,7 +425,7 @@ function init_gear_sets()
 			ammo="Yetshila +1",
 			head="Pill. Bonnet +2", neck="Asn. Gorget +1", lear="Odr Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Plunderer's Vest +3", rring="Ilabrat Ring",
-			waist="Grunfeld Rope"
+			waist="Kentarch Belt +1"
 		})
 
 		sets.precast.WS.TA = set_combine(sets.precast.WS.SA,
@@ -481,13 +475,13 @@ function init_gear_sets()
 		})
 
 	---Evisceration
-		sets.precast.WS['Evisceration'] = set_combine(sets.precast.WS,
+		sets.precast.WS['Evisceration'] =
 		{
 			ammo="Yetshila +1",
-			head=gear.AHead_TP, lear="Odr Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
+			head=gear.AHead_TP, neck="Fotia Gorget", lear="Odr Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Plunderer's Vest +3", hands="Adhemar Wrist. +1", lring="Ilabrat Ring", rring="Regal Ring",
-			back="Sacro Mantle", legs="Pill. Culottes +3", feet=gear.HBoots_Crit
-		})
+			back="Sacro Mantle", waist="Fotia Belt", legs="Pill. Culottes +3", feet=gear.HBoots_Crit
+		}
 
 		sets.precast.WS['Evisceration'].Low = set_combine(sets.precast.WS['Evisceration'],
 		{
@@ -559,7 +553,7 @@ function init_gear_sets()
 			ammo="Aurgelmir Orb +1",
 			head="Pill. Bonnet +2", neck="Asn. Gorget +1", lear="Odr Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Herculean Vest", hands="Meg. Gloves +2", lring="Epaminondas's Ring", rring="Regal Ring",
-			back="Sacro Mantle", waist="Grunfeld Rope", legs="Plun. Culottes +3", feet="Plun. Poulaines +3"
+			back="Sacro Mantle", waist="Kentarch Belt +1", legs="Plun. Culottes +3", feet="Plun. Poulaines +3"
 		}
 
 		sets.precast.WS['Rudra\'s Storm'].Low = sets.precast.WS["Rudra's Storm"]
@@ -571,6 +565,7 @@ function init_gear_sets()
 		sets.precast.WS['Rudra\'s Storm'].SA = set_combine(sets.precast.WS["Rudra's Storm"],
 		{
 			ammo="Yetshila +1",
+			body="Plunderer's Vest +3",
 			feet=gear.HBoots_Crit
 		})
 
@@ -865,6 +860,21 @@ end
 -- Job-specific hooks for standard casting events.
 -------------------------------------------------------------------------------------------------------------------
 
+
+function precast(spell,abil)
+    if midaction() then
+            return
+    else
+        windower.send_command('wait 1;gs c midact')
+    end
+end
+ 
+function self_command(cmd)
+    if cmd == 'midact' then
+        midaction(false)
+    end
+end
+
 -- Run after the general precast() is done.
 function job_post_precast(spell, action, spellMap, eventArgs)
 	if state.EnmityDown.value and spell.type == 'WeaponSkill' then
@@ -872,7 +882,7 @@ function job_post_precast(spell, action, spellMap, eventArgs)
 	end
 	
 	if (spell.english == 'Cyclone' or (spell.action_type == 'Ability' and spell.target.type == 'MONSTER')) and state.TreasureMode.value ~= 'None' then
-		equip(sets.TreasureHunter2)
+		equip(sets.TreasureHunter)
 	elseif spell.english=='Sneak Attack' or spell.english=='Trick Attack' or spell.type == 'WeaponSkill' then
 		if state.TreasureMode.value == 'SATA' or state.TreasureMode.value == 'Fulltime' then
 			equip(sets.TreasureHunter)
@@ -896,7 +906,7 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 	if state.TreasureMode.value ~= 'None' and spell.action_type == 'Ranged Attack' then
 		equip(sets.TreasureHunter)
 	elseif spell.action_type == 'Magic' and spell.target.type == 'MONSTER' and state.TreasureMode.value ~= 'None' then
-		equip(sets.TreasureHunter2)
+		equip(sets.TreasureHunter)
 	end
 end
 
@@ -947,13 +957,16 @@ function job_buff_change(buff,gain)
 	
 
 	-- If we gain or lose any haste buffs, adjust which gear set we target.
-	if S{'haste','march','embrava','haste samba', 'mighty guard', 'geo-haste','indi-haste','slow','indi-slow','elegy'}:contains(buff:lower()) then
-		determine_haste_group()
-		handle_equipping_gear(player.status)
+	if S{'haste','march','embrava','haste samba', 'mighty guard', 'geo-haste', 'indi-haste', 'slow', 'indi-slow', 'elegy',}:contains(buff:lower()) then
+		if not midaction() then
+			determine_haste_group()
+		end
 	elseif state.Buff['Sneak Attack'] == false or state.Buff['Trick Attack'] == false then
 		handle_equipping_gear(player.status)
-	 elseif state.Buff[buff] ~= nil then
-        handle_equipping_gear(player.status)
+	elseif state.Buff[buff] ~= nil then
+        if not midaction() then
+			handle_equipping_gear(player.status)
+		end
 	end
 end
 
@@ -1035,9 +1048,11 @@ function job_update(cmdParams, eventArgs)
 	equip(sets[state.MainWeaponSet.current])
 	equip(sets[state.SubWeaponSet.current])
 
-	determine_haste_group()
+	if not midaction() then
+		determine_haste_group()
 
-	th_update(cmdParams, eventArgs)
+		th_update(cmdParams, eventArgs)
+	end
 end
 
 -- Function to display the current relevant user state when doing an update.
@@ -1157,12 +1172,12 @@ end
 
 -- Select default macro book on initial load or subjob change.
 function apply_job_change()
-	if player.sub_job == 'WAR' or player.sub_job == 'NIN' or player.sub_job == 'RUN' then
-		set_macro_page(1, 6)
+	if player.sub_job == 'RDM' or player.sub_job == 'WHM' or player.sub_job == 'BLM' or player.sub_job == 'SCH' then
+		set_macro_page(7, 6)
 	elseif player.sub_job == 'DNC' then
 		set_macro_page(4, 6)
-	elseif player.sub_job == 'RDM' or player.sub_job == 'WHM' or player.sub_job == 'BLM' then
-		set_macro_page(7, 6)
+	else
+		set_macro_page(1, 6)
 	end
 	
 	send_command('wait 3; input /lockstyleset 6')

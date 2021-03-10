@@ -113,8 +113,8 @@ function init_gear_sets()
 		
 		sets.TreasureHunter = 
 		{ 
+			ammo="Per. Lucky Egg",
 			head=gear.HHead_TH, 
-			hands="Volte Bracers",
 			waist="Chaac Belt"
 		}
 			
@@ -261,7 +261,7 @@ function init_gear_sets()
 			ammo="Ghastly Tathlum +1",
 			head="Mochi. Hatsuburi +3", neck="Sanctity Necklace", lear="Friomisi Earring", rear="Crematio Earring",
 			body="Gyve Doublet", hands="Leyline Gloves", lring="Dingir Ring", rring="Metamor. Ring +1",
-			back=gear.NINCape_Nuke, waist="Orpheus's Sash", legs="Gyve Trousers", feet="Adhemar Gamashes +1"
+			back=gear.NINCape_Nuke, waist="Orpheus's Sash", legs="Gyve Trousers", feet="Adhe. Gamashes +1"
 		}
 		
 		sets.magic_burst =
@@ -375,7 +375,7 @@ function init_gear_sets()
 		{
 			ammo="Cath Palug Stone",
 			head="Ken. Jinpachi +1", neck="Fotia Gorget", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-			body="Adhemar Jacket +1",hands="Ken. Tekko +1", lring="Ilabrat Ring", rring="Regal Ring",
+			body="Adhemar Jacket +1", hands="Adhemar Wrist. +1", lring="Ilabrat Ring", rring="Regal Ring",
 			back="Sacro Mantle", waist="Fotia Belt", legs="Jokushu Haidate", feet="Ken. Sune-Ate +1"
 		}
 	
@@ -413,7 +413,7 @@ function init_gear_sets()
 		{
 			ammo="Yetshila +1",
 			head=gear.AHead_TP, neck="Fotia Gorget", lear="Odr Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
-			body="Ken. Samue +1", hands="Ken. Tekko +1", lring="Ilabrat Ring", rring="Regal Ring",
+			body="Ken. Samue +1", hands="Adhemar Wrist. +1", lring="Ilabrat Ring", rring="Regal Ring",
 			back="Sacro Mantle", waist="Fotia Belt", legs="Jokushu Haidate", feet=gear.HBoots_Crit
 		}
 		
@@ -661,20 +661,14 @@ function init_gear_sets()
 	--------------------------------------
 	-- Hybrid Sets
 	--------------------------------------
+		
 		sets.engaged.Hybrid = 
 		{--	DT: 23%		PDT: 27%	MDT: 23%
-			head="Malignance Chapeau",
-			body="Malignance Tabard", hands="Malignance Gloves", 
-			legs="Malignance Tights", feet="Malignance Boots"
-		}
-		
-		sets.engaged.Hybrid2 = 
-		{-- DT: 31%		PDT: 31%	MDT: 31%
 			head="Malignance Chapeau",
 			body="Malignance Tabard", hands="Malignance Gloves", lring="Defending Ring",
 			legs="Malignance Tights", feet="Malignance Boots"
 		}
-	
+
 
 		----------------------------------------------------------
 		-- No Haste

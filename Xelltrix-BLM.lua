@@ -158,7 +158,7 @@ function init_gear_sets()
 			back="Twilight Cape", waist="Hachirin-no-Obi"
 		}
 		
-		sets.midcast.Curaga = sets.midcast.Cures
+		sets.midcast.Curagas = sets.midcast.Cures
 
 
 		sets.midcast.Cursna =
@@ -479,6 +479,7 @@ function init_gear_sets()
 		
 		sets.TreasureHunter =
 		{
+			ammo="Per. Lucky Egg",
 			hands="Volte Bracers",
 			waist="Chaac Belt", legs="Volte Hose"
 		}

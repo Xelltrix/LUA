@@ -10,7 +10,6 @@ function get_sets()
     include('Mote-Include.lua')
 end
 
-
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
 function job_setup()
     state.Buff['Climactic Flourish'] = buffactive['climactic flourish'] or false
@@ -48,19 +47,15 @@ function user_setup()
 	}
 
     -- Additional local binds
-    send_command('bind ^= gs c cycle mainstep')
-    send_command('bind ^- gs c cycle altstep')
+    send_command('bind ^home gs c cycle mainstep')
+	send_command('bind ^end gs c cycleback mainstep')
+    send_command('bind !home gs c cycle altstep')
+	send_command('bind !end gs c cycle altstep')
 	
 	if player.sub_job == 'RUN' then
 		send_command('bind != gs c cycle Runes')
 		send_command('bind !- gs c cycleback Runes')
-	else
-		send_command('bind != gs c cycleback mainstep')
-		send_command('bind !- gs c cycleback altstep')
 	end
-	
-    send_command('bind ^` input /ja "Chocobo Jig" <me>')
-    send_command('bind !` input /ja "Chocobo Jig II" <me>')
 	
 	send_command('bind numpad. gs c toggle EnmityDown')
 	
@@ -127,7 +122,8 @@ function init_gear_sets()
 
 		sets.precast.JA['No Foot Rise'] =
 		{
-			body="Horos Casaque +3"
+			body="Horos Casaque +3",
+			back="Toetapper Mantle"
 		}
 
 		sets.precast.JA['Trance'] =

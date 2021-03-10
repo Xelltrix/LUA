@@ -122,7 +122,7 @@ function init_gear_sets()
 
 		sets.precast.FC.Cures = sets.precast.FC
 
-		sets.precast.FC.Curaga = sets.precast.FC.Cures
+		sets.precast.FC.Curagas = sets.precast.FC.Cures
 		
 		sets.precast.FC.Dispelga = set_combine(sets.precast.FC,
 		{
@@ -199,7 +199,7 @@ function init_gear_sets()
 			back="Twilight Cape", waist="Hachirin-no-Obi"
 		}
 
-		sets.midcast.Curaga = sets.midcast.Cures
+		sets.midcast.Curagas = sets.midcast.Cures
 
 		sets.midcast.StatusRemoval = sets.midcast.FC
 
@@ -499,6 +499,7 @@ function init_gear_sets()
 		
 		sets.TreasureHunter =
 		{
+			head="Per. Lucky Egg",
 			hands="Volte Bracers",
 			waist="Chaac Belt", legs="Volte Hose"
 		}

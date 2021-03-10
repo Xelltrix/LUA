@@ -23,7 +23,7 @@ end
 function user_setup()
     state.OffenseMode:options('Normal', 'Low', 'Mid', 'High')
 	state.WeaponskillMode:options('Normal','Capped','Acc','Turtle')
-    state.HybridMode:options('Normal', 'DT')
+    state.HybridMode:options('Normal', 'DT', 'EVA')
 	
 	state.PhysicalDefenseMode:options('PDT','Khonsu')
 	state.MagicalDefenseMode:options('MEVA','MDT','Breath')
@@ -61,7 +61,7 @@ function user_setup()
 	send_command('bind ^delete gs c cycleback Runes')
 	
 	send_command('bind !insert gs c cycle AltRunes')
-	send_command('bind !delete c cycleback AltRunes')
+	send_command('bind !delete gs c cycleback AltRunes')
 	
 	send_command('bind ^home gs c cycle BarElement')
 	send_command('bind ^end gs c cycleback BarElement')
@@ -164,13 +164,14 @@ function init_gear_sets()
 		
 		sets.Knockback =
 		{
+			body="Futhark Coat +3",
 			back="Repulse Mantle", legs="Dashing Subligar"
 		}
 		
 		sets.TreasureHunter = 
 		{ 
+			ammo="Per. Lucky Egg",
 			head=gear.HHead_TH, 
-			hands="Volte Bracers",
 			waist="Chaac Belt"
 		}
 		
@@ -548,34 +549,35 @@ function init_gear_sets()
 		}
 
     ---Dimidation
-		sets.precast.WS['Dimidiation'] = set_combine(sets.precast.WS,
+		sets.precast.WS['Dimidiation'] = 
 		{
-			lear={name="Mache Earring +1", bag="wardrobe2"},  rear={name="Mache Earring +1", bag="wardrobe3"},
-			body="Herculean Vest", rring="Epaminondas's Ring",
-			back=gear.RUNCape_DIM, legs="Lustr. Subligar +1", feet="Lustra. Leggings +1"
-		})
+			ammo="Knobkierrie",
+			head="Lustratio Cap +1", neck="Fotia Gorget", lear={name="Mache Earring +1", bag="wardrobe2"}, rear="Moonshade Earring",
+			body="Futhark Coat +3", hands="Meg. Gloves +2", lring="Regal Ring", rring="Epaminondas's Ring",
+			back=gear.RUNCape_DIM, waist="Kentarch Belt +1", legs="Lustr. Subligar +1", feet="Futhark Boots +3"
+		}
 		
-		sets.precast.WS['Dimidiation'].Low = set_combine(sets.precast.WS['Dimidiation'],
+		sets.precast.WS['Dimidiation'].Capped =
 		{
+			ammo="Knobkierrie",
+			head="Lustratio Cap +1", neck="Fotia Gorget", lear={name="Mache Earring +1", bag="wardrobe2"}, rear="Moonshade Earring",
+			body="Herculean Vest", hands="Meg. Gloves +2", lring="Epaminondas's Ring", rring="Niqmaddu Ring",
+			back=gear.RUNCape_DIM, waist="Fotia Belt", legs="Lustr. Subligar +1", feet="Lustra. Leggings +1"
+		}
+		
+		sets.precast.WS['Dimidiation'].Acc = set_combine(sets.precast.WS['Dimidiation'],
+		{
+			ammo="C. Palug Stone",
+			head="Fu. Bandeau +3", rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Futhark Coat +3", 
 			feet="Futhark Boots +3"
-		})
-
-		sets.precast.WS['Dimidiation'].Mid = set_combine(sets.precast.WS['Dimidiation'].Low,
-		{
-			ammo="Voluspa Tathlum"
-		})
-		
-		sets.precast.WS['Dimidiation'].High= set_combine(sets.precast.WS['Dimidiation'].Mid,
-		{
-			head="Fu. Bandeau +3"
 		})
 		
 		sets.precast.WS['Dimidiation'].Turtle = set_combine(sets.precast.WS['Dimidiation'],
 		{
 			head="Fu. Bandeau +3", neck="Futhark Torque +2",
 			body="Futhark Coat +3", lring="Defending Ring",
-			legs="Meg. Chausses +2", feet=gear.HBoots_WSD
+			legs="Meg. Chausses +2"
 		})
 		
 	
@@ -587,22 +589,12 @@ function init_gear_sets()
 			waist="Sailfi Belt +1", legs="Meg. Chausses +2", feet="Lustra. Leggings +1"
 		})
 		
-		sets.precast.WS['Ground Strike'].Low = set_combine(sets.precast.WS['Ground Strike'],
-		{
-			body="Futhark Coat +3", 
-			feet="Futhark Boots +3"
-		})
-		
-		sets.precast.WS['Ground Strike'].Mid = set_combine(sets.precast.WS['Ground Strike'].Low,
-		{
-			rear={name="Mache Earring +1", bag="wardrobe3"},
-			waist="Fotia Belt"
-		})
-		
-		sets.precast.WS['Ground Strike'].High = set_combine(sets.precast.WS['Ground Strike'].Mid,
+		sets.precast.WS['Ground Strike'].Acc = set_combine(sets.precast.WS['Ground Strike'],
 		{
 			ammo="Voluspa Tathlum",
-			lear={name="Mache Earring +1", bag="wardrobe2"}
+			head="Fu. Bandeau +3", rear={name="Mache Earring +1", bag="wardrobe3"},
+			body="Futhark Coat +3", 
+			feet="Futhark Boots +3"
 		})
 		
 		sets.precast.WS['Ground Strike'].Turtle = set_combine(sets.precast.WS['Ground Strike'],
@@ -615,41 +607,30 @@ function init_gear_sets()
 	---Spinning Slash
 		sets.precast.WS['Spinning Slash'] = sets.precast.WS['Ground Strike']
 		
-		sets.precast.WS['Spinning Slash'].Low = sets.precast.WS['Spinning Slash']
-		
-		sets.precast.WS['Spinning Slash'].Mid = sets.precast.WS['Ground Strike'].Mid
-		
-		sets.precast.WS['Spinning Slash'].High = sets.precast.WS['Ground Strike'].High
-		
 		sets.precast.WS['Spinning Slash'].Turtle = sets.precast.WS['Ground Strike'].Turtle
 		
 	---Resolution
-		sets.precast.WS['Resolution'] = set_combine(sets.precast.WS,
+		sets.precast.WS['Resolution'] = 
 		{
 			ammo="Seeth. Bomblet +1",
-			lear="Sherida Earring",
-			body="Lustr. Harness +1", hands="Adhemar Wrist. +1", lring="Regal Ring", rring="Niqmaddu Ring",
-			waist="Sailfi Belt +1", legs="Meg. Chausses +2", feet="Lustra. Leggings +1"
-		})
+			head="Fu. Bandeau +3", neck="Fotia Gorget", lear="Sherida Earring", rear="Moonshade Earring",
+			body="Futhark Coat +3", hands="Adhemar Wrist. +1", lring="Regal Ring", rring="Niqmaddu Ring",
+			back=gear.RUNCape_RES, waist="Sailfi Belt +1", legs="Meg. Chausses +2", feet="Futhark Boots +3"
+		}
 		
-		sets.precast.WS['Resolution'].Low = set_combine(sets.precast.WS['Resolution'],
+		sets.precast.WS['Resolution'].Capped = 
 		{
-			head="Fu. Bandeau +3", 
-			body="Adhemar Jacket +1",
-			feet="Futhark Boots +3"
-		})
+			ammo="Seeth. Bomblet +1",
+			head="Lustratio Cap +1", neck="Fotia Gorget", lear="Sherida Earring", rear="Moonshade Earring",
+			body="Lustr. Harness +1", hands="Adhemar Wrist. +1", lring="Epona's Ring", rring="Niqmaddu Ring",
+			back=gear.RUNCape_RES, waist="Fotia Belt", legs="Meg. Chausses +2", feet="Lustra. Leggings +1"
+		}
 		
-		sets.precast.WS['Resolution'].Mid = set_combine(sets.precast.WS['Resolution'].Low,
+		sets.precast.WS['Resolution'].Acc = set_combine(sets.precast.WS['Resolution'],
 		{
-			lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
-			hands="Meg. Gloves +2"
-		})
-		
-		sets.precast.WS['Resolution'].High = set_combine(sets.precast.WS['Resolution'].Mid,
-		{
-			head="Carmine Mask +1",
-			body="Futhark Coat +3",
-			waist="Fotia Belt", legs="Carmine Cuisses +1", feet="Turms Leggings +1"
+			head="Fu. Bandeau +3", lear={name="Mache Earring +1", bag="wardrobe2"}, rear={name="Mache Earring +1", bag="wardrobe3"},
+			body="Futhark Coat +3", hands="Gazu Bracelet +1",
+			waist="Fotia Belt", feet="Futhark Boots +3"
 		})
 		
 		sets.precast.WS['Resolution'].Turtle = set_combine(sets.precast.WS['Resolution'],
@@ -747,7 +728,7 @@ function init_gear_sets()
 
 		sets.engaged.High = set_combine(sets.engaged.Mid,
 		{
-			ammo="Voluspa Tathlum",
+			ammo="C. Palug Stone",
 			head="Carmine Mask +1",
 			hands="Meg. Gloves +2", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
 			legs="Carmine Cuisses +1", feet="Turms Leggings +1"
@@ -767,6 +748,14 @@ function init_gear_sets()
 			waist="Sailfi Belt +1", legs="Meg. Chausses +2"
 		}
 		
+		sets.engaged.Hybrid2 =
+		{-- 		DT: 27%		PDT: 74%	MDT: 27%
+			ammo="Yamarang",
+			head="Fu. Bandeau +3", neck="Futhark Torque +2",
+			body="Ashera Harness", hands="Turms Mittens +1", lring="Defending Ring", rring="Moonlight Ring",
+			waist="Sailfi Belt +1", legs="Turms Subligar +1", feet="Turms Leggings +1"
+		}
+		
 	---Hybrid Combat
 		sets.engaged.DT 			= set_combine(sets.engaged, 		sets.engaged.Hybrid)
 		sets.engaged.DT.AM3			= set_combine(sets.engaged.AM3,		sets.engaged.Hybrid,
@@ -781,6 +770,22 @@ function init_gear_sets()
 		})
 		sets.engaged.Mid.DT			= set_combine(sets.engaged.Mid, 	sets.engaged.Hybrid)
 		sets.engaged.High.DT		= set_combine(sets.engaged.High, 	sets.engaged.Hybrid)
+		
+		
+		
+		sets.engaged.EVA 			= set_combine(sets.engaged, 		sets.engaged.Hybrid2)
+		sets.engaged.EVA.AM3			= set_combine(sets.engaged.AM3,		sets.engaged.Hybrid2,
+		{
+			rear="Telos Earring"
+		})
+		sets.engaged.Low.EVA 		= set_combine(sets.engaged.Low, 	sets.engaged.Hybrid2,
+		{
+			ammo="Seeth. Bomblet +1",
+			head="Fu. Bandeau +3", rear="Telos Earring",
+			waist="Kentarch Belt +1"
+		})
+		sets.engaged.Mid.EVA		= set_combine(sets.engaged.Mid, 	sets.engaged.Hybrid2)
+		sets.engaged.High.EVA		= set_combine(sets.engaged.High, 	sets.engaged.Hybrid2)
 
 end
 

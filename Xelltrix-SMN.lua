@@ -132,6 +132,8 @@ function init_gear_sets()
 			rear="Mendi. Earring",
 			feet="Vanya Clogs"
 		})
+		
+		sets.precast.FC.Curagas = sets.precast.FC.Cures
 
 		--Fast Cast: 49%
 		sets.precast.FC.Impact = set_combine(sets.precast.FC,
@@ -565,6 +567,7 @@ function init_gear_sets()
 		
 		sets.TreasureHunter =
 		{
+			ammo="Per. Lucky Egg",
 			hands="Volte Bracers",
 			waist="Chaac Belt", legs="Volte Hose"
 		}
@@ -572,7 +575,7 @@ function init_gear_sets()
 		sets.HPDown =
 		{
 			head=gear.ACrown_Perp, neck="Warder's Charm +1", lear="Evans Earring", rear="Loquac. Earring",
-			body=gear.ADalmatica_Idle, hands="Apogee Mitts +1", lring="Defending Ring", rring="Kuchekula Ring",
+			body=gear.ADalmatica_Idle, hands="Apogee Mitts +1", lring="Mephitas's Ring +1", rring="Metamor. Ring +1",
 			back=gear.SMNCape_Mag, waist="Shinjutsu-no-Obi +1", legs=gear.ASlacks_MAB, feet="Apogee Pumps +1"
 		}
 	
@@ -1087,32 +1090,6 @@ function job_self_command(cmdParams, eventArgs)
 		 send_command('@input /ma "'..state.BarStatus.current..'" <me>')
 	end
 end
-
-
-
--- function job_self_command(cmdParams, eventArgs)
-	-- if cmdParams[1] == '70BP' then
-		-- if pet.name == 'Titan' then
-			-- send_command('@input /pet "Mountain Buster" <t>')	
-		-- elseif pet.name == 'Leviathan' then
-			-- send_command('@input /pet "Spinning Dive" <t>')	
-		-- elseif pet.name == 'Garuda' then
-			-- send_command('@input /pet "Predator Claws" <t>')	
-		-- elseif pet.name == 'Ifrit' then
-			-- send_command('@input /pet "Flaming Crush" <t>')	
-		-- elseif pet.name == 'Shiva' then
-			-- send_command('@input /pet "Rush" <t>')	
-		-- elseif pet.name == 'Ramuh' then
-			-- send_command('@input /pet "Chaotic Strike" <t>')
-		-- elseif pet.name == 'Cait Sith' then
-			-- send_command('@input /pet Regal Gash" <t>')
-		-- elseif pet.name == 'Fenrir' then
-			-- send_command('@input /pet "Eclipse Bite" <t>')
-		-- elseif pet.name == 'Siren' then
-			-- send_command('@input /pet "Hysteric Assault" <t>')
-		-- end
-	-- end
--- end
 
 
 -------------------------------------------------------------------------------------------------------------------

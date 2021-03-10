@@ -93,21 +93,18 @@ function init_gear_sets()
 			ammo="Aurgelmir Orb +1",
 			head="Flam. Zucchetto +2", neck="Anu Torque", lear="Telos Earring", rear="Sherida Earring",
 			body="Ptero. Mail +3", hands="Vishap F. G. +1", lring="Niqmaddu Ring", rring={name="Chirich Ring +1", bag="wardrobe3"},
-			back=gear.DRGCape_STP, waist="Sailfi Belt +1", legs="Ptero. Brais +3", feet="Ostro Greaves"
+			back=gear.DRGCape_STP, waist="Kentarch Belt +1", legs="Ptero. Brais +3", feet="Ostro Greaves"
 		}
 		
 		sets.precast.JA['Spirit Jump'] = set_combine(sets.precast.JA['Jump'],
 		{
-			legs="Peltast's Cuissots +1", feet="Pelt. Schyn. +1"
+			feet="Pelt. Schyn. +1"
 		})
 		
 		sets.precast.JA['High Jump'] = sets.precast.JA['Jump']
 		
-		sets.precast.JA['Soul Jump'] = set_combine(sets.precast.JA['Jump'],
-		{
-			legs="Peltast's Cuissots +1"
-		})
-
+		sets.precast.JA['Soul Jump'] = sets.precast.JA['Jump']
+		
 		
 	-------------------
 	-- Precast Magic --
@@ -138,6 +135,50 @@ function init_gear_sets()
 		
 		
 		sets.midcast.FC = sets.precast.FC
+		
+		sets.midcast.Utsusemi = sets.precast.FC
+	
+		sets.midcast.Phalanx = 
+		{
+			head=gear.THead_Phalanx, neck="Incanter's Torque", lear="Andoaa Earring", rear="Mimir Earring",
+			body=gear.TBody_Phalanx, hands=gear.THands_Phalanx, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			back="Moonlight Cape", waist="Olympus Sash", legs=gear.TLegs_Phalanx, feet=gear.TFeet_Phalanx
+		}
+		
+		sets.midcast.Stoneskin =
+		{
+			head=gear.THead_Phalanx, neck="Stone Gorget", lear="Earthcry Earring", rear="Mimir Earring",
+			body=gear.TBody_Phalanx, hands=gear.THands_Phalanx, lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			back="Moonlight Cape", waist="Olympus Sash", legs=gear.TLegs_Phalanx, feet=gear.TFeet_Phalanx
+		}
+		
+		sets.midcast.Cures =
+		{
+			ammo="Staunch Tathlum +1",
+			head="Hjarrandi Helm", neck="Incanter's Torque", lear="Mendi. Earring", rear="Meili Earring",
+			ody="Sacro Breastplate", hands="Sulev. Gauntlets +2", lring="Lebeche Ring", rring="Menelaus's Ring",
+			back="Moonlight Cape", waist="Bishop's Sash", legs="Carmine Cuisses +1", feet="Sulev. Leggings +2"
+		}
+		
+		sets.midcast['Elemental Magic'] =
+		{
+			ammo="Pemphredo Tathlum", 
+			head="Valorous Mask", neck="Sanctity Necklace", lear="Friomisi Earring", rear="Crematio Earring",
+			body="Sacro Breastplate", hands="Carmine Fin. Ga. +1", lring="Shiva Ring +1", rring="Metamor. Ring +1",
+			back=gear.DRGCape_WSD, waist="Orpheus's Sash", legs="Vishap Brais +3", feet="Sulev. Leggings +2"
+		}
+		
+		sets.midcast.Macc =
+		{
+			ammo="Pemphredo Tathlum",
+			head="Carmine Mask +1", neck="Sanctity Necklace", lear="Digni. Earring", rear="Gwati Earring",
+			body="Ptero. Mail +3", hands="Flam. Manopolas +2", lring="Weather. Ring +1", rring={name="Stikini Ring +1", bag="wardrobe3"},
+			back=gear.DRGCape_WSD, waist="Fotia Belt", legs="Ptero. Brais +3", feet="Flam. Gambieras +2"
+		}
+		
+		sets.midcast['Enfeebling Magic'] = sets.midcast.Macc
+		
+		sets.midcast['Dark Magic'] = sets.midcast.Macc
 
 
 	--------------------------------------
@@ -236,6 +277,7 @@ function init_gear_sets()
 		
 		sets.TreasureHunter =
 		{
+			ammo="Per. Lucky Egg",
 			hands="Volte Bracers",
 			waist="Chaac Belt", legs="Volte Hose"
 		}
@@ -395,7 +437,7 @@ function init_gear_sets()
 		sets.engaged.Max =
 		{
 			ammo="Aurgelmir Orb +1",
-			head="Hjarrandi Helm", neck="Dgn. Collar +2", lear="Brutal Earring", rear="Sherida Earring",
+			head="Flam. Zucchetto +2", neck="Dgn. Collar +2", lear="Brutal Earring", rear="Sherida Earring",
 			body="Hjarrandi Breast.", hands="Sulev. Gauntlets +2", lring="Niqmaddu Ring", rring="Moonlight Ring",
 			back=gear.DRGCape_DA, waist="Sailfi Belt +1", legs="Sulev. Cuisses +2", feet="Flam. Gambieras +2"
 		}

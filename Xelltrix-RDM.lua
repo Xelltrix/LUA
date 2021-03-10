@@ -438,13 +438,13 @@ function init_gear_sets()
 			back=gear.RDMCape_Nuke, waist="Sacro Cord", legs="Ea Slops +1", feet="Amalric Nails +1"
 		}
 		
-		sets.magic_burst.Resistant = set_combine(sets.magic_burst,
+		sets.magic_burst.Resistant =
 		{--MBD/II: 38/28
-			sub="Enki Strap", ammo="Pemphredo Tathlum",
-			head="Atrophy Chapeau +3", neck="Dls. Torque +2",
-			hands="Ea Cuffs +1", lring="Metamor. Ring +1", rring="Freke Ring",
-			waist="Acuity Belt +1", feet="Ea Pigaches +1"
-		})
+			main="Marin Staff +1", sub="Enki Strap", ammo="Pemphredo Tathlum",
+			head="Atrophy Chapeau +3", neck="Dls. Torque +2", lear="Regal Earring", rear="Malignance Earring",
+			body="Ea Houppe. +1", hands="Ea Cuffs +1", lring="Metamor. Ring +1", rring="Freke Ring",
+			back=gear.RDMCape_Nuke, waist="Acuity Belt +1", legs="Ea Slops +1", feet="Ea Pigaches +1"
+		}
 		
 	
 	
@@ -607,8 +607,9 @@ function init_gear_sets()
 		
 		sets.TreasureHunter =
 		{
+			ammo="Per. Lucky Egg",
 			head="Chironic Hat",
-			waist="Chaac Belt", legs="Volte Hose"
+			waist="Chaac Belt",
 		}
 
 
