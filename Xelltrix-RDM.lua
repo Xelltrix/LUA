@@ -159,15 +159,15 @@ function init_gear_sets()
 		}
 
 		sets.midcast.ConserveMP = 
-		{--		Fast Cast: 39%(+38%)	Conserve MP: 40
+		{--		Fast Cast: 42%(+38%)	Conserve MP: 68
 			ammo="Pemphredo Tathlum",
 			head="Vanya Hood", neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
-			body="Amalric Doublet +1", hands="Leyline Gloves", lring="Kishar Ring", rring="Weather. Ring +1",
+			body="Amalric Doublet +1", hands="Leyline Gloves", lring="Mephitas's Ring +1", rring="Weather. Ring +1",
 			back="Fi Follet Cape +1", waist="Shinjutsu-no-Obi +1", legs="Lengo Pants", feet="Carmine Greaves +1"
 		}
 		
 		sets.midcast.Duration =
-		{--		Fast Cast: 33%(+38%)	Duration: (1.75 * 1.64)
+		{--		Fast Cast: 47%(+38%)	Duration: (1.85 * 1.68)
 			main="Colada", sub="Ammurapi Shield", ammo="Sapience Orb",
 			head=gear.ENH_Head, neck="Dls. Torque +2", lear="Loquac. Earring", rear="Malignance Earring",
 			body="Viti. Tabard +3", hands="Atrophy Gloves +3", lring="Kishar Ring", rring="Weather. Ring +1",
@@ -213,15 +213,15 @@ function init_gear_sets()
 	--------------------------------------	
 	
 		sets.midcast.Regen =
-		{
+		{--		Fast Cast: 37%(+38%)	Duration: (1.70 * 1.78)		Regen Duration: +12
 			main="Colada", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head=gear.ENH_Head, neck="Dls. Torque +2", lear="Gwati Earring", rear="Mendi. Earring",
-			body=gear.ENH_Body, hands="Atrophy Gloves +3", lring="Kishar Ring", rring="Freke Ring",
+			body=gear.ENH_Body, hands="Atrophy Gloves +3", lring="Kishar Ring", rring="Weather. Ring +1",
 			back="Ghostfyre Cape", waist="Embla Sash", legs=gear.ENH_Legs, feet="Leth. Houseaux +1"
 		}
 
 		sets.midcast.Refresh =
-		{
+		{--		Fast Cast: 38%(+38%)	Duration: (1.70 * 1.48)		Refresh: +6
 			main="Colada", sub="Ammurapi Shield", ammo="Sapience Orb",
 			head="Amalric Coif +1", neck="Dls. Torque +2", lear="Loquac. Earring", rear="Malignance Earring",
 			body="Atrophy Tabard +3", hands="Atrophy Gloves +3", lring="Kishar Ring", rring="Weather. Ring +1",
@@ -231,7 +231,7 @@ function init_gear_sets()
 		--Enspell Formula: Floor[(400/3098)(Skill+3.65)]
 		--Temper II Formula: floor[( Enhancing Magic Skill - 300 ) ÷ 10]
 		sets.midcast.Enhancement =
-		{--		Enhancing Skill: 624	Duration: 1.55		Enspell Damage: 81		Temper II: 32%
+		{--		Enhancing Skill: 632	Duration: (1.55 * 1.19)		Enspell Damage: 82		Temper II: 32%
 			main="Pukulatmuj +1", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head="Befouled Crown", neck="Incanter's Torque", lear="Andoaa Earring", rear="Mimir Earring",
 			body="Viti. Tabard +3", hands="Viti. Gloves +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
@@ -241,7 +241,7 @@ function init_gear_sets()
 
 		--Phalanx Formula: 28 + Floor( (Enhancing Magic Skill - 300.5) / 28.5)
 		sets.midcast.Enhancement.Self = 
-		{--		Phalanx:+15		Enhancing Skill: 500	Duration: (1.1 * 1.4)	Phalanx Total: 50
+		{--		Phalanx:+15		Enhancing Skill: 508	Duration: (1.2 * 1.44)	Phalanx Total: 50
 			head=gear.THead_Phalanx, neck="Dls. Torque +2",
 			body=gear.TBody_Phalanx, hands=gear.THands_Phalanx,
 			back="Ghostfyre Cape", waist="Embla Sash", legs=gear.TLegs_Phalanx, feet=gear.TFeet_Phalanx
@@ -259,21 +259,22 @@ function init_gear_sets()
 
 		sets.midcast.BarElement = set_combine(sets.midcast.GainStat,
 		{
+			hands="Atrophy Gloves +3",
 			legs="Shedir Seraweels"
 		})
 
 		sets.midcast.BarStatus = sets.midcast.Duration
 
 		sets.midcast.Stoneskin = set_combine(sets.midcast.Duration,
-		{
+		{--		Fast Cast: 43% (+38%)	--Stoneskin +125
 			ammo="Staunch Tathlum +1",
 			neck="Stone Gorget", lear="Earthcry Earring",
-			hands="Stone Mufflers", rring="Freke Ring",
-			waist="Siegel Sash", legs="Shedir Seraweels"
+			hands="Stone Mufflers",
+			back="Fi Follet Cape +1", waist="Siegel Sash", legs="Shedir Seraweels"
 		})
 
 		sets.midcast.Aquaveil = set_combine(sets.midcast.Duration,
-		{
+		{--		Aquaveil +6
 			ammo="Staunch Tathlum +1",
 			head="Amalric Coif +1", 
 			hands="Regal Cuffs", rring="Freke Ring",
@@ -454,7 +455,14 @@ function init_gear_sets()
 	
 		sets.midcast.Teleport = sets.midcast.ConserveMP
 		
-		sets.midcast.Utsusemi = sets.midcast.FC
+		sets.midcast.Utsusemi = 
+		{--		Fast Cast: 42%(+38%)		PDT: 48%
+			ammo="Staunch Tathlum +1",
+			head="Atrophy Chapeau +3", neck="Loricate Torque +1", lear="Loquac. Earring", rear="Malignance Earring",
+			body="Atrophy Tabard +3", hands="Malignance Gloves", lring="Defending Ring", rring="Gelatinous Ring +1",
+			back=gear.RDMCape_ENF, waist="Shinjutsu-no-Obi +1", legs="Malignance Tights",feet="Malignance Boots"
+		}
+
 		
 		sets.midcast['Blue Magic'] = sets.midcast.Macc
 
@@ -509,7 +517,7 @@ function init_gear_sets()
 	------------------------------------------------------------------------------------------------
 
 		sets.idle =
-		{-- 	PDT: -32% | MDT:-11%	|	Refresh: 14 | Regen: 3
+		{-- 	PDT: -32% | MDT:-11%	|	Refresh: 14 | Regen: 4
 			main="Daybreak", sub="Genmei Shield", ammo="Homiliary",
 			head="Viti. Chapeau +3", neck="Sanctity Necklace", lear="Dawn Earring", rear="Infused Earring",
 			body="Shamash Robe", hands="Chironic Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
@@ -533,7 +541,7 @@ function init_gear_sets()
 		}
 		
 		sets.idle.Refresh = set_combine(sets.idle,
-		{-- 	PDT: -22% | MDT:-11%	|	Refresh: 15 | Regen: 3
+		{-- 	PDT: -22% | MDT:-11%	|	Refresh: 16 | Regen: 4
 			body="Jhakri Robe +2",
 			legs="Volte Brais"
 		})
