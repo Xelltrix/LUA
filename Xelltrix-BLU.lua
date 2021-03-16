@@ -47,7 +47,6 @@ function user_setup()
 
 	state.MainWeaponSet = M{['description']='Main Weapon Set',
 		'Tizona',
-		'Sequence',
 		'Maxentius'
 	}
 	
@@ -188,20 +187,22 @@ function init_gear_sets()
 	-- Base Midcast sets
 	--------------------------------------
 
-		sets.midcast.FC = set_combine(sets.precast.FC,
-		{--		Fast Cast: 84%(+15%)
-			lring="Kishar Ring",
-			legs="Aya. Cosciales +2"
-		})
+		sets.midcast.FC =
+		{--		Fast Cast: 67%(+15%)	PDT: 33		MDT: 29
+			ammo="Staunch Tathlum +1",
+			head="Carmine Mask +1", neck="Loricate Torque +1", lear="Odnowa Earring +1", rear="Genmei Earring",
+			body="Pinga Tunic +1", hands="Leyline Gloves", lring="Defending Ring", rring="Weather. Ring +1",
+			back="Fi Follet Cape +1", waist="Flume Belt +1", legs="Aya. Cosciales +2", feet="Carmine Greaves +1"
+		}
 
 		
-		sets.midcast.FC.SIRD = set_combine(sets.midcast.FC,
+		sets.midcast.FC.SIRD =
 		{--		Fast Cast: 43%(+15%)	SIRD: 92%(+10%)
 			ammo="Staunch Tathlum +1",
-			head=gear.THead_Phalanx,
-			hands="Rawhide Gloves",
-			waist="Emphatikos Rope", legs="Assim. Shalwar +3", feet="Amalric Nails +1"
-		})
+			head=gear.THead_Phalanx, neck="Orunmila's Torque", lear="Etiolation Earring", rear="Loquac. Earring",
+			body="Pinga Tunic +1", hands="Rawhide Gloves",lring="Kishar Ring", rring="Weather. Ring +1",
+			back="Fi Follet Cape +1", waist="Emphatikos Rope", legs="Assim. Shalwar +3", feet="Amalric Nails +1"
+		}
 		
 		sets.midcast.Duration =
 		{--		Fast Cast: 46%(+15%)	Duration: x1.5
@@ -211,13 +212,13 @@ function init_gear_sets()
 			back="Fi Follet Cape +1", waist="Witful Belt", legs=gear.ENH_Legs, feet="Telchine Pigaches"
 		}
 
-		sets.midcast.ConserveMP = set_combine(sets.midcast.FC,
+		sets.midcast.ConserveMP =
 		{--		Fast Cast: 44%(+15%)	CMP: 36
 			ammo="Pemphredo Tathlum",
 			head=gear.ENH_Head, neck="Incanter's Torque", lear="Gwati Earring", rear="Mendi. Earring",
-			body="Amalric Doublet +1",
+			body="Amalric Doublet +1", hands="Leyline Gloves", lring="Kishar Ring", rring="Weather. Ring +1",
 			back="Fi Follet Cape +1", waist="Witful Belt", legs="Lengo Pants", feet="Carmine Greaves +1"
-		})
+		}
 
 
     --------------------------------------
@@ -599,8 +600,6 @@ function init_gear_sets()
 	------------------------------------------------------------------------------------------------
 	
 		sets.Tizona 	= { 	main="Tizona" 		}
-			
-		sets.Sequence 	= { 	main="Sequence"		}
 	
 		sets.Almace 	= { 	sub="Almace" 		}
 		

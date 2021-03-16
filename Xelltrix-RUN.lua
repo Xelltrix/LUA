@@ -308,7 +308,7 @@ function init_gear_sets()
 		}
 
 		sets.midcast.Temper = 
-		{ 
+		{ --		Enhancing Magic Skill 551 	Double Attack: 25%
 			ammo="Staunch Tathlum +1",
 			head="Carmine Mask +1", neck="Incanter's Torque", lear="Mimir Earring", rear="Andoaa Earring",
 			body="Manasa Chasuble", hands="Runeist's Mitons +3", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},

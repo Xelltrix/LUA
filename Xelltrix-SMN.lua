@@ -77,7 +77,7 @@ function init_gear_sets()
 			main="Espiritus", sub="Vox Grip", ammo="Esper Stone +1",
 			head="Baayami Hat +1", neck="Incanter's Torque", lear="Lodurr Earring", rear="C. Palug Earring",
 			body="Baayami Robe +1", hands="Baayami Cuffs +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Evoker's Ring",
-			back="Conveyance Cape", waist="Kobo Obi", legs="Baayami Slops +1",feet="Beck. Pigaches +1"
+			back="Conveyance Cape", waist="Lucidity Sash", legs="Baayami Slops +1",feet="Beck. Pigaches +1"
 		}
 
 		sets.precast.JA['Mana Cede'] = { hands="Beck. Bracers +1" }
@@ -100,7 +100,7 @@ function init_gear_sets()
 			ammo="Sancus Sachet +1",
 			head="Beckoner's Horn +1", neck="Incanter's Torque", lear="Lodurr Earring", rear="C. Palug Earring",
 			body="Baayami Robe +1", hands="Baayami Cuffs +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Evoker's Ring",
-			back="Conveyance Cape", waist="Kobo Obi", legs="Baayami Slops +1", feet="Baaya. Sabots +1"
+			back="Conveyance Cape", waist="Lucidity Sash", legs="Baayami Slops +1", feet="Baaya. Sabots +1"
 		}
 
 		sets.precast.BloodPactRage = sets.precast.BloodPactWard
@@ -109,12 +109,12 @@ function init_gear_sets()
     -------------------
 	-- Precast Magic --
 	------------------- 
-		--Fast Cast: 82%
+		
 		sets.precast.FC =
-		{
+		{--	Fast Cast: 83%
 			main=gear.Grioavolr_Pet, sub="Khonsu", ammo="Sapience Orb",
 			head="Amalric Coif +1", neck="Orunmila's Torque", lear="Loquac. Earring", rear="Malignance Earring",
-			body="Inyanga Jubbah +2", hands=gear.FCHands, lring="Kishar Ring", rring="Weather. Ring +1",
+			body="Baayami Robe +1", hands=gear.FCHands, lring="Kishar Ring", rring="Weather. Ring +1",
 			back="Fi Follet Cape +1", waist="Witful Belt", legs="Volte Brais", feet=gear.FCCrackows
 		}
 		
@@ -166,7 +166,7 @@ function init_gear_sets()
 			main="Espiritus", sub="Vox Grip", ammo="Esper Stone +1",
 			head="Baayami Hat +1", neck="Incanter's Torque", lear="Lodurr Earring", rear="C. Palug Earring",
 			body="Baayami Robe +1", hands="Baayami Cuffs +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring="Evoker's Ring",
-			back="Conveyance Cape", waist="Kobo Obi", legs="Baayami Slops +1", feet="Baaya. Sabots +1"
+			back="Conveyance Cape", waist="Lucidity Sash", legs="Baayami Slops +1", feet="Baaya. Sabots +1"
 		}
 		
 		sets.midcast.Pet.bp_Boons = set_combine(sets.midcast.Pet.bp_Buffs,
@@ -181,7 +181,7 @@ function init_gear_sets()
 			main="Nirvana", sub="Vox Grip", ammo="Sancus Sachet +1",
 			head=gear.ACrown_Perp, neck="Unmoving Collar +1", lear="Tuisto Earring", rear="Odnowa Earring +1",
 			body=gear.ADalmatica_Idle, hands="Apogee Mitts +1", lring="Eihwaz Ring", rring="Gelatinous Ring +1",
-			back=gear.SMNCape_Mag, waist="Regal Belt", legs=gear.ASlacks_MAB, feet="Apogee Pumps +1"
+			back=gear.SMNCape_Mag, waist="Regal Belt", legs=gear.ASlacks_MAB, feet="Bunzi's Sabots"
 		}
 
 		sets.midcast.Pet.bp_Debuffs =
@@ -189,7 +189,7 @@ function init_gear_sets()
 			main="Nirvana", sub="Vox Grip", ammo="Sancus Sachet +1",
 			head="Convoker's Horn +3", neck="Smn. Collar +2", lear="Enmerkar Earring", rear="Lugalbanda Earring",
 			body="Con. Doublet +3", hands="Apogee Mitts +1", lring="C. Palug Ring", rring="Evoker's Ring",
-			back=gear.SMNCape_Mag, waist="Regal Belt", legs="Tali'ah Sera. +2", feet="Convo. Pigaches +3"
+			back=gear.SMNCape_Mag, waist="Regal Belt", legs="Bunzi's Pants", feet="Convo. Pigaches +3"
 		}
 
 		sets.midcast.Pet.bp_Physical =
@@ -231,7 +231,13 @@ function init_gear_sets()
 	-- Base Midcast sets
 	--------------------------------------
 
-		sets.midcast.FC = sets.precast.FC
+		sets.midcast.FC = 
+		{--	Fast Cast: 85%
+			main=gear.Grioavolr_Pet, sub="Khonsu", ammo="Sapience Orb",
+			head="Amalric Coif +1", neck="Orunmila's Torque", lear="Loquac. Earring", rear="Malignance Earring",
+			body="Baayami Robe +1", hands=gear.FCHands, lring="Kishar Ring", rring="Weather. Ring +1",
+			back="Fi Follet Cape +1", waist="Shinjutsu-no-Obi +1", legs="Volte Brais", feet=gear.FCCrackows
+		}
 		
 		sets.midcast['Summoning Magic'] = set_combine(sets.precast.FC,
 		{
@@ -259,10 +265,10 @@ function init_gear_sets()
 		}
 		
 		sets.midcast.CuresLocked =
-		{--Cure Potency: 49%
+		{--Cure Potency: 51%
 			ammo="Esper Stone +1",
 			head="Vanya Hood", neck="Incanter's Torque", lear="Meili Earring", rear="Mendi. Earring",
-			body="Vanya Robe", hands=gear.ENH_Gloves, lring="Lebeche Ring", rring="Menelaus's Ring",
+			body="Bunzi's Robe", hands="Vanya Cuffs", lring="Kuchekula Ring", rring="Menelaus's Ring",
 			back="Oretan. Cape +1", waist="Bishop's Sash", legs="Vanya Slops", feet="Medium's Sabots"
 		}
 		
@@ -362,13 +368,14 @@ function init_gear_sets()
 			main="Maxentius", sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 			head=empty, neck="Erra Pendant", lear="Digni. Earring", rear="Malignance Earring",
 			body="Cohort Cloak +1", hands="Inyan. Dastanas +2", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
-			back="Aurist's Cape +1", waist="Acuity Belt +1", legs="Inyanga Shalwar +2", feet="Medium's Sabots"
+			back="Aurist's Cape +1", waist="Acuity Belt +1", legs="Bunzi's Pants", feet="Bunzi's Sabots"
 		}
 		
 		sets.midcast['Enfeebling Magic'] = set_combine(sets.midcast.Macc,
 		{
 			main="Contemplator +1", sub="Enki Strap",
-			lring="Kishar Ring"
+			lring="Kishar Ring",
+			feet="Medium's Sabots"
 		})
 		
 		
@@ -432,7 +439,7 @@ function init_gear_sets()
 		{
 			main="Contemplator +1", sub="Khonsu", ammo="Staunch Tathlum +1",
 			head="Convoker's Horn +3", neck="Sanctity Necklace", lear="Dawn Earring", rear="C. Palug Earring",
-			body="Shomonjijoe +1", hands="Asteria Mitts +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			body=gear.ADalmatica_Idle, hands="Asteria Mitts +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Moonlight Cape", waist="Regal Belt", legs="Volte Brais", feet="Baaya. Sabots +1"
 		}
 
@@ -440,7 +447,7 @@ function init_gear_sets()
 		{
 			main="Contemplator +1", sub="Khonsu", ammo="Staunch Tathlum +1",
 			head="Convoker's Horn +3", neck="Smn. Collar +2", lear="Odnowa Earring +1", rear="C. Palug Earring",
-			body="Udug Jacket", hands="Inyan. Dastanas +2", lring="Defending Ring", rring="C. Palug Ring",
+			body="Udug Jacket", hands="Bunzi's Gloves", lring="Defending Ring", rring="C. Palug Ring",
 			back="Moonlight Cape", waist="Regal Belt", legs="Volte Brais", feet="Baaya. Sabots +1"
 		}
 		
@@ -448,8 +455,8 @@ function init_gear_sets()
 		{
 			main="Contemplator +1", sub="Khonsu", ammo="Staunch Tathlum +1",
 			head="Inyanga Tiara +2", neck="Warder's Charm +1",lear="Sanare Earring", rear="Lugalbanda Earring",
-			body="Inyanga Jubbah +2", hands="Inyan. Dastanas +2", lring="Purity Ring", rring="Shadow Ring",
-			back="Moonlight Cape", waist="Carrier's Sash", legs="Inyanga Shalwar +2", feet="Baaya. Sabots +1"
+			body="Bunzi's Robe", hands="Inyan. Dastanas +2", lring="Purity Ring", rring="Shadow Ring",
+			back="Moonlight Cape", waist="Carrier's Sash", legs="Bunzi's Pants", feet="Baaya. Sabots +1"
 		}
 		
 		sets.idle.Favor = set_combine(sets.idle)
@@ -483,15 +490,15 @@ function init_gear_sets()
 			main="Nirvana", sub="Khonsu", ammo="Sancus Sachet +1",
 			head=gear.ACrown_Perp, neck="Smn. Collar +2", lear="Odnowa Earring +1", rear="C. Palug Earring",
 			body="Udug Jacket", hands="Baayami Cuffs +1", lring="Defending Ring", rring="C. Palug Ring",
-			back="Moonlight Cape", waist="Regal Belt", legs="Artsieq Hose", feet="Baaya. Sabots +1"
+			back="Moonlight Cape", waist="Regal Belt", legs="Bunzi's Pants", feet="Baaya. Sabots +1"
 		}
 		
 		sets.idle.MEVA.Avatar =
 		{
 			main="Nirvana", sub="Khonsu", ammo="Sancus Sachet +1",
 			head=gear.ACrown_Perp, neck="Warder's Charm +1",lear="Sanare Earring", rear="Lugalbanda Earring",
-			body="Udug Jacket", hands="Inyan. Dastanas +2", lring="Defending Ring", rring="C. Palug Ring",
-			back="Moonlight Cape", waist="Carrier's Sash", legs="Inyanga Shalwar +2", feet="Baaya. Sabots +1"
+			body="Udug Jacket", hands="Bunzi's Gloves", lring="Defending Ring", rring="C. Palug Ring",
+			back="Moonlight Cape", waist="Carrier's Sash", legs="Bunzi's Pants", feet="Baaya. Sabots +1"
 		}
 	
 		sets.idle.Favor.Avatar =
@@ -522,15 +529,15 @@ function init_gear_sets()
 		sets.defense.Master =
 		{
 			main="Contemplator +1", sub="Khonsu", ammo="Staunch Tathlum +1",
-			head="Inyanga Tiara +2", neck="Smn. Collar +2", lear="Odnowa Earring +1", rear="C. Palug Earring",
-			body="Udug Jacket", hands="Inyan. Dastanas +2", lring="Defending Ring", rring="C. Palug Ring",
-			back="Moonlight Cape", waist="Regal Belt", legs="Artsieq Hose", feet="Hippo. Socks +1"
+			head="Bunzi's Hat", neck="Smn. Collar +2", lear="Odnowa Earring +1", rear="C. Palug Earring",
+			body="Udug Jacket", hands="Bunzi's Gloves", lring="Defending Ring", rring="C. Palug Ring",
+			back="Moonlight Cape", waist="Regal Belt", legs="Bunzi's Pants", feet="Hippo. Socks +1"
 		}
 		
 		sets.defense.Pet =
 		{
 			main="Nirvana", sub="Khonsu", ammo="Sancus Sachet +1",
-			head=gear.ACrown_Perp, neck="Smn. Collar +2", lear="Enmerkar Earring", rear="Handler's Earring +1",
+			head=gear.ACrown_Perp, neck="Smn. Collar +2", lear="Enmerkar Earring", rear="C. Palug Earring",
 			body=gear.ADalmatica_Idle, hands="Baayami Cuffs +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back=gear.SMNCape_Phys, waist="Isa Belt", legs="Enticer's Pants", feet="Baaya. Sabots +1"
 		}
@@ -539,8 +546,8 @@ function init_gear_sets()
 		{
 			main="Contemplator +1", sub="Khonsu", ammo="Staunch Tathlum +1",
 			head="Inyanga Tiara +2", neck="Smn. Collar +2", lear="Odnowa Earring +1", rear="C. Palug Earring",
-			body="Udug Jacket", hands="Inyan. Dastanas +2", lring="Defending Ring", rring="C. Palug Ring",
-			back="Moonlight Cape", waist="Regal Belt", legs="Artsieq Hose", feet="Hippo. Socks +1"
+			body="Udug Jacket", hands="Bunzi's Gloves", lring="Defending Ring", rring="C. Palug Ring",
+			back="Moonlight Cape", waist="Regal Belt", legs="Bunzi's Pants", feet="Hippo. Socks +1"
 		}
 		
 	
@@ -596,15 +603,9 @@ function init_gear_sets()
 			ammo="Hasty Pinion +1",
 			head="Blistering Sallet +1", neck="Fotia Gorget", lear="Ishvara Earring", rear="Moonshade Earring",
 			body="Glyphic Doublet +3", hands="Glyphic Bracers +3", lring="Shukuyu Ring", rring="Epaminondas's Ring",
-			back="Aurist's Cape +1", waist="Fotia Belt", legs="Tali'ah Sera. +2", feet="Convo. Pigaches +3"
+			back="Aurist's Cape +1", waist="Fotia Belt", legs="Bunzi's Pants", feet="Bunzi's Sabots"
 		}
-		
-		sets.precast.WS['Retribution'] = set_combine(sets.precast.WS,
-		{
-			body="Inyanga Jubbah +2", hands="Inyan. Dastanas +2",
-			feet="Baaya. Sabots +1"
-		})
-		
+
 		sets.precast.WS['Garland of Bliss'] =
 		{
 			ammo="Pemphredo Tathlum",
@@ -634,15 +635,15 @@ function init_gear_sets()
 		sets.engaged =
 		{
 			main="Nirvana", sub="Khonsu", ammo="Sancus Sachet +1",
-			head="Convoker's Horn +3", neck="Shulmanu Collar", lear="Telos Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
+			head="Convoker's Horn +3", neck="Combatant's Torque", lear="Telos Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Glyphic Doublet +3", hands="Glyphic Bracers +3", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
-			back="Aurist's Cape +1", waist="Klouskap Sash +1", legs="Tali'ah Sera. +2", feet="Battlecast Gaiters"
+			back="Aurist's Cape +1", waist="Klouskap Sash +1", legs="Bunzi's Pants", feet="Bunzi's Sabots"
 		}
 		
 		sets.engaged.Avatar =
 		{
 			main="Nirvana", sub="Khonsu", ammo="Sancus Sachet +1",
-			head="Convoker's Horn +3", neck="Shulmanu Collar", lear="Evans Earring", rear="C. Palug Earring",
+			head="Convoker's Horn +3", neck="Combatant's Torque", lear="Evans Earring", rear="C. Palug Earring",
 			body=gear.ADalmatica_Idle, hands="Asteria Mitts +1", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back=gear.SMNCape_Phys, waist="Lucidity Sash", legs="Assid. Pants +1", feet="Baaya. Sabots +1"
 		}

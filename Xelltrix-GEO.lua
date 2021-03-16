@@ -585,7 +585,7 @@ function init_gear_sets()
 			sub="Genmei Shield", ammo="Hasty Pinion +1",
 			head="Blistering Sallet +1", neck="Combatant's Torque", lear={name="Mache Earring +1", bag="wardrobe2"},  rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Bagua Tunic +3", hands="Gazu Bracelet +1", lring={name="Chirich Ring +1", bag="wardrobe2"}, rring={name="Chirich Ring +1", bag="wardrobe3"},
-			back="Aurist's Cape +1", waist="Windbuffet Belt +1", legs="Jhakri Slops +2", feet="Battlecast Gaiters"
+			back="Aurist's Cape +1", waist="Windbuffet Belt +1", legs="Jhakri Slops +2", feet="Jhakri Pigaches +2"
 		}
 		
 		sets.engaged.Luopan =

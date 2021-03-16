@@ -505,7 +505,7 @@ function init_gear_sets()
 			ammo="C. Palug Stone",
 			head="Lustratio Cap +1", neck="Etoile Gorget +2", lear="Odr Earring", rear={name="Mache Earring +1", bag="wardrobe3"},
 			body="Herculean Vest", hands="Meg. Gloves +2", lring="Regal Ring", rring="Epaminondas's Ring",
-			back="Sacro Mantle", waist="Grunfeld Rope", legs="Horos Tights +3", feet="Lustra. Leggings +1"
+			back="Sacro Mantle", waist="Kentarch Belt +1", legs="Horos Tights +3", feet="Lustra. Leggings +1"
 		}
 
 		sets.precast.WS['Rudra\'s Storm'].Low = sets.precast.WS["Rudra's Storm"]

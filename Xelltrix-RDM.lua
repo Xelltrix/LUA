@@ -35,7 +35,6 @@ function user_setup()
 		'Naegling',
 		'Tauret',
 		'Maxentius',
-		'Sequence',
 		'Almace',
 		'Norgish'
 	}
@@ -116,11 +115,11 @@ function init_gear_sets()
 	--Fast Cast: 38%
 	
 		sets.precast.FC =
-		{--		61%(+38%)
+		{--		67%(+38%)
 			ammo="Staunch Tathlum +1",
 			head="Atrophy Chapeau +3", neck="Orunmila's Torque", lear="Loquac. Earring", rear="Malignance Earring",
 			body="Viti. Tabard +3", hands="Chironic Gloves", lring="Lebeche Ring", rring="Weather. Ring +1", 
-			back="Fi Follet Cape +1", waist="Witful Belt", legs="Carmine Cuisses +1",feet="Amalric Nails +1"
+			back="Fi Follet Cape +1", waist="Witful Belt", legs="Bunzi's Pants",feet="Amalric Nails +1"
 		}
 
 		sets.precast.FC.Impact = 
@@ -151,11 +150,11 @@ function init_gear_sets()
 	--------------------------------------
 
 		sets.midcast.FC =
-		{--		Fast Cast: 62%(+38%)
-			ammo="Hasty Pinion +1",
-			head="Atrophy Chapeau +3", neck="Orunmila's Torque", lear="Loquac. Earring", rear="Malignance Earring",
-			body="Viti. Tabard +3", hands="Chironic Gloves", lring="Kishar Ring", rring="Freke Ring",
-			back="Fi Follet Cape +1", waist="Witful Belt", legs="Carmine Cuisses +1",feet="Amalric Nails +1"
+		{--		Fast Cast: 42%(+38%)	SIRD: 92%(+10%)		DT: 22%
+			ammo="Staunch Tathlum +1",
+			head=gear.THead_Phalanx, neck="Orunmila's Torque", lear="Loquac. Earring", rear="Malignance Earring",
+			body="Viti. Tabard +3", hands="Chironic Gloves", lring="Defending Ring", rring="Freke Ring",
+			back="Fi Follet Cape +1", waist="Sailfi Belt +1", legs="Bunzi's Pants",feet="Amalric Nails +1"
 		}
 
 		sets.midcast.ConserveMP = 
@@ -167,8 +166,8 @@ function init_gear_sets()
 		}
 		
 		sets.midcast.Duration =
-		{--		Fast Cast: 47%(+38%)	Duration: (1.85 * 1.68)
-			main="Colada", sub="Ammurapi Shield", ammo="Sapience Orb",
+		{--		Fast Cast: 45%(+38%)	Duration: (1.85 * 1.68)
+			main="Colada", sub="Ammurapi Shield", ammo="Hasty Pinion +1",
 			head=gear.ENH_Head, neck="Dls. Torque +2", lear="Loquac. Earring", rear="Malignance Earring",
 			body="Viti. Tabard +3", hands="Atrophy Gloves +3", lring="Kishar Ring", rring="Weather. Ring +1",
 			back="Ghostfyre Cape", waist="Embla Sash", legs=gear.ENH_Legs, feet="Leth. Houseaux +1"
@@ -265,13 +264,13 @@ function init_gear_sets()
 
 		sets.midcast.BarStatus = sets.midcast.Duration
 
-		sets.midcast.Stoneskin = set_combine(sets.midcast.Duration,
+		sets.midcast.Stoneskin =
 		{--		Fast Cast: 43% (+38%)	--Stoneskin +125
-			ammo="Staunch Tathlum +1",
-			neck="Stone Gorget", lear="Earthcry Earring",
-			hands="Stone Mufflers",
-			back="Fi Follet Cape +1", waist="Siegel Sash", legs="Shedir Seraweels"
-		})
+			main="Crocea Mors", sub="Ammurapi Shield", ammo="Staunch Tathlum +1",
+			head="Malignance Chapeau", neck="Stone Gorget", lear="Earthcry Earring", rear="Malignance Earring",
+			body="Malignance Tabard", hands="Stone Mufflers", lring="Defending Ring", rring="Gelatinous Ring +1",
+			back="Fi Follet Cape +1", waist="Siegel Sash", legs="Shedir Seraweels", feet="Bunzi's Sabots"
+		}
 
 		sets.midcast.Aquaveil = set_combine(sets.midcast.Duration,
 		{--		Aquaveil +6
@@ -365,9 +364,9 @@ function init_gear_sets()
 		
 		sets.midcast.ElementalDebuffs = sets.midcast.Macc
 
-		sets.midcast['Dia'] = sets.midcast.FastRecast
+		sets.midcast['Dia'] = sets.midcast.FC
 		
-		sets.midcast['Dia II'] = sets.midcast.FastRecast
+		sets.midcast['Dia II'] = sets.midcast.FC
 		
 		sets.midcast['Dia III'] = set_combine(sets.midcast.ConserveMP,
 		{
@@ -456,11 +455,11 @@ function init_gear_sets()
 		sets.midcast.Teleport = sets.midcast.ConserveMP
 		
 		sets.midcast.Utsusemi = 
-		{--		Fast Cast: 42%(+38%)		PDT: 48%
-			ammo="Staunch Tathlum +1",
-			head="Atrophy Chapeau +3", neck="Loricate Torque +1", lear="Loquac. Earring", rear="Malignance Earring",
-			body="Atrophy Tabard +3", hands="Malignance Gloves", lring="Defending Ring", rring="Gelatinous Ring +1",
-			back=gear.RDMCape_ENF, waist="Shinjutsu-no-Obi +1", legs="Malignance Tights",feet="Malignance Boots"
+		{--		Fast Cast: 42%(+38%)		DT: 52%		PDT: 52%	MDT: 55%
+			ammo="Hasty Pinion +1",
+			head="Bunzi's Hat", neck="Loricate Torque +1", lear="Etiolation Earring", rear="Malignance Earring",
+			body="Bunzi's Robe", hands="Bunzi's Gloves", lring="Defending Ring", rring="Gelatinous Ring +1",
+			back=gear.RDMCape_ENF, waist="Shinjutsu-no-Obi +1", legs="Bunzi's Pants", feet="Bunzi's Sabots"
 		}
 
 		
@@ -488,8 +487,6 @@ function init_gear_sets()
 		sets.Tauret 		= { main="Tauret" }
 			
 		sets.Almace 		= { main="Almace" }
-		
-		sets.Sequence		= { main="Sequence" }
 		
 		sets.Maxentius 		= { main="Maxentius" }
 		
@@ -533,10 +530,10 @@ function init_gear_sets()
 		}
 		
 		sets.idle.MEVA =
-		{-- 	PDT: -31% | MDT:-11%	|	Refresh: 10 | Regen: 0
+		{-- 	PDT: -34% | MDT:-14%	|	Refresh: 10 | Regen: 0
 			main="Daybreak", sub="Genmei Shield", ammo="Homiliary",
 			head="Volte Beret", neck="Warder's Charm +1", lear="Eabani Earring", rear="Sanare Earring",
-			body="Shamash Robe", hands="Malignance Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
+			body="Shamash Robe", hands="Bunzi's Gloves", lring={name="Stikini Ring +1", bag="wardrobe2"}, rring={name="Stikini Ring +1", bag="wardrobe3"},
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Volte Brais", feet="Volte Gaiters"
 		}
 		
@@ -568,25 +565,25 @@ function init_gear_sets()
 		sets.defense.PDT =
 		{--	DT: -42%	PDT: -55%	MDT:-43%
 			ammo="Staunch Tathlum +1",
-			head="Malignance Chapeau", neck="Loricate Torque +1", lear="Odnowa Earring +1", rear="Genmei Earring",
-			body="Malignance Tabard", hands="Malignance Gloves", lring="Defending Ring", rring="Gelatinous Ring +1",
+			head="Bunzi's Hat", neck="Loricate Torque +1", lear="Odnowa Earring +1", rear="Genmei Earring",
+			body="Bunzi's Robe", hands="Bunzi's Gloves", lring="Defending Ring", rring="Shadow Ring",
 			back="Shadow Mantle", waist="Flume Belt +1", legs="Carmine Cuisses +1", feet="Hippo. Socks +1"
 		}
 		
 		sets.defense.MEVA = 
-		{--	DT: -28%	PDT: -33%	MDT:-28%
+		{--	DT: -41%	PDT: -41%	MDT:-45%
 			ammo="Staunch Tathlum +1",
-			head="Malignance Chapeau", neck="Warder's Charm +1", lear="Eabani Earring", rear="Sanare Earring",
-			body="Malignance Tabard", hands="Raetic Bangles +1", lring="Purity Ring", rring="Shadow Ring",
-			back="Moonlight Cape", waist="Carrier's Sash", legs="Malignance Tights", feet="Malignance Boots"
+			head="Bunzi's Hat", neck="Warder's Charm +1", lear="Eabani Earring", rear="Sanare Earring",
+			body="Bunzi's Robe", hands="Raetic Bangles +1", lring="Purity Ring", rring="Shadow Ring",
+			back="Moonlight Cape", waist="Carrier's Sash", legs="Bunzi's Pants", feet="Bunzi's Sabots"
 		}
 		
 		sets.defense.MDT = 
-		{--	DT: -28%	PDT: -33%	MDT:-28%
+		{--	DT: -54%	PDT: -54%	MDT:-60%
 			ammo="Staunch Tathlum +1",
-			head="Malignance Chapeau", neck="Loricate Torque +1", lear="Odnowa Earring +1", rear="Sanare Earring",
-			body="Malignance Tabard", hands="Raetic Bangles +1", lring="Defending Ring", rring="Shadow Ring",
-			back="Moonlight Cape", waist="Carrier's Sash", legs="Malignance Tights", feet="Malignance Boots"
+			head="Bunzi's Hat", neck="Loricate Torque +1", lear="Odnowa Earring +1", rear="Sanare Earring",
+			body="Bunzi's Robe", hands="Raetic Bangles +1", lring="Defending Ring", rring="Shadow Ring",
+			back="Moonlight Cape", waist="Carrier's Sash", legs="Bunzi's Pants", feet="Bunzi's Sabots"
 		}
 	
 	--------------------------------------
@@ -800,7 +797,7 @@ function init_gear_sets()
 	---Aeolian Edge
 		sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS['Sanguine Blade'],
 		{
-			head="Jhakri Coronal +2",
+			head="C. Palug Crown",
 			lring="Freke Ring",
 			back=gear.RDMCape_Nuke
 		})

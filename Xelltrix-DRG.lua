@@ -156,7 +156,7 @@ function init_gear_sets()
 		{
 			ammo="Staunch Tathlum +1",
 			head="Hjarrandi Helm", neck="Incanter's Torque", lear="Mendi. Earring", rear="Meili Earring",
-			ody="Sacro Breastplate", hands="Sulev. Gauntlets +2", lring="Lebeche Ring", rring="Menelaus's Ring",
+			body="Sacro Breastplate", hands="Sulev. Gauntlets +2", lring="Lebeche Ring", rring="Menelaus's Ring",
 			back="Moonlight Cape", waist="Bishop's Sash", legs="Carmine Cuisses +1", feet="Sulev. Leggings +2"
 		}
 		
