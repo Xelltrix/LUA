@@ -201,8 +201,7 @@ function init_gear_sets()
 		sets.precast.Waltz =
 		{
 			ammo="Yamarang",
-			body="Passion Jacket",
-			legs="Dashing Subligar", feet="Rawhide Boots"
+			legs="Dashing Subligar"
 		}
 
 	
@@ -220,8 +219,7 @@ function init_gear_sets()
 		
 		sets.precast.Utsusemi = set_combine(sets.precast.FC, 
 		{
-			neck="Magoraga Beads",
-			body="Passion Jacket"
+			neck="Magoraga Beads"
 		})
 
 	
@@ -733,7 +731,7 @@ function init_gear_sets()
 		}
 
 		sets.engaged.Low.Max = set_combine(sets.engaged.Max,
-		{
+		{-- TA+35% DA+6%
 			ammo="Yamarang",
 			body="Pillager's Vest +3",
 			waist="Reiki Yotai", legs="Pill. Culottes +3"

@@ -191,8 +191,7 @@ function init_gear_sets()
 
 		sets.precast.FC.Utsusemi = set_combine(sets.precast.FC,
 		{
-			neck="Magoraga Beads",
-			body="Passion Jacket"
+			neck="Magoraga Beads"
 		})
 	
 	

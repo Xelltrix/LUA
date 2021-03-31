@@ -20,8 +20,6 @@ function job_setup()
 	state.Buff['Alacrity'] 		= buffactive['Alacrity'] 		or false
 	state.Buff['Immanence']		= buffactive['Immanence']		or false
 	state.Buff['Focalizatoin'] 	= buffactive['Focalization'] 	or false
-
-	state.Buff['Klimaform'] 	= buffactive['Klimaform'] 		or false
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -34,7 +32,7 @@ function user_setup()
 	state.CastingMode:options('Normal','Resistant','Occult')
 	state.PhysicalDefenseMode:options('PDT')
 	state.MagicalDefenseMode:options('MEVA','MDT')
-	state.IdleMode:options('Normal','DT','MEVA','Vagary')
+	state.IdleMode:options('Normal','DT','MEVA')
 
 	apply_job_change()
 end
@@ -442,11 +440,6 @@ function init_gear_sets()
 			back="Moonlight Cape", waist="Carrier's Sash", legs="Volte Brais", feet="Volte Gaiters"
 		}
 		
-		sets.idle.Vagary = set_combine(sets.magic_burst, 
-		{
-			waist="Hachirin-no-Obi", feet="Arbatel Loafers +1"
-		})
-
 		sets.idle.Town = set_combine(sets.idle,
 		{
 			feet="Crier's Gaiters"
@@ -501,11 +494,6 @@ function init_gear_sets()
 			waist="Gishdubar Sash"
 		}
 		
-		sets.buff['Klimaform'] =
-		{
-			feet="Arbatel Loafers +1"
-		}
-
 		sets.buff['Sublimation: Activated'] =
 		{
 			head="Acad. Mortar. +3", rear="Savant's Earring",
@@ -852,16 +840,6 @@ function apply_grimoire_bonuses(spell, action, spellMap)
 	
 	if state.Buff.Focalization and spell.type == 'BlackMagic' then
 		equip(sets.buff['Focalization'])
-	end
-	
-	if (spell.skill == 'Elemental Magic' or spell.english == 'Kaustra' or spell.english == 'Impact') and spellMap ~= 'ElementalEnfeeble' and spellMap ~= 'Helix' and spellMap ~= 'Darkness' then
-		if state.Buff.Klimaform and spell.element == world.weather_element and state.CastingMode.value ~= 'Resistant' then
-			if state.Buff.Immanence then
-				equip(sets.buff['Immanence'])
-			else
-				equip(sets.buff['Klimaform'])
-			end
-		end
 	end
 end
 
